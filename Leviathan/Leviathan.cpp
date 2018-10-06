@@ -7,13 +7,25 @@ template<class T>
 class MyNodeVisitor : public NodeVisitor<T>
 {
 public:
+	MyNodeVisitor(TRAVERSE_MODE mode) :NodeVisitor(mode) {}
+
 	virtual void apply(Node<T>& node);
 };
 
 template<class T>
 void MyNodeVisitor<T>::apply(Node<T>& node)
 {
+	if (GetTraverseMode() == NodeVisitor<T>::TRAVERSE_MODE::NONE)
+	{
+		return;
+	}
+
 	std::cout << *(node.GetNodeData()) << std::endl;
+	if (GetTraverseMode() == NodeVisitor<T>::TRAVERSE_MODE::ONLY)
+	{
+		return;
+	}
+
 	for (auto& pChild : node.GetChildren())
 	{
 		pChild->accept(*this);
@@ -29,7 +41,7 @@ int main()
 	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(3))));
 	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(4))));
 
-	rootNode->accept(MyNodeVisitor<int>());
+	rootNode->accept(MyNodeVisitor<int>(MyNodeVisitor<int>::TRAVERSE_MODE::ALL));
 
 	return 0;
 }

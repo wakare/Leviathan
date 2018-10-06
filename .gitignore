@@ -8,3 +8,10 @@
 *.ilk
 *.ipch
 *.lib
+*.db-shm
+*.db-wal
+*.db
+*.opendb
+*.db
+*.opendb
+*.db
