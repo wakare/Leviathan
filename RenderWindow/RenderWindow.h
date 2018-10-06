@@ -4,7 +4,7 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <memory>
-#include "RenderWrapper.h"
+#include "Scene.h"
 
 class RenderWindow
 {
@@ -20,5 +20,5 @@ private:
 	GLchar* m_pWindowTitle;
 	
 	GLFWwindow* m_pWindow;
-	std::shared_ptr<RenderWrapper> m_pRenderWrapper;
+	std::shared_ptr<Scene> m_pScene;
 };
