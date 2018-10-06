@@ -31,6 +31,13 @@ bool RenderWindow::CreateWindow()
 		return false;
 	}
 
+	m_pRenderWrapper = std::make_shared<RenderWrapper>(m_pWindow);
+	if (!m_pRenderWrapper)
+	{
+		throw "RenderWrapper init failed.";
+		return false;
+	}
+
 	return true;
 }
 
@@ -48,7 +55,7 @@ void RenderWindow::Run()
 	while (!glfwWindowShouldClose(m_pWindow))
 	{
 		glfwPollEvents();
-		glfwSwapBuffers(m_pWindow);
+		m_pRenderWrapper->Render();
 	}
 
 	glfwTerminate();
