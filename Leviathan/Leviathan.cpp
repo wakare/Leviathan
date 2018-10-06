@@ -2,7 +2,9 @@
 #include <iostream>
 #include "Node.h"
 #include "NodeVisitor.h"
+#include "RenderWindow.h"
 
+#if (false)
 template<class T>
 class MyNodeVisitor : public NodeVisitor<T>
 {
@@ -32,6 +34,7 @@ void MyNodeVisitor<T>::apply(Node<T>& node)
 	}
 }
 
+
 int main()
 {
 	std::shared_ptr<Node<int>> rootNode = std::make_shared<Node<int>>(std::shared_ptr<int>(new int(0)));
@@ -44,5 +47,12 @@ int main()
 	rootNode->accept(MyNodeVisitor<int>(MyNodeVisitor<int>::TRAVERSE_MODE::ALL));
 
 	return 0;
+}
+#endif
+
+int main()
+{
+	RenderWindow renderWindow;
+	renderWindow.Run();
 }
 
