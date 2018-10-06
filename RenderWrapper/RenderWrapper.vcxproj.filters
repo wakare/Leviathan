@@ -21,9 +21,39 @@
     <ClCompile Include="RenderWrapper.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GLObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GLPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TriDObjectGLPass.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="GLShaderProgram.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="TriDGLObject.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderWrapper.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TriDObjectGLPass.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLShaderProgram.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TriDGLObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
