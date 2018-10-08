@@ -31,7 +31,7 @@ bool RenderWindow::CreateWindow()
 		return false;
 	}
 
-	m_pScene = std::make_shared<Scene>(m_pWindow);
+	m_pScene = std::make_shared<Scene>(*this);
 	if (!m_pScene)
 	{
 		throw "RenderWrapper init failed.";

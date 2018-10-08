@@ -158,6 +158,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="GLCamera.cpp" />
     <ClCompile Include="GLObject.cpp" />
     <ClCompile Include="GLPass.cpp" />
     <ClCompile Include="GLShaderProgram.cpp" />
@@ -166,6 +167,7 @@
     <ClCompile Include="TriDObjectGLPass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="GLCamera.h" />
     <ClInclude Include="GLObject.h" />
     <ClInclude Include="GLPass.h" />
     <ClInclude Include="GLShaderProgram.h" />

@@ -1,8 +1,8 @@
 #pragma once
+#include "GLPass.h"
 #include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-#include "GLPass.h"
 
 class RenderWrapper
 {
