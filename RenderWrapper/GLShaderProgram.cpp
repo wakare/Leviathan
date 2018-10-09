@@ -1,7 +1,28 @@
 #include "GLShaderProgram.h"
 #include <iostream>
 
-bool GLShaderProgram::CompileAll()
+bool GLShaderProgram::Init()
+{
+	if (m_bInited)
+	{
+		return true;
+	}
+
+	if (!_compileAll())
+	{
+		return false;
+	}
+
+	if (!_linkAll())
+	{
+		return false;
+	}
+
+	m_bInited = true;
+	return true;
+}
+
+bool GLShaderProgram::_compileAll()
 {
 	m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
 	if (!_compileShader(m_pczVertexShader, m_VertexShader))
@@ -27,7 +48,7 @@ bool GLShaderProgram::CompileAll()
 	return true;
 }
 
-bool GLShaderProgram::LinkAll()
+bool GLShaderProgram::_linkAll()
 {
 	m_shaderProgram = glCreateProgram();
 	GLint success = GL_FALSE;

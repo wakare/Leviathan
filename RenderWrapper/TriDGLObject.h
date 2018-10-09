@@ -11,14 +11,15 @@ public:
 		VERTEX_ATTRIBUTE_NXYZ = 0x4,	// Normal XYZ
 	};
 
-	TriDGLObject(GLuint primType, float* data, GLuint vertexSize, GLint vertexMask) :
-		GLObject(primType), m_vertexAttributeMask(vertexMask)
+	TriDGLObject(GLuint primType, GLfloat* data, GLuint vertexSize, GLint vertexMask) :
+		GLObject(primType, vertexSize), m_vertexAttributeMask(vertexMask), m_data(data)
 	{
-		Init(primType, data, vertexSize);
+		Init();
 	};
 
-	virtual bool Init(GLuint primType, float* data, GLuint vertexSize);
+	virtual bool Init();
 
 private:
 	GLint m_vertexAttributeMask;
+	GLfloat* m_data;
 };

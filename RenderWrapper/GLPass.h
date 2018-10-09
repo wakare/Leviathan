@@ -15,7 +15,8 @@ public:
 
 	};
 
-	std::vector<std::shared_ptr<GLObject>> GetGLObjects() { return m_GLObjects; };
+	void AddGLObject(std::shared_ptr<GLObject> object) { m_GLObjects.push_back(object); }
+	const std::vector<std::shared_ptr<GLObject>> GetGLObjects() { return m_GLObjects; };
 
 	virtual bool Init() = 0;
 	virtual void Render() = 0;

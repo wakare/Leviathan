@@ -3,10 +3,15 @@
 
 bool TriDObjectGLPass::Init()
 {
-	EXIT_GET_FALSE(m_pGLShaderProgram);
-	EXIT_GET_FALSE(m_pGLShaderProgram->CompileAll());
-	EXIT_GET_FALSE(m_pGLShaderProgram->LinkAll());
+	if (m_bInited)
+	{
+		return true;
+	}
 
+	EXIT_GET_FALSE(m_pGLShaderProgram);
+	EXIT_GET_FALSE(m_pGLShaderProgram->Init());
+
+	m_bInited = true;
 	return true;
 }
 
@@ -19,6 +24,7 @@ void TriDObjectGLPass::Render()
 	}
 
 	// Set renderType
+	m_nPolygonMode = GL_LINE;
 	glPolygonMode(GL_FRONT_AND_BACK, m_nPolygonMode);
 	auto program = m_pGLShaderProgram->GetShaderProgram();
 
@@ -33,7 +39,7 @@ void TriDObjectGLPass::Render()
 		}
 		glBindVertexArray(VAO);
 		glDrawArrays(Object->GetPrimType(), 0, Object->GetVertexCount());
-
+		//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 	}
 

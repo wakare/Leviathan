@@ -5,7 +5,7 @@
 class GLObject
 {
 public:
-	GLObject(GLuint primType) :m_VAO(0), m_VBO(0), m_primitiveType(primType) {}
+	GLObject(GLuint primType, GLuint vertexCount) :m_VAO(0), m_VBO(0), m_primitiveType(primType),m_vertexCount(vertexCount) {}
 	GLuint GetVAO() { return m_VAO; }
 	GLuint GetVBO() { return m_VBO; }
 	GLuint GetPrimType() { return m_primitiveType; }
