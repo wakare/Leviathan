@@ -63,65 +63,68 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 	}
 
 	// Original Cube data
-	float cube[72] =
+	float cube[252] =
 	{
-		// front
-		-0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f,  0.5f, -0.5f,
-		-0.5f,  0.5f, -0.5f,
+		// front			// color
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 
+		 0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 		// up
-		-0.5f, 0.5f, -0.5f,
-		0.5f, 0.5f, -0.5f, 
-		0.5f, 0.5f, 0.5f,
-		-0.5f, 0.5f, 0.5f,
+		-0.5f, 0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, 0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 		// down
-		-0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f,  0.5f, 
-		-0.5f, -0.5f,  0.5f,
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		 0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 		// left
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, 0.5f, -0.5f,
-		-0.5f, 0.5f, 0.5f,
-		-0.5f, -0.5f, 0.5f,
+		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 		// right
-		0.5f, -0.5f, -0.5f,
-		0.5f,  0.5f, -0.5f,
-		0.5f,  0.5f,  0.5f,
-		0.5f, -0.5f,  0.5f,
+		0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		0.5f,  0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		0.5f,  0.5f,  0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		0.5f,  0.5f,  0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		0.5f, -0.5f,  0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		0.5f, -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 		// back
-		-0.5f, -0.5f, 0.5f,
-		 0.5f, -0.5f, 0.5f,
-		 0.5f,  0.5f, 0.5f,
-		-0.5f,  0.5f, 0.5f,
+		-0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		 0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		 0.5f,  0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
+		 0.5f,  0.5f, 0.5f, 1.0f, 0.0f, 0.0f, 1.0f,
+		-0.5f,  0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
+		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 	};
 
-	GLfloat vertices[] = {
+	GLfloat vertices[] = 
+	{
 		0.5f,  0.5f, -0.5f,  // Top Right
 		0.5f, -0.5f, 0.5f,  // Bottom Right
 		-0.5f, -0.5f, 0.0f,  // Bottom Left
 	};
 
-	std::shared_ptr<GLObject> Cube = std::make_shared<TriDGLObject>(GL_TRIANGLES, vertices, 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ);
+	std::shared_ptr<GLObject> Cube = std::make_shared<TriDGLObject>(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
 	m_pMeshPass->AddGLObject(Cube);
 
 	m_pRenderWarpper->AddGLPass(m_pMeshPass);
-	//m_pMeshPass->AddPreProcess([&]()
-	//{
-	//	/*gluLookAt(
-	//		m_pCamera->m_eye[0], m_pCamera->m_eye[1], m_pCamera->m_eye[2],
-	//		m_pCamera->m_look[0], m_pCamera->m_look[1], m_pCamera->m_look[2],
-	//		m_pCamera->m_up[0], m_pCamera->m_up[1], m_pCamera->m_up[2]
-	//	);
-
-	//	gluPerspective(m_pCamera->m_fovy, m_pCamera->m_aspect, m_pCamera->m_zNear, m_pCamera->m_zFar);*/
-	//});
 };
 
 void Scene::Update()

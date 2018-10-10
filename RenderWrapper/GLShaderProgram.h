@@ -12,6 +12,8 @@ public:
 	{};
 
 	bool Init();
+	
+	bool AddUniform(const char* uniformName);
 	GLuint GetShaderProgram() { return m_shaderProgram; };
 
 private:

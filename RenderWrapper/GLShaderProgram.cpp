@@ -22,6 +22,11 @@ bool GLShaderProgram::Init()
 	return true;
 }
 
+bool GLShaderProgram::AddUniform(const char* uniformName)
+{
+	return true;
+}
+
 bool GLShaderProgram::_compileAll()
 {
 	m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
