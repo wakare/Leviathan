@@ -114,13 +114,6 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 	};
 
-	GLfloat vertices[] = 
-	{
-		0.5f,  0.5f, -0.5f,  // Top Right
-		0.5f, -0.5f, 0.5f,  // Bottom Right
-		-0.5f, -0.5f, 0.0f,  // Bottom Left
-	};
-
 	std::shared_ptr<GLObject> Cube = std::make_shared<TriDGLObject>(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
 	m_pMeshPass->AddGLObject(Cube);
 

@@ -28,9 +28,13 @@ void TriDObjectGLPass::Render()
 	auto program = m_pGLShaderProgram->GetShaderProgram();
 
 	glUseProgram(program);
-
+	
 	for (auto& Object : m_GLObjects)
 	{
+		// Set VertexTypeMask uniform
+		GLint  location = glGetUniformLocation(program, "VertexTypeMask");
+		glUniform1ui(location, Object->GetVertexMask());
+
 		auto VAO = Object->GetVAO();
 		if (VAO == 0)
 		{

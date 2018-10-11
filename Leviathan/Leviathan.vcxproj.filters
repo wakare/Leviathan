@@ -22,4 +22,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ShaderSource\FragmentShader.glsl">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="ShaderSource\VertexShader.glsl">
+      <Filter>资源文件</Filter>
+    </None>
+  </ItemGroup>
 </Project>
