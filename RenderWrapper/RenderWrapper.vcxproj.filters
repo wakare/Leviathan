@@ -39,6 +39,9 @@
     <ClCompile Include="GLCamera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="GLUniform.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderWrapper.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GLCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLUniform.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

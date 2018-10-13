@@ -20,6 +20,7 @@ public:
 	GLuint GetVertexMask() { return m_vertexAttributeMask; }
 
 	virtual bool Init() = 0;
+	virtual bool Render(GLuint shaderProgram) = 0;
 
 protected:
 	GLuint m_VAO;

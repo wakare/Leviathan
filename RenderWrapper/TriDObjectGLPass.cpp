@@ -25,27 +25,19 @@ void TriDObjectGLPass::Render()
 
 	// Set renderType
 	glPolygonMode(GL_FRONT_AND_BACK, m_nPolygonMode);
-	auto program = m_pGLShaderProgram->GetShaderProgram();
-
-	glUseProgram(program);
 	
+	// Set GLProgram
+	auto program = m_pGLShaderProgram->GetShaderProgram();
+	glUseProgram(program);
+	m_pGLShaderProgram->SetGLUniformState();
+
+	// Render each GLObject
 	for (auto& Object : m_GLObjects)
 	{
-		// Set VertexTypeMask uniform
-		GLint  location = glGetUniformLocation(program, "VertexTypeMask");
-		glUniform1ui(location, Object->GetVertexMask());
-
-		auto VAO = Object->GetVAO();
-		if (VAO == 0)
-		{
-			return;
-		}
-		glBindVertexArray(VAO);
-		glDrawArrays(Object->GetPrimType(), 0, Object->GetVertexCount());
-		// glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-		glBindVertexArray(0);
+		Object->Render(program);
 	}
 
+	// ResetProgram
 	glUseProgram(0);
 
 	// Call PostCallBack

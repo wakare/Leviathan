@@ -13,6 +13,7 @@ public:
 	};
 
 	virtual bool Init();
+	virtual bool Render(GLuint shaderProgram);
 
 private:
 	

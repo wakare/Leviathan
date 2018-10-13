@@ -162,6 +162,7 @@
     <ClCompile Include="GLObject.cpp" />
     <ClCompile Include="GLPass.cpp" />
     <ClCompile Include="GLShaderProgram.cpp" />
+    <ClCompile Include="GLUniform.cpp" />
     <ClCompile Include="RenderWrapper.cpp" />
     <ClCompile Include="TriDGLObject.cpp" />
     <ClCompile Include="TriDObjectGLPass.cpp" />
@@ -171,6 +172,7 @@
     <ClInclude Include="GLObject.h" />
     <ClInclude Include="GLPass.h" />
     <ClInclude Include="GLShaderProgram.h" />
+    <ClInclude Include="GLUniform.h" />
     <ClInclude Include="RenderWrapper.h" />
     <ClInclude Include="TriDGLObject.h" />
     <ClInclude Include="TriDObjectGLPass.h" />

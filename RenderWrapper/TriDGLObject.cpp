@@ -74,3 +74,26 @@ bool TriDGLObject::Init()
 
 	return true;
 }
+
+bool TriDGLObject::Render(GLuint shaderProgram)
+{
+	// Set VertexTypeMask uniform
+	GLint location = glGetUniformLocation(shaderProgram, "VertexTypeMask");
+	if (location == -1)
+	{
+		throw "Get Uniform location failed.";
+		return false;
+	}
+	
+	glUniform1ui(location, GetVertexMask());
+
+	auto VAO = GetVAO();
+	if (VAO == 0)
+	{
+		return false;
+	}
+
+	glBindVertexArray(VAO);
+	glDrawArrays(GetPrimType(), 0, GetVertexCount());
+	glBindVertexArray(0);
+}

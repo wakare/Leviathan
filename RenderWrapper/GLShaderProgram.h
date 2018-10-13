@@ -1,5 +1,10 @@
 #pragma once
 #include "GL/glew.h"
+#include "GLUniform.h"
+#include <memory>
+#include <vector>
+
+class GLUniform;
 
 class GLShaderProgram
 {
@@ -12,8 +17,9 @@ public:
 	{};
 
 	bool Init();
+	bool SetGLUniformState();
 	
-	bool AddUniform(const char* uniformName);
+	bool AddUniform(std::shared_ptr<GLUniform> pUniform);
 	GLuint GetShaderProgram() { return m_shaderProgram; };
 
 private:
@@ -30,4 +36,6 @@ private:
 	GLuint m_GeomShader;
 	GLuint m_shaderProgram;
 	GLboolean m_bInited;
+
+	std::vector<std::shared_ptr<GLUniform>> m_pGLUniforms;
 };

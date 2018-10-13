@@ -1,6 +1,14 @@
 #pragma once
 #include <memory>
 
+struct Matrix4f
+{
+	Matrix4f(float* data) { memcpy(m_data, data, sizeof(float) * 16); }
+	float* GetData() { return m_data; };
+
+	float m_data[16];
+};
+
 class GLCamera 
 {
 public:
@@ -10,6 +18,16 @@ public:
 		memcpy(m_eye, eye, sizeof(float) * 3);
 		memcpy(m_look, look, sizeof(float) * 3);
 		memcpy(m_up, up, sizeof(float) * 3);
+	};
+
+	Matrix4f GetViewportTransformMatrix()
+	{
+
+	};
+
+	Matrix4f GetPerspectiveTransformMatrix()
+	{
+
 	};
 
 	float m_eye[3];

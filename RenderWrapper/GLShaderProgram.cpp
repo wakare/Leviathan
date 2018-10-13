@@ -22,8 +22,25 @@ bool GLShaderProgram::Init()
 	return true;
 }
 
-bool GLShaderProgram::AddUniform(const char* uniformName)
+bool GLShaderProgram::SetGLUniformState()
 {
+	if (!m_bInited)
+	{
+		return false;
+	}
+
+	for (auto& uniform : m_pGLUniforms)
+	{
+		uniform->SetUniformVar(m_shaderProgram);
+	}
+
+	return true;
+}
+
+bool GLShaderProgram::AddUniform(std::shared_ptr<GLUniform> pUniform)
+{
+	m_pGLUniforms.push_back(pUniform);
+
 	return true;
 }
 
