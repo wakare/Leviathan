@@ -37,7 +37,7 @@ bool GLUniform::SetData(double* data, unsigned dataSize)
 
 bool GLUniform::SetUniformVar(GLuint program)
 {
-	GLuint uniformLocation = glGetUniformLocation(program, m_uniformName);
+	GLint uniformLocation = glGetUniformLocation(program, m_uniformName);
 	if (uniformLocation == -1)
 	{
 		throw "GLUniform::SetUniformVar(GLuint program) --> Get uniform location failed.";

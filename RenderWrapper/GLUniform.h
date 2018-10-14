@@ -21,13 +21,15 @@ private:
 
 class GLUniform
 {
-	enum UniformType 
+public:
+	enum UniformType
 	{
-		TYPE_FLOAT_MAT4 = GL_FLOAT_MAT4, 
+		TYPE_FLOAT_MAT4 = GL_FLOAT_MAT4,
 	};
 
-public:
 	GLUniform(const char* uniformName, UniformType type);
+
+	std::string GetUniformName() { return std::string(m_uniformName); };
 
 	bool SetData(float* data, unsigned dataArrayCount);
 	bool SetData(double* data, unsigned dataArrayCount);

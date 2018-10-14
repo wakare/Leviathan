@@ -2,7 +2,7 @@
 #include "GL/glew.h"
 #include "GLUniform.h"
 #include <memory>
-#include <vector>
+#include <map>
 
 class GLUniform;
 
@@ -20,6 +20,7 @@ public:
 	bool SetGLUniformState();
 	
 	bool AddUniform(std::shared_ptr<GLUniform> pUniform);
+	std::shared_ptr<GLUniform> GetUniformByName(std::string uniformName);
 	GLuint GetShaderProgram() { return m_shaderProgram; };
 
 private:
@@ -37,5 +38,5 @@ private:
 	GLuint m_shaderProgram;
 	GLboolean m_bInited;
 
-	std::vector<std::shared_ptr<GLUniform>> m_pGLUniforms;
+	std::map<std::string, std::shared_ptr<GLUniform>> m_pGLUniforms;
 };

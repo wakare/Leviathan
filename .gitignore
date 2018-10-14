@@ -19,3 +19,5 @@
 *.db
 *.dll
 *.exp
+*.db
+.vs/Leviathan/v15/.suo

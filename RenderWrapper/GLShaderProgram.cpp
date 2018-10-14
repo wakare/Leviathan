@@ -31,7 +31,7 @@ bool GLShaderProgram::SetGLUniformState()
 
 	for (auto& uniform : m_pGLUniforms)
 	{
-		uniform->SetUniformVar(m_shaderProgram);
+		uniform.second->SetUniformVar(m_shaderProgram);
 	}
 
 	return true;
@@ -39,9 +39,25 @@ bool GLShaderProgram::SetGLUniformState()
 
 bool GLShaderProgram::AddUniform(std::shared_ptr<GLUniform> pUniform)
 {
-	m_pGLUniforms.push_back(pUniform);
+	if (m_pGLUniforms.find(pUniform->GetUniformName()) != m_pGLUniforms.end())
+	{
+		throw "GLShaderProgram::AddUniform(std::shared_ptr<GLUniform> pUniform) --> Add Uniform failed.";
+		return false;
+	}
 
+	m_pGLUniforms[pUniform->GetUniformName()] = pUniform;
 	return true;
+}
+
+std::shared_ptr<GLUniform> GLShaderProgram::GetUniformByName(std::string uniformName)
+{
+	auto findIt = m_pGLUniforms.find(uniformName);
+	if (findIt == m_pGLUniforms.end())
+	{
+		return nullptr;
+	}
+
+	return findIt->second;
 }
 
 bool GLShaderProgram::_compileAll()

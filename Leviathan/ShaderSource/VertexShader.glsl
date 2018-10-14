@@ -12,7 +12,7 @@ out vec4 outColor;
 
 void main()
 {
-    gl_Position = vec4(position.x, position.y, position.z, 1.0);
+    gl_Position = projMatrix * viewMatrix * vec4(position.x, position.y, position.z, 1.0);
 
 	outColor = vec4(0.7, 0.7, 0.7, 1.0);
 	if ((VertexTypeMask & 0x2u) > 0u)

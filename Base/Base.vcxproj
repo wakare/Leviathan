@@ -166,6 +166,7 @@
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="VectorOperation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

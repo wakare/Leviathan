@@ -17,12 +17,12 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 		return;
 	}
 
-	float cameraEye[3];
-	float cameraLook[3];
-	float cameraUp[3];
+	float cameraEye[3] = { 0.0f, 0.0f ,-100.0f };
+	float cameraLook[3] = { 0.0f, 0.0f, 1.0f};
+	float cameraUp[3] = {0.0f, 1.0f, 0.0f};
 
 	float fovy = PI / 45.0f;
-	float aspect = (1.0f * m_refRenderWindow.GetWidth()) / m_refRenderWindow.GetWidth();
+	float aspect = (1.0f * m_refRenderWindow.GetWidth()) / m_refRenderWindow.GetHeight();
 	float fNear = 0.01f;
 	float fFar = 1000.0f;
 
@@ -55,7 +55,7 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 		return;
 	}
 
-	m_pMeshPass = std::make_shared<TriDObjectGLPass>(m_pShaderProgram);
+	m_pMeshPass = std::make_shared<TriDObjectGLPass>(m_pShaderProgram, m_pCamera);
 	if (!m_pMeshPass)
 	{
 		throw "Scene::Scene(std::shared_ptr<RenderWindow> pRenderWindow) --> Create m_pMeshPass failed.";
