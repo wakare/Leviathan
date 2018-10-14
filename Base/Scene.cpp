@@ -1,7 +1,6 @@
 #include "Scene.h"
 #include <fstream>
 #include <string>
-#define GLEW_STATIC
 #include <GL\glew.h>
 #include <sstream>
 
@@ -17,16 +16,16 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 		return;
 	}
 
-	float cameraEye[3] = { 0.0f, 0.0f ,-100.0f };
-	float cameraLook[3] = { 0.0f, 0.0f, 1.0f};
+	float cameraEye[3] = { 0.0f, 0.0f ,-1.0f };
+	float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f};
 	float cameraUp[3] = {0.0f, 1.0f, 0.0f};
 
-	float fovy = PI / 45.0f;
+	float fovy = PI * (45.0f / 180.0f);
 	float aspect = (1.0f * m_refRenderWindow.GetWidth()) / m_refRenderWindow.GetHeight();
 	float fNear = 0.01f;
 	float fFar = 1000.0f;
 
-	m_pCamera = std::make_shared<GLCamera>(cameraEye, cameraLook, cameraUp, fovy, aspect, fNear, fFar);
+	m_pCamera = std::make_shared<GLCamera>(cameraEye, cameraLookAt, cameraUp, fovy, aspect, fNear, fFar);
 	if(!m_pCamera)
 	{
 		throw "Scene::Scene(std::shared_ptr<RenderWindow> pRenderWindow) --> GLCamera init failed.";

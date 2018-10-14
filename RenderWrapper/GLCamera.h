@@ -19,11 +19,14 @@ private:
 class GLCamera 
 {
 public:
-	GLCamera(float* eye, float* look, float* up, float fovy, float aspect, float zNear, float zFar):
-		m_fovy(fovy), m_aspect(aspect), m_zNear(zNear), m_zFar(zFar)
+	GLCamera(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar):
+		m_fovy(fovy), 
+		m_aspect(aspect), 
+		m_zNear(zNear), 
+		m_zFar(zFar)
 	{
 		memcpy(m_eye, eye, sizeof(float) * 3);
-		memcpy(m_look, look, sizeof(float) * 3);
+		memcpy(m_lookAt, lookAt, sizeof(float) * 3);
 		memcpy(m_up, up, sizeof(float) * 3);
 	};
 
@@ -31,9 +34,9 @@ public:
 	{
 		float N[3] = 
 		{
-			m_eye[0] - m_look[0],
-			m_eye[1] - m_look[1],
-			m_eye[2] - m_look[2],
+			m_eye[0] - m_lookAt[0],
+			m_eye[1] - m_lookAt[1],
+			m_eye[2] - m_lookAt[2],
 		};
 
 		Normalize<float, 3>(N);
@@ -73,7 +76,7 @@ public:
 	};
 
 	float m_eye[3];
-	float m_look[3];
+	float m_lookAt[3];
 	float m_up[3]; 
 
 	float m_fovy;

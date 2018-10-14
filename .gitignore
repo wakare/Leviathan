@@ -21,3 +21,5 @@
 *.exp
 *.db
 .vs/Leviathan/v15/.suo
+.vs/Leviathan/v15/.suo
+*.db
