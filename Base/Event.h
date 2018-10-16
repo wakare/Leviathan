@@ -5,10 +5,11 @@ class Event
 public:
 	enum EventType
 	{
-		INPUT,
+		INPUT_EVENT,
+		USER_EVENT,
 	};
 
-	Event() {};
+	Event(EventType type): m_type(type) {};
 
 	EventType m_type;
 };
