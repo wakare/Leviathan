@@ -64,7 +64,7 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 	// Original Cube data
 	float cube[252] =
 	{
-		// front			// color
+		// front			 // color
 		-0.5f, -0.5f, -0.5f, 1.0f, 0.0f, 0.0f, 1.0f, 
 		 0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 1.0f,
 		 0.5f,  0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
@@ -113,8 +113,8 @@ Scene::Scene(RenderWindow& refRenderWindow) :
 		-0.5f, -0.5f, 0.5f, 0.0f, 0.0f, 1.0f, 1.0f,
 	};
 
-	std::shared_ptr<GLObject> Cube = std::make_shared<TriDGLObject>(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
-	m_pMeshPass->AddGLObject(Cube);
+	std::shared_ptr<GLObject> pCube = std::make_shared<TriDGLObject>(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+	m_pMeshPass->AddGLObject(pCube);
 
 	m_pRenderWarpper->AddGLPass(m_pMeshPass);
 };
