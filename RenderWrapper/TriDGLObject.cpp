@@ -96,4 +96,6 @@ bool TriDGLObject::Render(GLuint shaderProgram)
 	glBindVertexArray(VAO);
 	glDrawArrays(GetPrimType(), 0, GetVertexCount());
 	glBindVertexArray(0);
+
+	return true;
 }

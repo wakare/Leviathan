@@ -24,7 +24,10 @@
     <ClCompile Include="NodeVisitor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Scene.cpp">
+    <ClCompile Include="EventListener.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -35,10 +38,16 @@
     <ClInclude Include="NodeVisitor.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Scene.h">
+    <ClInclude Include="VectorOperation.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="VectorOperation.h">
+    <ClInclude Include="EventListener.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EventSystem.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,134 +1,6 @@
 #pragma once
 #include <windows.h>
 
-class Event;
-
-class Win32KeyboardMap
-{
-public:
-
-	Win32KeyboardMap()
-	{
-		_keymap[VK_ESCAPE] = Event::InputCode::KEY_Escape;
-		_keymap[VK_F1] = Event::InputCode::KEY_F1;
-		_keymap[VK_F2] = Event::InputCode::KEY_F2;
-		_keymap[VK_F3] = Event::InputCode::KEY_F3;
-		_keymap[VK_F4] = Event::InputCode::KEY_F4;
-		_keymap[VK_F5] = Event::InputCode::KEY_F5;
-		_keymap[VK_F6] = Event::InputCode::KEY_F6;
-		_keymap[VK_F7] = Event::InputCode::KEY_F7;
-		_keymap[VK_F8] = Event::InputCode::KEY_F8;
-		_keymap[VK_F9] = Event::InputCode::KEY_F9;
-		_keymap[VK_F10] = Event::InputCode::KEY_F10;
-		_keymap[VK_F11] = Event::InputCode::KEY_F11;
-		_keymap[VK_F12] = Event::InputCode::KEY_F12;
-		_keymap[0xc0] = Event::InputCode::KEY_Backquote;
-		_keymap['0'] = Event::InputCode::KEY_0;
-		_keymap['1'] = Event::InputCode::KEY_1;
-		_keymap['2'] = Event::InputCode::KEY_2;
-		_keymap['3'] = Event::InputCode::KEY_3;
-		_keymap['4'] = Event::InputCode::KEY_4;
-		_keymap['5'] = Event::InputCode::KEY_5;
-		_keymap['6'] = Event::InputCode::KEY_6;
-		_keymap['7'] = Event::InputCode::KEY_7;
-		_keymap['8'] = Event::InputCode::KEY_8;
-		_keymap['9'] = Event::InputCode::KEY_9;
-		_keymap[0xbd] = Event::InputCode::KEY_Minus;
-		_keymap[0xbb] = Event::InputCode::KEY_Equals;
-		_keymap[VK_BACK] = Event::InputCode::KEY_BackSpace;
-		_keymap[VK_TAB] = Event::InputCode::KEY_Tab;
-		_keymap['A'] = Event::InputCode::KEY_A;
-		_keymap['B'] = Event::InputCode::KEY_B;
-		_keymap['C'] = Event::InputCode::KEY_C;
-		_keymap['D'] = Event::InputCode::KEY_D;
-		_keymap['E'] = Event::InputCode::KEY_E;
-		_keymap['F'] = Event::InputCode::KEY_F;
-		_keymap['G'] = Event::InputCode::KEY_G;
-		_keymap['H'] = Event::InputCode::KEY_H;
-		_keymap['I'] = Event::InputCode::KEY_I;
-		_keymap['J'] = Event::InputCode::KEY_J;
-		_keymap['K'] = Event::InputCode::KEY_K;
-		_keymap['L'] = Event::InputCode::KEY_L;
-		_keymap['M'] = Event::InputCode::KEY_M;
-		_keymap['N'] = Event::InputCode::KEY_N;
-		_keymap['O'] = Event::InputCode::KEY_O;
-		_keymap['P'] = Event::InputCode::KEY_P;
-		_keymap['Q'] = Event::InputCode::KEY_Q;
-		_keymap['R'] = Event::InputCode::KEY_R;
-		_keymap['S'] = Event::InputCode::KEY_S;
-		_keymap['T'] = Event::InputCode::KEY_T;
-		_keymap['U'] = Event::InputCode::KEY_U;
-		_keymap['V'] = Event::InputCode::KEY_V;
-		_keymap['W'] = Event::InputCode::KEY_W;
-		_keymap['X'] = Event::InputCode::KEY_X;
-		_keymap['Y'] = Event::InputCode::KEY_Y;
-		_keymap['Z'] = Event::InputCode::KEY_Z;
-		_keymap[0xdb] = Event::InputCode::KEY_Leftbracket;
-		_keymap[0xdd] = Event::InputCode::KEY_Rightbracket;
-		_keymap[0xdc] = Event::InputCode::KEY_Backslash;
-		_keymap[VK_CAPITAL] = Event::InputCode::KEY_Caps_Lock;
-		_keymap[0xba] = Event::InputCode::KEY_Semicolon;
-		_keymap[0xde] = Event::InputCode::KEY_Quote;
-		_keymap[VK_RETURN] = Event::InputCode::KEY_Return;
-		_keymap[VK_LSHIFT] = Event::InputCode::KEY_Shift_L;
-		_keymap[0xbc] = Event::InputCode::KEY_Comma;
-		_keymap[0xbe] = Event::InputCode::KEY_Period;
-		_keymap[0xbf] = Event::InputCode::KEY_Slash;
-		_keymap[VK_RSHIFT] = Event::InputCode::KEY_Shift_R;
-		_keymap[VK_LCONTROL] = Event::InputCode::KEY_Control_L;
-		_keymap[VK_LWIN] = Event::InputCode::KEY_Super_L;
-		_keymap[VK_SPACE] = Event::InputCode::KEY_Space;
-		_keymap[VK_LMENU] = Event::InputCode::KEY_Alt_L;
-		_keymap[VK_RMENU] = Event::InputCode::KEY_Alt_R;
-		_keymap[VK_RWIN] = Event::InputCode::KEY_Super_R;
-		_keymap[VK_APPS] = Event::InputCode::KEY_Menu;
-		_keymap[VK_RCONTROL] = Event::InputCode::KEY_Control_R;
-		_keymap[VK_SNAPSHOT] = Event::InputCode::KEY_Print;
-		_keymap[VK_SCROLL] = Event::InputCode::KEY_Scroll_Lock;
-		_keymap[VK_PAUSE] = Event::InputCode::KEY_Pause;
-		_keymap[VK_HOME] = Event::InputCode::KEY_Home;
-		_keymap[VK_PRIOR] = Event::InputCode::KEY_Page_Up;
-		_keymap[VK_END] = Event::InputCode::KEY_End;
-		_keymap[VK_NEXT] = Event::InputCode::KEY_Page_Down;
-		_keymap[VK_DELETE] = Event::InputCode::KEY_Delete;
-		_keymap[VK_INSERT] = Event::InputCode::KEY_Insert;
-		_keymap[VK_LEFT] = Event::InputCode::KEY_Left;
-		_keymap[VK_UP] = Event::InputCode::KEY_Up;
-		_keymap[VK_RIGHT] = Event::InputCode::KEY_Right;
-		_keymap[VK_DOWN] = Event::InputCode::KEY_Down;
-		_keymap[VK_NUMLOCK] = Event::InputCode::KEY_Num_Lock;
-		_keymap[VK_DIVIDE] = Event::InputCode::KEY_KP_Divide;
-		_keymap[VK_MULTIPLY] = Event::InputCode::KEY_KP_Multiply;
-		_keymap[VK_SUBTRACT] = Event::InputCode::KEY_KP_Subtract;
-		_keymap[VK_ADD] = Event::InputCode::KEY_KP_Add;
-		_keymap[VK_NUMPAD7] = Event::InputCode::KEY_KP_Home;
-		_keymap[VK_NUMPAD8] = Event::InputCode::KEY_KP_Up;
-		_keymap[VK_NUMPAD9] = Event::InputCode::KEY_KP_Page_Up;
-		_keymap[VK_NUMPAD4] = Event::InputCode::KEY_KP_Left;
-		_keymap[VK_NUMPAD5] = Event::InputCode::KEY_KP_Begin;
-		_keymap[VK_NUMPAD6] = Event::InputCode::KEY_KP_Right;
-		_keymap[VK_NUMPAD1] = Event::InputCode::KEY_KP_End;
-		_keymap[VK_NUMPAD2] = Event::InputCode::KEY_KP_Down;
-		_keymap[VK_NUMPAD3] = Event::InputCode::KEY_KP_Page_Down;
-		_keymap[VK_NUMPAD0] = Event::InputCode::KEY_KP_Insert;
-		_keymap[VK_DECIMAL] = Event::InputCode::KEY_KP_Delete;
-		_keymap[VK_CLEAR] = Event::InputCode::KEY_Clear;
-	}
-
-	~Win32KeyboardMap() {}
-
-	int remapKey(int key)
-	{
-		KeyMap::const_iterator map = _keymap.find(key);
-		return map == _keymap.end() ? key : map->second;
-	}
-
-protected:
-
-	typedef std::map<int, int> KeyMap;
-	KeyMap _keymap;
-};
-
 class Event
 {
 public:
@@ -163,6 +35,7 @@ public:
 	// Copy from OSG
 	enum InputCode
 	{
+		KEY_NONE = 0x0,
 		KEY_Space = 0x20,
 
 		KEY_0 = '0',
@@ -377,9 +250,15 @@ public:
 		KEY_Hyper_R = 0xFFEE         /* Right hyper */
 	};
 
-	Event(EventType type): m_type(type) {};
+	Event(EventType type): 
+		m_type(type),
+		m_action(NONE), 
+		m_code(KEY_NONE)
+	{
+
+	};
 
 	EventType m_type;
-	InputAction action;
-	InputCode code;
+	InputAction m_action;
+	InputCode m_code;
 };

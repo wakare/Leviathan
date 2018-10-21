@@ -1,7 +1,7 @@
 #include <memory>
 #include <iostream>
-#include "Node.h"
-#include "NodeVisitor.h"
+//#include "Node.h"
+//#include "NodeVisitor.h"
 #include "RenderWindow.h"
 
 #if (false)
@@ -52,7 +52,10 @@ int main()
 
 int main()
 {
-	RenderWindow renderWindow;
-	renderWindow.Run();
+	std::shared_ptr<EventSystem> pEventSystem = std::make_shared<EventSystem>();
+	std::shared_ptr<RenderWindow> pRenderWindow = std::make_shared<RenderWindow>(pEventSystem);
+	pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, pRenderWindow);
+
+	pRenderWindow->Run();
 }
 

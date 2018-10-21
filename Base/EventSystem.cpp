@@ -9,6 +9,8 @@ void EventSystem::DispatchEvent()
 			listener->Accept(_event);
 		}
 	}
+
+	m_eventQueue.clear();
 }
 
 void EventSystem::AddEvent(Event _event)

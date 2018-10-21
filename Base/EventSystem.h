@@ -24,8 +24,21 @@ public:
 
 	virtual void DispatchEvent();
 	void AddEvent(Event event);
-	void SetCurrentMouseCoord(int x, int y) { m_currentMouseCoord.x = x; m_currentMouseCoord.y = y; }
-	MouseCoord GetCurrentMouseCoord() { return m_currentMouseCoord; }
+	
+	void AddEventListener(Event::EventType type, std::shared_ptr<EventListener> pListener)
+	{
+		m_eventListeners[type].push_back(pListener);
+	}
+	
+	void SetCurrentMouseCoord(int x, int y) 
+	{ 
+		m_currentMouseCoord.x = x; m_currentMouseCoord.y = y; 
+	}
+
+	MouseCoord GetCurrentMouseCoord() 
+	{ 
+		return m_currentMouseCoord; 
+	}
 
 private:
 	MouseCoord m_currentMouseCoord;
