@@ -70,12 +70,49 @@ void RenderWindow::Run()
 	return;
 }
 
+void RenderWindow::_updateCameraTransform(Event& event)
+{
+	float fTranslateX = 0.0f;
+	float fTranslateY = 0.0f;
+	float fTranslateZ = 0.0f;
+
+	// Update Camera move
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_W)
+	{
+		fTranslateY += 0.02f;
+	}
+
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_S)
+	{
+		fTranslateY -= 0.02f;
+	}
+
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_A)
+	{
+		fTranslateX += 0.02f;
+	}
+
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_D)
+	{
+		fTranslateX -= 0.02f;
+	}
+
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_Q)
+	{
+		fTranslateZ += 0.02f;
+	}
+
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_E)
+	{
+		fTranslateZ -= 0.02f;
+	}
+
+	m_pScene->m_pCamera->Translate(fTranslateX, fTranslateY, fTranslateZ);
+}
+
 void RenderWindow::Accept(Event event)
 {
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_Z)
-	{
-		std::cout << "Key Z down." << std::endl;
-	}
+	_updateCameraTransform(event);
 }
 
 void RenderWindow::_setWindowProcess()

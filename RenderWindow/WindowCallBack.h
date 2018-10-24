@@ -99,7 +99,6 @@ public:
 	static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos) 
 	{
 		WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(xpos, ypos);
-		std::cout << "Mouse Position" << xpos << " " << ypos << std::endl;
 	};
 
 	static GLFWInputMapEventCode m_sInputMap;

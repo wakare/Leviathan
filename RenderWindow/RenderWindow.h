@@ -23,6 +23,7 @@ public:
 	GLint GetHeight() { return m_height; };
 
 private:
+	void _updateCameraTransform(Event& event);
 	void _setWindowProcess();
 	bool _glewInit();
 

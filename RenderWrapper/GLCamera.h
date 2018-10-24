@@ -1,6 +1,7 @@
 #pragma once
 #include "VectorOperation.h"
 #include <memory>
+#include <iostream>
 
 struct Matrix4f
 {
@@ -21,37 +22,40 @@ class GLCamera
 public:
 	GLCamera(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar):
 		m_fovy(fovy), 
-		m_aspect(aspect), 
-		m_zNear(zNear), 
-		m_zFar(zFar)
+		m_fAspect(aspect), 
+		m_fZNear(zNear), 
+		m_fZFar(zFar)
 	{
-		memcpy(m_eye, eye, sizeof(float) * 3);
-		memcpy(m_lookAt, lookAt, sizeof(float) * 3);
-		memcpy(m_up, up, sizeof(float) * 3);
+		memcpy(m_fEye, eye, sizeof(float) * 3);
+		memcpy(m_fLookAt, lookAt, sizeof(float) * 3);
+		memcpy(m_fUp, up, sizeof(float) * 3);
 	};
 
 	Matrix4f GetViewportTransformMatrix()
 	{
 		float N[3] = 
 		{
-			m_eye[0] - m_lookAt[0],
-			m_eye[1] - m_lookAt[1],
-			m_eye[2] - m_lookAt[2],
+			m_fEye[0] - m_fLookAt[0],
+			m_fEye[1] - m_fLookAt[1],
+			m_fEye[2] - m_fLookAt[2],
 		};
 
 		Normalize<float, 3>(N);
 
 		float U[3];
-		Vec3Cross(m_up, N, U, true);
+		Vec3Cross(m_fUp, N, U, true);
 
 		float V[3];
 		Vec3Cross(N, U, V, true);
 
+		// Debug
+		std::cout << "m_camera:" << m_fEye[0] << " " << m_fEye[1] << " " << m_fEye[2] << std::endl;
+		
 		float data[16] =
 		{
-			U[0], U[1], U[2], VecDot<float, 3>(U, m_eye),
-			V[0], V[1], V[2], VecDot<float, 3>(V, m_eye),
-			N[0], N[1], N[2], VecDot<float, 3>(N, m_eye),
+			U[0], U[1], U[2], VecDot<float, 3>(U, m_fEye),
+			V[0], V[1], V[2], VecDot<float, 3>(V, m_fEye),
+			N[0], N[1], N[2], VecDot<float, 3>(N, m_fEye),
 			0.0f, 0.0f, 0.0f,						 1.0f,
 		};
 
@@ -65,9 +69,9 @@ public:
 
 		float data[16] =
 		{
-			1.0f / (m_aspect * tanHalfFovy), 0.0f, 0.0f, 0.0f,
+			1.0f / (m_fAspect * tanHalfFovy), 0.0f, 0.0f, 0.0f,
 			0.0f, 1.0f / tanHalfFovy , 0.0f, 0.0f,
-			0.0f, 0.0f, (-m_zNear - m_zFar) / (m_zNear - m_zFar) , 2 * m_zFar * m_zNear / (m_zNear - m_zFar),
+			0.0f, 0.0f, (-m_fZNear - m_fZFar) / (m_fZNear - m_fZFar) , 2 * m_fZFar * m_fZNear / (m_fZNear - m_fZFar),
 			0.0f, 0.0f, 1.0f, 0.0f
 		};
 
@@ -75,12 +79,39 @@ public:
 		return result;
 	};
 
-	float m_eye[3];
-	float m_lookAt[3];
-	float m_up[3]; 
+	void Translate(float x, float y, float z)
+	{
+		float N[3] =
+		{
+			m_fEye[0] - m_fLookAt[0],
+			m_fEye[1] - m_fLookAt[1],
+			m_fEye[2] - m_fLookAt[2],
+		};
+
+		Normalize<float, 3>(N);
+
+		float U[3];
+		Vec3Cross(m_fUp, N, U, true);
+
+		float V[3];
+		Vec3Cross(N, U, V, true);
+
+		m_fEye[0] += (x * U[0] + y * V[0] + z * N[0]);
+		m_fEye[1] += (x * U[1] + y * V[1] + z * N[1]);
+		m_fEye[2] += (x * U[2] + y * V[2] + z * N[2]);
+	}
+
+	void Rotate()
+	{
+
+	}
+
+	float m_fEye[3];
+	float m_fLookAt[3];
+	float m_fUp[3]; 
 
 	float m_fovy;
-	float m_aspect;
-	float m_zNear;
-	float m_zFar;
+	float m_fAspect;
+	float m_fZNear;
+	float m_fZFar;
 };

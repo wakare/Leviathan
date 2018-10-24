@@ -12,12 +12,12 @@ public:
 
 	virtual void Update();
 
+	std::shared_ptr<GLCamera> m_pCamera;
 private:
 	std::string _getShaderSource(const char* pczShaderSourcePath);
 
 	GLFWwindow* m_pGLFWWindow;
 
-	std::shared_ptr<GLCamera> m_pCamera;
 	std::shared_ptr<RenderWrapper> m_pRenderWarpper;
 
 	std::shared_ptr<TriDObjectGLPass> m_pMeshPass;
