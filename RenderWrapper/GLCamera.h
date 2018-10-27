@@ -49,7 +49,7 @@ public:
 		Vec3Cross(N, U, V, true);
 
 		// Debug
-		std::cout << "m_camera:" << m_fEye[0] << " " << m_fEye[1] << " " << m_fEye[2] << std::endl;
+		//std::cout << "m_camera:" << m_fEye[0] << " " << m_fEye[1] << " " << m_fEye[2] << std::endl;
 		
 		float data[16] =
 		{
@@ -81,6 +81,8 @@ public:
 
 	void Translate(float x, float y, float z)
 	{
+		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
+
 		float N[3] =
 		{
 			m_fEye[0] - m_fLookAt[0],

@@ -155,12 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="EventListener.cpp" />
     <ClCompile Include="EventSystem.cpp" />
-    <ClCompile Include="Node.cpp" />
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>

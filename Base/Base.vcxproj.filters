@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Node.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="NodeVisitor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="EventListener.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="EventSystem.cpp">

@@ -15,16 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="RenderWrapper.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GLObject.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GLPass.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TriDObjectGLPass.cpp">
@@ -34,9 +25,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="TriDGLObject.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GLCamera.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="GLUniform.cpp">
@@ -62,10 +50,10 @@
     <ClInclude Include="TriDGLObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLCamera.h">
+    <ClInclude Include="GLUniform.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLUniform.h">
+    <ClInclude Include="GLCamera.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -163,9 +163,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>

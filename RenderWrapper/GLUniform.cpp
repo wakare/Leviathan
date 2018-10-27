@@ -10,12 +10,11 @@ GLUniform::GLUniform(const char* uniformName, UniformType type) :
 bool GLUniform::SetData(float* data, unsigned dataSize)
 {
 	// Do nothing if data has inited before
-	if (_checkDataInited())
+	if (!_checkDataInited())
 	{
-		return false;
+		m_fUniformArray = std::make_shared<UniformArray<float>>(dataSize);
 	}
 
-	m_fUniformArray = std::make_shared<UniformArray<float>>(dataSize);
 	m_fUniformArray->SetArrayData(data, dataSize);
 
 	return true;

@@ -107,7 +107,10 @@ void RenderWindow::_updateCameraTransform(Event& event)
 		fTranslateZ -= 0.02f;
 	}
 
-	m_pScene->m_pCamera->Translate(fTranslateX, fTranslateY, fTranslateZ);
+	if (fTranslateX != 0.0f || fTranslateY != 0.0f || fTranslateZ != 0.0f)
+	{
+		m_pScene->m_pCamera->Translate(fTranslateX, fTranslateY, fTranslateZ);
+	}
 }
 
 void RenderWindow::Accept(Event event)

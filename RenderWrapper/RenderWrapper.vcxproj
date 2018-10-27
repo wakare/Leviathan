@@ -155,12 +155,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <Text Include="ReadMe.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="GLCamera.cpp" />
-    <ClCompile Include="GLObject.cpp" />
-    <ClCompile Include="GLPass.cpp" />
     <ClCompile Include="GLShaderProgram.cpp" />
     <ClCompile Include="GLUniform.cpp" />
     <ClCompile Include="RenderWrapper.cpp" />

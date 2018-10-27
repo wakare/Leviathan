@@ -1,7 +1,5 @@
 #include <memory>
 #include <iostream>
-//#include "Node.h"
-//#include "NodeVisitor.h"
 #include "RenderWindow.h"
 
 #if (false)
