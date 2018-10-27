@@ -12,21 +12,25 @@ public:
 
 	// Copy from OSG
 	enum InputAction {
+		/*
+		DRAG = 1 << 3,
+		PEN_PRESSURE = 1 << 10,
+		PEN_ORIENTATION = 1 << 11,
+		PEN_PROXIMITY_ENTER = 1 << 12,
+		PEN_PROXIMITY_LEAVE = 1 << 13,
+		*/
+
 		NONE = 0,
 		PUSH = 1 << 0,
 		RELEASE = 1 << 1,
 		DOUBLECLICK = 1 << 2,
-		DRAG = 1 << 3,
+		REPERT = 1 << 3,
 		MOVE = 1 << 4,
 		KEYDOWN = 1 << 5,
 		KEYUP = 1 << 6,
 		FRAME = 1 << 7,
 		RESIZE = 1 << 8,
 		SCROLL = 1 << 9,
-		PEN_PRESSURE = 1 << 10,
-		PEN_ORIENTATION = 1 << 11,
-		PEN_PROXIMITY_ENTER = 1 << 12,
-		PEN_PROXIMITY_LEAVE = 1 << 13,
 		CLOSE_WINDOW = 1 << 14,
 		QUIT_APPLICATION = 1 << 15,
 		USER = 1 << 16

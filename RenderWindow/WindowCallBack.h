@@ -59,6 +59,7 @@ public:
 	{
 		dictionary[GLFW_PRESS] = Event::InputAction::KEYDOWN;
 		dictionary[GLFW_RELEASE] = Event::InputAction::KEYUP;
+		dictionary[GLFW_REPEAT] = Event::InputAction::REPERT;
 	}
 
 	Event::InputAction GetAction(int glfwAction)
@@ -93,6 +94,10 @@ public:
 			keyEvent.m_code != Event::InputCode::KEY_NONE)
 		{
 			m_spEventSystem->AddEvent(keyEvent);
+		}
+		else
+		{
+			std::cout << "GLFW keyCallBack:" << key << " ,action " << action <<std::endl;
 		}
 	};
 

@@ -77,32 +77,32 @@ void RenderWindow::_updateCameraTransform(Event& event)
 	float fTranslateZ = 0.0f;
 
 	// Update Camera move
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_W)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_W)
 	{
 		fTranslateY += 0.02f;
 	}
 
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_S)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_S)
 	{
 		fTranslateY -= 0.02f;
 	}
 
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_A)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_A)
 	{
 		fTranslateX += 0.02f;
 	}
 
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_D)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_D)
 	{
 		fTranslateX -= 0.02f;
 	}
 
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_Q)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_Q)
 	{
 		fTranslateZ += 0.02f;
 	}
 
-	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::KEY_E)
+	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_E)
 	{
 		fTranslateZ -= 0.02f;
 	}
