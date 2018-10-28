@@ -10,6 +10,10 @@ class GLFWInputMapEventCode
 public:
 	GLFWInputMapEventCode()
 	{
+		dictionary[GLFW_MOUSE_BUTTON_LEFT]		= Event::InputCode::MOUSE_LBUTTON;
+		dictionary[GLFW_MOUSE_BUTTON_RIGHT]		= Event::InputCode::MOUSE_RBUTTON;
+		dictionary[GLFW_MOUSE_BUTTON_MIDDLE]	= Event::InputCode::MOUSE_SCROLLBUTTON;
+		
 		dictionary[GLFW_KEY_A] = Event::InputCode::KEY_A;
 		dictionary[GLFW_KEY_B] = Event::InputCode::KEY_B;
 		dictionary[GLFW_KEY_C] = Event::InputCode::KEY_C;
@@ -45,7 +49,7 @@ public:
 		auto itInputCode = dictionary.find(glfwKeyCode);
 		if (itInputCode == dictionary.end())
 		{
-			return Event::InputCode::KEY_NONE;
+			return Event::InputCode::INPUT_NONE;
 		}
 
 		return (*itInputCode).second;
@@ -91,7 +95,7 @@ public:
 		keyEvent.m_code = m_sInputMap.GetInputCode(key);
 
 		if (keyEvent.m_action != Event::InputAction::NONE &&
-			keyEvent.m_code != Event::InputCode::KEY_NONE)
+			keyEvent.m_code != Event::InputCode::INPUT_NONE)
 		{
 			m_spEventSystem->AddEvent(keyEvent);
 		}
@@ -104,7 +108,38 @@ public:
 	static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos) 
 	{
 		WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(xpos, ypos);
+		Event keyEvent = Event(Event::EventType::INPUT_EVENT);
+		keyEvent.m_action = Event::InputAction::MOVE;
+		keyEvent.m_code = Event::InputCode::INPUT_NONE;
+
+		m_spEventSystem->AddEvent(keyEvent);
 	};
+
+	static void MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
+	{
+		Event keyEvent = Event(Event::EventType::INPUT_EVENT);
+		keyEvent.m_action = m_sActionMap.GetAction(action);
+		keyEvent.m_code = m_sInputMap.GetInputCode(button);
+
+		if (keyEvent.m_action != Event::InputAction::NONE &&
+			keyEvent.m_code != Event::InputCode::INPUT_NONE)
+		{
+			m_spEventSystem->AddEvent(keyEvent);
+		}
+	}
+
+	static void MouseScrollCallback(GLFWwindow* window, double xOffset, double yOffset)
+	{
+		/*Event keyEvent = Event(Event::EventType::INPUT_EVENT);
+		keyEvent.m_action = m_sActionMap.GetAction(action);
+		keyEvent.m_code = m_sInputMap.GetInputCode(key);
+
+		if (keyEvent.m_action != Event::InputAction::NONE &&
+			keyEvent.m_code != Event::InputCode::INPUT_NONE)
+		{
+			m_spEventSystem->AddEvent(keyEvent);
+		}*/
+	}
 
 	static GLFWInputMapEventCode m_sInputMap;
 	static GLFWActionMapEvent m_sActionMap;

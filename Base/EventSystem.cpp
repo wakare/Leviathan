@@ -5,7 +5,11 @@ void EventSystem::DispatchEvent()
 {
 	for (auto& _event : m_eventQueue)
 	{
-		std::cout << "Mouse Position" << m_currentMouseCoord.x << " " << m_currentMouseCoord.y << std::endl;
+		if (m_bAddMouseCoordToEvent)
+		{
+			_event.m_mouseCoord = m_currentMouseCoord;
+		}
+
 		for (auto& listener : m_eventListeners[_event.m_type])
 		{
 			listener->Accept(_event);

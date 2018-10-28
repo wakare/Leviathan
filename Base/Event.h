@@ -1,6 +1,14 @@
 #pragma once
 #include <windows.h>
 
+struct MouseCoord
+{
+	MouseCoord(int _x, int _y) :x(_x), y(_y) {}
+
+	int x;
+	int y;
+};
+
 class Event
 {
 public:
@@ -36,12 +44,14 @@ public:
 		USER = 1 << 16
 	};
 
-	// Copy from OSG
 	enum InputCode
 	{
-		KEY_NONE = 0x0,
-		KEY_Space = 0x20,
+		INPUT_NONE = 0x0,
+		MOUSE_LBUTTON = 0x10,
+		MOUSE_RBUTTON = 0x11,
+		MOUSE_SCROLLBUTTON = 0x12,
 
+		KEY_Space = 0x20,
 		KEY_0 = '0',
 		KEY_1 = '1',
 		KEY_2 = '2',
@@ -254,10 +264,11 @@ public:
 		KEY_Hyper_R = 0xFFEE         /* Right hyper */
 	};
 
-	Event(EventType type): 
+	Event(EventType type) :
 		m_type(type),
-		m_action(NONE), 
-		m_code(KEY_NONE)
+		m_action(NONE),
+		m_code(INPUT_NONE),
+		m_mouseCoord({0, 0})
 	{
 
 	};
@@ -265,4 +276,5 @@ public:
 	EventType m_type;
 	InputAction m_action;
 	InputCode m_code;
+	MouseCoord m_mouseCoord;
 };

@@ -25,12 +25,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_LeviathanApplication", "2
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderWindow", "RenderWindow\RenderWindow.vcxproj", "{C9D52724-8554-4F6C-8E41-CAD0E84D568A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{E2869D66-3C62-4171-BE7A-FF09C7F746BD} = {E2869D66-3C62-4171-BE7A-FF09C7F746BD}
 		{9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93} = {9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93}
+		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderWrapper", "RenderWrapper\RenderWrapper.vcxproj", "{9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93}"
+	ProjectSection(ProjectDependencies) = postProject
+		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "Scene\Scene.vcxproj", "{E2869D66-3C62-4171-BE7A-FF09C7F746BD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93} = {9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93}
+		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

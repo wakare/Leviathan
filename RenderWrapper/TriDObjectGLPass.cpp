@@ -43,7 +43,7 @@ void TriDObjectGLPass::Render()
 	}
 
 	// Set renderType
-	glPolygonMode(GL_FRONT_AND_BACK, m_nPolygonMode);
+	glPolygonMode(GL_FRONT, m_nPolygonMode);
 	
 	// Set GLProgram
 	auto program = m_pGLShaderProgram->GetShaderProgram();

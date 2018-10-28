@@ -19,7 +19,6 @@ private:
 	GLFWwindow* m_pGLFWWindow;
 
 	std::shared_ptr<RenderWrapper> m_pRenderWarpper;
-
 	std::shared_ptr<TriDObjectGLPass> m_pMeshPass;
 	std::shared_ptr<GLShaderProgram> m_pShaderProgram;
 };

@@ -9,18 +9,12 @@
 class Event;
 class EventListener;
 
-struct MouseCoord
-{
-	MouseCoord(int _x, int _y) :x(_x), y(_y) {}
 
-	int x;
-	int y;
-};
 
 class EventSystem
 {
 public:
-	EventSystem() :m_currentMouseCoord(0, 0) {}
+	EventSystem() :m_currentMouseCoord(0, 0), m_bAddMouseCoordToEvent(true) {}
 
 	virtual void DispatchEvent();
 	void AddEvent(Event event);
@@ -41,6 +35,7 @@ public:
 	}
 
 private:
+	bool m_bAddMouseCoordToEvent;
 	MouseCoord m_currentMouseCoord;
 	std::list<Event> m_eventQueue;
 	std::map<Event::EventType, std::vector<std::shared_ptr<EventListener>>> m_eventListeners;

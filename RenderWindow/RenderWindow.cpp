@@ -72,45 +72,75 @@ void RenderWindow::Run()
 
 void RenderWindow::_updateCameraTransform(Event& event)
 {
-	float fTranslateX = 0.0f;
-	float fTranslateY = 0.0f;
-	float fTranslateZ = 0.0f;
-
-	// Update Camera move
+#pragma region Update transform
+	float fTranslate[3] = { 0.0f };
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_W)
 	{
-		fTranslateY += 0.02f;
+		fTranslate[1] += 0.02f;
 	}
 
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_S)
 	{
-		fTranslateY -= 0.02f;
+		fTranslate[1] -= 0.02f;
 	}
 
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_A)
 	{
-		fTranslateX += 0.02f;
+		fTranslate[0] += 0.02f;
 	}
 
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_D)
 	{
-		fTranslateX -= 0.02f;
+		fTranslate[0] -= 0.02f;
 	}
 
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_Q)
 	{
-		fTranslateZ += 0.02f;
+		fTranslate[2] += 0.02f;
 	}
 
 	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_E)
 	{
-		fTranslateZ -= 0.02f;
+		fTranslate[2] -= 0.02f;
 	}
 
-	if (fTranslateX != 0.0f || fTranslateY != 0.0f || fTranslateZ != 0.0f)
+	if (fTranslate[0] != 0.0f || fTranslate[1] != 0.0f || fTranslate[2] != 0.0f)
 	{
-		m_pScene->m_pCamera->Translate(fTranslateX, fTranslateY, fTranslateZ);
+		m_pScene->m_pCamera->Translate(fTranslate[0], fTranslate[1], fTranslate[2]);
 	}
+#pragma endregion
+
+#pragma region update camera rotation
+	float fRotate[3] = { 0.0f, 0.0f, 0.0f };
+	static MouseCoord lastMouseXY = MouseCoord(-1, -1);
+
+	static bool bMouseDown = false;
+	if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_LBUTTON)
+	{
+		bMouseDown = true;
+	}
+
+	if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_LBUTTON)
+	{
+		bMouseDown = false;
+	}
+
+	if (bMouseDown)
+	{
+		if (lastMouseXY.x >= 0 && lastMouseXY.y >= 0)
+		{
+			float delta[2] = { event.m_mouseCoord.x - lastMouseXY.x, event.m_mouseCoord.y - lastMouseXY.y };
+			delta[0] /= (2 * 3.1415926f);
+			delta[1] /= (2 * 3.1415926f);
+			
+			m_pScene->m_pCamera->Rotate(delta[1], delta[0], 0.0f);
+
+			std::cout << "Delta mouseCoord = " << delta[0] << " " << delta[1] << std::endl;
+		}
+	}
+
+	lastMouseXY = event.m_mouseCoord;
+#pragma endregion update camera rotation
 }
 
 void RenderWindow::Accept(Event event)
@@ -127,6 +157,7 @@ void RenderWindow::_setWindowProcess()
 
 	glfwSetKeyCallback(m_pWindow, (WindowCallBack::KeyCallback));
 	glfwSetCursorPosCallback(m_pWindow, (WindowCallBack::MousePositionCallback));
+	glfwSetMouseButtonCallback(m_pWindow, (WindowCallBack::MouseButtonCallBack));
 }
 
 bool RenderWindow::_glewInit()
