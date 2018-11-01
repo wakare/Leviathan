@@ -162,6 +162,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="EventSystem.h" />
+    <ClInclude Include="GlobalDef.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />
     <ClInclude Include="VectorOperation.h" />

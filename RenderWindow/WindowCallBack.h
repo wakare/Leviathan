@@ -130,15 +130,12 @@ public:
 
 	static void MouseScrollCallback(GLFWwindow* window, double xOffset, double yOffset)
 	{
-		/*Event keyEvent = Event(Event::EventType::INPUT_EVENT);
-		keyEvent.m_action = m_sActionMap.GetAction(action);
-		keyEvent.m_code = m_sInputMap.GetInputCode(key);
-
-		if (keyEvent.m_action != Event::InputAction::NONE &&
-			keyEvent.m_code != Event::InputCode::INPUT_NONE)
-		{
-			m_spEventSystem->AddEvent(keyEvent);
-		}*/
+		Event scrollEvent = Event(Event::EventType::INPUT_EVENT);
+		scrollEvent.m_action = Event::InputAction::SCROLL;
+		scrollEvent.m_code = Event::InputCode::INPUT_NONE;
+		scrollEvent.m_mouseScrollState.x = xOffset;
+		scrollEvent.m_mouseScrollState.y = yOffset;
+		m_spEventSystem->AddEvent(scrollEvent);
 	}
 
 	static GLFWInputMapEventCode m_sInputMap;

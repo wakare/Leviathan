@@ -9,6 +9,14 @@ struct MouseCoord
 	int y;
 };
 
+struct MouseScrollState
+{
+	MouseScrollState(int _x, int _y) :x(_x), y(_y) {}
+
+	int x;
+	int y;
+};
+
 class Event
 {
 public:
@@ -268,7 +276,8 @@ public:
 		m_type(type),
 		m_action(NONE),
 		m_code(INPUT_NONE),
-		m_mouseCoord({0, 0})
+		m_mouseCoord({0, 0}),
+		m_mouseScrollState({0, 0})
 	{
 
 	};
@@ -277,4 +286,5 @@ public:
 	InputAction m_action;
 	InputCode m_code;
 	MouseCoord m_mouseCoord;
+	MouseScrollState m_mouseScrollState;
 };

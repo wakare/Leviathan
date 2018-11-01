@@ -94,14 +94,10 @@ void RenderWindow::_updateCameraTransform(Event& event)
 		fTranslate[0] -= 0.02f;
 	}
 
-	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_Q)
+	if ((event.m_action == Event::InputAction::SCROLL ))
 	{
-		fTranslate[2] += 0.02f;
-	}
-
-	if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_E)
-	{
-		fTranslate[2] -= 0.02f;
+		std::cout << "Mouse scroll:" << event.m_mouseScrollState.y << std::endl;
+		fTranslate[2] += (event.m_mouseScrollState.y * 0.02f);
 	}
 
 	if (fTranslate[0] != 0.0f || fTranslate[1] != 0.0f || fTranslate[2] != 0.0f)
@@ -157,6 +153,7 @@ void RenderWindow::_setWindowProcess()
 
 	glfwSetKeyCallback(m_pWindow, (WindowCallBack::KeyCallback));
 	glfwSetCursorPosCallback(m_pWindow, (WindowCallBack::MousePositionCallback));
+	glfwSetScrollCallback(m_pWindow, (WindowCallBack::MouseScrollCallback));
 	glfwSetMouseButtonCallback(m_pWindow, (WindowCallBack::MouseButtonCallBack));
 }
 

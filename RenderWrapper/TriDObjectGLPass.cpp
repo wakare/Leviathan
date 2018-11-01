@@ -1,5 +1,5 @@
 #include "TriDObjectGLPass.h"
-#define EXIT_GET_FALSE(statement) { if (!statement) return false;}
+#include "GlobalDef.h"
 
 bool TriDObjectGLPass::Init()
 {
@@ -50,7 +50,7 @@ void TriDObjectGLPass::Render()
 	glUseProgram(program);
 	m_pGLShaderProgram->SetGLUniformState();
 
-	// Set viewMatrix and perse
+	// Set viewMatrix
 	_updateCameraMatrixUniform(program);
 
 	// Render each GLObject
