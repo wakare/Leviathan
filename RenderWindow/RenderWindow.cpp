@@ -1,5 +1,6 @@
 #include "RenderWindow.h"
 #include <iostream>
+#include "GlobalDef.h"
 
 RenderWindow::RenderWindow(std::shared_ptr<EventSystem> pEventSystem, GLint width /*= 800*/, GLint height /*= 600*/, GLchar* pTitle /*= "RenderWindow"*/) :
 	m_pEventSystem(pEventSystem), m_width(width), m_height(height), m_pWindowTitle(pTitle), m_pWindow(nullptr)
@@ -126,8 +127,8 @@ void RenderWindow::_updateCameraTransform(Event& event)
 		if (lastMouseXY.x >= 0 && lastMouseXY.y >= 0)
 		{
 			float delta[2] = { event.m_mouseCoord.x - lastMouseXY.x, event.m_mouseCoord.y - lastMouseXY.y };
-			delta[0] /= (2 * 3.1415926f);
-			delta[1] /= (2 * 3.1415926f);
+			delta[0] = ANGLE_TO_RADIAN(delta[0] * 0.1f);
+			delta[1] = ANGLE_TO_RADIAN(delta[1] * 0.1f);
 			
 			m_pScene->m_pCamera->MouseRotate(delta[0], delta[1]);
 
@@ -136,7 +137,7 @@ void RenderWindow::_updateCameraTransform(Event& event)
 	}
 
 	lastMouseXY = event.m_mouseCoord;
-#pragma endregion update camera rotation
+#pragma endregion
 }
 
 void RenderWindow::Accept(Event event)
