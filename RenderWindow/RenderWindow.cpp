@@ -129,7 +129,7 @@ void RenderWindow::_updateCameraTransform(Event& event)
 			delta[0] /= (2 * 3.1415926f);
 			delta[1] /= (2 * 3.1415926f);
 			
-			m_pScene->m_pCamera->Rotate(delta[1], delta[0], 0.0f);
+			m_pScene->m_pCamera->MouseRotate(delta[0], delta[1]);
 
 			std::cout << "Delta mouseCoord = " << delta[0] << " " << delta[1] << std::endl;
 		}

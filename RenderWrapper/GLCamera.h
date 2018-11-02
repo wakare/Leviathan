@@ -167,11 +167,45 @@ public:
 
 		if (length<float, 3>(_N) < m_minDistanceOfCameraToLookAt)
 		{
-			return;
+			std::cout << "Arrive minDistanceOfCameraToLookAt." << std::endl;
+			return; 
 		}
 
 		memcpy(m_fEye, newEyeCoord, sizeof(float) * 3);
 	}
+
+	void MouseRotate(float x, float y)
+	{
+		float N[3] =
+		{
+			m_fEye[0] - m_fLookAt[0],
+			m_fEye[1] - m_fLookAt[1],
+			m_fEye[2] - m_fLookAt[2],
+		};
+
+		if (!Normalize<float, 3>(N))
+		{
+			std::cout << "Eye & LookAt are the same coordination." << std::endl;
+			return;
+		}
+
+		float U[3];
+		Vec3Cross(m_fUp, N, U, true);
+
+		float V[3];
+		Vec3Cross(N, U, V, true);
+		memcpy(m_fUp, V, sizeof(float) * 3);
+
+		float RotateVec[3] = 
+		{
+			y * U[0] + x * V[0],
+			y * U[1] + x * V[1],
+			y * U[2] + x * V[2],
+		};
+
+		Rotate(RotateVec[0], RotateVec[1], RotateVec[2]);
+	}
+
 
 	void Rotate(float x, float y, float z)
 	{
@@ -229,8 +263,18 @@ public:
 			memcpy(attribute, attributeArray, 3 * sizeof(float));
 		};
 
-		_updateCameraAttribute(m_fEye);
-		_updateCameraAttribute(m_fLookAt);
+		float N[3] = 
+		{
+			m_fEye[0] - m_fLookAt[0],
+			m_fEye[1] - m_fLookAt[1],
+			m_fEye[2] - m_fLookAt[2],
+		};
+
+		_updateCameraAttribute(N);
+		m_fEye[0] = m_fLookAt[0] + N[0];
+		m_fEye[1] = m_fLookAt[1] + N[1];
+		m_fEye[2] = m_fLookAt[2] + N[2];
+
 		_updateCameraAttribute(m_fUp);
 	}
 
