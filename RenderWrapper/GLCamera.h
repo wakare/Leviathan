@@ -71,7 +71,8 @@ public:
 		m_fovy(fovy), 
 		m_fAspect(aspect), 
 		m_fZNear(zNear), 
-		m_fZFar(zFar)
+		m_fZFar(zFar),
+		m_minDistanceOfCameraToLookAt(0.01f)
 	{
 		memcpy(m_fEye, eye, sizeof(float) * 3);
 		memcpy(m_fLookAt, lookAt, sizeof(float) * 3);
@@ -137,17 +138,39 @@ public:
 			m_fEye[2] - m_fLookAt[2],
 		};
 
-		Normalize<float, 3>(N);
+		if (!Normalize<float, 3>(N))
+		{
+			std::cout << "Eye & LookAt are the same coordination." << std::endl;
+			return;
+		}
 
 		float U[3];
 		Vec3Cross(m_fUp, N, U, true);
 
 		float V[3];
 		Vec3Cross(N, U, V, true);
+		memcpy(m_fUp, V, sizeof(float) * 3);
 
-		m_fEye[0] += (x * U[0] + y * V[0] + z * N[0]);
-		m_fEye[1] += (x * U[1] + y * V[1] + z * N[1]);
-		m_fEye[2] += (x * U[2] + y * V[2] + z * N[2]);
+		float newEyeCoord[3] =
+		{
+			m_fEye[0] + (x * U[0] + y * V[0] + z * N[0]),
+			m_fEye[1] + (x * U[1] + y * V[1] + z * N[1]),
+			m_fEye[2] + (x * U[2] + y * V[2] + z * N[2])
+		};
+
+		float _N[3] =
+		{
+			newEyeCoord[0] - m_fLookAt[0],
+			newEyeCoord[1] - m_fLookAt[1],
+			newEyeCoord[2] - m_fLookAt[2],
+		};
+
+		if (length<float, 3>(_N) < m_minDistanceOfCameraToLookAt)
+		{
+			return;
+		}
+
+		memcpy(m_fEye, newEyeCoord, sizeof(float) * 3);
 	}
 
 	void Rotate(float x, float y, float z)
@@ -219,4 +242,6 @@ public:
 	float m_fAspect;
 	float m_fZNear;
 	float m_fZFar;
+	const float m_minDistanceOfCameraToLookAt;
+
 };

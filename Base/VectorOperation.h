@@ -1,7 +1,8 @@
 #pragma once
+#include <float.h>
 
 template<typename T, int count>
-bool Normalize(T* vec)
+T length(T* vec)
 {
 	float temp = 0.0f;
 	for (unsigned i = 0; i < count; i++)
@@ -9,8 +10,14 @@ bool Normalize(T* vec)
 		temp += (vec[i] * vec[i]);
 	}
 
-	const float fLength = sqrtf(temp);
-	if (fLength < 1e-5f)
+	return sqrt(temp);
+}
+
+template<typename T, int count>
+bool Normalize(T* vec)
+{
+	const float fLength = length<T, count>(vec);
+	if (fLength < FLT_EPSILON)
 	{
 		return false;
 	}
