@@ -66,7 +66,25 @@ private:
 
 class GLCamera 
 {
+private:
+	void _GetNUVVector(float* N, float* U, float* V)
+	{
+		N[0] = m_fEye[0] - m_fLookAt[0];
+		N[1] = m_fEye[1] - m_fLookAt[1];
+		N[2] = m_fEye[2] - m_fLookAt[2];
+
+		Normalize<float, 3>(N);
+		Vec3Cross(m_fUp, N, U, true);
+		Vec3Cross(N, U, V, true);
+	}
+
 public:
+	enum class eCameraType
+	{
+		eObserveBallMode,
+		eFPS,
+	};
+
 	GLCamera(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar):
 		m_fovy(fovy), 
 		m_fAspect(aspect), 
@@ -81,23 +99,11 @@ public:
 
 	Matrix4f GetViewportTransformMatrix()
 	{
-		float N[3] = 
-		{
-			m_fEye[0] - m_fLookAt[0],
-			m_fEye[1] - m_fLookAt[1],
-			m_fEye[2] - m_fLookAt[2],
-		};
-
-		Normalize<float, 3>(N);
-
+		float N[3];
 		float U[3];
-		Vec3Cross(m_fUp, N, U, true);
-
 		float V[3];
-		Vec3Cross(N, U, V, true);
-
-		// Debug
-		//std::cout << "m_camera:" << m_fEye[0] << " " << m_fEye[1] << " " << m_fEye[2] << std::endl;
+		
+		_GetNUVVector(N, U, V);
 		
 		float data[16] =
 		{
@@ -131,24 +137,11 @@ public:
 	{
 		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
 
-		float N[3] =
-		{
-			m_fEye[0] - m_fLookAt[0],
-			m_fEye[1] - m_fLookAt[1],
-			m_fEye[2] - m_fLookAt[2],
-		};
-
-		if (!Normalize<float, 3>(N))
-		{
-			std::cout << "Eye & LookAt are the same coordination." << std::endl;
-			return;
-		}
-
+		float N[3];
 		float U[3];
-		Vec3Cross(m_fUp, N, U, true);
-
 		float V[3];
-		Vec3Cross(N, U, V, true);
+
+		_GetNUVVector(N, U, V);
 		memcpy(m_fUp, V, sizeof(float) * 3);
 
 		float newEyeCoord[3] =
@@ -176,24 +169,11 @@ public:
 
 	void MouseRotate(float x, float y)
 	{
-		float N[3] =
-		{
-			m_fEye[0] - m_fLookAt[0],
-			m_fEye[1] - m_fLookAt[1],
-			m_fEye[2] - m_fLookAt[2],
-		};
-
-		if (!Normalize<float, 3>(N))
-		{
-			std::cout << "Eye & LookAt are the same coordination." << std::endl;
-			return;
-		}
-
+		float N[3];
 		float U[3];
-		Vec3Cross(m_fUp, N, U, true);
-
 		float V[3];
-		Vec3Cross(N, U, V, true);
+
+		_GetNUVVector(N, U, V);
 		memcpy(m_fUp, V, sizeof(float) * 3);
 
 		float RotateVec[3] = 

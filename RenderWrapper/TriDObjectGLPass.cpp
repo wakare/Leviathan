@@ -43,6 +43,8 @@ void TriDObjectGLPass::Render()
 	}
 
 	// Set renderType
+	glEnable(GL_CULL_FACE);
+	glCullFace(GL_FRONT);
 	glPolygonMode(GL_FRONT, m_nPolygonMode);
 	
 	// Set GLProgram
@@ -61,6 +63,7 @@ void TriDObjectGLPass::Render()
 
 	// ResetProgram
 	glUseProgram(0);
+	glDisable(GL_CULL_FACE);
 
 	// Call PostCallBack
 	for (auto& process : m_PostRenderCallBacks)
