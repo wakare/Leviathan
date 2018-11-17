@@ -36,5 +36,6 @@ namespace Leviathan
 		GLFWwindow* m_pWindow;
 		LPtr<Scene> m_pScene;
 		LPtr<EventSystem> m_pEventSystem;
+		LPtr<IFileImportFactory> m_pFileImporter;
 	};
 }

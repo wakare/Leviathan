@@ -3,9 +3,28 @@
 
 namespace Leviathan
 {
-	CModelStruct::CModelStruct()
+	CModelStruct::CModelStruct() : 
+		m_vertexNumber(0),
+		m_triangleNumber(0),
+		m_vertexCoords(nullptr),
+		m_triangleIndex(nullptr)
 	{
 
+	}
+
+	CModelStruct::~CModelStruct()
+	{
+		if (m_vertexCoords)
+		{
+			free(m_vertexCoords);
+			m_vertexCoords = nullptr;
+		}
+
+		if (m_triangleIndex)
+		{
+			free(m_triangleIndex);
+			m_triangleIndex = nullptr;
+		}
 	}
 
 	unsigned CModelStruct::GetVertexCount()
@@ -41,6 +60,8 @@ namespace Leviathan
 		}
 
 		m_vertexNumber = uVertexCount;
+		m_vertexCoords = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
+
 		memcpy(m_vertexCoords, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
@@ -52,6 +73,8 @@ namespace Leviathan
 		}
 
 		m_triangleNumber = uTriangleCount;
+		m_triangleIndex = (unsigned*)malloc(sizeof(unsigned) * 3 * m_triangleNumber);
+
 		memcpy(m_triangleIndex, triangleIndexData, sizeof(unsigned) * 3 * m_triangleNumber);
 	}
 

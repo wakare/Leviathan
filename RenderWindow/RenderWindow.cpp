@@ -1,10 +1,18 @@
 #include "RenderWindow.h"
 #include <iostream>
 #include "GlobalDef.h"
+#include "ImporterRegister.h"
+
 namespace Leviathan
 {
 	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, GLint width /*= 800*/, GLint height /*= 600*/, GLchar* pTitle /*= "RenderWindow"*/) :
-		m_pEventSystem(pEventSystem), m_pScene(nullptr), m_width(width), m_height(height), m_pWindowTitle(pTitle), m_pWindow(nullptr)
+		m_pEventSystem(pEventSystem), 
+		m_pFileImporter(nullptr),
+		m_pScene(nullptr), 
+		m_width(width), 
+		m_height(height), 
+		m_pWindowTitle(pTitle),
+		m_pWindow(nullptr)
 	{
 		if (GLFW_FALSE == glfwInit())
 		{
@@ -14,6 +22,12 @@ namespace Leviathan
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+		m_pFileImporter = CFileImportFactory::GetFileImportFactory();
+		RegisterImporter();
+		
+		// test
+		auto file = m_pFileImporter->LoadFile("dental.stl");
 	}
 
 	bool RenderWindow::CreateRenderWindow()

@@ -9,5 +9,6 @@ namespace Leviathan
 		auto stlImporter = Leviathan::CSTLFileImporter::GetInstance();
 		
 		stlImporter->RegisterToFactory();
+		return true;
 	}
 }

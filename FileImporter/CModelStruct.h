@@ -6,7 +6,8 @@ namespace Leviathan
 	{
 	public:
 		CModelStruct();
-		
+		~CModelStruct();
+
 		unsigned GetVertexCount();
 		unsigned GetTriangleCount();
 		float* GetVertex3DCoordArray();
