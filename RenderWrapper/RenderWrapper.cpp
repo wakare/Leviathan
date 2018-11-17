@@ -1,69 +1,66 @@
 #include "RenderWrapper.h"
 #include <Algorithm>
 
-void RenderWrapper::PreInit()
+namespace Leviathan
 {
-	m_bPreInited = true;
-}
-
-void RenderWrapper::Render()
-{
-	if (!m_bPreInited)
+	void RenderWrapper::PreInit()
 	{
-		PreInit();
+		m_bPreInited = true;
 	}
 
-	if (!m_pWindow)
+	void RenderWrapper::Render()
 	{
-		throw "RenderWrapper::Render() --> Render window is invalid";
-		return;
-	}
-
-	// Set Global state
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// Render subProcess
-	for (auto& pGLPass : m_GLPasses)
-	{
-		if (!pGLPass->Init())
+		if (!m_bPreInited)
 		{
-			throw "RenderWrapper::Render() --> GLPass Init failed.";
+			PreInit();
+		}
+
+		if (!m_pWindow)
+		{
+			throw "RenderWrapper::Render() --> Render window is invalid";
 			return;
 		}
 
-		pGLPass->Render();
+		// Set Global state
+		glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Render subProcess
+		for (auto& pGLPass : m_GLPasses)
+		{
+			if (!pGLPass->Init())
+			{
+				throw "RenderWrapper::Render() --> GLPass Init failed.";
+				return;
+			}
+
+			pGLPass->Render();
+		}
+
+		glfwSwapBuffers(m_pWindow);
 	}
 
-	//glUseProgram(shaderProgram);
-	//glBindVertexArray(VAO);
-	////glDrawArrays(GL_TRIANGLES, 0, 6);
-	//glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
-	//glBindVertexArray(0);
-	
-	glfwSwapBuffers(m_pWindow);
-}
-
-bool RenderWrapper::AddGLPass(std::shared_ptr<GLPass> _GLPass)
-{
-	auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), _GLPass);
-	if (findResult != m_GLPasses.end())
+	bool RenderWrapper::AddGLPass(LPtr<GLPass> GLPass)
 	{
-		return false;
+		auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), GLPass);
+		if (findResult != m_GLPasses.end())
+		{
+			return false;
+		}
+
+		m_GLPasses.push_back(GLPass);
+		return true;
 	}
 
-	m_GLPasses.push_back(_GLPass);
-	return true;
-}
-
-bool RenderWrapper::DelGLPass(std::shared_ptr<GLPass> _GLPass)
-{
-	auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), _GLPass);
-	if (findResult == m_GLPasses.end())
+	bool RenderWrapper::DelGLPass(LPtr<GLPass> GLPass)
 	{
-		return false;
-	}
+		auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), GLPass);
+		if (findResult == m_GLPasses.end())
+		{
+			return false;
+		}
 
-	m_GLPasses.erase(findResult);
-	return true;
+		m_GLPasses.erase(findResult);
+		return true;
+	}
 }

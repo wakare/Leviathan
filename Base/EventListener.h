@@ -1,10 +1,10 @@
 #pragma once
 #include "Event.h"
-
-class EventListener
+namespace Leviathan
 {
-public:
-	virtual void Accept(Event event) = 0;
-
-private:
-};
+	class EventListener
+	{
+	public:
+		virtual void Accept(Event event) = 0;
+	};
+}

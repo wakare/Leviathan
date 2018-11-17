@@ -1,25 +1,27 @@
 #include <iostream>
 #include "EventSystem.h"
-
-void EventSystem::DispatchEvent()
+namespace Leviathan
 {
-	for (auto& _event : m_eventQueue)
+	void EventSystem::DispatchEvent()
 	{
-		if (m_bAddMouseCoordToEvent)
+		for (auto& _event : m_eventQueue)
 		{
-			_event.m_mouseCoord = m_currentMouseCoord;
+			if (m_bAddMouseCoordToEvent)
+			{
+				_event.m_mouseCoord = m_currentMouseCoord;
+			}
+
+			for (auto& listener : m_eventListeners[_event.m_type])
+			{
+				listener->Accept(_event);
+			}
 		}
 
-		for (auto& listener : m_eventListeners[_event.m_type])
-		{
-			listener->Accept(_event);
-		}
+		m_eventQueue.clear();
 	}
 
-	m_eventQueue.clear();
-}
-
-void EventSystem::AddEvent(Event _event)
-{
-	m_eventQueue.push_back(_event);
+	void EventSystem::AddEvent(Event _event)
+	{
+		m_eventQueue.push_back(_event);
+	}
 }

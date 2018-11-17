@@ -159,10 +159,12 @@
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="GlobalDef.h" />
+    <ClInclude Include="LPtr.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />
     <ClInclude Include="VectorOperation.h" />

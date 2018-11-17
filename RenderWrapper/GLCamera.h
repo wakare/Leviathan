@@ -267,5 +267,4 @@ public:
 	float m_fZNear;
 	float m_fZFar;
 	const float m_minDistanceOfCameraToLookAt;
-
 };

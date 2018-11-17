@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include "RenderWindow.h"
+using namespace Leviathan;
 
 #if (false)
 template<class T>
@@ -50,9 +51,9 @@ int main()
 
 int main()
 {
-	std::shared_ptr<EventSystem> pEventSystem = std::make_shared<EventSystem>();
-	std::shared_ptr<RenderWindow> pRenderWindow = std::make_shared<RenderWindow>(pEventSystem);
-	pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, pRenderWindow);
+	LPtr<EventSystem> pEventSystem = new EventSystem();
+	LPtr<RenderWindow> pRenderWindow = new RenderWindow(pEventSystem);
+	pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(pRenderWindow));
 
 	pRenderWindow->Run();
 }

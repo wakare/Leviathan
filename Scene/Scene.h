@@ -4,21 +4,25 @@
 #include "TriDObjectGLPass.h"
 #include "TriDGLObject.h"
 #include "GLShaderProgram.h"
+#include "LPtr.h"
 
-class Scene
+namespace Leviathan
 {
-public:
-	Scene(GLFWwindow* pRenderWindow, int width, int height);
+	class Scene
+	{
+	public:
+		Scene(GLFWwindow* pRenderWindow, int width, int height);
 
-	virtual void Update();
+		virtual void Update();
 
-	std::shared_ptr<GLCamera> m_pCamera;
-private:
-	std::string _getShaderSource(const char* pczShaderSourcePath);
+		LPtr<GLCamera> m_pCamera;
+	private:
+		std::string _getShaderSource(const char* pczShaderSourcePath);
 
-	GLFWwindow* m_pGLFWWindow;
+		GLFWwindow* m_pGLFWWindow;
 
-	std::shared_ptr<RenderWrapper> m_pRenderWarpper;
-	std::shared_ptr<TriDObjectGLPass> m_pMeshPass;
-	std::shared_ptr<GLShaderProgram> m_pShaderProgram;
-};
+		LPtr<RenderWrapper> m_pRenderWarpper;
+		LPtr<TriDObjectGLPass> m_pMeshPass;
+		LPtr<GLShaderProgram> m_pShaderProgram;
+	};
+}

@@ -1,42 +1,44 @@
 #pragma once
 #include "GL/glew.h"
 #include "GLUniform.h"
+#include "LPtr.h"
 #include <memory>
 #include <map>
 
-class GLUniform;
-
-class GLShaderProgram
+namespace Leviathan
 {
-public:
-	GLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
-		m_pczVertexShader(pczVertexShader), 
-		m_pczFragmentShader(pczFragmentShader), 
-		m_pczGeomShader(pczGeomShader),
-		m_bInited(false)
-	{};
+	class GLShaderProgram
+	{
+	public:
+		GLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
+			m_pczVertexShader(pczVertexShader),
+			m_pczFragmentShader(pczFragmentShader),
+			m_pczGeomShader(pczGeomShader),
+			m_bInited(false)
+		{};
 
-	bool Init();
-	bool SetGLUniformState();
-	
-	bool AddUniform(std::shared_ptr<GLUniform> pUniform);
-	std::shared_ptr<GLUniform> GetUniformByName(std::string uniformName);
-	GLuint GetShaderProgram() { return m_shaderProgram; };
+		bool Init();
+		bool SetGLUniformState();
 
-private:
-	bool _compileAll();
-	bool _linkAll();
-	bool _compileShader(const GLchar* const* pczShaderSource, GLuint shaderProgram);
+		bool AddUniform(LPtr<GLUniform> pUniform);
+		LPtr<GLUniform> GetUniformByName(std::string uniformName);
+		GLuint GetShaderProgram() { return m_shaderProgram; };
 
-	const GLchar* const* m_pczVertexShader;
-	const GLchar* const* m_pczFragmentShader;
-	const GLchar* const* m_pczGeomShader;
+	private:
+		bool _compileAll();
+		bool _linkAll();
+		bool _compileShader(const GLchar* const* pczShaderSource, GLuint shaderProgram);
 
-	GLuint m_VertexShader;
-	GLuint m_FragmentShader;
-	GLuint m_GeomShader;
-	GLuint m_shaderProgram;
-	GLboolean m_bInited;
+		const GLchar* const* m_pczVertexShader;
+		const GLchar* const* m_pczFragmentShader;
+		const GLchar* const* m_pczGeomShader;
 
-	std::map<std::string, std::shared_ptr<GLUniform>> m_pGLUniforms;
-};
+		GLuint m_VertexShader;
+		GLuint m_FragmentShader;
+		GLuint m_GeomShader;
+		GLuint m_shaderProgram;
+		GLboolean m_bInited;
+
+		std::map<std::string, LPtr<GLUniform>> m_pGLUniforms;
+	};
+}

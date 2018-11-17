@@ -6,32 +6,35 @@
 #include <memory>
 #include "WindowCallBack.h"
 #include "Scene.h"
+#include "CFileImportFactory.h"
+#include "LPtr.h"
 
-class Scene;
-
-class RenderWindow : public EventListener
+namespace Leviathan
 {
-public:
-	RenderWindow(std::shared_ptr<EventSystem> pEventSystem, GLint width = 800, GLint height = 600, GLchar* pTitle = "RenderWindow");
-	bool CreateRenderWindow();
-	void Run();
+	class RenderWindow : public EventListener
+	{
+	public:
+		RenderWindow(LPtr<EventSystem> pEventSystem, GLint width = 800, GLint height = 600, GLchar* pTitle = "RenderWindow");
+		bool CreateRenderWindow();
+		void Run();
 
-	void Accept(Event event);
+		void Accept(Event event);
 
-	GLFWwindow* GetGLFWWindow() { return m_pWindow; };
-	GLint GetWidth() { return m_width; };
-	GLint GetHeight() { return m_height; };
+		GLFWwindow* GetGLFWWindow() { return m_pWindow; };
+		GLint GetWidth() { return m_width; };
+		GLint GetHeight() { return m_height; };
 
-private:
-	void _updateCameraTransform(Event& event);
-	void _setWindowProcess();
-	bool _glewInit();
+	private:
+		void _updateCameraTransform(Event& event);
+		void _setWindowProcess();
+		bool _glewInit();
 
-	GLint m_width;
-	GLint m_height;
-	GLchar* m_pWindowTitle;
+		GLint m_width;
+		GLint m_height;
+		GLchar* m_pWindowTitle;
 
-	GLFWwindow* m_pWindow;
-	std::shared_ptr<Scene> m_pScene;
-	std::shared_ptr<EventSystem> m_pEventSystem;
-};
+		GLFWwindow* m_pWindow;
+		LPtr<Scene> m_pScene;
+		LPtr<EventSystem> m_pEventSystem;
+	};
+}

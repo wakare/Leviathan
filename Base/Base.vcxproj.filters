@@ -44,5 +44,11 @@
     <ClInclude Include="GlobalDef.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="LPtr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
