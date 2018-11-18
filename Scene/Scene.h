@@ -5,6 +5,7 @@
 #include "TriDGLObject.h"
 #include "GLShaderProgram.h"
 #include "LPtr.h"
+#include "..\FileImporter\IModelStruct.h"
 
 namespace Leviathan
 {
@@ -18,6 +19,9 @@ namespace Leviathan
 		LPtr<GLCamera> m_pCamera;
 	private:
 		std::string _getShaderSource(const char* pczShaderSourcePath);
+		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelFile> modelFile);
+		LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);
+		LPtr<GLObject> _getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
 
 		GLFWwindow* m_pGLFWWindow;
 

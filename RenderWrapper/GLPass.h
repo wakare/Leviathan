@@ -26,6 +26,7 @@ namespace Leviathan
 
 		void AddPreProcess(Process process) { m_PreRenderCallBacks.push_back(process); };
 		void AddPostProcess(Process process) { m_PostRenderCallBacks.push_back(process); };
+		void SetPolygonMode(GLuint nPolygonMode) { m_nPolygonMode = nPolygonMode; }
 
 	protected:
 		LPtr<GLShaderProgram> m_pGLShaderProgram;

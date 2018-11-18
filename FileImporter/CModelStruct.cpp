@@ -78,4 +78,64 @@ namespace Leviathan
 		memcpy(m_triangleIndex, triangleIndexData, sizeof(unsigned) * 3 * m_triangleNumber);
 	}
 
+	const Leviathan::AABB& CModelStruct::GetAABB()
+{
+		if (!m_bAABBInited)
+		{
+			if (!_setAABB())
+			{
+				throw "Exception";
+			}
+		}
+
+		return m_AABB;
+	}
+
+	bool CModelStruct::_setAABB()
+{
+		float AABBData[6];
+		bool bInited = false;
+
+		// Traverse vertex coord
+		for (unsigned i = 0; i < m_vertexNumber; i++)
+		{
+			float* currentVertexCoord = m_vertexCoords + 3 * i;
+
+			if (!bInited)
+			{
+				AABBData[0] = currentVertexCoord[0];
+				AABBData[1] = currentVertexCoord[1];
+				AABBData[2] = currentVertexCoord[2];
+				AABBData[3] = currentVertexCoord[0];
+				AABBData[4] = currentVertexCoord[1];
+				AABBData[5] = currentVertexCoord[2];
+
+				bInited = true;
+				continue;
+			}
+
+			for (unsigned j = 0; j < 3; j++)
+			{
+				if (currentVertexCoord[j] < AABBData[j])
+				{
+					AABBData[j] = currentVertexCoord[j];
+				}
+
+				if (currentVertexCoord[j] > AABBData[3 + j])
+				{
+					AABBData[3 + j] = currentVertexCoord[j];
+				}
+			}
+		}
+
+		if (!bInited)
+		{
+			LeviathanOutStream << "[FATAL] AABB init failed." << std::endl;
+			return false;
+		}
+
+		m_AABB.SetAABBCoord(AABBData);
+		return true;
+	}
+
 }

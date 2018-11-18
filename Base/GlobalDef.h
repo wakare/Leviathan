@@ -9,3 +9,5 @@
 
 #define EXIT_GET_FALSE(statement) { if (!statement) return false;}
 #define ANGLE_TO_RADIAN(angle) ((angle) / PI_DOUBLE)
+
+#define PI 3.1415926f

@@ -27,6 +27,9 @@
     <ClInclude Include="ImporterRegister.h">
       <Filter>Implement</Filter>
     </ClInclude>
+    <ClInclude Include="AABB.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CModelStruct.h">

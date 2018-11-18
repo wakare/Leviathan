@@ -21,7 +21,7 @@ namespace Leviathan
 		bool SetGLUniformState();
 
 		bool AddUniform(LPtr<GLUniform> pUniform);
-		LPtr<GLUniform> GetUniformByName(std::string uniformName);
+		LPtr<GLUniform>& GetUniformByName(std::string uniformName);
 		GLuint GetShaderProgram() { return m_shaderProgram; };
 
 	private:

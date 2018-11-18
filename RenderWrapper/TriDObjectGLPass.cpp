@@ -74,8 +74,8 @@ namespace Leviathan
 
 	void TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram)
 	{
-		auto pViewMatrixUniform = m_pGLShaderProgram->GetUniformByName("viewMatrix");
-		if (pViewMatrixUniform == nullptr)
+		auto& pViewMatrixUniform = m_pGLShaderProgram->GetUniformByName("viewMatrix");
+		if (!pViewMatrixUniform)
 		{
 			throw "TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram) --> GetUniform failed.";
 			return;
@@ -84,8 +84,8 @@ namespace Leviathan
 		auto viewMatrix = m_mainCamera->GetViewportTransformMatrix();
 		pViewMatrixUniform->SetData(viewMatrix.GetData(), viewMatrix.GetDataSize());
 
-		auto pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
-		if (pPerspectiveMatrixUniform == nullptr)
+		auto& pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
+		if (!pPerspectiveMatrixUniform)
 		{
 			throw "TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram) --> GetUniform failed.";
 			return;

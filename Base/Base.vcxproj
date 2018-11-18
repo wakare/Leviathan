@@ -159,6 +159,7 @@
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Drawable.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />

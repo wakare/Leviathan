@@ -110,7 +110,7 @@ namespace Leviathan
 
 		static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos)
 		{
-			WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(xpos, ypos);
+			WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(static_cast<int>(xpos), static_cast<int>(ypos));
 			Event keyEvent = Event(Event::EventType::INPUT_EVENT);
 			keyEvent.m_action = Event::InputAction::MOVE;
 			keyEvent.m_code = Event::InputCode::INPUT_NONE;
@@ -136,8 +136,8 @@ namespace Leviathan
 			Event scrollEvent = Event(Event::EventType::INPUT_EVENT);
 			scrollEvent.m_action = Event::InputAction::SCROLL;
 			scrollEvent.m_code = Event::InputCode::INPUT_NONE;
-			scrollEvent.m_mouseScrollState.x = xOffset;
-			scrollEvent.m_mouseScrollState.y = yOffset;
+			scrollEvent.m_mouseScrollState.x = static_cast<int>(xOffset);
+			scrollEvent.m_mouseScrollState.y = static_cast<int>(yOffset);
 			m_spEventSystem->AddEvent(scrollEvent);
 		}
 

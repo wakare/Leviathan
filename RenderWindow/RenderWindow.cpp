@@ -25,9 +25,6 @@ namespace Leviathan
 
 		m_pFileImporter = CFileImportFactory::GetFileImportFactory();
 		RegisterImporter();
-		
-		// test
-		auto file = m_pFileImporter->LoadFile("dental.stl");
 	}
 
 	bool RenderWindow::CreateRenderWindow()

@@ -52,12 +52,12 @@ namespace Leviathan
 		return true;
 	}
 
-	LPtr<GLUniform> GLShaderProgram::GetUniformByName(std::string uniformName)
+	Leviathan::LPtr<Leviathan::GLUniform>& GLShaderProgram::GetUniformByName(std::string uniformName)
 	{
 		auto findIt = m_pGLUniforms.find(uniformName);
 		if (findIt == m_pGLUniforms.end())
 		{
-			return nullptr;
+			return LPtr<GLUniform>(nullptr);
 		}
 
 		return findIt->second;

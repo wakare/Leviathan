@@ -69,9 +69,9 @@ class GLCamera
 private:
 	void _GetNUVVector(float* N, float* U, float* V)
 	{
-		N[0] = m_fEye[0] - m_fLookAt[0];
-		N[1] = m_fEye[1] - m_fLookAt[1];
-		N[2] = m_fEye[2] - m_fLookAt[2];
+		N[0] = m_fLookAt[0] - m_fEye[0];
+		N[1] = m_fLookAt[1] - m_fEye[1];
+		N[2] = m_fLookAt[2] - m_fEye[2];
 
 		Normalize<float, 3>(N);
 		Vec3Cross(m_fUp, N, U, true);
@@ -107,9 +107,9 @@ public:
 		
 		float data[16] =
 		{
-			U[0], U[1], U[2], VecDot<float, 3>(U, m_fEye),
-			V[0], V[1], V[2], VecDot<float, 3>(V, m_fEye),
-			N[0], N[1], N[2], VecDot<float, 3>(N, m_fEye),
+			U[0], U[1], U[2], -VecDot<float, 3>(U, m_fEye),
+			V[0], V[1], V[2], -VecDot<float, 3>(V, m_fEye),
+			N[0], N[1], N[2], -VecDot<float, 3>(N, m_fEye),
 			0.0f, 0.0f, 0.0f,						 1.0f,
 		};
 
@@ -136,6 +136,7 @@ public:
 	void Translate(float x, float y, float z)
 	{
 		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
+		std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 
 		float N[3];
 		float U[3];
@@ -153,9 +154,9 @@ public:
 
 		float _N[3] =
 		{
-			newEyeCoord[0] - m_fLookAt[0],
-			newEyeCoord[1] - m_fLookAt[1],
-			newEyeCoord[2] - m_fLookAt[2],
+			m_fLookAt[0] - newEyeCoord[0],
+			m_fLookAt[1] - newEyeCoord[1],
+			m_fLookAt[2] - newEyeCoord[2],
 		};
 
 		if (length<float, 3>(_N) < m_minDistanceOfCameraToLookAt)
@@ -189,6 +190,8 @@ public:
 
 	void Rotate(float x, float y, float z)
 	{
+		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
+		std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 		float sinValue[3] = { sinf(x), sinf(y), sinf(z) };
 		float cosValue[3] = { cosf(x), cosf(y), cosf(z) };
 	
@@ -225,7 +228,7 @@ public:
 	
 		Matrix4f rotateMatrix = xMatrix * yMatrix * zMatrix;
 
-		static auto _updateCameraAttribute = [&](float* attribute)
+		static auto _updateCameraAttribute = [](float* attribute, Matrix4f& rotateMatrix)
 		{
 			float attributeArray[4] = { attribute[0], attribute[1], attribute[2], 1.0f };
 			Vector4f attributeVector = Vector4f(attributeArray) * rotateMatrix;
@@ -245,17 +248,17 @@ public:
 
 		float N[3] = 
 		{
-			m_fEye[0] - m_fLookAt[0],
-			m_fEye[1] - m_fLookAt[1],
-			m_fEye[2] - m_fLookAt[2],
+			m_fLookAt[0] - m_fEye[0],
+			m_fLookAt[1] - m_fEye[1],
+			m_fLookAt[2] - m_fEye[2]
 		};
 
-		_updateCameraAttribute(N);
-		m_fEye[0] = m_fLookAt[0] + N[0];
-		m_fEye[1] = m_fLookAt[1] + N[1];
-		m_fEye[2] = m_fLookAt[2] + N[2];
+		_updateCameraAttribute(N, rotateMatrix);
+		m_fEye[0] = m_fLookAt[0] - N[0];
+		m_fEye[1] = m_fLookAt[1] - N[1];
+		m_fEye[2] = m_fLookAt[2] - N[2];
 
-		_updateCameraAttribute(m_fUp);
+		_updateCameraAttribute(m_fUp, rotateMatrix);
 	}
 
 	float m_fEye[3];

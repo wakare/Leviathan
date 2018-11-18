@@ -11,8 +11,8 @@ namespace Leviathan
 			Init();
 		};
 
-		virtual bool Init();
-		virtual bool Render(GLuint shaderProgram);
+		bool Init();
+		bool Render(GLuint shaderProgram);
 
 	private:
 
