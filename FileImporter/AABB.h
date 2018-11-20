@@ -22,7 +22,7 @@ namespace Leviathan
 		};
 
 	public:
-		AABB(float* data = nullptr) : m_bSetFlag(false)
+		AABB(float* data = nullptr) : m_bSetFlag(false), m_fRadius(-1.0f)
 		{
 			if (data)
 			{
@@ -32,8 +32,10 @@ namespace Leviathan
 
 		void SetAABBCoord(float* data)
 		{
-			m_bSetFlag = true;
 			memcpy(&m_coord, data, sizeof(AABBCoord));
+			m_fRadius = 0.5f * (fmax(fmax(m_coord.maxX - m_coord.minX, m_coord.maxY - m_coord.minY), m_coord.maxZ - m_coord.minZ));
+			
+			m_bSetFlag = true;
 		}
 
 		const AABBCoord& GetAABBCoord()
@@ -70,11 +72,12 @@ namespace Leviathan
 				return -1.0f;
 			}
 
-			return 0.5f * (fmax(fmax(m_coord.maxX - m_coord.minX, m_coord.maxY - m_coord.minY), m_coord.maxZ - m_coord.minZ));
+			return m_fRadius;
 		}
 
 	private:
 		bool m_bSetFlag;
 		AABBCoord m_coord;
+		float m_fRadius;
 	};
 }

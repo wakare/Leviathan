@@ -24,3 +24,6 @@
 .vs/Leviathan/v15/.suo
 *.db
 *.txt
+*.stl
+*.iobj
+*.ipdb

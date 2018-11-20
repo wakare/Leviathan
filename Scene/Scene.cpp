@@ -14,7 +14,7 @@ namespace Leviathan
 		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
 		if (!m_pRenderWarpper)
 		{
-			throw "Scene::Scene(std::shared_ptr<RenderWindow> pRenderWindow) --> RenderWrapper init failed.";
+			throw "RenderWrapper init failed.";
 			return;
 		}
 
@@ -70,15 +70,18 @@ namespace Leviathan
 		LPtr<GLObject> pCube = _convertAABBtoGLObject(_AABB);
 		//m_pMeshPass->AddGLObject(pCube);
 
-		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
+		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("fantasy_castle.stl");
  		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
 		m_pMeshPass->AddGLObject(pRenderObject);
 		
 		auto& AABB = pDentalFile->GetAABB();
  		if (!AABB.GetAABBCenter(m_pCamera->m_fLookAt))
  		{
- 			LeviathanOutStream << "[ERROR] camera set lookAt failed." << std::endl;
+ 			LeviathanOutStream << "[ERROR] Camera set lookAt failed." << std::endl;
  		}
+
+		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
+		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
 
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
 		m_pMeshPass->AddGLObject(AABBGLObject);
@@ -154,7 +157,7 @@ namespace Leviathan
 		float fRadius = aabb.GetAABBRadius();
 		if (fRadius < 0.0f)
 		{
-			LeviathanOutStream << "[ERROR] AABB redius less than zero." << std::endl;
+			LeviathanOutStream << "[ERROR] AABB radius less than zero." << std::endl;
 			return nullptr;
 		}
 
