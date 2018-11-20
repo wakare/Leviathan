@@ -109,13 +109,13 @@ namespace Leviathan
 
 		if ((event.m_action == Event::InputAction::SCROLL))
 		{
-			std::cout << "Mouse scroll:" << event.m_mouseScrollState.y << std::endl;
+			//std::cout << "Mouse scroll:" << event.m_mouseScrollState.y << std::endl;
 			fTranslate[2] += (event.m_mouseScrollState.y * 0.02f);
 		}
 
 		if (fTranslate[0] != 0.0f || fTranslate[1] != 0.0f || fTranslate[2] != 0.0f)
 		{
-			m_pScene->m_pCamera->Translate(fTranslate[0], fTranslate[1], fTranslate[2]);
+			m_pScene->m_pCamera->MouseTranslate(fTranslate[0], fTranslate[1], fTranslate[2]);
 		}
 #pragma endregion
 
@@ -144,7 +144,7 @@ namespace Leviathan
 
 				m_pScene->m_pCamera->MouseRotate(delta[0], delta[1]);
 
-				std::cout << "Delta mouseCoord = " << delta[0] << " " << delta[1] << std::endl;
+				//std::cout << "Delta mouseCoord = " << delta[0] << " " << delta[1] << std::endl;
 			}
 		}
 

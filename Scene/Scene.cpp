@@ -14,7 +14,7 @@ namespace Leviathan
 		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
 		if (!m_pRenderWarpper)
 		{
-			throw "Scene::Scene(std::shared_ptr<RenderWindow> pRenderWindow) --> RenderWrapper init failed.";
+			throw "RenderWrapper init failed.";
 			return;
 		}
 
@@ -23,11 +23,11 @@ namespace Leviathan
 		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
 
 		float fovy = PI * (45.0f / 180.0f);
-		float aspect = (1.0f * width) / height;
+		float fAspect = (1.0f * width) / height;
 		float fNear = 0.01f;
 		float fFar = 1000.0f;
 
-		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, aspect, fNear, fFar);
+		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
 		if (!m_pCamera)
 		{
 			throw "Exception";
@@ -77,13 +77,16 @@ namespace Leviathan
 		auto& AABB = pDentalFile->GetAABB();
  		if (!AABB.GetAABBCenter(m_pCamera->m_fLookAt))
  		{
- 			LeviathanOutStream << "[ERROR] camera set lookAt failed." << std::endl;
+ 			LeviathanOutStream << "[ERROR] Camera set lookAt failed." << std::endl;
  		}
+
+		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
+		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
 
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
 		m_pMeshPass->AddGLObject(AABBGLObject);
 		
-		m_pMeshPass->SetPolygonMode(GL_LINE);
+		m_pMeshPass->SetPolygonMode(GL_FILL);
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
@@ -154,7 +157,7 @@ namespace Leviathan
 		float fRadius = aabb.GetAABBRadius();
 		if (fRadius < 0.0f)
 		{
-			LeviathanOutStream << "[ERROR] AABB redius less than zero." << std::endl;
+			LeviathanOutStream << "[ERROR] AABB radius less than zero." << std::endl;
 			return nullptr;
 		}
 

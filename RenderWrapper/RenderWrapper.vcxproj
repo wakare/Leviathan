@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommonGLMaterial.cpp" />
     <ClCompile Include="GLShaderProgram.cpp" />
     <ClCompile Include="GLUniform.cpp" />
     <ClCompile Include="RenderWrapper.cpp" />
@@ -162,7 +163,10 @@
     <ClCompile Include="TriDObjectGLPass.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommonGLMaterial.h" />
     <ClInclude Include="GLCamera.h" />
+    <ClInclude Include="GLColor.h" />
+    <ClInclude Include="GLMaterial.h" />
     <ClInclude Include="GLObject.h" />
     <ClInclude Include="GLPass.h" />
     <ClInclude Include="GLShaderProgram.h" />

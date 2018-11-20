@@ -34,6 +34,19 @@ public:
 	float* GetData() { return reinterpret_cast<float*>(m_data); };
 	unsigned GetDataSize() { return sizeof(float) * 16; }
 
+	static Matrix4f GetIdentityMatrix()
+	{
+		static float identityMatrix[16] =
+		{
+			1.0f, 0.0f, 0.0f, 0.0f,
+			0.0f, 1.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 1.0f, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		};
+
+		return Matrix4f(identityMatrix);
+	}
+
 private:
 	float m_data[4][4];
 }; 
@@ -135,8 +148,8 @@ public:
 
 	void Translate(float x, float y, float z)
 	{
-		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
+		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
+		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 
 		float N[3];
 		float U[3];
@@ -168,6 +181,15 @@ public:
 		memcpy(m_fEye, newEyeCoord, sizeof(float) * 3);
 	}
 
+	void MouseTranslate(float x, float y, float z)
+	{
+		float _lengthVec[3] = { m_fEye[0] - m_fLookAt[0], m_fEye[1] - m_fLookAt[1], m_fEye[2] - m_fLookAt[2] };
+		float fLength = length<float, 3>(_lengthVec);
+		float fScaleRatio = fLength * 0.5f;
+
+		return Translate(fScaleRatio * x, fScaleRatio * y, fScaleRatio * z);
+	}
+
 	void MouseRotate(float x, float y)
 	{
 		float N[3];
@@ -190,8 +212,8 @@ public:
 
 	void Rotate(float x, float y, float z)
 	{
-		std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
+		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
+		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 		float sinValue[3] = { sinf(x), sinf(y), sinf(z) };
 		float cosValue[3] = { cosf(x), cosf(y), cosf(z) };
 	

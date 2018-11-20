@@ -13,8 +13,18 @@ namespace Leviathan
 		EXIT_GET_FALSE(m_pGLShaderProgram->Init());
 
 		// Add matrix uniform to shaderProgram
+		LPtr<GLUniform> modelMatrixUniform = new GLUniform("modelMatrix", GLUniform::TYPE_FLOAT_MAT4);
+		//auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
+		Matrix4f modelMatrix = Matrix4f::GetIdentityMatrix();
+		modelMatrixUniform->SetData(modelMatrix.GetData(), modelMatrix.GetDataSize());
+		if (!m_pGLShaderProgram->AddUniform(modelMatrixUniform))
+		{
+			throw "TriDObjectGLPass::Init() failed.";
+			return false;
+		}
+
 		LPtr<GLUniform> viewMatrixUniform = new GLUniform("viewMatrix", GLUniform::TYPE_FLOAT_MAT4);
-		auto viewMatrix = m_mainCamera->GetViewportTransformMatrix();
+		auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
 		viewMatrixUniform->SetData(viewMatrix.GetData(), viewMatrix.GetDataSize());
 		if (!m_pGLShaderProgram->AddUniform(viewMatrixUniform))
 		{
@@ -23,7 +33,7 @@ namespace Leviathan
 		}
 
 		LPtr<GLUniform> PerspectiveMatrixUniform = new GLUniform("projMatrix", GLUniform::TYPE_FLOAT_MAT4);
-		auto projMatrix = m_mainCamera->GetPerspectiveTransformMatrix();
+		auto projMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
 		PerspectiveMatrixUniform->SetData(projMatrix.GetData(), projMatrix.GetDataSize());
 		if (!m_pGLShaderProgram->AddUniform(PerspectiveMatrixUniform))
 		{
@@ -58,6 +68,16 @@ namespace Leviathan
 		// Render each GLObject
 		for (auto& Object : m_GLObjects)
 		{
+			if (!Object->SetMaterial(program))
+			{
+				LeviathanOutStream << "[ERROR] Set material failed." << std::endl;
+			}
+
+			if (!Object->SetModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
+			{
+				LeviathanOutStream << "[ERROR] Set model matrix failed." << std::endl;
+			}
+
 			Object->Render(program);
 		}
 
@@ -81,7 +101,7 @@ namespace Leviathan
 			return;
 		}
 
-		auto viewMatrix = m_mainCamera->GetViewportTransformMatrix();
+		auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
 		pViewMatrixUniform->SetData(viewMatrix.GetData(), viewMatrix.GetDataSize());
 
 		auto& pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
@@ -91,7 +111,7 @@ namespace Leviathan
 			return;
 		}
 
-		auto PerspectiveMatrix = m_mainCamera->GetPerspectiveTransformMatrix();
+		auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
 		pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.GetData(), PerspectiveMatrix.GetDataSize());
 	}
 }
