@@ -57,7 +57,7 @@ namespace Leviathan
 		auto findIt = m_pGLUniforms.find(uniformName);
 		if (findIt == m_pGLUniforms.end())
 		{
-			return LPtr<GLUniform>(nullptr);
+			throw "FATAL ERROR";
 		}
 
 		return findIt->second;

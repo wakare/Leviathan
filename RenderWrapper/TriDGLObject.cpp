@@ -113,7 +113,7 @@ namespace Leviathan
 		return m_pCommonGLMaterial->SetMaterial(shaderProgram);
 	}
 
-	bool TriDGLObject::SetModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelMatrixUniform)
+	bool TriDGLObject::ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelMatrixUniform)
 	{
 		if (!modelMatrixUniform)
 		{

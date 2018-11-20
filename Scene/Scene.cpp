@@ -72,6 +72,9 @@ namespace Leviathan
 
 		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
  		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
+		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
+		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
+		pRenderObject->SetModelMatrix(pModelMatrix);
 		m_pMeshPass->AddGLObject(pRenderObject);
 		
 		auto& AABB = pDentalFile->GetAABB();
@@ -86,7 +89,7 @@ namespace Leviathan
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
 		m_pMeshPass->AddGLObject(AABBGLObject);
 		
-		m_pMeshPass->SetPolygonMode(GL_FILL);
+		m_pMeshPass->SetPolygonMode(GL_LINE);
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 

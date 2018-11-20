@@ -60,7 +60,7 @@ namespace Leviathan
 		// Set GLProgram
 		auto program = m_pGLShaderProgram->GetShaderProgram();
 		glUseProgram(program);
-		m_pGLShaderProgram->SetGLUniformState();
+		//m_pGLShaderProgram->SetGLUniformState();
 
 		// Set viewMatrix
 		_updateCameraMatrixUniform(program);
@@ -73,11 +73,12 @@ namespace Leviathan
 				LeviathanOutStream << "[ERROR] Set material failed." << std::endl;
 			}
 
-			if (!Object->SetModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
+			if (!Object->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
 			{
 				LeviathanOutStream << "[ERROR] Set model matrix failed." << std::endl;
 			}
 
+			m_pGLShaderProgram->SetGLUniformState();
 			Object->Render(program);
 		}
 
