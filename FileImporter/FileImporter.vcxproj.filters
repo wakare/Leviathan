@@ -9,30 +9,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IFileImporter.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IModelStruct.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IFileImportFactory.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="CFileImportFactory.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="CSTLFileImporter.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="ImporterRegister.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="AABB.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="CModelStruct.h">
+    <ClCompile Include="CFileImportFactory.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
     <ClCompile Include="CModelStruct.cpp">
@@ -41,8 +18,34 @@
     <ClCompile Include="CSTLFileImporter.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
-    <ClCompile Include="CFileImportFactory.cpp">
+    <ClCompile Include="FileImporter.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABB.h">
+      <Filter>Implement</Filter>
+    </ClInclude>
+    <ClInclude Include="CFileImportFactory.h">
+      <Filter>Implement</Filter>
+    </ClInclude>
+    <ClInclude Include="CModelStruct.h">
+      <Filter>Implement</Filter>
+    </ClInclude>
+    <ClInclude Include="CSTLFileImporter.h">
+      <Filter>Implement</Filter>
+    </ClInclude>
+    <ClInclude Include="IFileImporter.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IFileImportFactory.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IModelStruct.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="ImporterRegister.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

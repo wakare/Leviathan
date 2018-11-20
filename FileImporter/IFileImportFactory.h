@@ -10,7 +10,7 @@ namespace Leviathan
 		virtual LPtr<IModelFile> LoadFile(const char* fileName) = 0;
 		virtual bool RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter) = 0;
 
-		static LPtr<IFileImportFactory> GetFileImportFactory();
+		static LPtr<IFileImportFactory> GetFileImportFactory() {};
 
 	protected:
 		IFileImportFactory() {};

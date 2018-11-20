@@ -18,12 +18,28 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CFileImportFactory.cpp" />
+    <ClCompile Include="CModelStruct.cpp" />
+    <ClCompile Include="CSTLFileImporter.cpp" />
+    <ClCompile Include="FileImporter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="CFileImportFactory.h" />
+    <ClInclude Include="CModelStruct.h" />
+    <ClInclude Include="CSTLFileImporter.h" />
+    <ClInclude Include="IFileImporter.h" />
+    <ClInclude Include="IFileImportFactory.h" />
+    <ClInclude Include="IModelStruct.h" />
+    <ClInclude Include="ImporterRegister.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0616F6BF-B573-42BB-9C79-D4B9267A6907}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>FileImporter</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,21 +170,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="CFileImportFactory.h" />
-    <ClInclude Include="CSTLFileImporter.h" />
-    <ClInclude Include="IFileImporter.h" />
-    <ClInclude Include="IFileImportFactory.h" />
-    <ClInclude Include="IModelStruct.h" />
-    <ClInclude Include="ImporterRegister.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="CFileImportFactory.cpp" />
-    <ClCompile Include="CModelStruct.h" />
-    <ClCompile Include="CModelStruct.cpp" />
-    <ClCompile Include="CSTLFileImporter.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
