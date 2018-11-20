@@ -48,7 +48,7 @@ namespace Leviathan
 		}
 
 		m_pGLUniforms.insert(std::make_pair(pUniform->GetUniformName(), pUniform));
-		//m_pGLUniforms[pUniform->GetUniformName()] = pUniform;
+		
 		return true;
 	}
 

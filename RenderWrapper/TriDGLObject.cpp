@@ -1,4 +1,5 @@
 #include "TriDGLObject.h"
+#include "GlobalDef.h"
 
 namespace Leviathan
 {
@@ -83,7 +84,7 @@ namespace Leviathan
 		GLint location = glGetUniformLocation(shaderProgram, "VertexTypeMask");
 		if (location == -1)
 		{
-			throw "Get Uniform location failed.";
+			LeviathanOutStream << "[ERROR] Get Uniform location failed." << std::endl;
 			return false;
 		}
 
@@ -101,4 +102,42 @@ namespace Leviathan
 
 		return true;
 	}
+
+	bool TriDGLObject::SetMaterial(GLuint shaderProgram)
+	{
+		if (!m_pCommonGLMaterial)
+		{
+			return false;
+		}
+
+		return m_pCommonGLMaterial->SetMaterial(shaderProgram);
+	}
+
+	bool TriDGLObject::SetModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelMatrixUniform)
+	{
+		if (!modelMatrixUniform)
+		{
+			LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
+			return false;
+		}
+
+		// Set modelMatrix
+		if (!m_pModelMatrix)
+		{
+			float identityMatrix[16] = 
+			{
+				1.0f, 0.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f, 0.0f,
+				0.0f, 0.0f, 1.0f, 0.0f,
+				0.0f, 0.0f, 0.0f, 1.0f,
+			};
+
+			m_pModelMatrix = new Matrix4f(identityMatrix);
+		}
+
+		modelMatrixUniform->SetData(m_pModelMatrix->GetData(), m_pModelMatrix->GetDataSize());
+
+		return true;
+	}
+
 }

@@ -34,6 +34,19 @@ public:
 	float* GetData() { return reinterpret_cast<float*>(m_data); };
 	unsigned GetDataSize() { return sizeof(float) * 16; }
 
+	static Matrix4f GetIdentityMatrix()
+	{
+		static float identityMatrix[16] =
+		{
+			1.0f, 0.0f, 0.0f, 0.0f,
+			0.0f, 1.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 1.0f, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		};
+
+		return Matrix4f(identityMatrix);
+	}
+
 private:
 	float m_data[4][4];
 }; 

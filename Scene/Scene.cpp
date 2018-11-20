@@ -23,11 +23,11 @@ namespace Leviathan
 		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
 
 		float fovy = PI * (45.0f / 180.0f);
-		float aspect = (1.0f * width) / height;
+		float fAspect = (1.0f * width) / height;
 		float fNear = 0.01f;
 		float fFar = 1000.0f;
 
-		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, aspect, fNear, fFar);
+		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
 		if (!m_pCamera)
 		{
 			throw "Exception";
@@ -70,7 +70,7 @@ namespace Leviathan
 		LPtr<GLObject> pCube = _convertAABBtoGLObject(_AABB);
 		//m_pMeshPass->AddGLObject(pCube);
 
-		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("fantasy_castle.stl");
+		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
  		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
 		m_pMeshPass->AddGLObject(pRenderObject);
 		
@@ -86,7 +86,7 @@ namespace Leviathan
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
 		m_pMeshPass->AddGLObject(AABBGLObject);
 		
-		m_pMeshPass->SetPolygonMode(GL_LINE);
+		m_pMeshPass->SetPolygonMode(GL_FILL);
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 

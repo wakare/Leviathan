@@ -1,10 +1,10 @@
 #pragma once
 #include <memory>
 #include <vector>
+#include <functional>
 #include "GLObject.h"
 #include "GLShaderProgram.h"
 #include "LPtr.h"
-#include <functional>
 
 namespace Leviathan
 {

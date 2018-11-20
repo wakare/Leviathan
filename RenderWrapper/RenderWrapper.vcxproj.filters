@@ -30,6 +30,9 @@
     <ClCompile Include="GLUniform.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CommonGLMaterial.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RenderWrapper.h">
@@ -54,6 +57,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="GLCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonGLMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GLColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,8 @@
 #include "GLPass.h"
 #include "GLCamera.h"
 #include "LPtr.h"
+#include "CommonGLMaterial.h"
+
 namespace Leviathan
 {
 	class TriDObjectGLPass : public GLPass
@@ -10,17 +12,17 @@ namespace Leviathan
 		TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
 			GLPass(shaderProgram),
 			m_bInited(false),
-			m_mainCamera(camera)
+			m_pMainCamera(camera)
 		{
 		};
 
-		virtual bool Init();
-		virtual void Render();
+		bool Init();
+		void Render();
 
 	private:
 		void _updateCameraMatrixUniform(GLuint shaderProgram);
 
 		bool m_bInited;
-		LPtr<GLCamera> m_mainCamera;
+		LPtr<GLCamera> m_pMainCamera;
 	};
 }

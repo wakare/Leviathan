@@ -1,6 +1,11 @@
 #pragma once
 #define GLEW_STATIC
 #include <GL\glew.h>
+#include <LPtr.h>
+#include "GLMaterial.h"
+#include "GLUniform.h"
+#include "GLCamera.h"
+
 namespace Leviathan
 {
 	class GLObject
@@ -13,14 +18,26 @@ namespace Leviathan
 			VERTEX_ATTRIBUTE_NXYZ = 0x4,	// Normal XYZ
 		};
 
-		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask) :m_VAO(0), m_VBO(0), m_primitiveType(primType), m_vertexCount(vertexCount), m_vertexAttributeMask(vertexMask) {}
+		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<GLMaterial> pCommonGLMaterial = nullptr ) :
+			m_VAO(0), 
+			m_VBO(0), 
+			m_primitiveType(primType), 
+			m_vertexCount(vertexCount), 
+			m_vertexAttributeMask(vertexMask),
+			m_pCommonGLMaterial(pCommonGLMaterial),
+			m_pModelMatrix(m_pModelMatrix)
+		{
+		}
+
 		GLuint GetVAO() { return m_VAO; }
 		GLuint GetVBO() { return m_VBO; }
 		GLuint GetPrimType() { return m_primitiveType; }
 		GLuint GetVertexCount() { return m_vertexCount; }
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
-
+		
 		virtual bool Init() = 0;
+		virtual bool SetMaterial(GLuint shaderProgram) = 0;
+		virtual bool SetModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 
 	protected:
@@ -29,5 +46,7 @@ namespace Leviathan
 		GLuint m_primitiveType;
 		GLuint m_vertexCount;
 		GLint m_vertexAttributeMask;
+		LPtr<GLMaterial> m_pCommonGLMaterial;
+		LPtr<Matrix4f> m_pModelMatrix;
 	};
 }
