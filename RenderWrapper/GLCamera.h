@@ -32,6 +32,21 @@ public:
 		return Matrix4f(reinterpret_cast<float*>(result));
 	}
 
+	Matrix4f& inverse() 
+	{
+		float newMatrixData[4][4] =
+		{
+			m_data[0][0], m_data[1][0], m_data[2][0], m_data[3][0],
+			m_data[0][1], m_data[1][1], m_data[2][1], m_data[3][1],
+			m_data[0][2], m_data[1][2], m_data[2][2], m_data[3][2],
+			m_data[0][3], m_data[1][3], m_data[2][3], m_data[3][3],
+		};
+
+		memcpy(m_data, newMatrixData, sizeof(float) * 16);
+
+		return *this;
+	}
+
 	float* GetData() { return reinterpret_cast<float*>(m_data); };
 	unsigned GetDataSize() { return sizeof(float) * 16; }
 
@@ -65,10 +80,10 @@ public:
 	{
 		float translateMatrix[16] =
 		{
-			1.0f, 0.0f, 0.0f, x,
-			0.0f, 1.0f, 0.0f, y,
-			0.0f, 0.0f, 1.0f, z,
-			0.0f, 0.0f, 0.0f, 1.0f,
+			1.0f,	0.0f,	0.0f,	0.0f,
+			0.0f,	1.0f,	0.0f,	0.0f,
+			0.0f,	0.0f,	1.0f,	0.0f,
+			x,		y,		z,		1.0f,
 		};
 
 		outMatrix = translateMatrix;

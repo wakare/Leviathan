@@ -47,6 +47,8 @@ namespace Leviathan
 			return false;
 		}
 
+		float* data = m_fUniformArray->GetArraydata();
+
 		switch (m_uniformType)
 		{
 		case TYPE_FLOAT_MAT4:

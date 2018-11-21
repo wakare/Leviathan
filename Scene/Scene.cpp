@@ -74,14 +74,33 @@ namespace Leviathan
  		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
 		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
 		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
-		pRenderObject->SetModelMatrix(pModelMatrix);
+		
 		m_pMeshPass->AddGLObject(pRenderObject);
 		
 		auto& AABB = pDentalFile->GetAABB();
- 		if (!AABB.GetAABBCenter(m_pCamera->m_fLookAt))
+		float RenderObjectAABBCenter[4];
+ 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
  		{
- 			LeviathanOutStream << "[ERROR] Camera set lookAt failed." << std::endl;
+ 			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
  		}
+
+		// Set camera lookAt
+		RenderObjectAABBCenter[3] = 1.0f;
+		Vector4f modelCoord = RenderObjectAABBCenter;
+		Vector4f worldCoord = modelCoord * (*pModelMatrix);
+		m_pCamera->m_fLookAt[0] = worldCoord.GetData()[0];
+		m_pCamera->m_fLookAt[1] = worldCoord.GetData()[1];
+		m_pCamera->m_fLookAt[2] = worldCoord.GetData()[2];
+		//AABB.GetAABBCenter(m_pCamera->m_fLookAt);
+
+		pModelMatrix->inverse();
+		pRenderObject->SetModelMatrix(pModelMatrix);
+
+		RenderObjectAABBCenter[0] += -100.0f;
+		RenderObjectAABBCenter[1] += 100.0f;
+		RenderObjectAABBCenter[2] += 10.0f;
+		auto pointGLObject = _getPointGLObject(RenderObjectAABBCenter, 1);
+		m_pMeshPass->AddGLObject(pointGLObject);
 
 		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
 		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
