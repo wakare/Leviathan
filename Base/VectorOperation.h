@@ -1,5 +1,6 @@
 #pragma once
 #include <float.h>
+#include <math.h>
 
 template<typename T, int count>
 T length(T* vec)

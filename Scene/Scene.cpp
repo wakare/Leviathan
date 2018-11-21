@@ -4,7 +4,8 @@
 #include <GL\glew.h>
 #include <sstream>
 #include "DynamicArray.h"
-#include "..\FileImporter\CFileImportFactory.h"
+#include "CFileImportFactory.h"
+#include "GeometryCalculator.h"
 
 namespace Leviathan
 {
@@ -134,7 +135,9 @@ namespace Leviathan
 
 	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelFile> modelFile)
 	{
-		DynamicArray<float> glData(modelFile->GetTriangleCount() * 3 * 7 * sizeof(float));
+		const unsigned uVertexFloatCount = 10;
+
+		DynamicArray<float> glData(modelFile->GetTriangleCount() * 3 * uVertexFloatCount * sizeof(float));
 		
 		/*std::ofstream outFile("modelGLData.txt", std::ios::out);
 		if (!outFile.is_open())
@@ -154,24 +157,34 @@ namespace Leviathan
 		for (unsigned i = 0; i < modelFile->GetTriangleCount(); i++)
 		{
 			unsigned* vertexIndex = modelFile->GetTriangleIndexArray() + 3 * i;
+			float* vertices[3];
 
 			for (unsigned j = 0; j < 3; j++)
 			{
 				float* vertexCoord = modelFile->GetVertex3DCoordArray() + 3 * vertexIndex[j];
-				memcpy(glData.m_pData + 21 * i + 7 * j, vertexCoord, sizeof(float) * 3);
+				vertices[j] = vertexCoord;
+				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j, vertexCoord, sizeof(float) * 3);
 				
 				if (bDefaultColor)
 				{
-					memcpy(glData.m_pData + 21 * i + 7 * j + 3, defaultColor, sizeof(float) * 4);
+					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, defaultColor, sizeof(float) * 4);
 				}
 				else
 				{
-					memcpy(glData.m_pData + 21 * i + 7 * j + 3, color + 4 * i, sizeof(float) * 4);
+					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, color + 4 * i, sizeof(float) * 4);
 				}
+			}
+
+			float fNormal[3];
+			GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
+
+			for (unsigned j = 0; j < 3; j++)
+			{
+				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 7, fNormal, sizeof(float) * 3);
 			}
 		}
 
-		return new TriDGLObject(GL_TRIANGLES, glData.m_pData, modelFile->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		return new TriDGLObject(GL_TRIANGLES, glData.m_pData, modelFile->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
 	}
 
 	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertAABBtoGLObject(const AABB& aabb)
@@ -251,18 +264,20 @@ namespace Leviathan
 	Leviathan::LPtr<Leviathan::GLObject> Scene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
 	{
 		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		DynamicArray<float> pArray(uVertexCount * 7 * sizeof(float));
+		const int nVertexSize = 7;
+		DynamicArray<float> pArray(uVertexCount * nVertexSize * sizeof(float));
+		
 		for (unsigned i = 0; i < uVertexCount; i++)
 		{
-			memcpy(pArray.m_pData + 7 * i, pCoordData + 3 * i, sizeof(float) * 3);
+			memcpy(pArray.m_pData + nVertexSize * i, pCoordData + 3 * i, sizeof(float) * 3);
 			
 			if (pColorData)
 			{
-				memcpy(pArray.m_pData + 7 * i + 3, pColorData + 4 * i, sizeof(float) * 4);
+				memcpy(pArray.m_pData + nVertexSize * i + 3, pColorData + 4 * i, sizeof(float) * 4);
 			}
 			else
 			{
-				memcpy(pArray.m_pData + 7 * i + 3, defaultColor, sizeof(float) * 4);
+				memcpy(pArray.m_pData + nVertexSize * i + 3, defaultColor, sizeof(float) * 4);
 			}
 		}
 

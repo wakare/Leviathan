@@ -156,6 +156,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EventSystem.cpp" />
+    <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -164,6 +165,7 @@
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="EventSystem.h" />
+    <ClInclude Include="GeometryCalculator.h" />
     <ClInclude Include="GlobalDef.h" />
     <ClInclude Include="LPtr.h" />
     <ClInclude Include="Node.h" />
