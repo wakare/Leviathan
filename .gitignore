@@ -1,4 +1,5 @@
 
+*.suo
 *.tlog
 *.obj
 *.pdb
@@ -15,15 +16,14 @@
 *.db
 *.opendb
 *.db
-.vs/Leviathan/v15/.suo
 *.db
 *.dll
 *.exp
-*.db
-.vs/Leviathan/v15/.suo
-.vs/Leviathan/v15/.suo
 *.db
 *.txt
 *.stl
 *.iobj
 *.ipdb
+*.db
+.vs/Leviathan/v15/.suo
+.vs/Leviathan/v15/.suo

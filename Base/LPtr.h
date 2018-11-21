@@ -17,6 +17,7 @@ namespace Leviathan
 		
 		LPtr<T>& operator=(const LPtr<T>& rhs);
 		std::shared_ptr<T> operator->();
+		T& operator*();
 
 		bool operator==(const LPtr<T>& rhs);
 		operator bool();
@@ -26,6 +27,12 @@ namespace Leviathan
 		bool _setPointer(const LPtr<T>& rhs);
 		std::shared_ptr<T> m_lPtr;
 	};
+
+	template <class T>
+	T& Leviathan::LPtr<T>::operator*()
+	{
+		return *m_lPtr;
+	}
 
 	template <class T>
 	bool Leviathan::LPtr<T>::operator==(const LPtr<T>& rhs)

@@ -10,9 +10,10 @@ struct Matrix4f
 public:
 	friend Vector4f;
 
+	Matrix4f() { _setIdentity(); }
 	Matrix4f(float* data) { memcpy(m_data, data, sizeof(float) * 16); }
 	Matrix4f(const Matrix4f& ref) { memcpy(m_data, ref.m_data, sizeof(float) * 16); }
-	Matrix4f& operator=(const Matrix4f& ref) { memcpy(m_data, ref.m_data, sizeof(float) * 16); }
+	Matrix4f& operator=(const Matrix4f& ref) { memcpy(m_data, ref.m_data, sizeof(float) * 16); return *this; }
 	Matrix4f operator*(const Matrix4f& ref)
 	{
 		float result[4][4];
@@ -47,7 +48,46 @@ public:
 		return Matrix4f(identityMatrix);
 	}
 
+	static Matrix4f GetTranslateMatrix(float x, float y, float z)
+	{
+		float translateMatrix[16] = 
+		{
+			1.0f, 0.0f, 0.0f, x,
+			0.0f, 1.0f, 0.0f, y,
+			0.0f, 0.0f, 1.0f, z,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		};
+
+		return Matrix4f(translateMatrix);
+	}
+
+	static void GetTranslateMatrix(float x, float y, float z, Matrix4f& outMatrix)
+	{
+		float translateMatrix[16] =
+		{
+			1.0f, 0.0f, 0.0f, x,
+			0.0f, 1.0f, 0.0f, y,
+			0.0f, 0.0f, 1.0f, z,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		};
+
+		outMatrix = translateMatrix;
+	}
+
 private:
+	void _setIdentity()
+	{
+		static float identityMatrix[16] =
+		{
+			1.0f, 0.0f, 0.0f, 0.0f,
+			0.0f, 1.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 1.0f, 0.0f,
+			0.0f, 0.0f, 0.0f, 1.0f,
+		};
+
+		memcpy(m_data, identityMatrix, sizeof(float) * 16);
+	}
+
 	float m_data[4][4];
 }; 
 
@@ -76,6 +116,8 @@ public:
 private:
 	float m_data[4];
 };
+
+
 
 class GLCamera 
 {

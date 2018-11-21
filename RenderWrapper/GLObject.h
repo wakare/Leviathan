@@ -34,10 +34,11 @@ namespace Leviathan
 		GLuint GetPrimType() { return m_primitiveType; }
 		GLuint GetVertexCount() { return m_vertexCount; }
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
-		
+		void SetModelMatrix(LPtr<Matrix4f> pModelMatrix) { m_pModelMatrix = pModelMatrix; }
+
 		virtual bool Init() = 0;
 		virtual bool SetMaterial(GLuint shaderProgram) = 0;
-		virtual bool SetModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
+		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 
 	protected:
