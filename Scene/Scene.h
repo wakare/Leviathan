@@ -5,7 +5,7 @@
 #include "TriDGLObject.h"
 #include "GLShaderProgram.h"
 #include "LPtr.h"
-#include "..\FileImporter\IModelStruct.h"
+#include "IModelStruct.h"
 
 namespace Leviathan
 {

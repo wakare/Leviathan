@@ -10,8 +10,8 @@ uniform mat4 projMatrix;
 uniform uint VertexTypeMask;
 
 out vec4 outColor;
-//out vec3 FragPos;
-//out vec3 Normal;
+out vec3 FragPos;
+out vec3 Normal;
 
 void main()
 {
@@ -22,4 +22,7 @@ void main()
 	{
 		outColor = color;
 	}
+
+	FragPos = vec3(modelMatrix * vec4(position, 1.0f));
+    Normal = mat3(transpose(inverse(modelMatrix))) * normal;  
 }
