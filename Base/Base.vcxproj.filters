@@ -59,5 +59,8 @@
     <ClInclude Include="GeometryCalculator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="BaseMath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

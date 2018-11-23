@@ -166,6 +166,7 @@
     <ClInclude Include="CommonGLMaterial.h" />
     <ClInclude Include="GLCamera.h" />
     <ClInclude Include="GLColor.h" />
+    <ClInclude Include="GLLight.h" />
     <ClInclude Include="GLMaterial.h" />
     <ClInclude Include="GLObject.h" />
     <ClInclude Include="GLPass.h" />

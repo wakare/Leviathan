@@ -103,7 +103,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool TriDGLObject::SetMaterial(GLuint shaderProgram)
+	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
 		if (!m_pCommonGLMaterial)
 		{

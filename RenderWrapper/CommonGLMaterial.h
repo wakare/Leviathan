@@ -10,7 +10,7 @@ namespace Leviathan
 	class CommonGLMaterial : public GLMaterial
 	{
 	public:
-		CommonGLMaterial();
+		CommonGLMaterial(GLColor ambient = {0.0f, 0.0f, 0.0f}, GLColor diffuse = { 0.0f, 0.0f, 0.0f }, GLColor specular = { 0.0f, 0.0f, 0.0f }, float fShininess = 32.0f);
 		bool SetMaterial(GLuint program);
 
 	private:

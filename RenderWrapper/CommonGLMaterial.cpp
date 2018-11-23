@@ -1,11 +1,11 @@
 #include "CommonGLMaterial.h"
 #include "GlobalDef.h"
 
-Leviathan::CommonGLMaterial::CommonGLMaterial() :
-	m_CAmbient({ 0, 0, 0 }),
-	m_CDiffuse({ 0, 0, 0 }),
-	m_CSpecular({ 0, 0, 0 }),
-	m_fShininess(0.0f)
+Leviathan::CommonGLMaterial::CommonGLMaterial(GLColor ambient /*= { 0.0f, 0.0f, 0.0f }*/, GLColor diffuse /*= { 0.0f, 0.0f, 0.0f }*/, GLColor specular /*= { 0.0f, 0.0f, 0.0f }*/, float fShininess /*= 32.0f*/) :
+	m_CAmbient(ambient),
+	m_CDiffuse(diffuse),
+	m_CSpecular(specular),
+	m_fShininess(fShininess)
 {
 
 }

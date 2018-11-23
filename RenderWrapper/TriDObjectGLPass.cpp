@@ -62,13 +62,25 @@ namespace Leviathan
 		glUseProgram(program);
 		//m_pGLShaderProgram->SetGLUniformState();
 
+		// Set light
+		if (m_bOpenLight)
+		{
+			for (auto pLight : m_lights)
+			{
+				if (!pLight->SetLightUniformVar(program))
+				{
+					LeviathanOutStream << "[ERROR] Set light uniform var failed." << std::endl;
+				}
+			}
+		}
+
 		// Set viewMatrix
 		_updateCameraMatrixUniform(program);
 
 		// Render each GLObject
 		for (auto& Object : m_GLObjects)
 		{
-			if (!Object->SetMaterial(program))
+			if (!Object->ApplyMaterial(program))
 			{
 				LeviathanOutStream << "[ERROR] Set material failed." << std::endl;
 			}

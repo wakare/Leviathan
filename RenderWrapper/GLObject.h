@@ -35,9 +35,10 @@ namespace Leviathan
 		GLuint GetVertexCount() { return m_vertexCount; }
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
 		void SetModelMatrix(LPtr<Matrix4f> pModelMatrix) { m_pModelMatrix = pModelMatrix; }
+		void SetMaterial(LPtr<GLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 
 		virtual bool Init() = 0;
-		virtual bool SetMaterial(GLuint shaderProgram) = 0;
+		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
 		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 

@@ -68,5 +68,8 @@
     <ClInclude Include="GLColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GLLight.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

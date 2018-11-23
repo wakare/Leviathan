@@ -160,6 +160,7 @@
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseMath.h" />
     <ClInclude Include="Drawable.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Event.h" />
