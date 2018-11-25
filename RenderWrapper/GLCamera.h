@@ -1,6 +1,7 @@
 #pragma once
 #include "VectorOperation.h"
 #include "BaseMath.h"
+#include "GlobalDef.h"
 #include <memory>
 #include <iostream>
 
@@ -30,7 +31,8 @@ public:
 		m_fAspect(aspect), 
 		m_fZNear(zNear), 
 		m_fZFar(zFar),
-		m_minDistanceOfCameraToLookAt(0.01f)
+		m_minDistanceOfCameraToLookAt(0.01f),
+		m_mouseOperationScaleRatio(1.0f)
 	{
 		memcpy(m_fEye, eye, sizeof(float) * 3);
 		memcpy(m_fLookAt, lookAt, sizeof(float) * 3);
@@ -75,9 +77,6 @@ public:
 
 	void Translate(float x, float y, float z)
 	{
-		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
-
 		float N[3];
 		float U[3];
 		float V[3];
@@ -101,7 +100,7 @@ public:
 
 		if (length<float, 3>(_N) < m_minDistanceOfCameraToLookAt)
 		{
-			std::cout << "Arrive minDistanceOfCameraToLookAt." << std::endl;
+			LeviathanOutStream << "Arrive minDistanceOfCameraToLookAt." << std::endl;
 			return; 
 		}
 
@@ -112,7 +111,7 @@ public:
 	{
 		float _lengthVec[3] = { m_fEye[0] - m_fLookAt[0], m_fEye[1] - m_fLookAt[1], m_fEye[2] - m_fLookAt[2] };
 		float fLength = length<float, 3>(_lengthVec);
-		float fScaleRatio = fLength * 0.5f;
+		float fScaleRatio = fLength * m_mouseOperationScaleRatio;
 
 		return Translate(fScaleRatio * x, fScaleRatio * y, fScaleRatio * z);
 	}
@@ -139,8 +138,6 @@ public:
 
 	void Rotate(float x, float y, float z)
 	{
-		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 		float sinValue[3] = { sinf(x), sinf(y), sinf(z) };
 		float cosValue[3] = { cosf(x), cosf(y), cosf(z) };
 	
@@ -219,4 +216,5 @@ public:
 	float m_fZNear;
 	float m_fZFar;
 	const float m_minDistanceOfCameraToLookAt;
+	float m_mouseOperationScaleRatio;
 };

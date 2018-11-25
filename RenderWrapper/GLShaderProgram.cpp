@@ -109,7 +109,7 @@ namespace Leviathan
 		// Print Link Error
 		if (!success) {
 			glGetProgramInfoLog(m_shaderProgram, 512, NULL, infoLog);
-			std::cout << "ERROR::SHADER::LINK_FAILED\n" << infoLog << std::endl;
+			LeviathanOutStream << "ERROR::SHADER::LINK_FAILED\n" << infoLog << std::endl;
 		}
 
 		return true;
@@ -128,7 +128,7 @@ namespace Leviathan
 		if (success == GL_FALSE)
 		{
 			glGetShaderInfoLog(shaderProgram, 512, nullptr, infoLog);
-			std::cout << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
+			LeviathanOutStream << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
 
 			return false;
 		}

@@ -104,7 +104,7 @@ namespace Leviathan
 			}
 			else
 			{
-				std::cout << "GLFW keyCallBack:" << key << " ,action " << action << std::endl;
+				LeviathanOutStream << "GLFW keyCallBack:" << key << " ,action " << action << std::endl;
 			}
 		};
 

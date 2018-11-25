@@ -109,7 +109,6 @@ namespace Leviathan
 
 		if ((event.m_action == Event::InputAction::SCROLL))
 		{
-			//std::cout << "Mouse scroll:" << event.m_mouseScrollState.y << std::endl;
 			fTranslate[2] += (event.m_mouseScrollState.y * 0.02f);
 		}
 
@@ -143,8 +142,6 @@ namespace Leviathan
 				delta[1] = ANGLE_TO_RADIAN(delta[1] * 0.1f);
 
 				m_pScene->m_pCamera->MouseRotate(delta[0], delta[1]);
-
-				//std::cout << "Delta mouseCoord = " << delta[0] << " " << delta[1] << std::endl;
 			}
 		}
 

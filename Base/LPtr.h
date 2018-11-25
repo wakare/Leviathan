@@ -49,7 +49,7 @@ namespace Leviathan
 	template <class T>
 	Leviathan::LPtr<T>::~LPtr()
 	{
-		LeviathanOutStream << "LPtr destroy." << std::endl;
+		LeviathanOutStream << "[INFO] LPtr destroy." << std::endl;
 	}
 
 	template <class T>

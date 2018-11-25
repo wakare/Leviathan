@@ -7,6 +7,6 @@ namespace Leviathan
 	{
 	public:
 		GLMaterial() {};
-		virtual bool SetMaterial(GLuint shaderProgram) = 0;
+		virtual bool ApplyMaterial(GLuint program) = 0;
 	};
 }

@@ -23,7 +23,7 @@ namespace Leviathan
 		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
 		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
 
-		float fovy = PI * (45.0f / 180.0f);
+		float fovy = PI_FLOAT * (45.0f / 180.0f);
 		float fAspect = (1.0f * width) / height;
 		float fNear = 0.01f;
 		float fFar = 1000.0f;
@@ -76,9 +76,9 @@ namespace Leviathan
 		
 		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, {1.0f, 1.0f, 1.0f});
 		pRenderObject->SetMaterial(pMaterial);
-
+		pRenderObject->SetLightEnable(true);
 		m_pMeshPass->AddGLObject(pRenderObject);
-		
+	
 		auto& AABB = pDentalFile->GetAABB();
 		float RenderObjectAABBCenter[4];
  		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
@@ -106,13 +106,15 @@ namespace Leviathan
 		RenderObjectAABBCenter[1] += 100.0f;
 		RenderObjectAABBCenter[2] += 10.0f;
 		auto pointGLObject = _getPointGLObject(RenderObjectAABBCenter, 1);
-		//m_pMeshPass->AddGLObject(pointGLObject);
+		pointGLObject->SetLightEnable(false);
+		m_pMeshPass->AddGLObject(pointGLObject);
 
 		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
 		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
 
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
-		//m_pMeshPass->AddGLObject(AABBGLObject);
+		AABBGLObject->SetLightEnable(false);
+		m_pMeshPass->AddGLObject(AABBGLObject);
 		
 		m_pMeshPass->SetPolygonMode(GL_FILL);
 
@@ -148,13 +150,7 @@ namespace Leviathan
 
 		DynamicArray<float> glData(modelFile->GetTriangleCount() * 3 * uVertexFloatCount * sizeof(float));
 		
-		/*std::ofstream outFile("modelGLData.txt", std::ios::out);
-		if (!outFile.is_open())
-		{
-			LeviathanOutStream << "[ERROR] Create file failed." << std::endl;
-		}*/
-
-		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		static float defaultColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
 		bool bDefaultColor = false;
 		
 		auto color = modelFile->GetVertexColorArray();
@@ -267,7 +263,8 @@ namespace Leviathan
 			cube[7 * i + 2] += center[2];
 		}
 
-		return new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		return result;
 	}
 
 	Leviathan::LPtr<Leviathan::GLObject> Scene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)

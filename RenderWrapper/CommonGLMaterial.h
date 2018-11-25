@@ -11,7 +11,7 @@ namespace Leviathan
 	{
 	public:
 		CommonGLMaterial(GLColor ambient = {0.0f, 0.0f, 0.0f}, GLColor diffuse = { 0.0f, 0.0f, 0.0f }, GLColor specular = { 0.0f, 0.0f, 0.0f }, float fShininess = 32.0f);
-		bool SetMaterial(GLuint program);
+		bool ApplyMaterial(GLuint program);
 
 	private:
 		GLColor m_CAmbient;

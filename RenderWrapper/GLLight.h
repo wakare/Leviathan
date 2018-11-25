@@ -41,7 +41,7 @@ public:
 			return false;
 		}
 
-		glUniform3f(glGetUniformLocation(shaderProgram, "light.diffuse"), m_diffuseColor.x, m_diffuseColor.y, m_diffuseColor.z);
+		glUniform3f(lightDiffuseColorLocation, m_diffuseColor.x, m_diffuseColor.y, m_diffuseColor.z);
 		
 		GLint lightSpecularColorLocation = glGetUniformLocation(shaderProgram, "light.specular");
 		if (lightSpecularColorLocation == -1)

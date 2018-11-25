@@ -16,7 +16,8 @@ namespace Leviathan
 		GLPass(LPtr<GLShaderProgram> shaderProgram) :
 			m_pGLShaderProgram(shaderProgram), 
 			m_nPolygonMode(GL_FILL), 
-			m_bOpenLight(true)
+			m_bLightEnable(true),
+			m_bDepthTestEnable(true)
 		{
 
 		};
@@ -31,7 +32,8 @@ namespace Leviathan
 		void AddPreProcess(Process process) { m_PreRenderCallBacks.push_back(process); };
 		void AddPostProcess(Process process) { m_PostRenderCallBacks.push_back(process); };
 		void SetPolygonMode(GLuint nPolygonMode) { m_nPolygonMode = nPolygonMode; }
-		void SetLightEnable(GLboolean bOpen) { m_bOpenLight = bOpen; }
+		void SetLightEnable(GLboolean bOpen) { m_bLightEnable = bOpen; }
+		void SetDepthTestEnable(GLboolean bDepthTestEnable) { m_bDepthTestEnable = bDepthTestEnable; }
 
 	protected:
 		LPtr<GLShaderProgram> m_pGLShaderProgram;
@@ -42,6 +44,7 @@ namespace Leviathan
 		std::vector<Process> m_PostRenderCallBacks;
 
 		GLuint m_nPolygonMode;
-		GLboolean m_bOpenLight;
+		GLboolean m_bLightEnable;
+		GLboolean m_bDepthTestEnable;
 	};
 }
