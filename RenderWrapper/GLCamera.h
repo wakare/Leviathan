@@ -1,138 +1,9 @@
 #pragma once
 #include "VectorOperation.h"
+#include "BaseMath.h"
+#include "GlobalDef.h"
 #include <memory>
 #include <iostream>
-
-struct Vector4f;
-
-struct Matrix4f
-{
-public:
-	friend Vector4f;
-
-	Matrix4f() { _setIdentity(); }
-	Matrix4f(float* data) { memcpy(m_data, data, sizeof(float) * 16); }
-	Matrix4f(const Matrix4f& ref) { memcpy(m_data, ref.m_data, sizeof(float) * 16); }
-	Matrix4f& operator=(const Matrix4f& ref) { memcpy(m_data, ref.m_data, sizeof(float) * 16); return *this; }
-	Matrix4f operator*(const Matrix4f& ref)
-	{
-		float result[4][4];
-		for (unsigned i = 0; i < 4; i++)
-		{
-			for (unsigned j = 0; j < 4; j++)
-			{
-				result[i][j] =
-					m_data[i][0] * ref.m_data[0][j] +
-					m_data[i][1] * ref.m_data[1][j] +
-					m_data[i][2] * ref.m_data[2][j] +
-					m_data[i][3] * ref.m_data[3][j];
-			}
-		}
-
-		return Matrix4f(reinterpret_cast<float*>(result));
-	}
-
-	Matrix4f& inverse() 
-	{
-		float newMatrixData[4][4] =
-		{
-			m_data[0][0], m_data[1][0], m_data[2][0], m_data[3][0],
-			m_data[0][1], m_data[1][1], m_data[2][1], m_data[3][1],
-			m_data[0][2], m_data[1][2], m_data[2][2], m_data[3][2],
-			m_data[0][3], m_data[1][3], m_data[2][3], m_data[3][3],
-		};
-
-		memcpy(m_data, newMatrixData, sizeof(float) * 16);
-
-		return *this;
-	}
-
-	float* GetData() { return reinterpret_cast<float*>(m_data); };
-	unsigned GetDataSize() { return sizeof(float) * 16; }
-
-	static Matrix4f GetIdentityMatrix()
-	{
-		static float identityMatrix[16] =
-		{
-			1.0f, 0.0f, 0.0f, 0.0f,
-			0.0f, 1.0f, 0.0f, 0.0f,
-			0.0f, 0.0f, 1.0f, 0.0f,
-			0.0f, 0.0f, 0.0f, 1.0f,
-		};
-
-		return Matrix4f(identityMatrix);
-	}
-
-	static Matrix4f GetTranslateMatrix(float x, float y, float z)
-	{
-		float translateMatrix[16] = 
-		{
-			1.0f, 0.0f, 0.0f, x,
-			0.0f, 1.0f, 0.0f, y,
-			0.0f, 0.0f, 1.0f, z,
-			0.0f, 0.0f, 0.0f, 1.0f,
-		};
-
-		return Matrix4f(translateMatrix);
-	}
-
-	static void GetTranslateMatrix(float x, float y, float z, Matrix4f& outMatrix)
-	{
-		float translateMatrix[16] =
-		{
-			1.0f,	0.0f,	0.0f,	0.0f,
-			0.0f,	1.0f,	0.0f,	0.0f,
-			0.0f,	0.0f,	1.0f,	0.0f,
-			x,		y,		z,		1.0f,
-		};
-
-		outMatrix = translateMatrix;
-	}
-
-private:
-	void _setIdentity()
-	{
-		static float identityMatrix[16] =
-		{
-			1.0f, 0.0f, 0.0f, 0.0f,
-			0.0f, 1.0f, 0.0f, 0.0f,
-			0.0f, 0.0f, 1.0f, 0.0f,
-			0.0f, 0.0f, 0.0f, 1.0f,
-		};
-
-		memcpy(m_data, identityMatrix, sizeof(float) * 16);
-	}
-
-	float m_data[4][4];
-}; 
-
-struct Vector4f
-{
-public:
-	Vector4f(float* data) { memcpy(m_data, data, sizeof(m_data)); }
-	float* GetData() { return m_data; }
-	unsigned GetDataSize() { return 4; }
-
-	Vector4f operator*(const Matrix4f& ref)
-	{
-		float result[4];
-		for (unsigned i = 0; i < 4; i++)
-		{
-			result[i] = 
-				m_data[0] * ref.m_data[0][i] + 
-				m_data[1] * ref.m_data[1][i] + 
-				m_data[2] * ref.m_data[2][i] + 
-				m_data[3] * ref.m_data[3][i];
-		}
-
-		return Vector4f(result);
-	}
-
-private:
-	float m_data[4];
-};
-
-
 
 class GLCamera 
 {
@@ -160,7 +31,8 @@ public:
 		m_fAspect(aspect), 
 		m_fZNear(zNear), 
 		m_fZFar(zFar),
-		m_minDistanceOfCameraToLookAt(0.01f)
+		m_minDistanceOfCameraToLookAt(0.01f),
+		m_mouseOperationScaleRatio(1.0f)
 	{
 		memcpy(m_fEye, eye, sizeof(float) * 3);
 		memcpy(m_fLookAt, lookAt, sizeof(float) * 3);
@@ -205,9 +77,6 @@ public:
 
 	void Translate(float x, float y, float z)
 	{
-		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
-
 		float N[3];
 		float U[3];
 		float V[3];
@@ -231,7 +100,7 @@ public:
 
 		if (length<float, 3>(_N) < m_minDistanceOfCameraToLookAt)
 		{
-			std::cout << "Arrive minDistanceOfCameraToLookAt." << std::endl;
+			LeviathanOutStream << "Arrive minDistanceOfCameraToLookAt." << std::endl;
 			return; 
 		}
 
@@ -242,7 +111,7 @@ public:
 	{
 		float _lengthVec[3] = { m_fEye[0] - m_fLookAt[0], m_fEye[1] - m_fLookAt[1], m_fEye[2] - m_fLookAt[2] };
 		float fLength = length<float, 3>(_lengthVec);
-		float fScaleRatio = fLength * 0.5f;
+		float fScaleRatio = fLength * m_mouseOperationScaleRatio;
 
 		return Translate(fScaleRatio * x, fScaleRatio * y, fScaleRatio * z);
 	}
@@ -269,8 +138,6 @@ public:
 
 	void Rotate(float x, float y, float z)
 	{
-		//std::cout << "GLCamera::position " << m_fEye[0] << " " << m_fEye[1] << "" << m_fEye[2] << std::endl;
-		//std::cout << "GLCamera::lookAt " << m_fLookAt[0] << " " << m_fLookAt[1] << " " << m_fLookAt[2] << std::endl;
 		float sinValue[3] = { sinf(x), sinf(y), sinf(z) };
 		float cosValue[3] = { cosf(x), cosf(y), cosf(z) };
 	
@@ -349,4 +216,5 @@ public:
 	float m_fZNear;
 	float m_fZFar;
 	const float m_minDistanceOfCameraToLookAt;
+	float m_mouseOperationScaleRatio;
 };

@@ -16,11 +16,16 @@ namespace Leviathan
 		{
 		};
 
+		~TriDObjectGLPass() 
+		{
+		};
+
 		bool Init();
 		void Render();
 
 	private:
 		void _updateCameraMatrixUniform(GLuint shaderProgram);
+		GLboolean _updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable);
 
 		bool m_bInited;
 		LPtr<GLCamera> m_pMainCamera;

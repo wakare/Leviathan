@@ -16,20 +16,20 @@ public:
 template<class T>
 void MyNodeVisitor<T>::apply(Node<T>& node)
 {
-	if (GetTraverseMode() == NodeVisitor<T>::TRAVERSE_MODE::NONE)
+	if (GetTraverseMode() == NodeVisitor<T>::E_TRAVERSE_MODE::NONE)
 	{
 		return;
 	}
 
 	std::cout << *(node.GetNodeData()) << std::endl;
-	if (GetTraverseMode() == NodeVisitor<T>::TRAVERSE_MODE::ONLY)
+	if (GetTraverseMode() == NodeVisitor<T>::E_TRAVERSE_MODE::ONLY)
 	{
 		return;
 	}
 
 	for (auto& pChild : node.GetChildren())
 	{
-		pChild->accept(*this);
+		pChild->Accept(*this);
 	}
 }
 

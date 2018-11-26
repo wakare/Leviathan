@@ -7,8 +7,8 @@ namespace Leviathan
 	class CFileImportFactory : public IFileImportFactory
 	{
 	public:
-		LPtr<IModelFile> LoadFile(const char* fileName);
-		LPtr<IModelFile> LoadFile(std::string fileName);
+		LPtr<IModelStruct> LoadFile(const char* fileName);
+		LPtr<IModelStruct> LoadFile(std::string fileName);
 
 		// Should only be called in main thread
 		static LPtr<IFileImportFactory> GetFileImportFactory();

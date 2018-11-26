@@ -1,24 +1,31 @@
 #pragma once
 #include "Node.h"
 
-template <class T> class Node;
-
-template<class T1>
-class NodeVisitor
+namespace Leviathan
 {
-public:
-	enum class TRAVERSE_MODE
+	template<class T>
+	class Node;
+
+	template<class T>
+	class NodeVisitor
 	{
-		ALL,
-		NONE,
-		ONLY,
+	public:
+		enum class E_TRAVERSE_MODE
+		{
+			ALL,
+			NONE,
+			ONLY,
+		};
+
+		NodeVisitor(E_TRAVERSE_MODE mode = E_TRAVERSE_MODE::ALL) : m_eTraverseMode(mode) {};
+		virtual ~NodeVisitor() {};
+
+		E_TRAVERSE_MODE GetTraverseMode() { return m_eTraverseMode; };
+		bool SetTraverseMode(E_TRAVERSE_MODE mode) { m_eTraverseMode = mode; return true; }
+
+		virtual void Apply(Node<T>& node) {};
+
+	protected:
+		E_TRAVERSE_MODE m_eTraverseMode;
 	};
-
-	NodeVisitor(TRAVERSE_MODE mode = TRAVERSE_MODE::ALL): m_traverseMode(mode) {};
-	TRAVERSE_MODE GetTraverseMode() { return m_traverseMode; };
-	virtual void apply(Node<T1>& node) {};
-
-private:
-	TRAVERSE_MODE m_traverseMode;
-};
-
+}

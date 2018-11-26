@@ -54,7 +54,8 @@ namespace Leviathan
 		}
 
 		// Set renderType
-		glEnable(GL_DEPTH_TEST);
+		(m_bDepthTestEnable) ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST);
+		
 		glPolygonMode(GL_FRONT_AND_BACK, m_nPolygonMode);
 
 		// Set GLProgram
@@ -62,24 +63,44 @@ namespace Leviathan
 		glUseProgram(program);
 		//m_pGLShaderProgram->SetGLUniformState();
 
+		// Set light
+		if (m_bLightEnable)
+		{
+			for (auto& pLight : m_lights)
+			{
+				if (!pLight->SetLightUniformVar(program))
+				{
+					LeviathanOutStream << "[ERROR] Set light uniform var failed." << std::endl;
+				}
+			}
+		}
+
 		// Set viewMatrix
 		_updateCameraMatrixUniform(program);
 
 		// Render each GLObject
-		for (auto& Object : m_GLObjects)
+		for (auto& pObject : m_GLObjects)
 		{
-			if (!Object->SetMaterial(program))
+			bool bLightEnable = m_bLightEnable && pObject->GetLightEnable();
+
+			if (bLightEnable && !pObject->ApplyMaterial(program))
 			{
 				LeviathanOutStream << "[ERROR] Set material failed." << std::endl;
+				bLightEnable = false;
 			}
 
-			if (!Object->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
+			if (!pObject->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
 			{
 				LeviathanOutStream << "[ERROR] Set model matrix failed." << std::endl;
 			}
 
+			if (!_updateLightEnableUniform(program, bLightEnable))
+			{
+				LeviathanOutStream << "[ERROR] Update lightEnable uniform failed." << std::endl;
+			}
+
 			m_pGLShaderProgram->SetGLUniformState();
-			Object->Render(program);
+			pObject->Render(program);
 		}
 
 		// ResetProgram
@@ -114,5 +135,18 @@ namespace Leviathan
 
 		auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
 		pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.GetData(), PerspectiveMatrix.GetDataSize());
+	}
+
+	GLboolean TriDObjectGLPass::_updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable)
+	{
+		GLint nLightEnableUniformLocation = glGetUniformLocation(shaderProgram, "bLightOpen");
+		if (nLightEnableUniformLocation == -1)
+		{
+			LeviathanOutStream << "[ERROR] Get lightOpen uniform failed." << std::endl;
+			return false;
+		}
+
+		glUniform1i(nLightEnableUniformLocation, bLightEnable);
+		return true;
 	}
 }

@@ -2,7 +2,7 @@
 
 namespace Leviathan
 {
-	class CModelStruct : public IModelFile
+	class CModelStruct : public IModelStruct
 	{
 	public:
 		CModelStruct();

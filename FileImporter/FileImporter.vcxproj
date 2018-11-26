@@ -25,13 +25,10 @@
     <ClCompile Include="FileImporter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
     <ClInclude Include="CFileImportFactory.h" />
-    <ClInclude Include="CModelStruct.h" />
     <ClInclude Include="CSTLFileImporter.h" />
     <ClInclude Include="IFileImporter.h" />
     <ClInclude Include="IFileImportFactory.h" />
-    <ClInclude Include="IModelStruct.h" />
     <ClInclude Include="ImporterRegister.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

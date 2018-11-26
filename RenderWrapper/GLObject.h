@@ -19,6 +19,7 @@ namespace Leviathan
 		};
 
 		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<GLMaterial> pCommonGLMaterial = nullptr ) :
+			m_bLightEnable(true),
 			m_VAO(0), 
 			m_VBO(0), 
 			m_primitiveType(primType), 
@@ -34,14 +35,20 @@ namespace Leviathan
 		GLuint GetPrimType() { return m_primitiveType; }
 		GLuint GetVertexCount() { return m_vertexCount; }
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
-		void SetModelMatrix(LPtr<Matrix4f> pModelMatrix) { m_pModelMatrix = pModelMatrix; }
+		GLboolean GetLightEnable() { return m_bLightEnable; }
 
+		void SetModelMatrix(LPtr<Matrix4f> pModelMatrix) { m_pModelMatrix = pModelMatrix; }
+		void SetMaterial(LPtr<GLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
+		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
+
+		virtual ~GLObject() {};
 		virtual bool Init() = 0;
-		virtual bool SetMaterial(GLuint shaderProgram) = 0;
+		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
 		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 
 	protected:
+		GLboolean m_bLightEnable;
 		GLuint m_VAO;
 		GLuint m_VBO;
 		GLuint m_primitiveType;

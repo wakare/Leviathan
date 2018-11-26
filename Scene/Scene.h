@@ -6,6 +6,7 @@
 #include "GLShaderProgram.h"
 #include "LPtr.h"
 #include "IModelStruct.h"
+#include "SceneGraph.h"
 
 namespace Leviathan
 {
@@ -19,7 +20,7 @@ namespace Leviathan
 		LPtr<GLCamera> m_pCamera;
 	private:
 		std::string _getShaderSource(const char* pczShaderSourcePath);
-		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelFile> modelFile);
+		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelStruct> modelFile);
 		LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);
 		LPtr<GLObject> _getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
 
@@ -28,5 +29,6 @@ namespace Leviathan
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
+		LPtr<SceneGraph> m_pSceneGraph;
 	};
 }

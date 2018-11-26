@@ -1,8 +1,8 @@
-#include "Scene.h"
 #include <fstream>
 #include <string>
 #include <GL\glew.h>
 #include <sstream>
+#include "Scene.h"
 #include "DynamicArray.h"
 #include "CFileImportFactory.h"
 #include "GeometryCalculator.h"
@@ -10,9 +10,15 @@
 namespace Leviathan
 {
 	Scene::Scene(GLFWwindow* pRenderWindow, int width, int height) :
-		m_pCamera(nullptr), m_pGLFWWindow(pRenderWindow), m_pRenderWarpper(nullptr), m_pMeshPass(nullptr), m_pShaderProgram(nullptr)
+		m_pCamera(nullptr), 
+		m_pGLFWWindow(pRenderWindow), 
+		m_pRenderWarpper(nullptr), 
+		m_pMeshPass(nullptr), 
+		m_pShaderProgram(nullptr),
+		m_pSceneGraph(nullptr)
 	{
 		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
+
 		if (!m_pRenderWarpper)
 		{
 			throw "RenderWrapper init failed.";
@@ -23,7 +29,7 @@ namespace Leviathan
 		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
 		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
 
-		float fovy = PI * (45.0f / 180.0f);
+		float fovy = PI_FLOAT * (45.0f / 180.0f);
 		float fAspect = (1.0f * width) / height;
 		float fNear = 0.01f;
 		float fFar = 1000.0f;
@@ -61,6 +67,8 @@ namespace Leviathan
 			return;
 		}
 
+		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+
 		float cubeAABB[6] =
 		{
 			10.0f, 10.0f, 10.0f,
@@ -73,11 +81,12 @@ namespace Leviathan
 
 		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
  		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
-		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
-		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
 		
+		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, {1.0f, 1.0f, 1.0f});
+		pRenderObject->SetMaterial(pMaterial);
+		pRenderObject->SetLightEnable(true);
 		m_pMeshPass->AddGLObject(pRenderObject);
-		
+	
 		auto& AABB = pDentalFile->GetAABB();
 		float RenderObjectAABBCenter[4];
  		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
@@ -88,7 +97,11 @@ namespace Leviathan
 		// Set camera lookAt
 		RenderObjectAABBCenter[3] = 1.0f;
 		Vector4f modelCoord = RenderObjectAABBCenter;
+
+		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
+		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
 		Vector4f worldCoord = modelCoord * (*pModelMatrix);
+		
 		m_pCamera->m_fLookAt[0] = worldCoord.GetData()[0];
 		m_pCamera->m_fLookAt[1] = worldCoord.GetData()[1];
 		m_pCamera->m_fLookAt[2] = worldCoord.GetData()[2];
@@ -101,15 +114,21 @@ namespace Leviathan
 		RenderObjectAABBCenter[1] += 100.0f;
 		RenderObjectAABBCenter[2] += 10.0f;
 		auto pointGLObject = _getPointGLObject(RenderObjectAABBCenter, 1);
+		pointGLObject->SetLightEnable(false);
 		m_pMeshPass->AddGLObject(pointGLObject);
 
 		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
 		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
 
 		auto AABBGLObject = _convertAABBtoGLObject(AABB);
+		AABBGLObject->SetLightEnable(false);
 		m_pMeshPass->AddGLObject(AABBGLObject);
 		
-		m_pMeshPass->SetPolygonMode(GL_LINE);
+		m_pMeshPass->SetPolygonMode(GL_FILL);
+
+		LPtr<GLLight> light = new GLLight({ 0.0f, 0.0f, 0.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
+		m_pMeshPass->AddGLLight(light);
+
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
@@ -133,19 +152,13 @@ namespace Leviathan
 		return strStream.str();
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelFile> modelFile)
+	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
 	{
 		const unsigned uVertexFloatCount = 10;
 
 		DynamicArray<float> glData(modelFile->GetTriangleCount() * 3 * uVertexFloatCount * sizeof(float));
 		
-		/*std::ofstream outFile("modelGLData.txt", std::ios::out);
-		if (!outFile.is_open())
-		{
-			LeviathanOutStream << "[ERROR] Create file failed." << std::endl;
-		}*/
-
-		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		static float defaultColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
 		bool bDefaultColor = false;
 		
 		auto color = modelFile->GetVertexColorArray();
@@ -258,7 +271,8 @@ namespace Leviathan
 			cube[7 * i + 2] += center[2];
 		}
 
-		return new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		return result;
 	}
 
 	Leviathan::LPtr<Leviathan::GLObject> Scene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)

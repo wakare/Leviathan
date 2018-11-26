@@ -17,7 +17,7 @@ namespace Leviathan
 
 		bool Init();
 		bool Render(GLuint shaderProgram);
-		bool SetMaterial(GLuint fragmentProgram);
+		bool ApplyMaterial(GLuint fragmentProgram);
 		bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform);
 
 	private:

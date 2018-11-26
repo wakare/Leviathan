@@ -3,7 +3,7 @@
 
 namespace Leviathan
 {
-	class IModelFile
+	class IModelStruct
 	{
 	public:
 		virtual unsigned	GetVertexCount() = 0;
@@ -14,6 +14,6 @@ namespace Leviathan
 		virtual float*		GetVertexColorArray() = 0;
 		virtual const AABB& GetAABB() = 0;
 	protected:
-		IModelFile() {};
+		IModelStruct() {};
 	};
 }

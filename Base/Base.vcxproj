@@ -155,18 +155,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CModelStruct.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Drawable.h" />
+    <ClInclude Include="AABB.h" />
+    <ClInclude Include="BaseMath.h" />
+    <ClInclude Include="CModelStruct.h" />
     <ClInclude Include="DynamicArray.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventListener.h" />
     <ClInclude Include="EventSystem.h" />
     <ClInclude Include="GeometryCalculator.h" />
     <ClInclude Include="GlobalDef.h" />
+    <ClInclude Include="IModelStruct.h" />
     <ClInclude Include="LPtr.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />

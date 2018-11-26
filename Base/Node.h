@@ -2,39 +2,52 @@
 #include <memory>
 #include <vector>
 #include "NodeVisitor.h"
+#include "LPtr.h"
 
-template<class T>
-class Node
+namespace Leviathan
 {
-public:
-	Node(std::shared_ptr<T> pData) : pNodeData(pData) {};
-	void AddChild(std::shared_ptr<Node<T>> pChild);
-	void DelChild(std::shared_ptr<Node<T>> pChild);
-	const std::shared_ptr<T> GetNodeData() { return pNodeData; };
-	const std::vector<std::shared_ptr<Node<T>>> GetChildren() { return children; };
-	 
-	virtual void accept(NodeVisitor<T>& nodeVisitor);
+	template <class T>
+	class NodeVisitor;
 
-private:
-	std::shared_ptr<T> pNodeData;
-	std::vector<std::shared_ptr<Node<T>>> children;
-};
+	template<class T>
+	class Node
+	{
+	public:
+		Node(LPtr<T> pData) : pNodeData(pData) {};
+		void AddChild(LPtr<Node<T>> pChild);
+		void DelChild(LPtr<Node<T>> pChild);
+		const LPtr<T> GetNodeData() { return pNodeData; };
+		const std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
 
-template<class T>
-inline void Node<T>::AddChild(std::shared_ptr<Node<T>> pChild)
-{
-	children.push_back(pChild);
+		virtual ~Node();
+		virtual void Accept(NodeVisitor<T>& nodeVisitor);
+
+	private:
+		LPtr<T> pNodeData;
+		std::vector<LPtr<Node<T>>> children;
+	};
+
+	template<class T>
+	Leviathan::Node<T>::~Node()
+	{
+
+	}
+
+	template<class T>
+	inline void Node<T>::AddChild(LPtr<Node<T>> pChild)
+	{
+		children.push_back(pChild);
+	}
+
+	template<class T>
+	inline void Node<T>::DelChild(LPtr<Node<T>> pChild)
+	{
+		children.erase(pChild);
+	}
+
+	template<class T>
+	inline void Node<T>::Accept(NodeVisitor<T>& nodeVisitor)
+	{
+		nodeVisitor.Apply(*this);
+	}
 }
-
-template<class T>
-inline void Node<T>::DelChild(std::shared_ptr<Node<T>> pChild)
-{
-	children.erase(pChild);
-}
-
-template<class T>
-inline void Node<T>::accept(NodeVisitor<T>& nodeVisitor)
-{
-	nodeVisitor.apply(*this);
-}
-

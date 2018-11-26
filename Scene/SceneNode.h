@@ -1,11 +1,9 @@
 #pragma once
-
 namespace Leviathan
 {
-	class Drawable
+	class SceneNode
 	{
 	public:
-		Drawable() {};
-
+		SceneNode();
 	};
 }

@@ -284,6 +284,8 @@ namespace Leviathan
 
 		};
 
+		virtual ~Event() {}
+
 		EventType m_type;
 		InputAction m_action;
 		InputCode m_code;

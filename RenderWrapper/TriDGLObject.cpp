@@ -81,14 +81,14 @@ namespace Leviathan
 	bool TriDGLObject::Render(GLuint shaderProgram)
 	{
 		// Set VertexTypeMask uniform
-		GLint location = glGetUniformLocation(shaderProgram, "VertexTypeMask");
-		if (location == -1)
+		GLint uVertexTypeMaskLocation = glGetUniformLocation(shaderProgram, "VertexTypeMask");
+		if (uVertexTypeMaskLocation == -1)
 		{
-			LeviathanOutStream << "[ERROR] Get Uniform location failed." << std::endl;
+			LeviathanOutStream << "[ERROR] Get uVertexTypeMaskLocation failed." << std::endl;
 			return false;
 		}
 
-		glUniform1ui(location, GetVertexMask());
+		glUniform1ui(uVertexTypeMaskLocation, GetVertexMask());
 
 		auto VAO = GetVAO();
 		if (VAO == 0)
@@ -103,14 +103,14 @@ namespace Leviathan
 		return true;
 	}
 
-	bool TriDGLObject::SetMaterial(GLuint shaderProgram)
+	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
 		if (!m_pCommonGLMaterial)
 		{
 			return false;
 		}
 
-		return m_pCommonGLMaterial->SetMaterial(shaderProgram);
+		return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
 	}
 
 	bool TriDGLObject::ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelMatrixUniform)
@@ -124,7 +124,7 @@ namespace Leviathan
 		// Set modelMatrix
 		if (!m_pModelMatrix)
 		{
-			float identityMatrix[16] = 
+			float fIdentityMatrix[16] = 
 			{
 				1.0f, 0.0f, 0.0f, 0.0f,
 				0.0f, 1.0f, 0.0f, 0.0f,
@@ -132,7 +132,7 @@ namespace Leviathan
 				0.0f, 0.0f, 0.0f, 1.0f,
 			};
 
-			m_pModelMatrix = new Matrix4f(identityMatrix);
+			m_pModelMatrix = new Matrix4f(fIdentityMatrix);
 		}
 
 		modelMatrixUniform->SetData(m_pModelMatrix->GetData(), m_pModelMatrix->GetDataSize());

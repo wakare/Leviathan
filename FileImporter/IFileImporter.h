@@ -11,6 +11,6 @@ namespace Leviathan
 
 		virtual bool RegisterToFactory() = 0;
 		virtual std::string TypeName() = 0;
-		virtual LPtr<IModelFile> LoadFile(const char* fileName) = 0;
+		virtual LPtr<IModelStruct> LoadFile(const char* fileName) = 0;
 	};
 }
