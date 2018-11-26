@@ -1,15 +1,17 @@
 #pragma once
 #include <functional>
 #include "NodeVisitor.h"
+#include "SceneNode.h"
+#include "GLPass.h"
 
 namespace Leviathan
 {
+	typedef std::function<void(Node<SceneNode>&)> SceneNodeProcess;
+
 	template<class T>
 	class SceneNodeTraverseVisitor : public NodeVisitor<T>
 	{
 	public:
-		typedef std::function<void(Node<SceneNode>&)> SceneNodeProcess;
-
 		SceneNodeTraverseVisitor(LPtr<GLPass> pSceneRenderPass):
 			m_pSceneRenderPass(pSceneRenderPass),
 			m_process(nullptr)

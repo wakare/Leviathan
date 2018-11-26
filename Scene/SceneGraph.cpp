@@ -43,7 +43,7 @@ void Leviathan::SceneGraph::_addDrawableNodeToSceneRenderPass(LPtr<Node<SceneNod
 	auto currentCallback = m_pSceneNodeTraverseVisitor->GetCurrentTraverseCallback();
 	auto eCurrentTraverseMode = m_pSceneNodeTraverseVisitor->GetTraverseMode();
 
-	SceneNodeTraverseVisitor<SceneNode>::SceneNodeProcess addDrawableToRenderPass = [this](Node<SceneNode>& node)
+	SceneNodeProcess addDrawableToRenderPass = [this](Node<SceneNode>& node)
 	{
 		auto pDrawable = dynamic_cast<IDrawable*>(&node);
 		if (pDrawable)
