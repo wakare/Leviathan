@@ -55,6 +55,7 @@ namespace Leviathan
 		}
 
 		auto originTraverseMode = m_eTraverseMode;
+		auto children = node.GetChildren();
 
 		switch (m_eTraverseMode)
 		{
@@ -63,11 +64,18 @@ namespace Leviathan
 
 		case NodeVisitor::E_TRAVERSE_MODE::ONLY:
 			m_eTraverseMode = E_TRAVERSE_MODE::NONE;
-			node.Accept(*this);
+			for (auto pChildren : children)
+			{
+				pChildren->Accept(*this);
+			}
 			break;
 
 		case NodeVisitor::E_TRAVERSE_MODE::ALL:
-			node.Accept(*this);
+			for (auto pChildren : children)
+			{
+				pChildren->Accept(*this);
+			}
+			
 			break;
 
 		default:

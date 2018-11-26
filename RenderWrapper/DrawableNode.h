@@ -6,14 +6,16 @@
 namespace Leviathan
 {
 	template<class T>
-	class DrawableNode : public IDrawable, Node<T>
+	class DrawableNode : public IDrawable, public Node<T>
 	{
 	public:
-		DrawableNode(LPtr<IModelStruct> pModel);
+		DrawableNode(LPtr<IModelStruct> pModel, LPtr<T> pNode);
 		~DrawableNode();
 
 		bool RegisterSelfToGLPass(GLPass& refPass);
 		bool RemoveSelfFromGLPass(GLPass& refPass);
+		LPtr<GLObject> GetGLObject();
+
 		void Accept(NodeVisitor<T>& nodeVisitor);
 
 	private:
@@ -22,6 +24,21 @@ namespace Leviathan
 		LPtr<IModelStruct> m_pModelStruct;
 		LPtr<GLObject> m_pGLObject;
 	};
+
+	template<class T>
+	Leviathan::LPtr<Leviathan::GLObject> Leviathan::DrawableNode<T>::GetGLObject()
+	{
+		if (!m_pGLObject)
+		{
+			m_pGLObject = _convertModelStructToGLObject();
+			if (!m_pGLObject)
+			{
+				LeviathanOutStream << "[FATAL] Convert to GLObject failed." << std::endl;
+			}
+		}
+
+		return m_pGLObject;
+	}
 
 	template<class T>
 	Leviathan::LPtr<Leviathan::GLObject> Leviathan::DrawableNode<T>::_convertModelStructToGLObject()
@@ -73,8 +90,8 @@ namespace Leviathan
 	}
 
 	template<class T>
-	Leviathan::DrawableNode<T>::DrawableNode(LPtr<IModelStruct> pModel):
-		m_pModelStruct(nullptr),
+	Leviathan::DrawableNode<T>::DrawableNode(LPtr<IModelStruct> pModel, LPtr<T> pNode):
+		Node(pNode),
 		m_pGLObject(nullptr),
 		m_pModelStruct(pModel)
 	{
@@ -89,7 +106,7 @@ namespace Leviathan
 	template<class T>
 	void DrawableNode<T>::Accept(NodeVisitor<T>& nodeVisitor)
 	{
-		nodeVisitor->Apply(*this);
+		nodeVisitor.Apply(*this);
 	}
 
 	template<class T>
@@ -101,7 +118,7 @@ namespace Leviathan
 			return false;
 		}
 
-		refPass->DelGLObject(m_pGLObject);
+		refPass.DelGLObject(m_pGLObject);
 		return true;
 	}
 
@@ -118,7 +135,7 @@ namespace Leviathan
 			}
 		}
 
-		refPass->AddGLObject(m_pGLObject);
+		refPass.AddGLObject(m_pGLObject);
 		return true;
 	}
 };

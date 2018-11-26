@@ -10,11 +10,19 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 {
 	m_pRoot = new Node<SceneNode>(new SceneNode());
 	m_pSceneNodeSearchVisitor = new SceneNodeSearchVisitor<SceneNode>();
+	m_pSceneNodeTraverseVisitor = new SceneNodeTraverseVisitor<SceneNode>(m_pSceneRenderPass);
 }
 
 bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
+	if (!pNode)
+	{
+		LeviathanOutStream << "[ERROR] Add nullptr node." << std::endl;
+		return false;
+	}
+
 	m_pRoot->AddChild(pNode);
+	_addDrawableNodeToSceneRenderPass(pNode);
 	return true;
 }
 

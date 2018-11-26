@@ -97,15 +97,14 @@ namespace Leviathan
 	template<class T, class N>
 	LPtr<N> TryCast(LPtr<T> lPtr)
 	{
-		auto sharedPointer = lPtr.m_lPtr;
-		if (!sharedPointer)
+		if (!lPtr.m_lPtr)
 		{
 			LeviathanOutStream << "[ERROR] Nullptr need not convert." << std::endl;
 			return nullptr;
 		}
 
-		LPtr<N> result = LPtr<N>();
-		result.m_lPtr = sharedPointer;
+		LPtr<N> result;
+		result.m_lPtr = lPtr.m_lPtr;
 
 		return result;
 	}

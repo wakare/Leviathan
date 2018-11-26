@@ -6,6 +6,7 @@
 #include "DynamicArray.h"
 #include "CFileImportFactory.h"
 #include "GeometryCalculator.h"
+#include "DrawableNode.h"
 
 namespace Leviathan
 {
@@ -80,13 +81,20 @@ namespace Leviathan
 		//m_pMeshPass->AddGLObject(pCube);
 
 		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
- 		LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
-		
+ 		//LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
+		LPtr<DrawableNode<SceneNode>> node = new DrawableNode<SceneNode>(pDentalFile, LPtr<SceneNode>(new SceneNode()));
+		auto pDentalGLObject = node->GetGLObject();
+		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(node);
+		m_pSceneGraph->AddNode(pNode);
+
 		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, {1.0f, 1.0f, 1.0f});
-		pRenderObject->SetMaterial(pMaterial);
-		pRenderObject->SetLightEnable(true);
-		m_pMeshPass->AddGLObject(pRenderObject);
+		//pRenderObject->SetMaterial(pMaterial);
+		//pRenderObject->SetLightEnable(true);
+		//m_pMeshPass->AddGLObject(pRenderObject);
 	
+		pDentalGLObject->SetMaterial(pMaterial);
+		pDentalGLObject->SetLightEnable(true);
+
 		auto& AABB = pDentalFile->GetAABB();
 		float RenderObjectAABBCenter[4];
  		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
@@ -108,7 +116,8 @@ namespace Leviathan
 		//AABB.GetAABBCenter(m_pCamera->m_fLookAt);
 
 		pModelMatrix->inverse();
-		pRenderObject->SetModelMatrix(pModelMatrix);
+		//pRenderObject->SetModelMatrix(pModelMatrix);
+		pDentalGLObject->SetModelMatrix(pModelMatrix);
 
 		RenderObjectAABBCenter[0] += -100.0f;
 		RenderObjectAABBCenter[1] += 100.0f;

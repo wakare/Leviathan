@@ -9,8 +9,8 @@ namespace Leviathan
 		IDrawable() {};
 
 		// Register self to GLPass
-		virtual bool RegisterSelfToGLPass(GLPass& refPass) {};
-		virtual bool RemoveSelfFromGLPass(GLPass& refPass) {};
+		virtual bool RegisterSelfToGLPass(GLPass& refPass) { return false; };
+		virtual bool RemoveSelfFromGLPass(GLPass& refPass) { return false; };
 
 		virtual ~IDrawable() {};
 	};
