@@ -135,7 +135,6 @@ public:
 		Rotate(RotateVec[0], RotateVec[1], RotateVec[2]);
 	}
 
-
 	void Rotate(float x, float y, float z)
 	{
 		float sinValue[3] = { sinf(x), sinf(y), sinf(z) };

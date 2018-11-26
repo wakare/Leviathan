@@ -45,7 +45,7 @@ namespace Leviathan
 			return false;
 		}
 
-		m_pScene = LPtr<Scene>(new Scene(m_pWindow, GetWidth(), GetHeight()));
+		m_pScene = LPtr<CommonScene>(new CommonScene(m_pWindow, GetWidth(), GetHeight()));
 		if (!m_pScene)
 		{
 			throw "RenderWrapper init failed.";
@@ -114,7 +114,7 @@ namespace Leviathan
 
 		if (fTranslate[0] != 0.0f || fTranslate[1] != 0.0f || fTranslate[2] != 0.0f)
 		{
-			m_pScene->m_pCamera->MouseTranslate(fTranslate[0], fTranslate[1], fTranslate[2]);
+			m_pScene->GetCamera().MouseTranslate(fTranslate[0], fTranslate[1], fTranslate[2]);
 		}
 #pragma endregion
 
@@ -141,7 +141,7 @@ namespace Leviathan
 				delta[0] = ANGLE_TO_RADIAN(delta[0] * 0.1f);
 				delta[1] = ANGLE_TO_RADIAN(delta[1] * 0.1f);
 
-				m_pScene->m_pCamera->MouseRotate(delta[0], delta[1]);
+				m_pScene->GetCamera().MouseRotate(delta[0], delta[1]);
 			}
 		}
 

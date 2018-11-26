@@ -2,7 +2,7 @@
 #include <string>
 #include <GL\glew.h>
 #include <sstream>
-#include "Scene.h"
+#include "CommonScene.h"
 #include "DynamicArray.h"
 #include "CFileImportFactory.h"
 #include "GeometryCalculator.h"
@@ -10,8 +10,8 @@
 
 namespace Leviathan
 {
-	Scene::Scene(GLFWwindow* pRenderWindow, int width, int height) :
-		m_pCamera(nullptr), 
+	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
+		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
 		m_pRenderWarpper(nullptr), 
 		m_pMeshPass(nullptr), 
@@ -22,43 +22,24 @@ namespace Leviathan
 
 		if (!m_pRenderWarpper)
 		{
+			LeviathanOutStream << "[FATAL] RenderWrapper init failed." << std::endl;
 			throw "RenderWrapper init failed.";
 			return;
 		}
 
-		float cameraEye[3] = { 0.0f, 0.0f, -10.0f };
-		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
-		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
-
-		float fovy = PI_FLOAT * (45.0f / 180.0f);
-		float fAspect = (1.0f * width) / height;
-		float fNear = 0.01f;
-		float fFar = 1000.0f;
-
-		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
-		if (!m_pCamera)
+		if (!InitCamera(width, height))
 		{
-			throw "Exception";
+			LeviathanOutStream << "[FATAL] Scene camera init failed." << std::endl;
+			throw "Scene camera init failed.";
 			return;
 		}
 
 		const char* pczVertexShaderPath = "ShaderSource\\VertexShader.glsl";
 		const char* pczFragmentShaderPath = "ShaderSource\\FragmentShader.glsl";
-
-		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
-		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
-
-		const char* pczVertexShaderSource = strVertexShader.c_str();
-		const char* pczFragmentShaderSource = strFragmentShader.c_str();
-
-		m_pShaderProgram = new GLShaderProgram(&pczVertexShaderSource, &pczFragmentShaderSource, nullptr);
-		if (!m_pShaderProgram)
+		if (!InitShaderSource(pczVertexShaderPath, pczFragmentShaderPath))
 		{
-			return;
-		}
-
-		if (!m_pShaderProgram->Init())
-		{
+			LeviathanOutStream << "[FATAL] Scene ShaderSource init failed." << std::endl;
+			throw "Scene ShaderSource init failed.";
 			return;
 		}
 
@@ -69,38 +50,35 @@ namespace Leviathan
 		}
 
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+	};
 
+	bool CommonScene::InitSceneObject()
+	{
 		float cubeAABB[6] =
 		{
 			10.0f, 10.0f, 10.0f,
 			20.0f, 20.0f, 20.0f,
 		};
 
-		auto _AABB = AABB(cubeAABB);
-		LPtr<GLObject> pCube = _convertAABBtoGLObject(_AABB);
-		//m_pMeshPass->AddGLObject(pCube);
+		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
+		pCubeGLObject->SetLightEnable(false);
+		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
+		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode));
 
 		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
- 		//LPtr<GLObject> pRenderObject = _convertModelFileToGLObject(pDentalFile);
-		LPtr<DrawableNode<SceneNode>> node = new DrawableNode<SceneNode>(pDentalFile, LPtr<SceneNode>(new SceneNode()));
-		auto pDentalGLObject = node->GetGLObject();
-		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(node);
-		m_pSceneGraph->AddNode(pNode);
-
-		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, {1.0f, 1.0f, 1.0f});
-		//pRenderObject->SetMaterial(pMaterial);
-		//pRenderObject->SetLightEnable(true);
-		//m_pMeshPass->AddGLObject(pRenderObject);
-	
-		pDentalGLObject->SetMaterial(pMaterial);
-		pDentalGLObject->SetLightEnable(true);
+		if (!pDentalFile)
+		{
+			LeviathanOutStream << "[ERROR] Load file failed." << std::endl;
+			return false;
+		}
 
 		auto& AABB = pDentalFile->GetAABB();
 		float RenderObjectAABBCenter[4];
- 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
- 		{
- 			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
- 		}
+		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
+		{
+			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
+			return false;
+		}
 
 		// Set camera lookAt
 		RenderObjectAABBCenter[3] = 1.0f;
@@ -109,44 +87,99 @@ namespace Leviathan
 		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
 		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
 		Vector4f worldCoord = modelCoord * (*pModelMatrix);
-		
+
 		m_pCamera->m_fLookAt[0] = worldCoord.GetData()[0];
 		m_pCamera->m_fLookAt[1] = worldCoord.GetData()[1];
 		m_pCamera->m_fLookAt[2] = worldCoord.GetData()[2];
-		//AABB.GetAABBCenter(m_pCamera->m_fLookAt);
 
-		pModelMatrix->inverse();
-		//pRenderObject->SetModelMatrix(pModelMatrix);
+		LPtr<DrawableNode<SceneNode>> node = new DrawableNode<SceneNode>(pDentalFile, LPtr<SceneNode>(new SceneNode()));
+		auto pDentalGLObject = node->GetGLObject();
+		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(node);
+		m_pSceneGraph->AddNode(pNode);
+
+		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
+		pDentalGLObject->SetMaterial(pMaterial);
+		pDentalGLObject->SetLightEnable(true);
+
+		pModelMatrix->InverseSelf();
 		pDentalGLObject->SetModelMatrix(pModelMatrix);
-
-		RenderObjectAABBCenter[0] += -100.0f;
-		RenderObjectAABBCenter[1] += 100.0f;
-		RenderObjectAABBCenter[2] += 10.0f;
-		auto pointGLObject = _getPointGLObject(RenderObjectAABBCenter, 1);
-		pointGLObject->SetLightEnable(false);
-		m_pMeshPass->AddGLObject(pointGLObject);
 
 		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
 		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
 
-		auto AABBGLObject = _convertAABBtoGLObject(AABB);
-		AABBGLObject->SetLightEnable(false);
-		m_pMeshPass->AddGLObject(AABBGLObject);
-		
-		m_pMeshPass->SetPolygonMode(GL_FILL);
-
 		LPtr<GLLight> light = new GLLight({ 0.0f, 0.0f, 0.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
+
 		m_pMeshPass->AddGLLight(light);
-
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
-	};
 
-	void Scene::Update()
+		return true;
+	}
+
+	bool CommonScene::InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath)
 	{
+		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
+		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
+
+		const char* pczVertexShaderSource = strVertexShader.c_str();
+		const char* pczFragmentShaderSource = strFragmentShader.c_str();
+
+		m_pShaderProgram = new GLShaderProgram(&pczVertexShaderSource, &pczFragmentShaderSource, nullptr);
+		if (!m_pShaderProgram)
+		{
+			return false;
+		}
+
+		if (!m_pShaderProgram->Init())
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	bool CommonScene::InitCamera(unsigned uWidth, unsigned uHeight)
+	{
+		float cameraEye[3] = { 0.0f, 0.0f, -10.0f };
+		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
+		float cameraUp[3] = { 0.0f, 1.0f, 0.0f };
+
+		float fovy = PI_FLOAT * (45.0f / 180.0f);
+		float fAspect = (1.0f * uWidth) / uHeight;
+		float fNear = 0.01f;
+		float fFar = 1000.0f;
+
+		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
+		if (!m_pCamera)
+		{
+			throw "Exception";
+			return false;
+		}
+
+		return true;
+	}
+
+	CommonScene::~CommonScene()
+	{
+
+	}
+
+	void CommonScene::Update()
+	{
+		static bool bFirstUpdate = true;
+		if (bFirstUpdate)
+		{
+			if (!InitSceneObject())
+			{
+				LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
+			}
+
+			bFirstUpdate = false;
+		}
+
 		m_pRenderWarpper->Render();
 	}
 
-	std::string Scene::_getShaderSource(const char* pczShaderSourcePath)
+	std::string CommonScene::_getShaderSource(const char* pczShaderSourcePath)
 	{
 		std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 		if (!shaderSourceFileStream.is_open())
@@ -161,7 +194,7 @@ namespace Leviathan
 		return strStream.str();
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
+	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
 	{
 		const unsigned uVertexFloatCount = 10;
 
@@ -209,7 +242,7 @@ namespace Leviathan
 		return new TriDGLObject(GL_TRIANGLES, glData.m_pData, modelFile->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertAABBtoGLObject(const AABB& aabb)
+	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_convertAABBtoGLObject(const AABB& aabb)
 	{
 		float fRadius = aabb.GetAABBRadius();
 		if (fRadius < 0.0f)
@@ -284,7 +317,7 @@ namespace Leviathan
 		return result;
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> Scene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
+	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
 	{
 		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		const int nVertexSize = 7;

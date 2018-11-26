@@ -10,6 +10,7 @@ namespace Leviathan
 	{
 	public:
 		DrawableNode(LPtr<IModelStruct> pModel, LPtr<T> pNode);
+		DrawableNode(LPtr<GLObject> pGLObject, LPtr<T> pNode);
 		~DrawableNode();
 
 		bool RegisterSelfToGLPass(GLPass& refPass);
@@ -24,6 +25,15 @@ namespace Leviathan
 		LPtr<IModelStruct> m_pModelStruct;
 		LPtr<GLObject> m_pGLObject;
 	};
+
+	template<class T>
+	Leviathan::DrawableNode<T>::DrawableNode(LPtr<GLObject> pGLObject, LPtr<T> pNode):
+		Node<T>(pNode),
+		m_pGLObject(pGLObject),
+		m_pModelStruct(nullptr)
+	{
+
+	}
 
 	template<class T>
 	Leviathan::LPtr<Leviathan::GLObject> Leviathan::DrawableNode<T>::GetGLObject()

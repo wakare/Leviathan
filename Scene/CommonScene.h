@@ -1,4 +1,5 @@
 #pragma once
+#include "IScene.h"
 #include "GLCamera.h"
 #include "RenderWrapper.h"
 #include "TriDObjectGLPass.h"
@@ -10,15 +11,24 @@
 
 namespace Leviathan
 {
-	class Scene
+	class CommonScene : public IScene
 	{
 	public:
-		Scene(GLFWwindow* pRenderWindow, int width, int height);
+		CommonScene(GLFWwindow* pRenderWindow, int width, int height);
+		~CommonScene();
+		void Update();
 
-		virtual void Update();
-
-		LPtr<GLCamera> m_pCamera;
 	private:
+		CommonScene(const CommonScene& ref);
+
+		bool InitSceneObject();
+		
+		bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);
+		
+		bool InitCamera(unsigned width, unsigned height);
+		
+		CommonScene& operator=(const CommonScene& ref);
+
 		std::string _getShaderSource(const char* pczShaderSourcePath);
 		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelStruct> modelFile);
 		LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);

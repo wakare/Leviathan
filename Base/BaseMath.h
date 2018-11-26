@@ -49,7 +49,20 @@ public:
 		return Matrix4f(reinterpret_cast<float*>(result));
 	}
 
-	Matrix4f& inverse()
+	Matrix4f GetInverseMatrix()
+	{
+		float newMatrixData[4][4] =
+		{
+			m_data[0][0], m_data[1][0], m_data[2][0], m_data[3][0],
+			m_data[0][1], m_data[1][1], m_data[2][1], m_data[3][1],
+			m_data[0][2], m_data[1][2], m_data[2][2], m_data[3][2],
+			m_data[0][3], m_data[1][3], m_data[2][3], m_data[3][3],
+		};
+
+		return Matrix4f(reinterpret_cast<float*>(newMatrixData));
+	}
+
+	Matrix4f& InverseSelf()
 	{
 		float newMatrixData[4][4] =
 		{

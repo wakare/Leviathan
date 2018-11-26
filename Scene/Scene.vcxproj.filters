@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Scene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SceneGraph.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -30,18 +27,21 @@
     <ClInclude Include="SceneNodeTraverseVisitor.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Scene.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="SceneGraph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SceneNode.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SceneNodeTraverseVisitor.cpp">
+    <ClCompile Include="CommonScene.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
