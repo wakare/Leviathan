@@ -10,7 +10,7 @@ namespace Leviathan
 	public:
 		static LPtr<IFileImporter> GetInstance();
 		std::string TypeName();
-		LPtr<IModelFile> LoadFile(const char* fileName);
+		LPtr<IModelStruct> LoadFile(const char* fileName);
 		bool RegisterToFactory();
 
 	private:

@@ -57,7 +57,7 @@ namespace Leviathan
 		return "stl";
 	}
 
-	LPtr<IModelFile> CSTLFileImporter::LoadFile(const char* fileName)
+	LPtr<IModelStruct> CSTLFileImporter::LoadFile(const char* fileName)
 	{
 		auto pModelStruct = new CModelStruct();
 
@@ -126,7 +126,7 @@ namespace Leviathan
 		pModelStruct->SetTriangleIndexData(uTriangleNumber, triangleIndex);
 		pModelStruct->SetVertexCoordData(vertexSet.size(), vertexCoordArray.m_pData);
 
-		return LPtr<IModelFile>(pModelStruct);
+		return LPtr<IModelStruct>(pModelStruct);
 	}
 
 	bool CSTLFileImporter::RegisterToFactory()

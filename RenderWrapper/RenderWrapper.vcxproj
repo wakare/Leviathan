@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CommonGLMaterial.h" />
+    <ClInclude Include="DrawableNode.h" />
     <ClInclude Include="GLCamera.h" />
     <ClInclude Include="GLColor.h" />
     <ClInclude Include="GLLight.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="GLPass.h" />
     <ClInclude Include="GLShaderProgram.h" />
     <ClInclude Include="GLUniform.h" />
+    <ClInclude Include="IDrawable.h" />
     <ClInclude Include="RenderWrapper.h" />
     <ClInclude Include="TriDGLObject.h" />
     <ClInclude Include="TriDObjectGLPass.h" />

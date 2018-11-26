@@ -6,6 +6,9 @@
 
 namespace Leviathan
 {
+	template <class T>
+	class NodeVisitor;
+
 	template<class T>
 	class Node
 	{
@@ -16,12 +19,19 @@ namespace Leviathan
 		const LPtr<T> GetNodeData() { return pNodeData; };
 		const std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
 
-		virtual void accept(NodeVisitor<T>& nodeVisitor);
+		virtual ~Node();
+		virtual void Accept(NodeVisitor<T>& nodeVisitor);
 
 	private:
 		LPtr<T> pNodeData;
 		std::vector<LPtr<Node<T>>> children;
 	};
+
+	template<class T>
+	Leviathan::Node<T>::~Node()
+	{
+
+	}
 
 	template<class T>
 	inline void Node<T>::AddChild(LPtr<Node<T>> pChild)
@@ -36,8 +46,8 @@ namespace Leviathan
 	}
 
 	template<class T>
-	inline void Node<T>::accept(NodeVisitor<T>& nodeVisitor)
+	inline void Node<T>::Accept(NodeVisitor<T>& nodeVisitor)
 	{
-		nodeVisitor.apply(*this);
+		nodeVisitor.Apply(*this);
 	}
 }

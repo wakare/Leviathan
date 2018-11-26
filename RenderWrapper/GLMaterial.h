@@ -7,6 +7,8 @@ namespace Leviathan
 	{
 	public:
 		GLMaterial() {};
+
+		virtual ~GLMaterial() {}
 		virtual bool ApplyMaterial(GLuint program) = 0;
 	};
 }

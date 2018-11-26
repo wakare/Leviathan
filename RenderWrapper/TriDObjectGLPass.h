@@ -16,6 +16,10 @@ namespace Leviathan
 		{
 		};
 
+		~TriDObjectGLPass() 
+		{
+		};
+
 		bool Init();
 		void Render();
 

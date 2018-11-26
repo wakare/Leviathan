@@ -41,6 +41,7 @@ namespace Leviathan
 		void SetMaterial(LPtr<GLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 
+		virtual ~GLObject() {};
 		virtual bool Init() = 0;
 		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
 		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;

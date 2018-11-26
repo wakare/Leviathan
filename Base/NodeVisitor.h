@@ -10,18 +10,22 @@ namespace Leviathan
 	class NodeVisitor
 	{
 	public:
-		enum class TRAVERSE_MODE
+		enum class E_TRAVERSE_MODE
 		{
 			ALL,
 			NONE,
 			ONLY,
 		};
 
-		NodeVisitor(TRAVERSE_MODE mode = TRAVERSE_MODE::ALL) : m_eTraverseMode(mode) {};
-		TRAVERSE_MODE GetTraverseMode() { return m_eTraverseMode; };
-		virtual void apply(Node<T>& node) {};
+		NodeVisitor(E_TRAVERSE_MODE mode = E_TRAVERSE_MODE::ALL) : m_eTraverseMode(mode) {};
+		virtual ~NodeVisitor() {};
 
-	private:
-		TRAVERSE_MODE m_eTraverseMode;
+		E_TRAVERSE_MODE GetTraverseMode() { return m_eTraverseMode; };
+		bool SetTraverseMode(E_TRAVERSE_MODE mode) { m_eTraverseMode = mode; return true; }
+
+		virtual void Apply(Node<T>& node) {};
+
+	protected:
+		E_TRAVERSE_MODE m_eTraverseMode;
 	};
 }

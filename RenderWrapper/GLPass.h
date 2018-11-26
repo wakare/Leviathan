@@ -22,10 +22,27 @@ namespace Leviathan
 
 		};
 
-		void AddGLObject(LPtr<GLObject> pObject) { m_GLObjects.push_back(pObject); }
+		void AddGLObject(LPtr<GLObject> pObject) 
+		{ 
+			if (_findGLObject(pObject) == m_GLObjects.end())
+			{
+				m_GLObjects.push_back(pObject);
+			}
+		}
+
+		void DelGLObject(LPtr<GLObject> pObject) 
+		{
+			auto it = _findGLObject(pObject);
+			if (it != m_GLObjects.end())
+			{
+				m_GLObjects.erase(it);
+			}
+		}
+
 		void AddGLLight(LPtr<GLLight> pLight) { m_lights.push_back(pLight); }
 		const std::vector<LPtr<GLObject>> GetGLObjects() { return m_GLObjects; };
 		
+		virtual ~GLPass() {};
 		virtual bool Init() = 0;
 		virtual void Render() = 0;
 
@@ -36,6 +53,11 @@ namespace Leviathan
 		void SetDepthTestEnable(GLboolean bDepthTestEnable) { m_bDepthTestEnable = bDepthTestEnable; }
 
 	protected:
+		std::vector<LPtr<GLObject>>::iterator _findGLObject(LPtr<GLObject>& pObject)
+		{
+			return  std::find(m_GLObjects.begin(), m_GLObjects.end(), pObject);
+		}
+
 		LPtr<GLShaderProgram> m_pGLShaderProgram;
 		std::vector<LPtr<GLObject>> m_GLObjects;
 		std::vector<LPtr<GLLight>> m_lights;

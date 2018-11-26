@@ -10,9 +10,15 @@
 namespace Leviathan
 {
 	Scene::Scene(GLFWwindow* pRenderWindow, int width, int height) :
-		m_pCamera(nullptr), m_pGLFWWindow(pRenderWindow), m_pRenderWarpper(nullptr), m_pMeshPass(nullptr), m_pShaderProgram(nullptr)
+		m_pCamera(nullptr), 
+		m_pGLFWWindow(pRenderWindow), 
+		m_pRenderWarpper(nullptr), 
+		m_pMeshPass(nullptr), 
+		m_pShaderProgram(nullptr),
+		m_pSceneGraph(nullptr)
 	{
 		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
+
 		if (!m_pRenderWarpper)
 		{
 			throw "RenderWrapper init failed.";
@@ -60,6 +66,8 @@ namespace Leviathan
 		{
 			return;
 		}
+
+		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 
 		float cubeAABB[6] =
 		{
@@ -144,7 +152,7 @@ namespace Leviathan
 		return strStream.str();
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelFile> modelFile)
+	Leviathan::LPtr<Leviathan::GLObject> Scene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
 	{
 		const unsigned uVertexFloatCount = 10;
 

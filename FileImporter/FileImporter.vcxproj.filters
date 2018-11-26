@@ -23,13 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
     <ClInclude Include="CFileImportFactory.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="CModelStruct.h">
       <Filter>Implement</Filter>
     </ClInclude>
     <ClInclude Include="CSTLFileImporter.h">
@@ -39,9 +33,6 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="IFileImportFactory.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IModelStruct.h">
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="ImporterRegister.h">

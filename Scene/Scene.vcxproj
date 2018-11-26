@@ -156,9 +156,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Scene.h" />
+    <ClInclude Include="SceneGraph.h" />
+    <ClInclude Include="SceneNode.h" />
+    <ClInclude Include="SceneNodeSearchVisitor.h" />
+    <ClInclude Include="SceneNodeTraverseVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene.cpp" />
+    <ClCompile Include="SceneGraph.cpp" />
+    <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SceneNodeTraverseVisitor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -71,5 +71,11 @@
     <ClInclude Include="GLLight.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="IDrawable.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

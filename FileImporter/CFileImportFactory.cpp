@@ -7,7 +7,7 @@ using namespace Leviathan;
 
 LPtr<IFileImportFactory> CFileImportFactory::m_spFileImportFactory = nullptr;
 
-Leviathan::LPtr<Leviathan::IModelFile> Leviathan::CFileImportFactory::LoadFile(const char* fileName)
+Leviathan::LPtr<Leviathan::IModelStruct> Leviathan::CFileImportFactory::LoadFile(const char* fileName)
 {
 	std::string fileNameString(fileName);
 	return LoadFile(fileNameString);
@@ -47,7 +47,7 @@ Leviathan::CFileImportFactory::CFileImportFactory()
 
 }
 
-Leviathan::LPtr<Leviathan::IModelFile> Leviathan::CFileImportFactory::LoadFile(std::string fileName)
+Leviathan::LPtr<Leviathan::IModelStruct> Leviathan::CFileImportFactory::LoadFile(std::string fileName)
 {
 	auto modelStruct = new CModelStruct();
 

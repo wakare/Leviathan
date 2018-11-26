@@ -24,6 +24,9 @@
     <ClCompile Include="GeometryCalculator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="CModelStruct.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -53,13 +56,19 @@
     <ClInclude Include="DynamicArray.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Drawable.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="GeometryCalculator.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="BaseMath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IModelStruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="CModelStruct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="AABB.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
