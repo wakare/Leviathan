@@ -206,6 +206,18 @@ public:
 		_updateCameraAttribute(m_fUp, rotateMatrix);
 	}
 
+	bool LookAt(const Vector3f& worldCoord, float fDistance = 100.0f)
+	{
+		m_fLookAt[0] = worldCoord.x;
+		m_fLookAt[1] = worldCoord.y;
+		m_fLookAt[2] = worldCoord.z;
+
+		memcpy(m_fEye, m_fLookAt, sizeof(float) * 3);
+		m_fEye[0] -= fDistance;
+
+		return true;
+	}
+
 	float m_fEye[3];
 	float m_fLookAt[3];
 	float m_fUp[3]; 

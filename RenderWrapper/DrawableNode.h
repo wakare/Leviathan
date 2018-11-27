@@ -18,13 +18,25 @@ namespace Leviathan
 		LPtr<GLObject> GetGLObject();
 
 		void Accept(NodeVisitor<T>& nodeVisitor);
-
+		void UpdateModelMatrix(const Matrix4f& modelMatrix);
 	private:
 		LPtr<GLObject> _convertModelStructToGLObject();
 
 		LPtr<IModelStruct> m_pModelStruct;
 		LPtr<GLObject> m_pGLObject;
 	};
+
+	template<class T>
+	void Leviathan::DrawableNode<T>::UpdateModelMatrix(const Matrix4f& modelMatrix)
+	{
+		if (!m_pGLObject)
+		{
+			LeviathanOutStream << "[ERROR] No object need update." << std::endl;
+			return;
+		}
+
+		m_pGLObject->SetModelMatrix(modelMatrix);
+	}
 
 	template<class T>
 	Leviathan::DrawableNode<T>::DrawableNode(LPtr<GLObject> pGLObject, LPtr<T> pNode):

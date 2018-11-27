@@ -77,7 +77,8 @@ public:
 		return *this;
 	}
 
-	float* GetData() { return reinterpret_cast<float*>(m_data); };
+	void SetData(float* data) { memcpy(m_data, data, GetDataSize()); }
+	float* GetData() const { return (float*)(*m_data); };
 	unsigned GetDataSize() { return sizeof(float) * 16; }
 
 	static Matrix4f GetIdentityMatrix()
@@ -97,10 +98,10 @@ public:
 	{
 		float translateMatrix[16] =
 		{
-			1.0f, 0.0f, 0.0f, x,
-			0.0f, 1.0f, 0.0f, y,
-			0.0f, 0.0f, 1.0f, z,
-			0.0f, 0.0f, 0.0f, 1.0f,
+			1.0f, 0.0f, 0.0f, 0.0f,
+			0.0f, 1.0f, 0.0f, 0.0f,
+			0.0f, 0.0f, 1.0f, 0.0f,
+			x,	  y,	z,	  1.0f,
 		};
 
 		return Matrix4f(translateMatrix);
@@ -157,7 +158,7 @@ public:
 
 		return Vector4f(result);
 	}
-
+	operator Vector3f() { return Vector3f(m_data); }
 private:
 	float m_data[4];
 };

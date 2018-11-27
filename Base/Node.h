@@ -16,7 +16,7 @@ namespace Leviathan
 		Node(LPtr<T> pData) : pNodeData(pData) {};
 		void AddChild(LPtr<Node<T>> pChild);
 		void DelChild(LPtr<Node<T>> pChild);
-		const LPtr<T> GetNodeData() { return pNodeData; };
+		LPtr<T> GetNodeData() { return pNodeData; };
 		const std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
 
 		virtual ~Node();

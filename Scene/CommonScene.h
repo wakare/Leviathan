@@ -26,7 +26,8 @@ namespace Leviathan
 		bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);
 		
 		bool InitCamera(unsigned width, unsigned height);
-		
+		bool InitLight();
+
 		CommonScene& operator=(const CommonScene& ref);
 
 		std::string _getShaderSource(const char* pczShaderSourcePath);

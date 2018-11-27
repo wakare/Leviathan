@@ -50,6 +50,7 @@ namespace Leviathan
 		}
 
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
 	bool CommonScene::InitSceneObject()
@@ -64,54 +65,38 @@ namespace Leviathan
 		pCubeGLObject->SetLightEnable(false);
 		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode));
+		
+		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
+		pSceneNode->LoadModelFile("dental.stl");
+		pSceneNode->SetWorldCoord(std::move(Vector3f(-100.0f, 100.0f, 10.0f)));
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
 
-		auto pDentalFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
-		if (!pDentalFile)
-		{
-			LeviathanOutStream << "[ERROR] Load file failed." << std::endl;
-			return false;
-		}
-
-		auto& AABB = pDentalFile->GetAABB();
-		float RenderObjectAABBCenter[4];
+		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
+		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
 		{
 			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
 			return false;
 		}
 
-		// Set camera lookAt
-		RenderObjectAABBCenter[3] = 1.0f;
-		Vector4f modelCoord = RenderObjectAABBCenter;
-
-		LPtr<Matrix4f> pModelMatrix = new Matrix4f();
-		Matrix4f::GetTranslateMatrix(-100.0f, 100.0f, 10.0f, *pModelMatrix);
-		Vector4f worldCoord = modelCoord * (*pModelMatrix);
-
-		m_pCamera->m_fLookAt[0] = worldCoord.GetData()[0];
-		m_pCamera->m_fLookAt[1] = worldCoord.GetData()[1];
-		m_pCamera->m_fLookAt[2] = worldCoord.GetData()[2];
-
-		LPtr<DrawableNode<SceneNode>> node = new DrawableNode<SceneNode>(pDentalFile, LPtr<SceneNode>(new SceneNode()));
-		auto pDentalGLObject = node->GetGLObject();
-		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(node);
+		auto pDentalGLObject = pDentalNode->GetGLObject();
+		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
 		m_pSceneGraph->AddNode(pNode);
 
 		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
 		pDentalGLObject->SetMaterial(pMaterial);
 		pDentalGLObject->SetLightEnable(true);
 
-		pModelMatrix->InverseSelf();
-		pDentalGLObject->SetModelMatrix(pModelMatrix);
+		// Set camera lookAt
+		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
+		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 
-		memcpy(m_pCamera->m_fEye, m_pCamera->m_fLookAt, sizeof(float) * 3);
-		m_pCamera->m_fEye[0] -= (AABB.GetAABBRadius() * 2);
-
-		LPtr<GLLight> light = new GLLight({ 0.0f, 0.0f, 0.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
-
-		m_pMeshPass->AddGLLight(light);
-		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
-
+		if (!InitLight())
+		{
+			LeviathanOutStream << "[WARN] Init light failed." << std::endl;
+			return false;
+		}
+		
 		return true;
 	}
 
@@ -155,6 +140,14 @@ namespace Leviathan
 			return false;
 		}
 
+		return true;
+	}
+
+	bool CommonScene::InitLight()
+	{
+		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
+		m_pMeshPass->AddGLLight(light);
+		
 		return true;
 	}
 

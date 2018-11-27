@@ -26,7 +26,7 @@ namespace Leviathan
 			m_vertexCount(vertexCount), 
 			m_vertexAttributeMask(vertexMask),
 			m_pCommonGLMaterial(pCommonGLMaterial),
-			m_pModelMatrix(m_pModelMatrix)
+			m_pModelMatrix(pModelMatrix)
 		{
 		}
 
@@ -37,7 +37,7 @@ namespace Leviathan
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
 		GLboolean GetLightEnable() { return m_bLightEnable; }
 
-		void SetModelMatrix(LPtr<Matrix4f> pModelMatrix) { m_pModelMatrix = pModelMatrix; }
+		void SetModelMatrix(const Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Matrix4f(); } m_pModelMatrix->SetData(refModelMatrix.GetData()); }
 		void SetMaterial(LPtr<GLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 
