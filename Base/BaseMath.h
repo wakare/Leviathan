@@ -98,10 +98,10 @@ public:
 	{
 		float translateMatrix[16] =
 		{
-			1.0f, 0.0f, 0.0f, 0.0f,
-			0.0f, 1.0f, 0.0f, 0.0f,
-			0.0f, 0.0f, 1.0f, 0.0f,
-			x,	  y,	z,	  1.0f,
+			1.0f,	0.0f,	0.0f,	0.0f,
+			0.0f,	1.0f,	0.0f,	0.0f,
+			0.0f,	0.0f,	1.0f,	0.0f,
+			x,		y,		z,		1.0f,
 		};
 
 		return Matrix4f(translateMatrix);

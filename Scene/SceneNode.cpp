@@ -8,6 +8,11 @@ Leviathan::SceneNode::SceneNode():
 
 }
 
+Leviathan::SceneNode::~SceneNode()
+{
+
+}
+
 bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 {
 	if (m_pModelFile)

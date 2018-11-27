@@ -64,7 +64,7 @@ namespace Leviathan
 		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
 		pCubeGLObject->SetLightEnable(false);
 		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
-		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode));
+		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode), true);
 		
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
 		pSceneNode->LoadModelFile("dental.stl");
@@ -81,7 +81,7 @@ namespace Leviathan
 
 		auto pDentalGLObject = pDentalNode->GetGLObject();
 		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
-		m_pSceneGraph->AddNode(pNode);
+		m_pSceneGraph->AddNode(pNode, true);
 
 		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
 		pDentalGLObject->SetMaterial(pMaterial);

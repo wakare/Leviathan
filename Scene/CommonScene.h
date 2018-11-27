@@ -19,24 +19,22 @@ namespace Leviathan
 		void Update();
 
 	private:
-		CommonScene(const CommonScene& ref);
+		CommonScene(const CommonScene& rhs);
+		CommonScene(const CommonScene&& rhs) = delete;
+		CommonScene& operator=(const CommonScene& rhs) = delete;
 
 		bool InitSceneObject();
-		
-		bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);
-		
+		bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);		
 		bool InitCamera(unsigned width, unsigned height);
 		bool InitLight();
 
-		CommonScene& operator=(const CommonScene& ref);
-
 		std::string _getShaderSource(const char* pczShaderSourcePath);
+		
 		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelStruct> modelFile);
 		LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);
 		LPtr<GLObject> _getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
 
 		GLFWwindow* m_pGLFWWindow;
-
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;

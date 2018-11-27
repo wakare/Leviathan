@@ -13,7 +13,7 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pSceneNodeTraverseVisitor = new SceneNodeTraverseVisitor<SceneNode>(m_pSceneRenderPass);
 }
 
-bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
+bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode, bool bAddToPass)
 {
 	if (!pNode)
 	{
@@ -22,7 +22,12 @@ bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 	}
 
 	m_pRoot->AddChild(pNode);
-	_addDrawableNodeToSceneRenderPass(pNode);
+
+	if (bAddToPass)
+	{
+		_addDrawableNodeToSceneRenderPass(pNode);
+	}
+
 	return true;
 }
 
