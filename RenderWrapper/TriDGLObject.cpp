@@ -22,6 +22,11 @@ namespace Leviathan
 			uFloatCountPerVertex += 3;
 		}
 
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_TEX)
+		{
+			uFloatCountPerVertex += 2;
+		}
+
 		if (uFloatCountPerVertex == 0)
 		{
 			throw "TriDGLObject::Init() --> Invalid VertexAttribute Mask";
@@ -68,6 +73,15 @@ namespace Leviathan
 
 			uOffset += 3 * sizeof(GLfloat);
 		}
+		
+		// Set texture coordination format
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_TEX)
+		{
+			glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, uFloatCountPerVertex * sizeof(GLfloat), (GLvoid*)(uOffset));
+			glEnableVertexAttribArray(3);
+
+			uOffset += 2 * sizeof(GLfloat);
+		}
 
 		// Unbind VBO
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -107,7 +121,12 @@ namespace Leviathan
 	{
 		if (!m_pCommonGLMaterial)
 		{
-			return false;
+			m_pCommonGLMaterial = new GLCommonMaterial();
+			if (!m_pCommonGLMaterial)
+			{
+				LeviathanOutStream << "[ERROR] Material init failed." << std::endl;
+				return false;
+			}
 		}
 
 		return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);

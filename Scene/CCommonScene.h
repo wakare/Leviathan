@@ -11,22 +11,22 @@
 
 namespace Leviathan
 {
-	class CommonScene : public IScene
+	class CCommonScene : public IScene
 	{
 	public:
-		CommonScene(GLFWwindow* pRenderWindow, int width, int height);
-		~CommonScene();
+		CCommonScene(GLFWwindow* pRenderWindow, int width, int height);
+		~CCommonScene();
 		void Update();
 
 	private:
-		CommonScene(const CommonScene& rhs);
-		CommonScene(const CommonScene&& rhs) = delete;
-		CommonScene& operator=(const CommonScene& rhs) = delete;
+		CCommonScene(const CCommonScene& rhs);
+		CCommonScene(const CCommonScene&& rhs) = delete;
+		CCommonScene& operator=(const CCommonScene& rhs) = delete;
 
-		bool InitSceneObject();
-		bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);		
-		bool InitCamera(unsigned width, unsigned height);
-		bool InitLight();
+		bool _initSceneObject();
+		bool _initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);		
+		bool _initCamera(unsigned width, unsigned height);
+		bool _initLight();
 
 		std::string _getShaderSource(const char* pczShaderSourcePath);
 		

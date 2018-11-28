@@ -2,15 +2,17 @@
 #include <string>
 #include <GL\glew.h>
 #include <sstream>
-#include "CommonScene.h"
+#include "CCommonScene.h"
 #include "DynamicArray.h"
 #include "CFileImportFactory.h"
 #include "GeometryCalculator.h"
 #include "DrawableNode.h"
+#include "SOIL.h"
+#include "PictureObject.h"
 
 namespace Leviathan
 {
-	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
+	CCommonScene::CCommonScene(GLFWwindow* pRenderWindow, int width, int height) :
 		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
 		m_pRenderWarpper(nullptr), 
@@ -27,7 +29,7 @@ namespace Leviathan
 			return;
 		}
 
-		if (!InitCamera(width, height))
+		if (!_initCamera(width, height))
 		{
 			LeviathanOutStream << "[FATAL] Scene camera init failed." << std::endl;
 			throw "Scene camera init failed.";
@@ -36,7 +38,7 @@ namespace Leviathan
 
 		const char* pczVertexShaderPath = "ShaderSource\\VertexShader.glsl";
 		const char* pczFragmentShaderPath = "ShaderSource\\FragmentShader.glsl";
-		if (!InitShaderSource(pczVertexShaderPath, pczFragmentShaderPath))
+		if (!_initShaderSource(pczVertexShaderPath, pczFragmentShaderPath))
 		{
 			LeviathanOutStream << "[FATAL] Scene ShaderSource init failed." << std::endl;
 			throw "Scene ShaderSource init failed.";
@@ -53,9 +55,9 @@ namespace Leviathan
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
-	bool CommonScene::InitSceneObject()
+	bool CCommonScene::_initSceneObject()
 	{
-		if (!InitLight())
+		if (!_initLight())
 		{
 			LeviathanOutStream << "[WARN] Init light failed." << std::endl;
 			return false;
@@ -69,38 +71,47 @@ namespace Leviathan
 
 		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
 		pCubeGLObject->SetLightEnable(false);
+		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial();
+
+		// Load file as texture 
+		PictureObject texture("container.jpg");
+
+		pMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight));
+		pCubeGLObject->SetMaterial(TryCast<GLCommonMaterial, IGLMaterial>(pMaterial));
+
 		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode), true);
-		
-		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("dental.stl");
-		pSceneNode->SetWorldCoord(std::move(Vector3f(-100.0f, 100.0f, 10.0f)));
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
+		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
-		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
-		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
-		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
-		{
-			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
-			return false;
-		}
-
-		auto pDentalGLObject = pDentalNode->GetGLObject();
-		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
-		m_pSceneGraph->AddNode(pNode, true);
-
-		LPtr<IGLMaterial> pMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
-		pDentalGLObject->SetMaterial(pMaterial);
-		pDentalGLObject->SetLightEnable(true);
-
-		// Set camera lookAt
-		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
-		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+// 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
+// 		pSceneNode->LoadModelFile("dental.stl");
+// 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
+// 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
+// 
+// 		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
+// 		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
+// 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
+// 		{
+// 			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
+// 			return false;
+// 		}
+// 
+// 		auto pDentalGLObject = pDentalNode->GetGLObject();
+// 		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
+// 		m_pSceneGraph->AddNode(pNode, true);
+// 
+// 		LPtr<IGLMaterial> pMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
+// 		pDentalGLObject->SetMaterial(pMaterial);
+// 		pDentalGLObject->SetLightEnable(true);
+// 
+// 		// Set camera lookAt
+// 		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
+// 		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 
 		return true;
 	}
 
-	bool CommonScene::InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath)
+	bool CCommonScene::_initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath)
 	{
 		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
 		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
@@ -122,7 +133,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CommonScene::InitCamera(unsigned uWidth, unsigned uHeight)
+	bool CCommonScene::_initCamera(unsigned uWidth, unsigned uHeight)
 	{
 		float cameraEye[3] = { 0.0f, 0.0f, -10.0f };
 		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
@@ -143,7 +154,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CommonScene::InitLight()
+	bool CCommonScene::_initLight()
 	{
 		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
 		m_pMeshPass->AddGLLight(light);
@@ -151,17 +162,17 @@ namespace Leviathan
 		return true;
 	}
 
-	CommonScene::~CommonScene()
+	CCommonScene::~CCommonScene()
 	{
 
 	}
 
-	void CommonScene::Update()
+	void CCommonScene::Update()
 	{
 		static bool bFirstUpdate = true;
 		if (bFirstUpdate)
 		{
-			if (!InitSceneObject())
+			if (!_initSceneObject())
 			{
 				LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
 			}
@@ -172,7 +183,7 @@ namespace Leviathan
 		m_pRenderWarpper->Render();
 	}
 
-	std::string CommonScene::_getShaderSource(const char* pczShaderSourcePath)
+	std::string CCommonScene::_getShaderSource(const char* pczShaderSourcePath)
 	{
 		std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 		if (!shaderSourceFileStream.is_open())
@@ -187,7 +198,7 @@ namespace Leviathan
 		return strStream.str();
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
+	Leviathan::LPtr<Leviathan::GLObject> CCommonScene::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
 	{
 		const unsigned uVertexFloatCount = 10;
 
@@ -235,7 +246,7 @@ namespace Leviathan
 		return new TriDGLObject(GL_TRIANGLES, glData.m_pData, modelFile->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_convertAABBtoGLObject(const AABB& aabb)
+	Leviathan::LPtr<Leviathan::GLObject> CCommonScene::_convertAABBtoGLObject(const AABB& aabb)
 	{
 		float fRadius = aabb.GetAABBRadius();
 		if (fRadius < 0.0f)
@@ -244,55 +255,57 @@ namespace Leviathan
 			return nullptr;
 		}
 
-		float cube[252] =
+		constexpr int nVertexFloatCount = 9;
+
+		float cube[36 * nVertexFloatCount] =
 		{
 			// front			 // color
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			fRadius,  fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			 fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+			 fRadius,  fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 
 			// up
-			-fRadius, fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius, fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius, fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			fRadius, fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius, fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			 fRadius, fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			 fRadius, fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			 fRadius, fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius, fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			-fRadius, fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
 
 			// down
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius, -fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			 fRadius, -fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
+			 fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 
 			// left
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			-fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			-fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f,
+			-fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
 
 			// right
-			fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f,
 
 			// back
-			-fRadius, -fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			fRadius, -fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius,  fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
-			fRadius,  fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f,
-			-fRadius,  fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			 fRadius, -fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			 fRadius,  fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			 fRadius,  fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius,  fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+			-fRadius, -fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
 		};
 
 		// Move to center
@@ -301,16 +314,16 @@ namespace Leviathan
 
 		for (unsigned i = 0; i < 36; i++)
 		{
-			cube[7 * i] += center[0];
-			cube[7 * i + 1] += center[1];
-			cube[7 * i + 2] += center[2];
+			cube[nVertexFloatCount * i] += center[0];
+			cube[nVertexFloatCount * i + 1] += center[1];
+			cube[nVertexFloatCount * i + 2] += center[2];
 		}
 
-		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
+		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
 		return result;
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> CommonScene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
+	Leviathan::LPtr<Leviathan::GLObject> CCommonScene::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
 	{
 		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		const int nVertexSize = 7;

@@ -3,6 +3,7 @@
 in vec4 outColor;
 in vec3 FragPos;
 in vec3 Normal;
+in vec2 TextureCoord;
 
 out vec4 color;
 
@@ -25,9 +26,26 @@ uniform Material material;
 uniform Light light;
 uniform vec3 viewPos;
 uniform bool bLightOpen;
+uniform uint VertexTypeMask;
+
+// Texture samplers
+uniform sampler2D ourTexture0;
+uniform sampler2D ourTexture1;
+uniform sampler2D ourTexture2;
+uniform sampler2D ourTexture3;
+uniform sampler2D ourTexture4;
+uniform sampler2D ourTexture5;
+uniform sampler2D ourTexture6;
+uniform sampler2D ourTexture7;
 
 void main()
 {
+	if ((VertexTypeMask & 0x8u) > 0u)
+	{
+		color = texture(ourTexture0, TextureCoord);
+		return;
+	}
+
     if (!bLightOpen)
 	{
 		color = outColor;

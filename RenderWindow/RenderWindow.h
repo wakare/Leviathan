@@ -5,7 +5,7 @@
 #include <GLFW\glfw3.h>
 #include <memory>
 #include "WindowCallBack.h"
-#include "CommonScene.h"
+#include "CCommonScene.h"
 #include "CFileImportFactory.h"
 #include "LPtr.h"
 
@@ -34,7 +34,7 @@ namespace Leviathan
 		GLchar* m_pWindowTitle;
 
 		GLFWwindow* m_pWindow;
-		LPtr<CommonScene> m_pScene;
+		LPtr<CCommonScene> m_pScene;
 		LPtr<EventSystem> m_pEventSystem;
 		LPtr<IFileImportFactory> m_pFileImporter;
 	};

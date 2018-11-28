@@ -3,6 +3,7 @@
 layout (location = 0) in vec3 position;
 layout (location = 1) in vec4 color;
 layout (location = 2) in vec3 normal;
+layout (location = 3) in vec2 textureCoord;
 
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
@@ -12,6 +13,7 @@ uniform uint VertexTypeMask;
 out vec4 outColor;
 out vec3 FragPos;
 out vec3 Normal;
+out vec2 TextureCoord;
 
 void main()
 {
@@ -25,4 +27,5 @@ void main()
 
 	FragPos = vec3(modelMatrix * vec4(position, 1.0f));
     Normal = mat3(transpose(inverse(modelMatrix))) * normal;  
+	TextureCoord = textureCoord;
 }

@@ -13,9 +13,10 @@ namespace Leviathan
 	public:
 		enum VertexAttributeType
 		{
-			VERTEX_ATTRIBUTE_XYZ = 0x1,		// Coord XYZ
+			VERTEX_ATTRIBUTE_XYZ  = 0x1,	// Coord XYZ
 			VERTEX_ATTRIBUTE_RGBA = 0x2,	// Color RGBAs
 			VERTEX_ATTRIBUTE_NXYZ = 0x4,	// Normal XYZ
+			VERTEX_ATTRIBUTE_TEX  = 0x8,
 		};
 
 		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr ) :

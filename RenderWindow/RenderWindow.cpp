@@ -45,7 +45,7 @@ namespace Leviathan
 			return false;
 		}
 
-		m_pScene = LPtr<CommonScene>(new CommonScene(m_pWindow, GetWidth(), GetHeight()));
+		m_pScene = LPtr<CCommonScene>(new CCommonScene(m_pWindow, GetWidth(), GetHeight()));
 		if (!m_pScene)
 		{
 			throw "RenderWrapper init failed.";
