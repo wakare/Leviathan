@@ -45,6 +45,7 @@ namespace Leviathan
 		virtual ~GLObject() {};
 		virtual bool Init() = 0;
 		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
+		virtual bool UnApplyMaterial(GLuint shaderProgram) = 0;
 		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 

@@ -37,6 +37,14 @@ public:
 		glUniform1i(samplerUniformLocation, textureUnitOffset);
 	}
 
+	GLboolean UnApplyTexture(GLuint textureUnitOffset, GLuint shaderProgram)
+	{
+		glActiveTexture(GL_TEXTURE0 + textureUnitOffset);
+		glBindTexture(GL_TEXTURE_2D, 0);
+
+		return true;
+	}
+
 private:
 	GLuint m_textureHandle;
 	GLuint m_uWidth;

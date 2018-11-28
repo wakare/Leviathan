@@ -46,6 +46,20 @@ bool Leviathan::GLCommonMaterial::ApplyMaterial(GLuint program)
 	return true;
 }
 
+bool Leviathan::GLCommonMaterial::UnApplyMaterial(GLuint program)
+{
+	for (unsigned i = 0; i < m_pTexture2DVec.size(); i++)
+	{
+		if (m_pTexture2DVec[i]->UnApplyTexture(i, program))
+		{
+			LeviathanOutStream << "[WARN] UnApply texture failed." << std::endl;
+			return false;
+		}
+	}
+
+	return true;
+}
+
 bool Leviathan::GLCommonMaterial::AddTexture2D(LPtr<GLTexture2D> pTexture2D)
 {
 	if (m_pTexture2DVec.size() >= m_uMaxTexture2DCount)

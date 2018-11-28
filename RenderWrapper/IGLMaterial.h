@@ -10,5 +10,6 @@ namespace Leviathan
 
 		virtual ~IGLMaterial() {}
 		virtual bool ApplyMaterial(GLuint program) = 0;
+		virtual bool UnApplyMaterial(GLuint program) = 0;
 	};
 }

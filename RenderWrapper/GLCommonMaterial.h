@@ -15,6 +15,7 @@ namespace Leviathan
 		~GLCommonMaterial() {}
 		
 		bool ApplyMaterial(GLuint program);
+		bool UnApplyMaterial(GLuint program);
 		bool AddTexture2D(LPtr<GLTexture2D> pTexture2D);
 
 	private:
