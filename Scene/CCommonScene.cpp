@@ -182,12 +182,6 @@ namespace Leviathan
 			bFirstUpdate = false;
 		}
 
-		// Update light position as camera move
-		for (auto pLight : m_pLights)
-		{
-			pLight->SetLightCoord({ m_pCamera->m_fEye[0], m_pCamera->m_fEye[1], m_pCamera->m_fEye[2]});
-		}
-
 		m_pRenderWarpper->Render();
 	}
 

@@ -25,6 +25,7 @@ namespace Leviathan
 		bool Init();
 		void Render();
 		void SetCullFace(GLenum cullmode = GL_CCW);
+		void SetCullFaceEnable(GLboolean bEnable);
 
 	private:
 		void _updateCameraMatrixUniform(GLuint shaderProgram);

@@ -147,6 +147,12 @@ namespace Leviathan
 
 		lastMouseXY = event.m_mouseCoord;
 #pragma endregion
+
+		// Update light position as camera move
+		for (auto& pLight : m_pScene->GetLightVec())
+		{
+			pLight->SetLightCoord({ m_pScene->GetCamera().m_fEye[0], m_pScene->GetCamera().m_fEye[1], m_pScene->GetCamera().m_fEye[2] });
+		}
 	}
 
 	void RenderWindow::Accept(Event event)

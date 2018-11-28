@@ -126,6 +126,11 @@ namespace Leviathan
 		m_faceCullMode = cullmode;
 	}
 
+	void TriDObjectGLPass::SetCullFaceEnable(GLboolean bEnable)
+	{
+		m_bFaceCullEnable = bEnable;
+	}
+
 	void TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram)
 	{
 		auto& pViewMatrixUniform = m_pGLShaderProgram->GetUniformByName("viewMatrix");

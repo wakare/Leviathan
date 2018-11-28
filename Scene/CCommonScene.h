@@ -39,6 +39,5 @@ namespace Leviathan
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
 		LPtr<SceneGraph> m_pSceneGraph;
-		std::vector<LPtr<GLLight>> m_pLights;
 	};
 }
