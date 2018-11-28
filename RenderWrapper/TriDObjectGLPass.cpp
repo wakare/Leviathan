@@ -53,6 +53,12 @@ namespace Leviathan
 			process();
 		}
 
+		// Set face cull mode
+		if (m_bFaceCullEnable)
+		{ 
+			glCullFace(m_faceCullMode);
+		}
+
 		// Set renderType
 		(m_bDepthTestEnable) ? glEnable(GL_DEPTH_TEST) : glDisable(GL_DEPTH_TEST);
 		
@@ -114,6 +120,12 @@ namespace Leviathan
 		}
 	}
 
+	void TriDObjectGLPass::SetCullFace(GLenum cullmode /*= GL_CCW*/)
+	{
+		m_bFaceCullEnable = true;
+		m_faceCullMode = cullmode;
+	}
+
 	void TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram)
 	{
 		auto& pViewMatrixUniform = m_pGLShaderProgram->GetUniformByName("viewMatrix");
@@ -135,6 +147,8 @@ namespace Leviathan
 
 		auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
 		pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.GetData(), PerspectiveMatrix.GetDataSize());
+
+		m_pMainCamera->UpdateViewPosUniform(shaderProgram);
 	}
 
 	GLboolean TriDObjectGLPass::_updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable)

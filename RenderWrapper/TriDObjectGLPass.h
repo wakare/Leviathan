@@ -12,7 +12,9 @@ namespace Leviathan
 		TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
 			GLPass(shaderProgram),
 			m_bInited(false),
-			m_pMainCamera(camera)
+			m_pMainCamera(camera),
+			m_bFaceCullEnable(false),
+			m_faceCullMode(GL_CCW)
 		{
 		};
 
@@ -22,6 +24,7 @@ namespace Leviathan
 
 		bool Init();
 		void Render();
+		void SetCullFace(GLenum cullmode = GL_CCW);
 
 	private:
 		void _updateCameraMatrixUniform(GLuint shaderProgram);
@@ -29,5 +32,8 @@ namespace Leviathan
 
 		bool m_bInited;
 		LPtr<GLCamera> m_pMainCamera;
+
+		GLboolean m_bFaceCullEnable;
+		GLenum m_faceCullMode;
 	};
 }

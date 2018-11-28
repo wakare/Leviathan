@@ -7,7 +7,7 @@ class GLLight
 {
 public:
 	GLLight(Vector3f position, Vector3f ambientColor, Vector3f diffuseColor, Vector3f specularColor):
-		m_lightPosition(position),
+		m_lightCoordination(position),
 		m_ambientColor(ambientColor),
 		m_diffuseColor(diffuseColor),
 		m_specularColor(specularColor)
@@ -23,7 +23,8 @@ public:
 			LeviathanOutStream << "[ERROR] Get light position uniform location failed." << std::endl;
 			return false;
 		} 
-		glUniform3f(lightPosLocation, m_lightPosition.x, m_lightPosition.y, m_lightPosition.z);
+
+		glUniform3f(lightPosLocation, m_lightCoordination.x, m_lightCoordination.y, m_lightCoordination.z);
 
 		GLint lightAmbientColorLocation = glGetUniformLocation(shaderProgram, "light.ambient");
 		if (lightAmbientColorLocation == -1)
@@ -55,8 +56,15 @@ public:
 		return true;
 	}
 
+	bool SetLightCoord(const Vector3f& newCoord)
+	{
+		m_lightCoordination = newCoord;
+
+		return true;
+	}
+
 private:
-	Vector3f m_lightPosition;
+	Vector3f m_lightCoordination;
 	Vector3f m_ambientColor;
 	Vector3f m_diffuseColor;
 	Vector3f m_specularColor;

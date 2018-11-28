@@ -40,14 +40,14 @@ uniform sampler2D ourTexture7;
 
 void main()
 {
-	if ((VertexTypeMask & 0x8u) > 0u)
-	{
-		color = texture(ourTexture0, TextureCoord);
-		return;
-	}
-
     if (!bLightOpen)
 	{
+		if ((VertexTypeMask & 0x8u) > 0u)
+		{
+			color = texture(ourTexture0, TextureCoord);
+			return;
+		}
+
 		color = outColor;
 		return;
 	}
@@ -76,8 +76,13 @@ void main()
 	}
 	else
 	{
-		result = vec3(outColor);
+		//result = vec3(outColor);
 	}
 	
     color = vec4(result, 1.0f);
+	if ((VertexTypeMask & 0x8u) > 0u)
+	{
+		color = color * texture(ourTexture0, TextureCoord);
+		return;
+	}
 }

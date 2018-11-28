@@ -218,6 +218,18 @@ public:
 		return true;
 	}
 
+	void UpdateViewPosUniform(GLuint shaderProgram)
+	{
+		GLint viewPosLocation = glGetUniformLocation(shaderProgram, "viewPos");
+		if (viewPosLocation == -1)
+		{
+			LeviathanOutStream << "[ERROR] Get viewPos uniform failed." << std::endl;
+			return;
+		}
+
+		glUniform3f(viewPosLocation, m_fEye[0], m_fEye[1], m_fEye[2]);
+	}
+
 	float m_fEye[3];
 	float m_fLookAt[3];
 	float m_fUp[3]; 

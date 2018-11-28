@@ -50,6 +50,7 @@ namespace Leviathan
 		{
 			return;
 		}
+		m_pMeshPass->SetCullFace(GL_CCW);
 
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
@@ -70,8 +71,8 @@ namespace Leviathan
 		};
 
 		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
-		pCubeGLObject->SetLightEnable(false);
-		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial();
+		pCubeGLObject->SetLightEnable(true);
+		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial({ 0.2f, 0.2f, 0.2f }, { 0.4f, 0.4f, 0.4f }, {1.0f, 1.0f, 1.0f});
 
 		// Load file as texture 
 		PictureObject texture("container.jpg");
@@ -158,6 +159,7 @@ namespace Leviathan
 	{
 		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
 		m_pMeshPass->AddGLLight(light);
+		m_pLights.push_back(light);
 		
 		return true;
 	}
@@ -178,6 +180,12 @@ namespace Leviathan
 			}
 
 			bFirstUpdate = false;
+		}
+
+		// Update light position as camera move
+		for (auto pLight : m_pLights)
+		{
+			pLight->SetLightCoord({ m_pCamera->m_fEye[0], m_pCamera->m_fEye[1], m_pCamera->m_fEye[2]});
 		}
 
 		m_pRenderWarpper->Render();
@@ -255,57 +263,57 @@ namespace Leviathan
 			return nullptr;
 		}
 
-		constexpr int nVertexFloatCount = 9;
+		constexpr int nVertexFloatCount = 12;
 
 		float cube[36 * nVertexFloatCount] =
 		{
-			// front			 // color
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			 fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
-			 fRadius,  fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			// front						// color			 // normal			// texCoord
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
+			 fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
+			 fRadius,  fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
+			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
 
 			// up
-			-fRadius, fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			 fRadius, fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			 fRadius, fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-			 fRadius, fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			-fRadius, fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			-fRadius, fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
+			-fRadius, fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
+			 fRadius, fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+			 fRadius, fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+			 fRadius, fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
+			-fRadius, fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+			-fRadius, fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
 
 			// down
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			 fRadius, -fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
-			 fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
+			 fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
+			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
 
 			// left
-			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			-fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f,
-			-fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+			-fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+			-fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
 
 			// right
-			fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-			fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f,
+			fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+			fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+			fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
+			fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
+			fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
+			fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
 
 			// back
-			-fRadius, -fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-			 fRadius, -fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-			 fRadius,  fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,
-			 fRadius,  fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-			-fRadius,  fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-			-fRadius, -fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f,
+			-fRadius, -fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			 fRadius,  fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
+			 fRadius,  fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+			-fRadius, -fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+			-fRadius,  fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
 		};
 
 		// Move to center
@@ -319,7 +327,7 @@ namespace Leviathan
 			cube[nVertexFloatCount * i + 2] += center[2];
 		}
 
-		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
+		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
 		return result;
 	}
 
