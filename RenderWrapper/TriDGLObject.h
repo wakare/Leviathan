@@ -1,15 +1,15 @@
 #pragma once
 #include "GLObject.h"
 #include "LPtr.h"
-#include "CommonGLMaterial.h"
+#include "GLCommonMaterial.h"
 
 namespace Leviathan
 {
 	class TriDGLObject : public GLObject
 	{
 	public:
-		TriDGLObject(GLuint primType, GLfloat* data, GLuint vertexSize, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<CommonGLMaterial> pCommonGLMaterial = nullptr) :
-			GLObject(primType, vertexSize, vertexMask, pModelMatrix, TryCast<CommonGLMaterial, GLMaterial>(pCommonGLMaterial)),
+		TriDGLObject(GLuint primType, GLfloat* data, GLuint vertexSize, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<GLCommonMaterial> pCommonGLMaterial = nullptr) :
+			GLObject(primType, vertexSize, vertexMask, pModelMatrix, TryCast<GLCommonMaterial, IGLMaterial>(pCommonGLMaterial)),
 			m_data(data)
 		{
 			Init();

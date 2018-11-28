@@ -2,7 +2,7 @@
 #include "GLPass.h"
 #include "GLCamera.h"
 #include "LPtr.h"
-#include "CommonGLMaterial.h"
+#include "GLCommonMaterial.h"
 
 namespace Leviathan
 {

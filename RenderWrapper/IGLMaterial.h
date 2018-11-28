@@ -3,12 +3,12 @@
 
 namespace Leviathan
 {
-	class GLMaterial
+	class IGLMaterial
 	{
 	public:
-		GLMaterial() {};
+		IGLMaterial() {};
 
-		virtual ~GLMaterial() {}
+		virtual ~IGLMaterial() {}
 		virtual bool ApplyMaterial(GLuint program) = 0;
 	};
 }

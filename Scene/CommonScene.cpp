@@ -55,6 +55,12 @@ namespace Leviathan
 
 	bool CommonScene::InitSceneObject()
 	{
+		if (!InitLight())
+		{
+			LeviathanOutStream << "[WARN] Init light failed." << std::endl;
+			return false;
+		}
+
 		float cubeAABB[6] =
 		{
 			10.0f, 10.0f, 10.0f,
@@ -83,7 +89,7 @@ namespace Leviathan
 		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
 		m_pSceneGraph->AddNode(pNode, true);
 
-		LPtr<GLMaterial> pMaterial = new CommonGLMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
+		LPtr<IGLMaterial> pMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
 		pDentalGLObject->SetMaterial(pMaterial);
 		pDentalGLObject->SetLightEnable(true);
 
@@ -91,12 +97,6 @@ namespace Leviathan
 		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
 		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 
-		if (!InitLight())
-		{
-			LeviathanOutStream << "[WARN] Init light failed." << std::endl;
-			return false;
-		}
-		
 		return true;
 	}
 

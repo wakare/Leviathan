@@ -2,7 +2,7 @@
 #define GLEW_STATIC
 #include <GL\glew.h>
 #include <LPtr.h>
-#include "GLMaterial.h"
+#include "IGLMaterial.h"
 #include "GLUniform.h"
 #include "GLCamera.h"
 
@@ -18,7 +18,7 @@ namespace Leviathan
 			VERTEX_ATTRIBUTE_NXYZ = 0x4,	// Normal XYZ
 		};
 
-		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<GLMaterial> pCommonGLMaterial = nullptr ) :
+		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr ) :
 			m_bLightEnable(true),
 			m_VAO(0), 
 			m_VBO(0), 
@@ -38,7 +38,7 @@ namespace Leviathan
 		GLboolean GetLightEnable() { return m_bLightEnable; }
 
 		void SetModelMatrix(const Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Matrix4f(); } m_pModelMatrix->SetData(refModelMatrix.GetData()); }
-		void SetMaterial(LPtr<GLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
+		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 
 		virtual ~GLObject() {};
@@ -54,7 +54,7 @@ namespace Leviathan
 		GLuint m_primitiveType;
 		GLuint m_vertexCount;
 		GLint m_vertexAttributeMask;
-		LPtr<GLMaterial> m_pCommonGLMaterial;
+		LPtr<IGLMaterial> m_pCommonGLMaterial;
 		LPtr<Matrix4f> m_pModelMatrix;
 	};
 }
