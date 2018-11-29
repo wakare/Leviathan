@@ -50,7 +50,7 @@ namespace Leviathan
 		{
 			return;
 		}
-		m_pMeshPass->SetCullFace(GL_CCW);
+		//m_pMeshPass->SetCullFace(GL_CCW);
 
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
@@ -84,30 +84,30 @@ namespace Leviathan
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode), true);
 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
-// 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-// 		pSceneNode->LoadModelFile("dental.stl");
-// 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
-// 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
-// 
-// 		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
-// 		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
-// 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
-// 		{
-// 			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
-// 			return false;
-// 		}
-// 
-// 		auto pDentalGLObject = pDentalNode->GetGLObject();
-// 		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
-// 		m_pSceneGraph->AddNode(pNode, true);
-// 
-// 		LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
-// 		pDentalGLObject->SetMaterial(pModelMaterial);
-// 		pDentalGLObject->SetLightEnable(true);
-// 
-// 		// Set camera lookAt
-// 		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
-// 		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
+		pSceneNode->LoadModelFile("dental.stl");
+		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
+
+		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
+		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
+		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
+		{
+			LeviathanOutStream << "[ERROR] Get AABB failed." << std::endl;
+			return false;
+		}
+
+		auto pDentalGLObject = pDentalNode->GetGLObject();
+		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
+		m_pSceneGraph->AddNode(pNode, true);
+
+		LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
+		pDentalGLObject->SetMaterial(pModelMaterial);
+		pDentalGLObject->SetLightEnable(true);
+
+		// Set camera lookAt
+		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
+		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 
 		return true;
 	}
@@ -349,18 +349,18 @@ namespace Leviathan
 		constexpr unsigned uCubeTriangleCount = 36;
 		unsigned vertexIndices[uCubeTriangleCount] = 
 		{
-			0, 2, 1, 
-			0, 3, 2, 
-			1, 6, 5, 
-			1, 2, 6, 
-			3, 6, 2, 
-			3, 7, 6, 
-			0, 4, 7, 
-			0, 7, 3,
-			0, 1, 5,
-			0, 5, 4,
-			4, 5, 6,
-			4, 6, 7
+			0, 1, 2, 
+			0, 2, 3, 
+			1, 5, 6, 
+			1, 6, 2, 
+			3, 2, 6, 
+			3, 6, 7, 
+			0, 7, 4, 
+			0, 3, 7,
+			0, 5, 1,
+			0, 4, 5,
+			4, 6, 5,
+			4, 7, 6
 		};
 
 		//auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);

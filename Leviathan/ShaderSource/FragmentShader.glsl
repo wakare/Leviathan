@@ -54,7 +54,7 @@ void main()
 		return;
 	}
 
-	if (!gl_FrontFacing)
+	if (gl_FrontFacing)
 	{
 		vec3 result = vec3(0.0, 0.0, 0.0);
 
