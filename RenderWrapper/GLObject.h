@@ -19,10 +19,11 @@ namespace Leviathan
 			VERTEX_ATTRIBUTE_TEX  = 0x8,
 		};
 
-		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr ) :
+		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr) :
 			m_bLightEnable(true),
 			m_VAO(0), 
 			m_VBO(0), 
+			m_IBO(0),
 			m_primitiveType(primType), 
 			m_vertexCount(vertexCount), 
 			m_vertexAttributeMask(vertexMask),
@@ -33,6 +34,7 @@ namespace Leviathan
 
 		GLuint GetVAO() { return m_VAO; }
 		GLuint GetVBO() { return m_VBO; }
+		GLuint GetIBO() { return m_IBO; }
 		GLuint GetPrimType() { return m_primitiveType; }
 		GLuint GetVertexCount() { return m_vertexCount; }
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
@@ -53,6 +55,7 @@ namespace Leviathan
 		GLboolean m_bLightEnable;
 		GLuint m_VAO;
 		GLuint m_VBO;
+		GLuint m_IBO;
 		GLuint m_primitiveType;
 		GLuint m_vertexCount;
 		GLint m_vertexAttributeMask;

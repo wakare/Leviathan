@@ -5,6 +5,8 @@ namespace Leviathan
 {
 	bool TriDGLObject::Init()
 	{
+		m_bUseIndexArray = (m_pIndexData != nullptr);
+
 		// GetVertexSize
 		GLuint uFloatCountPerVertex = 0;
 		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_XYZ)
@@ -43,7 +45,7 @@ namespace Leviathan
 		glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 
 		// Bind the triangle vertex data to buffer.
-		glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * uFloatCountPerVertex * m_vertexCount, m_data, GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * uFloatCountPerVertex * m_vertexCount, m_pData, GL_STATIC_DRAW);
 
 		GLuint uOffset = 0u;
 
@@ -83,11 +85,26 @@ namespace Leviathan
 			uOffset += 2 * sizeof(GLfloat);
 		}
 
+		// Set index buffer
+		if (m_bUseIndexArray)
+		{
+			glGenBuffers(1, &m_IBO);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
+			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * m_uIndexArrayCount, m_pIndexData, GL_STATIC_DRAW);
+			
+			// Unbind IBO
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+		}
+
 		// Unbind VBO
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 
 		// Unbind VAO
 		glBindVertexArray(0);
+
+		// Reset data pointer
+		m_pData = nullptr;
+		m_pIndexData = nullptr;
 
 		return true;
 	}
@@ -111,7 +128,16 @@ namespace Leviathan
 		}
 
 		glBindVertexArray(VAO);
-		glDrawArrays(GetPrimType(), 0, GetVertexCount());
+
+		if (m_bUseIndexArray)
+		{
+			glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0);
+		}
+		else
+		{
+			glDrawArrays(GetPrimType(), 0, GetVertexCount());
+		}
+
 		glBindVertexArray(0);
 
 		return true;

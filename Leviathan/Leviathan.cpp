@@ -3,52 +3,6 @@
 #include "RenderWindow.h"
 using namespace Leviathan;
 
-#if (false)
-template<class T>
-class MyNodeVisitor : public NodeVisitor<T>
-{
-public:
-	MyNodeVisitor(TRAVERSE_MODE mode) :NodeVisitor(mode) {}
-
-	virtual void apply(Node<T>& node);
-};
-
-template<class T>
-void MyNodeVisitor<T>::apply(Node<T>& node)
-{
-	if (GetTraverseMode() == NodeVisitor<T>::E_TRAVERSE_MODE::NONE)
-	{
-		return;
-	}
-
-	std::cout << *(node.GetNodeData()) << std::endl;
-	if (GetTraverseMode() == NodeVisitor<T>::E_TRAVERSE_MODE::ONLY)
-	{
-		return;
-	}
-
-	for (auto& pChild : node.GetChildren())
-	{
-		pChild->Accept(*this);
-	}
-}
-
-
-int main()
-{
-	std::shared_ptr<Node<int>> rootNode = std::make_shared<Node<int>>(std::shared_ptr<int>(new int(0)));
-
-	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(1))));
-	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(2))));
-	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(3))));
-	rootNode->AddChild(std::make_shared<Node<int>>(std::shared_ptr<int>(new int(4))));
-
-	rootNode->accept(MyNodeVisitor<int>(MyNodeVisitor<int>::TRAVERSE_MODE::ALL));
-
-	return 0;
-}
-#endif
-
 int main()
 {
 	LPtr<EventSystem> pEventSystem = new EventSystem();

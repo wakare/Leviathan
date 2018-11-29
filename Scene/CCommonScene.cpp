@@ -321,7 +321,22 @@ namespace Leviathan
 			cube[nVertexFloatCount * i + 2] += center[2];
 		}
 
-		auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
+		float vertices[8 * nVertexFloatCount] = 
+		{
+			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
+			 fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
+			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
+			-fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 1.0f,
+			 fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
+			 fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 1.0f, 1.0f,
+			-fRadius,  fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 1.0f, 0.0f,
+		};
+
+		unsigned vertexIndices[3] = { 0, 1, 2 };
+
+		//auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
+		auto result = new TriDGLObject(GL_TRIANGLES, cube, 8, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX, nullptr, nullptr, vertexIndices, 3);
 		return result;
 	}
 
