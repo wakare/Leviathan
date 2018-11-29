@@ -60,7 +60,7 @@ namespace Leviathan
 	{
 		if (!_initLight())
 		{
-			LeviathanOutStream << "[WARN] Init light failed." << std::endl;
+			LeviathanOutStream << "[ERROR] Init light failed." << std::endl;
 			return false;
 		}
 
@@ -72,7 +72,7 @@ namespace Leviathan
 
 		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
 		pCubeGLObject->SetLightEnable(true);
-		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial({ 0.2f, 0.2f, 0.2f }, { 0.4f, 0.4f, 0.4f }, {1.0f, 1.0f, 1.0f});
+		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial({ 0.5f, 0.5f, 0.5f }, { 0.8f, 0.8f, 0.8f }, {1.0f, 1.0f, 1.0f});
 
 		// Load file as texture 
 		PictureObject texture("container.jpg");
@@ -157,7 +157,7 @@ namespace Leviathan
 
 	bool CCommonScene::_initLight()
 	{
-		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.2f, 0.2f, 0.2f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
+		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.5f, 0.5f, 0.5f }, { 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
 		m_pMeshPass->AddGLLight(light);
 		m_pLights.push_back(light);
 		
@@ -321,16 +321,18 @@ namespace Leviathan
 // 			cube[nVertexFloatCount * i + 2] += center[2];
 // 		}
 
+		float fNormalSubValue = sqrtf(1.0f / 3.0f);
+
 		float vertices[8 * nVertexFloatCount] = 
 		{
-			-fRadius, -fRadius, -fRadius,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
-			 fRadius, -fRadius, -fRadius,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
-			 fRadius,  fRadius, -fRadius,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
-			-fRadius,  fRadius, -fRadius,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
-			-fRadius, -fRadius,  fRadius,  1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 1.0f, 1.0f,
-			 fRadius, -fRadius,  fRadius,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 1.0f,
-			 fRadius,  fRadius,  fRadius,  0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f,  1.0f, 0.0f, 0.0f,
-			-fRadius,  fRadius,  fRadius,  0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f,  1.0f, 1.0f, 0.0f,
+			-fRadius, -fRadius, -fRadius,  1.0f, 0.0f, 0.0f, 1.0f, -fNormalSubValue, -fNormalSubValue, -fNormalSubValue, 0.0f, 0.0f,
+			 fRadius, -fRadius, -fRadius,  0.0f, 1.0f, 0.0f, 1.0f,  fNormalSubValue, -fNormalSubValue, -fNormalSubValue, 1.0f, 0.0f,
+			 fRadius,  fRadius, -fRadius,  0.0f, 0.0f, 1.0f, 1.0f,  fNormalSubValue,  fNormalSubValue, -fNormalSubValue, 1.0f, 1.0f,
+			-fRadius,  fRadius, -fRadius,  0.0f, 1.0f, 0.0f, 1.0f, -fNormalSubValue,  fNormalSubValue, -fNormalSubValue, 0.0f, 1.0f,
+			-fRadius, -fRadius,  fRadius,  1.0f, 0.0f, 0.0f, 1.0f, -fNormalSubValue, -fNormalSubValue,  fNormalSubValue, 1.0f, 1.0f,
+			 fRadius, -fRadius,  fRadius,  0.0f, 1.0f, 0.0f, 1.0f,  fNormalSubValue, -fNormalSubValue,  fNormalSubValue, 0.0f, 1.0f,
+			 fRadius,  fRadius,  fRadius,  0.0f, 0.0f, 1.0f, 1.0f,  fNormalSubValue,  fNormalSubValue,  fNormalSubValue, 0.0f, 0.0f,
+			-fRadius,  fRadius,  fRadius,  0.0f, 1.0f, 0.0f, 1.0f, -fNormalSubValue,  fNormalSubValue,  fNormalSubValue, 1.0f, 0.0f,
 		};
 
 		// Move to center
@@ -347,18 +349,18 @@ namespace Leviathan
 		constexpr unsigned uCubeTriangleCount = 36;
 		unsigned vertexIndices[uCubeTriangleCount] = 
 		{
-			0, 1, 2, 
-			0, 2, 3, 
-			1, 5, 6, 
-			1, 6, 2, 
-			3, 2, 6, 
-			3, 6, 7, 
-			0, 7, 4, 
-			0, 3, 7,
-			0, 5, 1,
-			0, 4, 5,
-			4, 6, 5,
-			4, 7, 6
+			0, 2, 1, 
+			0, 3, 2, 
+			1, 6, 5, 
+			1, 2, 6, 
+			3, 6, 2, 
+			3, 7, 6, 
+			0, 4, 7, 
+			0, 7, 3,
+			0, 1, 5,
+			0, 5, 4,
+			4, 5, 6,
+			4, 6, 7
 		};
 
 		//auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);

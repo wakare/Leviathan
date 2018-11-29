@@ -20,9 +20,9 @@ bool Leviathan::GLCommonMaterial::ApplyMaterial(GLuint program)
 	GLint nSpecularLocation = glGetUniformLocation(program, "material.specular");
 	GLint nShininessLocation = glGetUniformLocation(program, "material.shininess");
 
-	if (nAmbientLocation == nErrorCode || 
-		nDiffuseLocation == nErrorCode ||
-		nSpecularLocation == nErrorCode || 
+	if (nAmbientLocation == nErrorCode &&
+		nDiffuseLocation == nErrorCode &&
+		nSpecularLocation == nErrorCode && 
 		nShininessLocation == nErrorCode)
 	{
 		LeviathanOutStream << "[ERROR] Get material uniform failed." << std::endl;

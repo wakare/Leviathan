@@ -21,7 +21,7 @@ public:
 		if (lightPosLocation == -1)
 		{
 			LeviathanOutStream << "[ERROR] Get light position uniform location failed." << std::endl;
-			return false;
+			//return false;
 		} 
 
 		glUniform3f(lightPosLocation, m_lightCoordination.x, m_lightCoordination.y, m_lightCoordination.z);
@@ -30,7 +30,7 @@ public:
 		if (lightAmbientColorLocation == -1)
 		{
 			LeviathanOutStream << "[ERROR] Get light position ambient color location failed." << std::endl;
-			return false;
+			//return false;
 		}
 
 		glUniform3f(lightAmbientColorLocation, m_ambientColor.x, m_ambientColor.y, m_ambientColor.z);
@@ -39,7 +39,7 @@ public:
 		if (lightDiffuseColorLocation == -1)
 		{
 			LeviathanOutStream << "[ERROR] Get light position diffuse color location failed." << std::endl;
-			return false;
+			//return false;
 		}
 
 		glUniform3f(lightDiffuseColorLocation, m_diffuseColor.x, m_diffuseColor.y, m_diffuseColor.z);
@@ -48,7 +48,7 @@ public:
 		if (lightSpecularColorLocation == -1)
 		{
 			LeviathanOutStream << "[ERROR] Get light position specular color location failed." << std::endl;
-			return false;
+			//return false;
 		}
 
 		glUniform3f(lightSpecularColorLocation, m_specularColor.x, m_specularColor.y, m_specularColor.z);

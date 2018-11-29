@@ -54,10 +54,10 @@ void main()
 		return;
 	}
 
-	vec3 result = vec3(0.0, 0.0, 0.0);
-
 	if (!gl_FrontFacing)
 	{
+		vec3 result = vec3(0.0, 0.0, 0.0);
+
 		// Ambient
 		vec3 ambient = light.ambient * material.ambient;
   		result += ambient;
@@ -76,6 +76,11 @@ void main()
 		vec3 specular = light.specular * (spec * material.specular);
 		result += specular;
 
+		result.x = min(result.x, 1.0);
+		result.y = min(result.y, 1.0);
+		result.z = min(result.z, 1.0);
+
 		color = color * vec4(result, 1.0f);
+		//color = vec4(result, 1.0f);
 	}
 }

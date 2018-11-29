@@ -122,13 +122,21 @@ namespace Leviathan
 
 	void TriDObjectGLPass::SetCullFace(GLenum cullmode /*= GL_CCW*/)
 	{
-		m_bFaceCullEnable = true;
+		SetCullFaceEnable(true);
 		m_faceCullMode = cullmode;
 	}
 
 	void TriDObjectGLPass::SetCullFaceEnable(GLboolean bEnable)
 	{
 		m_bFaceCullEnable = bEnable;
+		if (m_bFaceCullEnable)
+		{
+			glEnable(GL_CULL_FACE);
+		}
+		else
+		{
+			glDisable(GL_CULL_FACE);
+		}
 	}
 
 	void TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram)
