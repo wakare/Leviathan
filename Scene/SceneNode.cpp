@@ -21,7 +21,7 @@ bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 		return false;
 	}
 
-	m_pModelFile = CFileImportFactory::GetFileImportFactory()->LoadFile("dental.stl");
+	m_pModelFile = CFileImportFactory::GetFileImportFactory()->LoadFile(szFileName);
 	if (!m_pModelFile)
 	{
 		LeviathanOutStream << "[WARN] Load file failed." << std::endl;

@@ -93,7 +93,7 @@ namespace Leviathan
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * m_uIndexArrayCount, m_pIndexData, GL_STATIC_DRAW);
 			
 			// Unbind IBO
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		}
 
 		// Unbind VBO

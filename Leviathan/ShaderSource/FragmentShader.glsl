@@ -40,21 +40,23 @@ uniform sampler2D ourTexture7;
 
 void main()
 {
+	if ((VertexTypeMask & 0x8u) > 0u)
+	{
+		color = texture(ourTexture0, TextureCoord);
+	}
+	else
+	{
+		color = outColor;
+	}
+
     if (!bLightOpen)
 	{
-		if ((VertexTypeMask & 0x8u) > 0u)
-		{
-			color = texture(ourTexture0, TextureCoord);
-			return;
-		}
-
-		color = outColor;
 		return;
 	}
 
 	vec3 result = vec3(0.0, 0.0, 0.0);
 
-	if (gl_FrontFacing)
+	if (!gl_FrontFacing)
 	{
 		// Ambient
 		vec3 ambient = light.ambient * material.ambient;
@@ -73,16 +75,7 @@ void main()
 		float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
 		vec3 specular = light.specular * (spec * material.specular);
 		result += specular;
-	}
-	else
-	{
-		//result = vec3(outColor);
-	}
-	
-    color = vec4(result, 1.0f);
-	if ((VertexTypeMask & 0x8u) > 0u)
-	{
-		color = color * texture(ourTexture0, TextureCoord);
-		return;
+
+		color = color * vec4(result, 1.0f);
 	}
 }
