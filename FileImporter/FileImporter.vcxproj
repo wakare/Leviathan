@@ -22,7 +22,6 @@
     <ClCompile Include="CFileImportFactory.cpp" />
     <ClCompile Include="CModelStruct.cpp" />
     <ClCompile Include="CSTLFileImporter.cpp" />
-    <ClCompile Include="FileImporter.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CFileImportFactory.h" />

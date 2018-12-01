@@ -8,7 +8,12 @@ namespace Leviathan
 		// Register
 		auto stlImporter = Leviathan::CSTLFileImporter::GetInstance();
 		
-		stlImporter->RegisterToFactory();
+		if (!stlImporter->RegisterToFactory())
+		{
+			LeviathanOutStream << "[ERROR] Register to factory failed." << std::endl;
+			return false;
+		}
+
 		return true;
 	}
 }

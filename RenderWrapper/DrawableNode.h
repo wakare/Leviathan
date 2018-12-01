@@ -20,7 +20,7 @@ namespace Leviathan
 		void Accept(NodeVisitor<T>& nodeVisitor);
 		void UpdateModelMatrix(const Matrix4f& modelMatrix);
 	private:
-		LPtr<GLObject> _convertModelStructToGLObject();
+		LPtr<GLObject> _convertModelStructToGLObject(bool bUseIndex = true);
 
 		LPtr<IModelStruct> m_pModelStruct;
 		LPtr<GLObject> m_pGLObject;
@@ -63,7 +63,7 @@ namespace Leviathan
 	}
 
 	template<class T>
-	Leviathan::LPtr<Leviathan::GLObject> Leviathan::DrawableNode<T>::_convertModelStructToGLObject()
+	Leviathan::LPtr<Leviathan::GLObject> Leviathan::DrawableNode<T>::_convertModelStructToGLObject(bool bUseIndex)
 	{
 		const unsigned uVertexFloatCount = 10;
 
@@ -78,37 +78,92 @@ namespace Leviathan
 			bDefaultColor = true;
 		}
 
-		for (unsigned i = 0; i < m_pModelStruct->GetTriangleCount(); i++)
+		if (bUseIndex)
 		{
-			unsigned* vertexIndex = m_pModelStruct->GetTriangleIndexArray() + 3 * i;
-			float* vertices[3];
+			std::map<unsigned, std::vector<Vector3f>> vertexNormalVec;
 
-			for (unsigned j = 0; j < 3; j++)
+			// Calculate vertex normal
+			for (unsigned i = 0; i < m_pModelStruct->GetTriangleCount(); i++)
 			{
-				float* vertexCoord = m_pModelStruct->GetVertex3DCoordArray() + 3 * vertexIndex[j];
-				vertices[j] = vertexCoord;
-				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j, vertexCoord, sizeof(float) * 3);
+				unsigned* vertexIndex = m_pModelStruct->GetTriangleIndexArray() + 3 * i;
+				float* vertices[3] = 
+				{
+					m_pModelStruct->GetVertex3DCoordArray() + 3 * vertexIndex[0],
+					m_pModelStruct->GetVertex3DCoordArray() + 3 * vertexIndex[1],
+					m_pModelStruct->GetVertex3DCoordArray() + 3 * vertexIndex[2],
+				};
 
-				if (bDefaultColor)
-				{
-					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, defaultColor, sizeof(float) * 4);
-				}
-				else
-				{
-					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, color + 4 * i, sizeof(float) * 4);
-				}
+				float fNormal[3];
+				GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
+
+				vertexNormalVec[vertexIndex[0]].push_back(fNormal);
+				vertexNormalVec[vertexIndex[1]].push_back(fNormal);
+				vertexNormalVec[vertexIndex[2]].push_back(fNormal);
 			}
 
-			float fNormal[3];
-			GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
-
-			for (unsigned j = 0; j < 3; j++)
+			DynamicArray<float> pVertexData(m_pModelStruct->GetVertexCount() * uVertexFloatCount * sizeof(float));
+			
+			for (unsigned i = 0; i < m_pModelStruct->GetVertexCount(); i++)
 			{
-				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 7, fNormal, sizeof(float) * 3);
+				float* pData = pVertexData.m_pData + i * uVertexFloatCount;
+				memcpy(pData, m_pModelStruct->GetVertex3DCoordArray() + 3 * i, sizeof(float) * 3);
+
+				memcpy(pData + 3, color ? color : defaultColor, sizeof(float) * 4);
+
+				// Calculate average normal
+				Vector3f normal(0.0f, 0.0f, 0.0f);
+				for (auto& subNormal : vertexNormalVec[i])
+				{
+					normal.x += subNormal.x;
+					normal.y += subNormal.y;
+					normal.z += subNormal.z;
+				}
+
+				normal.x /= vertexNormalVec[i].size();
+				normal.y /= vertexNormalVec[i].size();
+				normal.z /= vertexNormalVec[i].size();
+
+				memcpy(pData + 7, &normal.x, sizeof(float) * 3);
 			}
+
+			return new TriDGLObject(GL_TRIANGLES, pVertexData.m_pData, m_pModelStruct->GetVertexCount(), GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_RGBA | GLObject::VERTEX_ATTRIBUTE_NXYZ, nullptr, nullptr, m_pModelStruct->GetTriangleIndexArray(), m_pModelStruct->GetTriangleCount() * 3);
 		}
 
-		return new TriDGLObject(GL_TRIANGLES, glData.m_pData, m_pModelStruct->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
+		else
+		{
+			// Only use vertex buffer
+			for (unsigned i = 0; i < m_pModelStruct->GetTriangleCount(); i++)
+			{
+				unsigned* vertexIndex = m_pModelStruct->GetTriangleIndexArray() + 3 * i;
+				float* vertices[3];
+
+				for (unsigned j = 0; j < 3; j++)
+				{
+					float* vertexCoord = m_pModelStruct->GetVertex3DCoordArray() + 3 * vertexIndex[j];
+					vertices[j] = vertexCoord;
+					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j, vertexCoord, sizeof(float) * 3);
+
+					if (bDefaultColor)
+					{
+						memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, defaultColor, sizeof(float) * 4);
+					}
+					else
+					{
+						memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, color + 4 * i, sizeof(float) * 4);
+					}
+				}
+
+				float fNormal[3];
+				GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
+
+				for (unsigned j = 0; j < 3; j++)
+				{
+					memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 7, fNormal, sizeof(float) * 3);
+				}
+			}
+
+			return new TriDGLObject(GL_TRIANGLES, glData.m_pData, m_pModelStruct->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
+		}
 	}
 
 	template<class T>
