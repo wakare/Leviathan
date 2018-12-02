@@ -145,13 +145,13 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssim
 				texFound = meshMaterial->GetTexture(aiTextureType_DIFFUSE, texIndex++, &texturePath);
 				if (texFound == aiReturn_SUCCESS)
 				{
+					if (texIndex == 2)
+					{
+						throw "Too many textures";
+					}
+
 					absPath += texturePath.C_Str();
 					LeviathanOutStream << "[INFO] Texture path: " << absPath << std::endl;
-				}
-
-				if (texFound == 3)
-				{
-					throw "Too many textures";
 				}
 			}
 
@@ -183,7 +183,7 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssim
 			unsigned uMaxArrayLength = 1;
 			aiGetMaterialFloatArray(meshMaterial, AI_MATKEY_SHININESS, &aiShininess, &uMaxArrayLength);
 
-			pModelStruct->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texFound == aiReturn_SUCCESS) ? (absPath.length() > 0 ? absPath : "") : ""));
+			pModelStruct->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
 		}
 
 		result.push_back(pModelStruct);
