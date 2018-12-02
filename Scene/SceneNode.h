@@ -2,6 +2,7 @@
 #include "BaseMath.h"
 #include "IModelStruct.h"
 #include "LPtr.h"
+#include <vector>
 
 namespace Leviathan
 {
@@ -12,7 +13,7 @@ namespace Leviathan
 		~SceneNode();
 
 		bool LoadModelFile(const char* szFileName);
-		Leviathan::LPtr<Leviathan::IModelStruct> GetModelFile() const;
+		std::vector<Leviathan::LPtr<Leviathan::IModelStruct>> GetModelFileVec() const;
 		void SetWorldCoord(const Vector3f& coord);
 		const Vector3f& GetWorldCoord() const;
 		Matrix4f GetWorldTransform() const;
@@ -23,6 +24,6 @@ namespace Leviathan
 		SceneNode& operator=(const SceneNode& rhs) = delete;
 
 		Vector3f m_worldCoord;
-		Leviathan::LPtr<Leviathan::IModelStruct> m_pModelFile;
+		std::vector< Leviathan::LPtr<Leviathan::IModelStruct>> m_pModelFileVec;
 	};
 }

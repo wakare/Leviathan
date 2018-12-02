@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CFileImportFactory.cpp" />
-    <ClCompile Include="CModelStruct.cpp" />
     <ClCompile Include="CSTLFileImporter.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -109,7 +108,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\assimp\include;$(SolutionDir)\base; $(SolutionDir)\RenderWrapper;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +122,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\assimp\include;$(SolutionDir)\base; $(SolutionDir)\RenderWrapper;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,7 +138,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\assimp\include;$(SolutionDir)\base; $(SolutionDir)\RenderWrapper;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -157,7 +156,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\assimp\include;$(SolutionDir)\base; $(SolutionDir)\RenderWrapper;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

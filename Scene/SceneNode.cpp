@@ -2,8 +2,7 @@
 #include "CFileImportFactory.h"
 
 Leviathan::SceneNode::SceneNode():
-	m_worldCoord({0.0f, 0.0f, 0.0f}),
-	m_pModelFile(nullptr)
+	m_worldCoord({0.0f, 0.0f, 0.0f})
 {
 
 }
@@ -15,14 +14,14 @@ Leviathan::SceneNode::~SceneNode()
 
 bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 {
-	if (m_pModelFile)
+	if (m_pModelFileVec.size() > 0)
 	{
 		LeviathanOutStream << "[WARN] Already load file." << std::endl;
 		return false;
 	}
 
-	m_pModelFile = CFileImportFactory::GetFileImportFactory()->LoadFile(szFileName);
-	if (!m_pModelFile)
+	m_pModelFileVec = CFileImportFactory::GetFileImportFactory()->LoadFile(szFileName);
+	if (m_pModelFileVec.size() == 0)
 	{
 		LeviathanOutStream << "[WARN] Load file failed." << std::endl;
 		return false;
@@ -31,9 +30,9 @@ bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 	return true;
 }
 
-Leviathan::LPtr<Leviathan::IModelStruct> Leviathan::SceneNode::GetModelFile() const
+std::vector<Leviathan::LPtr<Leviathan::IModelStruct>> Leviathan::SceneNode::GetModelFileVec() const
 {
-	return m_pModelFile;
+	return m_pModelFileVec;
 }
 
 void Leviathan::SceneNode::SetWorldCoord(const Vector3f& coord)

@@ -10,4 +10,9 @@ struct GLColor
 	{
 
 	}
+
+	GLColor(float* pData) : r(pData[0]), g(pData[1]), b(pData[2])
+	{
+
+	}
 };

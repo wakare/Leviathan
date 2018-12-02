@@ -57,7 +57,7 @@ namespace Leviathan
 		return "stl";
 	}
 
-	LPtr<IModelStruct> CSTLFileImporter::LoadFile(const char* fileName)
+	std::vector<LPtr<IModelStruct>> CSTLFileImporter::LoadFile(const char* fileName)
 	{
 		auto pModelStruct = new CModelStruct();
 
@@ -65,7 +65,7 @@ namespace Leviathan
 		if (!fileStream.is_open())
 		{
 			LeviathanOutStream << "[ERROR] Invalid file name." << std::endl;
-			return nullptr;
+			return std::vector<LPtr<IModelStruct>>();
 		}
 
 		// Skip file head
@@ -126,7 +126,7 @@ namespace Leviathan
 		pModelStruct->SetTriangleIndexData(uTriangleNumber, triangleIndex);
 		pModelStruct->SetVertexCoordData(vertexSet.size(), vertexCoordArray.m_pData);
 
-		return LPtr<IModelStruct>(pModelStruct);
+		return std::vector<LPtr<IModelStruct>>(LPtr<IModelStruct>(pModelStruct));
 	}
 
 	bool CSTLFileImporter::RegisterToFactory()

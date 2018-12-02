@@ -12,6 +12,7 @@ namespace Leviathan
 		friend LPtr<N> TryCast(LPtr<T> lPtr);
 
 		LPtr(T* pointer);
+		LPtr() : LPtr(nullptr) {};
 		LPtr(const LPtr<T>& rhs);
 		~LPtr();
 		
@@ -23,7 +24,7 @@ namespace Leviathan
 		operator bool();
 
 	private:
-		LPtr() {};
+		
 		bool _setPointer(const LPtr<T>& rhs);
 		std::shared_ptr<T> m_lPtr;
 	};

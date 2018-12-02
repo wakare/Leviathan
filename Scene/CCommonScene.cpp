@@ -64,32 +64,32 @@ namespace Leviathan
 			return false;
 		}
 
-		float cubeAABB[6] =
-		{
-			10.0f, 10.0f, 10.0f,
-			20.0f, 20.0f, 20.0f,
-		};
-
-		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
-		pCubeGLObject->SetLightEnable(true);
-		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial({ 0.5f, 0.5f, 0.5f }, { 0.8f, 0.8f, 0.8f }, {1.0f, 1.0f, 1.0f});
-
-		// Load file as texture 
-		PictureObject texture("container.jpg");
-
-		pMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight));
-		pCubeGLObject->SetMaterial(TryCast<GLCommonMaterial, IGLMaterial>(pMaterial));
-
-		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
-		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode), true);
-		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
+// 		float cubeAABB[6] =
+// 		{
+// 			10.0f, 10.0f, 10.0f,
+// 			20.0f, 20.0f, 20.0f,
+// 		};
+// 
+// 		LPtr<GLObject> pCubeGLObject = _convertAABBtoGLObject(cubeAABB);
+// 		pCubeGLObject->SetLightEnable(true);
+// 		LPtr<GLCommonMaterial> pMaterial = new GLCommonMaterial({ 0.5f, 0.5f, 0.5f }, { 0.8f, 0.8f, 0.8f }, {1.0f, 1.0f, 1.0f});
+// 
+// 		// Load file as texture 
+// 		PictureObject texture("container.jpg");
+// 
+// 		pMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight));
+// 		pCubeGLObject->SetMaterial(TryCast<GLCommonMaterial, IGLMaterial>(pMaterial));
+// 
+// 		LPtr<DrawableNode<SceneNode>> pCubeNode = new DrawableNode<SceneNode>(pCubeGLObject, new SceneNode());
+// 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pCubeNode), true);
+// 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("dental.stl");
+		pSceneNode->LoadModelFile("D:/Resource/Model/2b/lufeng.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFile(), pSceneNode);
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
 
-		auto& AABB = pSceneNode->GetModelFile()->GetAABB();
+		auto& AABB = pSceneNode->GetModelFileVec()[0]->GetAABB();
 		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
 		{
@@ -97,17 +97,20 @@ namespace Leviathan
 			return false;
 		}
 
-		auto pDentalGLObject = pDentalNode->GetGLObject();
-		auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
-		m_pSceneGraph->AddNode(pNode, true);
+		auto pDentalGLObjectVec = pDentalNode->GetGLObject();
+		for (auto pDentalGLObject : pDentalGLObjectVec)
+		{
+			auto pNode = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode);
+			m_pSceneGraph->AddNode(pNode, true);
 
-		LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
-		pDentalGLObject->SetMaterial(pModelMaterial);
-		pDentalGLObject->SetLightEnable(true);
+			//LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
+			//pDentalGLObject->SetMaterial(pModelMaterial);
+			pDentalGLObject->SetLightEnable(true);
 
-		// Set camera lookAt
-		m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
-		pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+			// Set camera lookAt
+			m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
+			pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+		}
 
 		return true;
 	}

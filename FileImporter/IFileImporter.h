@@ -1,6 +1,7 @@
 #pragma once
 #include "IModelStruct.h"
 #include "LPtr.h"
+#include <vector>
 
 namespace Leviathan 
 {
@@ -11,6 +12,6 @@ namespace Leviathan
 
 		virtual bool RegisterToFactory() = 0;
 		virtual std::string TypeName() = 0;
-		virtual LPtr<IModelStruct> LoadFile(const char* fileName) = 0;
+		virtual std::vector<LPtr<IModelStruct>> LoadFile(const char* fileName) = 0;
 	};
 }

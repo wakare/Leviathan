@@ -12,9 +12,6 @@
     <ClCompile Include="CFileImportFactory.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
-    <ClCompile Include="CModelStruct.cpp">
-      <Filter>Implement</Filter>
-    </ClCompile>
     <ClCompile Include="CSTLFileImporter.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
