@@ -1,5 +1,5 @@
 #pragma once
-#include "../Simple OpenGL Image Library/include/SOIL.h"
+#include <SOIL.h>
 
 class PictureObject
 {

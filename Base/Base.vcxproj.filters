@@ -74,5 +74,14 @@
     <ClInclude Include="Material.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="KLog.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="KOcTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="KProfile.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
