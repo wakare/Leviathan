@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DrawableNodeOcTree.h" />
+    <ClInclude Include="SceneOcTree.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="CCommonScene.h" />
     <ClInclude Include="PictureObject.h" />

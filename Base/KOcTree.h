@@ -162,21 +162,21 @@ namespace Leviathan
 		}
 	};
 
-	class ITriDObject
+	class IOcTreeNode
 	{
 	public:
-		ITriDObject(const Point3Df& rhs) :
+		IOcTreeNode(const Point3Df& rhs) :
 			m_coord(rhs)
 		{
 
 		}
 
-		bool operator< (const ITriDObject& rhs) const
+		bool operator< (const IOcTreeNode& rhs) const
 		{
 			return m_coord < rhs.m_coord;
 		}
 
-		bool operator<= (const ITriDObject& rhs) const
+		bool operator<= (const IOcTreeNode& rhs) const
 		{
 			return m_coord <= rhs.m_coord;
 		}
@@ -193,7 +193,7 @@ namespace Leviathan
 			return buff;
 		}
 
-		virtual ~ITriDObject()
+		virtual ~IOcTreeNode()
 		{
 
 		}
@@ -211,7 +211,7 @@ namespace Leviathan
 			ETT_UNKNOWN,
 		};
 
-		KOcTree(KOcTree* pParent, const AABBf& AABB, KSPtr<ITriDObject> pNodeData = nullptr) :
+		KOcTree(KOcTree* pParent, const AABBf& AABB, KSPtr<IOcTreeNode> pNodeData = nullptr) :
 			m_pParent(pParent),
 			m_pNodeData(pNodeData),
 			m_AABB(AABB),
@@ -233,7 +233,7 @@ namespace Leviathan
 			return m_pNodeData != nullptr;
 		}
 
-		const KSPtr<ITriDObject>& GetLeafNode() const
+		const KSPtr<IOcTreeNode>& GetLeafNode() const
 		{
 			return m_pNodeData;
 		}
@@ -299,11 +299,11 @@ namespace Leviathan
 
 		friend KSPtr<KOcTree> CreateParentOcTreeBasedChild(const KSPtr<AABBf>& pAABB, const KSPtr<KOcTree>& pChild);
 
-		friend KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<ITriDObject>>& needAddNodeVec);
+		friend KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<IOcTreeNode>>& needAddNodeVec);
 
-		std::vector<KSPtr<ITriDObject>> SearchRadiusNodeSet(KSPtr<ITriDObject> pNode, float fSearchRadius)
+		std::vector<KSPtr<IOcTreeNode>> SearchRadiusNodeSet(KSPtr<IOcTreeNode> pNode, float fSearchRadius)
 		{
-			std::vector<KSPtr<ITriDObject>> result;
+			std::vector<KSPtr<IOcTreeNode>> result;
 			auto coord = pNode->GetCoord();
 
 			auto traverseFunc = [&result, &coord, fSearchRadius](const KOcTree& rhs)
@@ -334,10 +334,10 @@ namespace Leviathan
 			return result;
 		}
 
-		std::vector<KSPtr<ITriDObject>> SearchNearestNodeSet(KSPtr<ITriDObject> pNode, unsigned uMaxSearchCount);
+		std::vector<KSPtr<IOcTreeNode>> SearchNearestNodeSet(KSPtr<IOcTreeNode> pNode, unsigned uMaxSearchCount);
 
 	private:
-		bool _addNode(const KSPtr<ITriDObject>& pNode)
+		bool _addNode(const KSPtr<IOcTreeNode>& pNode)
 		{
 			if (!m_AABB.Inside(pNode->GetCoord()))
 			{
@@ -379,7 +379,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool _addNode(const std::vector<KSPtr<ITriDObject>>& pNodeVec)
+		bool _addNode(const std::vector<KSPtr<IOcTreeNode>>& pNodeVec)
 		{
 			for (auto& pNode : pNodeVec)
 			{
@@ -485,7 +485,7 @@ namespace Leviathan
 			return true;
 		}
 
-		inline unsigned _getSubTreeIndex(const KSPtr<ITriDObject>& pNode)
+		inline unsigned _getSubTreeIndex(const KSPtr<IOcTreeNode>& pNode)
 		{
 			if (m_eType == ETT_UNKNOWN)
 			{
@@ -521,7 +521,7 @@ namespace Leviathan
 			return UINT_MAX;
 		}
 
-		bool _addNodeToSubTree(const KSPtr<ITriDObject>& pNode, unsigned uSubTreeIndex)
+		bool _addNodeToSubTree(const KSPtr<IOcTreeNode>& pNode, unsigned uSubTreeIndex)
 		{
 			if (!m_pChildren[uSubTreeIndex])
 			{
@@ -544,7 +544,7 @@ namespace Leviathan
 
 		KOcTree* m_pParent;
 		std::vector<KSPtr<KOcTree>> m_pChildren;
-		KSPtr<ITriDObject> m_pNodeData;
+		KSPtr<IOcTreeNode> m_pNodeData;
 		const AABBf m_AABB;
 		unsigned m_uNodeCount;
 		ETreeType m_eType;
@@ -613,7 +613,7 @@ namespace Leviathan
 	};
 
 	// Only interface for user to add node, please use return value as root OcTree
-	KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<ITriDObject>>& needAddNodeVec)
+	KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<IOcTreeNode>>& needAddNodeVec)
 	{
 		bool bInitMinAndMax = false;
 		float min[3];
