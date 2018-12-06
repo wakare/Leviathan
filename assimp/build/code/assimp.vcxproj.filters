@@ -1,0 +1,1743 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Assimp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BaseImporter.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BaseProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PostStepRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ImporterRegistry.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DefaultIOStream.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DefaultIOSystem.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CInterfaceIOWrapper.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SGSpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\VertexTriangleAdjacency.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SpatialSort.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SceneCombiner.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ScenePreprocessor.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SkeletonMeshBuilder.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SplitByBoneCountProcess.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\StandardShapes.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TargetAnimation.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RemoveComments.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Subdivision.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\scene.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Bitmap.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Version.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CreateAnimMesh.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\simd.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DefaultLogger.cpp">
+      <Filter>Logging</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Exporter.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssimpCExport.cpp">
+      <Filter>Exporter</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CalcTangentsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ComputeUVMappingProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ConvertToLHProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\EmbedTexturesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindDegenerates.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindInstancesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindInvalidDataProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FixNormalsStep.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\GenFaceNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\GenVertexNormalsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PretransformVertices.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ImproveCacheLocality.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\JoinVerticesProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LimitBoneWeightsProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RemoveRedundantMaterials.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RemoveVCProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SortByPTypeProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SplitLargeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TextureTransform.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TriangulateProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ValidateDataStructure.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OptimizeGraph.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OptimizeMeshes.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DeboneProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ProcessHelper.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MakeVerboseFormat.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ScaleProcess.cpp">
+      <Filter>PostProcessing</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MaterialSystem.cpp">
+      <Filter>MaterialSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\StepExporter.cpp">
+      <Filter>Step</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter_Geometry.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter_Material.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter_Postprocess.cpp">
+      <Filter>AMF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSConverter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSLoader.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSExporter.cpp">
+      <Filter>3DS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ACLoader.cpp">
+      <Filter>AC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ASELoader.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ASEParser.cpp">
+      <Filter>ASE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssbinExporter.cpp">
+      <Filter>ASSBIN</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssbinLoader.cpp">
+      <Filter>ASSBIN</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssxmlExporter.cpp">
+      <Filter>ASSXML</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\B3DImporter.cpp">
+      <Filter>B3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BVHLoader.cpp">
+      <Filter>BVH</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaLoader.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaParser.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaExporter.cpp">
+      <Filter>COLLADA</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DXFLoader.cpp">
+      <Filter>DXF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CSMLoader.cpp">
+      <Filter>CSM</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\HMPLoader.cpp">
+      <Filter>HMP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRMeshLoader.cpp">
+      <Filter>IRRMESH</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRShared.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRLoader.cpp">
+      <Filter>IRR</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOAnimation.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOBLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOLoader.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOMaterial.cpp">
+      <Filter>LWO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWSLoader.cpp">
+      <Filter>LWS</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD2Loader.cpp">
+      <Filter>MD2</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD3Loader.cpp">
+      <Filter>MD3</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD5Loader.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD5Parser.cpp">
+      <Filter>MD5</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDCLoader.cpp">
+      <Filter>MDC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDLLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDLMaterialLoader.cpp">
+      <Filter>MDL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\NFFLoader.cpp">
+      <Filter>NFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\NDOLoader.cpp">
+      <Filter>NDO</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OFFLoader.cpp">
+      <Filter>OFF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileMtlImporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileParser.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjExporter.cpp">
+      <Filter>OBJ</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreImporter.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreStructs.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreBinarySerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreXmlSerializer.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreMaterial.cpp">
+      <Filter>OGRE</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OpenGEXExporter.cpp">
+      <Filter>OPENGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OpenGEXImporter.cpp">
+      <Filter>OPENGEX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyLoader.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyParser.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyExporter.cpp">
+      <Filter>PLY</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MS3DLoader.cpp">
+      <Filter>MS3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\COBLoader.cpp">
+      <Filter>COB</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderLoader.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderDNA.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderScene.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderModifier.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderBMesh.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderTessellator.cpp">
+      <Filter>BLEND</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCLoader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCReaderGen1_2x3.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCReaderGen2_2x3.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCUtil.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCGeometry.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCMaterial.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCProfile.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCCurve.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCBoolean.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCOpenings.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\STEPFileReader.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\STEPFileEncoding.cpp">
+      <Filter>IFC</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XGLLoader.cpp">
+      <Filter>XGL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXImporter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXParser.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXConverter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXDocument.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXProperties.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXMeshGeometry.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXMaterial.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXModel.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXAnimation.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXNodeAttribute.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXDeformer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXBinaryTokenizer.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXDocumentUtil.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExporter.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExportNode.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExportProperty.cpp">
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3DLoader.cpp">
+      <Filter>Q3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPFileParser.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPFileImporter.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPZipArchive.cpp">
+      <Filter>Q3BSP</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RawLoader.cpp">
+      <Filter>RAW</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SIBImporter.cpp">
+      <Filter>SIB</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SMDLoader.cpp">
+      <Filter>SMD</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\STLLoader.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\STLExporter.cpp">
+      <Filter>STL</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TerragenLoader.cpp">
+      <Filter>TERRAGEN</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\UnrealLoader.cpp">
+      <Filter>3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileImporter.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileParser.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileExporter.cpp">
+      <Filter>X</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DExporter.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Geometry2D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Geometry3D.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Group.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Light.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Metadata.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Networking.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Postprocess.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Rendering.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Shape.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Texturing.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FIReader.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DVocabulary.cpp">
+      <Filter>X3D</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFImporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFExporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Importer.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Exporter.cpp">
+      <Filter>GLTF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFImporter.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFExporter.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFOpcPackage.cpp">
+      <Filter>3MF</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDImporter.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDPmxParser.cpp">
+      <Filter>MMD</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\unzip\ioapi.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\unzip\unzip.c">
+      <Filter>unzip</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\common\shapes.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\cdt.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\sweep.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
+      <Filter>Poly2Tri</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\clipper\clipper.cpp">
+      <Filter>Clipper</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\OpenDDLParser.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\DDLNode.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\OpenDDLCommon.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\OpenDDLExport.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\Value.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\code\OpenDDLStream.cpp">
+      <Filter>openddl_parser</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTools.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleFans.cpp">
+      <Filter>open3dgc</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\zip\src\zip.c">
+      <Filter>ziplib</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BaseProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ScenePrivate.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DefaultProgressHandler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CInterfaceIOWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IFF.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\VertexTriangleAdjacency.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ScenePreprocessor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SplitByBoneCountProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TargetAnimation.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\simd.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\DefaultLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\LogStream.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Logger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\NullLogger.hpp">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Win32DebugLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FileLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\StdOStreamLogStream.h">
+      <Filter>Logging</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\BlobIOSystem.h">
+      <Filter>Exporter</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CalcTangentsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ComputeUVMappingProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ConvertToLHProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\EmbedTexturesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindDegenerates.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindInstancesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FindInvalidDataProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FixNormalsStep.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\GenFaceNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\GenVertexNormalsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PretransformVertices.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ImproveCacheLocality.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\JoinVerticesProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LimitBoneWeightsProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RemoveRedundantMaterials.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RemoveVCProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SortByPTypeProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SplitLargeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TextureTransform.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TriangulateProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ValidateDataStructure.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OptimizeGraph.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OptimizeMeshes.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DeboneProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ProcessHelper.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PolyTools.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MakeVerboseFormat.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ScaleProcess.h">
+      <Filter>PostProcessing</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MaterialSystem.h">
+      <Filter>MaterialSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\STEPFile.h">
+      <Filter>Step</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\StepExporter.h">
+      <Filter>Step</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter_Macro.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AMFImporter_Node.hpp">
+      <Filter>AMF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSHelper.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSLoader.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3DSExporter.h">
+      <Filter>3DS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ACLoader.h">
+      <Filter>AC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ASELoader.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ASEParser.h">
+      <Filter>ASE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssbinExporter.h">
+      <Filter>ASSBIN</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssbinLoader.h">
+      <Filter>ASSBIN</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\AssxmlExporter.h">
+      <Filter>ASSXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\B3DImporter.h">
+      <Filter>B3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BVHLoader.h">
+      <Filter>BVH</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaHelper.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaLoader.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaParser.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ColladaExporter.h">
+      <Filter>COLLADA</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DXFLoader.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\DXFHelper.h">
+      <Filter>DXF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CSMLoader.h">
+      <Filter>CSM</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\HMPFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\HMPLoader.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\HalfLifeFileData.h">
+      <Filter>HMP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRMeshLoader.h">
+      <Filter>IRRMESH</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRShared.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\IRRLoader.h">
+      <Filter>IRR</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOAnimation.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOFileData.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWOLoader.h">
+      <Filter>LWO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\LWSLoader.h">
+      <Filter>LWS</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD2FileData.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD2Loader.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD2NormalTable.h">
+      <Filter>MD2</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD3FileData.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD3Loader.h">
+      <Filter>MD3</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD5Loader.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MD5Parser.h">
+      <Filter>MD5</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDCFileData.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDCLoader.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDCNormalTable.h">
+      <Filter>MDC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDLDefaultColorMap.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDLFileData.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MDLLoader.h">
+      <Filter>MDL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\NFFLoader.h">
+      <Filter>NFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\NDOLoader.h">
+      <Filter>NDO</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OFFLoader.h">
+      <Filter>OFF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileData.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileMtlImporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjFileParser.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjTools.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\ObjExporter.h">
+      <Filter>OBJ</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreImporter.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreStructs.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreParsingUtils.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreBinarySerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OgreXmlSerializer.h">
+      <Filter>OGRE</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OpenGEXExporter.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OpenGEXImporter.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\OpenGEXStructs.h">
+      <Filter>OPENGEX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyLoader.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyParser.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\PlyExporter.h">
+      <Filter>PLY</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MS3DLoader.h">
+      <Filter>MS3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\COBLoader.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\COBScene.h">
+      <Filter>COB</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderLoader.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderDNA.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderDNA.inl">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderScene.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderSceneGen.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderIntermediate.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderModifier.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderBMesh.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\BlenderTessellator.h">
+      <Filter>BLEND</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCLoader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCReaderGen_2x3.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\IFCUtil.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\STEPFileReader.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Importer\IFC\STEPFileEncoding.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XGLLoader.h">
+      <Filter>XGL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXCompileConfig.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXImporter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXParser.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXTokenizer.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXImportSettings.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXConverter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXUtil.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXDocument.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXProperties.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXMeshGeometry.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExporter.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExportNode.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXExportProperty.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FBXCommon.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3DLoader.h">
+      <Filter>Q3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPFileData.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPFileParser.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPFileImporter.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\Q3BSPZipArchive.h">
+      <Filter>Q3BSP</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\RawLoader.h">
+      <Filter>RAW</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SIBImporter.h">
+      <Filter>SIB</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\SMDLoader.h">
+      <Filter>SMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\STLLoader.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\STLExporter.h">
+      <Filter>STL</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\TerragenLoader.h">
+      <Filter>TERRAGEN</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\UnrealLoader.h">
+      <Filter>3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileHelper.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileImporter.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileParser.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\XFileExporter.h">
+      <Filter>X</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DExporter.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Macro.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\X3DImporter_Node.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\FIReader.hpp">
+      <Filter>X3D</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFAsset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFAsset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFAssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFAssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFImporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTFExporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Asset.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Asset.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2AssetWriter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2AssetWriter.inl">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Importer.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\glTF2Exporter.h">
+      <Filter>GLTF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFImporter.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFExporter.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\D3MFOpcPackage.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\3MFXmlTags.h">
+      <Filter>3MF</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDCpp14.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDImporter.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDPmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDPmxParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\MMDVmdParser.h">
+      <Filter>MMD</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\irrXMLWrapper.h">
+      <Filter>IrrXML</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\unzip\crypt.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\unzip\ioapi.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\unzip\unzip.h">
+      <Filter>unzip</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\common\shapes.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\common\utils.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\cdt.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\sweep.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
+      <Filter>Poly2Tri</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\clipper\clipper.hpp">
+      <Filter>Clipper</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParser.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\OpenDDLExport.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\OpenDDLStream.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\DDLNode.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\openddlparser\include\openddlparser\Value.h">
+      <Filter>openddl_parser</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcAdjacencyInfo.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcBinaryStream.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcCommon.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDVEncodeParams.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcDynamicVector.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcFIFO.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTimer.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleFans.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcVector.h">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\Open3DGC\o3dgcVector.inl">
+      <Filter>open3dgc</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\zip\src\miniz.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\contrib\zip\src\zip.h">
+      <Filter>ziplib</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\anim.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\ai_assert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\camera.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\color4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\color4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\build\include\assimp\config.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\defs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Defines.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\cfileio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\light.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\material.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\material.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\matrix3x3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\matrix3x3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\matrix4x4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\matrix4x4.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\mesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\pbrmaterial.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\postprocess.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\quaternion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\quaternion.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\scene.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\metadata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\types.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\vector2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\vector2.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\vector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\vector3.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\version.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\cimport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\importerdesc.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Importer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\ProgressHandler.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\IOStream.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\IOSystem.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\cexport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Exporter.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\DefaultIOStream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\DefaultIOSystem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SceneCombiner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\fast_atof.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\qnan.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\BaseImporter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Hash.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\MemoryIOWrapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\ParsingUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\StreamReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\StreamWriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\StringComparison.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\StringUtils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SGSpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\GenericProperty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SpatialSort.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SkeletonMeshBuilder.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SmoothingGroups.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\SmoothingGroups.inl">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\StandardShapes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\RemoveComments.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Subdivision.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Vertex.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\LineSplitter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\TinyFormatter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Profiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\LogAux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Bitmap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\XMLTools.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\IOStreamBuffer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\CreateAnimMesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\MathFunctions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Macros.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Exceptional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\ByteSwapper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Compiler\pushpack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Compiler\poppack1.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\include\assimp\Compiler\pstdint.h">
+      <Filter>Compiler</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\assimp\code\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{95BB539E-DD86-3D1F-BD4E-B03CCFFD9EA6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{F3C7C8D7-6AB0-31E7-A8CB-D3FD8217CD7F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Compiler">
+      <UniqueIdentifier>{BD0DF1E6-5FA1-384E-837C-4526FC391E8E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logging">
+      <UniqueIdentifier>{1EB6050C-2AEF-3BCC-9117-83503C383A05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{E470798D-A4C4-38B6-A2A2-A4BDD27573B9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AMF">
+      <UniqueIdentifier>{22460EAE-CB4E-34A8-AAFA-EE1839358CAF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3DS">
+      <UniqueIdentifier>{6A0DF10B-D0A8-39F6-AF85-4A0481D2A4A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="AC">
+      <UniqueIdentifier>{622C2FEF-8440-32B4-B1E7-3D3608398596}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASE">
+      <UniqueIdentifier>{FF78D312-6AEF-35ED-B6FA-BDFF32496DA8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSBIN">
+      <UniqueIdentifier>{B8BAFE0F-90D8-3A24-AF7B-5AB9714CD23E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ASSXML">
+      <UniqueIdentifier>{0ED312FE-CD5A-3773-817B-078BD61DF4DB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="B3D">
+      <UniqueIdentifier>{4FD9BC78-221E-3430-96A4-1E1EA2996D95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BVH">
+      <UniqueIdentifier>{AEA7B206-F5C8-3D4E-B7AF-6A39B78FB554}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COLLADA">
+      <UniqueIdentifier>{AED48C86-6A0F-3BE4-A056-4C81A9090B41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DXF">
+      <UniqueIdentifier>{FAAF9397-27D6-30AE-B036-0AFF14C6DC9D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CSM">
+      <UniqueIdentifier>{70593001-273F-361D-A9E1-69E5DD5DF819}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HMP">
+      <UniqueIdentifier>{B57F056A-C102-3681-9A30-C2DC29E0EEE3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRRMESH">
+      <UniqueIdentifier>{69A1DC2B-C2EC-35CE-BAC3-8192290C0BCC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IRR">
+      <UniqueIdentifier>{00EB48C7-4471-3D4C-89B0-5776D958AA08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWO">
+      <UniqueIdentifier>{2CF4B1A8-8E0B-316E-BED3-67722853F78D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LWS">
+      <UniqueIdentifier>{722AD6D2-A027-356C-8A4D-8F949A0720B2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD2">
+      <UniqueIdentifier>{E97A58CB-5383-3679-8A08-5CF64008204F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD3">
+      <UniqueIdentifier>{B19130A8-3FDE-3135-8E94-5C56FEB5A593}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MD5">
+      <UniqueIdentifier>{6A73F45A-1EF4-3CF2-B343-D6C2D1D7AC71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDC">
+      <UniqueIdentifier>{954DCD42-4E18-37E5-A53D-F47B8842A81C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MDL">
+      <UniqueIdentifier>{0D8AB122-C505-3FD0-96C5-F44F78D852F2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MaterialSystem">
+      <UniqueIdentifier>{9186F068-4921-3384-8B62-DEFB0F392784}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NFF">
+      <UniqueIdentifier>{98845506-7FA8-3A65-8642-4126DDEA64FC}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="NDO">
+      <UniqueIdentifier>{60482FD2-9683-3CED-90AE-B37908503CA3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OFF">
+      <UniqueIdentifier>{C4B923CB-7443-386D-8425-876FA2957396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OBJ">
+      <UniqueIdentifier>{DB76AA46-34AF-31D5-927C-2F23240E33D6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OGRE">
+      <UniqueIdentifier>{2455547B-FA6D-3E01-A0CD-AFEC3ABFD708}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OPENGEX">
+      <UniqueIdentifier>{69C652CB-475D-30F5-AD97-4FC03712A91F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PLY">
+      <UniqueIdentifier>{CC1A962F-36CD-3523-93F4-1D9EFCA1029C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MS3D">
+      <UniqueIdentifier>{AD44D4F5-F28C-3146-A662-8B9AFF7681DF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="COB">
+      <UniqueIdentifier>{6BA4E914-757B-328C-B6AB-6DE9E4A2B669}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BLEND">
+      <UniqueIdentifier>{821F1491-02E4-39B8-824F-E54C1FBEF5D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IFC">
+      <UniqueIdentifier>{C1AB353C-557C-39FB-A278-BEEF11060287}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="XGL">
+      <UniqueIdentifier>{2DAC32B1-7DF3-3860-A1E1-1A879A69A182}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FBX">
+      <UniqueIdentifier>{29A7B291-1858-36FF-839F-FED576BCB768}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PostProcessing">
+      <UniqueIdentifier>{62CAA46D-D21E-3DE4-8998-578530B83BF1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IrrXML">
+      <UniqueIdentifier>{65D3EAAB-364A-36C1-A786-66146C02F57F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3D">
+      <UniqueIdentifier>{A025B575-1E28-3A09-849B-D17F7DB70D52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Q3BSP">
+      <UniqueIdentifier>{51361475-0E65-3D0F-9916-9AF223FCF8B7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="RAW">
+      <UniqueIdentifier>{103C70FD-8761-3DD4-BFD7-BA01E65B51FA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SIB">
+      <UniqueIdentifier>{EFC11CA4-EA2D-3E4B-9D6D-66B0561EC901}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SMD">
+      <UniqueIdentifier>{C204103F-5D07-31AE-86C3-DDB7E3302056}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="STL">
+      <UniqueIdentifier>{044DD5D5-65B1-3D88-9897-9B5561C3B139}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TERRAGEN">
+      <UniqueIdentifier>{9FA04E8A-D796-360F-880A-9799D80EC6A9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3D">
+      <UniqueIdentifier>{C4BA8D5E-EF19-3FEC-BCD8-19DCF18B1CDB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X">
+      <UniqueIdentifier>{8B92B132-7CBE-30D6-97FF-FB7F883A9D80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="X3D">
+      <UniqueIdentifier>{2A44C0A4-A48E-3CAF-BE9D-7C44C65F95A0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GLTF">
+      <UniqueIdentifier>{D78A0854-A309-3075-8A8A-FD5C769E2FB3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="3MF">
+      <UniqueIdentifier>{269E3698-1549-38E1-8D27-B986ECFD035D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="MMD">
+      <UniqueIdentifier>{064C0B77-22A0-3DBD-ACA6-3E25A8567A73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Step">
+      <UniqueIdentifier>{C898B442-F8C8-3EB8-B632-65EAC51FCA9A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Exporter">
+      <UniqueIdentifier>{D41ACD9A-EE1A-3F30-A177-0A0291600F46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Clipper">
+      <UniqueIdentifier>{16C5F103-7035-3909-8061-4D0D792BC0C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Poly2Tri">
+      <UniqueIdentifier>{F94134E6-C856-36BA-AF94-CC6A38340348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="unzip">
+      <UniqueIdentifier>{084CD496-ABBD-3F7F-B8F2-DA2CF969CCE9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ziplib">
+      <UniqueIdentifier>{33FB91AB-C403-3165-A7F9-C14614F2582E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="openddl_parser">
+      <UniqueIdentifier>{2DBE2206-0010-3F9A-AE50-B703DD975976}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="open3dgc">
+      <UniqueIdentifier>{176B26A6-198B-3270-BDCC-84DA95478BE1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

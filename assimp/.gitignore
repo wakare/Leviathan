@@ -1,5 +1,4 @@
 .idea
-.project
 *.kdev4*
 
 # Visual Studio
@@ -39,8 +38,6 @@ test/results
 # Python
 __pycache__
 *.log
-*.vcxproj
-*.filters
 *.tlog
 Assimp.sdf
 test/gtest/tmp/gtest-gitupdate.cmake
