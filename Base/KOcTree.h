@@ -5,7 +5,7 @@
 #include "LPtr.h"
 #include <functional>
 
-namespace Levithan
+namespace Leviathan
 {
 #define KSPtr LPtr
 	//#define KUPtr std::unique_ptr;
@@ -269,7 +269,7 @@ namespace Levithan
 			return true;
 		}
 
-		void Traverse(std::function<void(const KOcTree& rhs)> traverseFunc, bool bRecursion)
+		void Traverse(std::function<void(KOcTree& rhs)> traverseFunc, bool bRecursion)
 		{
 			for (auto& child : m_pChildren)
 			{
@@ -299,7 +299,7 @@ namespace Levithan
 
 		friend KSPtr<KOcTree> CreateParentOcTreeBasedChild(const KSPtr<AABBf>& pAABB, const KSPtr<KOcTree>& pChild);
 
-		friend KSPtr<KOcTree> AddNode(KSPtr<KOcTree> pOcTree, std::vector<KSPtr<ITriDObject>>& needAddNodeVec);
+		friend KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<ITriDObject>>& needAddNodeVec);
 
 		std::vector<KSPtr<ITriDObject>> SearchRadiusNodeSet(KSPtr<ITriDObject> pNode, float fSearchRadius)
 		{
@@ -613,7 +613,7 @@ namespace Levithan
 	};
 
 	// Only interface for user to add node, please use return value as root OcTree
-	KSPtr<KOcTree> AddNode(KSPtr<KOcTree> pOcTree, std::vector<KSPtr<ITriDObject>>& needAddNodeVec)
+	KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<ITriDObject>>& needAddNodeVec)
 	{
 		bool bInitMinAndMax = false;
 		float min[3];

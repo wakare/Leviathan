@@ -30,6 +30,14 @@ namespace Leviathan
 			}
 		}
 
+		void AddGLObject(std::vector<LPtr<GLObject>>& pGLObjectVec)
+		{
+			for (auto& pGLObject : pGLObjectVec)
+			{
+				AddGLObject(pGLObject);
+			}
+		}
+
 		void DelGLObject(LPtr<GLObject> pObject) 
 		{
 			auto it = _findGLObject(pObject);
