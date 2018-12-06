@@ -33,9 +33,6 @@
     <ClInclude Include="CCommonScene.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="PictureObject.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="SceneOcTree.h">
       <Filter>头文件</Filter>
     </ClInclude>

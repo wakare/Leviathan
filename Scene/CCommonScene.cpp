@@ -85,7 +85,7 @@ namespace Leviathan
 // 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("D:/Resource/Model/2b/lufeng.FBX");
+		pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/Leviathan/2b/lufeng.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
 
@@ -111,6 +111,8 @@ namespace Leviathan
 			m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
 			pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 		}
+
+		m_pSceneGraph->AddDrawableNodeToSceneRenderPass(m_pSceneGraph->GetRootNode());
 
 		return true;
 	}
@@ -261,68 +263,6 @@ namespace Leviathan
 		}
 
 		constexpr int nVertexFloatCount = 12;
-
-// 		float cube[36 * nVertexFloatCount] =
-// 		{
-// 			// front						// color			 // normal			// texCoord
-// 			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
-// 			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 0.0f,
-// 			 fRadius,  fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
-// 			 fRadius,  fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 1.0f,
-// 			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, -1.0f, 1.0f, 1.0f,
-// 			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, -1.0f, 0.0f, 0.0f,
-// 
-// 			// up
-// 			-fRadius, fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-// 			 fRadius, fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-// 			 fRadius, fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-// 			 fRadius, fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 0.0f,
-// 			-fRadius, fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
-// 			-fRadius, fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f,
-// 
-// 			// down
-// 			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
-// 			 fRadius, -fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
-// 			 fRadius, -fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 0.0f,
-// 			 fRadius, -fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 1.0f, 1.0f,
-// 			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 0.0f,
-// 			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, -1.0f, 0.0f, 0.0f, 1.0f,
-// 
-// 			// left
-// 			-fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-// 			-fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-// 			-fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-// 			-fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-// 			-fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-// 			-fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, -1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-// 
-// 			// right
-// 			fRadius, -fRadius, -fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-// 			fRadius,  fRadius,  fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-// 			fRadius,  fRadius, -fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 1.0f,
-// 			fRadius,  fRadius,  fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f, 0.0f,
-// 			fRadius, -fRadius, -fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f,
-// 			fRadius, -fRadius,  fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
-// 
-// 			// back
-// 			-fRadius, -fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-// 			 fRadius,  fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-// 			 fRadius, -fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f,
-// 			 fRadius,  fRadius, fRadius, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-// 			-fRadius, -fRadius, fRadius, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-// 			-fRadius,  fRadius, fRadius, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-// 		};
-// 
-// 		// Move to center
-// 		float center[3];
-// 		aabb.GetAABBCenter(center);
-// 
-// 		for (unsigned i = 0; i < 36; i++)
-// 		{
-// 			cube[nVertexFloatCount * i] += center[0];
-// 			cube[nVertexFloatCount * i + 1] += center[1];
-// 			cube[nVertexFloatCount * i + 2] += center[2];
-// 		}
 
 		float fNormalSubValue = sqrtf(1.0f / 3.0f);
 

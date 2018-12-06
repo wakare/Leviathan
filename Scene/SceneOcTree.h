@@ -4,6 +4,7 @@
 #include "LPtr.h"
 #include "GLPass.h"
 #include "DrawableNode.h"
+#include "GlobalDef.h"
 
 namespace Leviathan
 {
@@ -15,6 +16,16 @@ namespace Leviathan
 			m_pSceneNode(pSceneNode)
 		{
 
+		}
+
+		SceneOcTreeNode(const Point3Df& position, LPtr<DrawableNode<SceneNode>>& pSceneNode) :
+			IOcTreeNode(position),
+			m_pSceneNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pSceneNode))
+		{
+			if (!m_pSceneNode)
+			{
+				LeviathanOutStream << "[ERROR] pSceneNode is nullptr." << std::endl;
+			}
 		}
 
 		LPtr<Node<SceneNode>> GetSceneNode()
@@ -55,20 +66,23 @@ namespace Leviathan
 				auto pSceneNodeOcTreeNode = dynamic_cast<SceneOcTreeNode*>(&(*leadNode));
 				if (!pSceneNodeOcTreeNode)
 				{
+					LeviathanOutStream << "[WARN] Can not cast leafNode to SceneOcTreeNode." << std::endl;
 					return;
 				}
 
 				auto pSceneNode = pSceneNodeOcTreeNode->GetSceneNode();
 				if (!pSceneNode)
 				{
+					LeviathanOutStream << "[WARN] Can not get sceneNode." << std::endl;
 					return;
 				}
 
-				auto pDrawableSceneNode = TryCast<Node<SceneNode>, DrawableNode<SceneNode>>(pSceneNode);
-				if (pDrawableSceneNode)
-				{
-					pGLPass->AddGLObject(pDrawableSceneNode->GetGLObject());
-				}
+// 				auto pDrawableSceneNode = TryCast<Node<SceneNode>, DrawableNode<SceneNode>>(pSceneNode);
+// 				if (pDrawableSceneNode)
+// 				{
+// 					LeviathanOutStream << "[WARN] Can not cast sceneNode to drawableNode." << std::endl;
+// 					pDrawableSceneNode->RegisterSelfToGLPass(*pGLPass);
+// 				}
 			};
 			
 			m_pRoot->Traverse(_traverseFunc, true);

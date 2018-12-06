@@ -43,7 +43,7 @@ namespace Leviathan
 	template <class T>
 	void Leviathan::LPtr<T>::reset(const LPtr<T>& rhs)
 	{
-		m_lPtr.reset(rhs.m_lPtr);
+		m_lPtr = rhs.m_lPtr;
 	}
 
 	template <class T>

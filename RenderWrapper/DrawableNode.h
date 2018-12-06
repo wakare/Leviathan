@@ -3,7 +3,10 @@
 #include "IModelStruct.h"
 #include "Node.h"
 #include "GLCommonMaterial.h"
-#include "..\Scene\PictureObject.h"
+#include "PictureObject.h"
+#include "DynamicArray.h"
+#include "GeometryCalculator.h"
+#include "TriDGLObject.h"
 
 namespace Leviathan
 {
@@ -264,7 +267,7 @@ namespace Leviathan
 			m_pGLObjectVec = _convertModelStructToGLObject();
 			if (m_pGLObjectVec.size() == 0)
 			{
-				LeviathanOutStream << "[FATAL] convert to GLObject failed." << std::endl;
+				LeviathanOutStream << "[FATAL] Convert to GLObject failed." << std::endl;
 				return false;
 			}
 		}

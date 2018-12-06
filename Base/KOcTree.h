@@ -30,6 +30,11 @@ namespace Leviathan
 			memcpy(coord, pdata, sizeof(float) * 3);
 		};
 
+		Point3Df(const Point3Df& rhs)
+		{
+			memcpy(coord, rhs.coord, sizeof(coord));
+		};
+
 		static float Distance(const Point3Df& lhs, const Point3Df& rhs)
 		{
 			return sqrtf((lhs.coord[0] - rhs.coord[0]) * (lhs.coord[0] - rhs.coord[0]) +
@@ -87,16 +92,16 @@ namespace Leviathan
 
 	struct AABBf
 	{
-		Point3Df max;
-		Point3Df min;
+		Point3Df m_max;
+		Point3Df m_min;
 
 		const Point3Df& GetCenter() const
 		{
 			float center[3] =
 			{
-				(min.coord[0] + max.coord[0]) * 0.5f,
-				(min.coord[1] + max.coord[1]) * 0.5f,
-				(min.coord[2] + max.coord[2]) * 0.5f
+				(m_min.coord[0] + m_max.coord[0]) * 0.5f,
+				(m_min.coord[1] + m_max.coord[1]) * 0.5f,
+				(m_min.coord[2] + m_max.coord[2]) * 0.5f
 			};
 
 			return center;
@@ -105,32 +110,32 @@ namespace Leviathan
 		float GetRadius() const
 		{
 			auto center = GetCenter();
-			return Point3Df::Distance(center, min);
+			return Point3Df::Distance(center, m_min);
 		}
 
 		bool Inside(const Point3Df& rhs) const
 		{
-			return	(rhs.coord[0] <= max.coord[0] && rhs.coord[0] >= min.coord[0]) &&
-					(rhs.coord[1] <= max.coord[1] && rhs.coord[1] >= min.coord[1]) && 
-					(rhs.coord[2] <= max.coord[2] && rhs.coord[2] >= min.coord[2]);
+			return	(rhs.coord[0] <= m_max.coord[0] && rhs.coord[0] >= m_min.coord[0]) &&
+					(rhs.coord[1] <= m_max.coord[1] && rhs.coord[1] >= m_min.coord[1]) && 
+					(rhs.coord[2] <= m_max.coord[2] && rhs.coord[2] >= m_min.coord[2]);
 		}
 
 		bool Inside(const AABBf& rhs) const 
 		{
 			/*return (min <= rhs.min && rhs.max <= max);*/
 			bool bMin =
-				min.coord[0] < rhs.min.coord[0] &&
-				min.coord[1] < rhs.min.coord[1] &&
-				min.coord[2] < rhs.min.coord[2];
+				m_min.coord[0] < rhs.m_min.coord[0] &&
+				m_min.coord[1] < rhs.m_min.coord[1] &&
+				m_min.coord[2] < rhs.m_min.coord[2];
 			if (!bMin)
 			{
 				return false;
 			}
 
 			bool bMax =
-				max.coord[0] > rhs.max.coord[0] &&
-				max.coord[1] > rhs.max.coord[1] &&
-				max.coord[2] > rhs.max.coord[2];
+				m_max.coord[0] > rhs.m_max.coord[0] &&
+				m_max.coord[1] > rhs.m_max.coord[1] &&
+				m_max.coord[2] > rhs.m_max.coord[2];
 
 			return bMax;
 		}
@@ -140,13 +145,13 @@ namespace Leviathan
 			float _min[3];
 			float _max[3];
 
-			_min[0] = fmin(min.coord[0], rhs.min.coord[0]);
-			_min[1] = fmin(min.coord[1], rhs.min.coord[1]);
-			_min[2] = fmin(min.coord[2], rhs.min.coord[2]);
+			_min[0] = fmin(m_min.coord[0], rhs.m_min.coord[0]);
+			_min[1] = fmin(m_min.coord[1], rhs.m_min.coord[1]);
+			_min[2] = fmin(m_min.coord[2], rhs.m_min.coord[2]);
 
-			_max[0] = fmax(max.coord[0], rhs.max.coord[0]);
-			_max[1] = fmax(max.coord[1], rhs.max.coord[1]);
-			_max[2] = fmax(max.coord[2], rhs.max.coord[2]);
+			_max[0] = fmax(m_max.coord[0], rhs.m_max.coord[0]);
+			_max[1] = fmax(m_max.coord[1], rhs.m_max.coord[1]);
+			_max[2] = fmax(m_max.coord[2], rhs.m_max.coord[2]);
 
 			return AABBf(_min, _max);
 		}
@@ -156,8 +161,8 @@ namespace Leviathan
 		}
 
 		AABBf(const Point3Df& _min, const Point3Df& _max):
-			min(_min), 
-			max(_max)
+			m_min(_min), 
+			m_max(_max)
 		{
 		}
 	};
@@ -433,23 +438,23 @@ namespace Leviathan
 
 			float fsubTreeAABBRadius[3] =
 			{
-				(m_AABB.max.coord[0] - m_AABB.min.coord[0]) * 0.5f,
-				(m_AABB.max.coord[1] - m_AABB.min.coord[1]) * 0.5f,
-				(m_AABB.max.coord[2] - m_AABB.min.coord[2]) * 0.5f
+				(m_AABB.m_max.coord[0] - m_AABB.m_min.coord[0]) * 0.5f,
+				(m_AABB.m_max.coord[1] - m_AABB.m_min.coord[1]) * 0.5f,
+				(m_AABB.m_max.coord[2] - m_AABB.m_min.coord[2]) * 0.5f
 			};
 
 			Point3Df subTreeAABBMin =
 			{
-				(bPositiveX) ? m_AABB.min.coord[0] + fsubTreeAABBRadius[0] : m_AABB.min.coord[0],
-				(bPositiveY) ? m_AABB.min.coord[1] + fsubTreeAABBRadius[1] : m_AABB.min.coord[1],
-				(bPositiveZ) ? m_AABB.min.coord[2] + fsubTreeAABBRadius[2] : m_AABB.min.coord[2],
+				(bPositiveX) ? m_AABB.m_min.coord[0] + fsubTreeAABBRadius[0] : m_AABB.m_min.coord[0],
+				(bPositiveY) ? m_AABB.m_min.coord[1] + fsubTreeAABBRadius[1] : m_AABB.m_min.coord[1],
+				(bPositiveZ) ? m_AABB.m_min.coord[2] + fsubTreeAABBRadius[2] : m_AABB.m_min.coord[2],
 			};
 
 			Point3Df subTreeAABBMax =
 			{
-				(bPositiveX) ? m_AABB.max.coord[0] : m_AABB.max.coord[0] - fsubTreeAABBRadius[0],
-				(bPositiveY) ? m_AABB.max.coord[1] : m_AABB.max.coord[1] - fsubTreeAABBRadius[1],
-				(bPositiveZ) ? m_AABB.max.coord[2] : m_AABB.max.coord[2] - fsubTreeAABBRadius[2],
+				(bPositiveX) ? m_AABB.m_max.coord[0] : m_AABB.m_max.coord[0] - fsubTreeAABBRadius[0],
+				(bPositiveY) ? m_AABB.m_max.coord[1] : m_AABB.m_max.coord[1] - fsubTreeAABBRadius[1],
+				(bPositiveZ) ? m_AABB.m_max.coord[2] : m_AABB.m_max.coord[2] - fsubTreeAABBRadius[2],
 			};
 
 			out = AABBf(subTreeAABBMin, subTreeAABBMax);
@@ -499,9 +504,9 @@ namespace Leviathan
 				auto& center = m_AABB.GetCenter();
 				auto& nodeCoord = pNode->GetCoord();
 
-				bool bOffsetX = nodeCoord.coord[0] > center.coord[0];
-				bool bOffsetY = nodeCoord.coord[1] > center.coord[1];
-				bool bOffsetZ = nodeCoord.coord[2] > center.coord[2];
+				int bOffsetX = (nodeCoord.coord[0] > center.coord[0]) ? 1 : 0;
+				int bOffsetY = (nodeCoord.coord[1] > center.coord[1]) ? 1 : 0;
+				int bOffsetZ = (nodeCoord.coord[2] > center.coord[2]) ? 1 : 0;
 
 				auto index = bOffsetX << 2 | bOffsetY << 1 | bOffsetZ;
 
@@ -509,7 +514,7 @@ namespace Leviathan
 			}
 
 			// Custom type
-			for (unsigned i = m_pChildren.size() - 1; i >= 0; i--)
+			for (unsigned i = m_pChildren.size() - 1; i >= 0U; i--)
 			{
 				if (m_pChildren[i]->m_AABB.Inside(pNode->GetCoord()))
 				{
@@ -549,131 +554,4 @@ namespace Leviathan
 		unsigned m_uNodeCount;
 		ETreeType m_eType;
 	};
-
-	KSPtr<KOcTree> CreateParentOcTreeBasedChild(const KSPtr<AABBf>& pAABB, const KSPtr<KOcTree>& pChild)
-	{
-		if (pChild->GetAABB().Inside(*pAABB))
-		{
-			//KLog::Log("[INFO] No need create new OcTree.");
-			return pChild;
-		}
-
-		AABBf MergeAABB = pAABB->Merge(pChild->GetAABB());
-
-		KSPtr<KOcTree> result = KSPtr<KOcTree>(new KOcTree(nullptr, MergeAABB, nullptr));
-		if (!result)
-		{
-			KLog::Log("[ERROR] Create OcTree failed.");
-			return pChild;
-		}
-
-		auto& baseAABB = pChild->GetAABB();
-		std::vector<KSPtr<AABBf>> pAABBfVec;
-
-		for (int i = -1; i <= 1; i++)
-		{
-			for (int j = -1; j <= 1; j++)
-			{
-				for (int k = -1; k <= 1; k++)
-				{
-					if (i == 0 && j == 0 && k == 0)
-					{
-						continue;
-					}
-
-					// Calculate aabb
-					float _min[3];
-					float _max[3];
-
-					_min[0] = (i == -1) ? MergeAABB.min.coord[0] : ((i == 0) ? baseAABB.min.coord[0] : baseAABB.max.coord[0]);
-					_min[1] = (j == -1) ? MergeAABB.min.coord[1] : ((j == 0) ? baseAABB.min.coord[1] : baseAABB.max.coord[1]);
-					_min[2] = (k == -1) ? MergeAABB.min.coord[2] : ((k == 0) ? baseAABB.min.coord[2] : baseAABB.max.coord[2]);
-
-					_max[0] = (i == -1) ? baseAABB.min.coord[0] : ((i == 0) ? baseAABB.max.coord[0] : MergeAABB.max.coord[0]);
-					_max[1] = (j == -1) ? baseAABB.min.coord[1] : ((j == 0) ? baseAABB.max.coord[1] : MergeAABB.max.coord[1]);
-					_max[2] = (k == -1) ? baseAABB.min.coord[2] : ((k == 0) ? baseAABB.max.coord[2] : MergeAABB.max.coord[2]);
-
-					KSPtr<AABBf> _pAABB = KSPtr<AABBf>(new AABBf(_min, _max));
-					pAABBfVec.push_back(_pAABB);
-				}
-			}
-		}
-
-		if (!result->_initChildrenByAABBVec(pAABBfVec))
-		{
-			KLog::Log("[ERROR] Init children AABB failed.");
-			return nullptr;
-		}
-
-		// Add one child
-		pChild->SetParent(result);
-		result->_addChildOcTree(pChild);
-
-		return result;
-	};
-
-	// Only interface for user to add node, please use return value as root OcTree
-	KSPtr<KOcTree> AddNodeAndUpdateOcTree(KSPtr<KOcTree> pOcTree, const std::vector<KSPtr<IOcTreeNode>>& needAddNodeVec)
-	{
-		bool bInitMinAndMax = false;
-		float min[3];
-		float max[3];
-
-		for (auto& pNode : needAddNodeVec)
-		{
-			auto& nodeCoord = pNode->GetCoord();
-
-			if (!bInitMinAndMax)
-			{
-				min[0] = nodeCoord.coord[0];
-				min[1] = nodeCoord.coord[1];
-				min[2] = nodeCoord.coord[2];
-
-				max[0] = nodeCoord.coord[0];
-				max[1] = nodeCoord.coord[1];
-				max[2] = nodeCoord.coord[2];				
-				
-				bInitMinAndMax = true;
-				continue;
-			}
-
-			if (nodeCoord.coord[0] < min[0])
-			{
-				min[0] = nodeCoord.coord[0];
-			}
-			if (nodeCoord.coord[1] < min[1])
-			{
-				min[1] = nodeCoord.coord[1];
-			}
-			if (nodeCoord.coord[2] < min[2])
-			{
-				min[2] = nodeCoord.coord[2];
-			}
-
-			if (nodeCoord.coord[0] > max[0])
-			{
-				max[0] = nodeCoord.coord[0];
-			}
-			if (nodeCoord.coord[1] > max[1])
-			{
-				max[1] = nodeCoord.coord[1];
-			}
-			if (nodeCoord.coord[2] > max[2])
-			{
-				max[2] = nodeCoord.coord[2];
-			}
-		}
-
-		KSPtr<AABBf> pAABB;
-		pAABB.reset(new AABBf(min, max));
-		auto pResult = CreateParentOcTreeBasedChild(pAABB, pOcTree);
-
-		if (!pResult->_addNode(needAddNodeVec))
-		{
-			KLog::Log("[ERROR] Add node failed.");
-			throw "Exception";
-		}
-
-		return pResult;
-	}
 }
