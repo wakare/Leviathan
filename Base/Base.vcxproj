@@ -176,6 +176,7 @@
     <ClInclude Include="KOcTree.h" />
     <ClInclude Include="KProfile.h" />
     <ClInclude Include="LPtr.h" />
+    <ClInclude Include="LUPtr.h" />
     <ClInclude Include="Material.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />

@@ -85,7 +85,7 @@ namespace Leviathan
 // 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/Leviathan/2b/lufeng.FBX");
+		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/Leviathan/2b/lufeng.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
 

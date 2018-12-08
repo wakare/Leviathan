@@ -13,15 +13,17 @@ namespace Leviathan
 
 		LPtr(T* pointer);
 		LPtr() : LPtr(nullptr) {};
+
 		LPtr(const LPtr<T>& rhs);
+		LPtr(const LPtr<T>&& rhs);
 		~LPtr();
 		
 		LPtr<T>& operator=(const LPtr<T>& rhs);
 		std::shared_ptr<T> operator->() const;
 		T& operator*() const;
 
-		T* get() const;
-		void reset(const LPtr<T>& rhs);
+		T* Get() const;
+		void Reset(const LPtr<T>& rhs);
 		
 		bool operator==(const LPtr<T>& rhs) const;
 		bool operator!=(const LPtr<T>& rhs) const;
@@ -29,8 +31,6 @@ namespace Leviathan
 		operator bool();
 
 	private:
-		
-		bool _setPointer(const LPtr<T>& rhs);
 		std::shared_ptr<T> m_lPtr;
 	};
 
@@ -41,9 +41,15 @@ namespace Leviathan
 	}
 
 	template <class T>
-	void Leviathan::LPtr<T>::reset(const LPtr<T>& rhs)
+	Leviathan::LPtr<T>::LPtr(const LPtr<T>&& rhs)
 	{
-		m_lPtr = rhs.m_lPtr;
+		Reset(rhs);
+	}
+
+	template <class T>
+	void Leviathan::LPtr<T>::Reset(const LPtr<T>& rhs)
+	{
+		m_lPtr= rhs.m_lPtr;
 	}
 
 	template <class T>
@@ -53,7 +59,7 @@ namespace Leviathan
 	}
 
 	template <class T>
-	T* Leviathan::LPtr<T>::get() const
+	T* Leviathan::LPtr<T>::Get() const
 	{
 		return m_lPtr.get();
 	}
@@ -73,7 +79,7 @@ namespace Leviathan
 	template <class T>
 	Leviathan::LPtr<T>::operator bool()
 	{
-		return (m_lPtr != nullptr);
+		return m_lPtr != nullptr;
 	}
 
 	template <class T>
@@ -89,27 +95,15 @@ namespace Leviathan
 	}
 
 	template <class T>
-	bool LPtr<T>::_setPointer(const LPtr<T>& rhs)
-	{
-		if (!rhs.m_lPtr)
-		{
-			return false;
-		}
-
-		m_lPtr = rhs.m_lPtr;
-		return true;
-	}
-
-	template <class T>
 	LPtr<T>::LPtr(const LPtr<T>& rhs)
 	{
-		_setPointer(rhs);
+		Reset(rhs);
 	}
 
 	template <class T>
 	LPtr<T>& LPtr<T>::operator=(const LPtr<T>& rhs)
 	{
-		_setPointer(rhs);
+		Reset(rhs);
 		return *this;
 	}
 
