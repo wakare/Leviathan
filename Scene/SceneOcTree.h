@@ -12,30 +12,25 @@ namespace Leviathan
 	class SceneOcTreeNode : public IOcTreeNode
 	{
 	public:
-		SceneOcTreeNode(const Point3Df& position, LPtr<Node<SceneNode>>& pSceneNode):
+		SceneOcTreeNode(const Point3Df& position, Node<SceneNode>& sceneNode):
 			IOcTreeNode(position),
-			m_pSceneNode(pSceneNode)
+			m_sceneNode(sceneNode)
 		{
-
 		}
 
-		SceneOcTreeNode(const Point3Df& position, LPtr<DrawableNode<SceneNode>>& pSceneNode) :
+		SceneOcTreeNode(const Point3Df& position, DrawableNode<SceneNode>& sceneNode) :
 			IOcTreeNode(position),
-			m_pSceneNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pSceneNode))
+			m_sceneNode(sceneNode)
 		{
-			if (!m_pSceneNode)
-			{
-				LeviathanOutStream << "[ERROR] pSceneNode is nullptr." << std::endl;
-			}
 		}
 
-		LPtr<Node<SceneNode>> GetSceneNode()
+		Node<SceneNode>& GetSceneNode()
 		{
-			return m_pSceneNode;
+			return m_sceneNode;
 		}
 
 	private:
-		LPtr<Node<SceneNode>>& m_pSceneNode;
+		Node<SceneNode>& m_sceneNode;
 	};
 
 	class SceneOcTree
@@ -73,19 +68,13 @@ namespace Leviathan
 						return;
 					}
 
-					auto pSceneNode = pSceneNodeOcTreeNode->GetSceneNode();
-					if (!pSceneNode)
-					{
-						LeviathanOutStream << "[WARN] Can not get sceneNode." << std::endl;
-						return;
-					}
+					auto& sceneNode = pSceneNodeOcTreeNode->GetSceneNode();
+					DrawableNode<SceneNode>* pDrawableNode = dynamic_cast<DrawableNode<SceneNode>*>(&sceneNode);
 
-					// 				auto pDrawableSceneNode = TryCast<Node<SceneNode>, DrawableNode<SceneNode>>(pSceneNode);
-					// 				if (pDrawableSceneNode)
-					// 				{
-					// 					LeviathanOutStream << "[WARN] Can not cast sceneNode to drawableNode." << std::endl;
-					// 					pDrawableSceneNode->RegisterSelfToGLPass(*pGLPass);
-					// 				}
+					if (pDrawableNode)
+					{
+						pDrawableNode->RegisterSelfToGLPass(*pGLPass);
+					}
 				}
 			};
 			

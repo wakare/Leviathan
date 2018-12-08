@@ -1,7 +1,7 @@
 #include "KOcTree.h"
 #include <string>
 
-unsigned Leviathan::KOcTree::uMaxLeafNodeCount = 10;
+unsigned Leviathan::KOcTree::uMaxLeafNodeCount = 20;
 
 Leviathan::IOcTreeNode::IOcTreeNode(const Point3Df& rhs) :
 	m_coord(rhs)
@@ -51,7 +51,7 @@ Leviathan::KOcTree::~KOcTree()
 
 bool Leviathan::KOcTree::IsLeaf() const
 {
-	return m_pNodeDataVec.size() <= KOcTree::uMaxLeafNodeCount && !(m_eType & ETT_NON_LEAF);
+	return !(m_eType & ETT_NON_LEAF);
 }
 
 std::vector<KSPtr<Leviathan::IOcTreeNode>> Leviathan::KOcTree::GetLeafNodeVec() const
@@ -97,14 +97,15 @@ const std::vector<KUPtr<Leviathan::KOcTree>>& Leviathan::KOcTree::GetChildren() 
 
 void Leviathan::KOcTree::Traverse(Leviathan::KOcTree::TraverseFunction& traverseFunc, bool bRecursion)
 {
+	traverseFunc(*this);
+
 	for (auto& child : m_pChildrenVec)
 	{
 		if (!child)
 		{
 			continue;
 		}
-
-		traverseFunc(*child);
+		
 		if (bRecursion)
 		{
 			child->Traverse(traverseFunc, bRecursion);
@@ -201,7 +202,7 @@ bool Leviathan::KOcTree::_addNode(KSPtr<IOcTreeNode>&& pNode)
 {
 	m_uAddedNodeCount++;
 
-	if (m_uAddedNodeCount <= KOcTree::uMaxLeafNodeCount)
+	if (!(m_eType & ETT_NON_LEAF) && m_pNodeDataVec.size() < KOcTree::uMaxLeafNodeCount)
 	{
 		m_pNodeDataVec.push_back(std::move(pNode));
 		return true;

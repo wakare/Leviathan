@@ -112,7 +112,8 @@ namespace Leviathan
 			pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 		}
 
-		m_pSceneGraph->AddDrawableNodeToSceneRenderPass(m_pSceneGraph->GetRootNode());
+		//m_pSceneGraph->AddDrawableNodeToSceneRenderPass(m_pSceneGraph->GetRootNode());
+		m_pSceneGraph->AddDrawableNodeToSceneOcTree(m_pSceneGraph->GetRootNode());
 
 		return true;
 	}

@@ -53,11 +53,8 @@ bool Leviathan::SceneGraph::FindFirstMatchNode(std::function<bool(const Node<Sce
 	return true;
 }
 
-void Leviathan::SceneGraph::AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode) const
+void Leviathan::SceneGraph::AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode)
 {
-	auto currentCallback = m_pSceneNodeTraverseVisitor->GetCurrentTraverseCallback();
-	auto eCurrentTraverseMode = m_pSceneNodeTraverseVisitor->GetTraverseMode();
-
 	SceneNodeProcess addDrawableToRenderPass = [this](Node<SceneNode>& node)
 	{
 		auto pDrawable = dynamic_cast<IDrawable*>(&node);
@@ -67,12 +64,7 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode
 		}
 	};
 
-	m_pSceneNodeTraverseVisitor->SetTraverseCallback(addDrawableToRenderPass);
-	m_pSceneNodeTraverseVisitor->SetTraverseMode(NodeVisitor<SceneNode>::E_TRAVERSE_MODE::ALL);
-	m_pSceneNodeTraverseVisitor->Apply(*pBeginNode);
-
-	m_pSceneNodeTraverseVisitor->SetTraverseCallback(currentCallback);
-	m_pSceneNodeTraverseVisitor->SetTraverseMode(eCurrentTraverseMode);
+	_traverseNode(*pBeginNode, addDrawableToRenderPass);
 }
 
 Leviathan::LPtr<Leviathan::Node<Leviathan::SceneNode>> Leviathan::SceneGraph::GetRootNode() const
@@ -80,22 +72,21 @@ Leviathan::LPtr<Leviathan::Node<Leviathan::SceneNode>> Leviathan::SceneGraph::Ge
 	return m_pRoot;
 }
 
-void Leviathan::SceneGraph::_addDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode)
+void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode)
 {
-	std::vector<LPtr<DrawableNode<SceneNode>>> drawableNodeVec;
-	if (!_getAllDrawableNode(pBeginNode, drawableNodeVec))
+	std::vector<Node<SceneNode>*> sceneNodeVec;
+	if (!_getAllSceneNode(pBeginNode, sceneNodeVec))
 	{
 		LeviathanOutStream << "[ERROR] Get all drawable node failed." << std::endl;
 		return;
 	}
 
 	std::vector<LPtr<IOcTreeNode>> ocTreeNodeVec;
-	for (auto& pDrawableNode : drawableNodeVec)
+	for (auto& pSceneNode : sceneNodeVec)
 	{
-		// Convert drawableNode to ocTreeNode
-		auto& coord = pDrawableNode->GetNodeData()->GetWorldCoord();
+		auto& coord = pSceneNode->GetNodeData()->GetWorldCoord();
 
-		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(Point3Df(coord.x, coord.y, coord.z), pDrawableNode);
+		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(Point3Df(coord.x, coord.y, coord.z), *pSceneNode);
 		if (pSceneOcTreeNode)
 		{
 			ocTreeNodeVec.push_back(TryCast<SceneOcTreeNode, IOcTreeNode>(pSceneOcTreeNode));
@@ -106,10 +97,33 @@ void Leviathan::SceneGraph::_addDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> 
 	}
 
 	m_pSceneOcTree->AddNode(ocTreeNodeVec);
+
+	m_pSceneOcTree->AddAllDrawableNodeToGLPass(m_pSceneRenderPass);
 }
 
-bool Leviathan::SceneGraph::_getAllDrawableNode(LPtr<Node<SceneNode>> pBeginNode, std::vector<LPtr<DrawableNode<SceneNode>>>& outResult)
+void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProcess func)
 {
+	auto currentCallback = m_pSceneNodeTraverseVisitor->GetCurrentTraverseCallback();
+	auto eCurrentTraverseMode = m_pSceneNodeTraverseVisitor->GetTraverseMode();
+
+	m_pSceneNodeTraverseVisitor->SetTraverseCallback(func);
+	m_pSceneNodeTraverseVisitor->SetTraverseMode(NodeVisitor<SceneNode>::E_TRAVERSE_MODE::ALL);
+	m_pSceneNodeTraverseVisitor->Apply(begin);
+
+	m_pSceneNodeTraverseVisitor->SetTraverseCallback(currentCallback);
+	m_pSceneNodeTraverseVisitor->SetTraverseMode(eCurrentTraverseMode);
+}
+
+bool Leviathan::SceneGraph::_getAllSceneNode(LPtr<Node<SceneNode>> pBeginNode, std::vector<Node<SceneNode>*>& outResult)
+{
+	outResult.clear();
+
+	SceneNodeProcess _traverseFunc = [&outResult](Node<SceneNode>& rhs)
+	{
+		outResult.push_back(&rhs);
+	};
+
+	_traverseNode(*pBeginNode, _traverseFunc);
 
 	return true;
 }
