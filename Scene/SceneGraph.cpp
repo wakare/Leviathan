@@ -84,9 +84,28 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	std::vector<LPtr<IOcTreeNode>> ocTreeNodeVec;
 	for (auto& pSceneNode : sceneNodeVec)
 	{
-		auto& coord = pSceneNode->GetNodeData()->GetWorldCoord();
+		auto& worldTransform = pSceneNode->GetNodeData()->GetWorldTransform();
+		auto& pModelFileVec = pSceneNode->GetNodeData()->GetModelFileVec();
 
-		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(Point3Df(coord.x, coord.y, coord.z), *pSceneNode);
+		AABB _sceneNodeAABB;
+		for (const auto& pModelFile : pModelFileVec)
+		{
+			if (!_sceneNodeAABB.HasSet())
+			{
+				_sceneNodeAABB = pModelFile->GetAABB();
+			}
+
+			else
+			{
+				_sceneNodeAABB = _sceneNodeAABB.Merge(pModelFile->GetAABB());
+			}
+		}
+
+		float _modelAABBCenter[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+		_sceneNodeAABB.GetAABBCenter(_modelAABBCenter);
+		auto worldAABBCenter = Vector4f(_modelAABBCenter) * worldTransform;
+
+		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(worldAABBCenter.GetData(), *pSceneNode);
 		if (pSceneOcTreeNode)
 		{
 			ocTreeNodeVec.push_back(TryCast<SceneOcTreeNode, IOcTreeNode>(pSceneOcTreeNode));
@@ -99,6 +118,11 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	m_pSceneOcTree->AddNode(ocTreeNodeVec);
 
 	m_pSceneOcTree->AddAllDrawableNodeToGLPass(m_pSceneRenderPass);
+}
+
+bool Leviathan::SceneGraph::AddSceneOcTreeToGLPass()
+{
+	return AddOcTreeToGLPass(*m_pSceneOcTree, *m_pSceneRenderPass);
 }
 
 void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProcess func)

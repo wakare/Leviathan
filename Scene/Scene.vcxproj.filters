@@ -36,6 +36,9 @@
     <ClInclude Include="SceneOcTree.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SceneBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneGraph.cpp">
@@ -45,6 +48,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="CCommonScene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneBase.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneOcTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

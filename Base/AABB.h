@@ -38,6 +38,26 @@ namespace Leviathan
 			m_bSetFlag = true;
 		}
 
+		bool HasSet() const
+		{
+			return m_bSetFlag;
+		}
+
+		AABB Merge(const AABB& rhs) const
+		{
+			float mergedAABB[6] = 
+			{
+				m_coord.minX < rhs.m_coord.minX ? m_coord.minX : rhs.m_coord.minX,
+				m_coord.minY < rhs.m_coord.minY ? m_coord.minY : rhs.m_coord.minY,
+				m_coord.minZ < rhs.m_coord.minZ ? m_coord.minZ : rhs.m_coord.minZ,
+				m_coord.maxX > rhs.m_coord.maxX ? m_coord.maxX : rhs.m_coord.maxX,
+				m_coord.maxY > rhs.m_coord.maxY ? m_coord.maxY : rhs.m_coord.maxY,
+				m_coord.maxZ > rhs.m_coord.maxZ ? m_coord.maxZ : rhs.m_coord.maxZ,
+			};
+
+			return mergedAABB;
+		}
+
 		const AABBCoord& GetAABBCoord()
 		{
 			if (!m_bSetFlag)

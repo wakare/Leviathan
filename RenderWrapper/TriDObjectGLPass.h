@@ -9,18 +9,8 @@ namespace Leviathan
 	class TriDObjectGLPass : public GLPass
 	{
 	public:
-		TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
-			GLPass(shaderProgram),
-			m_bInited(false),
-			m_pMainCamera(camera),
-			m_bFaceCullEnable(false),
-			m_faceCullMode(GL_CCW)
-		{
-		};
-
-		~TriDObjectGLPass() 
-		{
-		};
+		TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera);
+		~TriDObjectGLPass();
 
 		bool Init();
 		void Render();

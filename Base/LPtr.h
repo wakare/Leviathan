@@ -112,7 +112,7 @@ namespace Leviathan
 	{
 		if (!pointer)
 		{
-			LeviathanOutStream << "[ERROR] nullptr set." << std::endl;
+			//LeviathanOutStream << "[ERROR] nullptr set." << std::endl;
 		}
 
 		m_lPtr = std::shared_ptr<T>(pointer);

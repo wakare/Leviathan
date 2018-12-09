@@ -18,6 +18,7 @@ namespace Leviathan
 		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
 		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode) ;
 		void AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode);
+		bool AddSceneOcTreeToGLPass();
 		LPtr<Node<SceneNode>> GetRootNode() const;
 
 	private:

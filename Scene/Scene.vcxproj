@@ -155,6 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="SceneBase.h" />
     <ClInclude Include="SceneOcTree.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="CCommonScene.h" />
@@ -165,8 +166,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCommonScene.cpp" />
+    <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SceneOcTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

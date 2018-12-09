@@ -8,6 +8,7 @@
 #include "LPtr.h"
 #include "IModelStruct.h"
 #include "SceneGraph.h"
+#include "SceneBase.h"
 
 namespace Leviathan
 {
@@ -29,10 +30,6 @@ namespace Leviathan
 		bool _initLight();
 
 		std::string _getShaderSource(const char* pczShaderSourcePath);
-		
-		LPtr<GLObject> _convertModelFileToGLObject(LPtr<IModelStruct> modelFile);
-		LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);
-		LPtr<GLObject> _getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
 
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<RenderWrapper> m_pRenderWarpper;

@@ -2,6 +2,20 @@
 #include "GlobalDef.h"
 namespace Leviathan
 {
+
+	TriDObjectGLPass::TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
+		GLPass(shaderProgram),
+		m_bInited(false),
+		m_pMainCamera(camera),
+		m_bFaceCullEnable(false),
+		m_faceCullMode(GL_CCW)
+	{
+	};
+
+	TriDObjectGLPass::~TriDObjectGLPass()
+	{
+	};
+
 	bool TriDObjectGLPass::Init()
 	{
 		if (m_bInited)
