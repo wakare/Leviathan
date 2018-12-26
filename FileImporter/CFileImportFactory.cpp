@@ -1,11 +1,11 @@
 #include "CFileImportFactory.h"
 #include "CModelStruct.h"
-#include <string>
-#include <mutex>
+#include "DynamicArray.h"
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
-#include "DynamicArray.h"
+#include <string>
+#include <mutex>
 
 using namespace Leviathan;
 
@@ -51,6 +51,137 @@ Leviathan::CFileImportFactory::CFileImportFactory()
 
 }
 
+void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IModelStruct>>& result)
+{
+	auto pMaterial = scene.HasMaterials() ? scene.mMaterials : nullptr;
+
+	auto pModelStruct = new CModelStruct();
+	if (!mesh.HasPositions())
+	{
+		LeviathanOutStream << "[WARN] Mesh has no position, skip..." << std::endl;
+		return;
+	}
+
+	DynamicArray<float> vertexCoordData(mesh.mNumVertices * 3 * sizeof(float));
+	for (unsigned j = 0; j < mesh.mNumVertices; j++)
+	{
+		auto vertexCoord = mesh.mVertices[j];
+		float* pVertexData = vertexCoordData.m_pData + 3 * j;
+
+		pVertexData[0] = vertexCoord.x;
+		pVertexData[1] = vertexCoord.y;
+		pVertexData[2] = vertexCoord.z;
+	}
+
+	std::cout << "[INFO] First vertex coord: " << mesh.mVertices[0].x << " " << mesh.mVertices[0].y << " " << mesh.mVertices[0].z << std::endl;
+
+	pModelStruct->SetVertexCoordData(mesh.mNumVertices, vertexCoordData.m_pData);
+
+	if (mesh.HasFaces())
+	{
+		DynamicArray<unsigned> indexData(mesh.mNumFaces * 3 * sizeof(unsigned));
+
+		for (unsigned j = 0; j < mesh.mNumFaces; j++)
+		{
+			auto indexVec = mesh.mFaces[j];
+			unsigned* pIndexData = indexData.m_pData + 3 * j;
+
+			memcpy(pIndexData, indexVec.mIndices, sizeof(unsigned) * 3);
+		}
+
+		pModelStruct->SetTriangleIndexData(mesh.mNumFaces, indexData.m_pData);
+	}
+
+	// Only select level-0 texture
+	if (mesh.HasTextureCoords(0))
+	{
+		DynamicArray<float> vertexTexData(mesh.mNumVertices * 2 * sizeof(float));
+		for (unsigned j = 0; j < mesh.mNumVertices; j++)
+		{
+			auto vertexCoord = mesh.mTextureCoords[0][j];
+			float* pTexData = vertexTexData.m_pData + 2 * j;
+
+			pTexData[0] = vertexCoord.x;
+			pTexData[1] = vertexCoord.y;
+		}
+
+		pModelStruct->SetVertexTex2DData(mesh.mNumVertices, vertexTexData.m_pData);
+	}
+
+	if (pMaterial)
+	{
+		std::string absPath = absDirectoryPath;
+		aiMaterial* meshMaterial = pMaterial[mesh.mMaterialIndex];
+		aiReturn texFound = AI_SUCCESS;
+		aiString texturePath;
+		bool bTexPathFound = false;
+		int texIndex = 0;
+
+		for (int nType = aiTextureType_DIFFUSE; nType != aiTextureType_UNKNOWN + 1; nType++)
+		{
+			texFound = meshMaterial->GetTexture(static_cast<aiTextureType>(nType), texIndex++, &texturePath);
+			if (texFound == aiReturn_SUCCESS)
+			{
+				bTexPathFound = true;
+				absPath += texturePath.C_Str();
+				LeviathanOutStream << "[INFO] Find Texture path: " << absPath << " , texture type: " << nType << std::endl;
+				break;
+			}
+		}
+
+		aiColor4D aiDiffuse;
+		aiColor4D aiSpecular;
+		aiColor4D aiAmbient;
+		aiColor4D aiEmission;
+		ai_real aiShininess;
+
+		Vector3f diffuse(0.0f, 0.0f, 0.0f);
+		Vector3f specular(0.0f, 0.0f, 0.0f);
+		Vector3f ambient(0.0f, 0.0f, 0.0f);
+
+		if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_DIFFUSE, &aiDiffuse))
+		{
+			diffuse = { aiDiffuse.r, aiDiffuse.g, aiDiffuse.b };
+		}
+
+		if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_SPECULAR, &aiSpecular))
+		{
+			specular = { aiSpecular.r, aiSpecular.g, aiSpecular.b };
+		}
+
+		if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_AMBIENT, &aiAmbient))
+		{
+			ambient = { aiAmbient.r, aiAmbient.g, aiAmbient.b };
+		}
+
+		unsigned uMaxArrayLength = 1;
+		aiGetMaterialFloatArray(meshMaterial, AI_MATKEY_SHININESS, &aiShininess, &uMaxArrayLength);
+
+		if (!bTexPathFound)
+		{
+			LeviathanOutStream << "[WARN] Texture path not found." << std::endl;
+		}
+
+		pModelStruct->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
+	}
+
+	result.push_back(pModelStruct);
+}
+
+void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IModelStruct>>& result)
+{
+	for (unsigned i = 0; i < node.mNumMeshes; i++)
+	{
+		aiMesh* pMesh = scene.mMeshes[node.mMeshes[i]];
+		_processMesh(*pMesh, scene, absDirectoryPath, result);
+	}
+
+	for (unsigned i = 0; i < node.mNumChildren; i++)
+	{
+		_recursionLoadModel(*node.mChildren[i], scene, absDirectoryPath, result);
+	}
+}
+
 std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssimp(const std::string& strFileName)
 {
 	Assimp::Importer importer;
@@ -70,124 +201,15 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssim
 	}
 
 	std::vector<LPtr<IModelStruct>> result;
-
-	// Get meshes
-	auto pMeshes = importerScene->mMeshes;
-	auto pMaterial = importerScene->HasMaterials() ? importerScene->mMaterials : nullptr;
-	
 	LeviathanOutStream << importerScene->HasTextures() << std::endl;
 
+	_recursionLoadModel(*(importerScene->mRootNode), *importerScene, absDirectoryPath, result);
+
+	/*auto pMeshes = importerScene->mMeshes;
 	for (unsigned i = 0; i < importerScene->mNumMeshes; i++)
 	{
-		auto*& pMesh = pMeshes[i];
-		
-		auto pModelStruct = new CModelStruct();
-		if (!pMesh->HasPositions())
-		{
-			LeviathanOutStream << "[WARN] Mesh has no position, skip..." << std::endl;
-			continue;
-		}
-
-		DynamicArray<float> vertexCoordData(pMesh->mNumVertices * 3 * sizeof(float));
-		for (unsigned j = 0; j < pMesh->mNumVertices; j++)
-		{
-			auto vertexCoord = pMesh->mVertices[j];
-			float* pVertexData = vertexCoordData.m_pData + 3 * j;
-
-			pVertexData[0] = vertexCoord.x;
-			pVertexData[1] = vertexCoord.y;
-			pVertexData[2] = vertexCoord.z;
-		}
-
-		pModelStruct->SetVertexCoordData(pMesh->mNumVertices, vertexCoordData.m_pData);
-
-		if (pMesh->HasFaces())
-		{
-			DynamicArray<unsigned> indexData(pMesh->mNumFaces * 3 * sizeof(unsigned));
-
-			for (unsigned j = 0; j < pMesh->mNumFaces; j++)
-			{
-				auto indexVec = pMesh->mFaces[j];
-				unsigned* pIndexData = indexData.m_pData + 3 * j;
-
-				memcpy(pIndexData, indexVec.mIndices, sizeof(unsigned) * 3);
-			}
-
-			pModelStruct->SetTriangleIndexData(pMesh->mNumFaces, indexData.m_pData);
-		}
-
-		// Only select level-0 texture
-		if (pMesh->HasTextureCoords(0))
-		{
-			DynamicArray<float> vertexTexData(pMesh->mNumVertices * 2 * sizeof(float));
-			for (unsigned j = 0; j < pMesh->mNumVertices; j++)
-			{
-				auto vertexCoord = pMesh->mTextureCoords[0][j];
-				float* pTexData = vertexTexData.m_pData + 2 * j;
-
-				pTexData[0] = vertexCoord.x;
-				pTexData[1] = vertexCoord.y;
-			}
-
-			pModelStruct->SetVertexTex2DData(pMesh->mNumVertices, vertexTexData.m_pData);
-		}
-
-		if (pMaterial)
-		{
-			std::string absPath = absDirectoryPath;
-			aiMaterial* meshMaterial = pMaterial[pMesh->mMaterialIndex];
-			aiReturn texFound = AI_SUCCESS;
-			aiString texturePath;
-			int texIndex = 0;
-
-			while (texFound == aiReturn_SUCCESS)
-			{
-				texFound = meshMaterial->GetTexture(aiTextureType_DIFFUSE, texIndex++, &texturePath);
-				if (texFound == aiReturn_SUCCESS)
-				{
-					if (texIndex == 2)
-					{
-						throw "Too many textures";
-					}
-
-					absPath += texturePath.C_Str();
-					LeviathanOutStream << "[INFO] Texture path: " << absPath << std::endl;
-				}
-			}
-
-			aiColor4D aiDiffuse;
-			aiColor4D aiSpecular;
-			aiColor4D aiAmbient;
-			aiColor4D aiEmission;
-			ai_real aiShininess;
-
-			Vector3f diffuse(0.0f, 0.0f, 0.0f);
-			Vector3f specular(0.0f, 0.0f, 0.0f);
-			Vector3f ambient(0.0f, 0.0f, 0.0f);
-
-			if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_DIFFUSE, &aiDiffuse))
-			{
-				diffuse = { aiDiffuse.r, aiDiffuse.g, aiDiffuse.b };
-			}
-
-			if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_SPECULAR, &aiSpecular))
-			{
-				specular = { aiSpecular.r, aiSpecular.g, aiSpecular.b };
-			}
-
-			if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_AMBIENT, &aiAmbient))
-			{
-				ambient = { aiAmbient.r, aiAmbient.g, aiAmbient.b };
-			}
-
-			unsigned uMaxArrayLength = 1;
-			aiGetMaterialFloatArray(meshMaterial, AI_MATKEY_SHININESS, &aiShininess, &uMaxArrayLength);
-
-			pModelStruct->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
-		}
-
-		result.push_back(pModelStruct);
-	}
+		_processMesh(*pMeshes[i], *importerScene, absDirectoryPath, result);
+	}*/
 
 	return result;
 }

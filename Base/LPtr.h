@@ -85,7 +85,7 @@ namespace Leviathan
 	template <class T>
 	Leviathan::LPtr<T>::~LPtr()
 	{
-		LeviathanOutStream << "[INFO] LPtr destroy." << std::endl;
+		//LeviathanOutStream << "[INFO] LPtr destroy." << std::endl;
 	}
 
 	template <class T>
@@ -123,7 +123,7 @@ namespace Leviathan
 	{
 		if (!lPtr.m_lPtr)
 		{
-			LeviathanOutStream << "[ERROR] Nullptr need not convert." << std::endl;
+			//LeviathanOutStream << "[ERROR] Nullptr need not convert." << std::endl;
 			return nullptr;
 		}
 

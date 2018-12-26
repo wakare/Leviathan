@@ -9,7 +9,7 @@ bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 		pAABBVec.push_back(rhs.GetAABB());
 	}, true);
 
-	for (auto& _aabbf : pAABBVec)
+	/*for (auto& _aabbf : pAABBVec)
 	{
 		float temp[6] =
 		{
@@ -25,7 +25,7 @@ bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 		auto _aabbGLObject = SceneBase::_convertAABBtoGLObject(_aabb);
 		_aabbGLObject->SetLightEnable(false);
 		pass.AddGLObject(_aabbGLObject);
-	}
+	}*/
 
 	return true;
 }

@@ -80,7 +80,7 @@ namespace Leviathan
 // 
 // 		// Load file as texture 
 // 		PictureObject texture("container.jpg");
-// 
+
 // 		pMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight));
 // 		pCubeGLObject->SetMaterial(TryCast<GLCommonMaterial, IGLMaterial>(pMaterial));
 // 
@@ -89,7 +89,8 @@ namespace Leviathan
 // 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/Leviathan/2b/lufeng.FBX");
+		//pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/Leviathan/2b/lufeng.FBX");
+		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
 

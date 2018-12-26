@@ -14,7 +14,7 @@ namespace Leviathan
 	class RenderWindow : public EventListener
 	{
 	public:
-		RenderWindow(LPtr<EventSystem> pEventSystem, GLint width = 800, GLint height = 600, GLchar* pTitle = "RenderWindow");
+		RenderWindow(LPtr<EventSystem> pEventSystem, GLint width = 1920, GLint height = 1200, GLchar* pTitle = "RenderWindow");
 		bool CreateRenderWindow();
 		void Run();
 

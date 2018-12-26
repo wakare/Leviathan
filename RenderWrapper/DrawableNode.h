@@ -168,14 +168,15 @@ namespace Leviathan
 				GLCommonMaterial* pCommonMaterial = nullptr;
 				if (pMaterial)
 				{
-					uVertexTypeMask |= GLObject::VERTEX_ATTRIBUTE_TEX;
-					pCommonMaterial = new GLCommonMaterial(&pMaterial->m_ambient.x, &pMaterial->m_diffuse.x, &pMaterial->m_specular.x, pMaterial->m_fShininess);
-
-					PictureObject pTexture(pMaterial->m_textureName.c_str());
-
-					if (!pCommonMaterial->AddTexture2D(new GLTexture2D(pTexture.m_pData, pTexture.m_nWidth, pTexture.m_nHeight)))
+					PictureObject texture(pMaterial->m_textureName.c_str());
+					if (texture.IsValid())
 					{
-						LeviathanOutStream << "[WARN] Add texture2d failed." << std::endl;
+						uVertexTypeMask |= GLObject::VERTEX_ATTRIBUTE_TEX;
+						pCommonMaterial = new GLCommonMaterial(&pMaterial->m_ambient.x, &pMaterial->m_diffuse.x, &pMaterial->m_specular.x, pMaterial->m_fShininess);
+						if (!pCommonMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight)))
+						{
+							LeviathanOutStream << "[WARN] Add texture2d failed." << std::endl;
+						}
 					}
 				}
 

@@ -145,17 +145,22 @@ namespace Leviathan
 
 	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
-		if (!m_pCommonGLMaterial)
-		{
-			m_pCommonGLMaterial = new GLCommonMaterial();
-			if (!m_pCommonGLMaterial)
-			{
-				LeviathanOutStream << "[ERROR] Material init failed." << std::endl;
-				return false;
-			}
-		}
+// 		if (!m_pCommonGLMaterial)
+// 		{
+// 			m_pCommonGLMaterial = new GLCommonMaterial();
+// 			if (!m_pCommonGLMaterial)
+// 			{
+// 				LeviathanOutStream << "[ERROR] Material init failed." << std::endl;
+// 				return false;
+// 			}
+// 		}
 
-		return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
+		if (m_pCommonGLMaterial)
+		{
+			return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
+		}
+		
+		return false;
 	}
 
 	bool TriDGLObject::UnApplyMaterial(GLuint shaderProgram)
