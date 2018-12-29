@@ -1,0 +1,5 @@
+# CMake generation dependency list for this directory.
+C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/assimp/code/CMakeLists.txt
+C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/assimp/cmake-modules/FindRT.cmake
+D:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageHandleStandardArgs.cmake
+D:/Program Files/CMake/share/cmake-3.9/Modules/FindPackageMessage.cmake
