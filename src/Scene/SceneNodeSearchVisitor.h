@@ -20,3 +20,5 @@ namespace Leviathan
 	};
 	
 }
+
+#include "SceneNodeSearchVisitor.hpp"

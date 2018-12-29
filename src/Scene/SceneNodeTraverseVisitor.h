@@ -13,7 +13,6 @@ namespace Leviathan
 	{
 	public:
 		SceneNodeTraverseVisitor(LPtr<GLPass> pSceneRenderPass);
-
 		~SceneNodeTraverseVisitor();
 
 		bool SetTraverseCallback(SceneNodeProcess process);
@@ -26,3 +25,5 @@ namespace Leviathan
 	};
 
 }
+
+#include "SceneNodeTraverseVisitor.hpp"

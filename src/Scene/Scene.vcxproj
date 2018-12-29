@@ -156,6 +156,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="SceneBase.h" />
+    <ClInclude Include="SceneNodeSearchVisitor.hpp" />
+    <ClInclude Include="SceneNodeTraverseVisitor.hpp" />
     <ClInclude Include="SceneOcTree.h" />
     <ClInclude Include="IScene.h" />
     <ClInclude Include="CCommonScene.h" />
@@ -169,8 +171,6 @@
     <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SceneNode.cpp" />
-    <ClCompile Include="SceneNodeSearchVisitor.cpp" />
-    <ClCompile Include="SceneNodeTraverseVisitor.cpp" />
     <ClCompile Include="SceneOcTree.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

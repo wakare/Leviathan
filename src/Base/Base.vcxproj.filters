@@ -27,9 +27,6 @@
     <ClCompile Include="KOcTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="NodeVisitor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Node.h">
@@ -90,6 +87,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="LUPtr.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NodeVisitor.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

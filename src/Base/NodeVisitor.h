@@ -29,3 +29,5 @@ namespace Leviathan
 	};
 	
 }
+
+#include "NodeVisitor.hpp"

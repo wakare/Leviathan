@@ -159,7 +159,6 @@
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="KOcTree.cpp" />
-    <ClCompile Include="NodeVisitor.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AABB.h" />
@@ -180,6 +179,7 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="NodeVisitor.h" />
+    <ClInclude Include="NodeVisitor.hpp" />
     <ClInclude Include="PictureObject.h" />
     <ClInclude Include="VectorOperation.h" />
   </ItemGroup>

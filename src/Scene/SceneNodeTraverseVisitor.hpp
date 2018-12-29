@@ -4,7 +4,7 @@
 namespace Leviathan
 {
 	template<class T>
-	SceneNodeTraverseVisitor<T>::SceneNodeTraverseVisitor(LPtr<GLPass> pSceneRenderPass) :
+	inline SceneNodeTraverseVisitor<T>::SceneNodeTraverseVisitor(LPtr<GLPass> pSceneRenderPass) :
 		m_pSceneRenderPass(pSceneRenderPass),
 		m_process(nullptr)
 	{
@@ -12,19 +12,19 @@ namespace Leviathan
 	}
 
 	template<class T>
-	SceneNodeTraverseVisitor<T>::~SceneNodeTraverseVisitor()
+	inline SceneNodeTraverseVisitor<T>::~SceneNodeTraverseVisitor()
 	{
 	}
 
 	template<class T>
-	bool Leviathan::SceneNodeTraverseVisitor<T>::SetTraverseCallback(SceneNodeProcess process)
+	inline bool Leviathan::SceneNodeTraverseVisitor<T>::SetTraverseCallback(SceneNodeProcess process)
 	{
 		m_process = process;
 		return true;
 	}
 
 	template<class T>
-	void Leviathan::SceneNodeTraverseVisitor<T>::Apply(Node<T>& node)
+	inline void Leviathan::SceneNodeTraverseVisitor<T>::Apply(Node<T>& node)
 	{
 		if (m_process)
 		{
@@ -63,7 +63,7 @@ namespace Leviathan
 	}
 
 	template<class T>
-	SceneNodeProcess Leviathan::SceneNodeTraverseVisitor<T>::GetCurrentTraverseCallback()
+	inline SceneNodeProcess Leviathan::SceneNodeTraverseVisitor<T>::GetCurrentTraverseCallback()
 	{
 		return m_process;
 	}

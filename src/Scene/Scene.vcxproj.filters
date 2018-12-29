@@ -39,6 +39,12 @@
     <ClInclude Include="SceneBase.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="SceneNodeSearchVisitor.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneNodeTraverseVisitor.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SceneGraph.cpp">
@@ -54,12 +60,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="SceneOcTree.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneNodeSearchVisitor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="SceneNodeTraverseVisitor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
