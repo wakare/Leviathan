@@ -17,6 +17,9 @@ namespace Leviathan
 	public:
 		CCommonScene(GLFWwindow* pRenderWindow, int width, int height);
 		~CCommonScene();
+
+		// User interface
+		void UpdatePointCloud(LPtr<IModelStruct> pPoints);
 		void Update();
 
 	private:
@@ -24,10 +27,13 @@ namespace Leviathan
 		CCommonScene(const CCommonScene&& rhs) = delete;
 		CCommonScene& operator=(const CCommonScene& rhs) = delete;
 
+		void _firstUpdate();
 		bool _initSceneObject();
 		bool _initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);		
 		bool _initCamera(unsigned width, unsigned height);
 		bool _initLight();
+		void _resetCamera();
+		void _sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode = nullptr);
 
 		std::string _getShaderSource(const char* pczShaderSourcePath);
 

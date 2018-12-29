@@ -9,6 +9,7 @@
 #include "DrawableNode.h"
 #include "SOIL.h"
 #include "PictureObject.h"
+#include "SceneNode.h"
 
 namespace Leviathan
 {
@@ -57,6 +58,14 @@ namespace Leviathan
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
+
+	void CCommonScene::_firstUpdate()
+	{
+		if (!_initSceneObject())
+		{
+			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
+		}
+	}
 
 	bool CCommonScene::_initSceneObject()
 	{
@@ -107,15 +116,15 @@ namespace Leviathan
 			//LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
 			//pDentalGLObject->SetMaterial(pModelMaterial);
 			pDentalGLObject->SetLightEnable(true);
-
 			// Set camera lookAt
-			m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
+			//m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
 			pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 		}
 
-		// m_pSceneGraph->AddDrawableNodeToSceneRenderPass(m_pSceneGraph->GetRootNode());
-		m_pSceneGraph->AddDrawableNodeToSceneOcTree(m_pSceneGraph->GetRootNode());
-		m_pSceneGraph->AddSceneOcTreeToGLPass();
+		_sceneGraphUpdate();
+
+		// Set camera lookAt
+		_resetCamera();
 
 		return true;
 	}
@@ -173,9 +182,35 @@ namespace Leviathan
 		return true;
 	}
 
+	void CCommonScene::_resetCamera()
+	{
+		auto AABB = m_pSceneGraph->GetAABB();
+		float center[3];
+		AABB.GetAABBCenter(center);
+
+		m_pCamera->LookAt(Vector4f(center), AABB.GetAABBRadius() * 2.0f);
+	}
+
+	void CCommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode)
+	{
+		pBeginNode = (pBeginNode) ? pBeginNode : m_pSceneGraph->GetRootNode();
+		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode);
+		//m_pSceneGraph->AddSceneOcTreeToGLPass();
+	}
+
 	CCommonScene::~CCommonScene()
 	{
 
+	}
+
+	void CCommonScene::UpdatePointCloud(LPtr<IModelStruct> pPoints)
+	{
+		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pPoints, pSceneNode);
+		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), true);
+
+		_sceneGraphUpdate();
+		_resetCamera();
 	}
 
 	void CCommonScene::Update()
@@ -183,11 +218,7 @@ namespace Leviathan
 		static bool bFirstUpdate = true;
 		if (bFirstUpdate)
 		{
-			if (!_initSceneObject())
-			{
-				LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
-			}
-
+			_firstUpdate();
 			bFirstUpdate = false;
 		}
 

@@ -4,13 +4,16 @@
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <memory>
-#include "WindowCallBack.h"
-#include "CCommonScene.h"
-#include "CFileImportFactory.h"
 #include "LPtr.h"
+#include "EventListener.h"
 
 namespace Leviathan
 {
+	class EventSystem;
+	class Event;
+	class CCommonScene;
+	class IFileImportFactory;
+
 	class RenderWindow : public EventListener
 	{
 	public:
@@ -18,7 +21,7 @@ namespace Leviathan
 		bool CreateRenderWindow();
 		void Run();
 
-		void Accept(Event event);
+		void Accept(Event& event);
 
 		GLFWwindow* GetGLFWWindow() { return m_pWindow; };
 		GLint GetWidth() { return m_width; };

@@ -9,7 +9,7 @@ bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 		pAABBVec.push_back(rhs.GetAABB());
 	}, true);
 
-	/*for (auto& _aabbf : pAABBVec)
+	for (auto& _aabbf : pAABBVec)
 	{
 		float temp[6] =
 		{
@@ -25,7 +25,7 @@ bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 		auto _aabbGLObject = SceneBase::_convertAABBtoGLObject(_aabb);
 		_aabbGLObject->SetLightEnable(false);
 		pass.AddGLObject(_aabbGLObject);
-	}*/
+	}
 
 	return true;
 }
@@ -79,6 +79,18 @@ bool Leviathan::SceneOcTree::AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass)
 void Leviathan::SceneOcTree::Traverse(KOcTree::TraverseFunction traverseFunc, bool bRecursion)
 {
 	m_pRoot->Traverse(traverseFunc, bRecursion);
+}
+
+Leviathan::AABB Leviathan::SceneOcTree::GetAABB() const
+{
+	auto& _aabb = m_pRoot->GetAABB();
+	float coord[6] =
+	{
+		_aabb.m_min.coord[0],_aabb.m_min.coord[1],_aabb.m_min.coord[2],
+		_aabb.m_max.coord[0],_aabb.m_max.coord[1],_aabb.m_max.coord[2],
+	};
+
+	return coord;
 }
 
 Leviathan::SceneOcTreeNode::SceneOcTreeNode(const Point3Df& position, Node<SceneNode>& sceneNode) :

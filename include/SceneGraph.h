@@ -19,6 +19,7 @@ namespace Leviathan
 		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode) ;
 		void AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode);
 		bool AddSceneOcTreeToGLPass();
+		AABB GetAABB() const;
 		LPtr<Node<SceneNode>> GetRootNode() const;
 
 	private:

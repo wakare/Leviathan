@@ -1,6 +1,7 @@
 #include <memory>
 #include <iostream>
 #include "RenderWindow.h"
+#include "EventSystem.h"
 using namespace Leviathan;
 
 int main()

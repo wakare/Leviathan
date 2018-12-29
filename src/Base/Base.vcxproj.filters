@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="NodeVisitor.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="EventSystem.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -28,6 +25,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="KOcTree.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NodeVisitor.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

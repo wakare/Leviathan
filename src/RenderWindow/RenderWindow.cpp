@@ -1,5 +1,8 @@
-#include "RenderWindow.h"
 #include <iostream>
+#include "RenderWindow.h"
+#include "WindowCallBack.h"
+#include "CCommonScene.h"
+#include "CFileImportFactory.h"
 #include "GlobalDef.h"
 #include "ImporterRegister.h"
 
@@ -155,7 +158,7 @@ namespace Leviathan
 		}
 	}
 
-	void RenderWindow::Accept(Event event)
+	void RenderWindow::Accept(Event& event)
 	{
 		_updateCameraTransform(event);
 	}

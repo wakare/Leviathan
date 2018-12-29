@@ -56,5 +56,11 @@
     <ClCompile Include="SceneOcTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SceneNodeSearchVisitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneNodeTraverseVisitor.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -29,6 +29,7 @@ namespace Leviathan
 		bool AddNode(std::vector<LPtr<IOcTreeNode>>& nodeVec);
 		bool AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass);
 		void Traverse(KOcTree::TraverseFunction traverseFunc, bool bRecursion);
+		AABB GetAABB() const;
 
 	private:
 		LUPtr<KOcTree> m_pRoot;

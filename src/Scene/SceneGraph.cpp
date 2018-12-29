@@ -1,6 +1,12 @@
 #include "SceneGraph.h"
-#include "SceneNodeSearchVisitor.h"
 #include "IDrawable.h"
+#include "Node.h"
+#include "NodeVisitor.h"
+#include "SceneNode.h"
+#include "SceneNodeSearchVisitor.h"
+#include "SceneNodeTraverseVisitor.h"
+#include "GLPass.h"
+#include "SceneOcTree.h"
 
 Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pSceneNodeTraverseVisitor(nullptr),
@@ -88,6 +94,12 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 		auto& pModelFileVec = pSceneNode->GetNodeData()->GetModelFileVec();
 
 		AABB _sceneNodeAABB;
+
+		if (pModelFileVec.size() == 0)
+		{
+			continue;
+		}
+
 		for (const auto& pModelFile : pModelFileVec)
 		{
 			if (!_sceneNodeAABB.HasSet())
@@ -125,13 +137,18 @@ bool Leviathan::SceneGraph::AddSceneOcTreeToGLPass()
 	return AddOcTreeToGLPass(*m_pSceneOcTree, *m_pSceneRenderPass);
 }
 
+Leviathan::AABB Leviathan::SceneGraph::GetAABB() const
+{
+	return m_pSceneOcTree->GetAABB();
+}
+
 void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProcess func)
 {
 	auto currentCallback = m_pSceneNodeTraverseVisitor->GetCurrentTraverseCallback();
 	auto eCurrentTraverseMode = m_pSceneNodeTraverseVisitor->GetTraverseMode();
 
 	m_pSceneNodeTraverseVisitor->SetTraverseCallback(func);
-	m_pSceneNodeTraverseVisitor->SetTraverseMode(NodeVisitor<SceneNode>::E_TRAVERSE_MODE::ALL);
+	m_pSceneNodeTraverseVisitor->SetTraverseMode(E_TRAVERSE_MODE::ALL);
 	m_pSceneNodeTraverseVisitor->Apply(begin);
 
 	m_pSceneNodeTraverseVisitor->SetTraverseCallback(currentCallback);

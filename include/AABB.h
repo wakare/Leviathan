@@ -22,7 +22,7 @@ namespace Leviathan
 		};
 
 	public:
-		inline AABB(float* data = nullptr) : m_bSetFlag(false), m_fRadius(-1.0f)
+		AABB(float* data = nullptr) : m_bSetFlag(false), m_fRadius(-1.0f)
 		{
 			if (data)
 			{
@@ -30,7 +30,7 @@ namespace Leviathan
 			}
 		};
 
-		inline void SetAABBCoord(float* data)
+		void SetAABBCoord(float* data)
 		{
 			memcpy(&m_coord, data, sizeof(AABBCoord));
 			m_fRadius = 0.5f * (fmax(fmax(m_coord.maxX - m_coord.minX, m_coord.maxY - m_coord.minY), m_coord.maxZ - m_coord.minZ));
@@ -38,12 +38,12 @@ namespace Leviathan
 			m_bSetFlag = true;
 		}
 
-		inline bool HasSet() const
+		bool HasSet() const
 		{
 			return m_bSetFlag;
 		}
 
-		inline AABB Merge(const AABB& rhs) const
+		AABB Merge(const AABB& rhs) const
 		{
 			float mergedAABB[6] = 
 			{
@@ -58,7 +58,7 @@ namespace Leviathan
 			return mergedAABB;
 		}
 
-		inline const AABBCoord& GetAABBCoord()
+		const AABBCoord& GetAABBCoord()
 		{
 			if (!m_bSetFlag)
 			{
@@ -69,7 +69,7 @@ namespace Leviathan
 			return m_coord;
 		}
 
-		inline bool GetAABBCenter(float* outCenter) const
+		bool GetAABBCenter(float* outCenter) const
 		{
 			if (!m_bSetFlag)
 			{
@@ -84,7 +84,7 @@ namespace Leviathan
 			return true;
 		}
 
-		inline float GetAABBRadius() const
+		float GetAABBRadius() const
 		{
 			if (!m_bSetFlag)
 			{
