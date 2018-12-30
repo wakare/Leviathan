@@ -1,14 +1,26 @@
 #pragma once
 #include <functional>
-#include "NodeVisitor.h"
-#include "SceneNode.h"
-#include "SceneNodeSearchVisitor.h"
-#include "SceneNodeTraverseVisitor.h"
-#include "GLPass.h"
-#include "SceneOcTree.h"
+#include <vector>
+#include "LPtr.h"
+#include "AABB.h"
 
 namespace Leviathan
 {
+	template<typename T>
+	class Node;
+
+	template<typename T>
+	class SceneNodeTraverseVisitor;
+
+	template<typename T>
+	class SceneNodeSearchVisitor;
+
+	class GLPass;
+	class SceneOcTree;
+	class SceneNode;
+
+	typedef std::function<void(Node<SceneNode>&)> SceneNodeProcess;
+
 	class SceneGraph
 	{
 	public:
@@ -16,7 +28,7 @@ namespace Leviathan
 		bool AddNode(LPtr<Node<SceneNode>> pNode, bool bAddToPass);
 		bool SetSceneNodeTraverseVisitor(LPtr<SceneNodeTraverseVisitor<SceneNode>> pSceneNodeVisitor);
 		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
-		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode) ;
+		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode);
 		void AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode);
 		bool AddSceneOcTreeToGLPass();
 		AABB GetAABB() const;

@@ -15,38 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SceneGraph.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNode.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNodeSearchVisitor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNodeTraverseVisitor.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="IScene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="CCommonScene.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneOcTree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneBase.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNodeSearchVisitor.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="SceneNodeTraverseVisitor.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="SceneGraph.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -62,5 +30,37 @@
     <ClCompile Include="SceneOcTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\IScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneBase.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneGraph.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneNodeSearchVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneNodeSearchVisitor.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneOcTree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\CCommonScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

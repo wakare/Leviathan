@@ -35,6 +35,8 @@ public:
 		}
 
 		glUniform1i(samplerUniformLocation, textureUnitOffset);
+
+		return GL_TRUE;
 	}
 
 	GLboolean UnApplyTexture(GLuint textureUnitOffset, GLuint shaderProgram)

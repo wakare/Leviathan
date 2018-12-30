@@ -35,49 +35,52 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RenderWrapper.h">
+    <ClInclude Include="..\..\include\GLCamera.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLObject.h">
+    <ClInclude Include="..\..\include\GLColor.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLPass.h">
+    <ClInclude Include="..\..\include\GLCommonMaterial.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TriDObjectGLPass.h">
+    <ClInclude Include="..\..\include\GLLight.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLShaderProgram.h">
+    <ClInclude Include="..\..\include\GLObject.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="TriDGLObject.h">
+    <ClInclude Include="..\..\include\GLPass.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLUniform.h">
+    <ClInclude Include="..\..\include\GLShaderProgram.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLCamera.h">
+    <ClInclude Include="..\..\include\GLTexture.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLColor.h">
+    <ClInclude Include="..\..\include\GLUniform.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLLight.h">
+    <ClInclude Include="..\..\include\IDrawable.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="IDrawable.h">
+    <ClInclude Include="..\..\include\IGLMaterial.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DrawableNode.h">
+    <ClInclude Include="..\..\include\InputEvent.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLTexture.h">
+    <ClInclude Include="..\..\include\DrawableNode.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="IGLMaterial.h">
+    <ClInclude Include="..\..\include\RenderWrapper.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="GLCommonMaterial.h">
+    <ClInclude Include="..\..\include\TriDGLObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\TriDObjectGLPass.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -15,7 +15,7 @@ namespace Leviathan
 {
 	using namespace SceneBase;
 
-	CCommonScene::CCommonScene(GLFWwindow* pRenderWindow, int width, int height) :
+	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
 		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
 		m_pRenderWarpper(nullptr), 
@@ -59,7 +59,7 @@ namespace Leviathan
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
-	void CCommonScene::_firstUpdate()
+	void CommonScene::_firstUpdate()
 	{
 		if (!_initSceneObject())
 		{
@@ -67,7 +67,7 @@ namespace Leviathan
 		}
 	}
 
-	bool CCommonScene::_initSceneObject()
+	bool CommonScene::_initSceneObject()
 	{
 		if (!_initLight())
 		{
@@ -96,8 +96,8 @@ namespace Leviathan
 // 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		//pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/Leviathan/2b/lufeng.FBX");
-		pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
+		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/2b/lufeng.FBX");
+		//pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
 
@@ -113,11 +113,8 @@ namespace Leviathan
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), true);
 		for (auto pDentalGLObject : pDentalGLObjectVec)
 		{
-			//LPtr<IGLMaterial> pModelMaterial = new GLCommonMaterial({ 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f }, { 1.0f, 1.0f, 1.0f });
-			//pDentalGLObject->SetMaterial(pModelMaterial);
 			pDentalGLObject->SetLightEnable(true);
 			// Set camera lookAt
-			//m_pCamera->LookAt(Vector4f(RenderObjectAABBCenter) * pDentalNode->GetNodeData()->GetWorldTransform(), AABB.GetAABBRadius() * 2.0f);
 			pDentalGLObject->SetModelMatrix(pDentalNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
 		}
 
@@ -129,7 +126,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CCommonScene::_initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath)
+	bool CommonScene::_initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath)
 	{
 		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
 		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
@@ -151,7 +148,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CCommonScene::_initCamera(unsigned uWidth, unsigned uHeight)
+	bool CommonScene::_initCamera(unsigned uWidth, unsigned uHeight)
 	{
 		float cameraEye[3] = { 0.0f, 0.0f, -10.0f };
 		float cameraLookAt[3] = { 0.0f, 0.0f, 0.0f };
@@ -172,7 +169,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CCommonScene::_initLight()
+	bool CommonScene::_initLight()
 	{
 		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.5f, 0.5f, 0.5f },
 			{ 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
@@ -182,7 +179,7 @@ namespace Leviathan
 		return true;
 	}
 
-	void CCommonScene::_resetCamera()
+	void CommonScene::_resetCamera()
 	{
 		auto AABB = m_pSceneGraph->GetAABB();
 		float center[3];
@@ -191,29 +188,32 @@ namespace Leviathan
 		m_pCamera->LookAt(Vector4f(center), AABB.GetAABBRadius() * 2.0f);
 	}
 
-	void CCommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode)
+	void CommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode)
 	{
 		pBeginNode = (pBeginNode) ? pBeginNode : m_pSceneGraph->GetRootNode();
 		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode);
 		//m_pSceneGraph->AddSceneOcTreeToGLPass();
 	}
 
-	CCommonScene::~CCommonScene()
+	CommonScene::~CommonScene()
 	{
 
 	}
 
-	void CCommonScene::UpdatePointCloud(LPtr<IModelStruct> pPoints)
+	void CommonScene::UpdatePointCloud(PointCloudf& refPoints)
 	{
+		// convert pointCloud to GLObject
+		LPtr<TriDGLObject> pPointCloudObject = new TriDGLObject(GL_POINTS, (*refPoints.m_pCoord).m_pData, refPoints.m_pointCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ);
+
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pPoints, pSceneNode);
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<TriDGLObject, GLObject>(pPointCloudObject), pSceneNode);
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), true);
 
 		_sceneGraphUpdate();
 		_resetCamera();
 	}
 
-	void CCommonScene::Update()
+	void CommonScene::Update()
 	{
 		static bool bFirstUpdate = true;
 		if (bFirstUpdate)
@@ -225,7 +225,7 @@ namespace Leviathan
 		m_pRenderWarpper->Render();
 	}
 
-	std::string CCommonScene::_getShaderSource(const char* pczShaderSourcePath)
+	std::string CommonScene::_getShaderSource(const char* pczShaderSourcePath)
 	{
 		std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 		if (!shaderSourceFileStream.is_open())

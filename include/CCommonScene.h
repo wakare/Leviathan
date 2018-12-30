@@ -9,23 +9,24 @@
 #include "IModelStruct.h"
 #include "SceneGraph.h"
 #include "SceneBase.h"
+#include "PointCloud.h"
 
 namespace Leviathan
 {
-	class CCommonScene : public IScene
+	class CommonScene : public IScene
 	{
 	public:
-		CCommonScene(GLFWwindow* pRenderWindow, int width, int height);
-		~CCommonScene();
+		CommonScene(GLFWwindow* pRenderWindow, int width, int height);
+		~CommonScene();
 
 		// User interface
-		void UpdatePointCloud(LPtr<IModelStruct> pPoints);
+		void UpdatePointCloud(PointCloudf& pPoints);
 		void Update();
 
 	private:
-		CCommonScene(const CCommonScene& rhs);
-		CCommonScene(const CCommonScene&& rhs) = delete;
-		CCommonScene& operator=(const CCommonScene& rhs) = delete;
+		CommonScene(const CommonScene& rhs);
+		CommonScene(const CommonScene&& rhs) = delete;
+		CommonScene& operator=(const CommonScene& rhs) = delete;
 
 		void _firstUpdate();
 		bool _initSceneObject();

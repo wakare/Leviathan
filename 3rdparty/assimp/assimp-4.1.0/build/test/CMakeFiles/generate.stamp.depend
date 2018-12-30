@@ -1,0 +1,6 @@
+# CMake generation dependency list for this directory.
+C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt
+D:/Program Files/CMake/share/cmake-3.9/Modules/CTest.cmake
+D:/Program Files/CMake/share/cmake-3.9/Modules/CTestUseLaunchers.cmake
+D:/Program Files/CMake/share/cmake-3.9/Modules/CTestTargets.cmake
+D:/Program Files/CMake/share/cmake-3.9/Modules/DartConfiguration.tcl.in

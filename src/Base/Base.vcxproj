@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -161,27 +161,28 @@
     <ClCompile Include="KOcTree.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AABB.h" />
-    <ClInclude Include="BaseMath.h" />
-    <ClInclude Include="CModelStruct.h" />
-    <ClInclude Include="DynamicArray.h" />
-    <ClInclude Include="Event.h" />
-    <ClInclude Include="EventListener.h" />
-    <ClInclude Include="EventSystem.h" />
-    <ClInclude Include="GeometryCalculator.h" />
-    <ClInclude Include="GlobalDef.h" />
-    <ClInclude Include="IModelStruct.h" />
-    <ClInclude Include="KLog.h" />
-    <ClInclude Include="KOcTree.h" />
-    <ClInclude Include="KProfile.h" />
-    <ClInclude Include="LPtr.h" />
-    <ClInclude Include="LUPtr.h" />
-    <ClInclude Include="Material.h" />
-    <ClInclude Include="Node.h" />
-    <ClInclude Include="NodeVisitor.h" />
-    <ClInclude Include="NodeVisitor.hpp" />
-    <ClInclude Include="PictureObject.h" />
-    <ClInclude Include="VectorOperation.h" />
+    <ClInclude Include="..\..\include\AABB.h" />
+    <ClInclude Include="..\..\include\BaseMath.h" />
+    <ClInclude Include="..\..\include\CModelStruct.h" />
+    <ClInclude Include="..\..\include\DynamicArray.h" />
+    <ClInclude Include="..\..\include\Event.h" />
+    <ClInclude Include="..\..\include\EventListener.h" />
+    <ClInclude Include="..\..\include\EventSystem.h" />
+    <ClInclude Include="..\..\include\GeometryCalculator.h" />
+    <ClInclude Include="..\..\include\GlobalDef.h" />
+    <ClInclude Include="..\..\include\IModelStruct.h" />
+    <ClInclude Include="..\..\include\KLog.h" />
+    <ClInclude Include="..\..\include\KOcTree.h" />
+    <ClInclude Include="..\..\include\KProfile.h" />
+    <ClInclude Include="..\..\include\LPtr.h" />
+    <ClInclude Include="..\..\include\LUPtr.h" />
+    <ClInclude Include="..\..\include\Material.h" />
+    <ClInclude Include="..\..\include\Node.h" />
+    <ClInclude Include="..\..\include\NodeVisitor.h" />
+    <ClInclude Include="..\..\include\NodeVisitor.hpp" />
+    <ClInclude Include="..\..\include\PictureObject.h" />
+    <ClInclude Include="..\..\include\PointCloud.h" />
+    <ClInclude Include="..\..\include\VectorOperation.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

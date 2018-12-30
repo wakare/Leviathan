@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -163,21 +163,22 @@
     <ClCompile Include="TriDObjectGLPass.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GLCommonMaterial.h" />
-    <ClInclude Include="DrawableNode.h" />
-    <ClInclude Include="GLCamera.h" />
-    <ClInclude Include="GLColor.h" />
-    <ClInclude Include="GLLight.h" />
-    <ClInclude Include="IGLMaterial.h" />
-    <ClInclude Include="GLObject.h" />
-    <ClInclude Include="GLPass.h" />
-    <ClInclude Include="GLShaderProgram.h" />
-    <ClInclude Include="GLTexture.h" />
-    <ClInclude Include="GLUniform.h" />
-    <ClInclude Include="IDrawable.h" />
-    <ClInclude Include="RenderWrapper.h" />
-    <ClInclude Include="TriDGLObject.h" />
-    <ClInclude Include="TriDObjectGLPass.h" />
+    <ClInclude Include="..\..\include\DrawableNode.h" />
+    <ClInclude Include="..\..\include\GLCamera.h" />
+    <ClInclude Include="..\..\include\GLColor.h" />
+    <ClInclude Include="..\..\include\GLCommonMaterial.h" />
+    <ClInclude Include="..\..\include\GLLight.h" />
+    <ClInclude Include="..\..\include\GLObject.h" />
+    <ClInclude Include="..\..\include\GLPass.h" />
+    <ClInclude Include="..\..\include\GLShaderProgram.h" />
+    <ClInclude Include="..\..\include\GLTexture.h" />
+    <ClInclude Include="..\..\include\GLUniform.h" />
+    <ClInclude Include="..\..\include\IDrawable.h" />
+    <ClInclude Include="..\..\include\IGLMaterial.h" />
+    <ClInclude Include="..\..\include\InputEvent.h" />
+    <ClInclude Include="..\..\include\RenderWrapper.h" />
+    <ClInclude Include="..\..\include\TriDGLObject.h" />
+    <ClInclude Include="..\..\include\TriDObjectGLPass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

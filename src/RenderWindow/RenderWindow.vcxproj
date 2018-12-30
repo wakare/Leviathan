@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -113,7 +113,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -131,7 +131,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -151,7 +151,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)src\FileImporter\;$(SolutionDir)src\Scene\;$(SolutionDir)3rdparty\glew\;$(SolutionDir)src\RenderWrapper\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\base</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -167,8 +167,8 @@
     <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RenderWindow.h" />
-    <ClInclude Include="WindowCallBack.h" />
+    <ClInclude Include="..\..\include\RenderWindow.h" />
+    <ClInclude Include="..\..\include\WindowCallBack.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

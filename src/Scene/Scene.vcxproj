@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)src\Base;$(SolutionDir)src\FileImporter;$(SolutionDir)src\RenderWrapper;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,23 +155,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="SceneBase.h" />
-    <ClInclude Include="SceneNodeSearchVisitor.hpp" />
-    <ClInclude Include="SceneNodeTraverseVisitor.hpp" />
-    <ClInclude Include="SceneOcTree.h" />
-    <ClInclude Include="IScene.h" />
-    <ClInclude Include="CCommonScene.h" />
-    <ClInclude Include="SceneGraph.h" />
-    <ClInclude Include="SceneNode.h" />
-    <ClInclude Include="SceneNodeSearchVisitor.h" />
-    <ClInclude Include="SceneNodeTraverseVisitor.h" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="CCommonScene.cpp" />
     <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SceneOcTree.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\CCommonScene.h" />
+    <ClInclude Include="..\..\include\IScene.h" />
+    <ClInclude Include="..\..\include\SceneBase.h" />
+    <ClInclude Include="..\..\include\SceneGraph.h" />
+    <ClInclude Include="..\..\include\SceneNode.h" />
+    <ClInclude Include="..\..\include\SceneNodeSearchVisitor.h" />
+    <ClInclude Include="..\..\include\SceneNodeSearchVisitor.hpp" />
+    <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.h" />
+    <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.hpp" />
+    <ClInclude Include="..\..\include\SceneOcTree.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

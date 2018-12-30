@@ -17,20 +17,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="CFileImportFactory.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="CSTLFileImporter.h">
-      <Filter>Implement</Filter>
-    </ClInclude>
-    <ClInclude Include="IFileImporter.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IFileImportFactory.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="ImporterRegister.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
+    <ClInclude Include="..\..\include\CFileImportFactory.h" />
+    <ClInclude Include="..\..\include\CSTLFileImporter.h" />
+    <ClInclude Include="..\..\include\IFileImporter.h" />
+    <ClInclude Include="..\..\include\IFileImportFactory.h" />
+    <ClInclude Include="..\..\include\ImporterRegister.h" />
   </ItemGroup>
 </Project>
