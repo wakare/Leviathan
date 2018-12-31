@@ -1,99 +1,97 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="源文件">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="BaseGraphics">
+      <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
     </Filter>
-    <Filter Include="头文件">
+    <Filter Include="Tool">
+      <UniqueIdentifier>{ae0fc903-c7e4-48bf-ab0d-9c291f5c8fb9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Other">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
-    <Filter Include="资源文件">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EventSystem.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="GeometryCalculator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CModelStruct.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="CMesh.cpp">
+      <Filter>BaseGraphics</Filter>
     </ClCompile>
     <ClCompile Include="KOcTree.cpp">
-      <Filter>源文件</Filter>
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometryCalculator.cpp">
+      <Filter>Tool</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>Other</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\AABB.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\BaseMath.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\CModelStruct.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Event.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\EventListener.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\EventSystem.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\IModelStruct.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LPtr.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LUPtr.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Node.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\NodeVisitor.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\NodeVisitor.hpp">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\PointCloud.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\VectorOperation.h">
-      <Filter>头文件</Filter>
+      <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\DynamicArray.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\..\include\AABB.h">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\CMesh.h">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\IMesh.h">
+      <Filter>BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Material.h">
-      <Filter>头文件</Filter>
+      <Filter>BaseGraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\PictureObject.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\KLog.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\KOcTree.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\KProfile.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="..\..\include\PointCloud.h">
+      <Filter>BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\GeometryCalculator.h">
-      <Filter>头文件</Filter>
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\KLog.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\KOcTree.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\KProfile.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LPtr.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LUPtr.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\BaseMath.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\DynamicArray.h">
+      <Filter>Tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\GlobalDef.h">
-      <Filter>头文件</Filter>
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\PictureObject.h">
+      <Filter>Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

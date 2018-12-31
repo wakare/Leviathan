@@ -5,13 +5,22 @@
 
 namespace Leviathan
 {
-	class IModelStruct
+	class IMesh
 	{
 	public:
-		virtual unsigned	GetVertexCount() = 0;
-		virtual unsigned	GetTriangleCount() = 0;
+		enum EPrimitiveType 
+		{
+			EPT_POINTS = 1,
+			EPT_LINES = 2,
+			EPT_TRIANGLES = 3,
+		};
 
-		virtual unsigned*	GetTriangleIndexArray() = 0;
+		virtual EPrimitiveType GetPrimitiveType() const = 0;
+
+		virtual unsigned	GetVertexCount() = 0;
+		virtual unsigned	GetPrimitiveCount() = 0;
+
+		virtual unsigned*	GetPrimitiveIndexArray() = 0;
 		virtual float*		GetVertex3DCoordArray() = 0;
 		virtual float*		GetVertexColorArray() = 0;
 		virtual float*		GetVertexTexArray() = 0;
@@ -20,6 +29,6 @@ namespace Leviathan
 		virtual const AABB& GetAABB() = 0;
 
 	protected:
-		IModelStruct() {};
+		IMesh() {};
 	};
 }

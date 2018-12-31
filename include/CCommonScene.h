@@ -6,7 +6,7 @@
 #include "TriDGLObject.h"
 #include "GLShaderProgram.h"
 #include "LPtr.h"
-#include "IModelStruct.h"
+#include "IMesh.h"
 #include "SceneGraph.h"
 #include "SceneBase.h"
 #include "PointCloud.h"

@@ -21,7 +21,7 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pSceneOcTree = new SceneOcTree();
 }
 
-bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode, bool bAddToPass = false)
+bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
 	if (!pNode)
 	{
@@ -30,11 +30,6 @@ bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode, bool bAddToPass
 	}
 
 	m_pRoot->AddChild(pNode);
-
-	if (bAddToPass)
-	{
-		//_addDrawableNodeToSceneRenderPass(pNode);
-	}
 
 	return true;
 }
@@ -90,34 +85,10 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	std::vector<LPtr<IOcTreeNode>> ocTreeNodeVec;
 	for (auto& pSceneNode : sceneNodeVec)
 	{
-		auto& worldTransform = pSceneNode->GetNodeData()->GetWorldTransform();
-		auto& pModelFileVec = pSceneNode->GetNodeData()->GetModelFileVec();
+		float worldCoordCenter[3] = { 0.0f };
+		pSceneNode->GetNodeData()->GetWorldCoordCenter(worldCoordCenter);
 
-		AABB _sceneNodeAABB;
-
-		if (pModelFileVec.size() == 0)
-		{
-			continue;
-		}
-
-		for (const auto& pModelFile : pModelFileVec)
-		{
-			if (!_sceneNodeAABB.HasSet())
-			{
-				_sceneNodeAABB = pModelFile->GetAABB();
-			}
-
-			else
-			{
-				_sceneNodeAABB = _sceneNodeAABB.Merge(pModelFile->GetAABB());
-			}
-		}
-
-		float _modelAABBCenter[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		_sceneNodeAABB.GetAABBCenter(_modelAABBCenter);
-		auto worldAABBCenter = Vector4f(_modelAABBCenter) * worldTransform;
-
-		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(worldAABBCenter.GetData(), *pSceneNode);
+		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(worldCoordCenter, *pSceneNode);
 		if (pSceneOcTreeNode)
 		{
 			ocTreeNodeVec.push_back(TryCast<SceneOcTreeNode, IOcTreeNode>(pSceneOcTreeNode));

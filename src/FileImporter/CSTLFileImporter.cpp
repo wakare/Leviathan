@@ -57,15 +57,13 @@ namespace Leviathan
 		return "stl";
 	}
 
-	std::vector<LPtr<IModelStruct>> CSTLFileImporter::LoadFile(const char* fileName)
+	std::vector<LPtr<IMesh>> CSTLFileImporter::LoadFile(const char* fileName)
 	{
-		auto pModelStruct = new CModelStruct();
-
 		std::ifstream fileStream(fileName, std::ios::in | std::ios::binary);
 		if (!fileStream.is_open())
 		{
 			LeviathanOutStream << "[ERROR] Invalid file name." << std::endl;
-			return std::vector<LPtr<IModelStruct>>();
+			return std::vector<LPtr<IMesh>>();
 		}
 
 		// Skip file head
@@ -75,6 +73,8 @@ namespace Leviathan
 		// Load vertexNumber
 		unsigned uTriangleNumber;
 		fileStream.read(reinterpret_cast<char*>(&uTriangleNumber), sizeof(uTriangleNumber));
+
+		auto pMesh = new CMesh(3 * uTriangleNumber, uTriangleNumber);
 
 		// Load data
 		std::set <_point3D> vertexSet;
@@ -123,10 +123,10 @@ namespace Leviathan
 			memcpy(reinterpret_cast<char*>(vertexCoordArray.m_pData + 3 * point.index), point.coord, sizeof(float) * 3);
 		}
 
-		pModelStruct->SetTriangleIndexData(uTriangleNumber, triangleIndex);
-		pModelStruct->SetVertexCoordData(vertexSet.size(), vertexCoordArray.m_pData);
+		pMesh->SetPrimitiveIndexData(triangleIndex);
+		pMesh->SetVertexCoordData(vertexCoordArray.m_pData);
 
-		return std::vector<LPtr<IModelStruct>>(LPtr<IModelStruct>(pModelStruct));
+		return std::vector<LPtr<IMesh>>(LPtr<IMesh>(pMesh));
 	}
 
 	bool CSTLFileImporter::RegisterToFactory()

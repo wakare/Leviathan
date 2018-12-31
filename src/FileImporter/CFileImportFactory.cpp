@@ -1,5 +1,5 @@
 #include "CFileImportFactory.h"
-#include "CModelStruct.h"
+#include "CMesh.h"
 #include "DynamicArray.h"
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
@@ -11,7 +11,7 @@ using namespace Leviathan;
 
 LPtr<IFileImportFactory> CFileImportFactory::m_spFileImportFactory = nullptr;
 
-std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::LoadFile(const char* czFileName)
+std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::LoadFile(const char* czFileName)
 {
 	std::string fileNameString(czFileName);
 	return LoadFile(fileNameString);
@@ -51,16 +51,17 @@ Leviathan::CFileImportFactory::CFileImportFactory()
 
 }
 
-void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IModelStruct>>& result)
+void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
 {
 	auto pMaterial = scene.HasMaterials() ? scene.mMaterials : nullptr;
 
-	auto pModelStruct = new CModelStruct();
 	if (!mesh.HasPositions())
 	{
 		LeviathanOutStream << "[WARN] Mesh has no position, skip..." << std::endl;
 		return;
 	}
+
+	auto pMesh = new CMesh(mesh.mNumVertices, mesh.mNumFaces);
 
 	DynamicArray<float> vertexCoordData(mesh.mNumVertices * 3 * sizeof(float));
 	for (unsigned j = 0; j < mesh.mNumVertices; j++)
@@ -75,7 +76,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 
 	std::cout << "[INFO] First vertex coord: " << mesh.mVertices[0].x << " " << mesh.mVertices[0].y << " " << mesh.mVertices[0].z << std::endl;
 
-	pModelStruct->SetVertexCoordData(mesh.mNumVertices, vertexCoordData.m_pData);
+	pMesh->SetVertexCoordData( vertexCoordData.m_pData);
 
 	if (mesh.HasFaces())
 	{
@@ -89,7 +90,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 			memcpy(pIndexData, indexVec.mIndices, sizeof(unsigned) * 3);
 		}
 
-		pModelStruct->SetTriangleIndexData(mesh.mNumFaces, indexData.m_pData);
+		pMesh->SetPrimitiveIndexData(indexData.m_pData);
 	}
 
 	// Only select level-0 texture
@@ -105,7 +106,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 			pTexData[1] = vertexCoord.y;
 		}
 
-		pModelStruct->SetVertexTex2DData(mesh.mNumVertices, vertexTexData.m_pData);
+		pMesh->SetVertexTex2DData(vertexTexData.m_pData);
 	}
 
 	if (pMaterial)
@@ -162,13 +163,13 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 			LeviathanOutStream << "[WARN] Texture path not found." << std::endl;
 		}
 
-		pModelStruct->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
+		pMesh->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
 	}
 
-	result.push_back(pModelStruct);
+	result.push_back(pMesh);
 }
 
-void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IModelStruct>>& result)
+void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
 {
 	for (unsigned i = 0; i < node.mNumMeshes; i++)
 	{
@@ -182,7 +183,7 @@ void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::st
 	}
 }
 
-std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssimp(const std::string& strFileName)
+std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const std::string& strFileName)
 {
 	Assimp::Importer importer;
 	const aiScene* importerScene = importer.ReadFile(strFileName, aiProcessPreset_TargetRealtime_Fast);
@@ -197,10 +198,10 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssim
 	if (!importerScene->HasMeshes())
 	{
 		LeviathanOutStream << "[INFO] Assimp load file: " << strFileName << " failed." << std::endl;
-		return std::vector<LPtr<IModelStruct>>();
+		return std::vector<LPtr<IMesh>>();
 	}
 
-	std::vector<LPtr<IModelStruct>> result;
+	std::vector<LPtr<IMesh>> result;
 	LeviathanOutStream << importerScene->HasTextures() << std::endl;
 
 	_recursionLoadModel(*(importerScene->mRootNode), *importerScene, absDirectoryPath, result);
@@ -208,12 +209,12 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::_loadModelByAssim
 	return result;
 }
 
-std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::LoadFile(std::string strFileName)
+std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::LoadFile(std::string strFileName)
 {
-	auto pModelStruct = _loadModelByAssimp(strFileName);
-	if (pModelStruct.size() > 0)
+	auto pMesh = _loadModelByAssimp(strFileName);
+	if (pMesh.size() > 0)
 	{
-		return pModelStruct;
+		return pMesh;
 	}
 
 	// Get file extension type
@@ -221,7 +222,7 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::LoadFile(std::str
 	if (uLastDotIndex == std::string::npos)
 	{
 		LeviathanOutStream << "[ERROR] Invalid file name." << std::endl;
-		return std::vector<LPtr<IModelStruct>>();
+		return std::vector<LPtr<IMesh>>();
 	}
 
 	auto strFileExtension = strFileName.substr(uLastDotIndex + 1);
@@ -229,7 +230,7 @@ std::vector<LPtr<IModelStruct>> Leviathan::CFileImportFactory::LoadFile(std::str
 	if (itImporter == m_registerFileImport.end())
 	{
 		LeviathanOutStream << "[WARN] Unsupported file extension : " << strFileExtension <<std::endl;
-		return std::vector<LPtr<IModelStruct>>();
+		return std::vector<LPtr<IMesh>>();
 	}
 
 	return itImporter->second->LoadFile(strFileName.c_str());

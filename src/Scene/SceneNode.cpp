@@ -14,14 +14,14 @@ Leviathan::SceneNode::~SceneNode()
 
 bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 {
-	if (m_pModelFileVec.size() > 0)
+	if (m_pMeshVec.size() > 0)
 	{
 		LeviathanOutStream << "[WARN] Already load file." << std::endl;
 		return false;
 	}
 
-	m_pModelFileVec = CFileImportFactory::GetFileImportFactory()->LoadFile(szFileName);
-	if (m_pModelFileVec.size() == 0)
+	m_pMeshVec = CFileImportFactory::GetFileImportFactory()->LoadFile(szFileName);
+	if (m_pMeshVec.size() == 0)
 	{
 		LeviathanOutStream << "[WARN] Load file failed." << std::endl;
 		return false;
@@ -30,9 +30,58 @@ bool Leviathan::SceneNode::LoadModelFile(const char* szFileName)
 	return true;
 }
 
-std::vector<Leviathan::LPtr<Leviathan::IModelStruct>> Leviathan::SceneNode::GetModelFileVec() const
+std::vector<Leviathan::LPtr<Leviathan::IMesh>> Leviathan::SceneNode::GetMeshVec() const
 {
-	return m_pModelFileVec;
+	return m_pMeshVec;
+}
+
+bool Leviathan::SceneNode::AddMesh(LPtr<IMesh> pMesh)
+{
+	m_pMeshVec.push_back(pMesh);
+	return true;
+}
+
+bool Leviathan::SceneNode::GetAABB(AABB& out) const
+{
+	AABB _sceneNodeAABB;
+
+	if (m_pMeshVec.size() == 0)
+	{
+		return false;
+	}
+
+	for (const auto& pModelFile : m_pMeshVec)
+	{
+		if (!_sceneNodeAABB.HasSet())
+		{
+			_sceneNodeAABB = pModelFile->GetAABB();
+		}
+
+		else
+		{
+			_sceneNodeAABB = _sceneNodeAABB.Merge(pModelFile->GetAABB());
+		}
+	}
+
+	out = _sceneNodeAABB;
+	return true;
+}
+
+bool Leviathan::SceneNode::GetWorldCoordCenter(float * out) const
+{
+	AABB _sceneNodeAABB;
+	if (!GetAABB(_sceneNodeAABB))
+	{
+		return false;
+	}
+
+	float _modelAABBCenter[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
+	_sceneNodeAABB.GetAABBCenter(_modelAABBCenter);
+	
+	auto worldAABBCenter = Vector4f(_modelAABBCenter) * GetWorldTransform();
+	memcpy(out, worldAABBCenter.GetData(), sizeof(float) * 3);
+
+	return true;
 }
 
 void Leviathan::SceneNode::SetWorldCoord(const Vector3f& coord)

@@ -25,7 +25,7 @@ namespace Leviathan
 	{
 	public:
 		SceneGraph(LPtr<GLPass> pSceneRenderPass);
-		bool AddNode(LPtr<Node<SceneNode>> pNode, bool bAddToPass);
+		bool AddNode(LPtr<Node<SceneNode>> pNode);
 		bool SetSceneNodeTraverseVisitor(LPtr<SceneNodeTraverseVisitor<SceneNode>> pSceneNodeVisitor);
 		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
 		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode);

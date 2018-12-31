@@ -1,21 +1,22 @@
-#include "CModelStruct.h"
+#include "CMesh.h"
 #include "GlobalDef.h"
 
 namespace Leviathan
 {
-	CModelStruct::CModelStruct() : 
-		m_vertexNumber(0),
-		m_triangleNumber(0),
+	CMesh::CMesh(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type) :
+		m_vertexNumber(uVertexCount),
+		m_primitiveNumber(uPrimitiveCount),
 		m_vertexCoords(nullptr),
-		m_triangleIndex(nullptr),
+		m_primitiveIndex(nullptr),
 		m_vertexColorData(nullptr),
 		m_vertexTexData(nullptr),
-		m_pMaterial(nullptr)
+		m_pMaterial(nullptr),
+		m_primitiveType(type)
 	{
 
 	}
 
-	CModelStruct::~CModelStruct()
+	CMesh::~CMesh()
 	{
 		if (m_vertexCoords)
 		{
@@ -23,10 +24,10 @@ namespace Leviathan
 			m_vertexCoords = nullptr;
 		}
 
-		if (m_triangleIndex)
+		if (m_primitiveIndex)
 		{
-			free(m_triangleIndex);
-			m_triangleIndex = nullptr;
+			free(m_primitiveIndex);
+			m_primitiveIndex = nullptr;
 		}
 
 		if (m_vertexColorData)
@@ -42,79 +43,80 @@ namespace Leviathan
 		}
 	}
 
-	unsigned CModelStruct::GetVertexCount()
+	IMesh::EPrimitiveType CMesh::GetPrimitiveType() const
+	{
+		return m_primitiveType;
+	}
+
+	unsigned CMesh::GetVertexCount()
 	{
 		return m_vertexNumber;
 	}
 
-	float* CModelStruct::GetVertex3DCoordArray()
+	float* CMesh::GetVertex3DCoordArray()
 	{
 		return m_vertexCoords;
 	}
 
-	float* CModelStruct::GetVertexColorArray()
+	float* CMesh::GetVertexColorArray()
 	{
 		return m_vertexColorData;
 	}
 
-	float* CModelStruct::GetVertexTexArray()
+	float* CMesh::GetVertexTexArray()
 	{
 		return m_vertexTexData;
 	}
 
-	unsigned CModelStruct::GetTriangleCount()
+	unsigned CMesh::GetPrimitiveCount()
 	{
-		return m_triangleNumber;
+		return m_primitiveNumber;
 	}
 
-	unsigned* CModelStruct::GetTriangleIndexArray()
+	unsigned* CMesh::GetPrimitiveIndexArray()
 	{
-		return m_triangleIndex;
+		return m_primitiveIndex;
 	}
 
-	void CModelStruct::SetVertexCoordData(unsigned uVertexCount, float* vertexCoordData)
+	void CMesh::SetVertexCoordData(float* vertexCoordData)
 	{
-		m_vertexNumber = uVertexCount;
 		m_vertexCoords = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
 
 		memcpy(m_vertexCoords, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void CModelStruct::SetTriangleIndexData(unsigned uTriangleCount, unsigned* triangleIndexData)
+	void CMesh::SetPrimitiveIndexData(unsigned* primitiveIndexData)
 	{
-		m_triangleNumber = uTriangleCount;
-		m_triangleIndex = (unsigned*)malloc(sizeof(unsigned) * 3 * m_triangleNumber);
+		m_primitiveIndex = (unsigned*)malloc(sizeof(unsigned) * 3 * m_primitiveNumber);
 
-		memcpy(m_triangleIndex, triangleIndexData, sizeof(unsigned) * 3 * m_triangleNumber);
+		memcpy(m_primitiveIndex, primitiveIndexData, sizeof(unsigned) * 3 * m_primitiveNumber);
 	}
 
-	void CModelStruct::SetVertexTex2DData(unsigned uVertexCount, float* vertexTexData)
+	void CMesh::SetVertexTex2DData(float* vertexTexData)
 	{
-		m_vertexNumber = uVertexCount;
 		m_vertexTexData = (float*)malloc(sizeof(float) * 2 * m_vertexNumber);
 
 		memcpy(m_vertexTexData, vertexTexData, sizeof(float) * 2 * m_vertexNumber);
 	}
 
-	void CModelStruct::SetVertexColorData(unsigned uVertexCount, float* vertexColorData)
+	void CMesh::SetVertexColorData(float* vertexColorData)
 	{
-		m_vertexNumber = uVertexCount;
 		m_vertexColorData = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
 
 		memcpy(m_vertexColorData, vertexColorData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void CModelStruct::SetMaterial(LPtr<Material> material)
+	void CMesh::SetMaterial(LPtr<Material> material)
 	{
 		m_pMaterial = material;
 	}
 
-	Leviathan::LPtr<Material> CModelStruct::GetMaterial()
+	Leviathan::LPtr<Material> CMesh::GetMaterial()
 	{
 		return m_pMaterial;
 	}
 
-	const Leviathan::AABB& CModelStruct::GetAABB()
+	const Leviathan::AABB& CMesh::GetAABB()
 {
 		if (!m_bAABBInited)
 		{
@@ -127,7 +129,7 @@ namespace Leviathan
 		return m_AABB;
 	}
 
-	bool CModelStruct::_setAABB()
+	bool CMesh::_setAABB()
 {
 		float AABBData[6];
 		bool bInited = false;

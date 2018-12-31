@@ -105,7 +105,7 @@ namespace Leviathan
 
 			if (!pObject->ApplyMaterial(program))
 			{
-				LeviathanOutStream << "[ERROR] Set material failed." << std::endl;
+				LeviathanOutStream << "[DEBUG] Set material failed." << std::endl;
 				bLightEnable = false;
 			}
 

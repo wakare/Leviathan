@@ -155,7 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CModelStruct.cpp" />
+    <ClCompile Include="CMesh.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="KOcTree.cpp" />
@@ -163,14 +163,14 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
     <ClInclude Include="..\..\include\BaseMath.h" />
-    <ClInclude Include="..\..\include\CModelStruct.h" />
+    <ClInclude Include="..\..\include\CMesh.h" />
     <ClInclude Include="..\..\include\DynamicArray.h" />
     <ClInclude Include="..\..\include\Event.h" />
     <ClInclude Include="..\..\include\EventListener.h" />
     <ClInclude Include="..\..\include\EventSystem.h" />
     <ClInclude Include="..\..\include\GeometryCalculator.h" />
     <ClInclude Include="..\..\include\GlobalDef.h" />
-    <ClInclude Include="..\..\include\IModelStruct.h" />
+    <ClInclude Include="..\..\include\IMesh.h" />
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KOcTree.h" />
     <ClInclude Include="..\..\include\KProfile.h" />

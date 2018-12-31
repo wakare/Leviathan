@@ -10,6 +10,7 @@
 #include "SOIL.h"
 #include "PictureObject.h"
 #include "SceneNode.h"
+#include "CMesh.h"
 
 namespace Leviathan
 {
@@ -53,7 +54,6 @@ namespace Leviathan
 		{
 			return;
 		}
-		//m_pMeshPass->SetCullFace(GL_CCW);
 
 		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
@@ -65,6 +65,18 @@ namespace Leviathan
 		{
 			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
 		}
+
+		// Test UpdatePointCloud
+		
+		/*constexpr int uCount = 30;
+		float testPoint[uCount];
+		for (unsigned i = 0; i < uCount; i++)
+		{
+			testPoint[i] = i;
+		}
+
+		PointCloudf points(testPoint, uCount / 3);
+		UpdatePointCloud(points);*/
 	}
 
 	bool CommonScene::_initSceneObject()
@@ -96,12 +108,12 @@ namespace Leviathan
 // 		m_pCamera->LookAt({ 15.0f, 15.0f, 15.0f });
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/2b/lufeng.FBX");
-		//pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
+		//pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/2b/lufeng.FBX");
+		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetModelFileVec(), pSceneNode);
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetMeshVec(), pSceneNode);
 
-		auto& AABB = pSceneNode->GetModelFileVec()[0]->GetAABB();
+		auto& AABB = pSceneNode->GetMeshVec()[0]->GetAABB();
 		float RenderObjectAABBCenter[4] = { 0.0f, 0.0f, 0.0f, 1.0f };
 		if (!AABB.GetAABBCenter(RenderObjectAABBCenter))
 		{
@@ -110,7 +122,7 @@ namespace Leviathan
 		}
 
 		auto pDentalGLObjectVec = pDentalNode->GetGLObject();
-		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), true);
+		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
 		for (auto pDentalGLObject : pDentalGLObjectVec)
 		{
 			pDentalGLObject->SetLightEnable(true);
@@ -192,7 +204,6 @@ namespace Leviathan
 	{
 		pBeginNode = (pBeginNode) ? pBeginNode : m_pSceneGraph->GetRootNode();
 		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode);
-		//m_pSceneGraph->AddSceneOcTreeToGLPass();
 	}
 
 	CommonScene::~CommonScene()
@@ -203,11 +214,14 @@ namespace Leviathan
 	void CommonScene::UpdatePointCloud(PointCloudf& refPoints)
 	{
 		// convert pointCloud to GLObject
-		LPtr<TriDGLObject> pPointCloudObject = new TriDGLObject(GL_POINTS, (*refPoints.m_pCoord).m_pData, refPoints.m_pointCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ);
+		//LPtr<TriDGLObject> pPointCloudObject = new TriDGLObject(GL_POINTS, (*refPoints.m_pCoord).m_pData, refPoints.m_pointCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ);
+		LPtr<CMesh> pMesh = new CMesh(refPoints.m_pointCount, refPoints.m_pointCount, IMesh::EPT_POINTS);
+		pMesh->SetVertexCoordData(refPoints.m_pCoord->m_pData);
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<TriDGLObject, GLObject>(pPointCloudObject), pSceneNode);
-		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), true);
+		pSceneNode->AddMesh(TryCast<CMesh, IMesh>(pMesh));
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<CMesh, IMesh>(pMesh), pSceneNode);
+		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
 
 		_sceneGraphUpdate();
 		_resetCamera();

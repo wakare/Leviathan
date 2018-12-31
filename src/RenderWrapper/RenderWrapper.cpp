@@ -22,8 +22,11 @@ namespace Leviathan
 		}
 
 		// Set Global state
-		glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+		glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// Debug
+		glPointSize(10);
 
 		// Render subProcess
 		for (auto& pGLPass : m_GLPasses)

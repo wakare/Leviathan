@@ -3,55 +3,6 @@
 #include "GeometryCalculator.h"
 #include "TriDGLObject.h"
 
-
-Leviathan::LPtr<Leviathan::GLObject> Leviathan::SceneBase::_convertModelFileToGLObject(LPtr<IModelStruct> modelFile)
-{
-	const unsigned uVertexFloatCount = 10;
-
-	DynamicArray<float> glData(modelFile->GetTriangleCount() * 3 * uVertexFloatCount * sizeof(float));
-
-	static float defaultColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
-	bool bDefaultColor = false;
-
-	auto color = modelFile->GetVertexColorArray();
-	if (!color)
-	{
-		bDefaultColor = true;
-	}
-
-	for (unsigned i = 0; i < modelFile->GetTriangleCount(); i++)
-	{
-		unsigned* vertexIndex = modelFile->GetTriangleIndexArray() + 3 * i;
-		float* vertices[3];
-
-		for (unsigned j = 0; j < 3; j++)
-		{
-			float* vertexCoord = modelFile->GetVertex3DCoordArray() + 3 * vertexIndex[j];
-			vertices[j] = vertexCoord;
-			memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j, vertexCoord, sizeof(float) * 3);
-
-			if (bDefaultColor)
-			{
-				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, defaultColor, sizeof(float) * 4);
-			}
-			else
-			{
-				memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 3, color + 4 * i, sizeof(float) * 4);
-			}
-		}
-
-		float fNormal[3];
-		GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
-
-		for (unsigned j = 0; j < 3; j++)
-		{
-			memcpy(glData.m_pData + 3 * uVertexFloatCount * i + uVertexFloatCount * j + 7, fNormal, sizeof(float) * 3);
-		}
-	}
-
-	return new TriDGLObject(GL_TRIANGLES, glData.m_pData, modelFile->GetTriangleCount() * 3, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ);
-}
-
 Leviathan::LPtr<Leviathan::GLObject> Leviathan::SceneBase::_convertAABBtoGLObject(const AABB& aabb)
 {
 	float fRadius = aabb.GetAABBRadius();

@@ -1,7 +1,7 @@
 #pragma once
 #include "IFileImporter.h"
-#include "CModelStruct.h"
-#include "IModelStruct.h"
+#include "CMesh.h"
+#include "IMesh.h"
 
 namespace Leviathan
 {
@@ -10,7 +10,7 @@ namespace Leviathan
 	public:
 		static LPtr<IFileImporter> GetInstance();
 		std::string TypeName();
-		std::vector<LPtr<IModelStruct>> LoadFile(const char* fileName);
+		std::vector<LPtr<IMesh>> LoadFile(const char* fileName);
 		bool RegisterToFactory();
 
 	private:
