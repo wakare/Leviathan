@@ -1,7 +1,12 @@
 #include <fstream>
 #include <string>
-#include <GL\glew.h>
 #include <sstream>
+
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
+#include "GLCamera.h"
+#include "GLLight.h"
 #include "CCommonScene.h"
 #include "DynamicArray.h"
 #include "CFileImportFactory.h"
@@ -11,6 +16,15 @@
 #include "PictureObject.h"
 #include "SceneNode.h"
 #include "CMesh.h"
+#include "GLCamera.h"
+#include "RenderWrapper.h"
+#include "TriDObjectGLPass.h"
+#include "TriDGLObject.h"
+#include "GLShaderProgram.h"
+#include "IMesh.h"
+#include "SceneGraph.h"
+#include "SceneBase.h"
+
 
 namespace Leviathan
 {
@@ -59,6 +73,27 @@ namespace Leviathan
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
+	CommonScene::~CommonScene()
+	{
+
+	}
+
+	bool CommonScene::_dataUpdate()
+	{
+		m_dataUpdateRequestQueueLock.lock();
+
+		for (auto& request : m_dataUpdateResquestQueue)
+		{
+			request();
+		}
+
+		m_dataUpdateResquestQueue.clear();
+
+		m_dataUpdateRequestQueueLock.unlock();
+
+		return true;
+	}
+
 	bool CommonScene::_firstUpdate()
 	{
 		// Init light
@@ -70,26 +105,32 @@ namespace Leviathan
 // 		}
 
 		// Test UpdatePointCloud
-		constexpr int uCount = 3000;
-		float testPointCoord[3 * uCount];
-		float testPointNormal[3 * uCount];
 
-		constexpr float fMaxRange = 100.0f;
-
-		for (unsigned i = 0; i < uCount; i++)
+		auto _addPointCloud = [this]() 
 		{
-			testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
-			testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
-			testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
+			constexpr int uCount = 3000;
+			float testPointCoord[3 * uCount];
+			float testPointNormal[3 * uCount];
 
-			testPointNormal[3 * i ] = 1.0f;
-			testPointNormal[3 * i + 1] = 0.0f;
-			testPointNormal[3 * i + 2] = 0.0f;
-		}
+			constexpr float fMaxRange = 100.0f;
 
-		PointCloudf points(uCount, testPointCoord/*, testPointNormal*/);
-		UpdatePointCloud(points);
+			for (unsigned i = 0; i < uCount; i++)
+			{
+				testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
+				testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
+				testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
 
+				testPointNormal[3 * i] = 1.0f;
+				testPointNormal[3 * i + 1] = 0.0f;
+				testPointNormal[3 * i + 2] = 0.0f;
+			}
+
+			PointCloudf points(uCount, testPointCoord, testPointNormal);
+			UpdatePointCloud(points);
+		};
+
+		//EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		
 		return true;
 	}
 
@@ -220,11 +261,6 @@ namespace Leviathan
 		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode);
 	}
 
-	CommonScene::~CommonScene()
-	{
-
-	}
-
 	void CommonScene::UpdatePointCloud(PointCloudf& refPoints)
 	{
 		// convert pointCloud to GLObject
@@ -246,7 +282,25 @@ namespace Leviathan
 		float radius;
 		refPoints.GetCenterAndRadius(center, radius);
 
-		_resetCamera(center, radius);
+		_resetCamera(center, 5 * radius);
+	}
+
+	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)
+	{
+		m_dataUpdateRequestQueueLock.lock();
+		m_dataUpdateResquestQueue.push_back(request);
+		m_dataUpdateRequestQueueLock.unlock();
+
+		return true;
+	}
+
+	bool CommonScene::PushDataUpdateRequest(std::vector<DataUpdateRequest> request)
+	{
+		m_dataUpdateRequestQueueLock.lock();
+		m_dataUpdateResquestQueue.insert(m_dataUpdateResquestQueue.end(), request.begin(), request.end());
+		m_dataUpdateRequestQueueLock.unlock();
+
+		return true;
 	}
 
 	void CommonScene::Update()
@@ -258,6 +312,7 @@ namespace Leviathan
 			bFirstUpdate = false;
 		}
 
+		_dataUpdate();
 		m_pRenderWarpper->Render();
 	}
 

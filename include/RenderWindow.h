@@ -1,10 +1,11 @@
 #pragma once
 
 #include <GL\glew.h>
-#include <GLFW\glfw3.h>
 #include <memory>
 #include "LPtr.h"
 #include "EventListener.h"
+
+struct GLFWwindow;
 
 namespace Leviathan
 {
@@ -12,7 +13,7 @@ namespace Leviathan
 	class Event;
 	class CommonScene;
 	class IFileImportFactory;
-
+	
 	class RenderWindow : public EventListener
 	{
 	public:
@@ -25,6 +26,7 @@ namespace Leviathan
 		GLFWwindow* GetGLFWWindow() { return m_pWindow; };
 		GLint GetWidth() { return m_width; };
 		GLint GetHeight() { return m_height; };
+		LPtr<CommonScene> GetScene() { if (m_pScene == nullptr) CreateRenderWindow(); return m_pScene; }
 
 	private:
 		void _updateCameraTransform(Event& event);

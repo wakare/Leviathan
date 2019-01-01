@@ -5,6 +5,9 @@
 #include "CFileImportFactory.h"
 #include "GlobalDef.h"
 #include "ImporterRegister.h"
+#include "GLCamera.h"
+#include "GLLight.h"
+#include <GLFW\glfw3.h>
 
 namespace Leviathan
 {

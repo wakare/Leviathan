@@ -1,11 +1,13 @@
 #pragma once
-#include "GLCamera.h"
+
 #include "LPtr.h"
 #include <vector>
-#include "GLLIght.h"
 
 namespace Leviathan
 {
+	class GLCamera;
+	class GLLight;
+
 	class IScene
 	{
 	public:
