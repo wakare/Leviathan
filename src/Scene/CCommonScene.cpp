@@ -61,14 +61,13 @@ namespace Leviathan
 
 	void CommonScene::_firstUpdate()
 	{
-		if (!_initSceneObject())
-		{
-			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
-		}
+// 		if (!_initSceneObject())
+// 		{
+// 			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
+// 		}
 
 		// Test UpdatePointCloud
-		
-		/*constexpr int uCount = 30;
+		constexpr int uCount = 30;
 		float testPoint[uCount];
 		for (unsigned i = 0; i < uCount; i++)
 		{
@@ -76,7 +75,7 @@ namespace Leviathan
 		}
 
 		PointCloudf points(testPoint, uCount / 3);
-		UpdatePointCloud(points);*/
+		UpdatePointCloud(points);
 	}
 
 	bool CommonScene::_initSceneObject()

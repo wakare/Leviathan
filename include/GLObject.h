@@ -1,5 +1,4 @@
 #pragma once
-#define GLEW_STATIC
 #include <GL\glew.h>
 #include <LPtr.h>
 #include "IGLMaterial.h"

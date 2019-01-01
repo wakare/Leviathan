@@ -2,7 +2,6 @@
 #include "GlobalDef.h"
 namespace Leviathan
 {
-
 	TriDObjectGLPass::TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
 		GLPass(shaderProgram),
 		m_bInited(false),
@@ -103,7 +102,7 @@ namespace Leviathan
 		{
 			bool bLightEnable = m_bLightEnable && pObject->GetLightEnable();
 
-			if (!pObject->ApplyMaterial(program))
+			if (bLightEnable && !pObject->ApplyMaterial(program))
 			{
 				LeviathanOutStream << "[DEBUG] Set material failed." << std::endl;
 				bLightEnable = false;

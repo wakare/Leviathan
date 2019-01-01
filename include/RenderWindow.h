@@ -1,6 +1,5 @@
 #pragma once
 
-#define GLEW_STATIC
 #include <GL\glew.h>
 #include <GLFW\glfw3.h>
 #include <memory>
@@ -17,7 +16,7 @@ namespace Leviathan
 	class RenderWindow : public EventListener
 	{
 	public:
-		RenderWindow(LPtr<EventSystem> pEventSystem, GLint width = 1920, GLint height = 1200, GLchar* pTitle = "RenderWindow");
+		RenderWindow(LPtr<EventSystem> pEventSystem, GLint width = 1920, GLint height = 1200, GLchar* pTitle = "Leviathan");
 		bool CreateRenderWindow();
 		void Run();
 
