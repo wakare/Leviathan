@@ -126,8 +126,29 @@ namespace Leviathan
 	template<class T>
 	inline bool Leviathan::DrawableNode<T>::_convertPointMeshToGLObject(LPtr<IMesh>& pMesh, Leviathan::LPtr<Leviathan::GLObject>& out)
 	{
-		out = new TriDGLObject(GL_POINTS, pMesh->GetVertex3DCoordArray(), pMesh->GetPrimitiveCount(), GLObject::VERTEX_ATTRIBUTE_XYZ);
-		out->SetLightEnable(false);
+		// Check with normal
+		if (pMesh->GetVertexNormalArray())
+		{
+			DynamicArray<float> tempArray(pMesh->GetPrimitiveCount() * 6 * sizeof(float));
+
+			for (unsigned i = 0; i < pMesh->GetPrimitiveCount(); i++)
+			{
+				float* pData = tempArray.m_pData + 6 * i;
+				float* pCoord = pMesh->GetVertex3DCoordArray() + 3 * i;
+				float* pNormal = pMesh->GetVertexNormalArray() + 3 * i;
+
+				memcpy(pData, pCoord, 3 * sizeof(float));
+				memcpy(pData + 3, pNormal, 3 * sizeof(float));
+			}
+
+			out = new TriDGLObject(GL_POINTS, tempArray.m_pData, pMesh->GetPrimitiveCount(), GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_NXYZ);
+		}
+		else
+		{
+			out = new TriDGLObject(GL_POINTS, pMesh->GetVertex3DCoordArray(), pMesh->GetPrimitiveCount(), GLObject::VERTEX_ATTRIBUTE_XYZ);
+			out->SetLightEnable(false);
+		}
+
 		return true;
 	}
 

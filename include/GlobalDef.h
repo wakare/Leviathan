@@ -9,3 +9,4 @@
 #define ANGLE_TO_RADIAN(angle) ((angle) / PI_DOUBLE)
 
 #define EXIT_GET_FALSE(statement) { if (!statement) return false;}
+#define RANDOM_0To1 ((float)(rand()) / RAND_MAX)

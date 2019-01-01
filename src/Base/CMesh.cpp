@@ -58,6 +58,11 @@ namespace Leviathan
 		return m_vertexCoords;
 	}
 
+	float * CMesh::GetVertexNormalArray()
+	{
+		return m_vertexNormal;
+	}
+
 	float* CMesh::GetVertexColorArray()
 	{
 		return m_vertexColorData;
@@ -83,6 +88,13 @@ namespace Leviathan
 		m_vertexCoords = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
 
 		memcpy(m_vertexCoords, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
+	}
+
+	void CMesh::SetVertexNormalData(float * vertexNormalData)
+	{
+		m_vertexNormal = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
+
+		memcpy(m_vertexNormal, vertexNormalData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
 	void CMesh::SetPrimitiveIndexData(unsigned* primitiveIndexData)

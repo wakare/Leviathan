@@ -102,7 +102,7 @@ namespace Leviathan
 		{
 			bool bLightEnable = m_bLightEnable && pObject->GetLightEnable();
 
-			if (bLightEnable && !pObject->ApplyMaterial(program))
+			if (bLightEnable && pObject->HasMaterial() && !pObject->ApplyMaterial(program))
 			{
 				LeviathanOutStream << "[DEBUG] Set material failed." << std::endl;
 				bLightEnable = false;

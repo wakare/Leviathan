@@ -59,33 +59,42 @@ namespace Leviathan
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
-	void CommonScene::_firstUpdate()
+	bool CommonScene::_firstUpdate()
 	{
+		// Init light
+		EXIT_GET_FALSE(_initLight());
+
 // 		if (!_initSceneObject())
 // 		{
 // 			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
 // 		}
 
 		// Test UpdatePointCloud
-		constexpr int uCount = 30;
-		float testPoint[uCount];
+		constexpr int uCount = 3000;
+		float testPointCoord[3 * uCount];
+		float testPointNormal[3 * uCount];
+
+		constexpr float fMaxRange = 100.0f;
+
 		for (unsigned i = 0; i < uCount; i++)
 		{
-			testPoint[i] = i;
+			testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
+			testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
+			testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
+
+			testPointNormal[3 * i ] = 1.0f;
+			testPointNormal[3 * i + 1] = 0.0f;
+			testPointNormal[3 * i + 2] = 0.0f;
 		}
 
-		PointCloudf points(testPoint, uCount / 3);
+		PointCloudf points(uCount, testPointCoord/*, testPointNormal*/);
 		UpdatePointCloud(points);
+
+		return true;
 	}
 
 	bool CommonScene::_initSceneObject()
 	{
-		if (!_initLight())
-		{
-			LeviathanOutStream << "[ERROR] Init light failed." << std::endl;
-			return false;
-		}
-
 // 		float cubeAABB[6] =
 // 		{
 // 			10.0f, 10.0f, 10.0f,
@@ -190,8 +199,14 @@ namespace Leviathan
 		return true;
 	}
 
-	void CommonScene::_resetCamera()
+	void CommonScene::_resetCamera(float* coord/* = nullptr*/, float fDistance /* = -1.0f*/)
 	{
+		if (coord && fDistance > 0.0f)
+		{
+			m_pCamera->LookAt(Vector4f(coord), fDistance);
+			return;
+		}
+
 		auto AABB = m_pSceneGraph->GetAABB();
 		float center[3];
 		AABB.GetAABBCenter(center);
@@ -213,9 +228,12 @@ namespace Leviathan
 	void CommonScene::UpdatePointCloud(PointCloudf& refPoints)
 	{
 		// convert pointCloud to GLObject
-		//LPtr<TriDGLObject> pPointCloudObject = new TriDGLObject(GL_POINTS, (*refPoints.m_pCoord).m_pData, refPoints.m_pointCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ);
 		LPtr<CMesh> pMesh = new CMesh(refPoints.m_pointCount, refPoints.m_pointCount, IMesh::EPT_POINTS);
 		pMesh->SetVertexCoordData(refPoints.m_pCoord->m_pData);
+		if (refPoints.HasNormal())
+		{
+			pMesh->SetVertexNormalData(refPoints.m_pNormal->m_pData);
+		}
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
 		pSceneNode->AddMesh(TryCast<CMesh, IMesh>(pMesh));
@@ -223,7 +241,12 @@ namespace Leviathan
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
 
 		_sceneGraphUpdate();
-		_resetCamera();
+		
+		float center[3];
+		float radius;
+		refPoints.GetCenterAndRadius(center, radius);
+
+		_resetCamera(center, radius);
 	}
 
 	void CommonScene::Update()

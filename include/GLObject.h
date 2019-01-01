@@ -31,6 +31,8 @@ namespace Leviathan
 		{
 		}
 
+		virtual ~GLObject() {};
+
 		GLuint GetVAO() { return m_VAO; }
 		GLuint GetVBO() { return m_VBO; }
 		GLuint GetIBO() { return m_IBO; }
@@ -43,7 +45,8 @@ namespace Leviathan
 		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 
-		virtual ~GLObject() {};
+		GLboolean HasMaterial() const { return m_pCommonGLMaterial != nullptr; }
+		
 		virtual bool Init() = 0;
 		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
 		virtual bool UnApplyMaterial(GLuint shaderProgram) = 0;

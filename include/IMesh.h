@@ -22,6 +22,7 @@ namespace Leviathan
 
 		virtual unsigned*	GetPrimitiveIndexArray() = 0;
 		virtual float*		GetVertex3DCoordArray() = 0;
+		virtual float*		GetVertexNormalArray() = 0;
 		virtual float*		GetVertexColorArray() = 0;
 		virtual float*		GetVertexTexArray() = 0;
 

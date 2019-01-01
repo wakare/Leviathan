@@ -14,10 +14,12 @@ namespace Leviathan
 		unsigned GetPrimitiveCount();
 		unsigned* GetPrimitiveIndexArray();
 		float* GetVertex3DCoordArray();
+		float* GetVertexNormalArray();
 		float* GetVertexColorArray();
 		float* GetVertexTexArray();
 
 		void SetVertexCoordData(float* vertexCoordData);
+		void SetVertexNormalData(float* vertexNormalData);
 		void SetPrimitiveIndexData(unsigned* triangleIndexData);
 		void SetVertexTex2DData(float* vertexTexData);
 		void SetVertexColorData(float* vertexColorData);
@@ -35,6 +37,7 @@ namespace Leviathan
 		unsigned	m_primitiveNumber;
 
 		float*		m_vertexCoords;
+		float*		m_vertexNormal;
 		float*		m_vertexColorData;
 		float*		m_vertexTexData;
 
