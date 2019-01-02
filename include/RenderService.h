@@ -14,6 +14,7 @@ namespace Leviathan
 		LPtr<CommonScene> GetScene();
 		
 		void Run();
+		void AsyncStop();
 
 	private:
 		RenderService();

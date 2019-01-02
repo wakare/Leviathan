@@ -166,10 +166,10 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\RenderService.h" />
+    <ClCompile Include="RenderService.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="RenderService.cpp" />
+    <ClInclude Include="..\..\include\RenderService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -219,7 +219,7 @@ namespace Leviathan
 		float fovy = PI_FLOAT * (45.0f / 180.0f);
 		float fAspect = (1.0f * uWidth) / uHeight;
 		float fNear = 0.01f;
-		float fFar = 10000.0f;
+		float fFar = 100000.0f;
 
 		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
 		if (!m_pCamera)
@@ -295,11 +295,11 @@ namespace Leviathan
 
 		_sceneGraphUpdate(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), false);
 		
-		float center[3];
+		float center[4] = { 1.0f, 1.0f, 1.0f, 1.0f};
 		float radius;
 		refPoints.GetCenterAndRadius(center, radius);
 
-		_resetCamera(center, 5 * radius);
+		_resetCamera(center, 3 * radius);
 	}
 
 	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)

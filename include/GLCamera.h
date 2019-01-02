@@ -211,12 +211,14 @@ namespace Leviathan
 
 		bool LookAt(const Vector3f& worldCoord, float fDistance = 100.0f)
 		{
-			m_fLookAt[0] = worldCoord.x;
-			m_fLookAt[1] = worldCoord.y;
-			m_fLookAt[2] = worldCoord.z;
+			float N[3], V[3], U[3];
+			_GetNUVVector(N, U, V);
 
-			memcpy(m_fEye, m_fLookAt, sizeof(float) * 3);
-			m_fEye[0] -= fDistance;
+			memcpy(m_fLookAt, &worldCoord.x, sizeof(float) * 3);
+			
+			m_fEye[0] = m_fLookAt[0] - fDistance * N[0];
+			m_fEye[1] = m_fLookAt[1] - fDistance * N[1];
+			m_fEye[2] = m_fLookAt[2] - fDistance * N[2];
 
 			return true;
 		}

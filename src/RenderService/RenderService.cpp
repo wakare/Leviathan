@@ -47,4 +47,9 @@ namespace Leviathan
 	{
 		pRenderWindow->Run();
 	}
+
+	void RenderService::AsyncStop()
+	{
+		pRenderWindow->Stop();
+	}
 }

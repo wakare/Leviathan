@@ -36,6 +36,11 @@ namespace Leviathan
 		RegisterImporter();
 	}
 
+	RenderWindow::~RenderWindow()
+	{
+
+	}
+
 	bool RenderWindow::CreateRenderWindow()
 	{
 		m_pWindow = glfwCreateWindow(m_width, m_height, m_pWindowTitle, NULL, NULL);
@@ -90,6 +95,11 @@ namespace Leviathan
 
 		glfwTerminate();
 		return;
+	}
+
+	void RenderWindow::Stop()
+	{
+		glfwSetWindowShouldClose(m_pWindow, true);
 	}
 
 	void RenderWindow::_updateCameraTransform(Event& event)

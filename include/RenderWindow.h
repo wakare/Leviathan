@@ -17,8 +17,11 @@ namespace Leviathan
 	{
 	public:
 		RenderWindow(LPtr<EventSystem> pEventSystem, int width = 1920, int height = 1200, char* pTitle = (char*)"Leviathan");
+		~RenderWindow();
+
 		bool CreateRenderWindow();
 		void Run();
+		void Stop();
 
 		void Accept(Event& event);
 
