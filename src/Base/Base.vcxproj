@@ -183,6 +183,7 @@
     <ClInclude Include="..\..\include\PictureObject.h" />
     <ClInclude Include="..\..\include\PointCloud.h" />
     <ClInclude Include="..\..\include\VectorOperation.h" />
+    <ClInclude Include="PointCloud.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

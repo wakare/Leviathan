@@ -22,8 +22,11 @@ namespace Leviathan
 		bool ApplyMaterial(GLuint shaderProgram);
 		bool UnApplyMaterial(GLuint shaderProgram);
 		bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform);
-
+		
 	private:
+		bool _updateDefaultUseVertexColorUniform(GLuint shaderProgram);
+		bool _updateVertexMaskUniform(GLuint shaderProgram);
+
 		GLfloat* m_pData;
 		GLuint* m_pIndexData;
 		GLuint m_uIndexArrayCount;

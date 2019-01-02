@@ -8,6 +8,9 @@ layout (location = 3) in vec2 textureCoord;
 uniform mat4 modelMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projMatrix;
+uniform vec4 defaultVertexColor = vec4(1.0, 0.0, 0.0, 1.0);
+
+uniform bool UseDefaultVertexColor;
 uniform uint VertexTypeMask;
 
 out vec4 outColor;
@@ -23,6 +26,11 @@ void main()
 	if ((VertexTypeMask & 0x2u) > 0u)
 	{
 		outColor = color;
+	}
+
+	if (UseDefaultVertexColor)
+	{
+		outColor = defaultVertexColor;
 	}
 
 	FragPos = vec3(modelMatrix * vec4(position, 1.0f));

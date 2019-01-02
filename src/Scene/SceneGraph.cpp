@@ -23,12 +23,7 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 
 bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
-	if (!pNode)
-	{
-		LeviathanOutStream << "[ERROR] Add nullptr node." << std::endl;
-		return false;
-	}
-
+	EXIT_GET_FALSE(pNode);
 	m_pRoot->AddChild(pNode);
 
 	return true;
@@ -73,13 +68,17 @@ Leviathan::LPtr<Leviathan::Node<Leviathan::SceneNode>> Leviathan::SceneGraph::Ge
 	return m_pRoot;
 }
 
-void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode)
+void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode, bool bResursive /*= true*/)
 {
 	std::vector<Node<SceneNode>*> sceneNodeVec;
-	if (!_getAllSceneNode(pBeginNode, sceneNodeVec))
+	if (bResursive && !_getAllSceneNode(pBeginNode, sceneNodeVec))
 	{
 		LeviathanOutStream << "[ERROR] Get all drawable node failed." << std::endl;
 		return;
+	}
+	else
+	{
+		sceneNodeVec.push_back(pBeginNode.Get());
 	}
 
 	std::vector<LPtr<IOcTreeNode>> ocTreeNodeVec;

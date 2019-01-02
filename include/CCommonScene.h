@@ -45,7 +45,7 @@ namespace Leviathan
 		bool _initCamera(unsigned width, unsigned height);
 		bool _initLight();
 		void _resetCamera(float* coord = nullptr, float fDistance = -1.0f);
-		void _sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode = nullptr);
+		void _sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
 
 		std::string _getShaderSource(const char* pczShaderSourcePath);
 

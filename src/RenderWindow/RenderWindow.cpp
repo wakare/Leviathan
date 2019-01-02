@@ -1,4 +1,7 @@
 #include <iostream>
+#include <GL/glew.h>
+#include <GLFW/glfw3.h>
+
 #include "RenderWindow.h"
 #include "WindowCallBack.h"
 #include "CCommonScene.h"
@@ -7,11 +10,11 @@
 #include "ImporterRegister.h"
 #include "GLCamera.h"
 #include "GLLight.h"
-#include <GLFW\glfw3.h>
+
 
 namespace Leviathan
 {
-	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, GLint width /*= 800*/, GLint height /*= 600*/, GLchar* pTitle /*= "RenderWindow"*/) :
+	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
 		m_pEventSystem(pEventSystem), 
 		m_pFileImporter(nullptr),
 		m_pScene(nullptr), 

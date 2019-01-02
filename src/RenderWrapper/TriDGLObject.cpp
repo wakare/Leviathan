@@ -111,32 +111,14 @@ namespace Leviathan
 
 	bool TriDGLObject::Render(GLuint shaderProgram)
 	{
-		// Set VertexTypeMask uniform
-		GLint uVertexTypeMaskLocation = glGetUniformLocation(shaderProgram, "VertexTypeMask");
-		if (uVertexTypeMaskLocation == -1)
-		{
-			LeviathanOutStream << "[ERROR] Get uVertexTypeMaskLocation failed." << std::endl;
-			return false;
-		}
-
-		glUniform1ui(uVertexTypeMaskLocation, GetVertexMask());
+		EXIT_GET_FALSE(_updateVertexMaskUniform(shaderProgram));
+		EXIT_GET_FALSE(_updateDefaultUseVertexColorUniform(shaderProgram));
 
 		auto VAO = GetVAO();
-		if (VAO == 0)
-		{
-			return false;
-		}
-
+		EXIT_GET_FALSE(VAO);
 		glBindVertexArray(VAO);
 
-		if (m_bUseIndexArray)
-		{
-			glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0);
-		}
-		else
-		{
-			glDrawArrays(GetPrimType(), 0, GetVertexCount());
-		}
+		m_bUseIndexArray ? (glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0)) : (glDrawArrays(GetPrimType(), 0, GetVertexCount()));
 
 		glBindVertexArray(0);
 
@@ -145,16 +127,6 @@ namespace Leviathan
 
 	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
-// 		if (!m_pCommonGLMaterial)
-// 		{
-// 			m_pCommonGLMaterial = new GLCommonMaterial();
-// 			if (!m_pCommonGLMaterial)
-// 			{
-// 				LeviathanOutStream << "[ERROR] Material init failed." << std::endl;
-// 				return false;
-// 			}
-// 		}
-
 		if (m_pCommonGLMaterial)
 		{
 			return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
@@ -194,6 +166,32 @@ namespace Leviathan
 		modelMatrixUniform->SetData(m_pModelMatrix->GetData(), m_pModelMatrix->GetDataSize());
 
 		return true;
+	}
+
+	bool TriDGLObject::_updateDefaultUseVertexColorUniform(GLuint shaderProgram)
+	{
+		GLint nUseDefaultVertexColorEnableUniformLocation = glGetUniformLocation(shaderProgram, "UseDefaultVertexColor");
+		if (nUseDefaultVertexColorEnableUniformLocation == -1)
+		{
+			LeviathanOutStream << "[ERROR] Get UseDefaultVertexColor uniform failed." << std::endl;
+			return false;
+		}
+
+		glUniform1i(nUseDefaultVertexColorEnableUniformLocation, m_bUseDefaultVertexColor);
+		return true;
+	}
+
+	bool TriDGLObject::_updateVertexMaskUniform(GLuint shaderProgram)
+	{
+		// Set VertexTypeMask uniform
+		GLint uVertexTypeMaskLocation = glGetUniformLocation(shaderProgram, "VertexTypeMask");
+		if (uVertexTypeMaskLocation == -1)
+		{
+			LeviathanOutStream << "[ERROR] Get uVertexTypeMaskLocation failed." << std::endl;
+			return false;
+		}
+
+		glUniform1ui(uVertexTypeMaskLocation, GetVertexMask());
 	}
 
 }

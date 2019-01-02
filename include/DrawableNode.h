@@ -30,13 +30,15 @@ namespace Leviathan
 		bool _convertPointMeshToGLObject(LPtr<IMesh>& pMesh, LPtr<GLObject>& out);
 		bool _convertTriangleMeshToGLObject(LPtr<IMesh>& pMesh, LPtr<GLObject>& out);
 
+		bool m_bRegisterState;
 		std::vector<LPtr<IMesh>> m_pMeshVec;
 		std::vector<LPtr<GLObject>> m_pGLObjectVec;
 	};
 
 	template<class T>
 	inline Leviathan::DrawableNode<T>::DrawableNode(LPtr<IMesh> pModel, LPtr<T> pNode) :
-		Node(pNode)
+		Node(pNode), 
+		m_bRegisterState(false)
 	{
 		m_pMeshVec.push_back(pModel);
 	}
@@ -44,14 +46,16 @@ namespace Leviathan
 	template<class T>
 	inline Leviathan::DrawableNode<T>::DrawableNode(std::vector<LPtr<IMesh>> pModelVec, LPtr<T> pNode):
 		m_pMeshVec(pModelVec),
-		Node<T>(pNode)
+		Node<T>(pNode),
+		m_bRegisterState(false)
 	{
 		m_pMeshVec.insert(m_pMeshVec.end(), pModelVec.begin(), pModelVec.end());
 	}
 
 	template<class T>
 	inline Leviathan::DrawableNode<T>::DrawableNode(LPtr<GLObject> pGLObject, LPtr<T> pNode) :
-		Node<T>(pNode)
+		Node<T>(pNode),
+		m_bRegisterState(false)
 	{
 		m_pGLObjectVec.push_back(pGLObject);
 	}
@@ -275,6 +279,11 @@ namespace Leviathan
 	template<class T>
 	inline bool DrawableNode<T>::RegisterSelfToGLPass(GLPass& refPass)
 	{
+		if (m_bRegisterState)
+		{
+			return true;
+		}
+
 		if (m_pGLObjectVec.size() == 0)
 		{
 			m_pGLObjectVec = _convertMeshToGLObject();
@@ -290,6 +299,8 @@ namespace Leviathan
 			refPass.AddGLObject(pGLObject);
 		}
 		
+		m_bRegisterState = true;
+
 		return true;
 	}
 };

@@ -20,6 +20,7 @@ namespace Leviathan
 
 		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr) :
 			m_bLightEnable(true),
+			m_bUseDefaultVertexColor(false),
 			m_VAO(0), 
 			m_VBO(0), 
 			m_IBO(0),
@@ -44,7 +45,7 @@ namespace Leviathan
 		void SetModelMatrix(const Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Matrix4f(); } m_pModelMatrix->SetData(refModelMatrix.GetData()); }
 		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
-
+		void SetDefaultVertexColorEnable(bool bUseDefaultVertexColor) { m_bUseDefaultVertexColor = bUseDefaultVertexColor; }
 		GLboolean HasMaterial() const { return m_pCommonGLMaterial != nullptr; }
 		
 		virtual bool Init() = 0;
@@ -55,6 +56,8 @@ namespace Leviathan
 
 	protected:
 		GLboolean m_bLightEnable;
+		GLboolean m_bUseDefaultVertexColor;
+
 		GLuint m_VAO;
 		GLuint m_VBO;
 		GLuint m_IBO;

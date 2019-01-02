@@ -2,6 +2,7 @@
 #include "VectorOperation.h"
 #include "BaseMath.h"
 #include "GlobalDef.h"
+#include <gl/glew.h>
 #include <memory>
 #include <iostream>
 

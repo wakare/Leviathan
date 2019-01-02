@@ -93,5 +93,8 @@
     <ClInclude Include="..\..\include\PictureObject.h">
       <Filter>Tool</Filter>
     </ClInclude>
+    <ClInclude Include="PointCloud.hpp">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -44,7 +44,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "src\Scene\Scene.vc
 		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderService", "RenderService\RenderService.vcxproj", "{219B5E82-ECFD-46A3-9920-D6757D2110CC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderService", "src\RenderService\RenderService.vcxproj", "{219B5E82-ECFD-46A3-9920-D6757D2110CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

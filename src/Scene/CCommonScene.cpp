@@ -129,7 +129,8 @@ namespace Leviathan
 			UpdatePointCloud(points);
 		};
 
-		//EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
 		
 		return true;
 	}
@@ -255,14 +256,23 @@ namespace Leviathan
 		m_pCamera->LookAt(Vector4f(center), AABB.GetAABBRadius() * 2.0f);
 	}
 
-	void CommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode)
+	void CommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
 	{
 		pBeginNode = (pBeginNode) ? pBeginNode : m_pSceneGraph->GetRootNode();
-		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode);
+		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode, bResursive);
 	}
 
 	void CommonScene::UpdatePointCloud(PointCloudf& refPoints)
 	{
+		static std::vector<LPtr<GLObject>> _lastAddPointCloud;
+
+		// Set last add pointCloudColor
+		for (auto& pPointCloud : _lastAddPointCloud)
+		{
+			pPointCloud->SetDefaultVertexColorEnable(false);
+			pPointCloud->SetLightEnable(true);
+		}
+
 		// convert pointCloud to GLObject
 		LPtr<CMesh> pMesh = new CMesh(refPoints.m_pointCount, refPoints.m_pointCount, IMesh::EPT_POINTS);
 		pMesh->SetVertexCoordData(refPoints.m_pCoord->m_pData);
@@ -275,8 +285,15 @@ namespace Leviathan
 		pSceneNode->AddMesh(TryCast<CMesh, IMesh>(pMesh));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<CMesh, IMesh>(pMesh), pSceneNode);
 		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
+		
+		_lastAddPointCloud = pDentalNode->GetGLObject();
+		for (auto& pPointCloud : _lastAddPointCloud)
+		{
+			pPointCloud->SetDefaultVertexColorEnable(true);
+			pPointCloud->SetLightEnable(false);
+		}
 
-		_sceneGraphUpdate();
+		_sceneGraphUpdate(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), false);
 		
 		float center[3];
 		float radius;
