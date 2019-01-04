@@ -1,6 +1,5 @@
 #include "SceneNodeSearchVisitor.h"
 
-
 namespace Leviathan
 {
 	template<class T>

@@ -11,7 +11,7 @@ namespace Leviathan
 	class GLCamera
 	{
 	private:
-		void _GetNUVVector(float* N, float* U, float* V)
+		void _getNUVVector(float* N, float* U, float* V)
 		{
 			N[0] = m_fLookAt[0] - m_fEye[0];
 			N[1] = m_fLookAt[1] - m_fEye[1];
@@ -20,6 +20,24 @@ namespace Leviathan
 			Normalize<float, 3>(N);
 			Vec3Cross(m_fUp, N, U, true);
 			Vec3Cross(N, U, V, true);
+		}
+
+		float _getDistance()
+		{
+			float fDistance[3] =
+			{
+				m_fLookAt[0] - m_fEye[0],
+				m_fLookAt[1] - m_fEye[1],
+				m_fLookAt[2] - m_fEye[2],
+			};
+
+			return sqrtf(fDistance[0] * fDistance[0] + fDistance[1] * fDistance[1] + fDistance[2] * fDistance[2]);
+		}
+
+		bool _updateCurrentDistance(float newDistance = -1.0f)
+		{
+			m_currentDistance = (newDistance > 0.0f) ? newDistance : _getDistance();
+			return true;
 		}
 
 	public:
@@ -48,7 +66,7 @@ namespace Leviathan
 			float U[3];
 			float V[3];
 
-			_GetNUVVector(N, U, V);
+			_getNUVVector(N, U, V);
 
 			float data[16] =
 			{
@@ -84,7 +102,7 @@ namespace Leviathan
 			float U[3];
 			float V[3];
 
-			_GetNUVVector(N, U, V);
+			_getNUVVector(N, U, V);
 			memcpy(m_fUp, V, sizeof(float) * 3);
 
 			float newEyeCoord[3] =
@@ -108,6 +126,7 @@ namespace Leviathan
 			}
 
 			memcpy(m_fEye, newEyeCoord, sizeof(float) * 3);
+			_updateCurrentDistance();
 		}
 
 		void MouseTranslate(float x, float y, float z)
@@ -125,7 +144,7 @@ namespace Leviathan
 			float U[3];
 			float V[3];
 
-			_GetNUVVector(N, U, V);
+			_getNUVVector(N, U, V);
 			memcpy(m_fUp, V, sizeof(float) * 3);
 
 			float RotateVec[3] =
@@ -209,16 +228,17 @@ namespace Leviathan
 			_updateCameraAttribute(m_fUp, rotateMatrix);
 		}
 
-		bool LookAt(const Vector3f& worldCoord, float fDistance = 100.0f)
+		bool LookAt(const Vector3f& worldCoord, float fDistance /*= 100.0f*/)
 		{
 			float N[3], V[3], U[3];
-			_GetNUVVector(N, U, V);
+			_getNUVVector(N, U, V);
 
 			memcpy(m_fLookAt, &worldCoord.x, sizeof(float) * 3);
-			
-			m_fEye[0] = m_fLookAt[0] - fDistance * N[0];
-			m_fEye[1] = m_fLookAt[1] - fDistance * N[1];
-			m_fEye[2] = m_fLookAt[2] - fDistance * N[2];
+			_updateCurrentDistance(fDistance);
+
+			m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];
+			m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
+			m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
 
 			return true;
 		}
@@ -243,6 +263,7 @@ namespace Leviathan
 		float m_fAspect;
 		float m_fZNear;
 		float m_fZFar;
+		float m_currentDistance;
 		const float m_minDistanceOfCameraToLookAt;
 		float m_mouseOperationScaleRatio;
 	};

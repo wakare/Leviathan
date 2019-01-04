@@ -26,7 +26,7 @@ namespace Leviathan
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 		// Debug
-		glPointSize(3);
+		glPointSize(1);
 
 		// Render subProcess
 		for (auto& pGLPass : m_GLPasses)

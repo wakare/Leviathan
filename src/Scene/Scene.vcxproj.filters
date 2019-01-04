@@ -30,6 +30,9 @@
     <ClCompile Include="SceneOcTree.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="SceneHelper.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\IScene.h">
@@ -60,6 +63,9 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\CCommonScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneHelper.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,13 +13,14 @@ namespace Leviathan
 		~SceneNode();
 
 		bool LoadModelFile(const char* szFileName);
-		std::vector<Leviathan::LPtr<Leviathan::IMesh>> GetMeshVec() const;
-		bool AddMesh(LPtr<IMesh> pMesh);
 		bool GetAABB(AABB& out) const;
 		bool GetWorldCoordCenter(float* out) const;
-		void SetWorldCoord(const Vector3f& coord);
 		const Vector3f& GetWorldCoord() const;
 		Matrix4f GetWorldTransform() const;
+		std::vector<Leviathan::LPtr<Leviathan::IMesh>> GetMeshVec() const;
+		
+		bool AddMesh(LPtr<IMesh> pMesh);
+		void SetWorldCoord(const Vector3f& coord);
 
 	private:
 		SceneNode(const SceneNode& rhs) = delete;

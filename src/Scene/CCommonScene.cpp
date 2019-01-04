@@ -23,13 +23,9 @@
 #include "GLShaderProgram.h"
 #include "IMesh.h"
 #include "SceneGraph.h"
-#include "SceneBase.h"
-
 
 namespace Leviathan
 {
-	using namespace SceneBase;
-
 	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
 		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
@@ -78,6 +74,16 @@ namespace Leviathan
 
 	}
 
+	Leviathan::GLCamera& CommonScene::GetCamera()
+	{
+		return *m_pCamera;
+	}
+
+	const std::vector<Leviathan::LPtr<Leviathan::GLLight>>& CommonScene::GetLightVec() const
+	{
+		return m_pLights;
+	}
+
 	bool CommonScene::_dataUpdate()
 	{
 		m_dataUpdateRequestQueueLock.lock();
@@ -99,38 +105,40 @@ namespace Leviathan
 		// Init light
 		EXIT_GET_FALSE(_initLight());
 
-// 		if (!_initSceneObject())
-// 		{
-// 			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
-// 		}
+		if (!_initSceneObject())
+		{
+			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
+		}
+
+		_resetCamera();
 
 		// Test UpdatePointCloud
 
-		auto _addPointCloud = [this]() 
-		{
-			constexpr int uCount = 3000;
-			float testPointCoord[3 * uCount];
-			float testPointNormal[3 * uCount];
+		//auto _addPointCloud = [this]()
+		//{
+		//	constexpr int uCount = 3000;
+		//	float testPointCoord[3 * uCount];
+		//	float testPointNormal[3 * uCount];
 
-			constexpr float fMaxRange = 100.0f;
+		//	constexpr float fMaxRange = 100.0f;
 
-			for (unsigned i = 0; i < uCount; i++)
-			{
-				testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
-				testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
-				testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
+		//	for (unsigned i = 0; i < uCount; i++)
+		//	{
+		//		testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
+		//		testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
+		//		testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
 
-				testPointNormal[3 * i] = 1.0f;
-				testPointNormal[3 * i + 1] = 0.0f;
-				testPointNormal[3 * i + 2] = 0.0f;
-			}
+		//		testPointNormal[3 * i] = 1.0f;
+		//		testPointNormal[3 * i + 1] = 0.0f;
+		//		testPointNormal[3 * i + 2] = 0.0f;
+		//	}
 
-			PointCloudf points(uCount, testPointCoord, testPointNormal);
-			UpdatePointCloud(points);
-		};
+		//	PointCloudf points(uCount, testPointCoord, testPointNormal);
+		//	UpdatePointCloud(points);
+		//};
 
-		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
-		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		//EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		//EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
 		
 		return true;
 	}
@@ -159,7 +167,7 @@ namespace Leviathan
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
 		//pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/2b/lufeng.FBX");
-		pSceneNode->LoadModelFile("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
+		pSceneNode->LoadModelFile("C:/Users/wangjie/Documents/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.FBX");
 		pSceneNode->SetWorldCoord(Vector3f(-100.0f, 100.0f, 10.0f));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(pSceneNode->GetMeshVec(), pSceneNode);
 
@@ -243,17 +251,18 @@ namespace Leviathan
 
 	void CommonScene::_resetCamera(float* coord/* = nullptr*/, float fDistance /* = -1.0f*/)
 	{
-		if (coord && fDistance > 0.0f)
+		if (!coord)
+		{
+			auto AABB = m_pSceneGraph->GetAABB();
+			float center[3];
+			AABB.GetAABBCenter(center);
+
+			m_pCamera->LookAt(Vector4f(center), fDistance);
+		}
+		else
 		{
 			m_pCamera->LookAt(Vector4f(coord), fDistance);
-			return;
 		}
-
-		auto AABB = m_pSceneGraph->GetAABB();
-		float center[3];
-		AABB.GetAABBCenter(center);
-
-		m_pCamera->LookAt(Vector4f(center), AABB.GetAABBRadius() * 2.0f);
 	}
 
 	void CommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
@@ -299,7 +308,7 @@ namespace Leviathan
 		float radius;
 		refPoints.GetCenterAndRadius(center, radius);
 
-		_resetCamera(center, 3 * radius);
+		_resetCamera(center);
 	}
 
 	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)

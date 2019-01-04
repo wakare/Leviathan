@@ -4,6 +4,7 @@
 #include "PointCloud.h"
 #include "LPtr.h"
 #include <mutex>
+#include <vector>
 
 struct GLFWwindow;
 
@@ -14,7 +15,9 @@ namespace Leviathan
 	class TriDObjectGLPass;
 	class GLShaderProgram;
 	class SceneGraph;
-	
+	class GLCamera;
+	class GLLight;
+
 	template <typename T>
 	class Node;
 
@@ -27,6 +30,9 @@ namespace Leviathan
 		~CommonScene();
 
 		// User interface
+		GLCamera& GetCamera();
+		const std::vector<LPtr<GLLight>>& GetLightVec() const;
+
 		void UpdatePointCloud(PointCloudf& pPoints);
 		bool PushDataUpdateRequest(DataUpdateRequest request);
 		bool PushDataUpdateRequest(std::vector<DataUpdateRequest> request);
@@ -50,6 +56,8 @@ namespace Leviathan
 		std::string _getShaderSource(const char* pczShaderSourcePath);
 
 		GLFWwindow* m_pGLFWWindow;
+		LPtr<GLCamera> m_pCamera;
+		std::vector<LPtr<GLLight>> m_pLights;
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;

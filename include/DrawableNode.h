@@ -145,7 +145,9 @@ namespace Leviathan
 				memcpy(pData + 3, pNormal, 3 * sizeof(float));
 			}
 
-			out = new TriDGLObject(GL_POINTS, tempArray.m_pData, pMesh->GetPrimitiveCount(), GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_NXYZ);
+			LPtr<GLCommonMaterial> defaultPointMateial = new GLCommonMaterial({ 0.2f, 0.2f, 0.2f }, { 0.3f, 0.3f, 0.3f }, {1.0f, 1.0f, 1.0f}, 32.0f);
+
+			out = new TriDGLObject(GL_POINTS, tempArray.m_pData, pMesh->GetPrimitiveCount(), GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_NXYZ, nullptr, defaultPointMateial);
 		}
 		else
 		{

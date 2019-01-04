@@ -187,6 +187,13 @@ std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const
 {
 	Assimp::Importer importer;
 	const aiScene* importerScene = importer.ReadFile(strFileName, aiProcessPreset_TargetRealtime_Fast);
+	if (importerScene == nullptr)
+	{
+		LeviathanOutStream << "[INFO] Load file failed.";
+
+		throw "exception";
+		return std::vector<LPtr<IMesh>>();
+	}
 
 	auto lastOfDotIndex = strFileName.find_last_of("/\\");
 	std::string absDirectoryPath;

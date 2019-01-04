@@ -50,6 +50,6 @@ namespace Leviathan
 
 	void RenderService::AsyncStop()
 	{
-		pRenderWindow->Stop();
+		pRenderWindow->SyncStop();
 	}
 }

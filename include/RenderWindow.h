@@ -16,12 +16,12 @@ namespace Leviathan
 	class RenderWindow : public EventListener
 	{
 	public:
-		RenderWindow(LPtr<EventSystem> pEventSystem, int width = 1920, int height = 1200, char* pTitle = (char*)"Leviathan");
+		RenderWindow(LPtr<EventSystem> pEventSystem, int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
 		~RenderWindow();
 
 		bool CreateRenderWindow();
 		void Run();
-		void Stop();
+		void SyncStop();
 
 		void Accept(Event& event);
 
@@ -38,6 +38,7 @@ namespace Leviathan
 		int m_width;
 		int m_height;
 		char* m_pWindowTitle;
+		bool m_bRunning;
 
 		GLFWwindow* m_pWindow;
 		LPtr<CommonScene> m_pScene;

@@ -11,7 +11,6 @@
 #include "GLCamera.h"
 #include "GLLight.h"
 
-
 namespace Leviathan
 {
 	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
@@ -21,7 +20,8 @@ namespace Leviathan
 		m_width(width), 
 		m_height(height), 
 		m_pWindowTitle(pTitle),
-		m_pWindow(nullptr)
+		m_pWindow(nullptr),
+		m_bRunning(false)
 	{
 		if (GLFW_FALSE == glfwInit())
 		{
@@ -73,6 +73,8 @@ namespace Leviathan
 
 	void RenderWindow::Run()
 	{
+		m_bRunning = true;
+
 		if (!m_pWindow)
 		{
 			if (!CreateRenderWindow())
@@ -93,13 +95,18 @@ namespace Leviathan
 			}
 		}
 
+		m_bRunning = false;
 		glfwTerminate();
 		return;
 	}
 
-	void RenderWindow::Stop()
+	void RenderWindow::SyncStop()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
+		while (m_bRunning)
+		{
+			Sleep(100);
+		}
 	}
 
 	void RenderWindow::_updateCameraTransform(Event& event)

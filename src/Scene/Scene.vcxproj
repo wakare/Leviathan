@@ -158,6 +158,7 @@
     <ClCompile Include="CCommonScene.cpp" />
     <ClCompile Include="SceneBase.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
+    <ClCompile Include="SceneHelper.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SceneOcTree.cpp" />
   </ItemGroup>
@@ -172,6 +173,7 @@
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.h" />
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.hpp" />
     <ClInclude Include="..\..\include\SceneOcTree.h" />
+    <ClInclude Include="SceneHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

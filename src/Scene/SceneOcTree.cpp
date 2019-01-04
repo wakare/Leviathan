@@ -1,5 +1,5 @@
 #include "SceneOcTree.h"
-#include "SceneBase.h"
+#include "SceneHelper.h"
 
 bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 {
@@ -22,7 +22,7 @@ bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 		};
 
 		AABB _aabb(temp);
-		auto _aabbGLObject = SceneBase::_convertAABBtoGLObject(_aabb);
+		auto _aabbGLObject = SceneHelper::_convertAABBtoGLObject(_aabb);
 		_aabbGLObject->SetLightEnable(false);
 		pass.AddGLObject(_aabbGLObject);
 	}
