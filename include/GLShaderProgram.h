@@ -15,7 +15,12 @@ namespace Leviathan
 			m_pczFragmentShader(pczFragmentShader),
 			m_pczGeomShader(pczGeomShader),
 			m_bInited(false)
-		{};
+		{
+			if (!Init())
+			{
+				throw "exception";
+			}
+		};
 
 		bool Init();
 		bool SetGLUniformState();

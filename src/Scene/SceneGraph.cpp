@@ -68,8 +68,10 @@ Leviathan::LPtr<Leviathan::Node<Leviathan::SceneNode>> Leviathan::SceneGraph::Ge
 	return m_pRoot;
 }
 
-void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode, bool bResursive /*= true*/)
+void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
 {
+	pBeginNode = (pBeginNode) ? pBeginNode : m_pRoot;
+
 	std::vector<Node<SceneNode>*> sceneNodeVec;
 	if (bResursive && !_getAllSceneNode(pBeginNode, sceneNodeVec))
 	{

@@ -3,6 +3,7 @@
 #include <memory>
 #include "LPtr.h"
 #include "EventListener.h"
+#include "IScene.h"
 
 struct GLFWwindow;
 
@@ -16,7 +17,7 @@ namespace Leviathan
 	class RenderWindow : public EventListener
 	{
 	public:
-		RenderWindow(LPtr<EventSystem> pEventSystem, int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
+		RenderWindow(LPtr<EventSystem> pEventSystem, IScene::ESceneType sceneType = IScene::EST_POINTCLOUD, int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
 		~RenderWindow();
 
 		bool CreateRenderWindow();
@@ -41,6 +42,7 @@ namespace Leviathan
 		bool m_bRunning;
 
 		GLFWwindow* m_pWindow;
+		IScene::ESceneType m_sceneType;
 		LPtr<CommonScene> m_pScene;
 		LPtr<EventSystem> m_pEventSystem;
 		LPtr<IFileImportFactory> m_pFileImporter;

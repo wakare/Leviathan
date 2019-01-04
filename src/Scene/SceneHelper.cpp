@@ -1,7 +1,11 @@
+#include <fstream>
+#include <sstream>
+
 #include "SceneHelper.h"
 #include "AABB.h"
 #include "TriDGLObject.h"
 #include "DynamicArray.h"
+#include "GLShaderProgram.h"
 
 namespace Leviathan
 {
@@ -86,4 +90,32 @@ namespace Leviathan
 		return new TriDGLObject(GL_POINTS, pArray.m_pData, uVertexCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
 
 	}
+
+	bool SceneHelper::_initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath, LPtr<GLShaderProgram>& outResult)
+	{
+		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
+		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
+
+		const char* pczVertexShaderSource = strVertexShader.c_str();
+		const char* pczFragmentShaderSource = strFragmentShader.c_str();
+
+		outResult = new GLShaderProgram(&pczVertexShaderSource, &pczFragmentShaderSource, nullptr);
+		return true;
+	}
+
+	std::string SceneHelper::_getShaderSource(const char* pczShaderSourcePath)
+	{
+		std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
+		if (!shaderSourceFileStream.is_open())
+		{
+			throw "std::string Scene::_getShaderSource(const char* pczShaderSourcePath) --> Invalid ShaderSource paths.";
+			return std::string();
+		}
+
+		std::stringstream strStream;
+		strStream << shaderSourceFileStream.rdbuf();
+
+		return strStream.str();
+	}
+
 }

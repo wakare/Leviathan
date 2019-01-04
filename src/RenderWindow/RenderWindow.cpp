@@ -4,16 +4,18 @@
 
 #include "RenderWindow.h"
 #include "WindowCallBack.h"
-#include "CCommonScene.h"
+#include "CommonScene.h"
+#include "PointCloudScene.h"
 #include "CFileImportFactory.h"
 #include "GlobalDef.h"
 #include "ImporterRegister.h"
 #include "GLCamera.h"
 #include "GLLight.h"
+#include "TriDScene.h"
 
 namespace Leviathan
 {
-	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
+	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, IScene::ESceneType sceneType, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
 		m_pEventSystem(pEventSystem), 
 		m_pFileImporter(nullptr),
 		m_pScene(nullptr), 
@@ -21,7 +23,8 @@ namespace Leviathan
 		m_height(height), 
 		m_pWindowTitle(pTitle),
 		m_pWindow(nullptr),
-		m_bRunning(false)
+		m_bRunning(false),
+		m_sceneType(sceneType)
 	{
 		if (GLFW_FALSE == glfwInit())
 		{
@@ -59,7 +62,24 @@ namespace Leviathan
 			return false;
 		}
 
-		m_pScene = new CommonScene(m_pWindow, GetWidth(), GetHeight());
+		switch (m_sceneType)
+		{
+		case Leviathan::IScene::EST_COMMON:
+			m_pScene = new CommonScene(m_pWindow, GetWidth(), GetHeight());
+			break;
+
+		case Leviathan::IScene::EST_POINTCLOUD:
+			m_pScene = new PointCloudScene(m_pWindow, GetWidth(), GetHeight());
+			break;
+
+		case Leviathan::IScene::EST_TRID:
+			m_pScene = new TriDScene(m_pWindow, GetWidth(), GetHeight());
+			break;
+
+		default:
+			break;
+		};
+
 		if (!m_pScene)
 		{
 			throw "RenderWrapper init failed.";

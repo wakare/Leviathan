@@ -3,7 +3,7 @@
 #include <iostream>
 #include "RenderWindow.h"
 #include "EventSystem.h"
-#include "CCommonScene.h"
+#include "CommonScene.h"
 #include <mutex>
 
 namespace Leviathan

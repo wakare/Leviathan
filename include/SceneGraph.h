@@ -29,7 +29,7 @@ namespace Leviathan
 		bool SetSceneNodeTraverseVisitor(LPtr<SceneNodeTraverseVisitor<SceneNode>> pSceneNodeVisitor);
 		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
 		void AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode);
-		void AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode, bool bResursive = true);
+		void AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
 		bool AddSceneOcTreeToGLPass();
 		AABB GetAABB() const;
 		LPtr<Node<SceneNode>> GetRootNode() const;

@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_External", "0_External", "{8C2F0A23-4913-4603-8F3A-90FEC651BB69}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_LeviathanBase", "1_LeviathanBase", "{77840663-B0DF-4184-95BB-8F7957820628}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_LeviathanBaseLibrary", "1_LeviathanBaseLibrary", "{77840663-B0DF-4184-95BB-8F7957820628}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_LeviathanApplication", "2_LeviathanApplication", "{47E0B754-34D6-499A-AC21-EDD064A4E6B7}"
 EndProject

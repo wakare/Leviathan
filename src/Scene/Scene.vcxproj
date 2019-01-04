@@ -155,17 +155,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="CCommonScene.cpp" />
-    <ClCompile Include="SceneBase.cpp" />
+    <ClCompile Include="CommonScene.cpp" />
+    <ClCompile Include="PointCloudScene.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SceneHelper.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SceneOcTree.cpp" />
+    <ClCompile Include="TriDScene.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CCommonScene.h" />
+    <ClInclude Include="..\..\include\CommonScene.h" />
     <ClInclude Include="..\..\include\IScene.h" />
-    <ClInclude Include="..\..\include\SceneBase.h" />
+    <ClInclude Include="..\..\include\PointCloudScene.h" />
     <ClInclude Include="..\..\include\SceneGraph.h" />
     <ClInclude Include="..\..\include\SceneNode.h" />
     <ClInclude Include="..\..\include\SceneNodeSearchVisitor.h" />
@@ -173,6 +174,7 @@
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.h" />
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.hpp" />
     <ClInclude Include="..\..\include\SceneOcTree.h" />
+    <ClInclude Include="..\..\include\TriDScene.h" />
     <ClInclude Include="SceneHelper.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

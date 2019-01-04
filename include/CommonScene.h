@@ -33,27 +33,19 @@ namespace Leviathan
 		GLCamera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 
-		void UpdatePointCloud(PointCloudf& pPoints);
 		bool PushDataUpdateRequest(DataUpdateRequest request);
 		bool PushDataUpdateRequest(std::vector<DataUpdateRequest> request);
 		
 		void Update();
 
-	private:
-		CommonScene(const CommonScene& rhs);
-		CommonScene(const CommonScene&& rhs) = delete;
-		CommonScene& operator=(const CommonScene& rhs) = delete;
-
+	protected:
 		bool _dataUpdate();
-		bool _firstUpdate();
-		bool _initSceneObject();
-		bool _initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath);		
+		virtual bool _firstUpdate();
+		virtual bool _initSceneObject();	
 		bool _initCamera(unsigned width, unsigned height);
 		bool _initLight();
 		void _resetCamera(float* coord = nullptr, float fDistance = -1.0f);
 		void _sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
-
-		std::string _getShaderSource(const char* pczShaderSourcePath);
 
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<GLCamera> m_pCamera;
