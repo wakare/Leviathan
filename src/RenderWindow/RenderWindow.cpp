@@ -130,26 +130,29 @@ namespace Leviathan
 
 	void RenderWindow::_updateCameraTransform(Event& event)
 	{
-#pragma region Update transform
+		// Update transform
 		float fTranslate[3] = { 0.0f };
-		if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_W)
+		if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT))
 		{
-			fTranslate[1] += 0.02f;
-		}
+			if (event.m_code == Event::InputCode::KEY_W)
+			{
+				fTranslate[1] += 0.02f;
+			}
 
-		if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_S)
-		{
-			fTranslate[1] -= 0.02f;
-		}
+			if (event.m_code == Event::InputCode::KEY_S)
+			{
+				fTranslate[1] -= 0.02f;
+			}
 
-		if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_A)
-		{
-			fTranslate[0] += 0.02f;
-		}
+			if (event.m_code == Event::InputCode::KEY_A)
+			{
+				fTranslate[0] += 0.02f;
+			}
 
-		if ((event.m_action == Event::InputAction::KEYDOWN || event.m_action == Event::InputAction::REPERT) && event.m_code == Event::InputCode::KEY_D)
-		{
-			fTranslate[0] -= 0.02f;
+			if (event.m_code == Event::InputCode::KEY_D)
+			{
+				fTranslate[0] -= 0.02f;
+			}
 		}
 
 		if ((event.m_action == Event::InputAction::SCROLL))
@@ -161,24 +164,16 @@ namespace Leviathan
 		{
 			m_pScene->GetCamera().MouseTranslate(fTranslate[0], fTranslate[1], fTranslate[2]);
 		}
-#pragma endregion
 
-#pragma region update camera rotation
+		// Update camera rotation
 		float fRotate[3] = { 0.0f, 0.0f, 0.0f };
 		static MouseCoord lastMouseXY = MouseCoord(-1, -1);
 
-		static bool bMouseDown = false;
-		if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_LBUTTON)
-		{
-			bMouseDown = true;
-		}
+		static bool bLMouseDown = false;
+		if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_LBUTTON) bLMouseDown = true; 
+		if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_LBUTTON) bLMouseDown = false; 
 
-		if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_LBUTTON)
-		{
-			bMouseDown = false;
-		}
-
-		if (bMouseDown)
+		if (bLMouseDown)
 		{
 			if (lastMouseXY.x >= 0 && lastMouseXY.y >= 0)
 			{
@@ -190,8 +185,23 @@ namespace Leviathan
 			}
 		}
 
+		static bool bMMouseDown = false;
+		if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_SCROLLBUTTON) bMMouseDown = true;
+		if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_SCROLLBUTTON) bMMouseDown = false;
+
+		if (bMMouseDown)
+		{
+			if (lastMouseXY.x >= 0 && lastMouseXY.y >= 0)
+			{
+				float delta[2] = { event.m_mouseCoord.x - lastMouseXY.x, event.m_mouseCoord.y - lastMouseXY.y };
+				delta[0] = ANGLE_TO_RADIAN(delta[0] * 0.1f);
+				delta[1] = ANGLE_TO_RADIAN(delta[1] * 0.1f);
+
+				m_pScene->GetCamera().MouseDrag(delta[0], delta[1]);
+			}
+		}
+
 		lastMouseXY = event.m_mouseCoord;
-#pragma endregion
 
 		// Update light position as camera move
 		for (auto& pLight : m_pScene->GetLightVec())

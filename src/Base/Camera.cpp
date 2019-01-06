@@ -55,10 +55,10 @@ namespace Leviathan
 
 		float data[16] =
 		{
-			U[0], U[1], U[2], -VecDot<float, 3>(U, m_fEye),
-			V[0], V[1], V[2], -VecDot<float, 3>(V, m_fEye),
-			N[0], N[1], N[2], -VecDot<float, 3>(N, m_fEye),
-			0.0f, 0.0f, 0.0f,						 1.0f,
+			U[0], U[1], U[2], -VecDot3f(U, m_fEye),
+			V[0], V[1], V[2], -VecDot3f(V, m_fEye),
+			N[0], N[1], N[2], -VecDot3f(N, m_fEye),
+			0.0f, 0.0f, 0.0f,				  1.0f,
 		};
 
 		Matrix4f result = Matrix4f(data);
@@ -115,6 +115,11 @@ namespace Leviathan
 
 		memcpy(m_fEye, newEyeCoord, sizeof(float) * 3);
 		_updateCurrentDistance();
+	}
+
+	void Camera::MouseDrag(float x, float y)
+	{
+		TargetTranslate(x, -y);
 	}
 
 	void Camera::MouseTranslate(float x, float y, float z)
@@ -229,6 +234,20 @@ namespace Leviathan
 		m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
 
 		return true;
+	}
+
+	void Camera::TargetTranslate(float x, float y)
+	{
+		float N[3], V[3], U[3];
+		_getNUVVector(N, U, V);
+
+		m_fLookAt[0] -= (U[0] * x + V[0] * y);
+		m_fLookAt[1] -= (U[1] * x + V[1] * y);
+		m_fLookAt[2] -= (U[2] * x + V[2] * y);
+
+		m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];
+		m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
+		m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
 	}
 
 	void Camera::UpdateViewPosUniform(unsigned shaderProgram)

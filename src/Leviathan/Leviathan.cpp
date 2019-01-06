@@ -1,16 +1,13 @@
 #include <memory>
 #include <iostream>
-#include "RenderWindow.h"
-#include "EventSystem.h"
+#include "RenderService.h"
 
 using namespace Leviathan;
 
 int main()
 {
-	LPtr<EventSystem> pEventSystem = new EventSystem();
-	LPtr<RenderWindow> pRenderWindow = new RenderWindow(pEventSystem, Leviathan::IScene::EST_TRID);
-	pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(pRenderWindow));
-
-	pRenderWindow->Run();
+	RenderService::SetSceneType(IScene::EST_TRID);
+	EXIT_GET_FALSE(RenderService::Instance()->Init());
+	RenderService::Instance()->Run();
 }
 

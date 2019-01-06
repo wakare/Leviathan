@@ -44,6 +44,8 @@ T VecDot(T* vec0, T* vec1)
 	return result;
 }
 
+#define VecDot3f VecDot<float, 3>
+
 template <typename T>
 void Vec3Cross(T* vec0, T* vec1, T* outVec, bool bNormalize = false)
 {

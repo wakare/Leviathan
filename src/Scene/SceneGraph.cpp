@@ -92,7 +92,6 @@ bool Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	}
 
 	EXIT_GET_FALSE(m_pSceneOcTree->AddNode(ocTreeNodeVec));
-	EXIT_GET_FALSE(m_pSceneOcTree->AddAllDrawableNodeToGLPass(m_pSceneRenderPass));
 	return true;
 }
 
@@ -122,7 +121,6 @@ void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProce
 bool Leviathan::SceneGraph::_getAllSceneNode(LPtr<Node<SceneNode>> pBeginNode, std::vector<Node<SceneNode>*>& outResult)
 {
 	outResult.clear();
-
 	SceneNodeProcess _traverseFunc = [&outResult](Node<SceneNode>& rhs)
 	{
 		outResult.push_back(&rhs);
@@ -138,6 +136,7 @@ bool Leviathan::SceneGraph::_updateAllNeedAddNode()
 	{
 		m_pRoot->AddChild(node);
 		EXIT_GET_FALSE(AddDrawableNodeToSceneOcTree(node, false));
+		EXIT_GET_FALSE(m_pSceneOcTree->AddDrawableNodeToGLPass(m_pSceneRenderPass, node));
 	}
 
 	m_pNeedAddNodeVec.clear();

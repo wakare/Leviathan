@@ -5,17 +5,19 @@
 #include "RenderWindow.h"
 #include "EventSystem.h"
 #include "CommonScene.h"
+#include "GlobalDef.h"
 
 namespace Leviathan
 {
 	RenderService* RenderService::g_pInstance = nullptr;
-
+	IScene::ESceneType RenderService::m_sceneType = IScene::EST_POINTCLOUD;
+	
 	RenderService::RenderService():
-		pScene(nullptr)
+		m_pScene(nullptr)
 	{
-		pEventSystem = new EventSystem();
-		pRenderWindow = new RenderWindow(pEventSystem);
-		pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(pRenderWindow));
+		m_pEventSystem = new EventSystem();
+		m_pRenderWindow = new RenderWindow(m_pEventSystem, m_sceneType);
+		m_pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(m_pRenderWindow));
 	}
 
 	RenderService * RenderService::Instance()
@@ -29,27 +31,44 @@ namespace Leviathan
 		return g_pInstance;
 	}
 
+	void RenderService::SetSceneType(IScene::ESceneType type)
+	{
+		m_sceneType = type;
+	}
+
+	bool RenderService::SetCurrentScene(LPtr<CommonScene> pScene)
+	{
+		m_pScene = pScene;
+		return true;
+	}
+
 	Leviathan::LPtr<Leviathan::CommonScene> RenderService::GetScene()
 	{
-		if (pScene == nullptr)
+		if (m_pScene == nullptr)
 		{
-			pScene = pRenderWindow->GetScene();
-			if (pScene == nullptr)
+			m_pScene = m_pRenderWindow->GetScene();
+			if (m_pScene == nullptr)
 			{
 				throw "exception";
 			}
 		}
 
-		return pScene;
+		return m_pScene;
+	}
+
+	bool RenderService::Init()
+	{
+		EXIT_GET_FALSE(m_pRenderWindow->GetScene());
+		return true;
 	}
 
 	void RenderService::Run()
 	{
-		pRenderWindow->Run();
+		m_pRenderWindow->Run();
 	}
 
 	void RenderService::SyncStop()
 	{
-		pRenderWindow->SyncStop();
+		m_pRenderWindow->SyncStop();
 	}
 }

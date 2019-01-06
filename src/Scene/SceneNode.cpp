@@ -1,5 +1,7 @@
 #include "SceneNode.h"
+#include "IMesh.h"
 #include "CFileImportFactory.h"
+#include "AABB.h"
 
 Leviathan::SceneNode::SceneNode():
 	m_worldCoord({0.0f, 0.0f, 0.0f})

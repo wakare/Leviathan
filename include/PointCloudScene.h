@@ -7,12 +7,10 @@ namespace Leviathan
 	{
 	public:
 		PointCloudScene(GLFWwindow* pRenderWindow, int width, int height);
-
 		void UpdatePointCloud(PointCloudf& pPoints);
-		bool _firstUpdate();
-		virtual bool _initSceneObject();
 
 	private:
-
+		bool _firstUpdate();
+		virtual bool _initSceneObject();
 	};
 }

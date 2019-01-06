@@ -6,6 +6,11 @@
 
 namespace Leviathan
 {
+	class GLPass;
+	class SceneOcTree;
+	class SceneNode;
+	class AABB;
+
 	template<typename T>
 	class Node;
 
@@ -14,11 +19,6 @@ namespace Leviathan
 
 	template<typename T>
 	class SceneNodeSearchVisitor;
-
-	class GLPass;
-	class SceneOcTree;
-	class SceneNode;
-	class AABB;
 
 	typedef std::function<void(Node<SceneNode>&)> SceneNodeProcess;
 

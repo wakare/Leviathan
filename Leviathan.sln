@@ -24,7 +24,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileImporter", "src\FileImp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Leviathan", "src\Leviathan\Leviathan.vcxproj", "{8628673F-BAF0-4C0E-A9D3-40970DB4BA5C}"
 	ProjectSection(ProjectDependencies) = postProject
-		{C9D52724-8554-4F6C-8E41-CAD0E84D568A} = {C9D52724-8554-4F6C-8E41-CAD0E84D568A}
+		{219B5E82-ECFD-46A3-9920-D6757D2110CC} = {219B5E82-ECFD-46A3-9920-D6757D2110CC}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderWindow", "src\RenderWindow\RenderWindow.vcxproj", "{C9D52724-8554-4F6C-8E41-CAD0E84D568A}"

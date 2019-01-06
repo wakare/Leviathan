@@ -1,5 +1,8 @@
 #include "SceneOcTree.h"
 #include "SceneHelper.h"
+#include "GlobalDef.h"
+#include "GLPass.h"
+#include "DrawableNode.h"
 
 bool Leviathan::AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass)
 {
@@ -76,6 +79,14 @@ bool Leviathan::SceneOcTree::AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass)
 
 	return true;
 }
+
+bool Leviathan::SceneOcTree::AddDrawableNodeToGLPass(LPtr<GLPass>& pGLPass, LPtr<Node<SceneNode>> pNeedAddNode)
+{
+	DrawableNode<SceneNode>& drawableNode = dynamic_cast<DrawableNode<SceneNode>&> (*pNeedAddNode);
+	EXIT_GET_FALSE(drawableNode.RegisterSelfToGLPass(*pGLPass));
+	return true;
+}
+
 void Leviathan::SceneOcTree::Traverse(KOcTree::TraverseFunction traverseFunc, bool bRecursion)
 {
 	m_pRoot->Traverse(traverseFunc, bRecursion);

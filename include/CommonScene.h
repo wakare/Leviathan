@@ -29,14 +29,13 @@ namespace Leviathan
 		CommonScene(GLFWwindow* pRenderWindow, int width, int height);
 		~CommonScene();
 
-		// User interface
 		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 
 		bool PushDataUpdateRequest(DataUpdateRequest request);
 		bool PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request);
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
-		void Update();
+		virtual void Update();
 
 	protected:
 		bool _dataUpdate();

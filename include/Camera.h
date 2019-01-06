@@ -27,10 +27,12 @@ namespace Leviathan
 		Matrix4f GetPerspectiveTransformMatrix();
 
 		void Translate(float x, float y, float z);
+		void MouseDrag(float x, float y);
 		void MouseTranslate(float x, float y, float z);
 		void MouseRotate(float x, float y);
 		void Rotate(float x, float y, float z);
 		bool LookAt(const Vector3f& worldCoord, float fDistance /*= 100.0f*/);
+		void TargetTranslate(float x, float y);
 		void UpdateViewPosUniform(unsigned shaderProgram);
 
 		float m_fEye[3];

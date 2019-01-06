@@ -2,11 +2,13 @@
 
 #include <vector>
 #include "BaseMath.h"
-#include "IMesh.h"
 #include "LPtr.h"
 
 namespace Leviathan
 {
+	class IMesh;
+	class AABB;
+
 	class SceneNode
 	{
 	public:
