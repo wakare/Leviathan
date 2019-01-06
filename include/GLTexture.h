@@ -1,4 +1,5 @@
 #pragma once
+
 #include <gl/glew.h>
 
 class GLTexture2D

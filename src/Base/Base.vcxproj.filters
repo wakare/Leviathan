@@ -25,6 +25,12 @@
     <ClCompile Include="EventSystem.cpp">
       <Filter>Other</Filter>
     </ClCompile>
+    <ClCompile Include="Light.cpp">
+      <Filter>BaseGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>BaseGraphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\Event.h">
@@ -93,7 +99,16 @@
     <ClInclude Include="..\..\include\PictureObject.h">
       <Filter>Tool</Filter>
     </ClInclude>
-    <ClInclude Include="PointCloud.hpp">
+    <ClInclude Include="..\..\include\Light.h">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\PointCloud.hpp">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Color.h">
+      <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Camera.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
   </ItemGroup>

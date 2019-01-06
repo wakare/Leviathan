@@ -1,9 +1,10 @@
 #pragma once
+
+#include <memory>
+#include <map>
 #include "GL/glew.h"
 #include "GLUniform.h"
 #include "LPtr.h"
-#include <memory>
-#include <map>
 
 namespace Leviathan
 {

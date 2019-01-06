@@ -31,12 +31,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\GLCamera.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\GLColor.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\GLCommonMaterial.h">
       <Filter>Interface</Filter>
     </ClInclude>

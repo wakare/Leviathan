@@ -1,6 +1,7 @@
 #pragma once
-#include "BaseMath.h"
+
 #include <string>
+#include "BaseMath.h"
 
 class Material
 {

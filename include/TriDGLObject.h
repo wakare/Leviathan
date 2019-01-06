@@ -1,4 +1,5 @@
 #pragma once
+
 #include "GLObject.h"
 #include "LPtr.h"
 #include "GLCommonMaterial.h"

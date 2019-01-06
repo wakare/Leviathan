@@ -3,24 +3,35 @@
 #include <GL/glew.h>
 #include "BaseMath.h"
 #include "GlobalDef.h"
+#include "Light.h"
+#include "LPtr.h"
 
 namespace Leviathan
 {
 	class GLLight
 	{
 	public:
-		GLLight(Vector3f position, Vector3f ambientColor, Vector3f diffuseColor, Vector3f specularColor) :
-			m_lightCoordination(position),
-			m_ambientColor(ambientColor),
-			m_diffuseColor(diffuseColor),
-			m_specularColor(specularColor),
+		GLLight():
+			m_pLight(nullptr),
 			m_lightPositionLocation(-1),
 			m_lightAmbientLocation(-1),
 			m_lightDiffuseLocation(-1),
 			m_lightSpecularLocation(-1)
 		{
 
+		}
+
+		GLLight(Vector3f position, Vector3f ambientColor, Vector3f diffuseColor, Vector3f specularColor) :
+			GLLight()
+		{
+			m_pLight = new Light(position, ambientColor, diffuseColor, specularColor);
 		};
+
+		GLLight(LPtr<Light> pLight):
+			GLLight()
+		{
+			m_pLight = pLight;
+		}
 
 		bool SetLightUniformVar(GLuint shaderProgram)
 		{
@@ -34,7 +45,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightPositionLocation, m_lightCoordination.x, m_lightCoordination.y, m_lightCoordination.z);
+			glUniform3f(m_lightPositionLocation, m_pLight->m_lightCoordination.x, m_pLight->m_lightCoordination.y, m_pLight->m_lightCoordination.z);
 			
 			if (m_lightAmbientLocation < 0)
 			{
@@ -46,7 +57,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightAmbientLocation, m_ambientColor.x, m_ambientColor.y, m_ambientColor.z);
+			glUniform3f(m_lightAmbientLocation, m_pLight->m_ambientColor.x, m_pLight->m_ambientColor.y, m_pLight->m_ambientColor.z);
 
 			if (m_lightDiffuseLocation)
 			{
@@ -58,7 +69,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightDiffuseLocation, m_diffuseColor.x, m_diffuseColor.y, m_diffuseColor.z);
+			glUniform3f(m_lightDiffuseLocation, m_pLight->m_diffuseColor.x, m_pLight->m_diffuseColor.y, m_pLight->m_diffuseColor.z);
 
 			if (m_lightSpecularLocation)
 			{
@@ -70,27 +81,22 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightSpecularLocation, m_specularColor.x, m_specularColor.y, m_specularColor.z);
-
+			glUniform3f(m_lightSpecularLocation, m_pLight->m_specularColor.x, m_pLight->m_specularColor.y, m_pLight->m_specularColor.z);
 			return true;
 		}
 
 		bool SetLightCoord(const Vector3f& newCoord)
 		{
-			m_lightCoordination = newCoord;
-
+			m_pLight->SetLightCoord(newCoord);
 			return true;
 		}
 
 	private:
+		LPtr<Light> m_pLight;
+
 		GLint m_lightPositionLocation;
 		GLint m_lightAmbientLocation;
 		GLint m_lightDiffuseLocation;
 		GLint m_lightSpecularLocation;
-
-		Vector3f m_lightCoordination;
-		Vector3f m_ambientColor;
-		Vector3f m_diffuseColor;
-		Vector3f m_specularColor;
 	};
 }

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "GLPass.h"
 
 namespace Leviathan

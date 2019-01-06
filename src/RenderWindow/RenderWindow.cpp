@@ -1,7 +1,6 @@
 #include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
 #include "RenderWindow.h"
 #include "WindowCallBack.h"
 #include "CommonScene.h"
@@ -9,7 +8,7 @@
 #include "CFileImportFactory.h"
 #include "GlobalDef.h"
 #include "ImporterRegister.h"
-#include "GLCamera.h"
+#include "Camera.h"
 #include "GLLight.h"
 #include "TriDScene.h"
 

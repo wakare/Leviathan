@@ -1,7 +1,8 @@
 #pragma once
+
+#include <vector>
 #include "LPtr.h"
 #include "IFileImporter.h"
-#include <vector>
 
 namespace Leviathan
 {

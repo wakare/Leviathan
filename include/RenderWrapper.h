@@ -1,9 +1,10 @@
 #pragma once
-#include "GLPass.h"
-#include "LPtr.h"
+
 #include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include "GLPass.h"
+#include "LPtr.h"
 
 namespace Leviathan
 {

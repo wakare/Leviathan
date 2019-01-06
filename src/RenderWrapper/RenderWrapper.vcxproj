@@ -164,8 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\DrawableNode.h" />
-    <ClInclude Include="..\..\include\GLCamera.h" />
-    <ClInclude Include="..\..\include\GLColor.h" />
     <ClInclude Include="..\..\include\GLCommonMaterial.h" />
     <ClInclude Include="..\..\include\GLLight.h" />
     <ClInclude Include="..\..\include\GLObject.h" />

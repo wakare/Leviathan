@@ -6,6 +6,7 @@
 #include "SceneNodeSearchVisitor.h"
 #include "SceneNodeTraverseVisitor.h"
 #include "GLPass.h"
+#include "AABB.h"
 #include "SceneOcTree.h"
 
 Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
@@ -24,7 +25,7 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
 	EXIT_GET_FALSE(pNode);
-	m_pRoot->AddChild(pNode);
+	m_pNeedAddNodeVec.push_back(pNode);
 
 	return true;
 }
@@ -49,26 +50,17 @@ bool Leviathan::SceneGraph::FindFirstMatchNode(std::function<bool(const Node<Sce
 	return true;
 }
 
-void Leviathan::SceneGraph::AddDrawableNodeToSceneRenderPass(LPtr<Node<SceneNode>> pBeginNode)
-{
-	SceneNodeProcess addDrawableToRenderPass = [this](Node<SceneNode>& node)
-	{
-		auto pDrawable = dynamic_cast<IDrawable*>(&node);
-		if (pDrawable)
-		{
-			pDrawable->RegisterSelfToGLPass(*m_pSceneRenderPass);
-		}
-	};
-
-	_traverseNode(*pBeginNode, addDrawableToRenderPass);
-}
-
 Leviathan::LPtr<Leviathan::Node<Leviathan::SceneNode>> Leviathan::SceneGraph::GetRootNode() const
 {
 	return m_pRoot;
 }
 
-void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
+void Leviathan::SceneGraph::Update()
+{
+	_updateAllNeedAddNode();
+}
+
+bool Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
 {
 	pBeginNode = (pBeginNode) ? pBeginNode : m_pRoot;
 
@@ -76,7 +68,7 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	if (bResursive && !_getAllSceneNode(pBeginNode, sceneNodeVec))
 	{
 		LeviathanOutStream << "[ERROR] Get all drawable node failed." << std::endl;
-		return;
+		return false; 
 	}
 	else
 	{
@@ -87,7 +79,7 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 	for (auto& pSceneNode : sceneNodeVec)
 	{
 		float worldCoordCenter[3] = { 0.0f };
-		pSceneNode->GetNodeData()->GetWorldCoordCenter(worldCoordCenter);
+		EXIT_GET_FALSE(pSceneNode->GetNodeData()->GetWorldCoordCenter(worldCoordCenter));
 
 		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(worldCoordCenter, *pSceneNode);
 		if (pSceneOcTreeNode)
@@ -99,9 +91,9 @@ void Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 		LeviathanOutStream << "[ERROR] pSceneOcTree is nullptr." << std::endl;
 	}
 
-	m_pSceneOcTree->AddNode(ocTreeNodeVec);
-
-	m_pSceneOcTree->AddAllDrawableNodeToGLPass(m_pSceneRenderPass);
+	EXIT_GET_FALSE(m_pSceneOcTree->AddNode(ocTreeNodeVec));
+	EXIT_GET_FALSE(m_pSceneOcTree->AddAllDrawableNodeToGLPass(m_pSceneRenderPass));
+	return true;
 }
 
 bool Leviathan::SceneGraph::AddSceneOcTreeToGLPass()
@@ -114,13 +106,13 @@ Leviathan::AABB Leviathan::SceneGraph::GetAABB() const
 	return m_pSceneOcTree->GetAABB();
 }
 
-void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProcess func)
+void Leviathan::SceneGraph::_traverseNode(Node<SceneNode>& begin, SceneNodeProcess func, bool bResursive)
 {
 	auto currentCallback = m_pSceneNodeTraverseVisitor->GetCurrentTraverseCallback();
 	auto eCurrentTraverseMode = m_pSceneNodeTraverseVisitor->GetTraverseMode();
 
 	m_pSceneNodeTraverseVisitor->SetTraverseCallback(func);
-	m_pSceneNodeTraverseVisitor->SetTraverseMode(E_TRAVERSE_MODE::ALL);
+	m_pSceneNodeTraverseVisitor->SetTraverseMode(bResursive ? E_TRAVERSE_MODE::ALL : E_TRAVERSE_MODE::ONLY);
 	m_pSceneNodeTraverseVisitor->Apply(begin);
 
 	m_pSceneNodeTraverseVisitor->SetTraverseCallback(currentCallback);
@@ -136,7 +128,18 @@ bool Leviathan::SceneGraph::_getAllSceneNode(LPtr<Node<SceneNode>> pBeginNode, s
 		outResult.push_back(&rhs);
 	};
 
-	_traverseNode(*pBeginNode, _traverseFunc);
+	_traverseNode(*pBeginNode, _traverseFunc, true);
+	return true;
+}
 
+bool Leviathan::SceneGraph::_updateAllNeedAddNode()
+{
+	for (auto& node : m_pNeedAddNodeVec)
+	{
+		m_pRoot->AddChild(node);
+		EXIT_GET_FALSE(AddDrawableNodeToSceneOcTree(node, false));
+	}
+
+	m_pNeedAddNodeVec.clear();
 	return true;
 }

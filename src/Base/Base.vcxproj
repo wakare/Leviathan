@@ -155,25 +155,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CMesh.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="KOcTree.cpp" />
+    <ClCompile Include="Light.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
     <ClInclude Include="..\..\include\BaseMath.h" />
     <ClInclude Include="..\..\include\CMesh.h" />
+    <ClInclude Include="..\..\include\Color.h" />
     <ClInclude Include="..\..\include\DynamicArray.h" />
     <ClInclude Include="..\..\include\Event.h" />
     <ClInclude Include="..\..\include\EventListener.h" />
     <ClInclude Include="..\..\include\EventSystem.h" />
     <ClInclude Include="..\..\include\GeometryCalculator.h" />
+    <ClInclude Include="..\..\include\Camera.h" />
     <ClInclude Include="..\..\include\GlobalDef.h" />
     <ClInclude Include="..\..\include\IMesh.h" />
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KOcTree.h" />
     <ClInclude Include="..\..\include\KProfile.h" />
+    <ClInclude Include="..\..\include\Light.h" />
     <ClInclude Include="..\..\include\LPtr.h" />
     <ClInclude Include="..\..\include\LUPtr.h" />
     <ClInclude Include="..\..\include\Material.h" />
@@ -182,8 +187,8 @@
     <ClInclude Include="..\..\include\NodeVisitor.hpp" />
     <ClInclude Include="..\..\include\PictureObject.h" />
     <ClInclude Include="..\..\include\PointCloud.h" />
+    <ClInclude Include="..\..\include\PointCloud.hpp" />
     <ClInclude Include="..\..\include\VectorOperation.h" />
-    <ClInclude Include="PointCloud.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

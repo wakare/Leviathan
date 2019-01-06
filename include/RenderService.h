@@ -1,4 +1,5 @@
 #pragma once
+
 #include "LPtr.h"
 
 namespace Leviathan
@@ -14,7 +15,7 @@ namespace Leviathan
 		LPtr<CommonScene> GetScene();
 		
 		void Run();
-		void AsyncStop();
+		void SyncStop();
 
 	private:
 		RenderService();

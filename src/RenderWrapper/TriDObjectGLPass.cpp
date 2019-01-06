@@ -2,7 +2,7 @@
 #include "GlobalDef.h"
 namespace Leviathan
 {
-	TriDObjectGLPass::TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<GLCamera> camera) :
+	TriDObjectGLPass::TriDObjectGLPass(LPtr<GLShaderProgram> shaderProgram, LPtr<Camera> camera) :
 		GLPass(shaderProgram),
 		m_bInited(false),
 		m_pMainCamera(camera),

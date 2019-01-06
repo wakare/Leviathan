@@ -45,8 +45,6 @@ namespace Leviathan
 			pPointCloud->SetLightEnable(false);
 		}
 
-		_sceneGraphUpdate(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode), false);
-
 		float center[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		float radius;
 		refPoints.GetCenterAndRadius(center, radius);

@@ -1,15 +1,16 @@
 #include <fstream>
 #include <sstream>
-
-#include "SceneHelper.h"
 #include "AABB.h"
+#include "SceneHelper.h"
+#include "SceneNode.h"
+#include "DrawableNode.h"
 #include "TriDGLObject.h"
 #include "DynamicArray.h"
 #include "GLShaderProgram.h"
 
 namespace Leviathan
 {
-	Leviathan::LPtr<Leviathan::GLObject> SceneHelper::_convertAABBtoGLObject(const AABB& aabb)
+	Leviathan::LPtr<Leviathan::GLObject> SceneHelper::ConvertAABBtoGLObject(const AABB& aabb)
 	{
 		float fRadius = aabb.GetAABBRadius();
 		if (fRadius < 0.0f)
@@ -19,7 +20,6 @@ namespace Leviathan
 		}
 
 		constexpr int nVertexFloatCount = 10;
-
 		float fNormalSubValue = sqrtf(1.0f / 3.0f);
 
 		float vertices[8 * nVertexFloatCount] =
@@ -67,7 +67,7 @@ namespace Leviathan
 		return result;
 	}
 
-	Leviathan::LPtr<Leviathan::GLObject> SceneHelper::_getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
+	Leviathan::LPtr<Leviathan::GLObject> SceneHelper::GetPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData /*= nullptr*/)
 	{
 		static float defaultColor[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
 		const int nVertexSize = 7;
@@ -77,24 +77,17 @@ namespace Leviathan
 		{
 			memcpy(pArray.m_pData + nVertexSize * i, pCoordData + 3 * i, sizeof(float) * 3);
 
-			if (pColorData)
-			{
-				memcpy(pArray.m_pData + nVertexSize * i + 3, pColorData + 4 * i, sizeof(float) * 4);
-			}
-			else
-			{
-				memcpy(pArray.m_pData + nVertexSize * i + 3, defaultColor, sizeof(float) * 4);
-			}
+			if (pColorData)		memcpy(pArray.m_pData + nVertexSize * i + 3, pColorData + 4 * i, sizeof(float) * 4); 
+			else				memcpy(pArray.m_pData + nVertexSize * i + 3, defaultColor, sizeof(float) * 4); 
 		}
 
 		return new TriDGLObject(GL_POINTS, pArray.m_pData, uVertexCount, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA);
-
 	}
 
-	bool SceneHelper::_initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath, LPtr<GLShaderProgram>& outResult)
+	bool SceneHelper::InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath, LPtr<GLShaderProgram>& outResult)
 	{
-		auto strVertexShader = _getShaderSource(pczVertexShaderPath);
-		auto strFragmentShader = _getShaderSource(pczFragmentShaderPath);
+		auto strVertexShader = GetShaderSource(pczVertexShaderPath);
+		auto strFragmentShader = GetShaderSource(pczFragmentShaderPath);
 
 		const char* pczVertexShaderSource = strVertexShader.c_str();
 		const char* pczFragmentShaderSource = strFragmentShader.c_str();
@@ -103,7 +96,23 @@ namespace Leviathan
 		return true;
 	}
 
-	std::string SceneHelper::_getShaderSource(const char* pczShaderSourcePath)
+	bool SceneHelper::LoadModel(const char* pModelFilePath, LPtr<Node<SceneNode>>& out)
+	{
+		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
+		EXIT_GET_FALSE(pSceneNode->LoadModelFile(pModelFilePath));
+		LPtr<DrawableNode<SceneNode>> pModelNode = new DrawableNode<SceneNode>(pSceneNode->GetMeshVec(), pSceneNode);
+
+		auto pDentalGLObjectVec = pModelNode->GetGLObject();
+		for (auto pDentalGLObject : pDentalGLObjectVec)
+		{
+			pDentalGLObject->SetModelMatrix(pModelNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+		}
+
+		out = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pModelNode);
+		return true;
+	}
+
+	std::string SceneHelper::GetShaderSource(const char* pczShaderSourcePath)
 	{
 		std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 		if (!shaderSourceFileStream.is_open())
@@ -114,8 +123,6 @@ namespace Leviathan
 
 		std::stringstream strStream;
 		strStream << shaderSourceFileStream.rdbuf();
-
 		return strStream.str();
 	}
-
 }

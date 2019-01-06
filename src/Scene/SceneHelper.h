@@ -1,4 +1,5 @@
 #pragma once
+
 #include "LPtr.h"
 
 namespace Leviathan
@@ -6,15 +7,20 @@ namespace Leviathan
 	class GLObject;
 	class AABB;
 	class GLShaderProgram;
+	class SceneNode;
+
+	template<typename T>
+	class Node;
 
 	class SceneHelper
 	{
 	public:
-		static LPtr<GLObject> _convertAABBtoGLObject(const AABB& aabb);
-		static LPtr<GLObject> _getPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
-		static bool _initShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath, LPtr<GLShaderProgram>& outResult);
-		static std::string _getShaderSource(const char* pczShaderSourcePath);
+		static LPtr<GLObject> ConvertAABBtoGLObject(const AABB& aabb);
+		static LPtr<GLObject> GetPointGLObject(float* pCoordData, unsigned uVertexCount, float *pColorData = nullptr);
+		static std::string GetShaderSource(const char* pczShaderSourcePath);
 
+		static bool InitShaderSource(const char* pczVertexShaderPath, const char* pczFragmentShaderPath, LPtr<GLShaderProgram>& outResult);
+		static bool LoadModel(const char* pModelFilePath, LPtr<Node<SceneNode>>& out);
 	private:
 		SceneHelper();
 	};

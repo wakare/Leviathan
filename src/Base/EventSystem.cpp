@@ -1,5 +1,6 @@
 #include <iostream>
 #include "EventSystem.h"
+
 namespace Leviathan
 {
 	void EventSystem::DispatchEvent()

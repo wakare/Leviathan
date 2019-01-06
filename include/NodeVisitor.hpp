@@ -1,4 +1,4 @@
-#pragma once
+
 #include "NodeVisitor.h"
 
 namespace Leviathan

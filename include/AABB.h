@@ -1,6 +1,7 @@
 #pragma once
-#include "GlobalDef.h"
+
 #include <memory>
+#include "GlobalDef.h"
 
 namespace Leviathan
 {

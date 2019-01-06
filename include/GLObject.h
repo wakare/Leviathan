@@ -1,9 +1,10 @@
 #pragma once
+
 #include <GL\glew.h>
 #include <LPtr.h>
 #include "IGLMaterial.h"
 #include "GLUniform.h"
-#include "GLCamera.h"
+#include "Camera.h"
 
 namespace Leviathan
 {

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "CommonScene.h"
 
 namespace Leviathan

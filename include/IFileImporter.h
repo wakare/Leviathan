@@ -1,7 +1,8 @@
 #pragma once
+
+#include <vector>
 #include "IMesh.h"
 #include "LPtr.h"
-#include <vector>
 
 namespace Leviathan 
 {

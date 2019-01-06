@@ -1,10 +1,10 @@
 #pragma once
 
+#include <mutex>
+#include <vector>
 #include "IScene.h"
 #include "PointCloud.h"
 #include "LPtr.h"
-#include <mutex>
-#include <vector>
 
 struct GLFWwindow;
 
@@ -15,7 +15,7 @@ namespace Leviathan
 	class TriDObjectGLPass;
 	class GLShaderProgram;
 	class SceneGraph;
-	class GLCamera;
+	class Camera;
 	class GLLight;
 
 	template <typename T>
@@ -30,12 +30,12 @@ namespace Leviathan
 		~CommonScene();
 
 		// User interface
-		GLCamera& GetCamera();
+		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 
 		bool PushDataUpdateRequest(DataUpdateRequest request);
-		bool PushDataUpdateRequest(std::vector<DataUpdateRequest> request);
-		
+		bool PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request);
+		bool AddNode(LPtr<Node<SceneNode>> pNode);
 		void Update();
 
 	protected:
@@ -45,10 +45,9 @@ namespace Leviathan
 		bool _initCamera(unsigned width, unsigned height);
 		bool _initLight();
 		void _resetCamera(float* coord = nullptr, float fDistance = -1.0f);
-		void _sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
 
 		GLFWwindow* m_pGLFWWindow;
-		LPtr<GLCamera> m_pCamera;
+		LPtr<Camera> m_pCamera;
 		std::vector<LPtr<GLLight>> m_pLights;
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;

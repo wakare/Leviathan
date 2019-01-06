@@ -9,25 +9,11 @@ namespace Leviathan
 
 		// GetVertexSize
 		GLuint uFloatCountPerVertex = 0;
-		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_XYZ)
-		{
-			uFloatCountPerVertex += 3;
-		}
 
-		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_RGBA)
-		{
-			uFloatCountPerVertex += 4;
-		}
-
-		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ)
-		{
-			uFloatCountPerVertex += 3;
-		}
-
-		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_TEX)
-		{
-			uFloatCountPerVertex += 2;
-		}
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_XYZ)  uFloatCountPerVertex += 3;
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_RGBA)  uFloatCountPerVertex += 4;
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ) uFloatCountPerVertex += 3;
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_TEX)  uFloatCountPerVertex += 2;
 
 		if (uFloatCountPerVertex == 0)
 		{
@@ -37,7 +23,6 @@ namespace Leviathan
 
 		// Init VAO
 		glGenVertexArrays(1, &m_VAO);
-
 		glBindVertexArray(m_VAO);
 
 		// Create a buffer to store vertex.
@@ -46,7 +31,6 @@ namespace Leviathan
 
 		// Bind the triangle vertex data to buffer.
 		glBufferData(GL_ARRAY_BUFFER, sizeof(GLfloat) * uFloatCountPerVertex * m_vertexCount, m_pData, GL_STATIC_DRAW);
-
 		GLuint uOffset = 0u;
 
 		// Set position vector format
@@ -119,7 +103,6 @@ namespace Leviathan
 		glBindVertexArray(VAO);
 
 		m_bUseIndexArray ? (glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0)) : (glDrawArrays(GetPrimType(), 0, GetVertexCount()));
-
 		glBindVertexArray(0);
 
 		return true;
@@ -127,17 +110,13 @@ namespace Leviathan
 
 	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
-		if (m_pCommonGLMaterial)
-		{
-			return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
-		}
+		if (m_pCommonGLMaterial)  return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
 		
 		return false;
 	}
 
 	bool TriDGLObject::UnApplyMaterial(GLuint shaderProgram)
 	{
-
 		return true;
 	}
 
@@ -164,7 +143,6 @@ namespace Leviathan
 		}
 
 		modelMatrixUniform->SetData(m_pModelMatrix->GetData(), m_pModelMatrix->GetDataSize());
-
 		return true;
 	}
 
@@ -192,6 +170,6 @@ namespace Leviathan
 		}
 
 		glUniform1ui(uVertexTypeMaskLocation, GetVertexMask());
+		return true;
 	}
-
 }

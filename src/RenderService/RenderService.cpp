@@ -1,10 +1,10 @@
-#include "RenderService.h"
+#include <mutex>
 #include <memory>
 #include <iostream>
+#include "RenderService.h"
 #include "RenderWindow.h"
 #include "EventSystem.h"
 #include "CommonScene.h"
-#include <mutex>
 
 namespace Leviathan
 {
@@ -48,7 +48,7 @@ namespace Leviathan
 		pRenderWindow->Run();
 	}
 
-	void RenderService::AsyncStop()
+	void RenderService::SyncStop()
 	{
 		pRenderWindow->SyncStop();
 	}

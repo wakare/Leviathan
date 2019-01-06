@@ -1,11 +1,9 @@
 #include <fstream>
 #include <string>
 #include <sstream>
-
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
-
-#include "GLCamera.h"
+#include "Camera.h"
 #include "GLLight.h"
 #include "CommonScene.h"
 #include "DynamicArray.h"
@@ -16,7 +14,6 @@
 #include "PictureObject.h"
 #include "SceneNode.h"
 #include "CMesh.h"
-#include "GLCamera.h"
 #include "RenderWrapper.h"
 #include "TriDObjectGLPass.h"
 #include "TriDGLObject.h"
@@ -53,7 +50,7 @@ namespace Leviathan
 
 		const char* pczVertexShaderPath = "ShaderSource\\VertexShader.glsl";
 		const char* pczFragmentShaderPath = "ShaderSource\\FragmentShader.glsl";
-		if (!SceneHelper::_initShaderSource(pczVertexShaderPath, pczFragmentShaderPath, m_pShaderProgram))
+		if (!SceneHelper::InitShaderSource(pczVertexShaderPath, pczFragmentShaderPath, m_pShaderProgram))
 		{
 			LeviathanOutStream << "[FATAL] Scene ShaderSource init failed." << std::endl;
 			throw "exception";
@@ -75,7 +72,7 @@ namespace Leviathan
 
 	}
 
-	Leviathan::GLCamera& CommonScene::GetCamera()
+	Leviathan::Camera& CommonScene::GetCamera()
 	{
 		return *m_pCamera;
 	}
@@ -95,9 +92,7 @@ namespace Leviathan
 		}
 
 		m_dataUpdateResquestQueue.clear();
-
 		m_dataUpdateRequestQueueLock.unlock();
-
 		return true;
 	}
 
@@ -122,7 +117,7 @@ namespace Leviathan
 		float fNear = 0.01f;
 		float fFar = 100000.0f;
 
-		m_pCamera = new GLCamera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
+		m_pCamera = new Camera(cameraEye, cameraLookAt, cameraUp, fovy, fAspect, fNear, fFar);
 		if (!m_pCamera)
 		{
 			throw "Exception";
@@ -136,9 +131,9 @@ namespace Leviathan
 	{
 		LPtr<GLLight> light = new GLLight({ -100.0f, 100.0f, 10.0f }, { 0.5f, 0.5f, 0.5f },
 			{ 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
+
 		m_pMeshPass->AddGLLight(light);
 		m_pLights.push_back(light);
-		
 		return true;
 	}
 
@@ -158,11 +153,6 @@ namespace Leviathan
 		}
 	}
 
-	void CommonScene::_sceneGraphUpdate(LPtr<Node<SceneNode>> pBeginNode /*= nullptr*/, bool bResursive /*= true*/)
-	{
-		m_pSceneGraph->AddDrawableNodeToSceneOcTree(pBeginNode, bResursive);
-	}
-
 	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)
 	{
 		m_dataUpdateRequestQueueLock.lock();
@@ -172,11 +162,18 @@ namespace Leviathan
 		return true;
 	}
 
-	bool CommonScene::PushDataUpdateRequest(std::vector<DataUpdateRequest> request)
+	bool CommonScene::PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request)
 	{
 		m_dataUpdateRequestQueueLock.lock();
 		m_dataUpdateResquestQueue.insert(m_dataUpdateResquestQueue.end(), request.begin(), request.end());
 		m_dataUpdateRequestQueueLock.unlock();
+
+		return true;
+	}
+
+	bool CommonScene::AddNode(LPtr<Node<SceneNode>> pNode)
+	{
+		EXIT_GET_FALSE(m_pSceneGraph->AddNode(pNode));
 
 		return true;
 	}
@@ -191,6 +188,7 @@ namespace Leviathan
 		}
 
 		_dataUpdate();
+		m_pSceneGraph->Update();
 		m_pRenderWarpper->Render();
 	}
 }

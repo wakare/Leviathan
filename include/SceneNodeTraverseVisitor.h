@@ -1,4 +1,5 @@
 #pragma once
+
 #include <functional>
 #include "NodeVisitor.h"
 #include "SceneNode.h"

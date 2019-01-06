@@ -1,10 +1,11 @@
 #pragma once
+
+#include <map>
+#include <iostream>
 #include "GLFW/glfw3.h"
 #include "Event.h"
 #include "EventSystem.h"
 #include "LPtr.h"
-#include <map>
-#include <iostream>
 
 namespace Leviathan
 {
