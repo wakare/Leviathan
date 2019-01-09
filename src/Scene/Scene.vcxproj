@@ -159,8 +159,10 @@
     <ClCompile Include="PointCloudScene.cpp" />
     <ClCompile Include="SceneGraph.cpp" />
     <ClCompile Include="SceneHelper.cpp" />
+    <ClCompile Include="SceneLogicDataSet.cpp" />
     <ClCompile Include="SceneNode.cpp" />
     <ClCompile Include="SceneOcTree.cpp" />
+    <ClCompile Include="SceneRenderDataSet.cpp" />
     <ClCompile Include="TriDScene.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -168,12 +170,14 @@
     <ClInclude Include="..\..\include\IScene.h" />
     <ClInclude Include="..\..\include\PointCloudScene.h" />
     <ClInclude Include="..\..\include\SceneGraph.h" />
+    <ClInclude Include="..\..\include\SceneLogicDataSet.h" />
     <ClInclude Include="..\..\include\SceneNode.h" />
     <ClInclude Include="..\..\include\SceneNodeSearchVisitor.h" />
     <ClInclude Include="..\..\include\SceneNodeSearchVisitor.hpp" />
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.h" />
     <ClInclude Include="..\..\include\SceneNodeTraverseVisitor.hpp" />
     <ClInclude Include="..\..\include\SceneOcTree.h" />
+    <ClInclude Include="..\..\include\SceneRenderDataSet.h" />
     <ClInclude Include="..\..\include\TriDScene.h" />
     <ClInclude Include="SceneHelper.h" />
   </ItemGroup>

@@ -2,6 +2,8 @@
 
 namespace Leviathan
 {
+	class SceneLogicDataSet;
+
 	class IScene
 	{
 	public:
@@ -14,7 +16,7 @@ namespace Leviathan
 
 		IScene() {}
 		virtual ~IScene() {};
-
 		virtual void Update() = 0;
+		virtual SceneLogicDataSet& GetSceneData() = 0;
 	};
 }

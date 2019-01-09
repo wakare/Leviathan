@@ -21,6 +21,7 @@
 #include "IMesh.h"
 #include "SceneGraph.h"
 #include "SceneHelper.h"
+#include "SceneLogicDataSet.h"
 
 namespace Leviathan
 {
@@ -30,7 +31,7 @@ namespace Leviathan
 		m_pRenderWarpper(nullptr), 
 		m_pMeshPass(nullptr), 
 		m_pShaderProgram(nullptr),
-		m_pSceneGraph(nullptr)
+		m_pSceneLogicData(nullptr)
 	{
 		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
 
@@ -63,8 +64,8 @@ namespace Leviathan
 			return;
 		}
 
-		m_pSceneGraph = new SceneGraph(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
 	CommonScene::~CommonScene()
@@ -80,20 +81,6 @@ namespace Leviathan
 	const std::vector<Leviathan::LPtr<Leviathan::GLLight>>& CommonScene::GetLightVec() const
 	{
 		return m_pLights;
-	}
-
-	bool CommonScene::_dataUpdate()
-	{
-		m_dataUpdateRequestQueueLock.lock();
-
-		for (auto& request : m_dataUpdateResquestQueue)
-		{
-			request();
-		}
-
-		m_dataUpdateResquestQueue.clear();
-		m_dataUpdateRequestQueueLock.unlock();
-		return true;
 	}
 
 	bool CommonScene::_firstUpdate()
@@ -141,7 +128,7 @@ namespace Leviathan
 	{
 		if (!coord)
 		{
-			auto AABB = m_pSceneGraph->GetAABB();
+			auto AABB = m_pSceneLogicData->GetAABB();
 			float center[3];
 			AABB.GetAABBCenter(center);
 
@@ -155,27 +142,24 @@ namespace Leviathan
 
 	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)
 	{
-		m_dataUpdateRequestQueueLock.lock();
-		m_dataUpdateResquestQueue.push_back(request);
-		m_dataUpdateRequestQueueLock.unlock();
-
-		return true;
+		return m_pSceneLogicData->PushDataUpdateRequest(request);
 	}
 
 	bool CommonScene::PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request)
 	{
-		m_dataUpdateRequestQueueLock.lock();
-		m_dataUpdateResquestQueue.insert(m_dataUpdateResquestQueue.end(), request.begin(), request.end());
-		m_dataUpdateRequestQueueLock.unlock();
-
-		return true;
+		return m_pSceneLogicData->PushDataUpdateRequest(request);
 	}
 
 	bool CommonScene::AddNode(LPtr<Node<SceneNode>> pNode)
 	{
-		EXIT_GET_FALSE(m_pSceneGraph->AddNode(pNode));
+		EXIT_GET_FALSE(m_pSceneLogicData->AddNode(pNode));
 
 		return true;
+	}
+
+	Leviathan::SceneLogicDataSet& CommonScene::GetSceneData()
+	{
+		return *m_pSceneLogicData;
 	}
 
 	void CommonScene::Update()
@@ -187,8 +171,7 @@ namespace Leviathan
 			bFirstUpdate = false;
 		}
 
-		_dataUpdate();
-		m_pSceneGraph->Update();
+		m_pSceneLogicData->Update();
 		m_pRenderWarpper->Render();
 	}
 }

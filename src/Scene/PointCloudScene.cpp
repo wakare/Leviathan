@@ -5,6 +5,7 @@
 #include "DrawableNode.h"
 #include "SceneNode.h"
 #include "SceneGraph.h"
+#include "SceneLogicDataSet.h"
 
 namespace Leviathan
 {
@@ -36,7 +37,7 @@ namespace Leviathan
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
 		pSceneNode->AddMesh(TryCast<CMesh, IMesh>(pMesh));
 		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<CMesh, IMesh>(pMesh), pSceneNode);
-		m_pSceneGraph->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
+		m_pSceneLogicData->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
 
 		_lastAddPointCloud = pDentalNode->GetGLObject();
 		for (auto& pPointCloud : _lastAddPointCloud)

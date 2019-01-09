@@ -32,6 +32,12 @@
     <ClCompile Include="TriDScene.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
+    <ClCompile Include="SceneRenderDataSet.cpp">
+      <Filter>Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneLogicDataSet.cpp">
+      <Filter>Implement</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\IScene.h">
@@ -68,6 +74,12 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\TriDScene.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneLogicDataSet.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\SceneRenderDataSet.h">
       <Filter>Interface</Filter>
     </ClInclude>
   </ItemGroup>

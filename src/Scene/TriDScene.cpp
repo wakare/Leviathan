@@ -4,6 +4,7 @@
 #include "SceneGraph.h"
 #include "GlobalDef.h"
 #include "SceneHelper.h"
+#include "SceneLogicDataSet.h"
 
 namespace Leviathan
 {
@@ -32,7 +33,7 @@ namespace Leviathan
 	{
 		LPtr<Node<SceneNode>> pModelNode;
 		EXIT_GET_FALSE(SceneHelper::LoadModel("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.fbx", pModelNode));
-		m_pSceneGraph->AddNode(pModelNode);
+		m_pSceneLogicData->AddNode(pModelNode);
 
 		_resetCamera();
 		return true;

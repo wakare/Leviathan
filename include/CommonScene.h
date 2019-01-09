@@ -17,7 +17,7 @@ namespace Leviathan
 	class SceneGraph;
 	class Camera;
 	class GLLight;
-
+	
 	template <typename T>
 	class Node;
 
@@ -35,10 +35,10 @@ namespace Leviathan
 		bool PushDataUpdateRequest(DataUpdateRequest request);
 		bool PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request);
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
+		SceneLogicDataSet& GetSceneData();
 		virtual void Update();
 
 	protected:
-		bool _dataUpdate();
 		virtual bool _firstUpdate();
 		virtual bool _initSceneObject();	
 		bool _initCamera(unsigned width, unsigned height);
@@ -51,9 +51,6 @@ namespace Leviathan
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
-		LPtr<SceneGraph> m_pSceneGraph;
-
-		std::vector<DataUpdateRequest> m_dataUpdateResquestQueue;
-		std::mutex m_dataUpdateRequestQueueLock;
+		LPtr<SceneLogicDataSet> m_pSceneLogicData;
 	};
 }
