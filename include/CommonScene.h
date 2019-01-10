@@ -24,17 +24,12 @@ namespace Leviathan
 	class CommonScene : public IScene
 	{
 	public:
-		typedef std::function<void()> DataUpdateRequest;
-
 		CommonScene(GLFWwindow* pRenderWindow, int width, int height);
 		~CommonScene();
 
 		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 
-		bool PushDataUpdateRequest(DataUpdateRequest request);
-		bool PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request);
-		bool AddNode(LPtr<Node<SceneNode>> pNode);
 		SceneLogicDataSet& GetSceneData();
 		virtual void Update();
 

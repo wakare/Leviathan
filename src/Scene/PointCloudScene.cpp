@@ -93,8 +93,8 @@ namespace Leviathan
 			UpdatePointCloud(points);
 		};
 
-		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
-		EXIT_GET_FALSE(PushDataUpdateRequest(_addPointCloud));
+		EXIT_GET_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
+		EXIT_GET_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
 
 		return true;
 	}

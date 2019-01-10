@@ -140,23 +140,6 @@ namespace Leviathan
 		}
 	}
 
-	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)
-	{
-		return m_pSceneLogicData->PushDataUpdateRequest(request);
-	}
-
-	bool CommonScene::PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request)
-	{
-		return m_pSceneLogicData->PushDataUpdateRequest(request);
-	}
-
-	bool CommonScene::AddNode(LPtr<Node<SceneNode>> pNode)
-	{
-		EXIT_GET_FALSE(m_pSceneLogicData->AddNode(pNode));
-
-		return true;
-	}
-
 	Leviathan::SceneLogicDataSet& CommonScene::GetSceneData()
 	{
 		return *m_pSceneLogicData;

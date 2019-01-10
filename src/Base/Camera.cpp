@@ -119,7 +119,7 @@ namespace Leviathan
 
 	void Camera::MouseDrag(float x, float y)
 	{
-		TargetTranslate(x, -y);
+		TargetTranslate(x * m_currentDistance, -y * m_currentDistance);
 	}
 
 	void Camera::MouseTranslate(float x, float y, float z)
