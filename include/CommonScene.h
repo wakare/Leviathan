@@ -29,15 +29,15 @@ namespace Leviathan
 
 		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
-
 		SceneLogicDataSet& GetSceneData();
 		virtual void Update();
 
 	protected:
 		virtual bool _firstUpdate();
 		virtual bool _initSceneObject();	
-		bool _initCamera(unsigned width, unsigned height);
+
 		bool _initLight();
+		bool _initCamera(unsigned width, unsigned height);
 		void _resetCamera(float* coord = nullptr, float fDistance = -1.0f);
 
 		GLFWwindow* m_pGLFWWindow;
