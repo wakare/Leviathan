@@ -1,8 +1,10 @@
 #pragma once
+#include "LPtr.h"
 
 namespace Leviathan
 {
 	class RenderData;
+	class RenderWrapper;
 
 	template<typename T>
 	class Node;
@@ -13,6 +15,7 @@ namespace Leviathan
 		SceneRenderDataSet();
 
 	private:
-
+		LPtr<Node<RenderData>> m_renderDataTree;
+		LPtr<RenderWrapper> m_pRenderWrapper;
 	};
 }

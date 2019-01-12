@@ -59,10 +59,7 @@ namespace Leviathan
 		}
 
 		m_pMeshPass = new TriDObjectGLPass(m_pShaderProgram, m_pCamera);
-		if (!m_pMeshPass)
-		{
-			return;
-		}
+		if (!m_pMeshPass) return; 
 
 		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
@@ -138,23 +135,6 @@ namespace Leviathan
 		{
 			m_pCamera->LookAt(Vector4f(coord), fDistance);
 		}
-	}
-
-	bool CommonScene::PushDataUpdateRequest(DataUpdateRequest request)
-	{
-		return m_pSceneLogicData->PushDataUpdateRequest(request);
-	}
-
-	bool CommonScene::PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request)
-	{
-		return m_pSceneLogicData->PushDataUpdateRequest(request);
-	}
-
-	bool CommonScene::AddNode(LPtr<Node<SceneNode>> pNode)
-	{
-		EXIT_GET_FALSE(m_pSceneLogicData->AddNode(pNode));
-
-		return true;
 	}
 
 	Leviathan::SceneLogicDataSet& CommonScene::GetSceneData()

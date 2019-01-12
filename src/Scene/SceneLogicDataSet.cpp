@@ -3,6 +3,7 @@
 #include "Node.h"
 #include "SceneNode.h"
 #include "AABB.h"
+#include "GLPass.h"
 
 namespace Leviathan
 {
