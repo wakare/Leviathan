@@ -17,7 +17,7 @@ namespace Leviathan
 	{
 		m_pEventSystem = new EventSystem();
 		m_pRenderWindow = new RenderWindow(m_pEventSystem, m_sceneType);
-		m_pEventSystem->AddEventListener(Event::EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(m_pRenderWindow));
+		m_pEventSystem->AddEventListener(EventType::INPUT_EVENT, TryCast<RenderWindow, EventListener>(m_pRenderWindow));
 	}
 
 	RenderService * RenderService::Instance()
@@ -71,4 +71,12 @@ namespace Leviathan
 	{
 		m_pRenderWindow->SyncStop();
 	}
+
+	bool RenderService::AddEventListener(EventType eventType, LPtr<EventListener> listener)
+	{
+		EXIT_GET_FALSE(listener);
+		m_pEventSystem->AddEventListener(eventType, listener);
+		return true;
+	}
+
 }

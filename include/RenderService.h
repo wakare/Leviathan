@@ -6,6 +6,7 @@
 namespace Leviathan
 {
 	class EventSystem;
+	class EventListener;
 	class RenderWindow;
 	class CommonScene;
 
@@ -20,6 +21,7 @@ namespace Leviathan
 		bool Init();
 		void Run();
 		void SyncStop();
+		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
 
 	private:
 		RenderService();

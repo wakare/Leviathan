@@ -1,6 +1,7 @@
 #pragma once
 
 #include <windows.h>
+#include "GlobalDef.h"
 
 namespace Leviathan
 {
@@ -23,12 +24,6 @@ namespace Leviathan
 	class Event
 	{
 	public:
-		enum EventType
-		{
-			INPUT_EVENT,
-			USER_EVENT,
-		};
-
 		// Copy from OSG
 		enum InputAction {
 			/*
