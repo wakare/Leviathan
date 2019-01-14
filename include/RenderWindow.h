@@ -23,7 +23,7 @@ namespace Leviathan
 		bool CreateRenderWindow();
 		void Run();
 		void SyncStop();
-
+		void AsyncStop();
 		void Accept(Event& event);
 
 		GLFWwindow* GetGLFWWindow() { return m_pWindow; };

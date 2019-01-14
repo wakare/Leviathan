@@ -72,6 +72,11 @@ namespace Leviathan
 		m_pRenderWindow->SyncStop();
 	}
 
+	void RenderService::AsyncStop()
+	{
+		m_pRenderWindow->AsyncStop();
+	}
+
 	bool RenderService::AddEventListener(EventType eventType, LPtr<EventListener> listener)
 	{
 		EXIT_GET_FALSE(listener);
