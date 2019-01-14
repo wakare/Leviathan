@@ -31,6 +31,7 @@ namespace Leviathan
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 		SceneLogicDataSet& GetSceneData();
 		virtual void Update();
+		bool Clear();
 
 	protected:
 		virtual bool _firstUpdate();
@@ -43,7 +44,7 @@ namespace Leviathan
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<Camera> m_pCamera;
 		std::vector<LPtr<GLLight>> m_pLights;
-		LPtr<RenderWrapper> m_pRenderWarpper;
+		LPtr<RenderWrapper> m_pRenderWrapper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
 		LPtr<SceneLogicDataSet> m_pSceneLogicData;

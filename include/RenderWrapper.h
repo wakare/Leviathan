@@ -16,6 +16,7 @@ namespace Leviathan
 		void Render();
 		bool AddGLPass(LPtr<GLPass> GLPass);
 		bool DelGLPass(LPtr<GLPass> GLPass);
+		bool Clear();
 	private:
 
 		GLboolean m_bPreInited;

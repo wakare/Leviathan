@@ -28,14 +28,14 @@ namespace Leviathan
 	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
 		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
-		m_pRenderWarpper(nullptr), 
+		m_pRenderWrapper(nullptr), 
 		m_pMeshPass(nullptr), 
 		m_pShaderProgram(nullptr),
 		m_pSceneLogicData(nullptr)
 	{
-		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
+		m_pRenderWrapper = new RenderWrapper(pRenderWindow);
 
-		if (!m_pRenderWarpper)
+		if (!m_pRenderWrapper)
 		{
 			LeviathanOutStream << "[FATAL] RenderWrapper init failed." << std::endl;
 			throw "exception";
@@ -61,7 +61,7 @@ namespace Leviathan
 		m_pMeshPass = new TriDObjectGLPass(m_pShaderProgram, m_pCamera);
 		if (!m_pMeshPass) return; 
 
-		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pRenderWrapper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 	};
 
@@ -152,6 +152,14 @@ namespace Leviathan
 		}
 
 		m_pSceneLogicData->Update();
-		m_pRenderWarpper->Render();
+		m_pRenderWrapper->Render();
 	}
+
+	bool CommonScene::Clear()
+	{
+		m_pMeshPass->ClearGLObject();
+		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		return true;
+	}
+
 }

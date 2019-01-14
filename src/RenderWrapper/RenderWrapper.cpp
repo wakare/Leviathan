@@ -66,4 +66,11 @@ namespace Leviathan
 		m_GLPasses.erase(findResult);
 		return true;
 	}
+
+	bool RenderWrapper::Clear()
+	{
+		m_GLPasses.clear();
+		return true;
+	}
+
 }
