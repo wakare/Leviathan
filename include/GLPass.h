@@ -48,6 +48,11 @@ namespace Leviathan
 			}
 		}
 
+		void ClearGLObject()
+		{
+			m_GLObjects.clear();
+		}
+
 		void AddGLLight(LPtr<GLLight> pLight) { m_lights.push_back(pLight); }
 		const std::vector<LPtr<GLObject>> GetGLObjects() { return m_GLObjects; };
 		

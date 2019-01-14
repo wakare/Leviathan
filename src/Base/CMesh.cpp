@@ -18,29 +18,6 @@ namespace Leviathan
 
 	CMesh::~CMesh()
 	{
-		if (m_vertexCoords)
-		{
-			free(m_vertexCoords);
-			m_vertexCoords = nullptr;
-		}
-
-		if (m_primitiveIndex)
-		{
-			free(m_primitiveIndex);
-			m_primitiveIndex = nullptr;
-		}
-
-		if (m_vertexColorData)
-		{
-			free(m_vertexColorData);
-			m_vertexColorData = nullptr;
-		}
-
-		if (m_vertexTexData)
-		{
-			free(m_vertexTexData);
-			m_vertexTexData = nullptr;
-		}
 	}
 
 	IMesh::EPrimitiveType CMesh::GetPrimitiveType() const
@@ -55,22 +32,22 @@ namespace Leviathan
 
 	float* CMesh::GetVertex3DCoordArray()
 	{
-		return m_vertexCoords;
+		return m_vertexCoords->m_pData;
 	}
 
 	float * CMesh::GetVertexNormalArray()
 	{
-		return m_vertexNormal;
+		return m_vertexNormal->m_pData;
 	}
 
 	float* CMesh::GetVertexColorArray()
 	{
-		return m_vertexColorData;
+		return m_vertexColorData->m_pData;
 	}
 
 	float* CMesh::GetVertexTexArray()
 	{
-		return m_vertexTexData;
+		return m_vertexTexData->m_pData;
 	}
 
 	unsigned CMesh::GetPrimitiveCount()
@@ -80,42 +57,37 @@ namespace Leviathan
 
 	unsigned* CMesh::GetPrimitiveIndexArray()
 	{
-		return m_primitiveIndex;
+		return m_primitiveIndex->m_pData;
 	}
 
 	void CMesh::SetVertexCoordData(float* vertexCoordData)
 	{
-		m_vertexCoords = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
-
-		memcpy(m_vertexCoords, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
+		m_vertexCoords = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
+		memcpy(m_vertexCoords->m_pData, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
 	void CMesh::SetVertexNormalData(float * vertexNormalData)
 	{
-		m_vertexNormal = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
-
-		memcpy(m_vertexNormal, vertexNormalData, sizeof(float) * 3 * m_vertexNumber);
+		m_vertexNormal = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
+		memcpy(m_vertexNormal->m_pData, vertexNormalData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
 	void CMesh::SetPrimitiveIndexData(unsigned* primitiveIndexData)
 	{
-		m_primitiveIndex = (unsigned*)malloc(sizeof(unsigned) * 3 * m_primitiveNumber);
-
-		memcpy(m_primitiveIndex, primitiveIndexData, sizeof(unsigned) * 3 * m_primitiveNumber);
+		m_primitiveIndex = new DynamicArray<unsigned>(sizeof(float) * 3 * m_vertexNumber);
+		memcpy(m_primitiveIndex->m_pData, primitiveIndexData, sizeof(unsigned) * 3 * m_primitiveNumber);
 	}
 
 	void CMesh::SetVertexTex2DData(float* vertexTexData)
 	{
-		m_vertexTexData = (float*)malloc(sizeof(float) * 2 * m_vertexNumber);
-
-		memcpy(m_vertexTexData, vertexTexData, sizeof(float) * 2 * m_vertexNumber);
+		m_vertexTexData = new DynamicArray<float>(sizeof(float) * 2 * m_vertexNumber);
+		memcpy(m_vertexTexData->m_pData, vertexTexData, sizeof(float) * 2 * m_vertexNumber);
 	}
 
 	void CMesh::SetVertexColorData(float* vertexColorData)
 	{
-		m_vertexColorData = (float*)malloc(sizeof(float) * 3 * m_vertexNumber);
-
-		memcpy(m_vertexColorData, vertexColorData, sizeof(float) * 3 * m_vertexNumber);
+		m_vertexColorData = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
+		memcpy(m_vertexColorData->m_pData, vertexColorData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
 	void CMesh::SetMaterial(LPtr<Material> material)
@@ -149,7 +121,7 @@ namespace Leviathan
 		// Traverse vertex coord
 		for (unsigned i = 0; i < m_vertexNumber; i++)
 		{
-			float* currentVertexCoord = m_vertexCoords + 3 * i;
+			float* currentVertexCoord = m_vertexCoords->m_pData + 3 * i;
 
 			if (!bInited)
 			{

@@ -7,7 +7,8 @@
 
 namespace Leviathan
 {
-	SceneLogicDataSet::SceneLogicDataSet(LPtr<GLPass> pass)
+	SceneLogicDataSet::SceneLogicDataSet(LPtr<GLPass> pass):
+		m_pGLPass(pass)
 	{
 		m_pSceneGraph = new SceneGraph(pass);
 	}
@@ -44,6 +45,13 @@ namespace Leviathan
 		m_dataUpdateResquestQueue.insert(m_dataUpdateResquestQueue.end(), request.begin(), request.end());
 		m_dataUpdateRequestQueueLock.unlock();
 
+		return true;
+	}
+
+	bool SceneLogicDataSet::ClearAllData()
+	{
+		m_pGLPass->ClearGLObject();
+		m_pSceneGraph.Reset(new SceneGraph(m_pGLPass));
 		return true;
 	}
 
