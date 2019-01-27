@@ -27,11 +27,13 @@ namespace Leviathan
 
 		bool PushDataUpdateRequest(DataUpdateRequest request);
 		bool PushDataUpdateRequest(const std::vector<DataUpdateRequest>& request);
+		bool ClearAllData();
 		AABB GetAABB() const;
 
 	private:
 		std::vector<DataUpdateRequest> m_dataUpdateResquestQueue;
 		std::mutex m_dataUpdateRequestQueueLock;
+		LPtr<GLPass> m_pGLPass;
 		LPtr<SceneGraph> m_pSceneGraph;
 	};
 }

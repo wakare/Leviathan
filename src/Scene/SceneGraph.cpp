@@ -26,7 +26,6 @@ bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
 	EXIT_GET_FALSE(pNode);
 	m_pNeedAddNodeVec.push_back(pNode);
-
 	return true;
 }
 
@@ -41,11 +40,7 @@ bool Leviathan::SceneGraph::FindFirstMatchNode(std::function<bool(const Node<Sce
 	Node<SceneNode>* pResult = nullptr;
 	m_pSceneNodeSearchVisitor->SetSearchFuncAndOutResult(findFunc, &pResult);
 	m_pSceneNodeSearchVisitor->Apply((beginSearchNode) ? *beginSearchNode : *m_pRoot);
-	if (pResult == nullptr)
-	{
-		return false;
-	}
-
+	if (pResult == nullptr) return false; 
 	outResult = pResult;
 	return true;
 }

@@ -122,10 +122,11 @@ namespace Leviathan
 	void RenderWindow::SyncStop()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
-		while (m_bRunning)
-		{
-			Sleep(100);
-		}
+	}
+
+	void RenderWindow::AsyncStop()
+	{
+		glfwSetWindowShouldClose(m_pWindow, true);
 	}
 
 	void RenderWindow::_handleInput(Event& event)

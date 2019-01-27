@@ -21,6 +21,7 @@ namespace Leviathan
 		bool Init();
 		void Run();
 		void SyncStop();
+		void AsyncStop();
 		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
 
 	private:

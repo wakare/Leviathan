@@ -1,6 +1,7 @@
 #pragma once
 
 #include "IMesh.h"
+#include "DynamicArray.h"
 
 namespace Leviathan
 {
@@ -35,13 +36,13 @@ namespace Leviathan
 
 		EPrimitiveType m_primitiveType;
 
-		unsigned*	m_primitiveIndex;
+		LPtr<DynamicArray<unsigned>> m_primitiveIndex;
 		unsigned	m_primitiveNumber;
 
-		float*		m_vertexCoords;
-		float*		m_vertexNormal;
-		float*		m_vertexColorData;
-		float*		m_vertexTexData;
+		LPtr<DynamicArray<float>> m_vertexCoords;
+		LPtr<DynamicArray<float>> m_vertexNormal;
+		LPtr<DynamicArray<float>> m_vertexColorData;
+		LPtr<DynamicArray<float>> m_vertexTexData;
 
 		unsigned	m_vertexNumber;
 		LPtr<Material> m_pMaterial;
