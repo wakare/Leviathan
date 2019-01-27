@@ -1,8 +1,11 @@
 #pragma once
+
+#include <vector>
 #include "LPtr.h"
 
 namespace Leviathan
 {
+	class GLObject;
 	class RenderData;
 	class RenderWrapper;
 
@@ -13,9 +16,15 @@ namespace Leviathan
 	{
 	public:
 		SceneRenderDataSet();
-
+		bool AddNode(LPtr<GLObject> pGLObject);	
+		bool AddNode(LPtr<Node<RenderData>> pRenderDataNode);
+		std::vector<LPtr<RenderData>>& GetRenderData();
+		void Update();
+		
 	private:
+		bool _updateCache();
+		bool m_bCacheNeedUpdate;
+		std::vector<LPtr<RenderData>> m_renderDataCache;
 		LPtr<Node<RenderData>> m_renderDataTree;
-		LPtr<RenderWrapper> m_pRenderWrapper;
 	};
 }

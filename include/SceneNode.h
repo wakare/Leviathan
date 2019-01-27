@@ -3,13 +3,14 @@
 #include <vector>
 #include "BaseMath.h"
 #include "LPtr.h"
+#include "IPickable.h"
 
 namespace Leviathan
 {
 	class IMesh;
 	class AABB;
 
-	class SceneNode
+	class SceneNode : public IPickable
 	{
 	public:
 		SceneNode();
@@ -18,6 +19,7 @@ namespace Leviathan
 		bool LoadModelFile(const char* szFileName);
 		bool GetAABB(AABB& out) const;
 		bool GetWorldCoordCenter(float* out) const;
+		bool Pick(float* rayPos, float* rayDir, PickInfo& pickInfo);
 		const Vector3f& GetWorldCoord() const;
 		Matrix4f GetWorldTransform() const;
 		std::vector<Leviathan::LPtr<Leviathan::IMesh>> GetMeshVec() const;

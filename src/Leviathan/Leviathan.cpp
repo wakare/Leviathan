@@ -20,7 +20,6 @@ inline void MyEventListener::Accept(Event & event)
 	}
 }
 
-
 bool _registerEventCallback()
 {
 	LPtr<EventListener> eventListener = new MyEventListener();
@@ -30,7 +29,7 @@ bool _registerEventCallback()
 
 int main()
 {
-	RenderService::SetSceneType(IScene::EST_POINTCLOUD);
+	RenderService::SetSceneType(IScene::EST_TRID);
 	EXIT_GET_FALSE(_registerEventCallback());
 	EXIT_GET_FALSE(RenderService::Instance()->Init());
 	RenderService::Instance()->Run();

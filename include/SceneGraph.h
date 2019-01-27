@@ -10,6 +10,7 @@ namespace Leviathan
 	class SceneOcTree;
 	class SceneNode;
 	class AABB;
+	class PickInfo;
 
 	template<typename T>
 	class Node;
@@ -31,6 +32,7 @@ namespace Leviathan
 		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
 		bool AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
 		bool AddSceneOcTreeToGLPass();
+		bool Pick(float* rayPos, float* rayDir, PickInfo& info);
 		AABB GetAABB() const;
 		LPtr<Node<SceneNode>> GetRootNode() const;
 		void Update();

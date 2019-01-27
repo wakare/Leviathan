@@ -100,6 +100,17 @@ bool Leviathan::SceneGraph::AddSceneOcTreeToGLPass()
 	return AddOcTreeToGLPass(*m_pSceneOcTree, *m_pSceneRenderPass);
 }
 
+bool Leviathan::SceneGraph::Pick(float* rayPos, float* rayDir, PickInfo& info)
+{
+	auto pickFunc = [&info, &rayPos, &rayDir](Node<SceneNode>& node)
+	{
+		node.GetNodeData()->Pick(rayPos, rayDir, info);
+	};
+
+	_traverseNode(*m_pRoot, pickFunc, true);
+	return info.pSceneNode != nullptr;
+}
+
 Leviathan::AABB Leviathan::SceneGraph::GetAABB() const
 {
 	return m_pSceneOcTree->GetAABB();

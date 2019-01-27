@@ -40,8 +40,7 @@ Leviathan::SceneOcTree::SceneOcTree()
 
 bool Leviathan::SceneOcTree::AddNode(std::vector<LPtr<IOcTreeNode>>& nodeVec)
 {
-	m_pRoot = AddNodeAndUpdateOcTree(std::move(m_pRoot), nodeVec);
-
+	m_pRoot = AddNodeAndUpdateOcTree(std::move(m_pRoot), nodeVec); 
 	return true;
 }
 
@@ -49,13 +48,9 @@ bool Leviathan::SceneOcTree::AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass)
 {
 	KOcTree::TraverseFunction _traverseFunc = [&pGLPass](KOcTree& rhs)
 	{
-		if (!rhs.IsLeaf())
-		{
-			return;
-		}
+		if (!rhs.IsLeaf()) return; 
 
-		auto leafNodeVec = rhs.GetLeafNodeVec();
-
+		auto leafNodeVec = rhs.GetLeafNodeVec(); 
 		for (auto leafNode : leafNodeVec)
 		{
 			auto pSceneNodeOcTreeNode = dynamic_cast<SceneOcTreeNode*>(&(*leafNode));
@@ -68,10 +63,7 @@ bool Leviathan::SceneOcTree::AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass)
 			auto& sceneNode = pSceneNodeOcTreeNode->GetSceneNode();
 			DrawableNode<SceneNode>* pDrawableNode = dynamic_cast<DrawableNode<SceneNode>*>(&sceneNode);
 
-			if (pDrawableNode)
-			{
-				pDrawableNode->RegisterSelfToGLPass(*pGLPass);
-			}
+			if (pDrawableNode) pDrawableNode->RegisterSelfToGLPass(*pGLPass); 
 		}
 	};
 

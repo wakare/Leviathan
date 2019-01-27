@@ -31,5 +31,5 @@ namespace Leviathan
 		LPtr<EventSystem> m_pEventSystem;
 		LPtr<RenderWindow> m_pRenderWindow;
 		LPtr<CommonScene> m_pScene;
-	};
+	}; 
 }

@@ -108,15 +108,11 @@ namespace Leviathan
 				bLightEnable = false;
 			}
 
-			if (!pObject->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
-			{
+			if (!pObject->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix"))) 
 				LeviathanOutStream << "[ERROR] Set model matrix failed." << std::endl;
-			}
 
-			if (!_updateLightEnableUniform(program, bLightEnable))
-			{
+			if (!_updateLightEnableUniform(program, bLightEnable)) 
 				LeviathanOutStream << "[ERROR] Update lightEnable uniform failed." << std::endl;
-			}
 
 			m_pGLShaderProgram->SetGLUniformState();
 			pObject->Render(program);
@@ -142,14 +138,8 @@ namespace Leviathan
 	void TriDObjectGLPass::SetCullFaceEnable(GLboolean bEnable)
 	{
 		m_bFaceCullEnable = bEnable;
-		if (m_bFaceCullEnable)
-		{
-			glEnable(GL_CULL_FACE);
-		}
-		else
-		{
-			glDisable(GL_CULL_FACE);
-		}
+		if (m_bFaceCullEnable) glEnable(GL_CULL_FACE); 
+		else glDisable(GL_CULL_FACE); 
 	}
 
 	void TriDObjectGLPass::_updateCameraMatrixUniform(GLuint shaderProgram)

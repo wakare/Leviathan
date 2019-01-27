@@ -17,7 +17,8 @@ namespace Leviathan
 	class SceneGraph;
 	class Camera;
 	class GLLight;
-	
+	class SceneRenderDataSet;
+
 	template <typename T>
 	class Node;
 
@@ -30,9 +31,11 @@ namespace Leviathan
 		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 		SceneLogicDataSet& GetSceneData();
+		bool Pick(unsigned x, unsigned y);
 		virtual void Update();
 
 	protected:
+		void _generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir);
 		virtual bool _firstUpdate();
 		virtual bool _initSceneObject();	
 
@@ -40,6 +43,8 @@ namespace Leviathan
 		bool _initCamera(unsigned width, unsigned height);
 		void _resetCamera(float* coord = nullptr, float fDistance = -1.0f);
 
+		int m_width;
+		int m_height;
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<Camera> m_pCamera;
 		std::vector<LPtr<GLLight>> m_pLights;
@@ -47,5 +52,6 @@ namespace Leviathan
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
 		LPtr<SceneLogicDataSet> m_pSceneLogicData;
+		LPtr<SceneRenderDataSet> m_pSceneRenderData;
 	};
 }

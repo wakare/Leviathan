@@ -9,6 +9,8 @@ namespace Leviathan
 	class SceneNode;
 	class GLPass;
 	class AABB;
+	class GLLight;
+	class PickInfo;
 
 	template<typename T>
 	class Node;
@@ -20,6 +22,7 @@ namespace Leviathan
 
 		SceneLogicDataSet(LPtr<GLPass> pass);
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
+		bool Pick(float* rayPos, float* rayDir, PickInfo& info);
 		void Update();
 
 		bool PushDataUpdateRequest(DataUpdateRequest request);

@@ -35,7 +35,7 @@ namespace Leviathan
 			*/
 
 			NONE = 0,
-			PUSH = 1 << 0,
+			// PUSH = 1 << 0,
 			RELEASE = 1 << 1,
 			DOUBLECLICK = 1 << 2,
 			REPERT = 1 << 3,

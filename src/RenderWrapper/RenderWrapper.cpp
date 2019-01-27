@@ -10,14 +10,11 @@ namespace Leviathan
 
 	void RenderWrapper::Render()
 	{
-		if (!m_bPreInited)
-		{
-			PreInit();
-		}
+		if (!m_bPreInited) PreInit(); 
 
 		if (!m_pWindow)
 		{
-			throw "RenderWrapper::Render() --> Render window is invalid";
+			LogLine("RenderWrapper::Render() --> Render window is invalid");
 			return;
 		}
 
