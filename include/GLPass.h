@@ -69,7 +69,7 @@ namespace Leviathan
 	protected:
 		std::vector<LPtr<GLObject>>::iterator _findGLObject(LPtr<GLObject>& pObject)
 		{
-			return  std::find(m_GLObjects.begin(), m_GLObjects.end(), pObject);
+			return std::find(m_GLObjects.begin(), m_GLObjects.end(), pObject);
 		}
 
 		LPtr<GLShaderProgram> m_pGLShaderProgram;

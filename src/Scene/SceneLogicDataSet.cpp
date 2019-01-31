@@ -4,6 +4,8 @@
 #include "SceneNode.h"
 #include "AABB.h"
 #include "GLPass.h"
+#include "IPickable.h"
+
 
 namespace Leviathan
 {
@@ -16,6 +18,11 @@ namespace Leviathan
 	bool SceneLogicDataSet::AddNode(LPtr<Node<SceneNode>> pNode)
 	{
 		return m_pSceneGraph->AddNode(pNode);
+	}
+
+	bool SceneLogicDataSet::Pick(float* rayPos, float* rayDir, PickInfo& info)
+	{
+		return m_pSceneGraph->Pick(rayPos, rayDir, info);
 	}
 
 	void SceneLogicDataSet::Update()
@@ -35,7 +42,6 @@ namespace Leviathan
 		m_dataUpdateRequestQueueLock.lock();
 		m_dataUpdateResquestQueue.push_back(request);
 		m_dataUpdateRequestQueueLock.unlock();
-
 		return true;
 	}
 
@@ -44,7 +50,6 @@ namespace Leviathan
 		m_dataUpdateRequestQueueLock.lock();
 		m_dataUpdateResquestQueue.insert(m_dataUpdateResquestQueue.end(), request.begin(), request.end());
 		m_dataUpdateRequestQueueLock.unlock();
-
 		return true;
 	}
 

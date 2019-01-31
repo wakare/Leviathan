@@ -129,7 +129,14 @@ namespace Leviathan
 		glfwSetWindowShouldClose(m_pWindow, true);
 	}
 
-	void RenderWindow::_updateCameraTransform(Event& event)
+	void RenderWindow::_handleInput(Event& event)
+	{
+		if (_handlePick(event)) return;
+
+		_handleCameraTransform(event);
+	}
+
+	bool RenderWindow::_handleCameraTransform(Event& event)
 	{
 		// Update transform
 		float fTranslate[3] = { 0.0f };
@@ -209,11 +216,23 @@ namespace Leviathan
 		{
 			pLight->SetLightCoord({ m_pScene->GetCamera().m_fEye[0], m_pScene->GetCamera().m_fEye[1], m_pScene->GetCamera().m_fEye[2] });
 		}
+
+		return true;
+	}
+
+	bool RenderWindow::_handlePick(Event& event)
+	{
+		if (event.m_action == Event::KEYDOWN && event.m_code == Event::MOUSE_LBUTTON)
+		{
+			if (m_pScene->Pick(event.m_mouseCoord.x, event.m_mouseCoord.y)) return true;
+		}
+
+		return false;
 	}
 
 	void RenderWindow::Accept(Event& event)
 	{
-		_updateCameraTransform(event);
+		_handleInput(event);
 	}
 
 	void RenderWindow::_setWindowProcess()

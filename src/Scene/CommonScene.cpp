@@ -22,20 +22,24 @@
 #include "SceneGraph.h"
 #include "SceneHelper.h"
 #include "SceneLogicDataSet.h"
+#include "SceneRenderDataSet.h"
 
 namespace Leviathan
 {
 	CommonScene::CommonScene(GLFWwindow* pRenderWindow, int width, int height) :
+		m_width(width), 
+		m_height(height),
 		IScene(),
 		m_pGLFWWindow(pRenderWindow), 
-		m_pRenderWrapper(nullptr), 
+		m_pRenderWarpper(nullptr), 
 		m_pMeshPass(nullptr), 
 		m_pShaderProgram(nullptr),
-		m_pSceneLogicData(nullptr)
+		m_pSceneLogicData(nullptr), 
+		m_pSceneRenderData(nullptr)
 	{
-		m_pRenderWrapper = new RenderWrapper(pRenderWindow);
+		m_pRenderWarpper = new RenderWrapper(pRenderWindow);
 
-		if (!m_pRenderWrapper)
+		if (!m_pRenderWarpper)
 		{
 			LeviathanOutStream << "[FATAL] RenderWrapper init failed." << std::endl;
 			throw "exception";
@@ -61,8 +65,9 @@ namespace Leviathan
 		m_pMeshPass = new TriDObjectGLPass(m_pShaderProgram, m_pCamera);
 		if (!m_pMeshPass) return; 
 
-		m_pRenderWrapper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pSceneRenderData = new SceneRenderDataSet();
 	};
 
 	CommonScene::~CommonScene()
@@ -78,6 +83,28 @@ namespace Leviathan
 	const std::vector<Leviathan::LPtr<Leviathan::GLLight>>& CommonScene::GetLightVec() const
 	{
 		return m_pLights;
+	}
+
+	void CommonScene::_generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir)
+	{
+		float _x = (1.0f * x) / (m_width);
+		float _y = (1.0f * y) / (m_height);
+		_x = 2 * (_x - 0.5f);
+		_y = 2 * (_y - 0.5f);
+
+		// NDC coord
+		float temp[4] = { _x, _y, -1.0f, 1.0f };
+		Vector4f coord = temp;
+		auto cameraCoord = coord * m_pCamera->GetPerspectiveTransformMatrix().InverseSelf();
+		auto worldCoord = (cameraCoord * m_pCamera->GetViewportTransformMatrix().InverseSelf()).GetData();
+
+		rayPos[0] = m_pCamera->m_fEye[0];
+		rayPos[1] = m_pCamera->m_fEye[1];
+		rayPos[2] = m_pCamera->m_fEye[2];
+
+		rayDir[0] = worldCoord[0] - rayPos[0];
+		rayDir[1] = worldCoord[1] - rayPos[1];
+		rayDir[2] = worldCoord[2] - rayPos[2];
 	}
 
 	bool CommonScene::_firstUpdate()
@@ -127,8 +154,7 @@ namespace Leviathan
 		{
 			auto AABB = m_pSceneLogicData->GetAABB();
 			float center[3];
-			AABB.GetAABBCenter(center);
-
+			AABB.GetAABBCenter(center); 
 			m_pCamera->LookAt(Vector4f(center), fDistance);
 		}
 		else
@@ -152,14 +178,22 @@ namespace Leviathan
 		}
 
 		m_pSceneLogicData->Update();
-		m_pRenderWrapper->Render();
+		m_pSceneRenderData->Update();
+		m_pRenderWarpper->Render();
 	}
 
-	bool CommonScene::Clear()
+	bool CommonScene::Pick(unsigned x, unsigned y)
 	{
-		m_pMeshPass->ClearGLObject();
-		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
-		return true;
+		float rayPos[3], rayDir[3];
+		_generateWorldRayFromScreenCoord(x, y, rayPos, rayDir);
+		PickInfo pickInfo;
+		if (m_pSceneLogicData->Pick(rayPos, rayDir, pickInfo))
+		{
+			LogLine("Picked!");
+			return true;
+		}
+
+		return false;
 	}
 
 }

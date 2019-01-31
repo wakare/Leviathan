@@ -82,5 +82,8 @@
     <ClInclude Include="..\..\include\SceneRenderDataSet.h">
       <Filter>Interface</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\IPickable.h">
+      <Filter>Implement</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

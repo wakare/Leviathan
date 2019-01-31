@@ -18,14 +18,8 @@ namespace Leviathan
 	{
 		// Init light
 		EXIT_GET_FALSE(_initLight());
-
-		if (!_initSceneObject())
-		{
-			LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl;
-		}
-
+		if (!_initSceneObject())  LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl; 
 		_resetCamera();
-
 		return true;
 	}
 
@@ -34,7 +28,6 @@ namespace Leviathan
 		LPtr<Node<SceneNode>> pModelNode;
 		EXIT_GET_FALSE(SceneHelper::LoadModel("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.fbx", pModelNode));
 		m_pSceneLogicData->AddNode(pModelNode);
-
 		_resetCamera();
 		return true;
 	}

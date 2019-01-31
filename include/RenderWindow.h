@@ -32,7 +32,9 @@ namespace Leviathan
 		LPtr<CommonScene> GetScene() { if (m_pScene == nullptr) CreateRenderWindow(); return m_pScene; }
 
 	private:
-		void _updateCameraTransform(Event& event);
+		void _handleInput(Event& event);
+		bool _handleCameraTransform(Event& event);
+		bool _handlePick(Event& event);
 		void _setWindowProcess();
 		bool _glewInit();
 

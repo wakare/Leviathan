@@ -167,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\CommonScene.h" />
+    <ClInclude Include="..\..\include\IPickable.h" />
     <ClInclude Include="..\..\include\IScene.h" />
     <ClInclude Include="..\..\include\PointCloudScene.h" />
     <ClInclude Include="..\..\include\SceneGraph.h" />
