@@ -1,5 +1,6 @@
 #pragma once
 #include "CommonScene.h"
+#include "PointCloud.h"
 
 namespace Leviathan
 {

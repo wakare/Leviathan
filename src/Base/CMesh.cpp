@@ -30,33 +30,38 @@ namespace Leviathan
 		return m_vertexNumber;
 	}
 
-	float* CMesh::GetVertex3DCoordArray()
-	{
-		return m_vertexCoords->m_pData;
-	}
-
-	float * CMesh::GetVertexNormalArray()
-	{
-		return m_vertexNormal->m_pData;
-	}
-
-	float* CMesh::GetVertexColorArray()
-	{
-		return m_vertexColorData->m_pData;
-	}
-
-	float* CMesh::GetVertexTexArray()
-	{
-		return m_vertexTexData->m_pData;
-	}
-
 	unsigned CMesh::GetPrimitiveCount()
 	{
 		return m_primitiveNumber;
 	}
 
+	float* CMesh::GetVertex3DCoordArray()
+	{
+		if (!m_vertexCoords) return nullptr;
+		return m_vertexCoords->m_pData;
+	}
+
+	float * CMesh::GetVertexNormalArray()
+	{
+		if (!m_vertexNormal) return nullptr;
+		return m_vertexNormal->m_pData;
+	}
+
+	float* CMesh::GetVertexColorArray()
+	{
+		if (!m_vertexColorData) return nullptr;
+		return m_vertexColorData->m_pData;
+	}
+
+	float* CMesh::GetVertexTexArray()
+	{
+		if (!m_vertexTexData) return nullptr;
+		return m_vertexTexData->m_pData;
+	}
+
 	unsigned* CMesh::GetPrimitiveIndexArray()
 	{
+		if (!m_primitiveIndex) return nullptr;
 		return m_primitiveIndex->m_pData;
 	}
 
@@ -74,7 +79,7 @@ namespace Leviathan
 
 	void CMesh::SetPrimitiveIndexData(unsigned* primitiveIndexData)
 	{
-		m_primitiveIndex = new DynamicArray<unsigned>(sizeof(float) * 3 * m_vertexNumber);
+		m_primitiveIndex = new DynamicArray<unsigned>(sizeof(float) * 3 * m_primitiveNumber);
 		memcpy(m_primitiveIndex->m_pData, primitiveIndexData, sizeof(unsigned) * 3 * m_primitiveNumber);
 	}
 

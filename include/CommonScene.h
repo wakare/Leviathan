@@ -3,7 +3,6 @@
 #include <mutex>
 #include <vector>
 #include "IScene.h"
-#include "PointCloud.h"
 #include "LPtr.h"
 
 struct GLFWwindow;
@@ -33,7 +32,6 @@ namespace Leviathan
 		SceneLogicDataSet& GetSceneData();
 		bool Pick(unsigned x, unsigned y);
 		virtual void Update();
-		bool Clear();
 
 	protected:
 		void _generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir);
@@ -49,7 +47,7 @@ namespace Leviathan
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<Camera> m_pCamera;
 		std::vector<LPtr<GLLight>> m_pLights;
-		LPtr<RenderWrapper> m_pRenderWrapper;
+		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;
 		LPtr<SceneLogicDataSet> m_pSceneLogicData;

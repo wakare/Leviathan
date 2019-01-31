@@ -1,3 +1,4 @@
+#include <filesystem>
 #include "TriDScene.h"
 #include "SceneNode.h"
 #include "DrawableNode.h"
@@ -26,7 +27,8 @@ namespace Leviathan
 	bool TriDScene::_initSceneObject()
 	{
 		LPtr<Node<SceneNode>> pModelNode;
-		EXIT_GET_FALSE(SceneHelper::LoadModel("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/src/Leviathan/Black_Dragon/Dragon_2.5_fbx.fbx", pModelNode));
+		std::string path = std::experimental::filesystem::current_path().string() + "\\Black_Dragon\\Dragon_2.5_fbx.fbx";
+		EXIT_GET_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
 		m_pSceneLogicData->AddNode(pModelNode);
 		_resetCamera();
 		return true;
