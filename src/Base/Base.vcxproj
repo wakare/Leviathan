@@ -191,6 +191,7 @@
     <ClInclude Include="..\..\include\PointCloud.h" />
     <ClInclude Include="..\..\include\PointCloud.hpp" />
     <ClInclude Include="..\..\include\VectorOperation.h" />
+    <ClInclude Include="OcTreeAccStruct.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

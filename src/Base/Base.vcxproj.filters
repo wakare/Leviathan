@@ -120,5 +120,8 @@
     <ClInclude Include="..\..\include\OcTreeAccStruct.h">
       <Filter>SpaceManager</Filter>
     </ClInclude>
+    <ClInclude Include="OcTreeAccStruct.hpp">
+      <Filter>SpaceManager</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
