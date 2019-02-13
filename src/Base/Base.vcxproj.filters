@@ -11,6 +11,9 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
     </Filter>
+    <Filter Include="SpaceManager">
+      <UniqueIdentifier>{4a1ebbff-73f6-4248-8204-0e978ea84f0b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMesh.cpp">
@@ -110,6 +113,12 @@
     </ClInclude>
     <ClInclude Include="..\..\include\Camera.h">
       <Filter>BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ISpaceAccStruct.h">
+      <Filter>SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\OcTreeAccStruct.h">
+      <Filter>SpaceManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -83,7 +83,7 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\IPickable.h">
-      <Filter>Implement</Filter>
+      <Filter>Interface</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
