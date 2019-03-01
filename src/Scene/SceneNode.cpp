@@ -80,9 +80,9 @@ namespace Leviathan
 	{
 		AABB _sceneNodeAABB; if (!GetAABB(_sceneNodeAABB)) return false; 
 
-		Eigen::Vector4f worldAABBCenter = GetWorldTransform() * Eigen::Vector4f(_sceneNodeAABB.center);
+		Eigen::Vector4f modelCoord(_sceneNodeAABB.center); modelCoord[3] = 1.0f;
+		Eigen::Vector4f worldAABBCenter = GetWorldTransform() * modelCoord;
 		memcpy(out, worldAABBCenter.data(), sizeof(float) * 3);
-
 		return true;
 	}
 

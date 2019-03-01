@@ -61,7 +61,7 @@ namespace Leviathan
 			0.0f, 0.0f, 0.0f,				  1.0f,
 		};
 
-		return Eigen::Matrix4f(data);
+		return Eigen::Matrix4f(data).transpose();
 	};
 
 	Eigen::Matrix4f Camera::GetPerspectiveTransformMatrix()
@@ -79,7 +79,7 @@ namespace Leviathan
 			0.0f,				0.0f,				1.0f,				0.0f
 		};
 
-		return Eigen::Matrix4f(data);
+		return Eigen::Matrix4f(data).transpose();
 	};
 
 	void Camera::Translate(float x, float y, float z)

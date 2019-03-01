@@ -19,18 +19,18 @@ namespace Leviathan
 	{
 		// Init light
 		EXIT_GET_FALSE(_initLight());
-		if (!_initSceneObject())  LeviathanOutStream << "[ERROR] Init scene object failed." << std::endl; 
-		_resetCamera();
+		if (!_initSceneObject()) LogLine("[ERROR] Init scene object failed."); 
 		return true;
 	}
 
 	bool TriDScene::_initSceneObject()
 	{
 		LPtr<Node<SceneNode>> pModelNode;
-		std::string path = std::experimental::filesystem::current_path().string() + "\\Black_Dragon\\Dragon_2.5_fbx.fbx";
+		std::string path = std::experimental::filesystem::current_path().string() + "\\Models\\SoccerBall.STL";
 		EXIT_GET_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
 		m_pSceneLogicData->AddNode(pModelNode);
-		_resetCamera();
+		AABB nodeAABB; EXIT_GET_FALSE(pModelNode->GetNodeData()->GetAABB(nodeAABB));
+		_resetCamera(nodeAABB.center);
 		return true;
 	}
 

@@ -81,6 +81,5 @@ void main()
 		result.z = min(result.z, 1.0);
 
 		color = color * vec4(result, 1.0f);
-		//color = vec4(result, 1.0f);
 	}
 }

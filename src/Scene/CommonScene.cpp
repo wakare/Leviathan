@@ -1,8 +1,10 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+
 #include "Camera.h"
 #include "GLLight.h"
 #include "CommonScene.h"

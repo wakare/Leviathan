@@ -17,12 +17,8 @@ namespace Leviathan
 
 	bool TriDObjectGLPass::Init()
 	{
-		if (m_bInited)
-		{
-			return true;
-		}
+		if (m_bInited || !m_pGLShaderProgram) return true;
 
-		EXIT_GET_FALSE(m_pGLShaderProgram);
 		EXIT_GET_FALSE(m_pGLShaderProgram->Init());
 
 		// Add matrix uniform to shaderProgram
@@ -152,8 +148,7 @@ namespace Leviathan
 		}
 
 		auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
-		Eigen::Matrix4f _viewMatrix = viewMatrix.inverse();
-		pViewMatrixUniform->SetData(_viewMatrix.data(), _viewMatrix.size());
+		pViewMatrixUniform->SetData(viewMatrix.data(), viewMatrix.size());
 
 		auto& pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
 		if (!pPerspectiveMatrixUniform)
@@ -163,8 +158,7 @@ namespace Leviathan
 		}
 
 		auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
-		Eigen::Matrix4f _PerspectiveMatrix = PerspectiveMatrix.inverse();
-		pPerspectiveMatrixUniform->SetData(_PerspectiveMatrix.data(), _PerspectiveMatrix.size());
+		pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.data(), PerspectiveMatrix.size());
 
 		m_pMainCamera->UpdateViewPosUniform(shaderProgram);
 	}

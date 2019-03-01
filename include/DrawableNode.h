@@ -31,7 +31,7 @@ namespace Leviathan
 		bool _convertPointMeshToGLObject(LPtr<IMesh>& pMesh, LPtr<GLObject>& out);
 		bool _convertTriangleMeshToGLObject(LPtr<IMesh>& pMesh, LPtr<GLObject>& out);
 
-		bool m_bRegisterState;
+		bool m_bRegisted;
 		std::vector<LPtr<IMesh>> m_pMeshVec;
 		std::vector<LPtr<GLObject>> m_pGLObjectVec;
 	};
@@ -39,7 +39,7 @@ namespace Leviathan
 	template<class T>
 	inline Leviathan::DrawableNode<T>::DrawableNode(LPtr<IMesh> pModel, LPtr<T> pNode) :
 		Node(pNode), 
-		m_bRegisterState(false)
+		m_bRegisted(false)
 	{
 		m_pMeshVec.push_back(pModel);
 	}
@@ -48,7 +48,7 @@ namespace Leviathan
 	inline Leviathan::DrawableNode<T>::DrawableNode(std::vector<LPtr<IMesh>> pModelVec, LPtr<T> pNode):
 		m_pMeshVec(pModelVec),
 		Node<T>(pNode),
-		m_bRegisterState(false)
+		m_bRegisted(false)
 	{
 		m_pMeshVec.insert(m_pMeshVec.end(), pModelVec.begin(), pModelVec.end());
 	}
@@ -56,7 +56,7 @@ namespace Leviathan
 	template<class T>
 	inline Leviathan::DrawableNode<T>::DrawableNode(LPtr<GLObject> pGLObject, LPtr<T> pNode) :
 		Node<T>(pNode),
-		m_bRegisterState(false)
+		m_bRegisted(false)
 	{
 		m_pGLObjectVec.push_back(pGLObject);
 	}
@@ -164,12 +164,9 @@ namespace Leviathan
 	{
 		unsigned uVertexFloatCount = 10;
 		auto pMaterial = pMesh->GetMaterial();
-		bool bUseTexture = !(pMaterial == nullptr);
-		if (bUseTexture)
-		{
-			uVertexFloatCount += 2;
-		}
-
+		bool bUseTexture = pMaterial && (pMaterial->m_textureName.length() > 0);
+		
+		if (bUseTexture) uVertexFloatCount += 2; 
 		DynamicArray<float> glData(pMesh->GetPrimitiveCount() * 3 * uVertexFloatCount * sizeof(float));
 
 		static float defaultColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
@@ -283,7 +280,7 @@ namespace Leviathan
 	template<class T>
 	inline bool DrawableNode<T>::RegisterSelfToGLPass(GLPass& refPass)
 	{
-		if (m_bRegisterState)
+		if (m_bRegisted)
 		{
 			return true;
 		}
@@ -303,7 +300,7 @@ namespace Leviathan
 			refPass.AddGLObject(pGLObject);
 		}
 		
-		m_bRegisterState = true;
+		m_bRegisted = true;
 
 		return true;
 	}

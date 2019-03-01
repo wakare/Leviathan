@@ -6,7 +6,6 @@
 #include "GLPass.h"
 #include "IPickable.h"
 
-
 namespace Leviathan
 {
 	SceneLogicDataSet::SceneLogicDataSet(LPtr<GLPass> pass):

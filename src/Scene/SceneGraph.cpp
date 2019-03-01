@@ -18,7 +18,7 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pRoot = new Node<SceneNode>(new SceneNode());
 	m_pSceneNodeSearchVisitor = new SceneNodeSearchVisitor<SceneNode>();
 	m_pSceneNodeTraverseVisitor = new SceneNodeTraverseVisitor<SceneNode>(m_pSceneRenderPass);
-	float aabbValue[6] = { -1000.f, -1000.0f, -1000.0f, 1000.0f, 1000.0f, 1000.0f }; 
+	float aabbValue[6] = { -1000.0f, -1000.0f, -1000.0f, 1000.0f, 1000.0f, 1000.0f }; 
 	AABB sceneAABB(aabbValue, aabbValue + 3);
 	m_pSceneOcTree = new SceneOcTree(sceneAABB);
 }
