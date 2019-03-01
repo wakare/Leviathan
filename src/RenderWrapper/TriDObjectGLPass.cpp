@@ -28,8 +28,8 @@ namespace Leviathan
 		// Add matrix uniform to shaderProgram
 		LPtr<GLUniform> modelMatrixUniform = new GLUniform("modelMatrix", GLUniform::TYPE_FLOAT_MAT4);
 		//auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
-		Matrix4f modelMatrix = Matrix4f::GetIdentityMatrix();
-		modelMatrixUniform->SetData(modelMatrix.GetData(), modelMatrix.GetDataSize());
+		Eigen::Matrix4f modelMatrix = Eigen::Matrix4f::Identity();
+		modelMatrixUniform->SetData(modelMatrix.data(), modelMatrix.size());
 		if (!m_pGLShaderProgram->AddUniform(modelMatrixUniform))
 		{
 			throw "TriDObjectGLPass::Init() failed.";
@@ -38,7 +38,7 @@ namespace Leviathan
 
 		LPtr<GLUniform> viewMatrixUniform = new GLUniform("viewMatrix", GLUniform::TYPE_FLOAT_MAT4);
 		auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
-		viewMatrixUniform->SetData(viewMatrix.GetData(), viewMatrix.GetDataSize());
+		viewMatrixUniform->SetData(viewMatrix.data(), viewMatrix.size());
 		if (!m_pGLShaderProgram->AddUniform(viewMatrixUniform))
 		{
 			throw "TriDObjectGLPass::Init() failed.";
@@ -47,7 +47,7 @@ namespace Leviathan
 
 		LPtr<GLUniform> PerspectiveMatrixUniform = new GLUniform("projMatrix", GLUniform::TYPE_FLOAT_MAT4);
 		auto projMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
-		PerspectiveMatrixUniform->SetData(projMatrix.GetData(), projMatrix.GetDataSize());
+		PerspectiveMatrixUniform->SetData(projMatrix.data(), projMatrix.size());
 		if (!m_pGLShaderProgram->AddUniform(PerspectiveMatrixUniform))
 		{
 			throw "TriDObjectGLPass::Init() failed.";
@@ -152,7 +152,8 @@ namespace Leviathan
 		}
 
 		auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
-		pViewMatrixUniform->SetData(viewMatrix.GetData(), viewMatrix.GetDataSize());
+		Eigen::Matrix4f _viewMatrix = viewMatrix.inverse();
+		pViewMatrixUniform->SetData(_viewMatrix.data(), _viewMatrix.size());
 
 		auto& pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
 		if (!pPerspectiveMatrixUniform)
@@ -162,7 +163,8 @@ namespace Leviathan
 		}
 
 		auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
-		pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.GetData(), PerspectiveMatrix.GetDataSize());
+		Eigen::Matrix4f _PerspectiveMatrix = PerspectiveMatrix.inverse();
+		pPerspectiveMatrixUniform->SetData(_PerspectiveMatrix.data(), _PerspectiveMatrix.size());
 
 		m_pMainCamera->UpdateViewPosUniform(shaderProgram);
 	}

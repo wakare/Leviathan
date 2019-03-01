@@ -25,7 +25,7 @@ Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::CFileImportFactory::Ge
 	{
 		std::call_once(sFlag, [&]()
 		{
-			LeviathanOutStream << "[WARN] File import factory inited." << std::endl;
+			LeviathanOutStream << "[INFO] File import factory inited." << std::endl;
 			m_spFileImportFactory = LPtr<IFileImportFactory>(new CFileImportFactory());
 		});
 	}
@@ -136,9 +136,9 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 		aiColor4D aiEmission;
 		ai_real aiShininess;
 
-		Vector3f diffuse(0.0f, 0.0f, 0.0f);
-		Vector3f specular(0.0f, 0.0f, 0.0f);
-		Vector3f ambient(0.0f, 0.0f, 0.0f);
+		Eigen::Vector3f diffuse(0.0f, 0.0f, 0.0f);
+		Eigen::Vector3f specular(0.0f, 0.0f, 0.0f);
+		Eigen::Vector3f ambient(0.0f, 0.0f, 0.0f);
 
 		if (AI_SUCCESS == aiGetMaterialColor(meshMaterial, AI_MATKEY_COLOR_DIFFUSE, &aiDiffuse))
 		{
@@ -209,7 +209,7 @@ std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const
 	}
 
 	std::vector<LPtr<IMesh>> result;
-	LeviathanOutStream << importerScene->HasTextures() << std::endl;
+	LeviathanOutStream << "[INFO] Has texture? " << importerScene->HasTextures() << std::endl;
 
 	_recursionLoadModel(*(importerScene->mRootNode), *importerScene, absDirectoryPath, result);
 

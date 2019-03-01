@@ -45,7 +45,7 @@ namespace Leviathan
 		memcpy(m_fUp, up, sizeof(float) * 3);
 	};
 
-	Matrix4f Camera::GetViewportTransformMatrix()
+	Eigen::Matrix4f Camera::GetViewportTransformMatrix()
 	{
 		float N[3];
 		float U[3];
@@ -61,11 +61,10 @@ namespace Leviathan
 			0.0f, 0.0f, 0.0f,				  1.0f,
 		};
 
-		Matrix4f result = Matrix4f(data);
-		return result;
+		return Eigen::Matrix4f(data);
 	};
 
-	Matrix4f Camera::GetPerspectiveTransformMatrix()
+	Eigen::Matrix4f Camera::GetPerspectiveTransformMatrix()
 	{
 		float T = tanf(m_fovy / 2.0f);
 		float N = m_fZNear - m_fZFar;
@@ -80,8 +79,7 @@ namespace Leviathan
 			0.0f,				0.0f,				1.0f,				0.0f
 		};
 
-		Matrix4f result = Matrix4f(data);
-		return result;
+		return Eigen::Matrix4f(data);
 	};
 
 	void Camera::Translate(float x, float y, float z)
@@ -182,18 +180,18 @@ namespace Leviathan
 			0.0f,			0.0f,			0.0f,				1.0f,
 		};
 
-		Matrix4f xMatrix(reinterpret_cast<float*>(XRotate));
-		Matrix4f yMatrix(reinterpret_cast<float*>(YRotate));
-		Matrix4f zMatrix(reinterpret_cast<float*>(ZRotate));
+		Eigen::Matrix4f xMatrix(reinterpret_cast<float*>(XRotate));
+		Eigen::Matrix4f yMatrix(reinterpret_cast<float*>(YRotate));
+		Eigen::Matrix4f zMatrix(reinterpret_cast<float*>(ZRotate));
 
-		Matrix4f rotateMatrix = xMatrix * yMatrix * zMatrix;
+		Eigen::Matrix4f rotateMatrix = xMatrix * yMatrix * zMatrix;
 
-		static auto _updateCameraAttribute = [](float* attribute, Matrix4f& rotateMatrix)
+		static auto _updateCameraAttribute = [](float* attribute, Eigen::Matrix4f& rotateMatrix)
 		{
 			float attributeArray[4] = { attribute[0], attribute[1], attribute[2], 1.0f };
-			Vector4f attributeVector = Vector4f(attributeArray) * rotateMatrix;
+			Eigen::Vector4f attributeVector = rotateMatrix * Eigen::Vector4f(attributeArray) ;
 
-			memcpy(attributeArray, attributeVector.GetData(), sizeof(attributeArray));
+			memcpy(attributeArray, attributeVector.data(), sizeof(attributeArray));
 			if (fabs(attributeArray[3]) < FLT_EPSILON)
 			{
 				throw "Error attribute array.";
@@ -221,12 +219,12 @@ namespace Leviathan
 		_updateCameraAttribute(m_fUp, rotateMatrix);
 	}
 
-	bool Camera::LookAt(const Vector3f& worldCoord, float fDistance /*= 100.0f*/)
+	bool Camera::LookAt(const Eigen::Vector3f& worldCoord, float fDistance /*= 100.0f*/)
 	{
 		float N[3], V[3], U[3];
 		_getNUVVector(N, U, V);
 
-		memcpy(m_fLookAt, &worldCoord.x, sizeof(float) * 3);
+		memcpy(m_fLookAt, worldCoord.data(), sizeof(float) * 3);
 		_updateCurrentDistance(fDistance);
 
 		m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];

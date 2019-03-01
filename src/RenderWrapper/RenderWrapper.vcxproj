@@ -97,7 +97,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -127,7 +127,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLEW_STATIC;WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

@@ -3,12 +3,13 @@
 #include <mutex>
 #include <vector>
 
+class AABB;
+
 namespace Leviathan
 {
 	class SceneGraph;
 	class SceneNode;
 	class GLPass;
-	class AABB;
 	class GLLight;
 	class PickInfo;
 

@@ -39,8 +39,6 @@ namespace Leviathan
 			std::vector<const AABB<scalar>*> data;
 			std::unique_ptr<TreeNode<scalar>> m_pRoot;
 		};
-
-		
 	}
 }
 

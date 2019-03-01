@@ -19,7 +19,7 @@ namespace Leviathan
 			VERTEX_ATTRIBUTE_TEX  = 0x8,
 		};
 
-		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr) :
+		GLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix = nullptr, LPtr<IGLMaterial> pCommonGLMaterial = nullptr) :
 			m_bLightEnable(true),
 			m_bUseDefaultVertexColor(false),
 			m_VAO(0), 
@@ -43,7 +43,7 @@ namespace Leviathan
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
 		GLboolean GetLightEnable() { return m_bLightEnable; }
 
-		void SetModelMatrix(const Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Matrix4f(); } m_pModelMatrix->SetData(refModelMatrix.GetData()); }
+		void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Eigen::Matrix4f(); } *m_pModelMatrix = refModelMatrix; }
 		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 		void SetDefaultVertexColorEnable(bool bUseDefaultVertexColor) { m_bUseDefaultVertexColor = bUseDefaultVertexColor; }
@@ -66,6 +66,6 @@ namespace Leviathan
 		GLuint m_vertexCount;
 		GLint m_vertexAttributeMask;
 		LPtr<IGLMaterial> m_pCommonGLMaterial;
-		LPtr<Matrix4f> m_pModelMatrix;
+		LPtr<Eigen::Matrix4f> m_pModelMatrix;
 	};
 }

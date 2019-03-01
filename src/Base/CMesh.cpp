@@ -105,7 +105,7 @@ namespace Leviathan
 		return m_pMaterial;
 	}
 
-	const Leviathan::AABB& CMesh::GetAABB()
+	const AABB& CMesh::GetAABB()
 {
 		if (!m_bAABBInited)
 		{
@@ -119,7 +119,7 @@ namespace Leviathan
 	}
 
 	bool CMesh::_setAABB()
-{
+	{
 		float AABBData[6];
 		bool bInited = false;
 
@@ -161,7 +161,7 @@ namespace Leviathan
 			return false;
 		}
 
-		m_AABB.SetAABBCoord(AABBData);
+		m_AABB.SetData(AABBData, AABBData + 3);
 		return true;
 	}
 

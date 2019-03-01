@@ -12,7 +12,7 @@ namespace Leviathan
 {
 	Leviathan::LPtr<Leviathan::GLObject> SceneHelper::ConvertAABBtoGLObject(const AABB& aabb)
 	{
-		float fRadius = aabb.GetAABBRadius();
+		float fRadius = aabb.Radius();
 		if (fRadius < 0.0f)
 		{
 			LeviathanOutStream << "[ERROR] AABB radius less than zero." << std::endl;
@@ -35,8 +35,7 @@ namespace Leviathan
 		};
 
 		// Move to center
-		float center[3];
-		aabb.GetAABBCenter(center);
+		const float* center = aabb.center;
 
 		for (unsigned i = 0; i < 8; i++)
 		{
@@ -105,7 +104,7 @@ namespace Leviathan
 		auto pDentalGLObjectVec = pModelNode->GetGLObject();
 		for (auto pDentalGLObject : pDentalGLObjectVec)
 		{
-			pDentalGLObject->SetModelMatrix(pModelNode->GetNodeData()->GetWorldTransform().GetInverseMatrix());
+			pDentalGLObject->SetModelMatrix(pModelNode->GetNodeData()->GetWorldTransform().inverse());
 		}
 
 		out = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pModelNode);

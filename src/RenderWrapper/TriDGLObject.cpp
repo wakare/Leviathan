@@ -139,10 +139,10 @@ namespace Leviathan
 				0.0f, 0.0f, 0.0f, 1.0f,
 			};
 
-			m_pModelMatrix = new Matrix4f(fIdentityMatrix);
+			m_pModelMatrix = new Eigen::Matrix4f(fIdentityMatrix);
 		}
 
-		modelMatrixUniform->SetData(m_pModelMatrix->GetData(), m_pModelMatrix->GetDataSize());
+		modelMatrixUniform->SetData(m_pModelMatrix->data(), m_pModelMatrix->size());
 		return true;
 	}
 

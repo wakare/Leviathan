@@ -6,7 +6,6 @@
 #include "SceneNodeSearchVisitor.h"
 #include "SceneNodeTraverseVisitor.h"
 #include "GLPass.h"
-#include "AABB.h"
 #include "SceneOcTree.h"
 
 Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
@@ -19,7 +18,9 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pRoot = new Node<SceneNode>(new SceneNode());
 	m_pSceneNodeSearchVisitor = new SceneNodeSearchVisitor<SceneNode>();
 	m_pSceneNodeTraverseVisitor = new SceneNodeTraverseVisitor<SceneNode>(m_pSceneRenderPass);
-	m_pSceneOcTree = new SceneOcTree();
+	float aabbValue[6] = { -1000.f, -1000.0f, -1000.0f, 1000.0f, 1000.0f, 1000.0f }; 
+	AABB sceneAABB(aabbValue, aabbValue + 3);
+	m_pSceneOcTree = new SceneOcTree(sceneAABB);
 }
 
 bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
@@ -70,23 +71,7 @@ bool Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 		sceneNodeVec.push_back(pBeginNode.Get());
 	}
 
-	std::vector<LPtr<IOcTreeNode>> ocTreeNodeVec;
-	for (auto& pSceneNode : sceneNodeVec)
-	{
-		float worldCoordCenter[3] = { 0.0f };
-		EXIT_GET_FALSE(pSceneNode->GetNodeData()->GetWorldCoordCenter(worldCoordCenter));
-
-		LPtr<SceneOcTreeNode> pSceneOcTreeNode = new SceneOcTreeNode(worldCoordCenter, *pSceneNode);
-		if (pSceneOcTreeNode)
-		{
-			ocTreeNodeVec.push_back(TryCast<SceneOcTreeNode, IOcTreeNode>(pSceneOcTreeNode));
-			continue;
-		}
-
-		LeviathanOutStream << "[ERROR] pSceneOcTree is nullptr." << std::endl;
-	}
-
-	EXIT_GET_FALSE(m_pSceneOcTree->AddNode(ocTreeNodeVec));
+	EXIT_GET_FALSE(m_pSceneOcTree->AddNode(sceneNodeVec));
 	return true;
 }
 
@@ -106,7 +91,7 @@ bool Leviathan::SceneGraph::Pick(float* rayPos, float* rayDir, PickInfo& info)
 	return info.pSceneNode != nullptr;
 }
 
-Leviathan::AABB Leviathan::SceneGraph::GetAABB() const
+AABB Leviathan::SceneGraph::GetAABB() const
 {
 	return m_pSceneOcTree->GetAABB();
 }

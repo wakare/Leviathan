@@ -3,6 +3,8 @@
 #include "IMesh.h"
 #include "DynamicArray.h"
 
+class AABB;
+
 namespace Leviathan
 {
 	class CMesh : public IMesh

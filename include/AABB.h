@@ -1,104 +1,50 @@
 #pragma once
+#include <cstring>
 
-#include <memory>
-#include "GlobalDef.h"
-
-namespace Leviathan
+class AABB
 {
-	class AABB
+public:
+	AABB(float* _min, float* _max)
 	{
-		union AABBCoord
-		{
-			struct
-			{
-				float minX;
-				float minY;
-				float minZ;
-				float maxX;
-				float maxY;
-				float maxZ;
-			};
+		SetData(_min, _max);
+	}
 
-			float coord[6];
-		};
-
-	public:
-		inline AABB(float* data = nullptr) : m_bSetFlag(false), m_fRadius(-1.0f)
-		{
-			if (data)
-			{
-				SetAABBCoord(data);
-			}
-		};
-
-		inline void SetAABBCoord(float* data)
-		{
-			memcpy(&m_coord, data, sizeof(AABBCoord));
-			m_fRadius = 0.5f * (fmax(fmax(m_coord.maxX - m_coord.minX, m_coord.maxY - m_coord.minY), m_coord.maxZ - m_coord.minZ));
-			
-			m_bSetFlag = true;
-		}
-
-		inline bool HasSet() const
-		{
-			return m_bSetFlag;
-		}
-
-		inline AABB Merge(const AABB& rhs) const
-		{
-			float mergedAABB[6] = 
-			{
-				m_coord.minX < rhs.m_coord.minX ? m_coord.minX : rhs.m_coord.minX,
-				m_coord.minY < rhs.m_coord.minY ? m_coord.minY : rhs.m_coord.minY,
-				m_coord.minZ < rhs.m_coord.minZ ? m_coord.minZ : rhs.m_coord.minZ,
-				m_coord.maxX > rhs.m_coord.maxX ? m_coord.maxX : rhs.m_coord.maxX,
-				m_coord.maxY > rhs.m_coord.maxY ? m_coord.maxY : rhs.m_coord.maxY,
-				m_coord.maxZ > rhs.m_coord.maxZ ? m_coord.maxZ : rhs.m_coord.maxZ,
-			};
-
-			return mergedAABB;
-		}
-
-		inline const AABBCoord& GetAABBCoord()
-		{
-			if (!m_bSetFlag)
-			{
-				LeviathanOutStream << "[ERROR] Try to access invalid AABB coord." << std::endl;
-				throw "Exception";
-			}
-
-			return m_coord;
-		}
-
-		inline bool GetAABBCenter(float* outCenter) const
-		{
-			if (!m_bSetFlag)
-			{
-				LeviathanOutStream << "[ERROR] Try to access invalid AABB coord." << std::endl;
-				return false;
-			}
-
-			outCenter[0] = 0.5f * (m_coord.minX + m_coord.maxX);
-			outCenter[1] = 0.5f * (m_coord.minY + m_coord.maxY);
-			outCenter[2] = 0.5f * (m_coord.minZ + m_coord.maxZ);
-
-			return true;
-		}
-
-		inline float GetAABBRadius() const
-		{
-			if (!m_bSetFlag)
-			{
-				LeviathanOutStream << "[ERROR] Try to access invalid AABB coord." << std::endl;
-				return -1.0f;
-			}
-
-			return m_fRadius;
-		}
-
-	private:
-		bool m_bSetFlag;
-		AABBCoord m_coord;
-		float m_fRadius;
+	AABB() 
+	{
 	};
+
+	void SetData(float* _min, float* _max)
+	{
+		std::memcpy(min, _min, sizeof(float) * 3);
+		std::memcpy(max, _max, sizeof(float) * 3);
+		center[0] = 0.5f * (min[0] + max[0]);
+		center[1] = 0.5f * (min[1] + max[1]);
+		center[2] = 0.5f * (min[2] + max[2]);
+	}
+
+	float Radius() const
+	{
+		return 1.5f * (center[0] - min[0]);
+	}
+
+	float min[3];
+	float max[3];
+	float center[3];
+};
+
+inline bool AABBInside(const AABB& refAABB, const AABB& testAABB)
+{
+	return
+		refAABB.min[0] <= testAABB.min[0] && refAABB.max[0] >= testAABB.max[0] &&
+		refAABB.min[1] <= testAABB.min[1] && refAABB.max[1] >= testAABB.max[1] &&
+		refAABB.min[2] <= testAABB.min[2] && refAABB.max[2] >= testAABB.max[2];
+}
+
+inline bool AABBIntersect(const AABB& refAABB, const AABB& testAABB)
+{
+	bool xIntersect = !(refAABB.min[0] > testAABB.max[0] || refAABB.max[0] < testAABB.min[0]);
+	bool yIntersect = !(refAABB.min[1] > testAABB.max[1] || refAABB.max[1] < testAABB.min[1]);
+	bool zIntersect = !(refAABB.min[2] > testAABB.max[2] || refAABB.max[2] < testAABB.min[2]);
+
+	return xIntersect && yIntersect && zIntersect;
 }

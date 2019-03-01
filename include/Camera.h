@@ -3,8 +3,8 @@
 #include <memory>
 #include <iostream>
 #include "VectorOperation.h"
-#include "BaseMath.h"
 #include "GlobalDef.h"
+#include <Eigen/Dense>
 
 namespace Leviathan
 {
@@ -23,15 +23,15 @@ namespace Leviathan
 		};
 
 		Camera(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar);
-		Matrix4f GetViewportTransformMatrix();
-		Matrix4f GetPerspectiveTransformMatrix();
+		Eigen::Matrix4f GetViewportTransformMatrix();
+		Eigen::Matrix4f GetPerspectiveTransformMatrix();
 
 		void Translate(float x, float y, float z);
 		void MouseDrag(float x, float y);
 		void MouseTranslate(float x, float y, float z);
 		void MouseRotate(float x, float y);
 		void Rotate(float x, float y, float z);
-		bool LookAt(const Vector3f& worldCoord, float fDistance /*= 100.0f*/);
+		bool LookAt(const Eigen::Vector3f& worldCoord, float fDistance /*= 100.0f*/);
 		void TargetTranslate(float x, float y);
 		void UpdateViewPosUniform(unsigned shaderProgram);
 

@@ -88,9 +88,9 @@ namespace Leviathan
 		template<typename scalar = float>
 		inline bool AABBIntersect(const AABB<scalar>& refAABB, const AABB<scalar>& testAABB)
 		{
-			bool xIntersect = !(refAABB.min[0] >= testAABB.max[0] || refAABB.max[0] <= testAABB.min[0]);
-			bool yIntersect = !(refAABB.min[1] >= testAABB.max[1] || refAABB.max[1] <= testAABB.min[1]);
-			bool zIntersect = !(refAABB.min[2] >= testAABB.max[2] || refAABB.max[2] <= testAABB.min[2]);
+			bool xIntersect = !(refAABB.min[0] > testAABB.max[0] || refAABB.max[0] < testAABB.min[0]);
+			bool yIntersect = !(refAABB.min[1] > testAABB.max[1] || refAABB.max[1] < testAABB.min[1]);
+			bool zIntersect = !(refAABB.min[2] > testAABB.max[2] || refAABB.max[2] < testAABB.min[2]);
 
 			return xIntersect && yIntersect && zIntersect;
 		}

@@ -2,7 +2,6 @@
 #include "IMesh.h"
 #include "CFileImportFactory.h"
 #include "AABB.h"
-#include "BaseMath.h"
 
 namespace Leviathan
 {
@@ -48,71 +47,71 @@ namespace Leviathan
 
 	bool Leviathan::SceneNode::GetAABB(AABB& out) const
 	{
-		AABB _sceneNodeAABB;
-
-		if (m_pMeshVec.size() == 0)
-		{
-			return false;
-		}
-
+		EXIT_GET_FALSE(m_pMeshVec.size() > 0);
+		
+		float _min[3], _max[3];
+		memcpy(_min, m_pMeshVec[0]->GetAABB().min, 3 * sizeof(float));
+		memcpy(_max, m_pMeshVec[0]->GetAABB().max, 3 * sizeof(float));
 		for (const auto& pModelFile : m_pMeshVec)
 		{
-			if (!_sceneNodeAABB.HasSet())
+			AABB _aabb = pModelFile->GetAABB();
+			for (unsigned i = 0; i < 3; i++)
 			{
-				_sceneNodeAABB = pModelFile->GetAABB();
+				if (_aabb.min[i] < _min[i])
+				{
+					_min[i] = _aabb.min[i];
+				}
 			}
 
-			else
+			for (unsigned i = 0; i < 3; i++)
 			{
-				_sceneNodeAABB = _sceneNodeAABB.Merge(pModelFile->GetAABB());
+				if (_aabb.max[i] > _max[i])
+				{
+					_max[i] = _aabb.max[i];
+				}
 			}
 		}
 
-		out = _sceneNodeAABB;
+		out.SetData(_min, _max);
 		return true;
 	}
 
 	bool Leviathan::SceneNode::GetWorldCoordCenter(float * out) const
 	{
-		AABB _sceneNodeAABB;
-		if (!GetAABB(_sceneNodeAABB))
-		{
-			return false;
-		}
+		AABB _sceneNodeAABB; if (!GetAABB(_sceneNodeAABB)) return false; 
 
-		float _modelAABBCenter[4] = { 1.0f, 1.0f, 1.0f, 1.0f };
-		_sceneNodeAABB.GetAABBCenter(_modelAABBCenter);
-
-		auto worldAABBCenter = Vector4f(_modelAABBCenter) * GetWorldTransform();
-		memcpy(out, worldAABBCenter.GetData(), sizeof(float) * 3);
+		Eigen::Vector4f worldAABBCenter = GetWorldTransform() * Eigen::Vector4f(_sceneNodeAABB.center);
+		memcpy(out, worldAABBCenter.data(), sizeof(float) * 3);
 
 		return true;
 	}
 
 	bool Leviathan::SceneNode::Pick(float* rayPos, float* rayDir, PickInfo& pickInfo)
 	{
-		auto distance = VertexToRayDistance(rayPos, rayDir, &m_worldCoord.x);
-		if (distance < 10.0f)
-		{
-			pickInfo.pSceneNode = this;
-			return true;
-		}
+		//auto distance = VertexToRayDistance(rayPos, rayDir, &m_worldCoord.x);
+		//if (distance < 10.0f)
+		//{
+		//	pickInfo.pSceneNode = this;
+		//	return true;
+		//}
 		
 		return false;
 	}
 
-	void Leviathan::SceneNode::SetWorldCoord(const Vector3f& coord)
+	void Leviathan::SceneNode::SetWorldCoord(const Eigen::Vector3f& coord)
 	{
 		m_worldCoord = coord;
 	}
 
-	const Vector3f& Leviathan::SceneNode::GetWorldCoord() const
+	const Eigen::Vector3f& Leviathan::SceneNode::GetWorldCoord() const
 	{
 		return m_worldCoord;
 	}
 
-	Matrix4f Leviathan::SceneNode::GetWorldTransform() const
+	Eigen::Matrix4f Leviathan::SceneNode::GetWorldTransform() const
 	{
-		return Matrix4f::GetTranslateMatrix(m_worldCoord.x, m_worldCoord.y, m_worldCoord.z);
+		Eigen::Matrix4f trans;
+		memcpy(trans.data() + 12, m_worldCoord.data(), 3 * sizeof(float));
+		return trans;
 	}
 }

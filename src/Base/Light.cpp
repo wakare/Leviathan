@@ -2,7 +2,7 @@
 
 namespace Leviathan
 {
-	Light::Light(Vector3f position, Vector3f ambientColor, Vector3f diffuseColor, Vector3f specularColor):
+	Light::Light(Eigen::Vector3f position, Eigen::Vector3f ambientColor, Eigen::Vector3f diffuseColor, Eigen::Vector3f specularColor):
 		m_lightCoordination(position),
 		m_ambientColor(ambientColor),
 		m_diffuseColor(diffuseColor),
@@ -11,10 +11,9 @@ namespace Leviathan
 
 	}
 
-	bool Light::SetLightCoord(const Vector3f& newCoord)
+	bool Light::SetLightCoord(const Eigen::Vector3f& newCoord)
 	{
 		m_lightCoordination = newCoord;
-
 		return true;
 	}
 

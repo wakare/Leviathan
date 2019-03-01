@@ -1,7 +1,6 @@
 #pragma once
 
 #include <GL/glew.h>
-#include "BaseMath.h"
 #include "GlobalDef.h"
 #include "Light.h"
 #include "LPtr.h"
@@ -21,7 +20,7 @@ namespace Leviathan
 
 		}
 
-		GLLight(Vector3f position, Vector3f ambientColor, Vector3f diffuseColor, Vector3f specularColor) :
+		GLLight(Eigen::Vector3f position, Eigen::Vector3f ambientColor, Eigen::Vector3f diffuseColor, Eigen::Vector3f specularColor) :
 			GLLight()
 		{
 			m_pLight = new Light(position, ambientColor, diffuseColor, specularColor);
@@ -45,7 +44,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightPositionLocation, m_pLight->m_lightCoordination.x, m_pLight->m_lightCoordination.y, m_pLight->m_lightCoordination.z);
+			glUniform3f(m_lightPositionLocation, m_pLight->m_lightCoordination.x(), m_pLight->m_lightCoordination.y(), m_pLight->m_lightCoordination.z());
 			
 			if (m_lightAmbientLocation < 0)
 			{
@@ -57,7 +56,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightAmbientLocation, m_pLight->m_ambientColor.x, m_pLight->m_ambientColor.y, m_pLight->m_ambientColor.z);
+			glUniform3f(m_lightAmbientLocation, m_pLight->m_ambientColor.x(), m_pLight->m_ambientColor.y(), m_pLight->m_ambientColor.z());
 
 			if (m_lightDiffuseLocation)
 			{
@@ -69,7 +68,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightDiffuseLocation, m_pLight->m_diffuseColor.x, m_pLight->m_diffuseColor.y, m_pLight->m_diffuseColor.z);
+			glUniform3f(m_lightDiffuseLocation, m_pLight->m_diffuseColor.x(), m_pLight->m_diffuseColor.y(), m_pLight->m_diffuseColor.z());
 
 			if (m_lightSpecularLocation)
 			{
@@ -81,11 +80,11 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightSpecularLocation, m_pLight->m_specularColor.x, m_pLight->m_specularColor.y, m_pLight->m_specularColor.z);
+			glUniform3f(m_lightSpecularLocation, m_pLight->m_specularColor.x(), m_pLight->m_specularColor.y(), m_pLight->m_specularColor.z());
 			return true;
 		}
 
-		bool SetLightCoord(const Vector3f& newCoord)
+		bool SetLightCoord(const Eigen::Vector3f& newCoord)
 		{
 			m_pLight->SetLightCoord(newCoord);
 			return true;

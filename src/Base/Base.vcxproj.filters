@@ -19,9 +19,6 @@
     <ClCompile Include="CMesh.cpp">
       <Filter>BaseGraphics</Filter>
     </ClCompile>
-    <ClCompile Include="KOcTree.cpp">
-      <Filter>Tool</Filter>
-    </ClCompile>
     <ClCompile Include="GeometryCalculator.cpp">
       <Filter>Tool</Filter>
     </ClCompile>
@@ -33,6 +30,9 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>BaseGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="LOcTree.cpp">
+      <Filter>Tool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -57,9 +57,6 @@
     <ClInclude Include="..\..\include\VectorOperation.h">
       <Filter>Other</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\AABB.h">
-      <Filter>BaseGraphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\CMesh.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
@@ -78,9 +75,6 @@
     <ClInclude Include="..\..\include\KLog.h">
       <Filter>Tool</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\KOcTree.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\KProfile.h">
       <Filter>Tool</Filter>
     </ClInclude>
@@ -88,9 +82,6 @@
       <Filter>Tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\LUPtr.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\BaseMath.h">
       <Filter>Tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\DynamicArray.h">
@@ -120,8 +111,14 @@
     <ClInclude Include="..\..\include\OcTreeAccStruct.h">
       <Filter>SpaceManager</Filter>
     </ClInclude>
-    <ClInclude Include="OcTreeAccStruct.hpp">
+    <ClInclude Include="..\..\include\OcTreeAccStruct.hpp">
       <Filter>SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LOcTree.h">
+      <Filter>Tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\AABB.h">
+      <Filter>BaseGraphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

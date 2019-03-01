@@ -25,7 +25,7 @@ namespace Leviathan
 		std::vector<LPtr<GLObject>> GetGLObject();
 
 		void Accept(NodeVisitor<T>& nodeVisitor);
-		void UpdateModelMatrix(const Matrix4f& modelMatrix);
+		void UpdateModelMatrix(const Eigen::Matrix4f& modelMatrix);
 	private:
 		std::vector<LPtr<GLObject>> _convertMeshToGLObject();
 		bool _convertPointMeshToGLObject(LPtr<IMesh>& pMesh, LPtr<GLObject>& out);
@@ -62,7 +62,7 @@ namespace Leviathan
 	}
 
 	template<class T>
-	inline void Leviathan::DrawableNode<T>::UpdateModelMatrix(const Matrix4f& modelMatrix)
+	inline void Leviathan::DrawableNode<T>::UpdateModelMatrix(const Eigen::Matrix4f& modelMatrix)
 	{
 		if (!m_pGLObjectVec.size() == 0)
 		{
@@ -181,7 +181,7 @@ namespace Leviathan
 			bDefaultColor = true;
 		}
 
-		std::map<unsigned, std::vector<Vector3f>> vertexNormalVec;
+		std::map<unsigned, std::vector<Eigen::Vector3f>> vertexNormalVec;
 
 		// Calculate vertex normal
 		for (unsigned i = 0; i < pMesh->GetPrimitiveCount(); i++)
@@ -197,9 +197,10 @@ namespace Leviathan
 			float fNormal[3];
 			GeometryCalculator::CalNormal(vertices[0], vertices[1], vertices[2], fNormal);
 
-			vertexNormalVec[vertexIndex[0]].push_back(fNormal);
-			vertexNormalVec[vertexIndex[1]].push_back(fNormal);
-			vertexNormalVec[vertexIndex[2]].push_back(fNormal);
+			Eigen::Vector3f normalVec(fNormal);
+			vertexNormalVec[vertexIndex[0]].push_back(normalVec);
+			vertexNormalVec[vertexIndex[1]].push_back(normalVec);
+			vertexNormalVec[vertexIndex[2]].push_back(normalVec);
 		}
 
 		DynamicArray<float> pVertexData(pMesh->GetVertexCount() * uVertexFloatCount * sizeof(float));
@@ -212,19 +213,19 @@ namespace Leviathan
 			memcpy(pData + 3, color ? color : defaultColor, sizeof(float) * 4);
 
 			// Calculate average normal
-			Vector3f normal(0.0f, 0.0f, 0.0f);
+			Eigen::Vector3f normal(0.0f, 0.0f, 0.0f);
 			for (auto& subNormal : vertexNormalVec[i])
 			{
-				normal.x += subNormal.x;
-				normal.y += subNormal.y;
-				normal.z += subNormal.z;
+				normal.x() += subNormal.x();
+				normal.y() += subNormal.y();
+				normal.z() += subNormal.z();
 			}
 
-			normal.x /= vertexNormalVec[i].size();
-			normal.y /= vertexNormalVec[i].size();
-			normal.z /= vertexNormalVec[i].size();
+			normal.x() /= vertexNormalVec[i].size();
+			normal.y() /= vertexNormalVec[i].size();
+			normal.z() /= vertexNormalVec[i].size();
 
-			memcpy(pData + 7, &normal.x, sizeof(float) * 3);
+			memcpy(pData + 7, normal.data(), sizeof(float) * 3);
 
 			// Texture coord
 			if (bUseTexture)
@@ -248,7 +249,7 @@ namespace Leviathan
 			if (texture.IsValid())
 			{
 				uVertexTypeMask |= GLObject::VERTEX_ATTRIBUTE_TEX;
-				pCommonMaterial = new GLCommonMaterial(&pMaterial->m_ambient.x, &pMaterial->m_diffuse.x, &pMaterial->m_specular.x, pMaterial->m_fShininess);
+				pCommonMaterial = new GLCommonMaterial(pMaterial->m_ambient.data(), pMaterial->m_diffuse.data(), pMaterial->m_specular.data(), pMaterial->m_fShininess);
 				if (!pCommonMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight)))
 				{
 					LeviathanOutStream << "[WARN] Add texture2d failed." << std::endl;

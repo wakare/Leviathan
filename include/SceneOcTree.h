@@ -1,6 +1,6 @@
 #pragma once
 
-#include "KOcTree.h"
+#include "LOcTree.h"
 #include "SceneNode.h"
 #include "LPtr.h"
 #include "LUPtr.h"
@@ -14,33 +14,19 @@ namespace Leviathan
 	template<typename T>
 	class Node;
 
-	template<typename T>
-	class DrawableNode;
-
-	class SceneOcTreeNode : public IOcTreeNode
-	{
-	public:
-		SceneOcTreeNode(const Point3Df& position, Node<SceneNode>& sceneNode);
-		SceneOcTreeNode(const Point3Df& position, DrawableNode<SceneNode>& sceneNode);
-		Node<SceneNode>& GetSceneNode();
-
-	private:
-		Node<SceneNode>& m_sceneNode;
-	};
-
 	class SceneOcTree
 	{
 	public:
-		SceneOcTree();
+		SceneOcTree(const AABB& aabb);
 
-		bool AddNode(std::vector<LPtr<IOcTreeNode>>& nodeVec);
+		const AABB& GetAABB() const;
+		bool AddNode(std::vector<Node<SceneNode>*>& nodeVec);
 		bool AddAllDrawableNodeToGLPass(LPtr<GLPass>& pGLPass);
 		bool AddDrawableNodeToGLPass(LPtr<GLPass>& pGLPass, LPtr<Node<SceneNode>> pNeedAddNode);
-		void Traverse(KOcTree::TraverseFunction traverseFunc, bool bRecursion);
-		AABB GetAABB() const;
+		void Traverse(std::function<void(SceneNode&)> traverseFunc, bool bRecursion);
 
 	private:
-		LUPtr<KOcTree> m_pRoot;
+		LUPtr<LOcTree<SceneNode>> m_pRoot;
 	};
 
 	bool AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass);

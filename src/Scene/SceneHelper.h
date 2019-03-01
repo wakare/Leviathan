@@ -1,11 +1,11 @@
 #pragma once
 
 #include "LPtr.h"
+class AABB;
 
 namespace Leviathan
 {
 	class GLObject;
-	class AABB;
 	class GLShaderProgram;
 	class SceneNode;
 

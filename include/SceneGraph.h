@@ -4,12 +4,13 @@
 #include <vector>
 #include "LPtr.h"
 
+class AABB;
+
 namespace Leviathan
 {
 	class GLPass;
 	class SceneOcTree;
 	class SceneNode;
-	class AABB;
 	class PickInfo;
 
 	template<typename T>

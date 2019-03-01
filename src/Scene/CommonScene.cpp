@@ -94,9 +94,9 @@ namespace Leviathan
 
 		// NDC coord
 		float temp[4] = { _x, _y, -1.0f, 1.0f };
-		Vector4f coord = temp;
-		auto cameraCoord = coord * m_pCamera->GetPerspectiveTransformMatrix().InverseSelf();
-		auto worldCoord = (cameraCoord * m_pCamera->GetViewportTransformMatrix().InverseSelf()).GetData();
+		Eigen::Vector4f coord(temp);
+		auto cameraCoord = m_pCamera->GetPerspectiveTransformMatrix().inverse() * coord ;
+		auto worldCoord = m_pCamera->GetViewportTransformMatrix().inverse() * cameraCoord;
 
 		rayPos[0] = m_pCamera->m_fEye[0];
 		rayPos[1] = m_pCamera->m_fEye[1];
@@ -104,7 +104,7 @@ namespace Leviathan
 
 		rayDir[0] = worldCoord[0] - rayPos[0];
 		rayDir[1] = worldCoord[1] - rayPos[1];
-		rayDir[2] = worldCoord[2] - rayPos[2];
+		rayDir[2] = worldCoord[2] - rayPos[2];		
 	}
 
 	bool CommonScene::_firstUpdate()
@@ -153,13 +153,11 @@ namespace Leviathan
 		if (!coord)
 		{
 			auto AABB = m_pSceneLogicData->GetAABB();
-			float center[3];
-			AABB.GetAABBCenter(center); 
-			m_pCamera->LookAt(Vector4f(center), fDistance);
+			m_pCamera->LookAt(Eigen::Vector3f(AABB.center), fDistance);
 		}
 		else
 		{
-			m_pCamera->LookAt(Vector4f(coord), fDistance);
+			m_pCamera->LookAt(Eigen::Vector3f(coord), fDistance);
 		}
 	}
 

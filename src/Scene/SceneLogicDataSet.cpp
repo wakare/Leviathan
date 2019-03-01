@@ -60,7 +60,7 @@ namespace Leviathan
 		return true;
 	}
 
-	Leviathan::AABB SceneLogicDataSet::GetAABB() const
+	AABB SceneLogicDataSet::GetAABB() const
 	{
 		return m_pSceneGraph->GetAABB();
 	}

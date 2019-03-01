@@ -9,7 +9,7 @@ namespace Leviathan
 	class TriDGLObject : public GLObject
 	{
 	public:
-		TriDGLObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Matrix4f> pModelMatrix = nullptr, LPtr<GLCommonMaterial> pCommonGLMaterial = nullptr, unsigned* pIndexArrayData = nullptr, unsigned uIndexArrayCount = 0U) :
+		TriDGLObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix = nullptr, LPtr<GLCommonMaterial> pCommonGLMaterial = nullptr, unsigned* pIndexArrayData = nullptr, unsigned uIndexArrayCount = 0U) :
 			GLObject(primType, vertexSize, vertexMask, pModelMatrix, TryCast<GLCommonMaterial, IGLMaterial>(pCommonGLMaterial)),
 			m_pData(pVertexArrayData),
 			m_pIndexData(pIndexArrayData),
