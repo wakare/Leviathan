@@ -23,7 +23,6 @@ namespace Leviathan
 
 		// Add matrix uniform to shaderProgram
 		LPtr<GLUniform> modelMatrixUniform = new GLUniform("modelMatrix", GLUniform::TYPE_FLOAT_MAT4);
-		//auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
 		Eigen::Matrix4f modelMatrix = Eigen::Matrix4f::Identity();
 		modelMatrixUniform->SetData(modelMatrix.data(), modelMatrix.size());
 		if (!m_pGLShaderProgram->AddUniform(modelMatrixUniform))

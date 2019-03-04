@@ -110,9 +110,8 @@ namespace Leviathan
 
 	bool TriDGLObject::ApplyMaterial(GLuint shaderProgram)
 	{
-		if (m_pCommonGLMaterial)  return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
-		
-		return false;
+		if (!m_pCommonGLMaterial) return false;
+		return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
 	}
 
 	bool TriDGLObject::UnApplyMaterial(GLuint shaderProgram)

@@ -95,10 +95,11 @@ namespace Leviathan
 		EXIT_GET_FALSE(pSceneNode->LoadModelFile(pModelFilePath));
 		LPtr<DrawableNode<SceneNode>> pModelNode = new DrawableNode<SceneNode>(pSceneNode->GetMeshVec(), pSceneNode);
 
-		auto pDentalGLObjectVec = pModelNode->GetGLObject();
-		for (auto pDentalGLObject : pDentalGLObjectVec)
+		auto pGLObjectVec = pModelNode->GetGLObject();
+		for (auto pGLObject : pGLObjectVec)
 		{
-			pDentalGLObject->SetModelMatrix(pModelNode->GetNodeData()->GetWorldTransform().inverse());
+			Eigen::Matrix4f modelMatrix = pModelNode->GetNodeData()->GetWorldTransform();
+			pGLObject->SetModelMatrix(modelMatrix);
 		}
 
 		out = TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pModelNode);

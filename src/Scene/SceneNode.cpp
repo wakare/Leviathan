@@ -110,7 +110,7 @@ namespace Leviathan
 
 	Eigen::Matrix4f Leviathan::SceneNode::GetWorldTransform() const
 	{
-		Eigen::Matrix4f trans;
+		Eigen::Matrix4f trans = Eigen::Matrix4f::Identity();
 		memcpy(trans.data() + 12, m_worldCoord.data(), 3 * sizeof(float));
 		return trans;
 	}

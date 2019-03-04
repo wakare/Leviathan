@@ -97,16 +97,18 @@ namespace Leviathan
 
 		for (auto pMesh : m_pMeshVec)
 		{
-			LPtr<GLObject> pObject;
+			LPtr<GLObject> pObject = nullptr;
 
 			if (pMesh->GetPrimitiveType() == IMesh::EPT_TRIANGLES && !_convertTriangleMeshToGLObject(pMesh, pObject))
 			{
 				LeviathanOutStream << "[ERROR] Convert triangle mesh to GLObject failed." << std::endl;
+				continue;
 			}
 
 			if (pMesh->GetPrimitiveType() == IMesh::EPT_POINTS && !_convertPointMeshToGLObject(pMesh, pObject))
 			{
 				LeviathanOutStream << "[ERROR] Convert triangle mesh to GLObject failed." << std::endl;
+				continue;
 			}
 
 			result.push_back(pObject);
@@ -164,18 +166,13 @@ namespace Leviathan
 		unsigned uVertexFloatCount = 10;
 		auto pMaterial = pMesh->GetMaterial();
 		bool bUseTexture = pMaterial && (pMaterial->m_textureName.length() > 0);
-		
+		unsigned uVertexTypeMask = GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_RGBA | GLObject::VERTEX_ATTRIBUTE_NXYZ;
+
 		if (bUseTexture) uVertexFloatCount += 2; 
 		DynamicArray<float> glData(pMesh->GetPrimitiveCount() * 3 * uVertexFloatCount * sizeof(float));
 
 		static float defaultColor[4] = { 0.2f, 0.2f, 0.2f, 1.0f };
-		bool bDefaultColor = false;
-
 		auto color = pMesh->GetVertexColorArray();
-		if (!color)
-		{
-			bDefaultColor = true;
-		}
 
 		std::map<unsigned, std::vector<Eigen::Vector3f>> vertexNormalVec;
 
@@ -205,7 +202,6 @@ namespace Leviathan
 		{
 			float* pData = pVertexData.m_pData + i * uVertexFloatCount;
 			memcpy(pData, pMesh->GetVertex3DCoordArray() + 3 * i, sizeof(float) * 3);
-
 			memcpy(pData + 3, color ? color : defaultColor, sizeof(float) * 4);
 
 			// Calculate average normal
@@ -236,16 +232,15 @@ namespace Leviathan
 			}
 		}
 
-		auto uVertexTypeMask = GLObject::VERTEX_ATTRIBUTE_XYZ | GLObject::VERTEX_ATTRIBUTE_RGBA | GLObject::VERTEX_ATTRIBUTE_NXYZ;
-
 		GLCommonMaterial* pCommonMaterial = nullptr;
 		if (pMaterial)
 		{
+			pCommonMaterial = new GLCommonMaterial(pMaterial->m_ambient.data(), pMaterial->m_diffuse.data(), pMaterial->m_specular.data(), pMaterial->m_fShininess);
+
 			PictureObject texture(pMaterial->m_textureName.c_str());
 			if (texture.IsValid())
 			{
 				uVertexTypeMask |= GLObject::VERTEX_ATTRIBUTE_TEX;
-				pCommonMaterial = new GLCommonMaterial(pMaterial->m_ambient.data(), pMaterial->m_diffuse.data(), pMaterial->m_specular.data(), pMaterial->m_fShininess);
 				if (!pCommonMaterial->AddTexture2D(new GLTexture2D(texture.m_pData, texture.m_nWidth, texture.m_nHeight)))
 				{
 					LeviathanOutStream << "[WARN] Add texture2d failed." << std::endl;

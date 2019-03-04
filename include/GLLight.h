@@ -48,7 +48,7 @@ namespace Leviathan
 			
 			if (m_lightAmbientLocation < 0)
 			{
-				GLint m_lightAmbientLocation = glGetUniformLocation(shaderProgram, "light.ambient");
+				m_lightAmbientLocation = glGetUniformLocation(shaderProgram, "light.ambient");
 				if (m_lightAmbientLocation == -1)
 				{
 					LeviathanOutStream << "[ERROR] Get light position ambient color location failed." << std::endl;
@@ -58,9 +58,9 @@ namespace Leviathan
 
 			glUniform3f(m_lightAmbientLocation, m_pLight->m_ambientColor.x(), m_pLight->m_ambientColor.y(), m_pLight->m_ambientColor.z());
 
-			if (m_lightDiffuseLocation)
+			if (m_lightDiffuseLocation < 0)
 			{
-				GLint m_lightDiffuseLocation = glGetUniformLocation(shaderProgram, "light.diffuse");
+				m_lightDiffuseLocation = glGetUniformLocation(shaderProgram, "light.diffuse");
 				if (m_lightDiffuseLocation == -1)
 				{
 					LeviathanOutStream << "[ERROR] Get light position diffuse color location failed." << std::endl;
@@ -70,9 +70,9 @@ namespace Leviathan
 
 			glUniform3f(m_lightDiffuseLocation, m_pLight->m_diffuseColor.x(), m_pLight->m_diffuseColor.y(), m_pLight->m_diffuseColor.z());
 
-			if (m_lightSpecularLocation)
+			if (m_lightSpecularLocation < 0)
 			{
-				GLint m_lightSpecularLocation = glGetUniformLocation(shaderProgram, "light.specular");
+				m_lightSpecularLocation = glGetUniformLocation(shaderProgram, "light.specular");
 				if (m_lightSpecularLocation == -1)
 				{
 					LeviathanOutStream << "[ERROR] Get light position specular color location failed." << std::endl;
@@ -81,7 +81,7 @@ namespace Leviathan
 			}
 
 			glUniform3f(m_lightSpecularLocation, m_pLight->m_specularColor.x(), m_pLight->m_specularColor.y(), m_pLight->m_specularColor.z());
-			return true;
+			return true; 
 		}
 
 		bool SetLightCoord(const Eigen::Vector3f& newCoord)

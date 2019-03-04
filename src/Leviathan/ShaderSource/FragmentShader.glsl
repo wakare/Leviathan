@@ -49,37 +49,33 @@ void main()
 		color = outColor;
 	}
 
-    if (!bLightOpen)
-	{
-		return;
-	}
+	if (!bLightOpen) return;
+	//if (!gl_FrontFacing) return;
+	//if (!bLightOpen) return;
 
-	if (gl_FrontFacing)
-	{
-		vec3 result = vec3(0.0, 0.0, 0.0);
+	vec3 result = vec3(0.0, 0.0, 0.0);
 
-		// Ambient
-		vec3 ambient = light.ambient * material.ambient;
-  		result += ambient;
+	// Ambient
+	vec3 ambient = light.ambient * material.ambient;
+	result += ambient;
 
-		// Diffuse 
-		vec3 norm = normalize(Normal);
-		vec3 lightDir = normalize(light.position - FragPos);
-		float diff = max(dot(norm, lightDir), 0.0);
-		vec3 diffuse = light.diffuse * (diff * material.diffuse);
-		result += diffuse;
+	// Diffuse 
+	vec3 norm = normalize(Normal);
+	vec3 lightDir = normalize(light.position - FragPos);
+	float diff = max(dot(norm, lightDir), 0.0);
+	vec3 diffuse = light.diffuse * (diff * material.diffuse);
+	result += diffuse;
 
-		// Specular
-		vec3 viewDir = normalize(viewPos - FragPos);
-		vec3 reflectDir = reflect(-lightDir, norm);  
-		float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
-		vec3 specular = light.specular * (spec * material.specular);
-		result += specular;
+	// Specular
+	vec3 viewDir = normalize(viewPos - FragPos);
+	vec3 reflectDir = reflect(-lightDir, norm);
+	float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
+	vec3 specular = light.specular * (spec * material.specular);
+	result += specular;
 
-		result.x = min(result.x, 1.0);
-		result.y = min(result.y, 1.0);
-		result.z = min(result.z, 1.0);
+	result.x = min(result.x, 1.0);
+	result.y = min(result.y, 1.0);
+	result.z = min(result.z, 1.0);
 
-		color = color * vec4(result, 1.0f);
-	}
+	color = color * vec4(result, 1.0f);
 }

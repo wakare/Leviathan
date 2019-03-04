@@ -163,7 +163,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 			LeviathanOutStream << "[WARN] Texture path not found." << std::endl;
 		}
 
-		pMesh->SetMaterial(new Material(ambient, diffuse, specular, aiShininess, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
+		pMesh->SetMaterial(new Material(ambient, diffuse, specular, (aiShininess > 1.0f) ? aiShininess : 1.0f, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
 	}
 
 	result.push_back(pMesh);

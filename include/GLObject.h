@@ -43,7 +43,11 @@ namespace Leviathan
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
 		GLboolean GetLightEnable() { return m_bLightEnable; }
 
-		void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) { if (!m_pModelMatrix) { m_pModelMatrix = new Eigen::Matrix4f(); } *m_pModelMatrix = refModelMatrix; }
+		void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) 
+		{ 
+			if (!m_pModelMatrix)  m_pModelMatrix = new Eigen::Matrix4f(refModelMatrix); 
+			*m_pModelMatrix = refModelMatrix; 
+		}
 		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 		void SetDefaultVertexColorEnable(bool bUseDefaultVertexColor) { m_bUseDefaultVertexColor = bUseDefaultVertexColor; }
