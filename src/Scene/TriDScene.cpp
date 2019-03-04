@@ -6,6 +6,7 @@
 #include "GlobalDef.h"
 #include "SceneHelper.h"
 #include "SceneLogicDataSet.h"
+#include "TriDObjectGLPass.h"
 
 namespace Leviathan
 {
@@ -31,6 +32,13 @@ namespace Leviathan
 		m_pSceneLogicData->AddNode(pModelNode);
 		AABB nodeAABB; EXIT_GET_FALSE(pModelNode->GetNodeData()->GetAABB(nodeAABB));
 		_resetCamera(nodeAABB.center);
+		//m_pMeshPass->AddGLObject(SceneHelper::ConvertAABBtoGLObject(nodeAABB));
+		/*float _aabbValue[6] = { -1.0f, -1.0f, -1.0f, 1.0f, 1.0f, 1.0f };
+		AABB nodeAABB(_aabbValue , _aabbValue + 3);
+		LPtr<GLObject> cube = SceneHelper::ConvertAABBtoGLObject(nodeAABB);
+		m_pMeshPass->AddGLObject(cube);
+		_resetCamera(nodeAABB.center);*/
+
 		return true;
 	}
 

@@ -47,22 +47,16 @@ namespace Leviathan
 		constexpr unsigned uCubeTriangleCount = 36;
 		unsigned vertexIndices[uCubeTriangleCount] =
 		{
-			0, 1, 2,
-			0, 2, 3,
-			1, 5, 6,
-			1, 6, 2,
-			3, 2, 6,
-			3, 6, 7,
-			0, 7, 4,
-			0, 3, 7,
-			0, 5, 1,
-			0, 4, 5,
-			4, 6, 5,
-			4, 7, 6
+			0, 1, 2, 0, 2, 3,
+			1, 5, 6, 1, 6, 2,
+			3, 2, 6, 3, 6, 7,
+			0, 7, 4, 0, 3, 7,
+			0, 5, 1, 0, 4, 5,
+			4, 6, 5, 4, 7, 6
 		};
 
-		//auto result = new TriDGLObject(GL_TRIANGLES, cube, 36, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ | TriDGLObject::VERTEX_ATTRIBUTE_TEX);
-		auto result = new TriDGLObject(GL_TRIANGLES, vertices, 8, TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ /*| TriDGLObject::VERTEX_ATTRIBUTE_TEX*/, nullptr, nullptr, vertexIndices, uCubeTriangleCount);
+		auto vertexTypeMask = TriDGLObject::VERTEX_ATTRIBUTE_XYZ | TriDGLObject::VERTEX_ATTRIBUTE_RGBA | TriDGLObject::VERTEX_ATTRIBUTE_NXYZ;
+		auto result = new TriDGLObject(GL_TRIANGLES, vertices, 8, vertexTypeMask, nullptr, nullptr, vertexIndices, uCubeTriangleCount);
 		return result;
 	}
 

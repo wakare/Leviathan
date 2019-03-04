@@ -11,8 +11,10 @@ namespace Leviathan
 
 	}
 
-	bool GLUniform::SetData(float* data, unsigned dataSize)
+	bool GLUniform::SetData(float* data, unsigned dataCount)
 	{
+		unsigned dataSize = dataCount * sizeof(float);
+
 		// Do nothing if data has inited before
 		if (!_checkDataInited())
 		{
@@ -52,7 +54,7 @@ namespace Leviathan
 		switch (m_uniformType)
 		{
 		case TYPE_FLOAT_MAT4:
-			glUniformMatrix4fv(uniformLocation, 1, true, m_fUniformArray->GetArraydata());
+			glUniformMatrix4fv(uniformLocation, 1, false, m_fUniformArray->GetArraydata());
 			break;
 
 		default:

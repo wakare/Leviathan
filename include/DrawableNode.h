@@ -50,7 +50,6 @@ namespace Leviathan
 		Node<T>(pNode),
 		m_bRegisted(false)
 	{
-		m_pMeshVec.insert(m_pMeshVec.end(), pModelVec.begin(), pModelVec.end());
 	}
 
 	template<class T>
