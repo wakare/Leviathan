@@ -47,7 +47,7 @@ namespace Leviathan
 
 	bool Leviathan::SceneNode::GetAABB(AABB& out) const
 	{
-		EXIT_GET_FALSE(m_pMeshVec.size() > 0);
+		EXIT_IF_FALSE(m_pMeshVec.size() > 0);
 		
 		float _min[3], _max[3];
 		memcpy(_min, m_pMeshVec[0]->GetAABB().min, 3 * sizeof(float));

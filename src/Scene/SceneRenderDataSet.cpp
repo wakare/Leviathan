@@ -20,7 +20,7 @@ namespace Leviathan
 
 	bool SceneRenderDataSet::AddNode(LPtr<Node<RenderData>> pRenderData)
 	{
-		EXIT_GET_FALSE(pRenderData);
+		EXIT_IF_FALSE(pRenderData);
 		m_renderDataTree->AddChild(pRenderData);
 	}
 

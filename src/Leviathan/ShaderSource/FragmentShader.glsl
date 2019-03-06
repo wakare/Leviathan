@@ -51,7 +51,6 @@ void main()
 
 	if (!bLightOpen) return;
 	//if (!gl_FrontFacing) return;
-	//if (!bLightOpen) return;
 
 	vec3 result = vec3(0.0, 0.0, 0.0);
 

@@ -92,7 +92,7 @@ namespace Leviathan
 	bool SceneHelper::LoadModel(const char* pModelFilePath, LPtr<Node<SceneNode>>& out)
 	{
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		EXIT_GET_FALSE(pSceneNode->LoadModelFile(pModelFilePath));
+		EXIT_IF_FALSE(pSceneNode->LoadModelFile(pModelFilePath));
 		LPtr<DrawableNode<SceneNode>> pModelNode = new DrawableNode<SceneNode>(pSceneNode->GetMeshVec(), pSceneNode);
 
 		auto pGLObjectVec = pModelNode->GetGLObject();

@@ -23,15 +23,15 @@ inline void MyEventListener::Accept(Event & event)
 bool _registerEventCallback()
 {
 	LPtr<EventListener> eventListener = new MyEventListener();
-	EXIT_GET_FALSE(RenderService::Instance()->AddEventListener(INPUT_EVENT, eventListener));
+	EXIT_IF_FALSE(RenderService::Instance()->AddEventListener(INPUT_EVENT, eventListener));
 	return true;
 }
 
 int main()
 {
 	RenderService::SetSceneType(IScene::EST_TRID);
-	EXIT_GET_FALSE(_registerEventCallback());
-	EXIT_GET_FALSE(RenderService::Instance()->Init());
+	EXIT_IF_FALSE(_registerEventCallback());
+	EXIT_IF_FALSE(RenderService::Instance()->Init());
 	RenderService::Instance()->Run();
 }
 

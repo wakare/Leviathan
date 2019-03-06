@@ -95,11 +95,11 @@ namespace Leviathan
 
 	bool TriDGLObject::Render(GLuint shaderProgram)
 	{
-		EXIT_GET_FALSE(_updateVertexMaskUniform(shaderProgram));
-		EXIT_GET_FALSE(_updateDefaultUseVertexColorUniform(shaderProgram));
+		EXIT_IF_FALSE(_updateVertexMaskUniform(shaderProgram));
+		EXIT_IF_FALSE(_updateDefaultUseVertexColorUniform(shaderProgram));
 
 		auto VAO = GetVAO();
-		EXIT_GET_FALSE(VAO);
+		EXIT_IF_FALSE(VAO);
 		glBindVertexArray(VAO);
 
 		m_bUseIndexArray ? (glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0)) : (glDrawArrays(GetPrimType(), 0, GetVertexCount()));

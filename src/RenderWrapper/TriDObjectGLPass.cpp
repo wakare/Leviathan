@@ -19,7 +19,7 @@ namespace Leviathan
 	{
 		if (m_bInited || !m_pGLShaderProgram) return true;
 
-		EXIT_GET_FALSE(m_pGLShaderProgram->Init());
+		EXIT_IF_FALSE(m_pGLShaderProgram->Init());
 
 		// Add matrix uniform to shaderProgram
 		LPtr<GLUniform> modelMatrixUniform = new GLUniform("modelMatrix", GLUniform::TYPE_FLOAT_MAT4);

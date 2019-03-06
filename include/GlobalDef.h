@@ -11,8 +11,8 @@ namespace Leviathan
 	#define PI_FLOAT 3.1415927f
 	#define ANGLE_TO_RADIAN(angle) ((angle) / PI_DOUBLE)
 
-	#define EXIT_GET_FALSE(statement) { if (!(statement)) { LogLine(#statement); return false;}}
-	#define RANDOM_0To1 ((float)(rand()) / RAND_MAX)
+	#define EXIT_IF_FALSE(statement) { if (!(statement)) { LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
+	#define RAND_NUM_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
 
 	enum EventType
 	{

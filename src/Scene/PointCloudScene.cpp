@@ -56,7 +56,7 @@ namespace Leviathan
 	bool PointCloudScene::_firstUpdate()
 	{
 		// Init light
-		EXIT_GET_FALSE(_initLight());
+		EXIT_IF_FALSE(_initLight());
 
 		if (!_initSceneObject())
 		{
@@ -80,9 +80,9 @@ namespace Leviathan
 
 			for (unsigned i = 0; i < uCount; i++)
 			{
-				testPointCoord[3 * i] = RANDOM_0To1 * fMaxRange;
-				testPointCoord[3 * i + 1] = RANDOM_0To1 * fMaxRange;
-				testPointCoord[3 * i + 2] = RANDOM_0To1 * fMaxRange;
+				testPointCoord[3 * i] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
+				testPointCoord[3 * i + 1] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
+				testPointCoord[3 * i + 2] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
 
 				testPointNormal[3 * i] = 1.0f;
 				testPointNormal[3 * i + 1] = 0.0f;
@@ -93,8 +93,8 @@ namespace Leviathan
 			UpdatePointCloud(points);
 		};
 
-		EXIT_GET_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
-		EXIT_GET_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
+		EXIT_IF_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
+		EXIT_IF_FALSE(m_pSceneLogicData->PushDataUpdateRequest(_addPointCloud));
 
 		return true;
 	}

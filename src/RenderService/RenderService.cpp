@@ -58,7 +58,7 @@ namespace Leviathan
 
 	bool RenderService::Init()
 	{
-		EXIT_GET_FALSE(m_pRenderWindow->GetScene());
+		EXIT_IF_FALSE(m_pRenderWindow->GetScene());
 		return true;
 	}
 
@@ -79,7 +79,7 @@ namespace Leviathan
 
 	bool RenderService::AddEventListener(EventType eventType, LPtr<EventListener> listener)
 	{
-		EXIT_GET_FALSE(listener);
+		EXIT_IF_FALSE(listener);
 		m_pEventSystem->AddEventListener(eventType, listener);
 		return true;
 	}

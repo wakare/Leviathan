@@ -142,7 +142,7 @@ namespace Leviathan
 
 	bool CommonScene::_initLight()
 	{
-		LPtr<GLLight> light = new GLLight({ 0.0f, 0.0f, 10.0f }, { 0.5f, 0.5f, 0.5f },
+		LPtr<GLLight> light = new GLLight({ 0.0f, 0.0f, -10.0f }, { 0.5f, 0.5f, 0.5f },
 			{ 0.8f, 0.8f, 0.8f }, { 1.0f, 1.0f, 1.0f });
 
 		m_pMeshPass->AddGLLight(light);

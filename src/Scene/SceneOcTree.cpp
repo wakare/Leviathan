@@ -44,7 +44,7 @@ namespace Leviathan
 	bool SceneOcTree::AddDrawableNodeToGLPass(LPtr<GLPass>& pGLPass, LPtr<Node<SceneNode>> pNeedAddNode)
 	{
 		DrawableNode<SceneNode>& drawableNode = dynamic_cast<DrawableNode<SceneNode>&> (*pNeedAddNode);
-		EXIT_GET_FALSE(drawableNode.RegisterSelfToGLPass(*pGLPass));
+		EXIT_IF_FALSE(drawableNode.RegisterSelfToGLPass(*pGLPass));
 		return true;
 	}
 

@@ -74,8 +74,6 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 		pVertexData[2] = vertexCoord.z;
 	}
 
-	std::cout << "[INFO] First vertex coord: " << mesh.mVertices[0].x << " " << mesh.mVertices[0].y << " " << mesh.mVertices[0].z << std::endl;
-
 	pMesh->SetVertexCoordData( vertexCoordData.m_pData);
 
 	if (mesh.HasFaces())
@@ -209,7 +207,7 @@ std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const
 	}
 
 	std::vector<LPtr<IMesh>> result;
-	LeviathanOutStream << "[INFO] Has texture? " << importerScene->HasTextures() << std::endl;
+	LogLine( "[INFO] Has texture? " << (importerScene->HasTextures() ? "True" : "False") );
 
 	_recursionLoadModel(*(importerScene->mRootNode), *importerScene, absDirectoryPath, result);
 

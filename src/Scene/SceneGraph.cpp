@@ -18,14 +18,14 @@ Leviathan::SceneGraph::SceneGraph(LPtr<GLPass> sceneRenderPass):
 	m_pRoot = new Node<SceneNode>(new SceneNode());
 	m_pSceneNodeSearchVisitor = new SceneNodeSearchVisitor<SceneNode>();
 	m_pSceneNodeTraverseVisitor = new SceneNodeTraverseVisitor<SceneNode>(m_pSceneRenderPass);
-	float aabbValue[6] = { -1000.0f, -1000.0f, -1000.0f, 1000.0f, 1000.0f, 1000.0f }; 
+	float aabbValue[6] = { -10000.0f, -10000.0f, -10000.0f, 10000.0f, 10000.0f, 10000.0f }; 
 	AABB sceneAABB(aabbValue, aabbValue + 3);
 	m_pSceneOcTree = new SceneOcTree(sceneAABB);
 }
 
 bool Leviathan::SceneGraph::AddNode(LPtr<Node<SceneNode>> pNode)
 {
-	EXIT_GET_FALSE(pNode);
+	EXIT_IF_FALSE(pNode);
 	m_pNeedAddNodeVec.push_back(pNode);
 	return true;
 }
@@ -71,7 +71,7 @@ bool Leviathan::SceneGraph::AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> p
 		sceneNodeVec.push_back(pBeginNode.Get());
 	}
 
-	EXIT_GET_FALSE(m_pSceneOcTree->AddNode(sceneNodeVec));
+	EXIT_IF_FALSE(m_pSceneOcTree->AddNode(sceneNodeVec));
 	return true;
 }
 
@@ -126,8 +126,8 @@ bool Leviathan::SceneGraph::_updateAllNeedAddNode()
 	for (auto& node : m_pNeedAddNodeVec)
 	{
 		m_pRoot->AddChild(node);
-		EXIT_GET_FALSE(AddDrawableNodeToSceneOcTree(node, false));
-		EXIT_GET_FALSE(m_pSceneOcTree->AddDrawableNodeToGLPass(m_pSceneRenderPass, node));
+		EXIT_IF_FALSE(AddDrawableNodeToSceneOcTree(node, false));
+		EXIT_IF_FALSE(m_pSceneOcTree->AddDrawableNodeToGLPass(m_pSceneRenderPass, node));
 	}
 
 	m_pNeedAddNodeVec.clear();
