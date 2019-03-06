@@ -16,6 +16,12 @@ namespace Leviathan
 
 	}
 
+	bool TriDScene::AddNode(LPtr<Node<SceneNode>> pNode)
+	{
+		EXIT_IF_FALSE(m_pSceneLogicData->AddNode(pNode));
+		return true;
+	}
+
 	bool TriDScene::_firstUpdate()
 	{
 		// Init light
