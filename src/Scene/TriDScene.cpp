@@ -22,6 +22,23 @@ namespace Leviathan
 		return true;
 	}
 
+	bool TriDScene::AddMesh(const char* filePath, bool resetCameraToMeshCenter /*= false*/)
+	{
+		LPtr<Node<SceneNode>> pModelNode;
+		std::string path = std::experimental::filesystem::current_path().string() + std::string(filePath);
+		EXIT_IF_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
+		m_pSceneLogicData->AddNode(pModelNode);
+		pModelNode->GetNodeData()->SetWorldCoord({ 0.0f, 0.0f, 0.0f });
+
+		if (resetCameraToMeshCenter)
+		{
+			AABB nodeAABB; EXIT_IF_FALSE(pModelNode->GetNodeData()->GetModelAABB(nodeAABB));
+			_resetCamera(nodeAABB.center);
+		}
+
+		return true;
+	}
+
 	bool TriDScene::_firstUpdate()
 	{
 		// Init light
@@ -32,13 +49,8 @@ namespace Leviathan
 
 	bool TriDScene::_initSceneObject()
 	{
-		LPtr<Node<SceneNode>> pModelNode;
-		std::string path = std::experimental::filesystem::current_path().string() + "\\2b\\lufeng.FBX";
-		EXIT_IF_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
-		m_pSceneLogicData->AddNode(pModelNode);
-		AABB nodeAABB; EXIT_IF_FALSE(pModelNode->GetNodeData()->GetAABB(nodeAABB));
-		_resetCamera(nodeAABB.center);
-
+		//EXIT_IF_FALSE(AddMesh("\\2b\\lufeng.FBX", true));
+		EXIT_IF_FALSE(AddMesh("\\Black_Dragon\\Dragon_2.5_fbx.FBX", true));
 		return true;
 	}
 

@@ -233,6 +233,119 @@ GLFWAPI GLFWwindow* glfwCreateWindow(int width, int height,
     return (GLFWwindow*) window;
 }
 
+GLFWAPI GLFWwindow* glfwCreateWindowEx(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share, int hParent)
+{
+	_GLFWfbconfig fbconfig;
+	_GLFWctxconfig ctxconfig;
+	_GLFWwndconfig wndconfig;
+	_GLFWwindow* window;
+	_GLFWwindow* previous;
+
+	assert(title != NULL);
+	assert(width >= 0);
+	assert(height >= 0);
+
+	_GLFW_REQUIRE_INIT_OR_RETURN(NULL);
+
+	if (width <= 0 || height <= 0)
+	{
+		_glfwInputError(GLFW_INVALID_VALUE,
+			"Invalid window size %ix%i",
+			width, height);
+
+		return NULL;
+	}
+
+	fbconfig = _glfw.hints.framebuffer;
+	ctxconfig = _glfw.hints.context;
+	wndconfig = _glfw.hints.window;
+
+	wndconfig.width = width;
+	wndconfig.height = height;
+	wndconfig.title = title;
+	ctxconfig.share = (_GLFWwindow*)share;
+
+	if (ctxconfig.share)
+	{
+		if (ctxconfig.client == GLFW_NO_API ||
+			ctxconfig.share->context.client == GLFW_NO_API)
+		{
+			_glfwInputError(GLFW_NO_WINDOW_CONTEXT, NULL);
+			return NULL;
+		}
+	}
+
+	if (!_glfwIsValidContextConfig(&ctxconfig))
+		return NULL;
+
+	window = calloc(1, sizeof(_GLFWwindow));
+	window->next = _glfw.windowListHead;
+	_glfw.windowListHead = window;
+
+	window->videoMode.width = width;
+	window->videoMode.height = height;
+	window->videoMode.redBits = fbconfig.redBits;
+	window->videoMode.greenBits = fbconfig.greenBits;
+	window->videoMode.blueBits = fbconfig.blueBits;
+	window->videoMode.refreshRate = _glfw.hints.refreshRate;
+
+	window->monitor = (_GLFWmonitor*)monitor;
+	window->resizable = wndconfig.resizable;
+	window->decorated = wndconfig.decorated;
+	window->autoIconify = wndconfig.autoIconify;
+	window->floating = wndconfig.floating;
+	window->cursorMode = GLFW_CURSOR_NORMAL;
+
+	window->minwidth = GLFW_DONT_CARE;
+	window->minheight = GLFW_DONT_CARE;
+	window->maxwidth = GLFW_DONT_CARE;
+	window->maxheight = GLFW_DONT_CARE;
+	window->numer = GLFW_DONT_CARE;
+	window->denom = GLFW_DONT_CARE;
+
+	// Save the currently current context so it can be restored later
+	previous = _glfwPlatformGetTls(&_glfw.context);
+	if (ctxconfig.client != GLFW_NO_API)
+		glfwMakeContextCurrent(NULL);
+
+	window->win32.handleParent = hParent;
+	// Open the actual window and create its context
+	if (!_glfwPlatformCreateWindow(window, &wndconfig, &ctxconfig, &fbconfig))
+	{
+		glfwMakeContextCurrent((GLFWwindow*)previous);
+		glfwDestroyWindow((GLFWwindow*)window);
+		return NULL;
+	}
+
+	if (ctxconfig.client != GLFW_NO_API)
+	{
+		window->context.makeCurrent(window);
+
+		// Retrieve the actual (as opposed to requested) context attributes
+		if (!_glfwRefreshContextAttribs(&ctxconfig))
+		{
+			glfwMakeContextCurrent((GLFWwindow*)previous);
+			glfwDestroyWindow((GLFWwindow*)window);
+			return NULL;
+		}
+
+		// Restore the previously current context (or NULL)
+		glfwMakeContextCurrent((GLFWwindow*)previous);
+	}
+
+	if (!window->monitor)
+	{
+		if (wndconfig.visible)
+		{
+			_glfwPlatformShowWindow(window);
+			if (wndconfig.focused)
+				_glfwPlatformFocusWindow(window);
+		}
+	}
+
+	return (GLFWwindow*)window;
+}
+
 void glfwDefaultWindowHints(void)
 {
     _GLFW_REQUIRE_INIT();

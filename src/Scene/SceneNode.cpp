@@ -45,7 +45,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool Leviathan::SceneNode::GetAABB(AABB& out) const
+	bool Leviathan::SceneNode::GetModelAABB(AABB& out) const
 	{
 		EXIT_IF_FALSE(m_pMeshVec.size() > 0);
 		
@@ -76,9 +76,46 @@ namespace Leviathan
 		return true;
 	}
 
+	bool SceneNode::GetWorldAABB(AABB & out) const
+	{
+		AABB modelAABB; GetModelAABB(modelAABB);
+		float min[3], max[3];
+		
+		memcpy(min, modelAABB.center, 3 * sizeof(float));
+		memcpy(max, modelAABB.center, 3 * sizeof(float));
+
+		for (unsigned i = 0; i < 8; i++)
+		{
+			bool bPositiveX = i & 0x1; 
+			bool bPositiveY = i & 0x2;
+			bool bPositiveZ = i & 0x4;
+
+			float coord[3] =
+			{
+				(bPositiveX) ? modelAABB.max[0] : modelAABB.min[0],
+				(bPositiveY) ? modelAABB.max[1] : modelAABB.min[1],
+				(bPositiveZ) ? modelAABB.max[2] : modelAABB.min[2], 
+			};
+
+			Eigen::Vector4f worldCoord(coord[0], coord[1], coord[2], 1.0f);
+			worldCoord = GetWorldTransform() * worldCoord;
+
+			if (worldCoord[0] < min[0]) min[0] = worldCoord[0];
+			if (worldCoord[1] < min[1]) min[1] = worldCoord[1];
+			if (worldCoord[2] < min[2]) min[2] = worldCoord[2];
+
+			if (worldCoord[0] > max[0]) max[0] = worldCoord[0];
+			if (worldCoord[1] > max[1]) max[1] = worldCoord[1];
+			if (worldCoord[2] > max[2]) max[2] = worldCoord[2];
+		}
+
+		out.SetData(min, max);
+		return true;
+	}
+
 	bool Leviathan::SceneNode::GetWorldCoordCenter(float * out) const
 	{
-		AABB _sceneNodeAABB; if (!GetAABB(_sceneNodeAABB)) return false; 
+		AABB _sceneNodeAABB; if (!GetModelAABB(_sceneNodeAABB)) return false; 
 
 		Eigen::Vector4f modelCoord(_sceneNodeAABB.center); modelCoord[3] = 1.0f;
 		Eigen::Vector4f worldAABBCenter = GetWorldTransform() * modelCoord;
@@ -107,7 +144,7 @@ namespace Leviathan
 	{
 		return m_worldCoord;
 	}
-
+	 
 	Eigen::Matrix4f Leviathan::SceneNode::GetWorldTransform() const
 	{
 		Eigen::Matrix4f trans = Eigen::Matrix4f::Identity();

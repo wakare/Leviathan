@@ -43,9 +43,9 @@ namespace Leviathan
 
 	}
 
-	bool RenderWindow::CreateRenderWindow()
-	{
-		m_pWindow = glfwCreateWindow(m_width, m_height, m_pWindowTitle, NULL, NULL);
+	bool RenderWindow::CreateRenderWindow(int hParent)
+{
+		m_pWindow = glfwCreateWindowEx(m_width, m_height, m_pWindowTitle, NULL, NULL, hParent);
 
 		if (m_pWindow == NULL)
 		{
@@ -92,16 +92,12 @@ namespace Leviathan
 
 	void RenderWindow::Run()
 	{
-		m_bRunning = true;
-
 		if (!m_pWindow)
 		{
-			if (!CreateRenderWindow())
-			{
-				throw "CreateWindow failed.";
-				return;
-			}
+			return;
 		}
+
+		m_bRunning = true;
 
 		while (!glfwWindowShouldClose(m_pWindow))
 		{
@@ -233,6 +229,26 @@ namespace Leviathan
 	void RenderWindow::Accept(Event& event)
 	{
 		_handleInput(event);
+	}
+
+	GLFWwindow* RenderWindow::GetGLFWWindow() 
+	{
+		return m_pWindow; 
+	};
+
+	int RenderWindow::GetWidth() 
+	{ 
+		return m_width; 
+	};
+
+	int RenderWindow::GetHeight() 
+	{
+		return m_height; 
+	};
+
+	Leviathan::LPtr<Leviathan::CommonScene> RenderWindow::GetScene() 
+	{ 
+		return m_pScene; 
 	}
 
 	void RenderWindow::_setWindowProcess()

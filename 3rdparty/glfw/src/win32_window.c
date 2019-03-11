@@ -970,13 +970,19 @@ static int createNativeWindow(_GLFWwindow* window,
     if (!wideTitle)
         return GLFW_FALSE;
 
+	if (NULL != window->win32.handleParent) 
+	{
+		exStyle = WS_EX_APPWINDOW | WS_EX_WINDOWEDGE;
+		style = WS_CHILDWINDOW | (wndconfig->visible ? WS_VISIBLE : 0);
+	}
+
     window->win32.handle = CreateWindowExW(exStyle,
                                            _GLFW_WNDCLASSNAME,
                                            wideTitle,
                                            style,
                                            xpos, ypos,
                                            fullWidth, fullHeight,
-                                           NULL, // No parent window
+										   window->win32.handleParent, // No parent window
                                            NULL, // No window menu
                                            GetModuleHandleW(NULL),
                                            NULL);

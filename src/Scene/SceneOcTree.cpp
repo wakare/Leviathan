@@ -22,7 +22,7 @@ namespace Leviathan
 	{
 		for (auto& pNode : nodeVec)
 		{
-			AABB _aabb; pNode->GetNodeData()->GetAABB(_aabb);
+			AABB _aabb; pNode->GetNodeData()->GetWorldAABB(_aabb);
 			m_pRoot->AddData(pNode->GetNodeData().Get(), _aabb);
 		}
 

@@ -10,7 +10,7 @@
 namespace Leviathan
 {
 	RenderService* RenderService::g_pInstance = nullptr;
-	IScene::ESceneType RenderService::m_sceneType = IScene::EST_POINTCLOUD;
+	IScene::ESceneType RenderService::m_sceneType = IScene::EST_TRID;
 	
 	RenderService::RenderService():
 		m_pScene(nullptr)
@@ -42,6 +42,11 @@ namespace Leviathan
 		return true;
 	}
 
+	bool RenderService::_attachNativeWin32Window(int handle)
+	{
+		return m_pRenderWindow->CreateRenderWindow(handle);
+	}
+
 	Leviathan::LPtr<Leviathan::CommonScene> RenderService::GetScene()
 	{
 		if (m_pScene == nullptr)
@@ -56,8 +61,9 @@ namespace Leviathan
 		return m_pScene;
 	}
 
-	bool RenderService::Init()
-	{
+	bool RenderService::Init(int handle)
+{
+		EXIT_IF_FALSE(_attachNativeWin32Window(handle));
 		EXIT_IF_FALSE(m_pRenderWindow->GetScene());
 		return true;
 	}

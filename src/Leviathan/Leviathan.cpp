@@ -31,7 +31,8 @@ int main()
 {
 	RenderService::SetSceneType(IScene::EST_TRID);
 	EXIT_IF_FALSE(_registerEventCallback());
-	EXIT_IF_FALSE(RenderService::Instance()->Init());
+	/*EXIT_IF_FALSE(RenderService::Instance()->AttachNativeWin32Window(0));*/
+	EXIT_IF_FALSE(RenderService::Instance()->Init(NULL));
 	RenderService::Instance()->Run();
 }
 

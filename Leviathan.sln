@@ -49,6 +49,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RenderService", "src\Render
 		{C9D52724-8554-4F6C-8E41-CAD0E84D568A} = {C9D52724-8554-4F6C-8E41-CAD0E84D568A}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_LeviathanGUIApp", "3_LeviathanGUIApp", "{D931A883-EC58-4AEC-87BB-544D5D913EC5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanModelViewer", "src\LeviathanModelViewer\LeviathanModelViewer.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{219B5E82-ECFD-46A3-9920-D6757D2110CC} = {219B5E82-ECFD-46A3-9920-D6757D2110CC}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -135,6 +142,12 @@ Global
 		{219B5E82-ECFD-46A3-9920-D6757D2110CC}.Release|x64.Build.0 = Release|x64
 		{219B5E82-ECFD-46A3-9920-D6757D2110CC}.Release|x86.ActiveCfg = Release|Win32
 		{219B5E82-ECFD-46A3-9920-D6757D2110CC}.Release|x86.Build.0 = Release|Win32
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x64.Build.0 = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Debug|x86.ActiveCfg = Debug|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.ActiveCfg = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x64.Build.0 = Release|x64
+		{B12702AD-ABFB-343A-A199-8E24837244A3}.Release|x86.ActiveCfg = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -150,6 +163,7 @@ Global
 		{9D3D02D8-1219-4E36-BDD9-C6FF32C7AD93} = {77840663-B0DF-4184-95BB-8F7957820628}
 		{E2869D66-3C62-4171-BE7A-FF09C7F746BD} = {77840663-B0DF-4184-95BB-8F7957820628}
 		{219B5E82-ECFD-46A3-9920-D6757D2110CC} = {47E0B754-34D6-499A-AC21-EDD064A4E6B7}
+		{B12702AD-ABFB-343A-A199-8E24837244A3} = {D931A883-EC58-4AEC-87BB-544D5D913EC5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96707CC0-136C-45D6-ABE8-364AB736690D}

@@ -18,7 +18,8 @@ namespace Leviathan
 		~SceneNode();
 
 		bool LoadModelFile(const char* szFileName);
-		bool GetAABB(AABB& out) const;
+		bool GetModelAABB(AABB& out) const;
+		bool GetWorldAABB(AABB& out) const;
 		bool GetWorldCoordCenter(float* out) const;
 		bool Pick(float* rayPos, float* rayDir, PickInfo& pickInfo);
 		const Eigen::Vector3f& GetWorldCoord() const;

@@ -240,6 +240,7 @@ typedef struct _GLFWwindowWin32
 
     // The last received cursor position, regardless of source
     int                 lastCursorPosX, lastCursorPosY;
+	HWND				handleParent;
 
 } _GLFWwindowWin32;
 

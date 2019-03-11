@@ -101,9 +101,7 @@ extern "C" {
  */
 #ifndef APIENTRY
  #ifdef _WIN32
-	#ifndef APIENTRY
-	#define APIENTRY __stdcall
-	#endif
+  #define APIENTRY __stdcall
  #else
   #define APIENTRY
  #endif
@@ -2162,6 +2160,10 @@ GLFWAPI void glfwWindowHint(int hint, int value);
  *  @ingroup window
  */
 GLFWAPI GLFWwindow* glfwCreateWindow(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share);
+
+/*! @brief Added extra interface for attaching native win32 window
+*/
+GLFWAPI GLFWwindow* glfwCreateWindowEx(int width, int height, const char* title, GLFWmonitor* monitor, GLFWwindow* share, int hParent);
 
 /*! @brief Destroys the specified window and its context.
  *

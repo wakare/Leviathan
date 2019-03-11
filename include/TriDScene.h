@@ -9,7 +9,7 @@ namespace Leviathan
 	public:
 		TriDScene(GLFWwindow* pRenderWindow, int width, int height);
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
-		bool AddMesh(const char* filePath);
+		bool AddMesh(const char* filePath, bool resetCameraToMeshCenter = false);
 
 	private:
 		bool _firstUpdate();
