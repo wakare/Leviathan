@@ -29,7 +29,7 @@ public:
 	static ModelViewerPresenter& Instance();
 	AppState GetCurrentAppState();
 
-	bool Init(int handle = NULL);
+	bool Init(int width, int height, int handle = NULL);
 	void Run();
 	void Stop();
 	bool UnInit();

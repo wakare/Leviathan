@@ -20,7 +20,7 @@ namespace Leviathan
 		RenderWindow(LPtr<EventSystem> pEventSystem, IScene::ESceneType sceneType = IScene::EST_POINTCLOUD, int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
 		~RenderWindow();
 
-		bool CreateRenderWindow(int hParent = NULL);
+		bool CreateRenderWindow(int width, int height, int hParent = NULL);
 		void Run();
 		void SyncStop();
 		void AsyncStop();

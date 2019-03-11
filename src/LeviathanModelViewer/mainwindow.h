@@ -20,7 +20,11 @@ public:
 public slots:
 	void LoadFile();
 
+protected:
+	virtual void resizeEvent(QResizeEvent *event);
+
 private:
+	void _initialized();
 	void _attachRenderService();
 	void _runRenderService();
 	ModelViewerPresenter& _modelViewerPresenter();

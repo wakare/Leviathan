@@ -43,8 +43,9 @@ namespace Leviathan
 
 	}
 
-	bool RenderWindow::CreateRenderWindow(int hParent)
+	bool RenderWindow::CreateRenderWindow(int width, int height, int hParent /*= NULL*/)
 {
+		m_width = width; m_height = height;
 		m_pWindow = glfwCreateWindowEx(m_width, m_height, m_pWindowTitle, NULL, NULL, hParent);
 
 		if (m_pWindow == NULL)

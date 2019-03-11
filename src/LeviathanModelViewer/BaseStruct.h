@@ -3,4 +3,6 @@
 struct LeviathanInitStruct
 {
 	int handle;
+	int width;
+	int height;
 };

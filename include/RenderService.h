@@ -19,7 +19,7 @@ namespace Leviathan
 		bool SetCurrentScene(LPtr<CommonScene> pScene);
 		LPtr<CommonScene> GetScene();
 
-		bool Init(int handle);
+		bool Init(int width, int height, int handle);
 		void Run();
 		void SyncStop();
 		void AsyncStop();
@@ -28,7 +28,7 @@ namespace Leviathan
 
 	private:
 		RenderService();
-		bool _attachNativeWin32Window(int handle);
+		bool _attachNativeWin32Window(int width, int height, int handle);
 
 		static RenderService* g_pInstance;
 		static IScene::ESceneType m_sceneType;

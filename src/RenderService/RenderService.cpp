@@ -42,9 +42,9 @@ namespace Leviathan
 		return true;
 	}
 
-	bool RenderService::_attachNativeWin32Window(int handle)
+	bool RenderService::_attachNativeWin32Window(int width, int height, int handle)
 	{
-		return m_pRenderWindow->CreateRenderWindow(handle);
+		return m_pRenderWindow->CreateRenderWindow(width, height, handle);
 	}
 
 	Leviathan::LPtr<Leviathan::CommonScene> RenderService::GetScene()
@@ -61,9 +61,9 @@ namespace Leviathan
 		return m_pScene;
 	}
 
-	bool RenderService::Init(int handle)
+	bool RenderService::Init(int width, int height, int handle)
 {
-		EXIT_IF_FALSE(_attachNativeWin32Window(handle));
+		EXIT_IF_FALSE(_attachNativeWin32Window(width, height, handle));
 		EXIT_IF_FALSE(m_pRenderWindow->GetScene());
 		return true;
 	}

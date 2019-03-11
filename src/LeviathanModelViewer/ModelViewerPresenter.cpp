@@ -25,13 +25,13 @@ AppState ModelViewerPresenter::GetCurrentAppState()
 	return m_appState;
 }
 
-bool ModelViewerPresenter::Init(int handle /*= NULL*/)
+bool ModelViewerPresenter::Init(int width, int height, int handle /*= NULL*/)
 {
 	m_appState = EAS_INITING;
 	{
 		// 0. Attach window
 		RenderService().SetSceneType(Leviathan::IScene::EST_TRID);
-		EXIT_IF_FALSE(RenderService().Init(handle));
+		EXIT_IF_FALSE(RenderService().Init(width, height, handle));
 
 		// 1. Create user-data
 		/*_renderService().GetScene()->GetSceneData().AddNode()*/
