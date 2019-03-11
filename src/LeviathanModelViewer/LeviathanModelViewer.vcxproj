@@ -11,8 +11,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <None Include="BaseStruct.h" />
     <None Include="LeviathanModelViewer.pro" />
     <None Include="LeviathanModelViewer.pro.user" />
+    <None Include="ModelViewerUserInterface.cpp" />
+    <None Include="ModelViewerUserInterface.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

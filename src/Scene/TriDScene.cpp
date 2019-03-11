@@ -25,8 +25,9 @@ namespace Leviathan
 	bool TriDScene::AddMesh(const char* filePath, bool resetCameraToMeshCenter /*= false*/)
 	{
 		LPtr<Node<SceneNode>> pModelNode;
-		std::string path = std::experimental::filesystem::current_path().string() + std::string(filePath);
-		EXIT_IF_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
+		//std::string path = std::experimental::filesystem::current_path().string() + std::string(filePath);
+		//EXIT_IF_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
+		EXIT_IF_FALSE(SceneHelper::LoadModel(filePath, pModelNode));
 		m_pSceneLogicData->AddNode(pModelNode);
 		pModelNode->GetNodeData()->SetWorldCoord({ 0.0f, 0.0f, 0.0f });
 
@@ -50,7 +51,7 @@ namespace Leviathan
 	bool TriDScene::_initSceneObject()
 	{
 		//EXIT_IF_FALSE(AddMesh("\\2b\\lufeng.FBX", true));
-		EXIT_IF_FALSE(AddMesh("\\Black_Dragon\\Dragon_2.5_fbx.FBX", true));
+		//EXIT_IF_FALSE(AddMesh("\\Black_Dragon\\Dragon_2.5_fbx.FBX", true));
 		return true;
 	}
 

@@ -109,6 +109,20 @@ namespace Leviathan
 		rayDir[2] = worldCoord[2] - rayPos[2];		
 	}
 
+	void CommonScene::_executeDataRequest()
+	{
+		m_dataRequestLock.lock();
+		{
+			for (auto& request : m_dataRequests)
+			{
+				request();
+			}
+
+			m_dataRequests.clear();
+		}
+		m_dataRequestLock.unlock();
+	}
+
 	bool CommonScene::_firstUpdate()
 	{
 		return true;
@@ -168,6 +182,11 @@ namespace Leviathan
 		return *m_pSceneLogicData;
 	}
 
+	void CommonScene::AddRequest(SceneDataRequestFunc func)
+	{
+		m_dataRequests.push_back(func);
+	}
+
 	void CommonScene::Update()
 	{
 		static bool bFirstUpdate = true;
@@ -176,6 +195,8 @@ namespace Leviathan
 			_firstUpdate();
 			bFirstUpdate = false;
 		}
+
+		_executeDataRequest();
 
 		m_pSceneLogicData->Update();
 		m_pSceneRenderData->Update();

@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "BaseStruct.h"
 #include "ModelViewerPresenter.h"
 
 namespace Ui {
@@ -16,6 +17,9 @@ public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
 
+public slots:
+	void LoadFile();
+
 private:
 	void _attachRenderService();
 	void _runRenderService();
@@ -23,6 +27,9 @@ private:
 
 
     Ui::MainWindow *ui;
+
+	// Leviathan struct
+	std::unique_ptr<LeviathanInitStruct> m_pLevStruct;
 };
 
 #endif // MAINWINDOW_H

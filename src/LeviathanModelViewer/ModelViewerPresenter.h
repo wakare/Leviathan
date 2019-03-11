@@ -1,8 +1,7 @@
 #pragma once
 #include "Singleton.h"
 #include "RenderService.h"
-
-using namespace Leviathan;
+#include "ModelViewerUserInterface.h"
 
 enum AppState
 {
@@ -14,10 +13,19 @@ enum AppState
 	EAS_STOPPED
 };
 
+//class ModelViewerUserInterface;
+
+//namespace Leviathan
+//{
+//	class RenderService;
+//}
+
 class ModelViewerPresenter 
 {
 	DECLARE_SELF_TO_SINGLETON(ModelViewerPresenter)
+
 public:
+	~ModelViewerPresenter();
 	static ModelViewerPresenter& Instance();
 	AppState GetCurrentAppState();
 
@@ -26,10 +34,14 @@ public:
 	void Stop();
 	bool UnInit();
 
+	bool LoadFile(const char* filePath);
+
+	Leviathan::RenderService& RenderService();
+	
 private:
 	ModelViewerPresenter();
-	~ModelViewerPresenter();
-	RenderService& _renderService();
+	//ModelViewerUserInterface& _userInterface();
+
 
 	AppState m_appState;
 };

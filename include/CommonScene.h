@@ -30,11 +30,13 @@ namespace Leviathan
 		Camera& GetCamera();
 		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 		SceneLogicDataSet& GetSceneData();
+		void AddRequest(SceneDataRequestFunc func);
 		bool Pick(unsigned x, unsigned y);
 		virtual void Update();
 
 	protected:
 		void _generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir);
+		void _executeDataRequest();
 		virtual bool _firstUpdate();
 		virtual bool _initSceneObject();	
 
@@ -47,6 +49,8 @@ namespace Leviathan
 		GLFWwindow* m_pGLFWWindow;
 		LPtr<Camera> m_pCamera;
 		std::vector<LPtr<GLLight>> m_pLights;
+		std::mutex m_dataRequestLock;
+		std::vector<SceneDataRequestFunc> m_dataRequests;
 		LPtr<RenderWrapper> m_pRenderWarpper;
 		LPtr<TriDObjectGLPass> m_pMeshPass;
 		LPtr<GLShaderProgram> m_pShaderProgram;

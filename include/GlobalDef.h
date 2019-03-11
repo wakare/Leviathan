@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <functional>
 
 namespace Leviathan
 {
@@ -19,4 +20,6 @@ namespace Leviathan
 		INPUT_EVENT,
 		USER_EVENT,
 	};
+
+	typedef std::function<void(void)> SceneDataRequestFunc;
 }
