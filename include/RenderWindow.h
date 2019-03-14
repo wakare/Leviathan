@@ -30,6 +30,7 @@ namespace Leviathan
 		int GetWidth();
 		int GetHeight();
 		LPtr<CommonScene> GetScene();
+		int GetWindowHandle() const;
 
 	private:
 		void _handleInput(Event& event);

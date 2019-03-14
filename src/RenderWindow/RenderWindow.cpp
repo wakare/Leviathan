@@ -12,6 +12,9 @@
 #include "GLLight.h"
 #include "TriDScene.h"
 
+#define GLFW_EXPOSE_NATIVE_WIN32
+#include "GLFW/glfw3native.h"
+
 namespace Leviathan
 {
 	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, IScene::ESceneType sceneType, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
@@ -250,6 +253,11 @@ namespace Leviathan
 	Leviathan::LPtr<Leviathan::CommonScene> RenderWindow::GetScene() 
 	{ 
 		return m_pScene; 
+	}
+
+	int RenderWindow::GetWindowHandle() const
+	{
+		return (int)glfwGetWin32Window(m_pWindow);
 	}
 
 	void RenderWindow::_setWindowProcess()

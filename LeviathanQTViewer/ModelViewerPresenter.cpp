@@ -60,11 +60,6 @@ bool ModelViewerPresenter::UnInit()
 	return true;
 }
 
-int ModelViewerPresenter::GetWindowHandle() const
-{
-	return RenderService().GetWindowHandle();
-}
-
 bool ModelViewerPresenter::LoadFile(const char * filePath)
 {
 	auto& scene = ModelViewerPresenter::Instance().RenderService().GetScene();
@@ -83,11 +78,6 @@ bool ModelViewerPresenter::LoadFile(const char * filePath)
 }
 
 Leviathan::RenderService& ModelViewerPresenter::RenderService()
-{
-	return *Leviathan::RenderService::Instance();
-}
-
-const Leviathan::RenderService & ModelViewerPresenter::RenderService() const
 {
 	return *Leviathan::RenderService::Instance();
 }

@@ -142,6 +142,11 @@ namespace Leviathan
 			m_spEventSystem->AddEvent(scrollEvent);
 		}
 
+		static void ResizeCallback(GLFWwindow* window, int width, int height)
+		{
+			std::cout << "Resize callback." << std::endl;
+		}
+
 		static GLFWInputMapEventCode m_sInputMap;
 		static GLFWActionMapEvent m_sActionMap;
 		static LPtr<EventSystem> m_spEventSystem;

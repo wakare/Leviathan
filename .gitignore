@@ -35,3 +35,4 @@
 *.res
 bin/x64/Debug/2b/skin_spec.png
 bin/
+Resources/

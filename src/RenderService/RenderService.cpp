@@ -90,4 +90,9 @@ namespace Leviathan
 		return true;
 	}
 
+	int RenderService::GetWindowHandle() const
+	{
+		return m_pRenderWindow->GetWindowHandle();
+	}
+
 }

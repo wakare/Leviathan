@@ -27,8 +27,9 @@ private:
 	void _initialized();
 	void _attachRenderService();
 	void _runRenderService();
-	void _openglWidgetResize();
 	ModelViewerPresenter& _modelViewerPresenter();
+
+
     Ui::MainWindow *ui;
 
 	// Leviathan struct

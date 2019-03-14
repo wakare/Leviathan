@@ -34,12 +34,10 @@ public:
 	void Stop();
 	bool UnInit();
 
-	int GetWindowHandle() const;
 	bool LoadFile(const char* filePath);
 
 	Leviathan::RenderService& RenderService();
-	const Leviathan::RenderService& RenderService() const;
-
+	
 private:
 	ModelViewerPresenter();
 	//ModelViewerUserInterface& _userInterface();
