@@ -131,8 +131,9 @@ namespace Leviathan
 
 	void RenderWindow::_handleInput(Event& event)
 	{
+		if (_handleResize(event)) return;
 		if (_handlePick(event)) return;
-
+		
 		_handleCameraTransform(event);
 	}
 
@@ -165,7 +166,7 @@ namespace Leviathan
 
 		if ((event.m_action == Event::InputAction::SCROLL))
 		{
-			fTranslate[2] += (event.m_mouseScrollState.y * 0.02f);
+			fTranslate[2] += (event.m_context.m_mouseScrollState.y * 0.02f);
 		}
 
 		if (fTranslate[0] != 0.0f || fTranslate[1] != 0.0f || fTranslate[2] != 0.0f)
@@ -255,6 +256,22 @@ namespace Leviathan
 		return m_pScene; 
 	}
 
+	bool RenderWindow::_handleResize(Event& event)
+	{
+		if (event.m_action == Event::RESIZE)
+		{
+			m_width = event.m_context.m_windowResizeSize.width;
+			m_height = event.m_context.m_windowResizeSize.height;
+
+			m_pScene->SetViewport(m_width, m_height);
+			glViewport(0, 0, m_width, m_height);
+
+			return true;
+		}
+
+		return false;
+	}
+
 	int RenderWindow::GetWindowHandle() const
 	{
 		return (int)glfwGetWin32Window(m_pWindow);
@@ -271,6 +288,7 @@ namespace Leviathan
 		glfwSetCursorPosCallback(m_pWindow, (WindowCallBack::MousePositionCallback));
 		glfwSetScrollCallback(m_pWindow, (WindowCallBack::MouseScrollCallback));
 		glfwSetMouseButtonCallback(m_pWindow, (WindowCallBack::MouseButtonCallBack));
+		glfwSetWindowSizeCallback(m_pWindow, (WindowCallBack::ResizeCallback));
 	}
 
 	bool RenderWindow::_glewInit()

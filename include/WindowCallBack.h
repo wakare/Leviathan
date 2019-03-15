@@ -137,14 +137,19 @@ namespace Leviathan
 			Event scrollEvent = Event(EventType::INPUT_EVENT);
 			scrollEvent.m_action = Event::InputAction::SCROLL;
 			scrollEvent.m_code = Event::InputCode::INPUT_NONE;
-			scrollEvent.m_mouseScrollState.x = static_cast<int>(xOffset);
-			scrollEvent.m_mouseScrollState.y = static_cast<int>(yOffset);
+			scrollEvent.m_context.m_mouseScrollState.x = static_cast<int>(xOffset);
+			scrollEvent.m_context.m_mouseScrollState.y = static_cast<int>(yOffset);
 			m_spEventSystem->AddEvent(scrollEvent);
 		}
 
 		static void ResizeCallback(GLFWwindow* window, int width, int height)
 		{
-			std::cout << "Resize callback." << std::endl;
+			Event resizeEvent = Event(EventType::INPUT_EVENT);
+			resizeEvent.m_action = Event::InputAction::RESIZE;
+			resizeEvent.m_code = Event::InputCode::INPUT_NONE;
+			resizeEvent.m_context.m_windowResizeSize.width = width;
+			resizeEvent.m_context.m_windowResizeSize.height = height;
+			m_spEventSystem->AddEvent(resizeEvent);
 		}
 
 		static GLFWInputMapEventCode m_sInputMap;

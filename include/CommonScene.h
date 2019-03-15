@@ -28,10 +28,13 @@ namespace Leviathan
 		~CommonScene();
 
 		Camera& GetCamera();
-		const std::vector<LPtr<GLLight>>& GetLightVec() const;
 		SceneLogicDataSet& GetSceneData();
+
 		void AddRequest(SceneDataRequestFunc func);
 		bool Pick(unsigned x, unsigned y);
+		void SetViewport(int width, int height);
+		const std::vector<LPtr<GLLight>>& GetLightVec() const;
+
 		virtual void Update();
 
 	protected:

@@ -212,4 +212,10 @@ namespace Leviathan
 		return false;
 	}
 
+	void CommonScene::SetViewport(int width, int height)
+	{
+		m_width = width;
+		m_height = height;
+	}
+
 }

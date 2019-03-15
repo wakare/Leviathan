@@ -26,15 +26,17 @@ namespace Leviathan
 		void AsyncStop();
 		void Accept(Event& event);
 
-		GLFWwindow* GetGLFWWindow();
 		int GetWidth();
 		int GetHeight();
-		LPtr<CommonScene> GetScene();
 		int GetWindowHandle() const;
+
+		GLFWwindow* GetGLFWWindow();
+		LPtr<CommonScene> GetScene();
 
 	private:
 		void _handleInput(Event& event);
 		bool _handleCameraTransform(Event& event);
+		bool _handleResize(Event& event);
 		bool _handlePick(Event& event);
 		void _setWindowProcess();
 		bool _glewInit();
