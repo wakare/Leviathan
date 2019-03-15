@@ -44,14 +44,6 @@ namespace Leviathan
 	{
 		// Init light
 		EXIT_IF_FALSE(_initLight());
-		if (!_initSceneObject()) LogLine("[ERROR] Init scene object failed."); 
-		return true;
-	}
-
-	bool TriDScene::_initSceneObject()
-	{
-		//EXIT_IF_FALSE(AddMesh("\\2b\\lufeng.FBX", true));
-		//EXIT_IF_FALSE(AddMesh("\\Black_Dragon\\Dragon_2.5_fbx.FBX", true));
 		return true;
 	}
 

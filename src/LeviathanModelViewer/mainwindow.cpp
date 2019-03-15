@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 	// Register
 	connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
-	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(_openglWidgetResize()));
+	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
 }
 
 MainWindow::~MainWindow()
@@ -69,7 +69,7 @@ void MainWindow::_runRenderService()
 	renderThread.detach();
 }
 
-void MainWindow::_openglWidgetResize()
+void MainWindow::OpenglWidgetResize()
 {
 	if (_modelViewerPresenter().GetCurrentAppState() < EAS_RUNNING) return;
 

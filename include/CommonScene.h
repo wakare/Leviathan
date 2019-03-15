@@ -35,10 +35,9 @@ namespace Leviathan
 		virtual void Update();
 
 	protected:
+		virtual bool _firstUpdate();
 		void _generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir);
 		void _executeDataRequest();
-		virtual bool _firstUpdate();
-		virtual bool _initSceneObject();	
 
 		bool _initLight();
 		bool _initCamera(unsigned width, unsigned height);

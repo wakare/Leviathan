@@ -18,12 +18,4 @@
       <Filter>Implement</Filter>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\RenderWindow.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\WindowCallBack.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-  </ItemGroup>
 </Project>

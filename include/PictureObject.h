@@ -1,5 +1,6 @@
 #pragma once
 #include <SOIL.h>
+#include "GlobalDef.h"
 
 class PictureObject
 {

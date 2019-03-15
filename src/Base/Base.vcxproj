@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,16 +156,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CFileImportFactory.cpp" />
     <ClCompile Include="CMesh.cpp" />
+    <ClCompile Include="CSTLFileImporter.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LOcTree.cpp" />
+    <ClCompile Include="RenderWindow.cpp" />
+    <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
+    <ClInclude Include="..\..\include\CFileImportFactory.h" />
     <ClInclude Include="..\..\include\CMesh.h" />
     <ClInclude Include="..\..\include\Color.h" />
+    <ClInclude Include="..\..\include\CSTLFileImporter.h" />
     <ClInclude Include="..\..\include\DynamicArray.h" />
     <ClInclude Include="..\..\include\Event.h" />
     <ClInclude Include="..\..\include\EventListener.h" />
@@ -173,7 +179,10 @@
     <ClInclude Include="..\..\include\GeometryCalculator.h" />
     <ClInclude Include="..\..\include\Camera.h" />
     <ClInclude Include="..\..\include\GlobalDef.h" />
+    <ClInclude Include="..\..\include\IFileImporter.h" />
+    <ClInclude Include="..\..\include\IFileImportFactory.h" />
     <ClInclude Include="..\..\include\IMesh.h" />
+    <ClInclude Include="..\..\include\ImporterRegister.h" />
     <ClInclude Include="..\..\include\ISpaceAccStruct.h" />
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KProfile.h" />
@@ -190,7 +199,10 @@
     <ClInclude Include="..\..\include\PictureObject.h" />
     <ClInclude Include="..\..\include\PointCloud.h" />
     <ClInclude Include="..\..\include\PointCloud.hpp" />
-    <ClInclude Include="..\..\include\VectorOperation.h" />
+    <ClInclude Include="..\..\include\RenderWindow.h" />
+    <ClInclude Include="..\..\include\WindowCallBack.h" />
+    <ClInclude Include="SimpleFactory.h" />
+    <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

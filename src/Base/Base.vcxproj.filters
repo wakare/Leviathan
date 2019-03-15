@@ -4,59 +4,70 @@
     <Filter Include="BaseGraphics">
       <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Tool">
+    <Filter Include="SceneTool">
+      <UniqueIdentifier>{6a40ffd5-2b0f-487c-9472-1f3a3e06dca7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool">
       <UniqueIdentifier>{ae0fc903-c7e4-48bf-ab0d-9c291f5c8fb9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Other">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="SpaceManager">
+    <Filter Include="SceneTool\SpaceManager">
       <UniqueIdentifier>{4a1ebbff-73f6-4248-8204-0e978ea84f0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\NodeManager">
+      <UniqueIdentifier>{b82aa092-2e4d-4175-86b9-189cb62e66a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\EventSystem">
+      <UniqueIdentifier>{1a6782bc-b776-4ada-b485-96c611a128e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\MemoryManager">
+      <UniqueIdentifier>{b4375558-c86d-4ff0-afe6-1cfda53c325d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseAlgorithm">
+      <UniqueIdentifier>{7ad320e2-ce1c-4aa4-9f60-bf9300f30d8c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\FileIO">
+      <UniqueIdentifier>{206051eb-f1df-428b-96b5-11237d9518bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\Profiler">
+      <UniqueIdentifier>{1d5537ee-056f-4e18-ab6d-bb4f4d26fe1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Window">
+      <UniqueIdentifier>{8db98950-ae3c-450a-9e2e-399eca6352e5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMesh.cpp">
       <Filter>BaseGraphics</Filter>
     </ClCompile>
-    <ClCompile Include="GeometryCalculator.cpp">
-      <Filter>Tool</Filter>
-    </ClCompile>
-    <ClCompile Include="EventSystem.cpp">
-      <Filter>Other</Filter>
-    </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>BaseGraphics</Filter>
     </ClCompile>
+    <ClCompile Include="CSTLFileImporter.cpp">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="CFileImportFactory.cpp">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>BaseGraphics</Filter>
+      <Filter>SceneTool</Filter>
+    </ClCompile>
+    <ClCompile Include="EventSystem.cpp">
+      <Filter>CommonTool\EventSystem</Filter>
     </ClCompile>
     <ClCompile Include="LOcTree.cpp">
-      <Filter>Tool</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="GeometryCalculator.cpp">
+      <Filter>BaseAlgorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="WindowCallBack.cpp">
+      <Filter>Window</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\Event.h">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\EventListener.h">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\EventSystem.h">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Node.h">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\NodeVisitor.h">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\NodeVisitor.hpp">
-      <Filter>Other</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\VectorOperation.h">
-      <Filter>Other</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\CMesh.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
@@ -69,30 +80,6 @@
     <ClInclude Include="..\..\include\PointCloud.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\GeometryCalculator.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\KLog.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\KProfile.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LPtr.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LUPtr.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\DynamicArray.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\GlobalDef.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\PictureObject.h">
-      <Filter>Tool</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\Light.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
@@ -102,23 +89,90 @@
     <ClInclude Include="..\..\include\Color.h">
       <Filter>BaseGraphics</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\Camera.h">
-      <Filter>BaseGraphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\ISpaceAccStruct.h">
-      <Filter>SpaceManager</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\OcTreeAccStruct.h">
-      <Filter>SpaceManager</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\OcTreeAccStruct.hpp">
-      <Filter>SpaceManager</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\CFileImportFactory.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\CSTLFileImporter.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\IFileImporter.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\IFileImportFactory.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ImporterRegister.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Camera.h">
+      <Filter>SceneTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Node.h">
+      <Filter>CommonTool\NodeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NodeVisitor.h">
+      <Filter>CommonTool\NodeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\NodeVisitor.hpp">
+      <Filter>CommonTool\NodeManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\Event.h">
+      <Filter>CommonTool\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EventListener.h">
+      <Filter>CommonTool\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\EventSystem.h">
+      <Filter>CommonTool\EventSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\DynamicArray.h">
+      <Filter>CommonTool\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LPtr.h">
+      <Filter>CommonTool\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LUPtr.h">
+      <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\LOcTree.h">
-      <Filter>Tool</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GeometryCalculator.h">
+      <Filter>BaseAlgorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\KProfile.h">
+      <Filter>CommonTool\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\KLog.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\GlobalDef.h" />
+    <ClInclude Include="Singleton.h">
+      <Filter>CommonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="SimpleFactory.h">
+      <Filter>CommonTool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\PictureObject.h">
+      <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\AABB.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>SceneTool\SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\RenderWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\WindowCallBack.h">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -19,6 +19,7 @@ public:
 
 public slots:
 	void LoadFile();
+	void OpenglWidgetResize();
 
 protected:
 	virtual void resizeEvent(QResizeEvent *event);
@@ -27,7 +28,7 @@ private:
 	void _initialized();
 	void _attachRenderService();
 	void _runRenderService();
-	void _openglWidgetResize();
+	
 	ModelViewerPresenter& _modelViewerPresenter();
     Ui::MainWindow *ui;
 

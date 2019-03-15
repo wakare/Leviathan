@@ -22,13 +22,6 @@
     <ClCompile Include="CFileImportFactory.cpp" />
     <ClCompile Include="CSTLFileImporter.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\include\CFileImportFactory.h" />
-    <ClInclude Include="..\..\include\CSTLFileImporter.h" />
-    <ClInclude Include="..\..\include\IFileImporter.h" />
-    <ClInclude Include="..\..\include\IFileImportFactory.h" />
-    <ClInclude Include="..\..\include\ImporterRegister.h" />
-  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{0616F6BF-B573-42BB-9C79-D4B9267A6907}</ProjectGuid>

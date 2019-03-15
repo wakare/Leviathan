@@ -125,12 +125,12 @@ namespace Leviathan
 
 	bool Leviathan::SceneNode::Pick(float* rayPos, float* rayDir, PickInfo& pickInfo)
 	{
-		//auto distance = VertexToRayDistance(rayPos, rayDir, &m_worldCoord.x);
-		//if (distance < 10.0f)
-		//{
-		//	pickInfo.pSceneNode = this;
-		//	return true;
-		//}
+		/*auto distance = VertexToRayDistance(rayPos, rayDir, &m_worldCoord.x);
+		if (distance < 10.0f)
+		{
+			pickInfo.pSceneNode = this;
+			return true;
+		}*/
 		
 		return false;
 	}

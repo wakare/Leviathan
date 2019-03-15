@@ -11,8 +11,7 @@ namespace Leviathan
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
 		bool AddMesh(const char* filePath, bool resetCameraToMeshCenter = false);
 
-	private:
-		bool _firstUpdate();
-		bool _initSceneObject();
+	protected:
+		virtual bool _firstUpdate();
 	};
 }

@@ -87,6 +87,11 @@ namespace Leviathan
 		return m_pLights;
 	}
 
+	bool CommonScene::_firstUpdate()
+	{
+		return true;
+	}
+
 	void CommonScene::_generateWorldRayFromScreenCoord(unsigned x, unsigned y, float* rayPos, float* rayDir)
 	{
 		float _x = (1.0f * x) / (m_width);
@@ -121,16 +126,6 @@ namespace Leviathan
 			m_dataRequests.clear();
 		}
 		m_dataRequestLock.unlock();
-	}
-
-	bool CommonScene::_firstUpdate()
-	{
-		return true;
-	}
-
-	bool CommonScene::_initSceneObject()
-	{
-		return true;
 	}
 
 	bool CommonScene::_initCamera(unsigned uWidth, unsigned uHeight)
