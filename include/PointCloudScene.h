@@ -12,6 +12,6 @@ namespace Leviathan
 
 	private:
 		bool _firstUpdate();
-		virtual bool _initSceneObject();
+		bool _initSceneObject();
 	};
 }

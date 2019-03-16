@@ -80,9 +80,9 @@ namespace Leviathan
 
 			for (unsigned i = 0; i < uCount; i++)
 			{
-				testPointCoord[3 * i] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
-				testPointCoord[3 * i + 1] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
-				testPointCoord[3 * i + 2] = RAND_NUM_ZERO_TO_ONE * fMaxRange;
+				testPointCoord[3 * i] = RAND_FLOAT_ZERO_TO_ONE * fMaxRange;
+				testPointCoord[3 * i + 1] = RAND_FLOAT_ZERO_TO_ONE * fMaxRange;
+				testPointCoord[3 * i + 2] = RAND_FLOAT_ZERO_TO_ONE * fMaxRange;
 
 				testPointNormal[3 * i] = 1.0f;
 				testPointNormal[3 * i + 1] = 0.0f;

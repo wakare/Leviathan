@@ -29,19 +29,16 @@ namespace Leviathan
 	public:
 		SceneGraph(LPtr<GLPass> pSceneRenderPass);
 		bool AddNode(LPtr<Node<SceneNode>> pNode);
-		bool SetSceneNodeTraverseVisitor(LPtr<SceneNodeTraverseVisitor<SceneNode>> pSceneNodeVisitor);
-		bool FindFirstMatchNode(std::function<bool(const Node<SceneNode>&)> findFunc, Node<SceneNode>* outResult, LPtr<Node<SceneNode>> beginSearchNode = nullptr);
 		bool AddDrawableNodeToSceneOcTree(LPtr<Node<SceneNode>> pBeginNode = nullptr, bool bResursive = true);
-		bool AddSceneOcTreeToGLPass();
 		bool Pick(float* rayPos, float* rayDir, PickInfo& info);
 		AABB GetAABB() const;
-		LPtr<Node<SceneNode>> GetRootNode() const;
+		SceneOcTree& GetSceneOcTree();
 		void Update();
 
 	private:
 		void _traverseNode(Node<SceneNode>& begin, SceneNodeProcess func, bool bResursive);
 		bool _getAllSceneNode(LPtr<Node<SceneNode>> pBeginNode, std::vector<Node<SceneNode>*>& outResult);
-		bool _updateAllNeedAddNode();
+		bool _updateNeedAddNode();
 
 		LPtr<SceneNodeTraverseVisitor<SceneNode>> m_pSceneNodeTraverseVisitor;
 		LPtr<SceneNodeSearchVisitor<SceneNode>> m_pSceneNodeSearchVisitor;

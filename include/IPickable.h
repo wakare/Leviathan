@@ -17,6 +17,4 @@ namespace Leviathan
 	public:
 		virtual bool Pick(float* rayPos, float* rayDir, PickInfo& pickInfo) = 0;
 	};
-
-
 }

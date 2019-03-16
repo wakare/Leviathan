@@ -13,7 +13,7 @@ namespace Leviathan
 	#define ANGLE_TO_RADIAN(angle) ((angle) / PI_DOUBLE)
 
 	#define EXIT_IF_FALSE(statement) { if (!(statement)) { LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
-	#define RAND_NUM_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
+	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
 
 	enum EventType
 	{
