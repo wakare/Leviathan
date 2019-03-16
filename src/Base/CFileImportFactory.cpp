@@ -1,5 +1,5 @@
 #include "CFileImportFactory.h"
-#include "CMesh.h"
+#include "MeshImpl.h"
 #include "DynamicArray.h"
 #include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
@@ -47,9 +47,7 @@ bool Leviathan::CFileImportFactory::RegisterImporter(std::string typeName, LPtr<
 }
 
 Leviathan::CFileImportFactory::CFileImportFactory()
-{
-
-}
+= default;
 
 void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
 {
@@ -61,7 +59,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 		return;
 	}
 
-	auto pMesh = new CMesh(mesh.mNumVertices, mesh.mNumFaces);
+	auto pMesh = new MeshImpl(mesh.mNumVertices, mesh.mNumFaces);
 
 	DynamicArray<float> vertexCoordData(mesh.mNumVertices * 3 * sizeof(float));
 	for (unsigned j = 0; j < mesh.mNumVertices; j++)
@@ -217,7 +215,7 @@ std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const
 std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::LoadFile(std::string strFileName)
 {
 	auto pMesh = _loadModelByAssimp(strFileName);
-	if (pMesh.size() > 0)
+	if (!pMesh.empty())
 	{
 		return pMesh;
 	}

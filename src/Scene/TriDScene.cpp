@@ -25,8 +25,6 @@ namespace Leviathan
 	bool TriDScene::AddMesh(const char* filePath, bool resetCameraToMeshCenter /*= false*/)
 	{
 		LPtr<Node<SceneNode>> pModelNode;
-		//std::string path = std::experimental::filesystem::current_path().string() + std::string(filePath);
-		//EXIT_IF_FALSE(SceneHelper::LoadModel(path.c_str(), pModelNode));
 		EXIT_IF_FALSE(SceneHelper::LoadModel(filePath, pModelNode));
 		m_pSceneLogicData->AddNode(pModelNode);
 		pModelNode->GetNodeData()->SetWorldCoord({ 100.0f, 0.0f, 0.0f });

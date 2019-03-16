@@ -74,7 +74,7 @@ namespace Leviathan
 		unsigned uTriangleNumber;
 		fileStream.read(reinterpret_cast<char*>(&uTriangleNumber), sizeof(uTriangleNumber));
 
-		auto pMesh = new CMesh(3 * uTriangleNumber, uTriangleNumber);
+		auto pMesh = new MeshImpl(3 * uTriangleNumber, uTriangleNumber);
 
 		// Load data
 		std::set <_point3D> vertexSet;

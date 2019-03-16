@@ -7,11 +7,11 @@ class AABB;
 
 namespace Leviathan
 {
-	class CMesh : public IMesh
+	class MeshImpl : public IMesh
 	{
 	public:
-		CMesh(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type = IMesh::EPT_TRIANGLES);
-		~CMesh();
+		MeshImpl(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type = IMesh::EPT_TRIANGLES);
+		~MeshImpl();
 
 		EPrimitiveType GetPrimitiveType() const;
 
@@ -32,6 +32,8 @@ namespace Leviathan
 
 		LPtr<Material> GetMaterial();
 		const AABB& GetAABB();
+
+		EResourceType Type() const;
 
 	private:
 		bool _setAABB();

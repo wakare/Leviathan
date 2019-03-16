@@ -1,9 +1,9 @@
-#include "CMesh.h"
+#include "MeshImpl.h"
 #include "GlobalDef.h"
 
 namespace Leviathan
 {
-	CMesh::CMesh(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type) :
+	MeshImpl::MeshImpl(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type) :
 		m_vertexNumber(uVertexCount),
 		m_primitiveNumber(uPrimitiveCount),
 		m_vertexCoords(nullptr),
@@ -16,96 +16,95 @@ namespace Leviathan
 
 	}
 
-	CMesh::~CMesh()
-	{
-	}
+	MeshImpl::~MeshImpl()
+	= default;
 
-	IMesh::EPrimitiveType CMesh::GetPrimitiveType() const
+	IMesh::EPrimitiveType MeshImpl::GetPrimitiveType() const
 	{
 		return m_primitiveType;
 	}
 
-	unsigned CMesh::GetVertexCount()
+	unsigned MeshImpl::GetVertexCount()
 	{
 		return m_vertexNumber;
 	}
 
-	unsigned CMesh::GetPrimitiveCount()
+	unsigned MeshImpl::GetPrimitiveCount()
 	{
 		return m_primitiveNumber;
 	}
 
-	float* CMesh::GetVertex3DCoordArray()
+	float* MeshImpl::GetVertex3DCoordArray()
 	{
 		if (!m_vertexCoords) return nullptr;
 		return m_vertexCoords->m_pData;
 	}
 
-	float * CMesh::GetVertexNormalArray()
+	float * MeshImpl::GetVertexNormalArray()
 	{
 		if (!m_vertexNormal) return nullptr;
 		return m_vertexNormal->m_pData;
 	}
 
-	float* CMesh::GetVertexColorArray()
+	float* MeshImpl::GetVertexColorArray()
 	{
 		if (!m_vertexColorData) return nullptr;
 		return m_vertexColorData->m_pData;
 	}
 
-	float* CMesh::GetVertexTexArray()
+	float* MeshImpl::GetVertexTexArray()
 	{
 		if (!m_vertexTexData) return nullptr;
 		return m_vertexTexData->m_pData;
 	}
 
-	unsigned* CMesh::GetPrimitiveIndexArray()
+	unsigned* MeshImpl::GetPrimitiveIndexArray()
 	{
 		if (!m_primitiveIndex) return nullptr;
 		return m_primitiveIndex->m_pData;
 	}
 
-	void CMesh::SetVertexCoordData(float* vertexCoordData)
+	void MeshImpl::SetVertexCoordData(float* vertexCoordData)
 	{
 		m_vertexCoords = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
 		memcpy(m_vertexCoords->m_pData, vertexCoordData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void CMesh::SetVertexNormalData(float * vertexNormalData)
+	void MeshImpl::SetVertexNormalData(float * vertexNormalData)
 	{
 		m_vertexNormal = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
 		memcpy(m_vertexNormal->m_pData, vertexNormalData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void CMesh::SetPrimitiveIndexData(unsigned* primitiveIndexData)
+	void MeshImpl::SetPrimitiveIndexData(unsigned* primitiveIndexData)
 	{
 		m_primitiveIndex = new DynamicArray<unsigned>(sizeof(float) * 3 * m_primitiveNumber);
 		memcpy(m_primitiveIndex->m_pData, primitiveIndexData, sizeof(unsigned) * 3 * m_primitiveNumber);
 	}
 
-	void CMesh::SetVertexTex2DData(float* vertexTexData)
+	void MeshImpl::SetVertexTex2DData(float* vertexTexData)
 	{
 		m_vertexTexData = new DynamicArray<float>(sizeof(float) * 2 * m_vertexNumber);
 		memcpy(m_vertexTexData->m_pData, vertexTexData, sizeof(float) * 2 * m_vertexNumber);
 	}
 
-	void CMesh::SetVertexColorData(float* vertexColorData)
+	void MeshImpl::SetVertexColorData(float* vertexColorData)
 	{
 		m_vertexColorData = new DynamicArray<float>(sizeof(float) * 3 * m_vertexNumber);
 		memcpy(m_vertexColorData->m_pData, vertexColorData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void CMesh::SetMaterial(LPtr<Material> material)
+	void MeshImpl::SetMaterial(LPtr<Material> material)
 	{
 		m_pMaterial = material;
 	}
 
-	Leviathan::LPtr<Material> CMesh::GetMaterial()
+	Leviathan::LPtr<Material> MeshImpl::GetMaterial()
 	{
 		return m_pMaterial;
 	}
 
-	const AABB& CMesh::GetAABB()
+	const AABB& MeshImpl::GetAABB()
 {
 		if (!m_bAABBInited)
 		{
@@ -118,7 +117,12 @@ namespace Leviathan
 		return m_AABB;
 	}
 
-	bool CMesh::_setAABB()
+	Leviathan::EResourceType MeshImpl::Type() const
+	{
+		return ERT_MESH;
+	}
+
+	bool MeshImpl::_setAABB()
 	{
 		float AABBData[6];
 		bool bInited = false;

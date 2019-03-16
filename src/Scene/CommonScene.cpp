@@ -15,7 +15,7 @@
 #include "SOIL.h"
 #include "PictureObject.h"
 #include "SceneNode.h"
-#include "CMesh.h"
+#include "MeshImpl.h"
 #include "RenderWrapper.h"
 #include "TriDObjectGLPass.h"
 #include "TriDGLObject.h"

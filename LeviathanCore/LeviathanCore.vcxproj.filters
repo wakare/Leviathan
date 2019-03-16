@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="source">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="source\Model">
+      <UniqueIdentifier>{0ba12b78-5660-431b-8fab-fb9424ce09f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Presenter">
+      <UniqueIdentifier>{2eb2b10d-e059-4320-97e6-f0ca5a3fcd11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\ViewImpl">
+      <UniqueIdentifier>{a58782fe-5e45-449c-bfbb-4e476b63b9e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\View">
+      <UniqueIdentifier>{2927571a-2033-4fd0-919c-14ec3839b066}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\include\DataCenterImpl.h">
+      <Filter>source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\IDataCenter.h">
+      <Filter>source\Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataCenterImpl.cpp">
+      <Filter>source\Model</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

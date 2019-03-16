@@ -54,4 +54,11 @@ namespace Leviathan
 
 		return true;
 	}
+
+	template<typename scalar>
+	EResourceType Leviathan::PointCloud<scalar>::Type() const
+	{
+		return ERT_MESH;
+	}
+
 }

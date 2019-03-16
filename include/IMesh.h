@@ -3,10 +3,11 @@
 #include "AABB.h"
 #include "Material.h"
 #include "LPtr.h"
+#include "IResource.h"
 
 namespace Leviathan
 {
-	class IMesh
+	class IMesh : public IResource
 	{
 	public:
 		enum EPrimitiveType 
@@ -29,6 +30,8 @@ namespace Leviathan
 
 		virtual LPtr<Material> GetMaterial() = 0;
 		virtual const AABB& GetAABB() = 0;
+
+		virtual EResourceType Type() const = 0;
 
 	protected:
 		IMesh() {};

@@ -1,6 +1,6 @@
 #include "PointCloudScene.h"
 #include "GLObject.h"
-#include "CMesh.h"
+#include "MeshImpl.h"
 #include "PointCloud.h"
 #include "DrawableNode.h"
 #include "SceneNode.h"

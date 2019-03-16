@@ -1,7 +1,7 @@
 #pragma once
 
 #include "IFileImporter.h"
-#include "CMesh.h"
+#include "MeshImpl.h"
 #include "IMesh.h"
 
 namespace Leviathan

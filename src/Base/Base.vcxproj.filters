@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="BaseGraphics">
-      <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
-    </Filter>
     <Filter Include="SceneTool">
       <UniqueIdentifier>{6a40ffd5-2b0f-487c-9472-1f3a3e06dca7}</UniqueIdentifier>
     </Filter>
@@ -34,13 +31,19 @@
     <Filter Include="Window">
       <UniqueIdentifier>{8db98950-ae3c-450a-9e2e-399eca6352e5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BaseResource">
+      <UniqueIdentifier>{49fc812d-1278-4bb4-9b69-0bdeaa85c8ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="BaseResource\BaseGraphics">
+      <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CMesh.cpp">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClCompile>
     <ClCompile Include="Light.cpp">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClCompile>
     <ClCompile Include="CSTLFileImporter.cpp">
       <Filter>CommonTool\FileIO</Filter>
@@ -69,25 +72,25 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\CMesh.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\IMesh.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Material.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\PointCloud.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Light.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\PointCloud.hpp">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Color.h">
-      <Filter>BaseGraphics</Filter>
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ISpaceAccStruct.h">
       <Filter>SceneTool\SpaceManager</Filter>
@@ -173,6 +176,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\WindowCallBack.h">
       <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\IResource.h">
+      <Filter>BaseResource</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
