@@ -27,7 +27,7 @@ namespace Leviathan
 		}
 
 		// convert pointCloud to GLObject
-		LPtr<CMesh> pMesh = new CMesh(refPoints.m_pointCount, refPoints.m_pointCount, IMesh::EPT_POINTS);
+		LPtr<MeshImpl> pMesh = new MeshImpl(refPoints.m_pointCount, refPoints.m_pointCount, IMesh::EPT_POINTS);
 		pMesh->SetVertexCoordData(refPoints.m_pCoord->m_pData);
 		if (refPoints.HasNormal())
 		{
@@ -35,8 +35,8 @@ namespace Leviathan
 		}
 
 		auto pSceneNode = LPtr<SceneNode>(new SceneNode());
-		pSceneNode->AddMesh(TryCast<CMesh, IMesh>(pMesh));
-		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<CMesh, IMesh>(pMesh), pSceneNode);
+		pSceneNode->AddMesh(TryCast<MeshImpl, IMesh>(pMesh));
+		LPtr<DrawableNode<SceneNode>> pDentalNode = new DrawableNode<SceneNode>(TryCast<MeshImpl, IMesh>(pMesh), pSceneNode);
 		m_pSceneLogicData->AddNode(TryCast<DrawableNode<SceneNode>, Node<SceneNode>>(pDentalNode));
 
 		_lastAddPointCloud = pDentalNode->GetGLObject();

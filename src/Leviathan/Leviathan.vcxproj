@@ -118,7 +118,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc140-mt.lib;RenderService.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt.lib;LeviathanCore.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -158,7 +158,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>assimp-vc140-mt.lib;RenderService.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>assimp-vc140-mt.lib;LeviathanCore.lib;Scene.lib;FileImporter.lib;opengl32.lib;RenderWrapper.lib;glew.lib;SOIL.lib;glfw3.lib;RenderWindow.lib;Base.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

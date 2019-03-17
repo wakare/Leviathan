@@ -29,10 +29,52 @@
     <ClInclude Include="..\include\IDataCenter.h">
       <Filter>source\Model</Filter>
     </ClInclude>
+    <ClInclude Include="DataStorer.h">
+      <Filter>source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStorer.hpp">
+      <Filter>source\Model</Filter>
+    </ClInclude>
+    <ClInclude Include="Presenter.h">
+      <Filter>source\Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="LevStateControl.h">
+      <Filter>source\Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="LevModelVisitor.h">
+      <Filter>source\Presenter</Filter>
+    </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="LevViewimpl.h">
+      <Filter>source\ViewImpl</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\RenderService.h">
+      <Filter>source\View</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp">
       <Filter>source\Model</Filter>
+    </ClCompile>
+    <ClCompile Include="Presenter.cpp">
+      <Filter>source\Presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="LevStateControl.cpp">
+      <Filter>source\Presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="LevModelVisitor.cpp">
+      <Filter>source\Presenter</Filter>
+    </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>source\View</Filter>
+    </ClCompile>
+    <ClCompile Include="LevViewImpl.cpp">
+      <Filter>source\ViewImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderService.cpp">
+      <Filter>source\View</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

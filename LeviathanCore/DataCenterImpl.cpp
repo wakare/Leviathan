@@ -16,7 +16,7 @@ namespace Leviathan
 
 	ResourceHandle DataCenterImpl::LoadResource(std::unique_ptr<IResource> pResource)
 	{
-		m_pDataStorer->Store(std::move(pResource));
+		return m_pDataStorer->Store(std::move(pResource));
 	}
 
 }

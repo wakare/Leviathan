@@ -11,7 +11,7 @@ namespace Leviathan
 	{
 	public:
 		DataStorer();
-		bool Store(std::unique_ptr<T> obj);
+		DataHandle Store(std::unique_ptr<T> obj);
 
 		T& Get(DataHandle handle);
 		const T& Get(DataHandle handle) const;
