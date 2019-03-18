@@ -44,6 +44,5 @@ private:
 	ModelViewerPresenter();
 	//ModelViewerUserInterface& _userInterface();
 
-
 	AppState m_appState;
 };

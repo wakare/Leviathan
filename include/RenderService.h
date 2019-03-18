@@ -9,14 +9,13 @@ namespace Leviathan
 	class EventListener;
 	class RenderWindow;
 	class CommonScene;
+	class View;
 
 	class RenderService
 	{
 	public:
 		static RenderService* Instance();
-		static void SetSceneType(IScene::ESceneType type);
 
-		bool SetCurrentScene(LPtr<CommonScene> pScene);
 		LPtr<CommonScene> GetScene();
 
 		bool Init(int width, int height, int handle);
@@ -25,16 +24,14 @@ namespace Leviathan
 		void AsyncStop();
 
 		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
+		bool _attachNativeWin32Window(int width, int height, int handle);
 		int GetWindowHandle() const;
 	private:
 		RenderService();
-		bool _attachNativeWin32Window(int width, int height, int handle);
 
 		static RenderService* g_pInstance;
 		static IScene::ESceneType m_sceneType;
 
-		LPtr<EventSystem> m_pEventSystem;
-		LPtr<RenderWindow> m_pRenderWindow;
-		LPtr<CommonScene> m_pScene;
+		std::shared_ptr<View> m_pView;
 	}; 
 }

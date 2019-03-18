@@ -21,6 +21,8 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::LoadFile()
+
+
 {
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
