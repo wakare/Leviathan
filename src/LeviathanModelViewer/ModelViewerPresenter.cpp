@@ -81,16 +81,11 @@ bool ModelViewerPresenter::LoadFile(const char * filePath)
 
 Leviathan::RenderService& ModelViewerPresenter::RenderService()
 {
-	return *Leviathan::RenderService::Instance();
+	return Leviathan::RenderService::Instance();
 }
 
 const Leviathan::RenderService & ModelViewerPresenter::RenderService() const
 {
-	return *Leviathan::RenderService::Instance();
+	return Leviathan::RenderService::Instance();
 }
-
-// ModelViewerUserInterface& ModelViewerPresenter::_userInterface()
-// {
-// 	return ModelViewerUserInterface::Instance();
-// }
 

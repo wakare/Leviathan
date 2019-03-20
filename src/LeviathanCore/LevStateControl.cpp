@@ -1,12 +1,13 @@
 #include "LevStateControl.h"
 #include "KLog.h"
+#include "RenderWindow.h"
+
 
 namespace Leviathan
 {
 	LevStateControl::LevStateControl():
 		m_state(ELS_UNKNOWN)
 	{
-
 	}
 
 	bool LevStateControl::StateChange(ELevState state)

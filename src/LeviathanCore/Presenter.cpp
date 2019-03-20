@@ -5,9 +5,14 @@ namespace Leviathan
 	Presenter::Presenter() :
 		m_pStateControl(new LevStateControl),
 		m_pModelVisitor(new LevModelVisitor),
-		m_pViewImpl(new LevViewImpl)
+		m_pViewImpl(new LevViewImpl(*this))
 	{
 
+	}
+
+	Leviathan::Presenter& Presenter::Instance()
+	{
+		return Singleton<Presenter>::Instance();
 	}
 
 	LevStateControl & Presenter::StateControl()

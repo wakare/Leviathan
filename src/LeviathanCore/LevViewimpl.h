@@ -5,12 +5,15 @@
 
 namespace Leviathan
 {
+	class Presenter;
+
 	class LevViewImpl
 	{
 	public:
-		LevViewImpl();
+		LevViewImpl(Presenter& presenter);
 
 	private:
+		Presenter& m_presenter;
 		std::unique_ptr<View> m_pView;
 	};
 }

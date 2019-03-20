@@ -37,7 +37,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanModelViewer", "src
 		{AB3DFA35-2DBF-4DFA-B330-A8B65F859F42} = {AB3DFA35-2DBF-4DFA-B330-A8B65F859F42}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanCore", "LeviathanCore\LeviathanCore.vcxproj", "{AB3DFA35-2DBF-4DFA-B330-A8B65F859F42}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanCore", "src\LeviathanCore\LeviathanCore.vcxproj", "{AB3DFA35-2DBF-4DFA-B330-A8B65F859F42}"
 	ProjectSection(ProjectDependencies) = postProject
 		{E2869D66-3C62-4171-BE7A-FF09C7F746BD} = {E2869D66-3C62-4171-BE7A-FF09C7F746BD}
 	EndProjectSection

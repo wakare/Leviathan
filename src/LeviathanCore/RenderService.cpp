@@ -7,25 +7,18 @@
 #include "CommonScene.h"
 #include "GlobalDef.h"
 #include "View.h"
+#include "Presenter.h"
 
 namespace Leviathan
-{
-	RenderService* RenderService::g_pInstance = nullptr;
-	
+{	
 	RenderService::RenderService():
-		m_pView(new View())
+		m_pView(new View(Presenter::Instance()))
 	{
 	}
 
-	RenderService * RenderService::Instance()
+	RenderService& RenderService::Instance()
 	{
-		static std::once_flag _flag;
-		if (g_pInstance == nullptr)
-		{
-			std::call_once(_flag, []() {g_pInstance = new RenderService(); });
-		}
-
-		return g_pInstance;
+		return Singleton<RenderService>::Instance();
 	}
 
 	bool RenderService::_attachNativeWin32Window(int width, int height, int handle)
@@ -38,8 +31,8 @@ namespace Leviathan
 		return m_pView->GetScene();
 	}
 
-	bool RenderService::Init(int width, int height, int handle)
-{
+	bool RenderService::Init(int width, int height, int handle, IScene::ESceneType scene_type /*= IScene::EST_TRID*/)
+	{
 		EXIT_IF_FALSE(_attachNativeWin32Window(width, height, handle));
 		EXIT_IF_FALSE(GetScene());
 		return true;

@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTimer>
+
 #include "BaseStruct.h"
 #include "ModelViewerPresenter.h"
 
@@ -20,6 +22,7 @@ public:
 public slots:
 	void LoadFile();
 	void OpenglWidgetResize();
+	void Update();
 
 protected:
 	virtual void resizeEvent(QResizeEvent *event);
@@ -34,6 +37,7 @@ private:
 
 	// Leviathan struct
 	std::unique_ptr<LeviathanInitStruct> m_pLevStruct;
+	QTimer m_updateTimer;
 };
 
 #endif // MAINWINDOW_H

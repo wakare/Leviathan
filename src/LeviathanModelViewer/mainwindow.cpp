@@ -13,6 +13,10 @@ MainWindow::MainWindow(QWidget *parent) :
 	// Register
 	connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
 	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
+
+	m_updateTimer.setInterval(200);
+	connect(&m_updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
+	m_updateTimer.start();
 }
 
 MainWindow::~MainWindow()
@@ -21,8 +25,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::LoadFile()
-
-
 {
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
@@ -32,8 +34,6 @@ void MainWindow::LoadFile()
 
 void MainWindow::resizeEvent(QResizeEvent * event)
 {
-	QWidget::resizeEvent(event);
-
 	static bool bFirstEvent = true;
 	if (bFirstEvent)
 	{
@@ -49,6 +49,8 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 
 		bFirstEvent = false;
 	}
+
+	QWidget::resizeEvent(event);
 }
 
 void MainWindow::_initialized()
@@ -73,16 +75,22 @@ void MainWindow::_runRenderService()
 
 void MainWindow::OpenglWidgetResize()
 {
-	if (_modelViewerPresenter().GetCurrentAppState() < EAS_RUNNING) return;
+	//if (_modelViewerPresenter().GetCurrentAppState() < EAS_INITED) return;
 
 	HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
-	if (handle == 0) return;
+	if (!handle) return;
 
 	int width = ui->openGLWidget->width();
 	int height = ui->openGLWidget->height();
 
 	MoveWindow(handle, 0, 0, width, height, true);
 }
+
+void MainWindow::Update()
+{
+
+}
+
 
 ModelViewerPresenter & MainWindow::_modelViewerPresenter()
 {

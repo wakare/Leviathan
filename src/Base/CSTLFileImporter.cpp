@@ -31,25 +31,14 @@ struct _point3D
 
 namespace Leviathan
 {
-	LPtr<IFileImporter> CSTLFileImporter::m_spSTLFileImporter = nullptr;
-	
 	CSTLFileImporter::CSTLFileImporter()
 	{
 		
 	}
 
-	Leviathan::LPtr<Leviathan::IFileImporter> CSTLFileImporter::GetInstance()
+	IFileImporter& CSTLFileImporter::GetInstance()
 	{
-		static std::once_flag sFlag;
-		if (!m_spSTLFileImporter)
-		{
-			std::call_once(sFlag, [&]()
-			{
-				m_spSTLFileImporter = LPtr<IFileImporter>(new CSTLFileImporter());
-			});
-		}
-
-		return m_spSTLFileImporter;
+		return Singleton<CSTLFileImporter>::Instance();
 	}
 
 	std::string CSTLFileImporter::TypeName()

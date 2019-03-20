@@ -1,7 +1,15 @@
 #pragma once
 
+#include <memory>
+
+#include "LPtr.h"
+
 namespace Leviathan
 {
+	class EventSystem;
+	class RenderWindow;
+	class CommonScene;
+
 	enum ELevState
 	{
 		ELS_UNINITED	= 0,
@@ -31,4 +39,4 @@ namespace Leviathan
 
 		ELevState m_state;
 	};
-}
+};

@@ -39,9 +39,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CMesh.cpp">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClCompile>
     <ClCompile Include="Light.cpp">
       <Filter>BaseResource\BaseGraphics</Filter>
     </ClCompile>
@@ -69,11 +66,9 @@
     <ClCompile Include="WindowCallBack.cpp">
       <Filter>Window</Filter>
     </ClCompile>
+    <ClCompile Include="MeshImpl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CMesh.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\IMesh.h">
       <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
@@ -162,9 +157,6 @@
     <ClInclude Include="Singleton.h">
       <Filter>CommonTool</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleFactory.h">
-      <Filter>CommonTool</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\PictureObject.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
@@ -180,5 +172,6 @@
     <ClInclude Include="..\..\include\IResource.h">
       <Filter>BaseResource</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\MeshImpl.h" />
   </ItemGroup>
 </Project>

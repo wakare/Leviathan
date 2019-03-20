@@ -274,7 +274,7 @@ namespace Leviathan
 
 	int RenderWindow::GetWindowHandle() const
 	{
-		return (int)glfwGetWin32Window(m_pWindow);
+		return (m_pWindow) ? (int)glfwGetWin32Window(m_pWindow) : NULL;
 	}
 
 	void RenderWindow::_setWindowProcess()

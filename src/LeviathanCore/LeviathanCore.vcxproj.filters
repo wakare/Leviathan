@@ -21,6 +21,9 @@
     <Filter Include="source\View">
       <UniqueIdentifier>{2927571a-2033-4fd0-919c-14ec3839b066}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\View\ViewState">
+      <UniqueIdentifier>{de0fb765-c1da-4197-9fcb-90d48326eb22}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\DataCenterImpl.h">
@@ -50,7 +53,13 @@
     <ClInclude Include="LevViewimpl.h">
       <Filter>source\ViewImpl</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\RenderService.h">
+    <ClInclude Include="..\..\include\RenderService.h">
+      <Filter>source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewStateMgr.h">
+      <Filter>source\View\ViewState</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewData.h">
       <Filter>source\View</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,6 +83,12 @@
       <Filter>source\ViewImpl</Filter>
     </ClCompile>
     <ClCompile Include="RenderService.cpp">
+      <Filter>source\View</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewStateMgr.cpp">
+      <Filter>source\View\ViewState</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewData.cpp">
       <Filter>source\View</Filter>
     </ClCompile>
   </ItemGroup>

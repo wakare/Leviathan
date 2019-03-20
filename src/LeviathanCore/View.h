@@ -1,6 +1,7 @@
 #pragma once
 #include "IScene.h"
 #include "LPtr.h"
+#include "ViewData.h"
 
 namespace Leviathan
 {
@@ -8,11 +9,12 @@ namespace Leviathan
 	class EventListener;
 	class RenderWindow;
 	class CommonScene;
+	class Presenter;
 
 	class View
 	{
 	public:
-		View(IScene::ESceneType type = IScene::EST_TRID);
+		View(Presenter& presenter, IScene::ESceneType type = IScene::EST_TRID);
 		LPtr<CommonScene> GetScene();
 
 		bool Init(int width, int height, int handle);
@@ -25,10 +27,7 @@ namespace Leviathan
 		bool AttachNativeWin32Window(int width, int height, int handle);
 
 	private:
-		IScene::ESceneType m_sceneType;
-
-		LPtr<EventSystem> m_pEventSystem;
-		LPtr<RenderWindow> m_pRenderWindow;
-		LPtr<CommonScene> m_pScene;
+		Presenter& presenter;
+		std::unique_ptr<ViewData> m_pData;
 	};
 }
