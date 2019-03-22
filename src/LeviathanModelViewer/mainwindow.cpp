@@ -52,7 +52,7 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 	QWidget::resizeEvent(event);
 }
 
-void MainWindow::_pushTask(std::function<void()>task)
+void MainWindow::_pushTask(std::function<void()> task)
 {
 	m_taskLock.lock();
 	m_tasks.push_back(task);
