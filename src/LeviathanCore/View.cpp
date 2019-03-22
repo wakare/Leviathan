@@ -13,7 +13,7 @@
 namespace Leviathan
 {
 	View::View(Presenter& presenter, IScene::ESceneType type /*= IScene::EST_TRID*/):
-		presenter(presenter),
+		m_presenter(presenter),
 		m_pData(nullptr),
 		m_pStateMgr(nullptr)
 	{
@@ -31,7 +31,7 @@ namespace Leviathan
 	{
 		EXIT_IF_FALSE(m_pStateMgr->getViewStateType() == EVS_UNINITED);
 		m_pStateMgr->SetViewStateType(EVS_INITING);
-		EXIT_IF_FALSE(AttachNativeWin32Window(width, height, handle));
+		EXIT_IF_FALSE(_attachNativeWin32Window(width, height, handle));
 		m_pStateMgr->SetViewStateType(EVS_INITED);
 
 		return true;
@@ -76,7 +76,7 @@ namespace Leviathan
 		return m_pData->GetRenderWindow().GetWindowHandle();
 	}
 
-	bool View::AttachNativeWin32Window(int width, int height, int handle)
+	bool View::_attachNativeWin32Window(int width, int height, int handle)
 	{
 		return m_pData->GetRenderWindow().CreateRenderWindow(width, height, handle);
 	}

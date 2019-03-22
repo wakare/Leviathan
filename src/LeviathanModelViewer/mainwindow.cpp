@@ -44,7 +44,6 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 		m_pLevStruct->width = event->size().width();
 		m_pLevStruct->height = event->size().height();
 
-		_attachRenderService();
 		_runRenderService();
 
 		bFirstEvent = false;
@@ -53,15 +52,28 @@ void MainWindow::resizeEvent(QResizeEvent * event)
 	QWidget::resizeEvent(event);
 }
 
+void MainWindow::_pushTask(std::function<void()>task)
+{
+	m_taskLock.lock();
+	m_tasks.push_back(task);
+	m_taskLock.unlock();
+}
+
+void MainWindow::_processTask()
+{
+	m_taskLock.lock();
+	for (auto& task : m_tasks)
+	{
+		task();
+	}
+	m_tasks.clear();
+	m_taskLock.unlock();
+}
+
 void MainWindow::_initialized()
 {
 	
 }
-
-void MainWindow::_attachRenderService()
-{
-}
-
 void MainWindow::_runRenderService()
 {
 	std::thread renderThread([this]() 
@@ -75,20 +87,26 @@ void MainWindow::_runRenderService()
 
 void MainWindow::OpenglWidgetResize()
 {
-	//if (_modelViewerPresenter().GetCurrentAppState() < EAS_INITED) return;
+	auto _task = [this]()
+	{
+		HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
+		if (!handle) return;
 
-	HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
-	if (!handle) return;
+		int width = ui->openGLWidget->width();
+		int height = ui->openGLWidget->height();
 
-	int width = ui->openGLWidget->width();
-	int height = ui->openGLWidget->height();
+		MoveWindow(handle, 0, 0, width, height, true);
+	};
 
-	MoveWindow(handle, 0, 0, width, height, true);
+	_pushTask(_task);
 }
 
 void MainWindow::Update()
 {
-
+	if (_modelViewerPresenter().GetCurrentAppState() >= EAS_RUNNING)
+	{
+		_processTask();
+	}
 }
 
 

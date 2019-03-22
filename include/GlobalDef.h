@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include <functional>
+#include <assert.h>
 
 namespace Leviathan
 {
@@ -12,7 +13,7 @@ namespace Leviathan
 	#define PI_FLOAT 3.1415927f
 	#define ANGLE_TO_RADIAN(angle) ((angle) / PI_DOUBLE)
 
-	#define EXIT_IF_FALSE(statement) { if (!(statement)) { LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
+	#define EXIT_IF_FALSE(statement) { if (!(statement)) { assert(false); LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
 	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
 
 	enum EventType

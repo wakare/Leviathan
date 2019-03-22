@@ -28,16 +28,20 @@ protected:
 	virtual void resizeEvent(QResizeEvent *event);
 
 private:
+	void _pushTask(std::function<void()> task);
+	void _processTask();
 	void _initialized();
-	void _attachRenderService();
 	void _runRenderService();
-	
+
 	ModelViewerPresenter& _modelViewerPresenter();
     Ui::MainWindow *ui;
 
 	// Leviathan struct
 	std::unique_ptr<LeviathanInitStruct> m_pLevStruct;
 	QTimer m_updateTimer;
+	
+	std::vector<std::function<void()>> m_tasks;
+	std::mutex m_taskLock;
 };
 
 #endif // MAINWINDOW_H
