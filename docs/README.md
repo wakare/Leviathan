@@ -1,12 +1,12 @@
-#OverView: 
+# OverView: 
 	Leviathan is a simple renderer for rendering simple scene.
 	
-#Feature: 
+# Feature: 
 	1. light-weight 
 	2. easy to extend 
 	
-#Version plan 
-##v0.1: 
+# Version plan 
+## v0.1: 
 	1. implement Render manager module (GLRenderMgr)
 		1. RenderTree generation
 		2. common render pipeline abstraction
@@ -21,7 +21,7 @@
 
 	4. render simple scene (using phong-light model) 
 	 
-##v0.2: 
+## v0.2: 
 	1. provide interface to modify shader effect
 	2. provide interface to add custom shader effect
 
