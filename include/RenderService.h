@@ -26,7 +26,6 @@ namespace Leviathan
 		void AsyncStop();
 
 		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
-		bool _attachNativeWin32Window(int width, int height, int handle);
 		int GetWindowHandle() const;
 
 	private:

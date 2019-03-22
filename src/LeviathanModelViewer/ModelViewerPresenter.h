@@ -13,13 +13,6 @@ enum AppState
 	EAS_STOPPED
 };
 
-//class ModelViewerUserInterface;
-
-//namespace Leviathan
-//{
-//	class RenderService;
-//}
-
 class ModelViewerPresenter 
 {
 	DECLARE_SELF_TO_SINGLETON(ModelViewerPresenter)

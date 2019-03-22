@@ -14,9 +14,12 @@ namespace Leviathan
 {
 	View::View(Presenter& presenter, IScene::ESceneType type /*= IScene::EST_TRID*/):
 		presenter(presenter),
-		m_pData(nullptr)
+		m_pData(nullptr),
+		m_pStateMgr(nullptr)
 	{
 		m_pData.reset(new ViewData(type));
+		m_pStateMgr.reset(new ViewStateMgr(*m_pData));
+		m_pStateMgr->SetViewStateType(EVS_UNINITED);
 	}
 
 	Leviathan::LPtr<Leviathan::CommonScene> View::GetScene()
@@ -26,22 +29,38 @@ namespace Leviathan
 
 	bool View::Init(int width, int height, int handle)
 	{
+		EXIT_IF_FALSE(m_pStateMgr->getViewStateType() == EVS_UNINITED);
+		m_pStateMgr->SetViewStateType(EVS_INITING);
 		EXIT_IF_FALSE(AttachNativeWin32Window(width, height, handle));
+		m_pStateMgr->SetViewStateType(EVS_INITED);
+
 		return true;
 	}
 
 	void View::Run()
 	{
+		if (m_pStateMgr->getViewStateType() != EVS_INITED) {
+			return;
+		}
+
+		m_pStateMgr->SetViewStateType(EVS_RUNNING);
 		m_pData->GetRenderWindow().Run();
 	}
 
 	void View::SyncStop()
 	{
+		if (m_pStateMgr->getViewStateType() != EVS_RUNNING) {
+			return;
+		}
+
+		m_pStateMgr->SetViewStateType(EVS_STOPPING);
 		m_pData->GetRenderWindow().SyncStop();
+		m_pStateMgr->SetViewStateType(EVS_STOPPED);
 	}
 
 	void View::AsyncStop()
 	{
+		m_pStateMgr->SetViewStateType(EVS_STOPPING);
 		m_pData->GetRenderWindow().AsyncStop();
 	}
 

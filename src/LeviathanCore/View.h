@@ -2,6 +2,7 @@
 #include "IScene.h"
 #include "LPtr.h"
 #include "ViewData.h"
+#include "ViewStateMgr.h"
 
 namespace Leviathan
 {
@@ -24,10 +25,12 @@ namespace Leviathan
 
 		int GetWindowHandle() const;
 		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
-		bool AttachNativeWin32Window(int width, int height, int handle);
-
+		
 	private:
-		Presenter& presenter;
+		bool _attachNativeWin32Window(int width, int height, int handle);
+
+		Presenter& m_presenter;
 		std::unique_ptr<ViewData> m_pData;
+		std::unique_ptr<ViewStateMgr> m_pStateMgr; 
 	};
 }

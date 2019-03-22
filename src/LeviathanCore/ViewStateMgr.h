@@ -12,13 +12,17 @@ namespace Leviathan
 		EVS_STOPPED,
 	};
 
+	class ViewData;
+
 	class ViewStateMgr
 	{
 	public:
-		ViewStateMgr();
+		ViewStateMgr(ViewData& viewData);
 		ViewStateType getViewStateType();
+		void SetViewStateType(ViewStateType type);
 
 	private:
 		ViewStateType m_type;
+		ViewData& m_viewData;
 	};
 }
