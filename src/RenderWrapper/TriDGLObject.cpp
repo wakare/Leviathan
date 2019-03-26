@@ -114,11 +114,6 @@ namespace Leviathan
 		return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
 	}
 
-	bool TriDGLObject::UnApplyMaterial(GLuint shaderProgram)
-	{
-		return true;
-	}
-
 	bool TriDGLObject::ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelMatrixUniform)
 	{
 		if (!modelMatrixUniform)
@@ -142,6 +137,16 @@ namespace Leviathan
 		}
 
 		modelMatrixUniform->SetData(m_pModelMatrix->data(), m_pModelMatrix->size());
+		return true;
+	}
+
+	bool TriDGLObject::ApplyUniform(GLuint shaderProgram)
+	{
+		for (auto& pUniform : m_pUniforms)
+		{
+			EXIT_IF_FALSE(pUniform.second->Apply(shaderProgram));
+		}
+
 		return true;
 	}
 

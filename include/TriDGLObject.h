@@ -21,8 +21,8 @@ namespace Leviathan
 		bool Init();
 		bool Render(GLuint shaderProgram);
 		bool ApplyMaterial(GLuint shaderProgram);
-		bool UnApplyMaterial(GLuint shaderProgram);
 		bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform);
+		bool ApplyUniform(GLuint shaderProgram);
 		
 	private:
 		bool _updateDefaultUseVertexColorUniform(GLuint shaderProgram);

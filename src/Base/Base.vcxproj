@@ -169,6 +169,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
     <ClInclude Include="..\..\include\CFileImportFactory.h" />
+    <ClInclude Include="..\..\include\LevTask.h" />
     <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\Color.h" />
     <ClInclude Include="..\..\include\CSTLFileImporter.h" />
@@ -201,6 +202,7 @@
     <ClInclude Include="..\..\include\PointCloud.h" />
     <ClInclude Include="..\..\include\PointCloud.hpp" />
     <ClInclude Include="..\..\include\RenderWindow.h" />
+    <ClInclude Include="..\..\include\Scheduler.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>

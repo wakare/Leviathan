@@ -19,35 +19,19 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\DataCenterImpl.h" />
-    <ClInclude Include="..\..\include\RenderService.h" />
-    <ClInclude Include="..\include\IDataCenter.h" />
+    <ClInclude Include="DataCenterImpl.h" />
     <ClInclude Include="DataStorer.h" />
     <ClInclude Include="DataStorer.hpp" />
-    <ClInclude Include="LevModelVisitor.h" />
-    <ClInclude Include="LevStateControl.h" />
-    <ClInclude Include="Presenter.h" />
-    <ClInclude Include="View.h" />
-    <ClInclude Include="LevViewimpl.h" />
-    <ClInclude Include="ViewData.h" />
-    <ClInclude Include="ViewStateMgr.h" />
+    <ClInclude Include="IDataCenter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp" />
-    <ClCompile Include="LevModelVisitor.cpp" />
-    <ClCompile Include="LevStateControl.cpp" />
-    <ClCompile Include="Presenter.cpp" />
-    <ClCompile Include="RenderService.cpp" />
-    <ClCompile Include="View.cpp" />
-    <ClCompile Include="LevViewImpl.cpp" />
-    <ClCompile Include="ViewData.cpp" />
-    <ClCompile Include="ViewStateMgr.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{AB3DFA35-2DBF-4DFA-B330-A8B65F859F42}</ProjectGuid>
+    <ProjectGuid>{2A8399E2-22AE-4997-9606-A70E4332E1B0}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LeviathanCore</RootNamespace>
+    <RootNamespace>Core</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -113,7 +97,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
@@ -160,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>

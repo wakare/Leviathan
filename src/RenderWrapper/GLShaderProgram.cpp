@@ -33,7 +33,7 @@ namespace Leviathan
 
 		for (auto& uniform : m_pGLUniforms)
 		{
-			uniform.second->SetUniformVar(m_shaderProgram);
+			uniform.second->Apply(m_shaderProgram);
 		}
 
 		return true;

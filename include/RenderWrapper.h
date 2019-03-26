@@ -11,14 +11,14 @@ namespace Leviathan
 	class RenderWrapper
 	{
 	public:
-		RenderWrapper(GLFWwindow* pWindow) :m_pWindow(pWindow), m_bPreInited(false) {}
+		RenderWrapper(GLFWwindow* pWindow);
 		void PreInit();
 		void Render();
-		bool AddGLPass(LPtr<GLPass> GLPass);
-		bool DelGLPass(LPtr<GLPass> GLPass);
+		bool AddPass(LPtr<GLPass> GLPass);
+		bool DelPass(LPtr<GLPass> GLPass);
 		bool Clear();
-	private:
 
+	private:
 		GLboolean m_bPreInited;
 		GLFWwindow* m_pWindow;
 		std::vector<LPtr<GLPass>> m_GLPasses;

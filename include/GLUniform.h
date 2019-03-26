@@ -32,16 +32,16 @@ namespace Leviathan
 
 		GLUniform(const char* uniformName, UniformType type);
 
-		std::string GetUniformName() { return std::string(m_uniformName); };
+		std::string GetUniformName() const ;
 
 		bool SetData(float* data, unsigned dataArrayCount);
 		bool SetData(double* data, unsigned dataArrayCount);
 
-		bool SetUniformVar(GLuint program);
+		bool Apply(GLuint program);
 	private:
 		bool _checkDataInited();
 
-		const char* m_uniformName;
+		std::string m_uniformName;
 		UniformType m_uniformType;
 
 		LPtr<UniformArray<float>> m_fUniformArray;

@@ -37,6 +37,9 @@
     <Filter Include="BaseResource\BaseGraphics">
       <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CommonTool\Scheduler">
+      <UniqueIdentifier>{4502cec5-39d1-48ca-8459-8c79cc55faf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Light.cpp">
@@ -173,5 +176,11 @@
       <Filter>BaseResource</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\MeshImpl.h" />
+    <ClInclude Include="..\..\include\Scheduler.h">
+      <Filter>CommonTool\Scheduler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevTask.h">
+      <Filter>CommonTool\Scheduler</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

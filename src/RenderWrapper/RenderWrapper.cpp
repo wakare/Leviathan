@@ -3,6 +3,11 @@
 
 namespace Leviathan
 {
+	RenderWrapper::RenderWrapper(GLFWwindow* pWindow) :m_pWindow(pWindow), m_bPreInited(false) 
+	{
+
+	}
+
 	void RenderWrapper::PreInit()
 	{
 		m_bPreInited = true;
@@ -40,7 +45,7 @@ namespace Leviathan
 		glfwSwapBuffers(m_pWindow);
 	}
 
-	bool RenderWrapper::AddGLPass(LPtr<GLPass> GLPass)
+	bool RenderWrapper::AddPass(LPtr<GLPass> GLPass)
 	{
 		auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), GLPass);
 		if (findResult != m_GLPasses.end())
@@ -52,7 +57,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool RenderWrapper::DelGLPass(LPtr<GLPass> GLPass)
+	bool RenderWrapper::DelPass(LPtr<GLPass> GLPass)
 	{
 		auto findResult = std::find(m_GLPasses.begin(), m_GLPasses.end(), GLPass);
 		if (findResult == m_GLPasses.end())

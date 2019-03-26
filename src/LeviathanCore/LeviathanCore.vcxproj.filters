@@ -26,9 +26,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\include\DataCenterImpl.h">
-      <Filter>source\Model</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\IDataCenter.h">
       <Filter>source\Model</Filter>
     </ClInclude>
@@ -61,6 +58,9 @@
     </ClInclude>
     <ClInclude Include="ViewData.h">
       <Filter>source\View</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\DataCenterImpl.h">
+      <Filter>source\Model</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

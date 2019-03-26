@@ -67,7 +67,7 @@ namespace Leviathan
 		m_pMeshPass = new TriDObjectGLPass(m_pShaderProgram, m_pCamera);
 		if (!m_pMeshPass) return; 
 
-		m_pRenderWarpper->AddGLPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
+		m_pRenderWarpper->AddPass(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pSceneLogicData = new SceneLogicDataSet(TryCast<TriDObjectGLPass, GLPass>(m_pMeshPass));
 		m_pSceneRenderData = new SceneRenderDataSet();
 	};

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Model">
+      <UniqueIdentifier>{cdce49b8-c1c0-47ad-abe3-d2c8affd9611}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presenter">
+      <UniqueIdentifier>{0841e954-0f3b-4f26-900e-e0cd2d8f94c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{77fa59ad-1c15-4de5-828f-808485596ef6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="DataStorer.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DataStorer.hpp">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="IDataCenter.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="DataCenterImpl.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="DataCenterImpl.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

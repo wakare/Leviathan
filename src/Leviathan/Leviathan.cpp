@@ -31,7 +31,7 @@ int main()
 {
 	EXIT_IF_FALSE(_registerEventCallback());
 	/*EXIT_IF_FALSE(RenderService::Instance()->AttachNativeWin32Window(0));*/
-	EXIT_IF_FALSE(RenderService::Instance().Init(1920, 1080,NULL));
+	EXIT_IF_FALSE(RenderService::Instance().Init(1920, 1080, NULL));
 	RenderService::Instance().Run();
 }
 

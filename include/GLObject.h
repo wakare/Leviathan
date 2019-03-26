@@ -1,5 +1,6 @@
 #pragma once
 
+#include <map>
 #include <GL\glew.h>
 #include <LPtr.h>
 #include "IGLMaterial.h"
@@ -43,20 +44,22 @@ namespace Leviathan
 		GLuint GetVertexMask() { return m_vertexAttributeMask; }
 		GLboolean GetLightEnable() { return m_bLightEnable; }
 
-		void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) 
-		{ 
+		void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) { 
 			if (!m_pModelMatrix)  m_pModelMatrix = new Eigen::Matrix4f(refModelMatrix); 
 			*m_pModelMatrix = refModelMatrix; 
 		}
+
 		void SetMaterial(LPtr<IGLMaterial> pMaterial) { m_pCommonGLMaterial = pMaterial; }
 		void SetLightEnable(bool bLightEnable) { m_bLightEnable = bLightEnable; }
 		void SetDefaultVertexColorEnable(bool bUseDefaultVertexColor) { m_bUseDefaultVertexColor = bUseDefaultVertexColor; }
 		GLboolean HasMaterial() const { return m_pCommonGLMaterial != nullptr; }
+
+		void AddUniform(LPtr<GLUniform> pUniform) { m_pUniforms[pUniform->GetUniformName()] = pUniform; }
 		
 		virtual bool Init() = 0;
 		virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
-		virtual bool UnApplyMaterial(GLuint shaderProgram) = 0;
-		virtual bool ApplyModelMatrix(Leviathan::LPtr<Leviathan::GLUniform>& modelUniform) = 0;
+		virtual bool ApplyModelMatrix(LPtr<GLUniform>& modelUniform) = 0;
+		virtual bool ApplyUniform(GLuint shaderProgram) = 0;
 		virtual bool Render(GLuint shaderProgram) = 0;
 
 	protected:
@@ -71,5 +74,6 @@ namespace Leviathan
 		GLint m_vertexAttributeMask;
 		LPtr<IGLMaterial> m_pCommonGLMaterial;
 		LPtr<Eigen::Matrix4f> m_pModelMatrix;
+		std::map<std::string, LPtr<GLUniform>> m_pUniforms;
 	};
 }

@@ -11,6 +11,11 @@ namespace Leviathan
 
 	}
 
+	std::string GLUniform::GetUniformName() const
+	{
+		return m_uniformName;
+	}
+
 	bool GLUniform::SetData(float* data, unsigned dataCount)
 	{
 		unsigned dataSize = dataCount * sizeof(float);
@@ -40,9 +45,9 @@ namespace Leviathan
 		return true;
 	}
 
-	bool GLUniform::SetUniformVar(GLuint program)
+	bool GLUniform::Apply(GLuint program)
 	{
-		GLint uniformLocation = glGetUniformLocation(program, m_uniformName);
+		GLint uniformLocation = glGetUniformLocation(program, m_uniformName.c_str());
 		if (uniformLocation == -1)
 		{
 			throw "GLUniform::SetUniformVar(GLuint program) --> Get uniform location failed.";
