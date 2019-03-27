@@ -19,11 +19,11 @@
 *.stl
 *.iobj
 *.ipdb
-.vs/
 *.htm
-3rdparty/*
 *.bin
 *.bin
 *.res
+.vs/
 bin/
 Resources/
+3rdparty/

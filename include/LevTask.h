@@ -1,32 +1,28 @@
 #pragma once
 
-#include <functional>
+#include "LevCoroutine.h"
 
 namespace Leviathan
 {
-	enum LevTaskType
-	{
-		ET_ONCE,
-		ET_ALWARYS
-	};
-
-	class LevTask
+	template <class T>
+	class LevTaskTemplate
 	{
 	public:
-		typedef std::function<void()> TaskFunc;
-		LevTask(LevTaskType type, TaskFunc func);
-		~LevTask();
+		LevTaskTemplate(LevCoroutine<T> func);
+		~LevTaskTemplate();
 
-		virtual void Do();
-		LevTaskType Type() const;
+		virtual void Do(T input = T());
+		
+		bool Valid() const;
 
 	protected:
-		LevTask(const LevTask& task) = delete;
-		LevTask& operator=(const LevTask& task) = delete;
-		LevTask(const LevTask&& task) = delete;
-		LevTask& operator=(const LevTask&& task) = delete;
+		LevTaskTemplate(const LevTaskTemplate& task) = delete;
+		LevTaskTemplate& operator=(const LevTaskTemplate& task) = delete;
+		LevTaskTemplate(const LevTaskTemplate&& task) = delete;
+		LevTaskTemplate& operator=(const LevTaskTemplate&& task) = delete;
 
-		TaskFunc m_func;
-		LevTaskType m_type;
+		LevCoroutine<T> m_func;
 	};
 }
+
+#include "LevTask.hpp"

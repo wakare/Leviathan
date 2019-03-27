@@ -8,17 +8,20 @@
 
 namespace Leviathan
 {
+	template <class T>
 	class LevScheduler
 	{
 	public:
-		void AddTask(LPtr<LevTask> task);
-		void AddTask(const std::vector<LPtr<LevTask>>& task);
-		void Tick();
-
+		void AddTask(LPtr<LevTaskTemplate<T>> task);
+		void AddTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
+		
 	protected:
+		void Tick();
 		LevScheduler();
 
 		std::mutex m_tasks_lock;
-		std::vector<LPtr<LevTask>> m_tasks;
+		std::vector<LPtr<LevTaskTemplate<T>>> m_tasks;
 	};
 }
+
+#include "LevScheduler.hpp"
