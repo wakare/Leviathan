@@ -70,12 +70,6 @@
       <Filter>Window</Filter>
     </ClCompile>
     <ClCompile Include="MeshImpl.cpp" />
-    <ClCompile Include="LevTask.cpp">
-      <Filter>CommonTool\Scheduler</Filter>
-    </ClCompile>
-    <ClCompile Include="LevScheduler.cpp">
-      <Filter>CommonTool\Scheduler</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\IMesh.h">
@@ -192,6 +186,12 @@
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\LevCoroutine.hpp">
+      <Filter>CommonTool\Scheduler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevScheduler.hpp">
+      <Filter>CommonTool\Scheduler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevTask.hpp">
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
   </ItemGroup>

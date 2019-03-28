@@ -19,10 +19,17 @@ namespace Leviathan
 	}
 
 	template <class T>
+	void Leviathan::LevScheduler<T>::AddTask(std::function<void(CoPullType<T>&)> func)
+	{
+		LPtr<LevTaskTemplate<T>> pTask = new LevTaskTemplate<T>(func);
+		AddTask(pTask);
+	}
+
+	template <class T>
 	void LevScheduler<T>::Tick()
 	{
 		m_tasks_lock.lock();
-		std::vector<LPtr<LevTaskTemplate>> remainTasks;
+		std::vector<LPtr<LevTaskTemplate<T>>> remainTasks;
 
 		for (auto& task : m_tasks)
 		{
