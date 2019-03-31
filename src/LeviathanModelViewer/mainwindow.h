@@ -4,7 +4,7 @@
 #include <QMainWindow>
 #include <QTimer>
 
-#include "BaseStruct.h"
+#include "LeviathanInitStruct.h"
 #include "ModelViewerPresenter.h"
 
 namespace Ui {

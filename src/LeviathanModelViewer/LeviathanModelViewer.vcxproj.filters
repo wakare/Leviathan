@@ -32,14 +32,14 @@
   <ItemGroup>
     <None Include="LeviathanModelViewer.pro.user" />
     <None Include="LeviathanModelViewer.pro" />
-    <None Include="BaseStruct.h">
-      <Filter>Header Files</Filter>
-    </None>
     <None Include="ModelViewerUserInterface.h">
       <Filter>Header Files</Filter>
     </None>
     <None Include="ModelViewerUserInterface.cpp">
       <Filter>Source Files</Filter>
+    </None>
+    <None Include="LeviathanInitStruct.h">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
