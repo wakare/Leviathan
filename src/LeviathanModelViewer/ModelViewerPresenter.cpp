@@ -45,9 +45,8 @@ void ModelViewerPresenter::Run()
 
 	while (true)
 	{
-		//_userInterface().UpdatePresenter();
+		_userInterface().UpdatePresenter();
 	}
-	
 }
 
 void ModelViewerPresenter::Stop()

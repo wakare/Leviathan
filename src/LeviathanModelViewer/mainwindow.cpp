@@ -12,12 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 	// Register
-	//connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
-	//connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
+	connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
+	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
 
-	//m_updateTimer.setInterval(200);
-	//connect(&m_updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
-	//m_updateTimer.start();
+	m_updateTimer.setInterval(200);
+	connect(&m_updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
+	m_updateTimer.start();
 }
 
 MainWindow::~MainWindow()
@@ -80,7 +80,7 @@ void MainWindow::_runRenderService()
 	std::thread renderThread([this]() 
 	{
 		 _modelViewerPresenter().Init(m_pLevStruct->width, m_pLevStruct->height, m_pLevStruct->parentHandle);
-		 //_modelViewerPresenter().Run();
+		 _modelViewerPresenter().Run();
 	});
 
 	renderThread.detach();

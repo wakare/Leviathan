@@ -44,7 +44,7 @@ namespace Leviathan
 		}
 
 		m_pStateMgr->SetViewStateType(EVS_RUNNING);
-		m_pData->GetRenderWindow().Run();
+		m_pData->GetRenderWindow().Update();
 	}
 
 	void View::SyncStop()

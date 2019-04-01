@@ -14,11 +14,7 @@ namespace Leviathan
 				LogLine("[VIEW_MAIN_LOOP] Tick!");
 				if (m_pViewData) 
 				{
-					auto pScene = m_pViewData->GetRenderWindow().GetScene();
-					if (pScene)
-					{
-						pScene->Update();
-					}
+					m_pViewData->GetRenderWindow().Update();
 				}
 
 				sink();
