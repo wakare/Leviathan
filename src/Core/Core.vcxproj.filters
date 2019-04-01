@@ -33,6 +33,10 @@
     <ClInclude Include="ViewScheduler.h">
       <Filter>View</Filter>
     </ClInclude>
+    <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="ViewData.h">
+      <Filter>View</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp">
@@ -45,6 +49,10 @@
       <Filter>Presenter</Filter>
     </ClCompile>
     <ClCompile Include="ViewScheduler.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="ViewData.cpp">
       <Filter>View</Filter>
     </ClCompile>
   </ItemGroup>

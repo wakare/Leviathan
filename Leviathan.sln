@@ -28,7 +28,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Scene", "src\Scene\Scene.vc
 		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_LeviathanGUIApp", "3_LeviathanGUIApp", "{D931A883-EC58-4AEC-87BB-544D5D913EC5}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3_LeviathanApp", "3_LeviathanApp", "{D931A883-EC58-4AEC-87BB-544D5D913EC5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanModelViewer", "src\LeviathanModelViewer\LeviathanModelViewer.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
 	ProjectSection(ProjectDependencies) = postProject
