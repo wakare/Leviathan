@@ -15,6 +15,8 @@ namespace Leviathan
 
 		bool Init(int width, int height, int parentHandle);
 
+		int GetWindowHandle();
+
 	private:
 
 		bool m_done;

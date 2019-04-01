@@ -3,11 +3,17 @@
 #include "ModelViewerUserInterface.h"
 #include "RenderService.h"
 #include "GlobalDef.h"
+#include "PresenterScheduler.h"
+#include "UserInterface.h"
 
-ModelViewerPresenter::ModelViewerPresenter() :
-	m_appState(EAS_UNINITED)
+ModelViewerPresenter::ModelViewerPresenter()
 {
 
+}
+
+Leviathan::UserInterface& ModelViewerPresenter::_userInterface()
+{
+	return Leviathan::PresenterScheduler::Instance().GetUserInterface();
 }
 
 ModelViewerPresenter::~ModelViewerPresenter()
@@ -20,32 +26,37 @@ ModelViewerPresenter& ModelViewerPresenter::Instance()
 	return Singleton<ModelViewerPresenter>::Instance();
 }
 
-AppState ModelViewerPresenter::GetCurrentAppState()
-{
-	return m_appState;
-}
-
 bool ModelViewerPresenter::Init(int width, int height, int handle /*= NULL*/)
 {
-	m_appState = EAS_INITING;
-	EXIT_IF_FALSE(RenderService().Init(width, height, handle));
-	m_appState = EAS_INITED;
+	/*EXIT_IF_FALSE(RenderService().Init(width, height, handle));*/
+	Leviathan::PresenterScheduler::Instance().GetUserInterface().Init(width, height, handle);
 
 	return true;
 }
 
 void ModelViewerPresenter::Run()
 {
-	if (m_appState != EAS_INITED) return;
-	m_appState = EAS_RUNNING;
-	RenderService().Run();
+	//if (GetAppState() != EAS_INITED) return;
+	//RenderService().Run();
+
+	/*while (GetAppState() == Leviathan::EAS_RUNNING)
+	{
+	}*/
+
+	while (true)
+	{
+		//_userInterface().UpdatePresenter();
+	}
+	
 }
 
 void ModelViewerPresenter::Stop()
 {
-	m_appState = EAS_STOPPING;
-	RenderService().SyncStop();
-	m_appState = EAS_STOPPED;
+	//m_appState = EAS_STOPPING;
+	//RenderService().SyncStop();
+	//m_appState = EAS_STOPPED;
+
+	_userInterface().Stop();
 }
 
 bool ModelViewerPresenter::UnInit()
@@ -53,35 +64,43 @@ bool ModelViewerPresenter::UnInit()
 	return true;
 }
 
-int ModelViewerPresenter::GetWindowHandle() const
+int ModelViewerPresenter::GetWindowHandle()
 {
-	return RenderService().GetWindowHandle();
+	//return RenderService().GetWindowHandle();
+	return _userInterface().GetData().windowHandle;
 }
 
 bool ModelViewerPresenter::LoadFile(const char * filePath)
 {
-	auto& scene = ModelViewerPresenter::Instance().RenderService().GetScene();
+	/*auto& scene = _userInterface().GetScene();
 	Leviathan::TriDScene* pTriDScene = dynamic_cast<Leviathan::TriDScene*>(scene.Get());
 	EXIT_IF_FALSE(pTriDScene);
 	std::string path = filePath;
 
-	Leviathan::SceneDataRequestFunc func = [this, path, pTriDScene]() 
+	Leviathan::SceneDataRequestFunc func = [this, path, pTriDScene]()
 	{
 		pTriDScene->AddMesh(path.c_str(), true);
 	};
 
 	pTriDScene->AddRequest(func);
 
-	return true;
+	return true;*/
+
+	return false;
 }
 
-Leviathan::RenderService& ModelViewerPresenter::RenderService()
-{
-	return Leviathan::RenderService::Instance();
-}
+//Leviathan::RenderService& ModelViewerPresenter::RenderService()
+//{
+//	return Leviathan::RenderService::Instance();
+//}
+//
+//const Leviathan::RenderService & ModelViewerPresenter::RenderService() const
+//{
+//	return Leviathan::RenderService::Instance();
+//}
 
-const Leviathan::RenderService & ModelViewerPresenter::RenderService() const
+const Leviathan::AppState& ModelViewerPresenter::GetAppState()
 {
-	return Leviathan::RenderService::Instance();
+	return Leviathan::PresenterScheduler::Instance().GetAppState();
 }
 

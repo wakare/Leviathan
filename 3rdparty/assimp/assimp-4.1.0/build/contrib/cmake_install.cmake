@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib
+# Install script for directory: D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/Assimp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Assimp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -27,9 +27,14 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Is this installation the result of a crosscompile?
+if(NOT DEFINED CMAKE_CROSSCOMPILING)
+  set(CMAKE_CROSSCOMPILING "FALSE")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/irrXML/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/irrXML/cmake_install.cmake")
 
 endif()
 

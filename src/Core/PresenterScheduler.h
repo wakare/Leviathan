@@ -2,22 +2,14 @@
 
 #include <memory>
 #include "LevScheduler.h"
-#include "ModelScheduler.h"
-#include "ViewScheduler.h"
 #include "Singleton.h"
-
-enum AppState
-{
-	EAS_UNINITED,
-	EAS_INITING,
-	EAS_INITED,
-	EAS_RUNNING,
-	EAS_STOPPING,
-	EAS_STOPPED
-};
 
 namespace Leviathan
 {
+	class ModelScheduler;
+	class ViewScheduler;
+	class UserInterface;
+
 	class PresenterScheduler : public LevScheduler<int>
 	{
 	public:
@@ -26,9 +18,12 @@ namespace Leviathan
 
 		void Update();
 		void SetDone();
+		void SetState(AppState state);
 
 		ModelScheduler& GetModelScheduler();
 		ViewScheduler& GetViewScheduler();
+		UserInterface& GetUserInterface();
+		const AppState& GetAppState() const;  
 
 	private:
 		PresenterScheduler();
@@ -36,7 +31,8 @@ namespace Leviathan
 		AppState m_state;
 		bool m_done;
 
-		std::unique_ptr<ModelScheduler> m_pModelScheduler;
-		std::unique_ptr<ViewScheduler> m_pViewScheduler;
+		std::shared_ptr<ModelScheduler> m_pModelScheduler;
+		std::shared_ptr<ViewScheduler> m_pViewScheduler;
+		std::shared_ptr<UserInterface> m_pUserInterface;
 	};
 }

@@ -1,17 +1,11 @@
 #pragma once
 #include "Singleton.h"
-#include "RenderService.h"
-#include "ModelViewerUserInterface.h"
 
-enum AppState
+namespace Leviathan
 {
-	EAS_UNINITED,
-	EAS_INITING,
-	EAS_INITED,
-	EAS_RUNNING,
-	EAS_STOPPING,
-	EAS_STOPPED
-};
+	class UserInterface;
+	enum AppState;
+}
 
 class ModelViewerPresenter 
 {
@@ -20,20 +14,21 @@ class ModelViewerPresenter
 public:
 	~ModelViewerPresenter();
 	static ModelViewerPresenter& Instance();
-	AppState GetCurrentAppState();
+	//AppState GetCurrentAppState();
 
 	bool Init(int width, int height, int handle = NULL);
 	void Run();
 	void Stop();
 	bool UnInit();
 
-	int GetWindowHandle() const;
+	int GetWindowHandle() ;
 	bool LoadFile(const char* filePath);
 
-	Leviathan::RenderService& RenderService();
-	const Leviathan::RenderService& RenderService() const;
+	//Leviathan::RenderService& RenderService();
+	//const Leviathan::RenderService& RenderService() const;
+	const Leviathan::AppState& GetAppState();
 
 private:
 	ModelViewerPresenter();
-	AppState m_appState;
+	Leviathan::UserInterface& _userInterface();
 };

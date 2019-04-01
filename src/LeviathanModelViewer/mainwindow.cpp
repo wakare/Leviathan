@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qevent.h"
+#include "GlobalDef.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,12 +12,12 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 	// Register
-	connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
-	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
+	//connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
+	//connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
 
-	m_updateTimer.setInterval(200);
-	connect(&m_updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
-	m_updateTimer.start();
+	//m_updateTimer.setInterval(200);
+	//connect(&m_updateTimer, SIGNAL(timeout()), this, SLOT(Update()));
+	//m_updateTimer.start();
 }
 
 MainWindow::~MainWindow()
@@ -79,14 +80,19 @@ void MainWindow::_runRenderService()
 	std::thread renderThread([this]() 
 	{
 		 _modelViewerPresenter().Init(m_pLevStruct->width, m_pLevStruct->height, m_pLevStruct->parentHandle);
-		 _modelViewerPresenter().Run();
+		 //_modelViewerPresenter().Run();
 	});
 
 	renderThread.detach();
+	return;
 }
 
 void MainWindow::OpenglWidgetResize()
 {
+	if (_modelViewerPresenter().GetAppState() <= Leviathan::EAS_INITING) {
+		return;
+	}
+
 	auto _task = [this]()
 	{
 		HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
@@ -103,10 +109,11 @@ void MainWindow::OpenglWidgetResize()
 
 void MainWindow::Update()
 {
-	if (_modelViewerPresenter().GetCurrentAppState() >= EAS_RUNNING)
-	{
-		_processTask();
+	if (_modelViewerPresenter().GetAppState() <= Leviathan::EAS_INITING) {
+		return;
 	}
+
+	_processTask();
 }
 
 

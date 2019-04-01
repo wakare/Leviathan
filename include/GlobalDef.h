@@ -15,12 +15,24 @@ namespace Leviathan
 
 	#define EXIT_IF_FALSE(statement) { if (!(statement)) { assert(false); LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
 	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
+	#define LEV_ASSERT(a) { assert(a); if (!a) LogLine("[LEV_ASSERT] Assert: " << #a << " failed.")};
 
 	enum EventType
 	{
 		INPUT_EVENT,
 		USER_EVENT,
 	};
+
+	enum AppState
+	{
+		EAS_UNINITED,
+		EAS_INITING,
+		EAS_INITED,
+		EAS_RUNNING,
+		EAS_STOPPING,
+		EAS_STOPPED
+	};
+
 
 	typedef std::function<void(void)> SceneDataRequestFunc;
 }

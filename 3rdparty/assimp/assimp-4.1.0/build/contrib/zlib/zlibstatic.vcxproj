@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{BB2643AD-441E-301A-998A-69DC6A20CE71}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{4DBDAC69-42CF-35E8-A75C-A857C063861E}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>zlibstatic</ProjectName>
@@ -56,26 +56,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlibstatic.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">zlibstaticd</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlibstatic.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">zlibstatic</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">zlibstatic.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">zlibstatic</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">zlibstatic.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">zlibstatic</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Debug/</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <CompileAs>CompileAsC</CompileAs>
@@ -87,16 +87,17 @@
       <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -109,7 +110,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>Release/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -119,17 +120,19 @@
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -142,7 +145,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <ExceptionHandling>
@@ -152,17 +155,19 @@
       <Optimization>MinSpace</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
-      <DebugInformationFormat></DebugInformationFormat>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -175,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
       <CompileAs>CompileAsC</CompileAs>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -186,16 +191,17 @@
       <Optimization>MaxSpeed</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;WIN32_LEAN_AND_MEAN;OPENDDL_NO_USE_CPP11;NO_FSEEKO;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -207,10 +213,10 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp"
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -218,12 +224,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp"
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -231,12 +237,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp"
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -244,12 +250,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp"
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -257,43 +263,45 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckTypeSize.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.9\Modules\CheckIncludeFile.c.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\adler32.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\compress.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\crc32.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\deflate.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzclose.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzlib.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzread.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzwrite.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inflate.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\infback.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inftrees.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffast.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\trees.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\uncompr.c"  />
-    <ClCompile Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zutil.c"  />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\zconf.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\crc32.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\deflate.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzguts.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffast.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffixed.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inflate.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inftrees.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\trees.h" />
-    <ClInclude Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zutil.h" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\adler32.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\compress.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\crc32.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\deflate.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzclose.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzlib.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzread.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzwrite.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inflate.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\infback.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inftrees.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffast.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\trees.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\uncompr.c" />
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zutil.c" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\zconf.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\crc32.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\deflate.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\gzguts.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffast.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inffixed.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inflate.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\inftrees.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\trees.h" />
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zutil.h" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
-      <Project>{CC5DB7DE-83BA-35B7-8073-2D28A043261B}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
+      <Project>{15E7396C-944A-3B7D-BFBF-6E2564FB3D3D}</Project>
       <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

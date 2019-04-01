@@ -15,12 +15,10 @@ namespace Leviathan
 
 		EventSystem& GetEventSystem();
 		RenderWindow& GetRenderWindow();
-		CommonScene& GetScene();
 
 	private:
 		LPtr<EventSystem> m_pEventSystem;
 		LPtr<RenderWindow> m_pRenderWindow;
-		LPtr<CommonScene> m_pScene;
 		IScene::ESceneType m_sceneType;
 	};
 }

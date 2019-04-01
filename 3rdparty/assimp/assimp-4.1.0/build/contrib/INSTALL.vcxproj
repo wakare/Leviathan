@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8A1F3887-C254-343B-92E3-9DC9395DA9FD}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{AEDA84E5-7CE1-3F7E-A825-8FE8149138C9}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>INSTALL</ProjectName>
@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -85,7 +85,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -107,7 +107,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -129,7 +129,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -150,7 +150,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\6084c78cf1d2feac5a27887eb68bec65\INSTALL_force.rule">
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\0cb280dec5673ab009416a3e3effe385\INSTALL_force.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
@@ -161,8 +161,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/6084c78cf1d2feac5a27887eb68bec65/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/0cb280dec5673ab009416a3e3effe385/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -174,8 +174,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/6084c78cf1d2feac5a27887eb68bec65/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/0cb280dec5673ab009416a3e3effe385/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -187,8 +187,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/6084c78cf1d2feac5a27887eb68bec65/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/0cb280dec5673ab009416a3e3effe385/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -200,19 +200,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/6084c78cf1d2feac5a27887eb68bec65/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/0cb280dec5673ab009416a3e3effe385/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
-      <Project>{CC5DB7DE-83BA-35B7-8073-2D28A043261B}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
+      <Project>{15E7396C-944A-3B7D-BFBF-6E2564FB3D3D}</Project>
       <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\ALL_BUILD.vcxproj">
-      <Project>{EED22B00-2BE4-3FCF-8A07-068649363720}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib\ALL_BUILD.vcxproj">
+      <Project>{316B3C5D-7EEB-3B74-9A8C-857AB8FA4954}</Project>
       <Name>ALL_BUILD</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

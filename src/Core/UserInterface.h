@@ -2,18 +2,18 @@
 
 namespace Leviathan
 {
-	struct BaseData
-	{
-
-	};
-
 	class UserInterface
 	{
 	public:
+		struct BaseData
+		{
+			int windowHandle;
+		};
+
 		static void Init(int width, int height, int parentHandle);
-		static void Update();
+		static void UpdatePresenter();
 		static void Stop();
-		static BaseData GetData();
+		static const BaseData& GetData();
 
 	private:
 		static BaseData m_data;

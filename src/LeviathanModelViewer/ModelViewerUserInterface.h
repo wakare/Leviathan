@@ -12,6 +12,6 @@ public:
 
 private:
 	ModelViewerUserInterface();
-	Leviathan::TriDScene& _scene();
+	//Leviathan::TriDScene& _scene();
 };
 

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -19,8 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{8E589091-14CD-3873-9912-E30B1908B0FD}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{20946589-6045-39D1-99BD-B0D8DF0A80AF}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>Continuous</ProjectName>
@@ -63,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -73,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -83,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\.;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\..\contrib\gtest;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -102,63 +102,7 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp"
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\DartConfiguration.tcl.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp"
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\DartConfiguration.tcl.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp"
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\DartConfiguration.tcl.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"D:\Program Files\CMake\bin\cmake.exe" "-HC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0" "-BC:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build" --check-stamp-file "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp"
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.9\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.9\Modules\DartConfiguration.tcl.in;C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-    </CustomBuild>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\69d4fb9f04436e3c15b724c684196d9e\Continuous.rule">
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\564ed0032b585ea00a3d15bcc83d7091\Continuous.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "D:\Program Files\CMake\bin\ctest.exe" -C $(Configuration) -D Continuous
@@ -169,8 +113,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/69d4fb9f04436e3c15b724c684196d9e/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/564ed0032b585ea00a3d15bcc83d7091/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -182,8 +126,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/69d4fb9f04436e3c15b724c684196d9e/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/564ed0032b585ea00a3d15bcc83d7091/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -195,8 +139,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/69d4fb9f04436e3c15b724c684196d9e/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/564ed0032b585ea00a3d15bcc83d7091/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -208,18 +152,76 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/69d4fb9f04436e3c15b724c684196d9e/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/CMakeFiles/564ed0032b585ea00a3d15bcc83d7091/Continuous.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous" />
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\DartConfiguration.tcl.in;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\DartConfiguration.tcl.in;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\DartConfiguration.tcl.in;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/test/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;D:\Program Files\CMake\share\cmake-3.14\Modules\CTest.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestTargets.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CTestUseLaunchers.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\DartConfiguration.tcl.in;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
-      <Project>{CC5DB7DE-83BA-35B7-8073-2D28A043261B}</Project>
+    <None Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Continuous" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\ZERO_CHECK.vcxproj">
+      <Project>{15E7396C-944A-3B7D-BFBF-6E2564FB3D3D}</Project>
       <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

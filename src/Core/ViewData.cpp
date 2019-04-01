@@ -24,10 +24,4 @@ namespace Leviathan
 	{
 		return *m_pRenderWindow;
 	}
-
-	CommonScene & ViewData::GetScene()
-	{
-		return *m_pScene;
-	}
-
 }

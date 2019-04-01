@@ -4,36 +4,29 @@
 
 
 # Configuration directories and files
-SourceDirectory: C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0
-BuildDirectory: C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build
+SourceDirectory: D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0
+BuildDirectory: D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build
 
 # Where to place the cost data store
 CostDataFile: 
 
 # Site is something like machine.domain, i.e. pragmatic.crd
-Site: DESKTOP-UMK6UMB
+Site: USER-0D2HT0LTBI
 
 # Build name is osname-revision-compiler, i.e. Linux-2.4.2-2smp-c++
 BuildName: Win32-MSBuild
 
+# Subprojects
+LabelsForSubprojects: 
+
 # Submission information
-IsCDash: 
-CDashVersion: 
-QueryCDashVersion: 
-DropSite: 
-DropLocation: 
-DropSiteUser: 
-DropSitePassword: 
-DropSiteMode: 
-DropMethod: http
-TriggerSite: 
-ScpCommand: SCPCOMMAND-NOTFOUND
+SubmitURL: http://
 
 # Dashboard start time
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "D:/Program Files/CMake/bin/cmake.exe" "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0"
+ConfigureCommand: "D:/Program Files/CMake/bin/cmake.exe" "D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0"
 MakeCommand: "D:\Program Files\CMake\bin\cmake.exe" --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
@@ -51,7 +44,7 @@ SVNOptions:
 SVNUpdateOptions: 
 
 # Git options
-GITCommand: C:/Program Files/Git/cmd/git.exe
+GITCommand: GITCOMMAND-NOTFOUND
 GITInitSubmodules: 
 GITUpdateOptions: 
 GITUpdateCustom: 
@@ -69,8 +62,8 @@ UpdateOptions:
 UpdateType: 
 
 # Compiler info
-Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Professional/VC/Tools/MSVC/14.11.25503/bin/HostX86/x64/cl.exe
-CompilerVersion: 19.11.25508.2
+Compiler: C:/Program Files (x86)/Microsoft Visual Studio/2017/Enterprise/VC/Tools/MSVC/14.16.27023/bin/Hostx86/x64/cl.exe
+CompilerVersion: 19.16.27027.1
 
 # Dynamic analysis (MemCheck)
 PurifyCommand: 

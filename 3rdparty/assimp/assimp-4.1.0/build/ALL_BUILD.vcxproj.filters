@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
