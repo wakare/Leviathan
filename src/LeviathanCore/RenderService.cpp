@@ -34,7 +34,7 @@ namespace Leviathan
 
 	void RenderService::Run()
 	{
-		m_pView->Run();
+		m_pView->Update();
 	}
 
 	void RenderService::SyncStop()

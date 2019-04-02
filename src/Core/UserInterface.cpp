@@ -37,4 +37,10 @@ namespace Leviathan
 		m_data.windowHandle = PresenterScheduler::Instance().GetViewScheduler().GetWindowHandle();
 		return m_data;
 	}
+
+	bool UserInterface::LoadFile(const char * file)
+	{
+		return _scheduler().GetViewScheduler().LoadFile(file);
+	}
+
 }

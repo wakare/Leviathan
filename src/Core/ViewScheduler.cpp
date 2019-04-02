@@ -5,16 +5,15 @@ namespace Leviathan
 {
 	ViewScheduler::ViewScheduler():
 		m_done(false),
-		m_pViewData(nullptr)
+		 m_pView(nullptr)
 	{
 		auto _mainLoop = [this](CoPullType<int>& sink)
 		{
 			while (!m_done)
 			{
-				LogLine("[VIEW_MAIN_LOOP] Tick!");
-				if (m_pViewData) 
+				if (m_pView)
 				{
-					m_pViewData->GetRenderWindow().Update();
+					m_pView->Update();
 				}
 
 				sink();
@@ -38,14 +37,20 @@ namespace Leviathan
 
 	bool ViewScheduler::Init(int width, int height, int parentHandle)
 	{
-		m_pViewData.reset(new ViewData(IScene::EST_TRID));
-		EXIT_IF_FALSE(m_pViewData->GetRenderWindow().CreateRenderWindow(width, height, parentHandle));
+		m_pView.reset(new View());
+		EXIT_IF_FALSE(m_pView->Init(width, height, parentHandle));
+
 		return true;
 	}
 
 	int ViewScheduler::GetWindowHandle()
 	{
-		return m_pViewData->GetRenderWindow().GetWindowHandle();
+		return m_pView->GetWindowHandle();
 	}
 
+	bool ViewScheduler::LoadFile(const char* file)
+	{
+		TriDScene* pScene = dynamic_cast<TriDScene*>(m_pView->GetScene().Get());
+		return pScene->AddMesh(file, true);
+	}
 }

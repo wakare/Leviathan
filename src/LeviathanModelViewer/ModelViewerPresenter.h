@@ -22,13 +22,9 @@ public:
 	bool UnInit();
 
 	int GetWindowHandle() ;
-	bool LoadFile(const char* filePath);
-
-	//Leviathan::RenderService& RenderService();
-	//const Leviathan::RenderService& RenderService() const;
 	const Leviathan::AppState& GetAppState();
+	Leviathan::UserInterface& GetUserInterface();
 
 private:
 	ModelViewerPresenter();
-	Leviathan::UserInterface& _userInterface();
 };

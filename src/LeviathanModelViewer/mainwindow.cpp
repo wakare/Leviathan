@@ -4,6 +4,7 @@
 #include "ui_mainwindow.h"
 #include "qevent.h"
 #include "GlobalDef.h"
+#include "UserInterface.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -30,7 +31,7 @@ void MainWindow::LoadFile()
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
 	
-	_modelViewerPresenter().LoadFile(path.toStdString().c_str());
+	_modelViewerPresenter().GetUserInterface().LoadFile(path.toStdString().c_str());
 }
 
 void MainWindow::resizeEvent(QResizeEvent * event)

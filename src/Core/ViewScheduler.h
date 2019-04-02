@@ -3,6 +3,7 @@
 #include "LevScheduler.h"
 #include "TriDScene.h"
 #include "ViewData.h"
+#include "View.h"
 
 namespace Leviathan 
 {
@@ -16,10 +17,11 @@ namespace Leviathan
 		bool Init(int width, int height, int parentHandle);
 
 		int GetWindowHandle();
+		bool LoadFile(const char* file);
 
 	private:
 
 		bool m_done;
-		std::unique_ptr<ViewData> m_pViewData;
+		std::unique_ptr<View> m_pView;
 	};
 }

@@ -17,7 +17,6 @@ namespace Leviathan
 		{
 			while (!m_done)
 			{
-				LogLine("[PRESENTER_MAIN_LOOP] Tick!");
 				sink();
 			}
 

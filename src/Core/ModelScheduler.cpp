@@ -9,7 +9,6 @@ namespace Leviathan
 		{
 			while (!m_done)
 			{
-				LogLine("[MODEL_MAIN_LOOP] Tick!");
 				sink();
 			}
 
