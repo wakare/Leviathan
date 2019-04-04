@@ -22,6 +22,7 @@ namespace Leviathan
 
 		bool CreateRenderWindow(int width, int height, int hParent = NULL);
 		void Run();
+		void Update();
 		void SyncStop();
 		void AsyncStop();
 		void Accept(Event& event);

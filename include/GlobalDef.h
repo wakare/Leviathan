@@ -22,5 +22,15 @@ namespace Leviathan
 		USER_EVENT,
 	};
 
+	enum AppState
+	{
+		EAS_UNINITED,
+		EAS_INITING,
+		EAS_INITED,
+		EAS_RUNNING,
+		EAS_STOPPING,
+		EAS_STOPPED
+	};
+
 	typedef std::function<void(void)> SceneDataRequestFunc;
 }

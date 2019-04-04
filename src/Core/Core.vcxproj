@@ -19,13 +19,25 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DataCenterImpl.cpp" />
+    <ClCompile Include="ModelScheduler.cpp" />
+    <ClCompile Include="PresenterScheduler.cpp" />
+    <ClCompile Include="UserInterface.cpp" />
+    <ClCompile Include="View.cpp" />
+    <ClCompile Include="ViewData.cpp" />
+    <ClCompile Include="ViewScheduler.cpp" />
+  </ItemGroup>
+  <ItemGroup>
     <ClInclude Include="DataCenterImpl.h" />
     <ClInclude Include="DataStorer.h" />
     <ClInclude Include="DataStorer.hpp" />
     <ClInclude Include="IDataCenter.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="DataCenterImpl.cpp" />
+    <ClInclude Include="ModelScheduler.h" />
+    <ClInclude Include="PresenterScheduler.h" />
+    <ClInclude Include="UserInterface.h" />
+    <ClInclude Include="View.h" />
+    <ClInclude Include="ViewData.h" />
+    <ClInclude Include="ViewScheduler.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

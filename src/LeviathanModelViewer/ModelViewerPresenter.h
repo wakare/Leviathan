@@ -3,16 +3,6 @@
 #include "RenderService.h"
 #include "ModelViewerUserInterface.h"
 
-enum AppState
-{
-	EAS_UNINITED,
-	EAS_INITING,
-	EAS_INITED,
-	EAS_RUNNING,
-	EAS_STOPPING,
-	EAS_STOPPED
-};
-
 class ModelViewerPresenter 
 {
 	DECLARE_SELF_TO_SINGLETON(ModelViewerPresenter)

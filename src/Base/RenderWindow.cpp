@@ -103,20 +103,28 @@ namespace Leviathan
 
 		m_bRunning = true;
 
-		while (!glfwWindowShouldClose(m_pWindow))
+		while (m_bRunning)
 		{
-			glfwPollEvents();
-			m_pScene->Update();
+			Update();
+		}
+	}
 
-			if (m_pEventSystem)
-			{
-				m_pEventSystem->DispatchEvent();
-			}
+	void RenderWindow::Update()
+	{
+		if (glfwWindowShouldClose(m_pWindow))
+		{
+			m_bRunning = false;
+			glfwTerminate();
+			return;
 		}
 
-		m_bRunning = false;
-		glfwTerminate();
-		return;
+		glfwPollEvents();
+		m_pScene->Update();
+
+		if (m_pEventSystem)
+		{
+			m_pEventSystem->DispatchEvent();
+		}
 	}
 
 	void RenderWindow::SyncStop()
