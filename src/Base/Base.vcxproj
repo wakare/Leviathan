@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

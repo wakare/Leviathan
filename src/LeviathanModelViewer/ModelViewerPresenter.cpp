@@ -4,6 +4,8 @@
 #include "RenderService.h"
 #include "GlobalDef.h"
 
+using namespace Leviathan;
+
 ModelViewerPresenter::ModelViewerPresenter() :
 	m_appState(EAS_UNINITED)
 {

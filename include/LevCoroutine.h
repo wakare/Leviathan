@@ -3,23 +3,26 @@
 #include <boost/coroutine2/all.hpp>
 #include <boost/coroutine2/detail/push_coroutine.hpp>
 #include <boost/coroutine2/detail/pull_coroutine.hpp>
+#include <functional>
 
 namespace Leviathan
 {
+	template <typename T>
+	using CoPullType = boost::coroutines2::detail::pull_coroutine<T>;
 
-#define BOOST_CO_PUSH(type) boost::coroutines2::coroutine<type>::push_type
-#define BOOST_CO_PULL(type) boost::coroutines2::coroutine<type>::pull_type
+	template <typename T>
+	using CoPushType = boost::coroutines2::detail::push_coroutine<T>;
 
-	template<class T>
+	template<typename T>
 	class LevCoroutine
 	{
 	public:
-		LevCoroutine(std::function<void(BOOST_CO_PULL(T)&)> func);
+		LevCoroutine(std::function<void(CoPullType<typename T>&)> func);
 		void Tick(T t);
 		bool Valid() const;
 
 	private:
-		BOOST_CO_PUSH(T) m_caller;
+		CoPushType<typename T> m_caller;
 	};
 }
 

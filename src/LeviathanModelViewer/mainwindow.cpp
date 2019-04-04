@@ -29,7 +29,7 @@ void MainWindow::LoadFile()
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
 	
-	_modelViewerPresenter().LoadFile(path.toStdString().c_str());
+	_controller().LoadFile(path.toStdString().c_str());
 }
 
 void MainWindow::resizeEvent(QResizeEvent * event)
@@ -78,8 +78,8 @@ void MainWindow::_runRenderService()
 {
 	std::thread renderThread([this]() 
 	{
-		 _modelViewerPresenter().Init(m_pLevStruct->width, m_pLevStruct->height, m_pLevStruct->parentHandle);
-		 _modelViewerPresenter().Run();
+		 _controller().Init(m_pLevStruct->width, m_pLevStruct->height, m_pLevStruct->parentHandle);
+		 _controller().Run();
 	});
 
 	renderThread.detach();
@@ -89,7 +89,7 @@ void MainWindow::OpenglWidgetResize()
 {
 	auto _task = [this]()
 	{
-		HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
+		HWND handle = (HWND)_controller().GetWindowHandle();
 		if (!handle) return;
 
 		int width = ui->openGLWidget->width();
@@ -103,14 +103,14 @@ void MainWindow::OpenglWidgetResize()
 
 void MainWindow::Update()
 {
-	if (_modelViewerPresenter().GetCurrentAppState() >= EAS_RUNNING)
+	if (_controller().GetCurrentAppState() >= Leviathan::EAS_RUNNING)
 	{
 		_processTask();
 	}
 }
 
 
-ModelViewerPresenter & MainWindow::_modelViewerPresenter()
+IController& MainWindow::_controller()
 {
 	return ModelViewerPresenter::Instance();
 }

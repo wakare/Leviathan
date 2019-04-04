@@ -33,7 +33,7 @@ private:
 	void _initialized();
 	void _runRenderService();
 
-	ModelViewerPresenter& _modelViewerPresenter();
+	IController& _controller();
     Ui::MainWindow *ui;
 
 	// Leviathan struct

@@ -4,7 +4,7 @@
 namespace Leviathan
 {
 	template<class T>
-	inline LevCoroutine<T>::LevCoroutine(std::function<void(BOOST_CO_PULL(T)&)> func):
+	inline LevCoroutine<T>::LevCoroutine(std::function<void(CoPullType<typename T>&)> func):
 		m_caller(func)
 	{
 		
