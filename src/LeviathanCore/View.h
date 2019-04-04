@@ -19,7 +19,7 @@ namespace Leviathan
 		LPtr<CommonScene> GetScene();
 
 		bool Init(int width, int height, int handle);
-		void Update();
+		void Run();
 		void SyncStop();
 		void AsyncStop();
 

@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\564ed0032b585ea00a3d15bcc83d7091\Experimental.rule">
+    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt" />
+    <CustomBuild Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\CMakeFiles\69d4fb9f04436e3c15b724c684196d9e\Experimental.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Experimental" />
+    <None Include="C:\Users\msi-cn\Documents\Visual Studio 2017\Projects\Leviathan\3rdparty\assimp\assimp-4.1.0\build\test\CMakeFiles\Experimental" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{96BDFFBA-02A7-387F-8D81-A40CFA5F0A6B}</UniqueIdentifier>
+      <UniqueIdentifier>{03BCBE8D-476B-316D-83A6-6FAAC20BD0D5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

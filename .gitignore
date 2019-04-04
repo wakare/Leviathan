@@ -15,6 +15,7 @@
 *.opendb
 *.dll
 *.exp
+*.txt
 *.stl
 *.iobj
 *.ipdb

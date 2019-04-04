@@ -3,8 +3,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qevent.h"
-#include "GlobalDef.h"
-#include "UserInterface.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -31,7 +29,7 @@ void MainWindow::LoadFile()
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
 	
-	_modelViewerPresenter().GetUserInterface().LoadFile(path.toStdString().c_str());
+	_modelViewerPresenter().LoadFile(path.toStdString().c_str());
 }
 
 void MainWindow::resizeEvent(QResizeEvent * event)
@@ -85,15 +83,10 @@ void MainWindow::_runRenderService()
 	});
 
 	renderThread.detach();
-	return;
 }
 
 void MainWindow::OpenglWidgetResize()
 {
-	if (_modelViewerPresenter().GetAppState() <= Leviathan::EAS_INITING) {
-		return;
-	}
-
 	auto _task = [this]()
 	{
 		HWND handle = (HWND)_modelViewerPresenter().GetWindowHandle();
@@ -110,11 +103,10 @@ void MainWindow::OpenglWidgetResize()
 
 void MainWindow::Update()
 {
-	if (_modelViewerPresenter().GetAppState() <= Leviathan::EAS_INITING) {
-		return;
+	if (_modelViewerPresenter().GetCurrentAppState() >= EAS_RUNNING)
+	{
+		_processTask();
 	}
-
-	_processTask();
 }
 
 

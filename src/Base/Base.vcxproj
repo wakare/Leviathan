@@ -111,7 +111,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\install\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -145,7 +145,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\install\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -171,9 +171,7 @@
     <ClInclude Include="..\..\include\CFileImportFactory.h" />
     <ClInclude Include="..\..\include\LevCoroutine.h" />
     <ClInclude Include="..\..\include\LevCoroutine.hpp" />
-    <ClInclude Include="..\..\include\LevScheduler.hpp" />
     <ClInclude Include="..\..\include\LevTask.h" />
-    <ClInclude Include="..\..\include\LevTask.hpp" />
     <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\Color.h" />
     <ClInclude Include="..\..\include\CSTLFileImporter.h" />
@@ -208,6 +206,8 @@
     <ClInclude Include="..\..\include\RenderWindow.h" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
+    <ClInclude Include="LevScheduler.hpp" />
+    <ClInclude Include="LevTask.hpp" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

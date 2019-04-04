@@ -188,10 +188,10 @@
     <ClInclude Include="..\..\include\LevCoroutine.hpp">
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\LevScheduler.hpp">
+    <ClInclude Include="LevTask.hpp">
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\LevTask.hpp">
+    <ClInclude Include="LevScheduler.hpp">
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
   </ItemGroup>

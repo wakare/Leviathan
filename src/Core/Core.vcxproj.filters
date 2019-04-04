@@ -24,46 +24,10 @@
     <ClInclude Include="DataCenterImpl.h">
       <Filter>Model</Filter>
     </ClInclude>
-    <ClInclude Include="ModelScheduler.h">
-      <Filter>Model</Filter>
-    </ClInclude>
-    <ClInclude Include="PresenterScheduler.h">
-      <Filter>Presenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewScheduler.h">
-      <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="UserInterface.h">
-      <Filter>Presenter</Filter>
-    </ClInclude>
-    <ClInclude Include="ViewData.h">
-      <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>View</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp">
       <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="ModelScheduler.cpp">
-      <Filter>Model</Filter>
-    </ClCompile>
-    <ClCompile Include="PresenterScheduler.cpp">
-      <Filter>Presenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewScheduler.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
-    <ClCompile Include="UserInterface.cpp">
-      <Filter>Presenter</Filter>
-    </ClCompile>
-    <ClCompile Include="ViewData.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>View</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

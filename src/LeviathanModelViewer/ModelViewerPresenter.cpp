@@ -3,17 +3,11 @@
 #include "ModelViewerUserInterface.h"
 #include "RenderService.h"
 #include "GlobalDef.h"
-#include "PresenterScheduler.h"
-#include "UserInterface.h"
 
-ModelViewerPresenter::ModelViewerPresenter()
+ModelViewerPresenter::ModelViewerPresenter() :
+	m_appState(EAS_UNINITED)
 {
 
-}
-
-Leviathan::UserInterface& ModelViewerPresenter::GetUserInterface()
-{
-	return Leviathan::PresenterScheduler::Instance().GetUserInterface();
 }
 
 ModelViewerPresenter::~ModelViewerPresenter()
@@ -26,24 +20,32 @@ ModelViewerPresenter& ModelViewerPresenter::Instance()
 	return Singleton<ModelViewerPresenter>::Instance();
 }
 
+AppState ModelViewerPresenter::GetCurrentAppState()
+{
+	return m_appState;
+}
+
 bool ModelViewerPresenter::Init(int width, int height, int handle /*= NULL*/)
 {
-	Leviathan::PresenterScheduler::Instance().GetUserInterface().Init(width, height, handle);
+	m_appState = EAS_INITING;
+	EXIT_IF_FALSE(RenderService().Init(width, height, handle));
+	m_appState = EAS_INITED;
 
 	return true;
 }
 
 void ModelViewerPresenter::Run()
 {
-	while (true)
-	{
-		GetUserInterface().UpdatePresenter();
-	}
+	if (m_appState != EAS_INITED) return;
+	m_appState = EAS_RUNNING;
+	RenderService().Run();
 }
 
 void ModelViewerPresenter::Stop()
 {
-	GetUserInterface().Stop();
+	m_appState = EAS_STOPPING;
+	RenderService().SyncStop();
+	m_appState = EAS_STOPPED;
 }
 
 bool ModelViewerPresenter::UnInit()
@@ -51,13 +53,35 @@ bool ModelViewerPresenter::UnInit()
 	return true;
 }
 
-int ModelViewerPresenter::GetWindowHandle()
+int ModelViewerPresenter::GetWindowHandle() const
 {
-	return GetUserInterface().GetData().windowHandle;
+	return RenderService().GetWindowHandle();
 }
 
-const Leviathan::AppState& ModelViewerPresenter::GetAppState()
+bool ModelViewerPresenter::LoadFile(const char * filePath)
 {
-	return Leviathan::PresenterScheduler::Instance().GetAppState();
+	auto& scene = ModelViewerPresenter::Instance().RenderService().GetScene();
+	Leviathan::TriDScene* pTriDScene = dynamic_cast<Leviathan::TriDScene*>(scene.Get());
+	EXIT_IF_FALSE(pTriDScene);
+	std::string path = filePath;
+
+	Leviathan::SceneDataRequestFunc func = [this, path, pTriDScene]() 
+	{
+		pTriDScene->AddMesh(path.c_str(), true);
+	};
+
+	pTriDScene->AddRequest(func);
+
+	return true;
+}
+
+Leviathan::RenderService& ModelViewerPresenter::RenderService()
+{
+	return Leviathan::RenderService::Instance();
+}
+
+const Leviathan::RenderService & ModelViewerPresenter::RenderService() const
+{
+	return Leviathan::RenderService::Instance();
 }
 

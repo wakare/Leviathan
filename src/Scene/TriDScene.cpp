@@ -13,6 +13,7 @@ namespace Leviathan
 	TriDScene::TriDScene(GLFWwindow* pRenderWindow, int width, int height):
 		CommonScene(pRenderWindow, width, height)
 	{
+
 	}
 
 	bool TriDScene::AddNode(LPtr<Node<SceneNode>> pNode)

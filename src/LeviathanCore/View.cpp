@@ -37,14 +37,14 @@ namespace Leviathan
 		return true;
 	}
 
-	void View::Update()
+	void View::Run()
 	{
 		if (m_pStateMgr->getViewStateType() != EVS_INITED) {
 			return;
 		}
 
 		m_pStateMgr->SetViewStateType(EVS_RUNNING);
-		m_pData->GetRenderWindow().Update();
+		m_pData->GetRenderWindow().Run();
 	}
 
 	void View::SyncStop()

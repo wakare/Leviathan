@@ -9,9 +9,5 @@ namespace Leviathan
 	public:
 		ModelScheduler();
 		void Update();
-		void SetDone();
-
-	private:
-		bool m_done;
 	};
 }

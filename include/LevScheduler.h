@@ -14,8 +14,7 @@ namespace Leviathan
 	public:
 		void AddTask(LPtr<LevTaskTemplate<T>> task);
 		void AddTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
-		void AddTask(std::function<void(CoPullType<T>&)> func);
-
+		
 	protected:
 		void Tick();
 		LevScheduler();

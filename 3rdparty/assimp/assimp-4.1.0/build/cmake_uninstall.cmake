@@ -1,8 +1,8 @@
-IF(NOT EXISTS "D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt")
-  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt\"")
-ENDIF(NOT EXISTS "D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt")
+IF(NOT EXISTS "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt")
+  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt\"")
+ENDIF(NOT EXISTS "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt")
 
-FILE(READ "D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt" files)
+FILE(READ "C:/Users/msi-cn/Documents/Visual Studio 2017/Projects/Leviathan/3rdparty/assimp/assimp-4.1.0/build/install_manifest.txt" files)
 STRING(REGEX REPLACE "\n" ";" files "${files}")
 FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")

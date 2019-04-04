@@ -11,7 +11,7 @@ namespace Leviathan
 		GLuint uFloatCountPerVertex = 0;
 
 		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_XYZ)  uFloatCountPerVertex += 3;
-		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_RGBA) uFloatCountPerVertex += 4;
+		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_RGBA)  uFloatCountPerVertex += 4;
 		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ) uFloatCountPerVertex += 3;
 		if (m_vertexAttributeMask & VERTEX_ATTRIBUTE_TEX)  uFloatCountPerVertex += 2;
 
@@ -75,6 +75,9 @@ namespace Leviathan
 			glGenBuffers(1, &m_IBO);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
 			glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint) * m_uIndexArrayCount, m_pIndexData, GL_STATIC_DRAW);
+			
+			// Unbind IBO
+			//glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 		}
 
 		// Unbind VBO
@@ -99,15 +102,7 @@ namespace Leviathan
 		EXIT_IF_FALSE(VAO);
 		glBindVertexArray(VAO);
 
-		if (m_bUseIndexArray)
-		{
-			glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0);
-		}
-		else
-		{
-			glDrawArrays(GetPrimType(), 0, GetVertexCount());
-		}
-
+		m_bUseIndexArray ? (glDrawElements(GetPrimType(), m_uIndexArrayCount, GL_UNSIGNED_INT, 0)) : (glDrawArrays(GetPrimType(), 0, GetVertexCount()));
 		glBindVertexArray(0);
 
 		return true;
