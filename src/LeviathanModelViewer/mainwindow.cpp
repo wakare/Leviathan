@@ -112,5 +112,5 @@ void MainWindow::Update()
 
 IController& MainWindow::_controller()
 {
-	return ModelViewerPresenter::Instance();
+	return ModelViewerPresenter2::Instance();
 }

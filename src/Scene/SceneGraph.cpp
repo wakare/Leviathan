@@ -107,7 +107,7 @@ namespace Leviathan
 		for (auto& node : m_pNeedAddNodeVec)
 		{
 			m_pRoot->AddChild(node);
-			EXIT_IF_FALSE(AddDrawableNodeToSceneOcTree(node));
+			//EXIT_IF_FALSE(AddDrawableNodeToSceneOcTree(node));
 			EXIT_IF_FALSE(m_pSceneOcTree->AddDrawableNodeToGLPass(m_pSceneRenderPass, node));
 		}
 

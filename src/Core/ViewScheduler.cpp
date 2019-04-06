@@ -50,7 +50,14 @@ namespace Leviathan
 
 	bool ViewScheduler::LoadFile(const char* file)
 	{
-		TriDScene* pScene = dynamic_cast<TriDScene*>(m_pView->GetScene().Get());
-		return pScene->AddMesh(file, true);
+		std::string path(file);
+
+		AddTask([this, path](CoPullType<int>& sink)
+		{
+			TriDScene* pScene = dynamic_cast<TriDScene*>(m_pView->GetScene().Get());
+			pScene->AddMesh(path.c_str(), true);
+		});
+
+		return true;
 	}
 }

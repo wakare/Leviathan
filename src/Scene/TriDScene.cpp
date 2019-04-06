@@ -42,6 +42,7 @@ namespace Leviathan
 	{
 		// Init light
 		EXIT_IF_FALSE(_initLight());
+		
 		return true;
 	}
 

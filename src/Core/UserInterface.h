@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Singleton.h"
+
 namespace Leviathan
 {
 	class UserInterface
