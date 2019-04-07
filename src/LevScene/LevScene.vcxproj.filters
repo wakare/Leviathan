@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\SceneAttribute">
+      <UniqueIdentifier>{bf884224-721c-4d44-9ced-37686c77edde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneDescription">
+      <UniqueIdentifier>{32fb8931-2bec-4ecf-b75d-c31c7e6f31a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneObject">
+      <UniqueIdentifier>{01de298f-fce6-411a-ba8f-47dc0ab8b47e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneAttribute\LogicAttribute">
+      <UniqueIdentifier>{d4e8c58a-e4db-4276-9ee6-a9b319ef9ee6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SceneAttribute\RenderAttribute">
+      <UniqueIdentifier>{44994366-062c-4bb3-b6a5-8f1325ea757d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LevScene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneData.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneNode.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneTree.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneObjectAttribute.h">
+      <Filter>Source Files\SceneAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneObjectDescription.h">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneObject.h">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LevLight.h">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LevLAttrWorldCoord.h">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrProjTransform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrViewTransform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrWorldTransform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneLogicAttribute.h">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneRenderAttribute.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevMathematicObject.h">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClInclude>
+    <ClInclude Include="LevMeshObject.h">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClInclude>
+    <ClInclude Include="LevPointLight.h">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LevDirectionalLight.h">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

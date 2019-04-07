@@ -18,11 +18,31 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="LevDirectionalLight.h" />
+    <ClInclude Include="LevLAttrWorldCoord.h" />
+    <ClInclude Include="LevLight.h" />
+    <ClInclude Include="LevMathematicObject.h" />
+    <ClInclude Include="LevMeshObject.h" />
+    <ClInclude Include="LevPointLight.h" />
+    <ClInclude Include="LevRAttrProjTransform.h" />
+    <ClInclude Include="LevRAttrViewTransform.h" />
+    <ClInclude Include="LevRAttrWorldTransform.h" />
+    <ClInclude Include="LevScene.h" />
+    <ClInclude Include="LevSceneData.h" />
+    <ClInclude Include="LevSceneLogicAttribute.h" />
+    <ClInclude Include="LevSceneNode.h" />
+    <ClInclude Include="LevSceneObject.h" />
+    <ClInclude Include="LevSceneObjectDescription.h" />
+    <ClInclude Include="LevSceneRenderAttribute.h" />
+    <ClInclude Include="LevSceneTree.h" />
+    <ClInclude Include="LevSceneObjectAttribute.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576}</ProjectGuid>
+    <ProjectGuid>{7B88C124-C6B8-46F6-94EB-81A61A915847}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LevRenderer</RootNamespace>
+    <RootNamespace>LevScene</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,18 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
