@@ -76,5 +76,11 @@ namespace Leviathan
 			m_GLPasses.clear();
 			return true;
 		}
+
+		bool OpenGLRenderer::SetInputData(const Scene::LevSceneData& data)
+		{
+			return true;
+		}
+
 	}
 }

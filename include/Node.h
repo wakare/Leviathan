@@ -29,7 +29,7 @@ namespace Leviathan
 	};
 
 	template<class T>
-	Leviathan::Node<T>::~Node()
+	inline Leviathan::Node<T>::~Node()
 	{
 
 	}

@@ -22,6 +22,8 @@ namespace Leviathan
 			bool DelPass(LPtr<OpenGLPass> GLPass);
 			bool Clear();
 
+			bool SetInputData(const Scene::LevSceneData& data);
+
 		private:
 			GLboolean m_bPreInited;
 			GLFWwindow* m_pWindow;

@@ -1,12 +1,17 @@
 #pragma once
 
+#include "Node.h"
+
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevSceneNode
-		{
+		class LevSceneObject;
 
+		class LevSceneNode : public Node<LevSceneObject>
+		{
+		public:
+			LevSceneNode(LPtr<LevSceneObject> pSceneNodeData);
 		};
 	}
 }
