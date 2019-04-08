@@ -33,6 +33,15 @@
     <ClCompile Include="ViewScheduler.cpp">
       <Filter>View</Filter>
     </ClCompile>
+    <ClCompile Include="ViewData2.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="View2.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRenderWindow.cpp">
+      <Filter>View</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataCenterImpl.h">
@@ -63,6 +72,15 @@
       <Filter>View</Filter>
     </ClInclude>
     <ClInclude Include="ViewScheduler.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewData2.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="View2.h">
+      <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRenderWindow.h">
       <Filter>View</Filter>
     </ClInclude>
   </ItemGroup>

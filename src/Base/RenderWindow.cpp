@@ -20,7 +20,7 @@ namespace Leviathan
 	RenderWindow::RenderWindow(LPtr<EventSystem> pEventSystem, IScene::ESceneType sceneType, int width /*= 800*/, int height /*= 600*/, char* pTitle /*= "RenderWindow"*/) :
 		m_pEventSystem(pEventSystem), 
 		m_pFileImporter(nullptr),
-		m_pScene(nullptr), 
+		m_pScene(nullptr),
 		m_width(width), 
 		m_height(height), 
 		m_pWindowTitle(pTitle),

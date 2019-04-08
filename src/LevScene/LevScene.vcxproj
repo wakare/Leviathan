@@ -30,6 +30,7 @@
     <ClInclude Include="LevRAttrWorldTransform.h" />
     <ClInclude Include="LevScene.h" />
     <ClInclude Include="LevSceneData.h" />
+    <ClInclude Include="LevSceneEventListener.h" />
     <ClInclude Include="LevSceneLogicAttribute.h" />
     <ClInclude Include="LevSceneNode.h" />
     <ClInclude Include="LevSceneObject.h" />
@@ -41,6 +42,7 @@
   <ItemGroup>
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />
+    <ClCompile Include="LevSceneEventListener.cpp" />
     <ClCompile Include="LevSceneNode.cpp" />
     <ClCompile Include="LevSceneObject.cpp" />
     <ClCompile Include="LevSceneTree.cpp" />

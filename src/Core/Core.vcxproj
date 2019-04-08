@@ -20,11 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp" />
+    <ClCompile Include="LevRenderWindow.cpp" />
     <ClCompile Include="ModelScheduler.cpp" />
     <ClCompile Include="PresenterScheduler.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="View.cpp" />
+    <ClCompile Include="View2.cpp" />
     <ClCompile Include="ViewData.cpp" />
+    <ClCompile Include="ViewData2.cpp" />
     <ClCompile Include="ViewScheduler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -32,11 +35,14 @@
     <ClInclude Include="DataStorer.h" />
     <ClInclude Include="DataStorer.hpp" />
     <ClInclude Include="IDataCenter.h" />
+    <ClInclude Include="LevRenderWindow.h" />
     <ClInclude Include="ModelScheduler.h" />
     <ClInclude Include="PresenterScheduler.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="View.h" />
+    <ClInclude Include="View2.h" />
     <ClInclude Include="ViewData.h" />
+    <ClInclude Include="ViewData2.h" />
     <ClInclude Include="ViewScheduler.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -115,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -164,7 +170,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
