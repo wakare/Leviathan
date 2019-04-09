@@ -99,5 +99,17 @@
     <ClCompile Include="LevSceneEventListener.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LevLAttrWorldCoord.cpp">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevMeshObject.cpp">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneObjectDescription.cpp">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClCompile>
+    <ClCompile Include="LevMathematicObject.cpp">
+      <Filter>Source Files\SceneDescription</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

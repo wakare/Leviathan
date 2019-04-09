@@ -9,7 +9,12 @@ namespace Leviathan
 
 		}
 
-		const Leviathan::Scene::LevSceneTree& LevSceneData::GetSceneTree()
+		LevSceneTree & LevSceneData::GetSceneTree()
+		{
+			return *m_pSceneTree;
+		}
+
+		const Leviathan::Scene::LevSceneTree& LevSceneData::GetSceneTree() const
 		{
 			return *m_pSceneTree;
 		}

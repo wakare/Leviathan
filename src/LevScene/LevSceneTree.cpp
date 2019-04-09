@@ -21,7 +21,12 @@ namespace Leviathan
 			return true;
 		}
 
-		const std::vector<Leviathan::LPtr<Leviathan::Scene::LevSceneNode>>& LevSceneTree::GetNodes()
+		std::vector<LPtr<LevSceneNode>>& LevSceneTree::GetNodes()
+		{
+			return m_nodes;
+		}
+
+		const std::vector<Leviathan::LPtr<Leviathan::Scene::LevSceneNode>>& LevSceneTree::GetNodes() const
 		{
 			return m_nodes;
 		}

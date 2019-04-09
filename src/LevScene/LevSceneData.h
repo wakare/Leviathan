@@ -12,7 +12,9 @@ namespace Leviathan
 		{
 		public:
 			LevSceneData();
-			const LevSceneTree& GetSceneTree();
+
+			LevSceneTree& GetSceneTree();
+			const LevSceneTree& GetSceneTree() const;
 
 		private:
 			LPtr<LevSceneTree> m_pSceneTree;

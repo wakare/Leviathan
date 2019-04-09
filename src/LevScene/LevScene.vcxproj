@@ -40,11 +40,15 @@
     <ClInclude Include="LevSceneObjectAttribute.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LevLAttrWorldCoord.cpp" />
+    <ClCompile Include="LevMathematicObject.cpp" />
+    <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />
     <ClCompile Include="LevSceneEventListener.cpp" />
     <ClCompile Include="LevSceneNode.cpp" />
     <ClCompile Include="LevSceneObject.cpp" />
+    <ClCompile Include="LevSceneObjectDescription.cpp" />
     <ClCompile Include="LevSceneTree.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -119,7 +123,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,7 +172,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

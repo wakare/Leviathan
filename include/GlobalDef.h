@@ -45,5 +45,11 @@ namespace Leviathan
 		ELRT_UNKNOWN
 	};
 
+	enum LevSceneObjectDescType
+	{
+		ELSOD_MESH = 1,
+		ELSOD_MATHEMATIC = 2,
+	};
+
 	typedef std::function<void(void)> SceneDataRequestFunc;
 }

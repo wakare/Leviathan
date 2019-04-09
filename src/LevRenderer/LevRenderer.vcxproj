@@ -26,6 +26,7 @@
     <ClInclude Include="OpenGLMaterial.h" />
     <ClInclude Include="OpenGLObject.h" />
     <ClInclude Include="OpenGLPass.h" />
+    <ClInclude Include="OpenGLRenderData.h" />
     <ClInclude Include="OpenGLRenderer.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
     <ClInclude Include="OpenGLTexture.h" />
@@ -38,6 +39,7 @@
     <ClCompile Include="OpenGLMaterial.cpp" />
     <ClCompile Include="OpenGLObject.cpp" />
     <ClCompile Include="OpenGLPass.cpp" />
+    <ClCompile Include="OpenGLRenderData.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
     <ClCompile Include="OpenGLTexture.cpp" />

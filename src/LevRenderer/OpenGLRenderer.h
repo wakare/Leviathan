@@ -17,8 +17,6 @@ namespace Leviathan
 		public:
 			OpenGLRenderer(GLFWwindow* pWindow);
 			
-			bool AddPass(LPtr<OpenGLPass> GLPass);
-			bool DelPass(LPtr<OpenGLPass> GLPass);
 			bool Clear();
 
 			bool SetInputData(const Scene::LevSceneData& data);
@@ -28,7 +26,6 @@ namespace Leviathan
 			void _renderOneFrame();
 
 			GLFWwindow* m_pWindow;
-			std::vector<LPtr<OpenGLPass>> m_GLPasses;
 		};
 	}
 }

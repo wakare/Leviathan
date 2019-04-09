@@ -29,6 +29,7 @@ namespace Leviathan
 		m_pData->GetRenderWindow().Update();
 		m_pData->GetScene().Update();
 		m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
+		m_pData->GetRenderer().Update();
 	}
 
 	void View2::SyncStop()

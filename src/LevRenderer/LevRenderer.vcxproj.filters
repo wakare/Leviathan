@@ -43,6 +43,9 @@
     <ClInclude Include="OpenGLUniform.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLRenderData.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderer.cpp">
@@ -74,6 +77,9 @@
     </ClCompile>
     <ClCompile Include="OpenGL3DObject.cpp">
       <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderData.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

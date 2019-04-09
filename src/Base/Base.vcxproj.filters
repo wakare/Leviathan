@@ -69,7 +69,9 @@
     <ClCompile Include="WindowCallBack.cpp">
       <Filter>Window</Filter>
     </ClCompile>
-    <ClCompile Include="MeshImpl.cpp" />
+    <ClCompile Include="MeshImpl.cpp">
+      <Filter>BaseResource\BaseGraphics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\IMesh.h">
@@ -175,7 +177,6 @@
     <ClInclude Include="..\..\include\IResource.h">
       <Filter>BaseResource</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\LevTask.h">
       <Filter>CommonTool\Scheduler</Filter>
     </ClInclude>
@@ -193,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="LevScheduler.hpp">
       <Filter>CommonTool\Scheduler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\MeshImpl.h">
+      <Filter>BaseResource\BaseGraphics</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
