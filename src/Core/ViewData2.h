@@ -23,6 +23,7 @@ namespace Leviathan
 		EventSystem& GetEventSystem();
 		LevRenderWindow& GetRenderWindow();
 		Scene::LevScene& GetScene();
+		Renderer::IRenderer& GetRenderer();
 
 	private:
 		LPtr<EventSystem> m_pEventSystem;

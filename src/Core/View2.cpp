@@ -3,6 +3,8 @@
 #include "ViewData2.h"
 #include "EventSystem.h"
 #include "LevRenderWindow.h"
+#include "IRenderer.h"
+#include "LevSceneEventListener.h"
 
 namespace Leviathan
 {
@@ -26,6 +28,7 @@ namespace Leviathan
 		m_pData->GetEventSystem().DispatchEvent();
 		m_pData->GetRenderWindow().Update();
 		m_pData->GetScene().Update();
+		m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
 	}
 
 	void View2::SyncStop()

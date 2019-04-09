@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::max' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@PEAM0@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::center' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@PEAM0@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>7</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::min' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@PEAM0@Z</DECORATED>
+    <FUNCLINE>7</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::max' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@XZ</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::center' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@XZ</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>aabb.h</FILENAME>
+      <LINE>12</LINE>
+      <COLUMN>1</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'AABB::min' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>AABB::{ctor}</FUNCTION>
+    <DECORATED>??0AABB@@QEAA@XZ</DECORATED>
+    <FUNCLINE>12</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

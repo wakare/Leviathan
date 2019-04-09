@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+      <FILENAME>win32_init.c</FILENAME>
+      <LINE>417</LINE>
+      <COLUMN>18</COLUMN>
+    </SFA>
+    <DEFECTCODE>6386</DEFECTCODE>
+    <DESCRIPTION>写入到“buffer”时缓冲区溢出: 可写大小为“2048”个字节，但可能写入了“4096”个字节。</DESCRIPTION>
+    <FUNCTION>_glfwInputErrorWin32</FUNCTION>
+    <DECORATED>_glfwInputErrorWin32</DECORATED>
+    <FUNCLINE>412</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+        <FILENAME>win32_init.c</FILENAME>
+        <LINE>414</LINE>
+        <COLUMN>10</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>声明</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“buffer”是一个 1024 元素数组(2048 字节)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+        <FILENAME>win32_init.c</FILENAME>
+        <LINE>415</LINE>
+        <COLUMN>9</COLUMN>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+        <FILENAME>win32_init.c</FILENAME>
+        <LINE>417</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>使用情况</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>写入到“buffer[2047]”无效(可写范围是 0 到 1023)</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

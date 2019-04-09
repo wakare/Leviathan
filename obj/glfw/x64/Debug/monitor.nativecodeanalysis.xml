@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+      <FILENAME>monitor.c</FILENAME>
+      <LINE>95</LINE>
+      <COLUMN>19</COLUMN>
+    </SFA>
+    <DEFECTCODE>6308</DEFECTCODE>
+    <DESCRIPTION>“realloc”可能返回 null 指针: 将 null 指针赋给“_glfw.monitors”(后者将作为参数传递给“realloc”)将导致原始内存块泄漏。</DESCRIPTION>
+    <FUNCTION>_glfwInputMonitor</FUNCTION>
+    <DECORATED>_glfwInputMonitor</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+      <FILENAME>monitor.c</FILENAME>
+      <LINE>101</LINE>
+      <COLUMN>40</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>_glfwInputMonitor</FUNCTION>
+    <DECORATED>_glfwInputMonitor</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+      <FILENAME>monitor.c</FILENAME>
+      <LINE>118</LINE>
+      <COLUMN>44</COLUMN>
+    </SFA>
+    <DEFECTCODE>26451</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2).</DESCRIPTION>
+    <FUNCTION>_glfwInputMonitor</FUNCTION>
+    <DECORATED>_glfwInputMonitor</DECORATED>
+    <FUNCLINE>89</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+      <FILENAME>monitor.c</FILENAME>
+      <LINE>144</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>6011</DEFECTCODE>
+    <DESCRIPTION>取消对 NULL 指针“monitor”的引用。</DESCRIPTION>
+    <FUNCTION>_glfwAllocMonitor</FUNCTION>
+    <DECORATED>_glfwAllocMonitor</DECORATED>
+    <FUNCLINE>141</FUNCLINE>
+    <PROBABILITY>1</PROBABILITY>
+    <RANK>4</RANK>
+    <CATEGORY>
+      <RULECATEGORY>mspft</RULECATEGORY>
+    </CATEGORY>
+    <PATH>
+      <SFA>
+        <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+        <FILENAME>monitor.c</FILENAME>
+        <LINE>143</LINE>
+        <COLUMN>18</COLUMN>
+        <KEYEVENT>
+          <ID>1</ID>
+          <KIND>声明</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>“monitor”可能为 NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+      <SFA>
+        <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\glfw\src</FILEPATH>
+        <FILENAME>monitor.c</FILENAME>
+        <LINE>144</LINE>
+        <COLUMN>21</COLUMN>
+        <KEYEVENT>
+          <ID>2</ID>
+          <KIND>使用情况</KIND>
+          <IMPORTANCE>Essential</IMPORTANCE>
+          <MESSAGE>已取消对“monitor”的引用，但可能仍为 NULL</MESSAGE>
+        </KEYEVENT>
+      </SFA>
+    </PATH>
+  </DEFECT>
+</DEFECTS>

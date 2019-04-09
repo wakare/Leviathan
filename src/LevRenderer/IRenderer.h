@@ -9,6 +9,7 @@ namespace Leviathan
 		{
 		public:
 			virtual bool SetInputData(const Scene::LevSceneData& data) = 0;
+			virtual void Update();
 		};
 	}
 }

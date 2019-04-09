@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\src\core</FILEPATH>
+      <FILENAME>modelscheduler.cpp</FILENAME>
+      <LINE>6</LINE>
+      <COLUMN>17</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Leviathan::ModelScheduler::m_done' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Leviathan::ModelScheduler::{ctor}</FUNCTION>
+    <DECORATED>??0ModelScheduler@Leviathan@@QEAA@XZ</DECORATED>
+    <FUNCLINE>6</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\boost\boost\coroutine2\detail</FILEPATH>
+      <FILENAME>push_coroutine.ipp</FILENAME>
+      <LINE>40</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'boost::coroutines2::detail::push_coroutine&lt;int&gt;::cb_' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>boost::coroutines2::detail::push_coroutine&lt;int&gt;::{ctor}</FUNCTION>
+    <DECORATED>??$?0AEAV?$function@$$A6AXAEAV?$pull_coroutine@H@detail@coroutines2@boost@@@Z@std@@X@?$push_coroutine@H@detail@coroutines2@boost@@QEAA@AEAV?$function@$$A6AXAEAV?$pull_coroutine@H@detail@coroutines2@boost@@@Z@std@@@Z</DECORATED>
+    <FUNCLINE>40</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>lptr.h</FILENAME>
+      <LINE>44</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Leviathan::LPtr&lt;Leviathan::LevTaskTemplate&lt;int&gt; &gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$LPtr@V?$LevTaskTemplate@H@Leviathan@@@Leviathan@@QEAA@$$QEBV01@@Z</DECORATED>
+    <FUNCLINE>44</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

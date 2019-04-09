@@ -16,16 +16,17 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderer(GLFWwindow* pWindow);
-			void PreInit();
-			void Render();
+			
 			bool AddPass(LPtr<OpenGLPass> GLPass);
 			bool DelPass(LPtr<OpenGLPass> GLPass);
 			bool Clear();
 
 			bool SetInputData(const Scene::LevSceneData& data);
+			void Update();
 
 		private:
-			GLboolean m_bPreInited;
+			void _renderOneFrame();
+
 			GLFWwindow* m_pWindow;
 			std::vector<LPtr<OpenGLPass>> m_GLPasses;
 		};

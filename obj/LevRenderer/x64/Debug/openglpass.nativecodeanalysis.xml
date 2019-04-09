@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>lptr.h</FILENAME>
+      <LINE>44</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Leviathan::LPtr&lt;Leviathan::Renderer::OpenGLObject&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$LPtr@VOpenGLObject@Renderer@Leviathan@@@Leviathan@@QEAA@$$QEBV01@@Z</DECORATED>
+    <FUNCLINE>44</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\include</FILEPATH>
+      <FILENAME>lptr.h</FILENAME>
+      <LINE>44</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>26439</DEFECTCODE>
+    <DESCRIPTION>This kind of function may not throw. Declare it 'noexcept' (f.6).</DESCRIPTION>
+    <FUNCTION>Leviathan::LPtr&lt;Leviathan::Renderer::OpenGLLight&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$LPtr@VOpenGLLight@Renderer@Leviathan@@@Leviathan@@QEAA@$$QEBV01@@Z</DECORATED>
+    <FUNCLINE>44</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>

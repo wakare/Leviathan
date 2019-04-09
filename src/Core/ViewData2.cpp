@@ -37,4 +37,9 @@ namespace Leviathan
 		return *m_pScene;
 	}
 
+	Renderer::IRenderer & ViewData2::GetRenderer()
+	{
+		return *m_pRenderer;
+	}
+
 }

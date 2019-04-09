@@ -17,7 +17,9 @@ namespace Leviathan
 			bool Init(LevSceneType sceneType);
 			void Update();
 			void SetViewport(int width, int height);
+			
 			LPtr<LevSceneEventListener> GetEventListener();
+			const LevSceneData& GetSceneData();
 
 		private:
 			LevSceneType m_sceneType;

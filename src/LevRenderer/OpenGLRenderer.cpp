@@ -5,25 +5,14 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderer::OpenGLRenderer(GLFWwindow* pWindow) :m_pWindow(pWindow), m_bPreInited(false)
+		OpenGLRenderer::OpenGLRenderer(GLFWwindow* pWindow) :m_pWindow(pWindow)
 		{
 
 		}
 
-		void OpenGLRenderer::PreInit()
+		void OpenGLRenderer::_renderOneFrame()
 		{
-			m_bPreInited = true;
-		}
-
-		void OpenGLRenderer::Render()
-		{
-			if (!m_bPreInited) PreInit();
-
-			if (!m_pWindow)
-			{
-				LogLine("RenderWrapper::Render() --> Render window is invalid");
-				return;
-			}
+			LEV_ASSERT(m_pWindow);
 
 			// Set Global state
 			glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
@@ -35,12 +24,7 @@ namespace Leviathan
 			// Render subProcess
 			for (auto& pGLPass : m_GLPasses)
 			{
-				if (!pGLPass->Init())
-				{
-					throw "RenderWrapper::Render() --> GLPass Init failed.";
-					return;
-				}
-
+				LEV_ASSERT(pGLPass->Init());
 				pGLPass->Render();
 			}
 
@@ -79,8 +63,13 @@ namespace Leviathan
 
 		bool OpenGLRenderer::SetInputData(const Scene::LevSceneData& data)
 		{
+
 			return true;
 		}
 
+		void OpenGLRenderer::Update()
+		{
+			_renderOneFrame();
+		}
 	}
 }

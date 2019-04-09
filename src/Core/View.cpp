@@ -25,7 +25,7 @@ namespace Leviathan
 
 	bool View::Init(int width, int height, int handle)
 	{
-		EXIT_IF_FALSE(_attachNativeWin32Window(width, height, handle));
+		EXIT_IF_FALSE(_attachNativeWin32Window(width, height, handle)); 
 
 		return true;
 	}

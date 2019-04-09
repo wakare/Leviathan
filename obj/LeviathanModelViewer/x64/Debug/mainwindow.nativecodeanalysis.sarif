@@ -1,0 +1,5923 @@
+{
+  "version": "2.0.0",
+  "$schema": "http://json.schemastore.org/sarif-2.0.0",
+  "runs": [
+    {
+      "results": [
+        {
+          "ruleId": "26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobal.h"
+                },
+                "region": {
+                  "startLine": 539,
+                  "startColumn": 30
+                }
+              },
+              "fullyQualifiedLogicalName": "__int64 __cdecl qRound64(float)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '+' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '+' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobal.h"
+                },
+                "region": {
+                  "startLine": 539,
+                  "startColumn": 70
+                }
+              },
+              "fullyQualifiedLogicalName": "__int64 __cdecl qRound64(float)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobal.h"
+                },
+                "region": {
+                  "startLine": 539,
+                  "startColumn": 49
+                }
+              },
+              "fullyQualifiedLogicalName": "__int64 __cdecl qRound64(float)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26451",
+          "message": {
+            "text": "Arithmetic overflow: Using operator '-' on a 4 byte value and then casting the result to a 8 byte value. Cast the value to the wider type before calling operator '-' to avoid overflow (io.2)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobal.h"
+                },
+                "region": {
+                  "startLine": 539,
+                  "startColumn": 88
+                }
+              },
+              "fullyQualifiedLogicalName": "__int64 __cdecl qRound64(float)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26439",
+          "message": {
+            "text": "This kind of function may not throw. Declare it 'noexcept' (f.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobjectdefs.h"
+                },
+                "region": {
+                  "startLine": 618,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMetaObject::Connection::Connection(class QMetaObject::Connection &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26439",
+          "message": {
+            "text": "This kind of function may not throw. Declare it 'noexcept' (f.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobjectdefs.h"
+                },
+                "region": {
+                  "startLine": 619,
+                  "startColumn": 23
+                }
+              },
+              "fullyQualifiedLogicalName": "public: class QMetaObject::Connection & __cdecl QMetaObject::Connection::operator=(class QMetaObject::Connection &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::ct' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 283,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(void)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::cspec' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 283,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(void)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::ct' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(int,int,int,int)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::cspec' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(int,int,int,int)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::ct' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QLatin1String)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::cspec' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 289,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QLatin1String)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::ct' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 292,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QStringView)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::cspec' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 292,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QStringView)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::ct' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 296,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QString const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QColor::cspec' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h"
+                },
+                "region": {
+                  "startLine": 296,
+                  "startColumn": 15
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QColor::QColor(class QString const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_dy' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m22' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m12' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m21' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m11' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_dx' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_dy' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m22' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m12' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m21' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_m11' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QMatrix::_dx' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h"
+                },
+                "region": {
+                  "startLine": 70,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QMatrix::QMatrix(class QMatrix &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QtSharedPointer::ExternalRefCountData::destroyer' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsharedpointer_impl.h"
+                },
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 8
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QtSharedPointer::ExternalRefCountData::ExternalRefCountData(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QtSharedPointer::ExternalRefCountData::weakref' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsharedpointer_impl.h"
+                },
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 8
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QtSharedPointer::ExternalRefCountData::ExternalRefCountData(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QtSharedPointer::ExternalRefCountData::strongref' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsharedpointer_impl.h"
+                },
+                "region": {
+                  "startLine": 154,
+                  "startColumn": 8
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QtSharedPointer::ExternalRefCountData::ExternalRefCountData(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QPalette::<anonymous-tag>::for_faster_swapping_dont_use' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpalette.h"
+                },
+                "region": {
+                  "startLine": 71,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QPalette::QPalette(class QPalette &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26439",
+          "message": {
+            "text": "This kind of function may not throw. Declare it 'noexcept' (f.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qfontmetrics.h"
+                },
+                "region": {
+                  "startLine": 143,
+                  "startColumn": 26
+                }
+              },
+              "fullyQualifiedLogicalName": "public: class QFontMetricsF & __cdecl QFontMetricsF::operator=(class QFontMetricsF &&)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionFrame::frameShape' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionFrame::QStyleOptionFrame(class QStyleOptionFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionFrame::lineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionFrame::QStyleOptionFrame(class QStyleOptionFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionFrame::midLineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 144,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionFrame::QStyleOptionFrame(class QStyleOptionFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTabWidgetFrame::lineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(class QStyleOptionTabWidgetFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTabWidgetFrame::midLineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(class QStyleOptionTabWidgetFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTabWidgetFrame::shape' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 172,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTabWidgetFrame::QStyleOptionTabWidgetFrame(class QStyleOptionTabWidgetFrame const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTabBarBase::documentMode' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTabBarBase::QStyleOptionTabBarBase(class QStyleOptionTabBarBase const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTabBarBase::shape' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 196,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTabBarBase::QStyleOptionTabBarBase(class QStyleOptionTabBarBase const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionHeader::selectedPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionHeader::QStyleOptionHeader(class QStyleOptionHeader const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionHeader::orientation' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionHeader::QStyleOptionHeader(class QStyleOptionHeader const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionHeader::position' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionHeader::QStyleOptionHeader(class QStyleOptionHeader const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionHeader::sortIndicator' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionHeader::QStyleOptionHeader(class QStyleOptionHeader const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionHeader::section' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 227,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionHeader::QStyleOptionHeader(class QStyleOptionHeader const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTab::row' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTab::QStyleOptionTab(class QStyleOptionTab const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTab::shape' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTab::QStyleOptionTab(class QStyleOptionTab const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTab::position' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTab::QStyleOptionTab(class QStyleOptionTab const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTab::selectedPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTab::QStyleOptionTab(class QStyleOptionTab const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTab::documentMode' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 286,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTab::QStyleOptionTab(class QStyleOptionTab const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBar::toolBarArea' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBar::QStyleOptionToolBar(class QStyleOptionToolBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBar::positionWithinLine' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBar::QStyleOptionToolBar(class QStyleOptionToolBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBar::midLineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBar::QStyleOptionToolBar(class QStyleOptionToolBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBar::lineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBar::QStyleOptionToolBar(class QStyleOptionToolBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBar::positionOfLine' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 316,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBar::QStyleOptionToolBar(class QStyleOptionToolBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::maximum' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::textVisible' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::progress' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::bottomToTop' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::minimum' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::invertedAppearance' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionProgressBar::orientation' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 343,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionProgressBar::QStyleOptionProgressBar(class QStyleOptionProgressBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::menuItemType' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::menuHasCheckableItems' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::tabWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::maxIconWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::checked' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionMenuItem::checkType' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 373,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionMenuItem::QStyleOptionMenuItem(class QStyleOptionMenuItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionDockWidget::movable' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionDockWidget::QStyleOptionDockWidget(class QStyleOptionDockWidget const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionDockWidget::closable' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionDockWidget::QStyleOptionDockWidget(class QStyleOptionDockWidget const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionDockWidget::floatable' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionDockWidget::QStyleOptionDockWidget(class QStyleOptionDockWidget const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionDockWidget::verticalTitleBar' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 392,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionDockWidget::QStyleOptionDockWidget(class QStyleOptionDockWidget const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::viewItemPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::checkState' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::widget' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::textElideMode' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::showDecorationSelected' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionViewItem::decorationPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 443,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionViewItem::QStyleOptionViewItem(class QStyleOptionViewItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBox::selectedPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 473,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBox::QStyleOptionToolBox(class QStyleOptionToolBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolBox::position' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 473,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolBox::QStyleOptionToolBox(class QStyleOptionToolBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionRubberBand::shape' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 492,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionRubberBand::QStyleOptionRubberBand(class QStyleOptionRubberBand const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionRubberBand::opaque' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 492,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionRubberBand::QStyleOptionRubberBand(class QStyleOptionRubberBand const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::dialWrapping' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::pageStep' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::notchTarget' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::sliderValue' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::sliderPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::tickInterval' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::tickPosition' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::minimum' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::upsideDown' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::singleStep' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::maximum' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSlider::orientation' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 534,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSlider::QStyleOptionSlider(class QStyleOptionSlider const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSpinBox::frame' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 553,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSpinBox::QStyleOptionSpinBox(class QStyleOptionSpinBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSpinBox::buttonSymbols' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 553,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSpinBox::QStyleOptionSpinBox(class QStyleOptionSpinBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolButton::toolButtonStyle' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 580,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolButton::QStyleOptionToolButton(class QStyleOptionToolButton const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionToolButton::arrowType' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 580,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionToolButton::QStyleOptionToolButton(class QStyleOptionToolButton const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionComboBox::editable' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 602,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionComboBox::QStyleOptionComboBox(class QStyleOptionComboBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionComboBox::frame' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 602,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionComboBox::QStyleOptionComboBox(class QStyleOptionComboBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionTitleBar::titleBarState' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 620,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionTitleBar::QStyleOptionTitleBar(class QStyleOptionTitleBar const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionGroupBox::midLineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 640,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionGroupBox::QStyleOptionGroupBox(class QStyleOptionGroupBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionGroupBox::lineWidth' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 640,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionGroupBox::QStyleOptionGroupBox(class QStyleOptionGroupBox const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionSizeGrip::corner' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 654,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionSizeGrip::QStyleOptionSizeGrip(class QStyleOptionSizeGrip const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStyleOptionGraphicsItem::levelOfDetail' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h"
+                },
+                "region": {
+                  "startLine": 670,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStyleOptionGraphicsItem::QStyleOptionGraphicsItem(class QStyleOptionGraphicsItem const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QVector2D::yp' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qvector2d.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QVector2D::QVector2D(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QVector2D::xp' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qvector2d.h"
+                },
+                "region": {
+                  "startLine": 60,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QVector2D::QVector2D(enum Qt::Initialization)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26444",
+          "message": {
+            "text": "Avoid unnamed objects with custom construction and destruction (es.84)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/mainwindow.cpp"
+                },
+                "region": {
+                  "startLine": 15,
+                  "startColumn": 1
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl MainWindow::MainWindow(class QWidget *)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26444",
+          "message": {
+            "text": "Avoid unnamed objects with custom construction and destruction (es.84)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/mainwindow.cpp"
+                },
+                "region": {
+                  "startLine": 14,
+                  "startColumn": 1
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl MainWindow::MainWindow(class QWidget *)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26444",
+          "message": {
+            "text": "Avoid unnamed objects with custom construction and destruction (es.84)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/mainwindow.cpp"
+                },
+                "region": {
+                  "startLine": 18,
+                  "startColumn": 1
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl MainWindow::MainWindow(class QWidget *)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QPair<QVariant,QVariant> >' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static struct QPair<class QVariant,class QVariant> __cdecl QtPrivate::QVariantValueHelper<struct QPair<class QVariant,class QVariant> >::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QMap<QString,QVariant> >' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QMap<class QString,class QVariant> __cdecl QtPrivate::QVariantValueHelper<class QMap<class QString,class QVariant> >::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QHash<QString,QVariant> >' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QHash<class QString,class QVariant> __cdecl QtPrivate::QVariantValueHelper<class QHash<class QString,class QVariant> >::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QList<QVariant> >' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QList<class QVariant> __cdecl QtPrivate::QVariantValueHelper<class QList<class QVariant> >::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStringView::m_size' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringview.h"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStringView::QStringView<class QString,1>(class QString const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStringView::m_data' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringview.h"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStringView::QStringView<class QString,1>(class QString const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStringView::m_size' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringview.h"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStringView::QStringView<class QStringRef,1>(class QStringRef const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26495",
+          "message": {
+            "text": "Variable 'QStringView::m_data' is uninitialized. Always initialize a member variable (type.6)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringview.h"
+                },
+                "region": {
+                  "startLine": 206,
+                  "startColumn": 4
+                }
+              },
+              "fullyQualifiedLogicalName": "public: __cdecl QStringView::QStringView<class QStringRef,1>(class QStringRef const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QtMetaTypePrivate::QPairVariantInterfaceImpl>' is constexpr, mark variable 'toId' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qmetatype.h"
+                },
+                "region": {
+                  "startLine": 2243,
+                  "startColumn": 14
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static bool __cdecl QtPrivate::IsMetaTypePair<struct QPair<class QVariant,class QVariant>,1>::registerConverter(int)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QtMetaTypePrivate::QSequentialIterableImpl>' is constexpr, mark variable 'toId' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qmetatype.h"
+                },
+                "region": {
+                  "startLine": 2260,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static bool __cdecl QtPrivate::ValueTypeIsMetaType<class QList<class QModelIndex>,1>::registerConverter(int)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QtMetaTypePrivate::QPairVariantInterfaceImpl>' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QtMetaTypePrivate::QPairVariantInterfaceImpl __cdecl QtPrivate::QVariantValueHelper<class QtMetaTypePrivate::QPairVariantInterfaceImpl>::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QtMetaTypePrivate::QAssociativeIterableImpl>' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QtMetaTypePrivate::QAssociativeIterableImpl __cdecl QtPrivate::QVariantValueHelper<class QtMetaTypePrivate::QAssociativeIterableImpl>::metaType(class QVariant const &)"
+            }
+          ]
+        },
+        {
+          "ruleId": "26498",
+          "message": {
+            "text": "The function 'qMetaTypeId<QtMetaTypePrivate::QSequentialIterableImpl>' is constexpr, mark variable 'vid' constexpr if compile-time evaluation is desired (con.5)."
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "fileLocation": {
+                  "uri": "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h"
+                },
+                "region": {
+                  "startLine": 696,
+                  "startColumn": 22
+                }
+              },
+              "fullyQualifiedLogicalName": "public: static class QtMetaTypePrivate::QSequentialIterableImpl __cdecl QtPrivate::QVariantValueHelper<class QtMetaTypePrivate::QSequentialIterableImpl>::metaType(class QVariant const &)"
+            }
+          ]
+        }
+      ],
+      "tool": {
+        "name": "PREfast",
+        "fullName": "PREfast Code Analysis",
+        "version": "14.16.27026.1",
+        "fileVersion": "14.00.27026.01"
+      },
+      "invocations": [
+        {
+          "commandLine": "\"C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.16.27023\\bin\\HostX86\\x64\\c1xx.dll\" -ACf{1F7B090C-16DB-4822-966A-A93D26ED4681} -ACpmspft140.dll -Alint -D_PREFAST_ -D_AST_FE_ -Analyze -zm0x00E12080 -il C:\\Users\\wangjie\\AppData\\Local\\Temp\\_CL_2eddff12ast -typedil -f mainwindow.cpp -Ze -D_MSC_EXTENSIONS -Zp16 -ZB64 -D_INTEGRAL_MAX_BITS=64 -pc \\:/ -D_MSC_VER=1916 -D_MSC_FULL_VER=191627026 -D_MSC_BUILD=1 -D_M_AMD64=100 -ZILP448 -D_M_X64=100 -D_WIN64 -D_WIN32 -GR -D_CPPRTTI -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\Core\\ -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer\\GeneratedFiles -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer\\GeneratedFiles\\Debug -I C:\\Users\\wangjie\\Documents\\Leviathan\\include -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\base -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer\\GeneratedFiles -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include -I C:\\Users\\wangjie\\Documents\\Leviathan\\src\\LeviathanModelViewer\\GeneratedFiles\\Debug -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include\\QtCore -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include\\QtGui -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include\\QtANGLE -I C:\\Qt\\Qt5.10.0\\5.10.0\\msvc2017_64\\include\\QtWidgets -nologo -W 1 -diagnostics:column- -diagnostics:caret- -Ot -DCODE_ANALYSIS -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -EHs -D_CPPUNWIND -EHc -D_DEBUG -D_MT -D_DLL -GS -D_M_FP_PRECISE -Zc:wchar_t -Zc:forScope -FoC:\\Users\\wangjie\\Documents\\Leviathan\\\\obj\\LeviathanModelViewer\\x64\\Debug\\mainwindow.obj -FdC:\\Users\\wangjie\\Documents\\Leviathan\\\\obj\\LeviathanModelViewer\\x64\\Debug\\vc141.pdb -Gd -analyze:quiet -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.16.27023\\bin\\HostX86\\x86\\EspXEngine.dll -analyze:plugin C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.16.27023\\bin\\HostX86\\x86\\localespc.dll -FC -errorreport:prompt -analyze:ruleset C:\\Program Files (x86)\\Microsoft Visual Studio\\2019\\Enterprise\\Team Tools\\Static Analysis Tools\\Rule Sets\\NativeRecommendedRules.ruleset -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.16.27023\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Tools\\MSVC\\14.16.27023\\atlmfc\\include -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Auxiliary\\VS\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\ucrt -I C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Enterprise\\VC\\Auxiliary\\VS\\UnitTest\\include -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\um -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\shared -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\winrt -I C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.17763.0\\cppwinrt -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\Include\\um -I C:\\Program Files (x86)\\Windows Kits\\NETFXSDK\\4.6.1\\Include\\um -MPdiagMutex 00000000000001BC"
+        }
+      ],
+      "files": {
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qscopedpointer.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/mainwindow.cpp": {
+          "roles": [
+            "analysisTarget",
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qgenericatomic.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qtguiglobal.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qdialog.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qalgorithms.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtwidgetsglobal.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qcompilerdetection.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qfiledialog": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qhash.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobject_impl.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qcontainerfwd.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qconfig.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsystemdetection.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qpair.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qfiledialog.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobalstatic.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qglobal.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qtcore-config.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qbytearraylist.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qarraydata.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qsizepolicy.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qprocessordetection.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qiodevice.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringliteral.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qopenglext.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qtypeinfo.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsysinfo.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qtimer.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qlogging.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qdir.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qflags.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qatomic.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpixmap.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qbasicatomic.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringalgorithms.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qatomic_cxx11.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qnumeric.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qversiontagging.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qtgui-config.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtwidgets-config.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qmetatype.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstring.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qchar.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qbytearray.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qrefcount.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qurl.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qnamespace.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringview.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qfileinfo.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qlocale.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qfile.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qfiledevice.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qmargins.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobject.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qshareddata.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobjectdefs.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qobjectdefs_impl.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qlist.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qiterator.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qhashfunctions.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringlist.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qregexp.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qstringmatcher.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qrect.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qwindowdefs.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvarlengtharray.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qwidget.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qwindowdefs_win.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpaintdevice.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qabstractitemmodel.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsize.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qrubberband.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtoolbar.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qpoint.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpalette.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcolor.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qrgb.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qrgba64.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qtransform.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qbrush.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmenubar.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvector.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qmatrix.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpolygon.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qregion.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qgridlayout": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qdatastream.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qline.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/iscene.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpainterpath.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qimage.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qpixelformat.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsharedpointer.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qsharedpointer_impl.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qfont.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/lptr.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qfontmetrics.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qfontinfo.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qcursor.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qkeysequence.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qgridlayout.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qlayout.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qsurfaceformat.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qlayoutitem.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qboxlayout.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/mainwindow.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmainwindow": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qbasictimer.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmainwindow.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtabwidget.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmenu.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qicon.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qtimer": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/basestruct.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/modelviewerpresenter.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/singleton.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/renderservice.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/globaldef.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/modelvieweruserinterface.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qapplication": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/tridscene.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qt_windows.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qevent.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/include/commonscene.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/users/wangjie/documents/leviathan/src/leviathanmodelviewer/generatedfiles/ui_mainwindow.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qvariant.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qmap.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qaction": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qaction.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qactiongroup.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qapplication.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qcoreapplication.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qcoreevent.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qvector2d.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qeventloop.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qguiapplication.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qinputmethod.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qbuttongroup": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qbuttongroup.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qheaderview": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qheaderview.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qabstractitemview.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qabstractscrollarea.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qframe.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qitemselectionmodel.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qset.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qabstractitemdelegate.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyleoption.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qabstractspinbox.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qvalidator.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtcore/qregularexpression.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qslider.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qabstractslider.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstyle.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtabbar.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmenu": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qmenubar": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qopenglwidget": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qopenglwidget.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qwidget": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qsurfaceformat": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qopengl.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstatusbar": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qstatusbar.h": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtwidgets/qtoolbar": {
+          "roles": [
+            "resultFile"
+          ]
+        },
+        "file:///c:/qt/qt5.10.0/5.10.0/msvc2017_64/include/qtgui/qtouchdevice.h": {
+          "roles": [
+            "resultFile"
+          ]
+        }
+      },
+      "logicalLocations": {},
+      "resources": {
+        "rules": {
+          "28216": {
+            "id": "28216",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6054": {
+            "id": "6054",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28243": {
+            "id": "28243",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6001": {
+            "id": "6001",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28253": {
+            "id": "28253",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6011": {
+            "id": "6011",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6029": {
+            "id": "6029",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6288": {
+            "id": "6288",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28262": {
+            "id": "28262",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6705": {
+            "id": "6705",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6064": {
+            "id": "6064",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6280": {
+            "id": "6280",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6277": {
+            "id": "6277",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6031": {
+            "id": "6031",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28211": {
+            "id": "28211",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6314": {
+            "id": "6314",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6053": {
+            "id": "6053",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6059": {
+            "id": "6059",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6278": {
+            "id": "6278",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6702": {
+            "id": "6702",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6306": {
+            "id": "6306",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6063": {
+            "id": "6063",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6066": {
+            "id": "6066",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6303": {
+            "id": "6303",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6101": {
+            "id": "6101",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6220": {
+            "id": "6220",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6706": {
+            "id": "6706",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6067": {
+            "id": "6067",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6302": {
+            "id": "6302",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26437": {
+            "id": "26437",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6200": {
+            "id": "6200",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26449": {
+            "id": "26449",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6201": {
+            "id": "6201",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6214": {
+            "id": "6214",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6215": {
+            "id": "6215",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6248": {
+            "id": "6248",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6216": {
+            "id": "6216",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6217": {
+            "id": "6217",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28020": {
+            "id": "28020",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6226": {
+            "id": "6226",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6230": {
+            "id": "6230",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6235": {
+            "id": "6235",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6268": {
+            "id": "6268",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28308": {
+            "id": "28308",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6236": {
+            "id": "6236",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28309": {
+            "id": "28309",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6237": {
+            "id": "6237",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6297": {
+            "id": "6297",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6242": {
+            "id": "6242",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6250": {
+            "id": "6250",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28350": {
+            "id": "28350",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6255": {
+            "id": "6255",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6258": {
+            "id": "6258",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6259": {
+            "id": "6259",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28303": {
+            "id": "28303",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6260": {
+            "id": "6260",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28301": {
+            "id": "28301",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28039": {
+            "id": "28039",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6262": {
+            "id": "6262",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28300": {
+            "id": "28300",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6263": {
+            "id": "6263",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6269": {
+            "id": "6269",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6508": {
+            "id": "6508",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6287": {
+            "id": "6287",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6270": {
+            "id": "6270",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6509": {
+            "id": "6509",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6286": {
+            "id": "6286",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6271": {
+            "id": "6271",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6285": {
+            "id": "6285",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6272": {
+            "id": "6272",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6284": {
+            "id": "6284",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6273": {
+            "id": "6273",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6283": {
+            "id": "6283",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6274": {
+            "id": "6274",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6281": {
+            "id": "6281",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6276": {
+            "id": "6276",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6279": {
+            "id": "6279",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6282": {
+            "id": "6282",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6506": {
+            "id": "6506",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6289": {
+            "id": "6289",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6290": {
+            "id": "6290",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6291": {
+            "id": "6291",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6292": {
+            "id": "6292",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6293": {
+            "id": "6293",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6294": {
+            "id": "6294",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6295": {
+            "id": "6295",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6296": {
+            "id": "6296",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6299": {
+            "id": "6299",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6701": {
+            "id": "6701",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6305": {
+            "id": "6305",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6308": {
+            "id": "6308",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28215": {
+            "id": "28215",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6310": {
+            "id": "6310",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28217": {
+            "id": "28217",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6312": {
+            "id": "6312",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28212": {
+            "id": "28212",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6317": {
+            "id": "6317",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6318": {
+            "id": "6318",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6319": {
+            "id": "6319",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28203": {
+            "id": "28203",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6324": {
+            "id": "6324",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28252": {
+            "id": "28252",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6328": {
+            "id": "6328",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28234": {
+            "id": "28234",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28137": {
+            "id": "28137",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6331": {
+            "id": "6331",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28237": {
+            "id": "28237",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6332": {
+            "id": "6332",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28236": {
+            "id": "28236",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6333": {
+            "id": "6333",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28230": {
+            "id": "28230",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6335": {
+            "id": "6335",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6381": {
+            "id": "6381",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6383": {
+            "id": "6383",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6384": {
+            "id": "6384",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6385": {
+            "id": "6385",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6386": {
+            "id": "6386",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6387": {
+            "id": "6387",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6388": {
+            "id": "6388",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6500": {
+            "id": "6500",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6501": {
+            "id": "6501",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6503": {
+            "id": "6503",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6504": {
+            "id": "6504",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6505": {
+            "id": "6505",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6510": {
+            "id": "6510",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6511": {
+            "id": "6511",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6513": {
+            "id": "6513",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6514": {
+            "id": "6514",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6515": {
+            "id": "6515",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6516": {
+            "id": "6516",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6517": {
+            "id": "6517",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6518": {
+            "id": "6518",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6522": {
+            "id": "6522",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6525": {
+            "id": "6525",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6527": {
+            "id": "6527",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6530": {
+            "id": "6530",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6540": {
+            "id": "6540",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6551": {
+            "id": "6551",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6552": {
+            "id": "6552",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6703": {
+            "id": "6703",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28263": {
+            "id": "28263",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6704": {
+            "id": "6704",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26441": {
+            "id": "26441",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6993": {
+            "id": "6993",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6995": {
+            "id": "6995",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "6997": {
+            "id": "6997",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26100": {
+            "id": "26100",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26101": {
+            "id": "26101",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26110": {
+            "id": "26110",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26111": {
+            "id": "26111",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26112": {
+            "id": "26112",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26115": {
+            "id": "26115",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26116": {
+            "id": "26116",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26117": {
+            "id": "26117",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26140": {
+            "id": "26140",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26439": {
+            "id": "26439",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26444": {
+            "id": "26444",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26450": {
+            "id": "26450",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26451": {
+            "id": "26451",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26452": {
+            "id": "26452",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26453": {
+            "id": "26453",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26454": {
+            "id": "26454",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26495": {
+            "id": "26495",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28289": {
+            "id": "28289",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "26498": {
+            "id": "26498",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28021": {
+            "id": "28021",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28022": {
+            "id": "28022",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28023": {
+            "id": "28023",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28024": {
+            "id": "28024",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28112": {
+            "id": "28112",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28113": {
+            "id": "28113",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28125": {
+            "id": "28125",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28138": {
+            "id": "28138",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28159": {
+            "id": "28159",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28241": {
+            "id": "28241",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28160": {
+            "id": "28160",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28163": {
+            "id": "28163",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28245": {
+            "id": "28245",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28164": {
+            "id": "28164",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28182": {
+            "id": "28182",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28183": {
+            "id": "28183",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28193": {
+            "id": "28193",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28196": {
+            "id": "28196",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28202": {
+            "id": "28202",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28205": {
+            "id": "28205",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28206": {
+            "id": "28206",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28207": {
+            "id": "28207",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28254": {
+            "id": "28254",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28209": {
+            "id": "28209",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28210": {
+            "id": "28210",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28213": {
+            "id": "28213",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28214": {
+            "id": "28214",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28218": {
+            "id": "28218",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28219": {
+            "id": "28219",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28220": {
+            "id": "28220",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28221": {
+            "id": "28221",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28222": {
+            "id": "28222",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28223": {
+            "id": "28223",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28279": {
+            "id": "28279",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28224": {
+            "id": "28224",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28225": {
+            "id": "28225",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28226": {
+            "id": "28226",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28227": {
+            "id": "28227",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28275": {
+            "id": "28275",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28228": {
+            "id": "28228",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28229": {
+            "id": "28229",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28231": {
+            "id": "28231",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28232": {
+            "id": "28232",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28233": {
+            "id": "28233",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28235": {
+            "id": "28235",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28238": {
+            "id": "28238",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28239": {
+            "id": "28239",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28240": {
+            "id": "28240",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28244": {
+            "id": "28244",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28246": {
+            "id": "28246",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28250": {
+            "id": "28250",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28251": {
+            "id": "28251",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28267": {
+            "id": "28267",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28272": {
+            "id": "28272",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28273": {
+            "id": "28273",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28280": {
+            "id": "28280",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28282": {
+            "id": "28282",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28285": {
+            "id": "28285",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28286": {
+            "id": "28286",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28287": {
+            "id": "28287",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28288": {
+            "id": "28288",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28290": {
+            "id": "28290",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28291": {
+            "id": "28291",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28302": {
+            "id": "28302",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28304": {
+            "id": "28304",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28305": {
+            "id": "28305",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28306": {
+            "id": "28306",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28307": {
+            "id": "28307",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          },
+          "28351": {
+            "id": "28351",
+            "name": "",
+            "shortDescription": "",
+            "fullDescription": "",
+            "configuration": {
+              "enabled": true,
+              "defaultLevel": "warning"
+            },
+            "helpUri": ""
+          }
+        }
+      }
+    }
+  ]
+}

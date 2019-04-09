@@ -33,9 +33,16 @@ namespace Leviathan
 		void LevScene::SetViewport(int width, int height)
 		{
 		}
+
 		LPtr<LevSceneEventListener> LevScene::GetEventListener()
 		{
 			return m_pEventListener;
 		}
+
+		const Leviathan::Scene::LevSceneData& LevScene::GetSceneData()
+		{
+			return *m_pSceneData;
+		}
+
 	}
 }

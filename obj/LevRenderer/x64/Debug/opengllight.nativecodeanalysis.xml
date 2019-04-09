@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\eigen\eigen\src\core\arch\sse</FILEPATH>
+      <FILENAME>complex.h</FILENAME>
+      <LINE>20</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Eigen::internal::Packet2cf::v' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Eigen::internal::Packet2cf::{ctor}</FUNCTION>
+    <DECORATED>??0Packet2cf@internal@Eigen@@QEAA@XZ</DECORATED>
+    <FUNCLINE>20</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\eigen\eigen\src\core\arch\sse</FILEPATH>
+      <FILENAME>complex.h</FILENAME>
+      <LINE>251</LINE>
+      <COLUMN>2</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Eigen::internal::Packet1cd::v' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Eigen::internal::Packet1cd::{ctor}</FUNCTION>
+    <DECORATED>??0Packet1cd@internal@Eigen@@QEAA@XZ</DECORATED>
+    <FUNCLINE>251</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\eigen\eigen\src\core\arch\cuda</FILEPATH>
+      <FILENAME>half.h</FILENAME>
+      <LINE>387</LINE>
+      <COLUMN>39</COLUMN>
+    </SFA>
+    <DEFECTCODE>26450</DEFECTCODE>
+    <DESCRIPTION>Arithmetic overflow: '&lt;&lt;' operation causes overflow at compile time. Use a wider type to store the operands (io.1).</DESCRIPTION>
+    <FUNCTION>Eigen::half_impl::float_to_half_rtne</FUNCTION>
+    <DECORATED>?float_to_half_rtne@half_impl@Eigen@@YA?AU__half_raw@12@M@Z</DECORATED>
+    <FUNCLINE>344</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>c:\users\wangjie\documents\leviathan\3rdparty\eigen\eigen\src\core</FILEPATH>
+      <FILENAME>matrix.h</FILENAME>
+      <LINE>368</LINE>
+      <COLUMN>4</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'Eigen::PlainObjectBase&lt;Eigen::Matrix&lt;float,3,1,0,3,1&gt; &gt;::m_storage' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>Eigen::Matrix&lt;float,3,1,0,3,1&gt;::{ctor}</FUNCTION>
+    <DECORATED>??0?$Matrix@M$02$00$0A@$02$00@Eigen@@QEAA@AEBV01@@Z</DECORATED>
+    <FUNCLINE>368</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
