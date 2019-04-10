@@ -236,6 +236,7 @@ namespace Leviathan
 			LPtr<OpenGLShaderProgram> pShaderProgram = new OpenGLShaderProgram(&_czpVertexShader, &_czpFragmentShader, nullptr);
 			LPtr<OpenGLPass> pass = new OpenGL3DPass(pShaderProgram, pCamera);
 			LEV_ASSERT(pass->Init());
+			pass->SetLightEnable(false);
 			m_passes.push_back(pass);
 		}
 
