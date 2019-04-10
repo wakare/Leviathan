@@ -1,6 +1,6 @@
 #include "LevMeshObject.h"
 #include "GlobalDef.h"
-#include "IFileImportFactory.h"
+#include "CFileImportFactory.h"
 
 namespace Leviathan
 {
@@ -14,7 +14,7 @@ namespace Leviathan
 
 		bool LevMeshObject::LoadMeshFile(const char* meshFile)
 		{
-			m_mesh = IFileImportFactory::GetFileImportFactory()->LoadFile(meshFile);
+			m_mesh = CFileImportFactory::GetFileImportFactory()->LoadFile(meshFile);
 			return m_mesh.size() > 0;
 		}
 

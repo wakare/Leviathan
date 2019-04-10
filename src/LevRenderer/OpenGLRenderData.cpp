@@ -43,24 +43,31 @@ namespace Leviathan
 
 			auto& sceneObjects = sceneTree.GetNodes();
 
-			//Find camera
-			for (const auto& sceneObject : sceneObjects)
-			{
-				const auto& objData = *sceneObject->GetNodeData();
-				if ((objData.GetType() | Scene::LSOT_CAMERA) > 0)
-				{
-					auto pCamera = dynamic_cast<const Scene::LevCamera*>(&objData);
-					_createDefaultPass(pCamera);
-					break;
-				}
-			}
+			static bool bFirst = true;
 
+			if (bFirst)
+			{
+				//Find camera
+				for (const auto& sceneObject : sceneObjects)
+				{
+					const auto& objData = *sceneObject->GetNodeData();
+					if ((objData.GetType() | Scene::LSOT_CAMERA) > 0)
+					{
+						auto pCamera = dynamic_cast<const Scene::LevCamera*>(&objData);
+						_createDefaultPass(pCamera);
+						break;
+					}
+				}
+
+				bFirst = false;
+			}
+			
 			LEV_ASSERT(m_passes.size() > 0);
 
 			for (const auto& sceneObject : sceneObjects)
 			{
 				const auto& objData = *sceneObject->GetNodeData();
-				if ((objData.GetType() | Scene::LSOT_UNRENDERABLE) > 0)
+				if ((objData.GetType() & Scene::LSOT_UNRENDERABLE) > 0)
 				{
 					continue;
 				}

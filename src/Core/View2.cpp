@@ -29,7 +29,13 @@ namespace Leviathan
 		m_pData->GetEventSystem().DispatchEvent();
 		m_pData->GetRenderWindow().Update();
 		m_pData->GetScene().Update();
-		m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
+
+		if (m_pData->GetScene().HasModified())
+		{
+			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
+			m_pData->GetScene().ResetModified();
+		}
+		
 		m_pData->GetRenderer().Update();
 	}
 

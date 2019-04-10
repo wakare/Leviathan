@@ -34,6 +34,11 @@ namespace Leviathan
 		{
 		}
 
+		bool LevScene::HasModified() const
+		{
+			return m_pSceneData->HasModified();
+		}
+
 		LPtr<LevSceneEventListener> LevScene::GetEventListener()
 		{
 			LEV_ASSERT(m_pEventListener);
@@ -44,6 +49,11 @@ namespace Leviathan
 		{
 			LEV_ASSERT(m_pSceneData);
 			return *m_pSceneData;
+		}
+
+		void LevScene::ResetModified()
+		{
+			m_pSceneData->ResetModified();
 		}
 
 	}

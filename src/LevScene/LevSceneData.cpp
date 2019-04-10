@@ -2,6 +2,7 @@
 #include "LevSceneTree.h"
 #include "LevSceneNode.h"
 #include "LevCamera.h"
+#include "LevMeshObject.h"
 
 namespace Leviathan
 {
@@ -9,6 +10,7 @@ namespace Leviathan
 	{
 		LevSceneData::LevSceneData()
 			:m_pSceneTree(new LevSceneTree)
+			,m_modified(true)
 		{
 			// FOR DEBUG
 			LPtr<LevCamera> pCamera = new LevCamera;
@@ -18,6 +20,13 @@ namespace Leviathan
 			LEV_ASSERT(pCamera->Set(eye, look, up, 90.0f, 1.0f, 0.01f, 1000.0f));
 			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
 			m_pSceneTree->AddNode(pNode);
+
+			LPtr<LevSceneObject> pSceneObject = new LevSceneObject(LSOT_DYNAMIC);
+			LPtr<LevMeshObject> pMeshObj = new LevMeshObject();
+			LEV_ASSERT(pMeshObj->LoadMeshFile("C:\\Users\\wangjie\\Documents\\Leviathan\\bin\\x64\\Debug\\Models\\SoccerBall.STL"));
+			pSceneObject->SetObjectDesc(TryCast<LevMeshObject, LevSceneObjectDescription>(pMeshObj));
+			LPtr<LevSceneNode> pMeshNode = new LevSceneNode(pSceneObject);
+			m_pSceneTree->AddNode(pMeshNode);
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -28,6 +37,16 @@ namespace Leviathan
 		const Leviathan::Scene::LevSceneTree& LevSceneData::GetSceneTree() const
 		{
 			return *m_pSceneTree;
+		}
+
+		bool LevSceneData::HasModified() const
+		{
+			return m_modified;
+		}
+
+		void LevSceneData::ResetModified()
+		{
+			m_modified = false;
 		}
 
 	}

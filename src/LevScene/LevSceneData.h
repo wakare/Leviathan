@@ -16,7 +16,11 @@ namespace Leviathan
 			LevSceneTree& GetSceneTree();
 			const LevSceneTree& GetSceneTree() const;
 
+			bool HasModified() const;
+			void ResetModified();
+
 		private:
+			bool m_modified;
 			LPtr<LevSceneTree> m_pSceneTree;
 		};
 	}
