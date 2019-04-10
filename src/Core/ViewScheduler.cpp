@@ -37,7 +37,7 @@ namespace Leviathan
 
 	bool ViewScheduler::Init(int width, int height, int parentHandle)
 	{
-		m_pView.reset(new View());
+		m_pView.reset(new View2());
 		EXIT_IF_FALSE(m_pView->Init(width, height, parentHandle));
 
 		return true;
@@ -52,11 +52,11 @@ namespace Leviathan
 	{
 		std::string path(file);
 
-		AddTask([this, path](CoPullType<int>& sink)
-		{
-			TriDScene* pScene = dynamic_cast<TriDScene*>(m_pView->GetScene().Get());
-			pScene->AddMesh(path.c_str(), true);
-		});
+// 		AddTask([this, path](CoPullType<int>& sink)
+// 		{
+// 			TriDScene* pScene = dynamic_cast<TriDScene*>(m_pView->GetScene().Get());
+// 			pScene->AddMesh(path.c_str(), true);
+// 		});
 
 		return true;
 	}

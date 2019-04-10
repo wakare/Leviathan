@@ -79,6 +79,9 @@
     <ClInclude Include="LevSceneEventListener.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevCamera.h">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -110,6 +113,9 @@
     </ClCompile>
     <ClCompile Include="LevMathematicObject.cpp">
       <Filter>Source Files\SceneDescription</Filter>
+    </ClCompile>
+    <ClCompile Include="LevCamera.cpp">
+      <Filter>Source Files\SceneObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

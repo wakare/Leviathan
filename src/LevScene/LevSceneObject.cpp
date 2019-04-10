@@ -6,10 +6,14 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		LevSceneObject::LevSceneObject(LevSceneObjectType type) :
-			m_type(type)
+		LevSceneObject::LevSceneObject(int type) :
+			m_type((LevSceneObjectType)type)
 		{
 
+		}
+
+		LevSceneObject::~LevSceneObject()
+		{
 		}
 
 		LevSceneObjectType LevSceneObject::GetType() const

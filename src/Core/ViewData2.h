@@ -24,8 +24,10 @@ namespace Leviathan
 		LevRenderWindow& GetRenderWindow();
 		Scene::LevScene& GetScene();
 		Renderer::IRenderer& GetRenderer();
+		bool InitRenderer();
 
 	private:
+		LevRendererType m_renderType;
 		LPtr<EventSystem> m_pEventSystem;
 		LPtr<LevRenderWindow> m_pWindow;
 		LPtr<Scene::LevScene> m_pScene;

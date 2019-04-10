@@ -9,7 +9,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGL3DPass::OpenGL3DPass(LPtr<OpenGLShaderProgram> shaderProgram, LPtr<Camera> camera) :
+		OpenGL3DPass::OpenGL3DPass(LPtr<OpenGLShaderProgram> shaderProgram, const Scene::LevCamera* camera) :
 			OpenGLPass(shaderProgram),
 			m_bInited(false),
 			m_pMainCamera(camera),
@@ -39,7 +39,7 @@ namespace Leviathan
 			}
 
 			LPtr<OpenGLUniform> viewMatrixUniform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-			auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
+			auto viewMatrix = m_pMainCamera->GetViewportMatrix();
 			viewMatrixUniform->SetData(viewMatrix.data(), viewMatrix.size());
 			if (!m_pGLShaderProgram->AddUniform(viewMatrixUniform))
 			{
@@ -48,7 +48,7 @@ namespace Leviathan
 			}
 
 			LPtr<OpenGLUniform> PerspectiveMatrixUniform = new OpenGLUniform("projMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-			auto projMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
+			auto projMatrix = m_pMainCamera->GetPerspectiveMatrix();
 			PerspectiveMatrixUniform->SetData(projMatrix.data(), projMatrix.size());
 			if (!m_pGLShaderProgram->AddUniform(PerspectiveMatrixUniform))
 			{
@@ -153,7 +153,7 @@ namespace Leviathan
 				return;
 			}
 
-			auto viewMatrix = m_pMainCamera->GetViewportTransformMatrix();
+			auto viewMatrix = m_pMainCamera->GetViewportMatrix();
 			pViewMatrixUniform->SetData(viewMatrix.data(), viewMatrix.size());
 
 			auto& pPerspectiveMatrixUniform = m_pGLShaderProgram->GetUniformByName("projMatrix");
@@ -163,10 +163,18 @@ namespace Leviathan
 				return;
 			}
 
-			auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveTransformMatrix();
+			auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveMatrix();
 			pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.data(), PerspectiveMatrix.size());
 
-			m_pMainCamera->UpdateViewPosUniform(shaderProgram);
+			int viewPosLocation = glGetUniformLocation(shaderProgram, "viewPos");
+			if (viewPosLocation == -1)
+			{
+				LeviathanOutStream << "[ERROR] Get viewPos uniform failed." << std::endl;
+				return;
+			}
+
+			auto& eyePos = m_pMainCamera->GetEyePos();
+			glUniform3f(viewPosLocation, eyePos[0], eyePos[1], eyePos[2]);
 		}
 
 		GLboolean OpenGL3DPass::_updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable)

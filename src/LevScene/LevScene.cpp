@@ -6,10 +6,10 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		LevScene::LevScene():
-			m_sceneType(ELST_UNKNOWN),
-			m_pSceneData(nullptr),
-			m_pEventListener(nullptr)
+		LevScene::LevScene() 
+			:m_sceneType(ELST_UNKNOWN)
+			,m_pSceneData(nullptr)
+			,m_pEventListener(nullptr)
 		{
 		}
 
@@ -36,11 +36,13 @@ namespace Leviathan
 
 		LPtr<LevSceneEventListener> LevScene::GetEventListener()
 		{
+			LEV_ASSERT(m_pEventListener);
 			return m_pEventListener;
 		}
 
 		const Leviathan::Scene::LevSceneData& LevScene::GetSceneData()
 		{
+			LEV_ASSERT(m_pSceneData);
 			return *m_pSceneData;
 		}
 

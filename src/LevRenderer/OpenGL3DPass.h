@@ -1,6 +1,6 @@
 #pragma once
 #include "OpenGLPass.h"
-#include "Camera.h"
+#include "LevCamera.h"
 
 namespace Leviathan
 {
@@ -9,7 +9,7 @@ namespace Leviathan
 		class OpenGL3DPass : public OpenGLPass
 		{
 		public:
-			OpenGL3DPass(LPtr<OpenGLShaderProgram> shaderProgram, LPtr<Camera> camera);
+			OpenGL3DPass(LPtr<OpenGLShaderProgram> shaderProgram, const Scene::LevCamera* camera);
 			~OpenGL3DPass();
 
 			bool Init();
@@ -22,7 +22,7 @@ namespace Leviathan
 			GLboolean _updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable);
 
 			bool m_bInited;
-			LPtr<Camera> m_pMainCamera;
+			const Scene::LevCamera* m_pMainCamera;
 
 			GLboolean m_bFaceCullEnable;
 			GLenum m_faceCullMode;

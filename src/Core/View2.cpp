@@ -20,6 +20,7 @@ namespace Leviathan
 	bool View2::Init(int width, int height, int handle)
 	{
 		EXIT_IF_FALSE(m_pData->GetRenderWindow().Create(width, height, handle));
+		EXIT_IF_FALSE(m_pData->InitRenderer());
 		return true;
 	}
 

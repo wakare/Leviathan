@@ -3,10 +3,10 @@
 #include <memory>
 #include "GlobalDef.h"
 #include "LPtr.h"
+#include "ViewData2.h"
 
 namespace Leviathan
 {
-	class ViewData2;
 	class EventListener;
 	class LevScene;
 

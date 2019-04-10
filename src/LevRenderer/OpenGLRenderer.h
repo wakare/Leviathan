@@ -11,6 +11,7 @@ namespace Leviathan
 	namespace Renderer
 	{
 		class OpenGLPass;
+		class OpenGLRenderData;
 
 		class OpenGLRenderer : public IRenderer
 		{
@@ -26,6 +27,7 @@ namespace Leviathan
 			void _renderOneFrame();
 
 			GLFWwindow* m_pWindow;
+			LPtr<OpenGLRenderData> m_pRenderData;
 		};
 	}
 }

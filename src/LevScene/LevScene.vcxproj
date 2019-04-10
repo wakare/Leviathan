@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevCamera.h" />
     <ClInclude Include="LevDirectionalLight.h" />
     <ClInclude Include="LevLAttrWorldCoord.h" />
     <ClInclude Include="LevLight.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="LevSceneObjectAttribute.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LevCamera.cpp" />
     <ClCompile Include="LevLAttrWorldCoord.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
@@ -105,6 +107,8 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -114,6 +118,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

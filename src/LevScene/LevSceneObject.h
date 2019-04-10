@@ -9,9 +9,12 @@ namespace Leviathan
 	{
 		enum LevSceneObjectType
 		{
-			LSOT_STATIC,
-			LSOT_DYNAMIC,
-			LSOT_UNRENDERABLE
+			LSOT_STATIC = 1,
+			LSOT_DYNAMIC = 2,
+			LSOT_UNRENDERABLE = 1024,
+
+			// Special defination
+			LSOT_CAMERA = LSOT_DYNAMIC | LSOT_UNRENDERABLE,
 		};
 
 		class LevSceneObjectAttribute;
@@ -20,7 +23,8 @@ namespace Leviathan
 		class LevSceneObject
 		{
 		public:
-			LevSceneObject(LevSceneObjectType type);
+			LevSceneObject(int type);
+			virtual ~LevSceneObject();
 
 			LevSceneObjectType GetType() const;
 

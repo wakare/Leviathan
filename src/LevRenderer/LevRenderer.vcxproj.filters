@@ -79,7 +79,7 @@
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLRenderData.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -3,7 +3,8 @@
 #include "LevScheduler.h"
 #include "TriDScene.h"
 #include "ViewData.h"
-#include "View.h"
+//#include "View.h"
+#include "View2.h"
 
 namespace Leviathan 
 {
@@ -22,6 +23,7 @@ namespace Leviathan
 	private:
 
 		bool m_done;
-		std::unique_ptr<View> m_pView;
+		//std::unique_ptr<View> m_pView;
+		std::unique_ptr<View2> m_pView;
 	};
 }

@@ -2,11 +2,15 @@
 #include <iostream>
 #include <functional>
 #include <assert.h>
+#include <fstream>
 
 namespace Leviathan
 {
+	// Log file stream
+	static std::ofstream g_levLogFile("Leviathan.log", std::ios::out);
+
 	#define LeviathanInStream std::cin
-	#define LeviathanOutStream std::cout
+	#define LeviathanOutStream Leviathan::g_levLogFile
 	#define LogLine(s) LeviathanOutStream << s << std::endl;
 
 	#define PI_DOUBLE 3.141592653589793
