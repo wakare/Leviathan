@@ -22,7 +22,8 @@ namespace Leviathan
 			void ResetModified();
 
 			LPtr<LevSceneEventListener> GetEventListener();
-			const LevSceneData& GetSceneData();
+			const LevSceneData& GetSceneData() const;
+			LevSceneData& GetSceneData();
 
 		private:
 			LevSceneType m_sceneType;

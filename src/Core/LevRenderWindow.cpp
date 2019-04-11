@@ -140,7 +140,6 @@ namespace Leviathan
 		m_width = event.m_context.m_windowResizeSize.width;
 		m_height = event.m_context.m_windowResizeSize.height;
 
-		//m_pScene->SetViewport(m_width, m_height);
 		glViewport(0, 0, m_width, m_height);
 
 		return true;

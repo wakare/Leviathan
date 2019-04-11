@@ -9,17 +9,17 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevSceneData::LevSceneData()
-			:m_pSceneTree(new LevSceneTree)
-			,m_modified(true)
+			: m_pSceneTree(new LevSceneTree)
+			, m_modified(true)
+			, m_pCamera(nullptr)
 		{
 			// FOR DEBUG
 			LPtr<LevCamera> pCamera = new LevCamera;
-			float eye[3] = { 0.0f, 0.0f, 0.0f };
+			float eye[3] = { 0.0f, 0.0f, -10.0f };
 			float up[3] = { 0.0f, 1.0f, 0.0f };
-			float look[3] = { 0.0f, 0.0f, -1.0f };
+			float look[3] = { 0.0f, 0.0f, 1.0f };
 			LEV_ASSERT(pCamera->Set(eye, look, up, 90.0f, 1.0f, 0.01f, 1000.0f));
-			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			m_pSceneTree->AddNode(pNode);
+			LEV_ASSERT(SetCamera(pCamera));
 
 			LPtr<LevSceneObject> pSceneObject = new LevSceneObject(LSOT_DYNAMIC);
 			LPtr<LevMeshObject> pMeshObj = new LevMeshObject();
@@ -47,6 +47,22 @@ namespace Leviathan
 		void LevSceneData::ResetModified()
 		{
 			m_modified = false;
+		}
+
+		LPtr<LevCamera> LevSceneData::GetCamera()
+		{
+			return m_pCamera;
+		}
+
+		bool LevSceneData::SetCamera(LPtr<LevCamera> pCamera)
+		{
+			LEV_ASSERT(!m_pCamera);
+
+			m_pCamera.Reset(pCamera);
+			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
+			m_pSceneTree->AddNode(pNode);
+
+			return true;
 		}
 
 	}

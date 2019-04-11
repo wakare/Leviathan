@@ -45,9 +45,15 @@ namespace Leviathan
 			return m_pEventListener;
 		}
 
-		const Leviathan::Scene::LevSceneData& LevScene::GetSceneData()
+		const Leviathan::Scene::LevSceneData& LevScene::GetSceneData() const
 		{
-			LEV_ASSERT(m_pSceneData);
+			LEV_ASSERT(m_pSceneData.Get());
+			return *m_pSceneData;
+		}
+
+		LevSceneData & LevScene::GetSceneData()
+		{
+			LEV_ASSERT(m_pSceneData.Get());
 			return *m_pSceneData;
 		}
 
