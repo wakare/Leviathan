@@ -2,7 +2,7 @@
 #include "OpenGLShaderProgram.h"
 #include "OpenGLUniform.h"
 #include "OpenGLObject.h"
-#include "OpenGLLight.h"
+#include "OpenGLPointLight.h"
 #include "OpenGLMaterial.h"
 
 namespace Leviathan

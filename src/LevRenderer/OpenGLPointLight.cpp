@@ -1,33 +1,20 @@
-#include "OpenGLLight.h"
+#include "OpenGLPointLight.h"
+#include "LevLight.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-
-		OpenGLLight::OpenGLLight() :
-			m_pLight(nullptr),
+		OpenGLPointLight::OpenGLPointLight(const Scene::LevLight& light) :
+			m_light(light),
 			m_lightPositionLocation(-1),
 			m_lightAmbientLocation(-1),
 			m_lightDiffuseLocation(-1),
 			m_lightSpecularLocation(-1)
 		{
-
 		}
 
-		OpenGLLight::OpenGLLight(Eigen::Vector3f position, Eigen::Vector3f ambientColor, Eigen::Vector3f diffuseColor, Eigen::Vector3f specularColor) :
-			OpenGLLight()
-		{
-			m_pLight = new Light(position, ambientColor, diffuseColor, specularColor);
-		};
-
-		OpenGLLight::OpenGLLight(LPtr<Light> pLight) :
-			OpenGLLight()
-		{
-			m_pLight = pLight;
-		}
-
-		bool OpenGLLight::SetLightUniformVar(GLuint shaderProgram)
+		bool OpenGLPointLight::SetLightUniformVar(GLuint shaderProgram)
 		{
 			if (m_lightPositionLocation < 0)
 			{
@@ -39,7 +26,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightPositionLocation, m_pLight->m_lightCoordination.x(), m_pLight->m_lightCoordination.y(), m_pLight->m_lightCoordination.z());
+			glUniform3f(m_lightPositionLocation, m_light.LightCoordination.x(), m_light.LightCoordination().y(), m_light.LightCoordination().z());
 
 			if (m_lightAmbientLocation < 0)
 			{
@@ -51,7 +38,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightAmbientLocation, m_pLight->m_ambientColor.x(), m_pLight->m_ambientColor.y(), m_pLight->m_ambientColor.z());
+			glUniform3f(m_lightAmbientLocation, m_light.AmbientColor().x(), m_light.AmbientColor().y(), m_light.AmbientColor().z());
 
 			if (m_lightDiffuseLocation < 0)
 			{
@@ -63,7 +50,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightDiffuseLocation, m_pLight->m_diffuseColor.x(), m_pLight->m_diffuseColor.y(), m_pLight->m_diffuseColor.z());
+			glUniform3f(m_lightDiffuseLocation, m_light.DiffuseColor().x(), m_light.DiffuseColor().y(), m_light.DiffuseColor().z());
 
 			if (m_lightSpecularLocation < 0)
 			{
@@ -75,13 +62,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightSpecularLocation, m_pLight->m_specularColor.x(), m_pLight->m_specularColor.y(), m_pLight->m_specularColor.z());
-			return true;
-		}
-
-		bool OpenGLLight::SetLightCoord(const Eigen::Vector3f& newCoord)
-		{
-			m_pLight->SetLightCoord(newCoord);
+			glUniform3f(m_lightSpecularLocation, m_light.SpecularColor().x(), m_light.SpecularColor().y(), m_light.SpecularColor().z());
 			return true;
 		}
 	}

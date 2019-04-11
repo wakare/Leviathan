@@ -58,9 +58,27 @@ namespace Leviathan
 		{
 			LEV_ASSERT(!m_pCamera);
 
-			m_pCamera.Reset(pCamera);
 			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			m_pSceneTree->AddNode(pNode);
+			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
+
+			m_pCamera.Reset(pCamera);
+
+			return true;
+		}
+
+		const std::vector<LPtr<LevLight>> LevSceneData::GetLights() const
+		{
+			return m_pLights;
+		}
+
+		bool LevSceneData::AddLight(LPtr<LevLight> pLight)
+		{
+			LEV_ASSERT(pLight);
+
+			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
+			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
+
+			m_pLights.push_back(pLight);
 
 			return true;
 		}

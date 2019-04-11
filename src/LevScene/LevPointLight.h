@@ -7,7 +7,8 @@ namespace Leviathan
 	{
 		class LevPointLight : public LevLight
 		{
-
+		public:
+			LevPointLight(int scene_obj_type);
 		};
 	}
 }

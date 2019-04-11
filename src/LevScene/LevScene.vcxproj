@@ -43,8 +43,10 @@
   <ItemGroup>
     <ClCompile Include="LevCamera.cpp" />
     <ClCompile Include="LevLAttrWorldCoord.cpp" />
+    <ClCompile Include="LevLight.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
+    <ClCompile Include="LevPointLight.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />
     <ClCompile Include="LevSceneEventListener.cpp" />

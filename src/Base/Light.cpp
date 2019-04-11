@@ -11,6 +11,11 @@ namespace Leviathan
 
 	}
 
+	EResourceType Light::Type() const
+	{
+		return ERT_LIGHT;
+	}
+
 	bool Light::SetLightCoord(const Eigen::Vector3f& newCoord)
 	{
 		m_lightCoordination = newCoord;

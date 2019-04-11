@@ -117,5 +117,11 @@
     <ClCompile Include="LevCamera.cpp">
       <Filter>Source Files\SceneObject</Filter>
     </ClCompile>
+    <ClCompile Include="LevLight.cpp">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LevPointLight.cpp">
+      <Filter>Source Files\SceneObject</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

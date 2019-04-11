@@ -1,4 +1,5 @@
 #include "OpenGLPass.h"
+#include "OpenGLLight.h"
 
 namespace Leviathan
 {
