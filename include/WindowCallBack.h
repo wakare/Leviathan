@@ -112,23 +112,23 @@ namespace Leviathan
 		static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos)
 		{
 			WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(static_cast<int>(xpos), static_cast<int>(ypos));
-			Event keyEvent = Event(EventType::INPUT_EVENT);
-			keyEvent.m_action = Event::InputAction::MOVE;
-			keyEvent.m_code = Event::InputCode::INPUT_NONE;
+			Event mouseEvent = Event(EventType::INPUT_EVENT);
+			mouseEvent.m_action = Event::InputAction::MOVE;
+			mouseEvent.m_code = Event::InputCode::INPUT_NONE;
 
-			m_spEventSystem->AddEvent(keyEvent);
+			m_spEventSystem->AddEvent(mouseEvent);
 		};
 
 		static void MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 		{
-			Event keyEvent = Event(EventType::INPUT_EVENT);
-			keyEvent.m_action = m_sActionMap.GetAction(action);
-			keyEvent.m_code = m_sInputMap.GetInputCode(button);
+			Event mouseEvent = Event(EventType::INPUT_EVENT);
+			mouseEvent.m_action = m_sActionMap.GetAction(action);
+			mouseEvent.m_code = m_sInputMap.GetInputCode(button);
 
-			if (keyEvent.m_action != Event::InputAction::NONE &&
-				keyEvent.m_code != Event::InputCode::INPUT_NONE)
+			if (mouseEvent.m_action != Event::InputAction::NONE &&
+				mouseEvent.m_code != Event::InputCode::INPUT_NONE)
 			{
-				m_spEventSystem->AddEvent(keyEvent);
+				m_spEventSystem->AddEvent(mouseEvent);
 			}
 		}
 

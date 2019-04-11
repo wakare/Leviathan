@@ -23,7 +23,10 @@ namespace Leviathan
 				break;
 
 			case Event::KEYDOWN:
+			case Event::KEYUP:
 			case Event::MOVE:
+			case Event::MOUSE_SCROLLBUTTON:
+			case Event::SCROLL:
 				_handleCameraTransform(event);
 				break;
 			}
@@ -86,8 +89,15 @@ namespace Leviathan
 			static MouseCoord lastMouseXY = MouseCoord(-1, -1);
 
 			static bool bLMouseDown = false;
-			if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_LBUTTON) bLMouseDown = true;
-			if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_LBUTTON) bLMouseDown = false;
+			if (event.m_action == Event::InputAction::KEYDOWN && event.m_code == Event::InputCode::MOUSE_LBUTTON)
+			{
+				bLMouseDown = true;
+			}
+
+			if (event.m_action == Event::InputAction::KEYUP && event.m_code == Event::InputCode::MOUSE_LBUTTON)
+			{
+				bLMouseDown = false;
+			}
 
 			if (bLMouseDown)
 			{
