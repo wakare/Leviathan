@@ -1,11 +1,11 @@
 #include "OpenGLPointLight.h"
-#include "LevLight.h"
+#include "LevPointLight.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLPointLight::OpenGLPointLight(const Scene::LevLight& light) :
+		OpenGLPointLight::OpenGLPointLight(const Scene::LevPointLight& light) :
 			m_light(light),
 			m_lightPositionLocation(-1),
 			m_lightAmbientLocation(-1),
@@ -26,7 +26,7 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightPositionLocation, m_light.LightCoordination.x(), m_light.LightCoordination().y(), m_light.LightCoordination().z());
+			glUniform3f(m_lightPositionLocation, m_light.LightCoordination().x(), m_light.LightCoordination().y(), m_light.LightCoordination().z());
 
 			if (m_lightAmbientLocation < 0)
 			{

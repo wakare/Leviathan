@@ -7,7 +7,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevLight;
+		class LevPointLight;
 	}
 
 	namespace Renderer
@@ -15,12 +15,12 @@ namespace Leviathan
 		class OpenGLPointLight : public OpenGLLight
 		{
 		public:
-			OpenGLPointLight(const Scene::LevLight& light);
+			OpenGLPointLight(const Scene::LevPointLight& light);
 			
 			bool SetLightUniformVar(GLuint shaderProgram);
 
 		private:
-			const Scene::LevLight& m_light;
+			const Scene::LevPointLight& m_light;
 
 			GLint m_lightPositionLocation;
 			GLint m_lightAmbientLocation;

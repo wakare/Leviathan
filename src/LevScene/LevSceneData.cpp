@@ -3,6 +3,8 @@
 #include "LevSceneNode.h"
 #include "LevCamera.h"
 #include "LevMeshObject.h"
+#include "LevLight.h"
+#include "LevPointLight.h"
 
 namespace Leviathan
 {
@@ -15,13 +17,20 @@ namespace Leviathan
 		{
 			// FOR DEBUG
 			LPtr<LevCamera> pCamera = new LevCamera;
-			float eye[3] = { 0.0f, 0.0f, -10.0f };
-			float up[3] = { 0.0f, 1.0f, 0.0f };
-			float look[3] = { 0.0f, 0.0f, 1.0f };
-			LEV_ASSERT(pCamera->Set(eye, look, up, 90.0f, 1.0f, 0.01f, 1000.0f));
+			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
+			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
+			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
+			LEV_ASSERT(pCamera->Set(eye.data(), lookAt.data(), up.data(), 90.0f, 1.0f, 0.01f, 1000.0f));
 			LEV_ASSERT(SetCamera(pCamera));
 
-			LPtr<LevSceneObject> pSceneObject = new LevSceneObject(LSOT_DYNAMIC);
+			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
+			pLight->LightCoordination(eye);
+			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
+			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
+			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
+			AddLight(pLight);
+
+			LPtr<LevSceneObject> pSceneObject = new LevSceneObject(ELSOT_DYNAMIC);
 			LPtr<LevMeshObject> pMeshObj = new LevMeshObject();
 			LEV_ASSERT(pMeshObj->LoadMeshFile("C:\\Users\\wangjie\\Documents\\Leviathan\\bin\\x64\\Debug\\Models\\SoccerBall.STL"));
 			pSceneObject->SetObjectDesc(TryCast<LevMeshObject, LevSceneObjectDescription>(pMeshObj));

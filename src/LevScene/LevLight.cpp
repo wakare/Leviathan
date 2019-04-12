@@ -5,14 +5,19 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevLight::LevLight(LevLightType type, int scene_obj_type)
-			: LevSceneObject(scene_obj_type)
-			, m_type(type)
+			: LevSceneObject(scene_obj_type | ELSOT_LIGHT)
+			, m_lightType(type)
 		{
 
 		}
 
 		LevLight::~LevLight()
 		{
+		}
+
+		Leviathan::Scene::LevLightType LevLight::GetLightType() const
+		{
+			return m_lightType;
 		}
 
 		const Eigen::Vector3f & LevLight::LightCoordination() const

@@ -5,7 +5,7 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevCamera::LevCamera()
-			: LevSceneObject(LSOT_CAMERA)
+			: LevSceneObject(ELSOT_CAMERA)
 		{
 			
 		}

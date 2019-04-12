@@ -1,19 +1,25 @@
 #include "OpenGLRenderData.h"
-#include "IMesh.h"
+
 #include "LevSceneData.h"
 #include "LevSceneTree.h"
 #include "LevSceneNode.h"
 #include "LevSceneObject.h"
 #include "LevMeshObject.h"
-#include "OpenGL3DObject.h"
+#include "LevLight.h"
+#include "LevPointLight.h"
+
+#include "IMesh.h"
 #include "DynamicArray.h"
-#include "GeometryCalculator.h"
-#include "OpenGLMaterial.h"
-#include "PictureObject.h"
 #include "GLTexture.h"
-#include "OpenGLTexture.h"
+#include "PictureObject.h"
+#include "GeometryCalculator.h"
+
 #include "OpenGL3DPass.h"
+#include "OpenGL3DObject.h"
+#include "OpenGLTexture.h"
+#include "OpenGLMaterial.h"
 #include "OpenGLShaderProgram.h"
+#include "OpenGLPointLight.h"
 
 namespace Leviathan
 {
@@ -45,13 +51,14 @@ namespace Leviathan
 
 			static bool bFirst = true;
 
+			// Init default pass in first data processing
 			if (bFirst)
 			{
-				//Find camera
+				//Find first camera
 				for (const auto& sceneObject : sceneObjects)
 				{
 					const auto& objData = *sceneObject->GetNodeData();
-					if ((objData.GetType() | Scene::LSOT_CAMERA) > 0)
+					if ((objData.GetType() | Scene::ELSOT_CAMERA) > 0)
 					{
 						auto pCamera = dynamic_cast<const Scene::LevCamera*>(&objData);
 						_createDefaultPass(pCamera);
@@ -64,10 +71,26 @@ namespace Leviathan
 			
 			LEV_ASSERT(m_passes.size() > 0);
 
+			// Update light
 			for (const auto& sceneObject : sceneObjects)
 			{
 				const auto& objData = *sceneObject->GetNodeData();
-				if ((objData.GetType() & Scene::LSOT_UNRENDERABLE) > 0)
+
+				if ((objData.GetType() & Scene::ELSOT_LIGHT) > 0)
+				{
+					const Scene::LevLight* pLight = dynamic_cast<const Scene::LevLight*>(&objData);
+					if (pLight)
+					{
+						_updateLight(*pLight);
+					}
+				}
+			}
+
+			// Init meshes
+			for (const auto& sceneObject : sceneObjects)
+			{
+				const auto& objData = *sceneObject->GetNodeData();
+				if ((objData.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
 				{
 					continue;
 				}
@@ -121,6 +144,31 @@ namespace Leviathan
 				out.push_back(pObject);
 			}
 
+			return true;
+		}
+
+		bool OpenGLRenderData::_updateLight(const Scene::LevLight & light)
+		{
+			LPtr<OpenGLLight> pGLLight = nullptr;
+			switch (light.GetLightType())
+			{
+			case Scene::ELLT_POINT_LIGHT:
+			{
+				const Scene::LevPointLight* pPointLight = dynamic_cast<const Scene::LevPointLight*>(&light);
+				pGLLight = new OpenGLPointLight(*pPointLight);
+				break;
+			}
+
+			default:
+				break;
+			}
+
+			if (pGLLight)
+			{
+				m_lights.push_back(pGLLight);
+			}
+
+			_currentPass().AddGLLight(pGLLight);
 			return true;
 		}
 
@@ -236,8 +284,9 @@ namespace Leviathan
 			LPtr<OpenGLShaderProgram> pShaderProgram = new OpenGLShaderProgram(&_czpVertexShader, &_czpFragmentShader, nullptr);
 			LPtr<OpenGLPass> pass = new OpenGL3DPass(pShaderProgram, pCamera);
 			LEV_ASSERT(pass->Init());
-			pass->SetLightEnable(false);
 			m_passes.push_back(pass);
+
+			LEV_ASSERT(_setCurrentPass(pass));
 		}
 
 		void OpenGLRenderData::_registerToPass(LPtr<OpenGLObject> pObject)
@@ -248,6 +297,19 @@ namespace Leviathan
 			}
 
 			m_passes[0]->AddGLObject(pObject);
+		}
+
+		bool OpenGLRenderData::_setCurrentPass(LPtr<OpenGLPass> pPass)
+		{
+			LEV_ASSERT(pPass);
+			m_pCurrentPass = pPass;
+			return true;
+		}
+
+		OpenGLPass & OpenGLRenderData::_currentPass()
+		{
+			LEV_ASSERT(m_pCurrentPass);
+			return *m_pCurrentPass;
 		}
 
 		void OpenGLRenderData::Render()
