@@ -1,24 +1,37 @@
 #pragma once
 #include "LPtr.h"
-#include "IScene.h"
 
 namespace Leviathan
 {
-	class EventSystem;
-	class CommonScene;
-	class RenderWindow;
+	namespace Renderer
+	{
+		class IRenderer;
+	}
 
+	namespace Scene
+	{
+		class LevScene;
+	}
+
+	class LevRenderWindow;
+	class EventSystem;
+	
 	class ViewData
 	{
 	public:
-		ViewData(IScene::ESceneType type);
-
+		ViewData(LevRendererType render_type);
 		EventSystem& GetEventSystem();
-		RenderWindow& GetRenderWindow();
+		LevRenderWindow& GetRenderWindow();
+		Scene::LevScene& GetScene();
+		Renderer::IRenderer& GetRenderer();
+		bool InitRenderer();
 
 	private:
+		LevRendererType m_renderType;
 		LPtr<EventSystem> m_pEventSystem;
-		LPtr<RenderWindow> m_pRenderWindow;
-		IScene::ESceneType m_sceneType;
+		LPtr<LevRenderWindow> m_pWindow;
+		LPtr<Scene::LevScene> m_pScene;
+		LPtr<Renderer::IRenderer> m_pRenderer;
 	};
+
 }

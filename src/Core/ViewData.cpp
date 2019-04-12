@@ -1,27 +1,55 @@
 #include "ViewData.h"
+#include "OpenGLRenderer.h"
+#include "IRenderer.h"
+#include "LevRenderWindow.h"
 #include "EventSystem.h"
-#include "RenderWindow.h"
-#include "CommonScene.h"
+#include "LevScene.h"
 
 namespace Leviathan
 {
-	ViewData::ViewData(IScene::ESceneType type):
-		m_sceneType(type)
+	ViewData::ViewData(LevRendererType render_type):
+		m_renderType(render_type)
 	{
-		m_pEventSystem = new EventSystem();
-		m_pRenderWindow = new RenderWindow(m_pEventSystem, m_sceneType);
-
-		auto eventListener = TryCast<RenderWindow, EventListener>(m_pRenderWindow);
-		m_pEventSystem->AddEventListener(EventType::INPUT_EVENT, eventListener);
+		m_pEventSystem.Reset(new EventSystem);
+		m_pWindow.Reset(new LevRenderWindow(m_pEventSystem.Get()));
+		
+		m_pScene.Reset(new Scene::LevScene);
+		LEV_ASSERT(m_pScene->Init(ELST_3D_SCENE));
 	}
 
-	EventSystem & ViewData::GetEventSystem()
+	Leviathan::EventSystem& ViewData::GetEventSystem()
 	{
 		return *m_pEventSystem;
 	}
 
-	RenderWindow & ViewData::GetRenderWindow()
+	LevRenderWindow & ViewData::GetRenderWindow()
 	{
-		return *m_pRenderWindow;
+		return *m_pWindow;
 	}
+
+	Scene::LevScene & ViewData::GetScene()
+	{
+		return *m_pScene;
+	}
+
+	Renderer::IRenderer & ViewData::GetRenderer()
+	{
+		return *m_pRenderer;
+	}
+
+	bool ViewData::InitRenderer()
+	{
+		switch (m_renderType)
+		{
+		case ELRT_OPENGL:
+			m_pRenderer.Reset(new Renderer::OpenGLRenderer(m_pWindow->GetGLFWWindow()));
+			break;
+
+		default:
+			return false;
+		}
+
+		return true;
+	}
+
 }

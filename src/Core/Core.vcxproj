@@ -25,9 +25,7 @@
     <ClCompile Include="PresenterScheduler.cpp" />
     <ClCompile Include="UserInterface.cpp" />
     <ClCompile Include="View.cpp" />
-    <ClCompile Include="View2.cpp" />
     <ClCompile Include="ViewData.cpp" />
-    <ClCompile Include="ViewData2.cpp" />
     <ClCompile Include="ViewScheduler.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -40,9 +38,7 @@
     <ClInclude Include="PresenterScheduler.h" />
     <ClInclude Include="UserInterface.h" />
     <ClInclude Include="View.h" />
-    <ClInclude Include="View2.h" />
     <ClInclude Include="ViewData.h" />
-    <ClInclude Include="ViewData2.h" />
     <ClInclude Include="ViewScheduler.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

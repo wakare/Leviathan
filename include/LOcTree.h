@@ -41,13 +41,13 @@ namespace Leviathan
 			};
 
 			distance = -1.0f;
-			float tmin = (aabb.min[0] - rayPos[0]) / rayDir[0];
-			float tmax = (aabb.max[0] - rayPos[0]) / rayDir[0];
+			float tmin = (aabb.Min()[0] - rayPos[0]) / rayDir[0];
+			float tmax = (aabb.Max()[0] - rayPos[0]) / rayDir[0];
 
 			if (tmin > tmax) swap(tmin, tmax);
 
-			float tymin = (aabb.min[1] - rayPos[1]) / rayDir[1];
-			float tymax = (aabb.max[1] - rayPos[1]) / rayDir[1];
+			float tymin = (aabb.Min()[1] - rayPos[1]) / rayDir[1];
+			float tymax = (aabb.Max()[1] - rayPos[1]) / rayDir[1];
 
 			if (tymin > tymax) swap(tymin, tymax);
 
@@ -60,8 +60,8 @@ namespace Leviathan
 			if (tymax < tmax)
 				tmax = tymax;
 
-			float tzmin = (aabb.min[2] - rayPos[2]) / rayDir[2];
-			float tzmax = (aabb.max[2] - rayPos[2]) / rayDir[2];
+			float tzmin = (aabb.Min()[2] - rayPos[2]) / rayDir[2];
+			float tzmax = (aabb.Max()[2] - rayPos[2]) / rayDir[2];
 
 			if (tzmin > tzmax) swap(tzmin, tzmax);
 
@@ -82,15 +82,15 @@ namespace Leviathan
 		{
 			if (!children[index])
 			{
-				float* center = aabb.center;
+				const float* center = aabb.Center();
 				bool bPositiveX = index & 0x4;
 				bool bPositiveY = index & 0x2;
 				bool bPositiveZ = index & 0x1;
 				float tempCoord[3] =
 				{
-					(bPositiveX) ? aabb.max[0] : aabb.min[0],
-					(bPositiveY) ? aabb.max[1] : aabb.min[1],
-					(bPositiveZ) ? aabb.max[2] : aabb.min[2]
+					(bPositiveX) ? aabb.Max()[0] : aabb.Min()[0],
+					(bPositiveY) ? aabb.Max()[1] : aabb.Min()[1],
+					(bPositiveZ) ? aabb.Max()[2] : aabb.Min()[2]
 				};
 
 				float min[3] =

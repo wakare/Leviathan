@@ -1,33 +1,37 @@
 #pragma once
-#include "IScene.h"
+
+#include <memory>
+#include "GlobalDef.h"
 #include "LPtr.h"
 #include "ViewData.h"
 
 namespace Leviathan
 {
-	class EventSystem;
 	class EventListener;
-	class RenderWindow;
-	class CommonScene;
-	class Presenter;
+	
+	namespace Scene
+	{
+		class LevSceneData;
+	}
 
 	class View
 	{
 	public:
-		View(IScene::ESceneType type = IScene::EST_TRID);
-		LPtr<CommonScene> GetScene();
+		View(LevSceneType type = ELST_3D_SCENE);
 
 		bool Init(int width, int height, int handle);
 		void Update();
 		void SyncStop();
 		void AsyncStop();
 
-		int GetWindowHandle() const;
 		bool AddEventListener(EventType eventType, LPtr<EventListener> listener);
-		
-	private:
-		bool _attachNativeWin32Window(int width, int height, int handle);
 
+		int GetWindowHandle() const;
+		Scene::LevSceneData& GetSceneData();
+
+		bool LoadMesh(const char* file, bool bResetCamera = true);
+
+	private:
 		std::unique_ptr<ViewData> m_pData;
 	};
 }

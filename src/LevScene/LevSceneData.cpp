@@ -30,12 +30,12 @@ namespace Leviathan
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
 			AddLight(pLight);
 
-			LPtr<LevSceneObject> pSceneObject = new LevSceneObject(ELSOT_DYNAMIC);
+			/*LPtr<LevSceneObject> pSceneObject = new LevSceneObject(ELSOT_DYNAMIC);
 			LPtr<LevMeshObject> pMeshObj = new LevMeshObject();
 			LEV_ASSERT(pMeshObj->LoadMeshFile("C:\\Users\\wangjie\\Documents\\Leviathan\\bin\\x64\\Debug\\Models\\SoccerBall.STL"));
 			pSceneObject->SetObjectDesc(TryCast<LevMeshObject, LevSceneObjectDescription>(pMeshObj));
 			LPtr<LevSceneNode> pMeshNode = new LevSceneNode(pSceneObject);
-			m_pSceneTree->AddNode(pMeshNode);
+			m_pSceneTree->AddNode(pMeshNode);*/
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -51,6 +51,11 @@ namespace Leviathan
 		bool LevSceneData::HasModified() const
 		{
 			return m_modified;
+		}
+
+		void LevSceneData::SetModified()
+		{
+			m_modified = true;
 		}
 
 		void LevSceneData::ResetModified()
@@ -71,7 +76,7 @@ namespace Leviathan
 			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
 
 			m_pCamera.Reset(pCamera);
-
+			SetModified();
 			return true;
 		}
 
@@ -88,7 +93,14 @@ namespace Leviathan
 			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
 
 			m_pLights.push_back(pLight);
+			SetModified();
+			return true;
+		}
 
+		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)
+		{
+			EXIT_IF_FALSE( m_pSceneTree->AddNode(pNode));
+			SetModified();
 			return true;
 		}
 

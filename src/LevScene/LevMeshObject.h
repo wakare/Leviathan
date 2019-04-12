@@ -15,9 +15,11 @@ namespace Leviathan
 
 			bool LoadMeshFile(const char* meshFile);
 			const std::vector<LPtr<IMesh>>& GetMesh() const;
+			const AABB& GetAABB() const;
 
 		private:
 			std::vector<LPtr<IMesh>> m_mesh;
+			LPtr<AABB> m_pMeshAABB;
 		};
 	}
 }

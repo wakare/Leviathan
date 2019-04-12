@@ -49,10 +49,8 @@ namespace Leviathan
 
 			auto& sceneObjects = sceneTree.GetNodes();
 
-			static bool bFirst = true;
-
 			// Init default pass in first data processing
-			if (bFirst)
+			if (m_passes.size() == 0)
 			{
 				//Find first camera
 				for (const auto& sceneObject : sceneObjects)
@@ -65,8 +63,6 @@ namespace Leviathan
 						break;
 					}
 				}
-
-				bFirst = false;
 			}
 			
 			LEV_ASSERT(m_passes.size() > 0);
@@ -109,7 +105,7 @@ namespace Leviathan
 				}
 
 				std::vector<LPtr<OpenGLObject>> pObjects;
-				LEV_ASSERT(ConvertMeshToGLObject(*pMesh, pObjects));
+				LEV_ASSERT(ConvertMeshToGLObject(*pMesh, pObjects)); 
 
 				for (auto& pObject : pObjects)
 				{
@@ -291,12 +287,7 @@ namespace Leviathan
 
 		void OpenGLRenderData::_registerToPass(LPtr<OpenGLObject> pObject)
 		{
-			if (m_passes.size() == 0)
-			{
-				return;
-			}
-
-			m_passes[0]->AddGLObject(pObject);
+			_currentPass().AddGLObject(pObject);
 		}
 
 		bool OpenGLRenderData::_setCurrentPass(LPtr<OpenGLPass> pPass)

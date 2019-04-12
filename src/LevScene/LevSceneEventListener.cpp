@@ -129,12 +129,6 @@ namespace Leviathan
 
 			lastMouseXY = event.m_mouseCoord;
 
-			// Update light position as camera move
-			/*for (auto& pLight : m_scene.GetLightVec())
-			{
-				pLight->SetLightCoord({ m_scene.GetCamera().m_fEye[0], m_scene.GetCamera().m_fEye[1], m_scene.GetCamera().m_fEye[2] });
-			}*/
-
 			return true;
 		}
 	}

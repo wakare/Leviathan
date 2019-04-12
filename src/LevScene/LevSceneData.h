@@ -10,6 +10,7 @@ namespace Leviathan
 		class LevSceneTree;
 		class LevCamera;
 		class LevLight;
+		class LevSceneNode;
 
 		class LevSceneData
 		{
@@ -20,6 +21,7 @@ namespace Leviathan
 			const LevSceneTree& GetSceneTree() const;
 
 			bool HasModified() const;
+			void SetModified();
 			void ResetModified();
 
 			LPtr<LevCamera> GetCamera();
@@ -27,6 +29,8 @@ namespace Leviathan
 
 			const std::vector<LPtr<LevLight>> GetLights() const;
 			bool AddLight(LPtr<LevLight> pLight);
+
+			bool AddSceneNode(LPtr<LevSceneNode> pNode);
 
 		private:
 			bool m_modified;
