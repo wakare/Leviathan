@@ -114,6 +114,7 @@ bool ModelViewerPresenter2::Init(int width, int height, int handle /*= NULL*/)
 
 void ModelViewerPresenter2::Run()
 {
+	m_appState = EAS_RUNNING;
 	while (true)
 	{
 		UserInterface::UpdatePresenter();

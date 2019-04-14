@@ -25,10 +25,10 @@ namespace Leviathan
 			void ResetModified();
 
 			LPtr<LevCamera> GetCamera();
-			bool SetCamera(LPtr<LevCamera> pCamera);
+			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);
 
 			const std::vector<LPtr<LevLight>> GetLights() const;
-			bool AddLight(LPtr<LevLight> pLight);
+			bool AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode = nullptr);
 
 			bool AddSceneNode(LPtr<LevSceneNode> pNode);
 

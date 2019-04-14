@@ -27,14 +27,15 @@ namespace Leviathan
 			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
 			LEV_ASSERT(pCamera->Set(eye.data(), lookAt.data(), up.data(), 90.0f, 1.0f, 0.01f, 1000.0f));
-			LEV_ASSERT(SetCamera(pCamera));
+			auto pCameraNode = AddCamera(pCamera);
+			LEV_ASSERT(pCameraNode);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
 			pLight->LightCoordination(eye);
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
-			AddLight(pLight);
+			LEV_ASSERT(AddLight(pLight, pCameraNode));
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -62,7 +63,7 @@ namespace Leviathan
 			return m_pCamera;
 		}
 
-		bool LevSceneData::SetCamera(LPtr<LevCamera> pCamera)
+		Leviathan::LPtr<Leviathan::Scene::LevSceneNode> LevSceneData::AddCamera(LPtr<LevCamera> pCamera)
 		{
 			LEV_ASSERT(!m_pCamera);
 
@@ -71,7 +72,7 @@ namespace Leviathan
 			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
 
 			m_pCamera.Reset(pCamera);
-			return true;
+			return pNode;
 		}
 
 		const std::vector<LPtr<LevLight>> LevSceneData::GetLights() const
@@ -79,7 +80,7 @@ namespace Leviathan
 			return m_pLights;
 		}
 
-		bool LevSceneData::AddLight(LPtr<LevLight> pLight)
+		bool LevSceneData::AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode /*= nullptr*/)
 		{
 			LEV_ASSERT(pLight);
 

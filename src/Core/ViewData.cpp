@@ -12,7 +12,8 @@ namespace Leviathan
 	{
 		m_pEventSystem.Reset(new EventSystem);
 		m_pWindow.Reset(new LevRenderWindow(m_pEventSystem.Get()));
-		
+		m_pEventSystem->AddEventListener(INPUT_EVENT, TryCast<LevRenderWindow, EventListener>(m_pWindow));
+
 		m_pScene.Reset(new Scene::LevScene);
 		LEV_ASSERT(m_pScene->Init(ELST_3D_SCENE));
 	}

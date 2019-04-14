@@ -17,16 +17,23 @@ namespace Leviathan
 			m_root.Reset(new LevSceneNode(rootObj));
 		}
 
-		bool LevSceneTree::AddNodeToRoot(LPtr<LevSceneNode> pNode)
+		bool LevSceneTree::AddNodeToRoot(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode)
 		{
 			EXIT_IF_FALSE(m_root && pNode);
 
 			auto _pNode = TryCast<LevSceneNode, Node<LevSceneObject>>(pNode);
 			EXIT_IF_FALSE(_pNode);
-			m_root->AddChild(_pNode);
 
+			if (pParentNode)
+			{
+				pParentNode->AddChild(_pNode);
+			}
+			else
+			{
+				m_root->AddChild(_pNode);
+			}
+			
 			pNode->SetModified();
-
 			return true;
 		}
 
