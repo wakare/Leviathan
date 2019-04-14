@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -26,9 +26,8 @@
     <ClInclude Include="LevMathematicObject.h" />
     <ClInclude Include="LevMeshObject.h" />
     <ClInclude Include="LevPointLight.h" />
-    <ClInclude Include="LevRAttrProjTransform.h" />
-    <ClInclude Include="LevRAttrViewTransform.h" />
     <ClInclude Include="LevRAttrWorldTransform.h" />
+    <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
     <ClInclude Include="LevSceneData.h" />
     <ClInclude Include="LevSceneEventListener.h" />
@@ -39,6 +38,8 @@
     <ClInclude Include="LevSceneRenderAttribute.h" />
     <ClInclude Include="LevSceneTree.h" />
     <ClInclude Include="LevSceneObjectAttribute.h" />
+    <ClInclude Include="LevSceneTreeSearchVisitor.h" />
+    <ClInclude Include="LevSceneTreeTraverseVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevCamera.cpp" />
@@ -47,13 +48,20 @@
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
+    <ClCompile Include="LevRAttrWorldTransform.cpp" />
+    <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />
     <ClCompile Include="LevSceneEventListener.cpp" />
+    <ClCompile Include="LevSceneLogicAttribute.cpp" />
     <ClCompile Include="LevSceneNode.cpp" />
     <ClCompile Include="LevSceneObject.cpp" />
+    <ClCompile Include="LevSceneObjectAttribute.cpp" />
     <ClCompile Include="LevSceneObjectDescription.cpp" />
+    <ClCompile Include="LevSceneRenderAttribute.cpp" />
     <ClCompile Include="LevSceneTree.cpp" />
+    <ClCompile Include="LevSceneTreeSearchVisitor.cpp" />
+    <ClCompile Include="LevSceneTreeTraverseVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -11,6 +11,7 @@ namespace Leviathan
 		class LevCamera;
 		class LevLight;
 		class LevSceneNode;
+		class LevSceneObject;
 
 		class LevSceneData
 		{
@@ -21,7 +22,6 @@ namespace Leviathan
 			const LevSceneTree& GetSceneTree() const;
 
 			bool HasModified() const;
-			void SetModified();
 			void ResetModified();
 
 			LPtr<LevCamera> GetCamera();
@@ -34,7 +34,8 @@ namespace Leviathan
 
 		private:
 			bool m_modified;
-			
+
+			std::function<void(const LevSceneObject&)> m_modifiedCallback;
 			LPtr<LevCamera> m_pCamera;
 			std::vector<LPtr<LevLight>> m_pLights;
 			LPtr<LevSceneTree> m_pSceneTree;

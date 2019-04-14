@@ -17,13 +17,13 @@ namespace Leviathan
 		Node(LPtr<T> pData) : pNodeData(pData) {};
 		void AddChild(LPtr<Node<T>> pChild);
 		void DelChild(LPtr<Node<T>> pChild);
-		LPtr<T> GetNodeData() { return pNodeData; };
-		const std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
+		const LPtr<T>& GetNodeData() const { return pNodeData; };
+		const std::vector<LPtr<Node<T>>>& GetChildren() const { return children; };
 
 		virtual ~Node();
 		virtual void Accept(NodeVisitor<T>& nodeVisitor);
 
-	private:
+	protected:
 		LPtr<T> pNodeData;
 		std::vector<LPtr<Node<T>>> children;
 	};

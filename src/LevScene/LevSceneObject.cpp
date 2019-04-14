@@ -6,19 +6,56 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		LevSceneObject::LevSceneObject(int type) :
-			m_type((LevSceneObjectType)type)
+		LevSceneObject::LevSceneObject(int type) 
+			: m_type((LevSceneObjectType)type)
+			, m_modified(true)
 		{
-
+			// Init unique id
+			static unsigned _globalID = 0;
+			m_ID = _globalID++;
 		}
 
 		LevSceneObject::~LevSceneObject()
 		{
 		}
 
+		SceneObjectID LevSceneObject::GetID() const
+		{
+			return m_ID;
+		}
+
 		LevSceneObjectType LevSceneObject::GetType() const
 		{
 			return m_type;
+		}
+
+		bool LevSceneObject::HasModified() const
+		{
+			return m_modified;
+		}
+
+		void LevSceneObject::SetModified()
+		{
+// 			if (m_modified)
+// 			{
+// 				return;
+// 			}
+
+			m_modified = true;
+			if (m_modifiedCallback)
+			{
+				m_modifiedCallback(*this);
+			}
+		}
+
+		void LevSceneObject::ResetModified()
+		{
+			m_modified = false;
+		}
+
+		void LevSceneObject::SetModifiedCallback(LevSceneObjModified modified)
+		{
+			m_modifiedCallback = modified;
 		}
 
 		bool LevSceneObject::AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute)

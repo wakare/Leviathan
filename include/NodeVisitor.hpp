@@ -8,6 +8,13 @@ namespace Leviathan
 	{
 	};
 
+
+	template<class T>
+	inline void Leviathan::NodeVisitor<T>::Apply(const Node<T>& node)
+	{
+
+	}
+
 	template<class T>
 	inline E_TRAVERSE_MODE Leviathan::NodeVisitor<T>::GetTraverseMode()
 	{

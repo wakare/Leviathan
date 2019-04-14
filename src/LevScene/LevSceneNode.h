@@ -12,6 +12,9 @@ namespace Leviathan
 		{
 		public:
 			LevSceneNode(LPtr<LevSceneObject> pSceneNodeData);
+
+			bool HasModified() const;
+			void SetModified(bool bRecursion = true);
 		};
 	}
 }

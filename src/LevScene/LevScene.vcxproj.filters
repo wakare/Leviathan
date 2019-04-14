@@ -20,6 +20,9 @@
     <Filter Include="Source Files\SceneAttribute\RenderAttribute">
       <UniqueIdentifier>{44994366-062c-4bb3-b6a5-8f1325ea757d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SceneVisitor">
+      <UniqueIdentifier>{0aa20861-64d4-4470-9b9b-f7bdcf26fdb3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevScene.h">
@@ -49,12 +52,6 @@
     <ClInclude Include="LevLAttrWorldCoord.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClInclude>
-    <ClInclude Include="LevRAttrProjTransform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
-    <ClInclude Include="LevRAttrViewTransform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
     <ClInclude Include="LevRAttrWorldTransform.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
@@ -81,6 +78,15 @@
     </ClInclude>
     <ClInclude Include="LevCamera.h">
       <Filter>Source Files\SceneObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LevResetObjModifiedVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneTreeTraverseVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneTreeSearchVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -122,6 +128,27 @@
     </ClCompile>
     <ClCompile Include="LevPointLight.cpp">
       <Filter>Source Files\SceneObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrWorldTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneLogicAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneObjectAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneRenderAttribute.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevResetObjModifiedVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneTreeTraverseVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneTreeSearchVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

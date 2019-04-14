@@ -8,19 +8,22 @@ namespace Leviathan
 	namespace Scene
 	{
 		class LevSceneNode;
+		class LevSceneObject;
+		class LevResetObjModifiedVisitor;
 
 		class LevSceneTree
 		{
 		public:
 			LevSceneTree();
-			bool AddNode(LPtr<LevSceneNode> pNode);
-			
-			std::vector<LPtr<LevSceneNode>>& GetNodes();
-			const std::vector<LPtr<LevSceneNode>>& GetNodes() const;
+			bool AddNodeToRoot(LPtr<LevSceneNode> pNode);
+			bool ResetObjModifiedState();
 
+			LevSceneNode& GetRoot();
+			const LevSceneNode& GetRoot() const;
 
 		private:
-			std::vector<LPtr<LevSceneNode>> m_nodes;
+			LPtr<LevResetObjModifiedVisitor> m_resetor;
+			LPtr<LevSceneNode> m_root;
 		};
 	}
 }

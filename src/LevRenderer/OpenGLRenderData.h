@@ -13,6 +13,8 @@ namespace Leviathan
 		class LevMeshObject;
 		class LevCamera;
 		class LevLight;
+		class LevSceneTreeTraverseVisitor;
+		class LevSceneTreeSearchVisitor;
 	}
 
 	namespace Renderer
@@ -41,6 +43,8 @@ namespace Leviathan
 			OpenGLPass& _currentPass();
 
 			LPtr<OpenGLPass> m_pCurrentPass;
+			LPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;
+			LPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
 			std::vector<LPtr<OpenGLPass>> m_passes;
 			std::vector<LPtr<OpenGLLight>> m_lights;
 		};

@@ -7,6 +7,8 @@
 #include "LevMeshObject.h"
 #include "LevLight.h"
 #include "LevPointLight.h"
+#include "LevSceneTreeTraverseVisitor.h"
+#include "LevSceneTreeSearchVisitor.h"
 
 #include "IMesh.h"
 #include "DynamicArray.h"
@@ -20,6 +22,7 @@
 #include "OpenGLMaterial.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLPointLight.h"
+
 
 namespace Leviathan
 {
@@ -40,81 +43,92 @@ namespace Leviathan
 		}
 
 		OpenGLRenderData::OpenGLRenderData()
+			: m_traverseVisitor(new Scene::LevSceneTreeTraverseVisitor)
+			, m_searchVisitor(new Scene::LevSceneTreeSearchVisitor)
 		{
-		}
-	
-		void OpenGLRenderData::UpdateInputData(const Scene::LevSceneData & sceneData)
-		{
-			auto& sceneTree = sceneData.GetSceneTree();
-
-			auto& sceneObjects = sceneTree.GetNodes();
-
-			// Init default pass in first data processing
-			if (m_passes.size() == 0)
+			// Default pass callback
+			auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)
 			{
-				//Find first camera
-				for (const auto& sceneObject : sceneObjects)
+				// Update light
+				if ((object.GetType() & Scene::ELSOT_LIGHT) > 0)
 				{
-					const auto& objData = *sceneObject->GetNodeData();
-					if ((objData.GetType() | Scene::ELSOT_CAMERA) > 0)
-					{
-						auto pCamera = dynamic_cast<const Scene::LevCamera*>(&objData);
-						_createDefaultPass(pCamera);
-						break;
-					}
-				}
-			}
-			
-			LEV_ASSERT(m_passes.size() > 0);
-
-			// Update light
-			for (const auto& sceneObject : sceneObjects)
-			{
-				const auto& objData = *sceneObject->GetNodeData();
-
-				if ((objData.GetType() & Scene::ELSOT_LIGHT) > 0)
-				{
-					const Scene::LevLight* pLight = dynamic_cast<const Scene::LevLight*>(&objData);
+					const Scene::LevLight* pLight = dynamic_cast<const Scene::LevLight*>(&object);
 					if (pLight)
 					{
 						_updateLight(*pLight);
 					}
 				}
-			}
 
-			// Init meshes
-			for (const auto& sceneObject : sceneObjects)
-			{
-				const auto& objData = *sceneObject->GetNodeData();
-				if ((objData.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
+				// update scene drawable objects
+				if (!object.HasModified())
 				{
-					continue;
+					return true;
 				}
 
-				auto& objDesc = objData.GetObjDesc();
+				if ((object.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
+				{
+					return true;
+				}
+
+				auto& objDesc = object.GetObjDesc();
 				if (objDesc.GetType() != ELSOD_MESH)
 				{
-					continue;
+					return true;
 				}
 
 				// TODO: change style to get mesh data?
 				const Scene::LevMeshObject* pMesh = dynamic_cast<const Scene::LevMeshObject*>(&objDesc);
 				if (!pMesh)
 				{
-					continue;
+					return true;
 				}
 
 				std::vector<LPtr<OpenGLObject>> pObjects;
-				LEV_ASSERT(ConvertMeshToGLObject(*pMesh, pObjects)); 
+				LEV_ASSERT(ConvertMeshToGLObject(*pMesh, pObjects));
 
 				for (auto& pObject : pObjects)
 				{
 					_registerToPass(pObject);
 				}
-				
-				auto& attributes = objData.GetObjAttributes();
+
+				auto& attributes = object.GetObjAttributes();
 				// TODO: Handle different attributes
+
+				return true;
+			};
+
+			m_traverseVisitor->SetTraverseCallback(_sceneObjectTraverseCallback);
+		}
+	
+		void OpenGLRenderData::UpdateInputData(const Scene::LevSceneData & sceneData)
+		{
+			auto& sceneTree = sceneData.GetSceneTree();
+
+			// Init default pass in first data processing
+			if (m_passes.size() == 0)
+			{
+				auto _findFirstCamera = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack, bool& stopSearch)
+				{
+					if ((object.GetType() & Scene::ELSOT_CAMERA) > 0)
+					{
+						auto pCamera = dynamic_cast<const Scene::LevCamera*>(&object);
+						LEV_ASSERT(pCamera);
+						_createDefaultPass(pCamera);
+
+						stopSearch = true;
+						return false;
+					}
+
+					return true;
+				};
+
+				m_searchVisitor->SetTraverseCallback(_findFirstCamera);
+				m_searchVisitor->Apply(sceneTree.GetRoot());
+
+				LEV_ASSERT(m_passes.size() > 0);
 			}
+			
+			m_traverseVisitor->Apply(sceneTree.GetRoot());
 		}
 
 		bool OpenGLRenderData::ConvertMeshToGLObject(const Scene::LevMeshObject& mesh, std::vector<LPtr<OpenGLObject>>& out)

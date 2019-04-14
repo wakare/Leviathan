@@ -115,10 +115,10 @@ namespace Leviathan
 	};
 
 	template<typename T>
-	class LOcTree
+	class LevOcTree
 	{
 	public:
-		LOcTree(const AABB& range) 
+		LevOcTree(const AABB& range) 
 		{
 			m_pRoot.reset(new TreeNode(range, 0));
 		};
@@ -137,25 +137,25 @@ namespace Leviathan
 	};
 
 	template<typename T>
-	void Leviathan::LOcTree<T>::Traverse(std::function<void(T&)> callback, bool recursion)
+	void Leviathan::LevOcTree<T>::Traverse(std::function<void(T&)> callback, bool recursion)
 	{
 		_traverse(*m_pRoot, callback, recursion);
 	}
 
 	template<typename T>
-	const AABB& Leviathan::LOcTree<T>::GetAABB() const
+	const AABB& Leviathan::LevOcTree<T>::GetAABB() const
 	{
 		return m_pRoot->aabb;
 	}
 
 	template<typename T>
-	const std::vector<T*>& Leviathan::LOcTree<T>::GetDataVec() const
+	const std::vector<T*>& Leviathan::LevOcTree<T>::GetDataVec() const
 	{
 		return m_dataVec;
 	}
 
 	template<typename T>
-	void Leviathan::LOcTree<T>::_intersect(TreeNode* pBegin, float* rayPos, float* rayDir, float& minDistance, std::vector<TreeNode*>& pResult)
+	void Leviathan::LevOcTree<T>::_intersect(TreeNode* pBegin, float* rayPos, float* rayDir, float& minDistance, std::vector<TreeNode*>& pResult)
 	{
 		float _distance;
 		if (!pBegin->RayIntersect(rayPos, rayDir, _distance)) return;
@@ -181,7 +181,7 @@ namespace Leviathan
 	}
 
 	template<typename T>
-	inline bool Leviathan::LOcTree<T>::RayIntersect(float* rayPos, float* rayDir, std::vector<TreeNode*>& pIntersect)
+	inline bool Leviathan::LevOcTree<T>::RayIntersect(float* rayPos, float* rayDir, std::vector<TreeNode*>& pIntersect)
 	{
 		float minDistance = -1.0f;
 		std::vector<TreeNode*> pResultVec;
@@ -192,7 +192,7 @@ namespace Leviathan
 	}
 
 	template<typename T>
-	inline void LOcTree<T>::_traverse(TreeNode& begin, std::function<void(T&)> callback, bool recursion)
+	inline void LevOcTree<T>::_traverse(TreeNode& begin, std::function<void(T&)> callback, bool recursion)
 	{
 		for (auto dataIndex : begin.dataVec)
 		{
@@ -210,7 +210,7 @@ namespace Leviathan
 	}
 
 	template<typename T>
-	inline void Leviathan::LOcTree<T>::_addData(TreeNode& begin, const AABB& aabb, unsigned index)
+	inline void Leviathan::LevOcTree<T>::_addData(TreeNode& begin, const AABB& aabb, unsigned index)
 	{
 		if (begin.IsLeaf())
 		{
@@ -252,7 +252,7 @@ namespace Leviathan
 	}
 
 	template<typename T>
-	inline void Leviathan::LOcTree<T>::AddData(T* pNode, const AABB& aabb)
+	inline void Leviathan::LevOcTree<T>::AddData(T* pNode, const AABB& aabb)
 	{
 		if (!AABBInside(m_pRoot->aabb, aabb))
 		{

@@ -57,9 +57,6 @@
     <ClCompile Include="EventSystem.cpp">
       <Filter>CommonTool\EventSystem</Filter>
     </ClCompile>
-    <ClCompile Include="LOcTree.cpp">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClCompile>
     <ClCompile Include="GeometryCalculator.cpp">
       <Filter>BaseAlgorithm</Filter>
     </ClCompile>
@@ -71,6 +68,9 @@
     </ClCompile>
     <ClCompile Include="MeshImpl.cpp">
       <Filter>BaseResource\BaseGraphics</Filter>
+    </ClCompile>
+    <ClCompile Include="LevOcTree.cpp">
+      <Filter>SceneTool\SpaceManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,9 +146,6 @@
     <ClInclude Include="..\..\include\LUPtr.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\LOcTree.h">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\GeometryCalculator.h">
       <Filter>BaseAlgorithm</Filter>
     </ClInclude>
@@ -197,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\MeshImpl.h">
       <Filter>BaseResource\BaseGraphics</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevOcTree.h">
+      <Filter>SceneTool\SpaceManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -10,7 +10,7 @@ namespace Leviathan
 		class LevCamera : public LevSceneObject
 		{
 		public:
-			enum class eCameraType
+			enum class CameraType
 			{
 				eObserveBallMode,
 				eFPS,

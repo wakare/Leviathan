@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <functional>
 #include "LPtr.h"
 
 namespace Leviathan
@@ -9,17 +10,30 @@ namespace Leviathan
 	{
 		enum LevSceneObjectType
 		{
+			// Only leaf node can be static node
 			ELSOT_STATIC = 1,
+
+			// Dynamic node is updated per traverse
 			ELSOT_DYNAMIC = 2,
+
 			ELSOT_LIGHT = 4,
 			ELSOT_UNRENDERABLE = 1024,
 
-			// Special defination
-			ELSOT_CAMERA = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE,
+			ELSOT_CAMERA = 8,
+			// Not set [self and children] modified flag while processing reset node modified
+			ELSOT_NOT_MODIFY = 16,
+
+			// Special node defination
+			
+			ELSOT_ROOT = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE
 		};
 
+		class LevSceneObject;
 		class LevSceneObjectAttribute;
 		class LevSceneObjectDescription;
+
+		typedef unsigned SceneObjectID;
+		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
 
 		class LevSceneObject
 		{
@@ -27,7 +41,13 @@ namespace Leviathan
 			LevSceneObject(int type);
 			virtual ~LevSceneObject();
 
+			SceneObjectID GetID() const;
 			LevSceneObjectType GetType() const;
+
+			bool HasModified() const;
+			void SetModified();
+			void ResetModified();
+			void SetModifiedCallback(LevSceneObjModified modified);
 
 			bool AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute);
 			const std::vector<LPtr<LevSceneObjectAttribute>>& GetObjAttributes() const;
@@ -36,6 +56,11 @@ namespace Leviathan
 			const LevSceneObjectDescription& GetObjDesc() const;
 
 		private:
+			SceneObjectID m_ID;
+
+			bool m_modified;
+			LevSceneObjModified m_modifiedCallback;
+
 			const LevSceneObjectType m_type;
 			std::vector<LPtr<LevSceneObjectAttribute>> m_pAttributes;
 			LPtr<LevSceneObjectDescription> m_pObjDesc;

@@ -5,6 +5,7 @@
 #include "LevMeshObject.h"
 #include "LevLight.h"
 #include "LevPointLight.h"
+#include "LevSceneObject.h"
 
 namespace Leviathan
 {
@@ -15,6 +16,11 @@ namespace Leviathan
 			, m_modified(true)
 			, m_pCamera(nullptr)
 		{
+			m_modifiedCallback = [this](const LevSceneObject& obj)
+			{
+				m_modified = true;
+			};
+
 			// FOR DEBUG
 			LPtr<LevCamera> pCamera = new LevCamera;
 			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
@@ -29,13 +35,6 @@ namespace Leviathan
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
 			AddLight(pLight);
-
-			/*LPtr<LevSceneObject> pSceneObject = new LevSceneObject(ELSOT_DYNAMIC);
-			LPtr<LevMeshObject> pMeshObj = new LevMeshObject();
-			LEV_ASSERT(pMeshObj->LoadMeshFile("C:\\Users\\wangjie\\Documents\\Leviathan\\bin\\x64\\Debug\\Models\\SoccerBall.STL"));
-			pSceneObject->SetObjectDesc(TryCast<LevMeshObject, LevSceneObjectDescription>(pMeshObj));
-			LPtr<LevSceneNode> pMeshNode = new LevSceneNode(pSceneObject);
-			m_pSceneTree->AddNode(pMeshNode);*/
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -53,11 +52,6 @@ namespace Leviathan
 			return m_modified;
 		}
 
-		void LevSceneData::SetModified()
-		{
-			m_modified = true;
-		}
-
 		void LevSceneData::ResetModified()
 		{
 			m_modified = false;
@@ -72,11 +66,11 @@ namespace Leviathan
 		{
 			LEV_ASSERT(!m_pCamera);
 
+			pCamera->SetModifiedCallback(m_modifiedCallback);
 			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
+			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
 
 			m_pCamera.Reset(pCamera);
-			SetModified();
 			return true;
 		}
 
@@ -90,19 +84,18 @@ namespace Leviathan
 			LEV_ASSERT(pLight);
 
 			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
-			EXIT_IF_FALSE(m_pSceneTree->AddNode(pNode));
+			pLight->SetModifiedCallback(m_modifiedCallback);
+			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
 
 			m_pLights.push_back(pLight);
-			SetModified();
 			return true;
 		}
 
 		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)
 		{
-			EXIT_IF_FALSE( m_pSceneTree->AddNode(pNode));
-			SetModified();
+			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
+			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
 			return true;
 		}
-
 	}
 }

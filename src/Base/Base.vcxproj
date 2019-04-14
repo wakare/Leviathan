@@ -162,7 +162,7 @@
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="Light.cpp" />
-    <ClCompile Include="LOcTree.cpp" />
+    <ClCompile Include="LevOcTree.cpp" />
     <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
@@ -191,7 +191,7 @@
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KProfile.h" />
     <ClInclude Include="..\..\include\Light.h" />
-    <ClInclude Include="..\..\include\LOcTree.h" />
+    <ClInclude Include="..\..\include\LevOcTree.h" />
     <ClInclude Include="..\..\include\LPtr.h" />
     <ClInclude Include="..\..\include\LUPtr.h" />
     <ClInclude Include="..\..\include\Material.h" />

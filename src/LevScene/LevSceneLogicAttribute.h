@@ -1,11 +1,17 @@
 #pragma once
 
+#include "LevSceneObjectAttribute.h"
+
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevSceneLogicAttribute
+		class LevSceneLogicAttribute : public LevSceneObjectAttribute
 		{
+		public:
+			LevSceneLogicAttribute();
+			~LevSceneLogicAttribute();
+
 		};
 	}
 }

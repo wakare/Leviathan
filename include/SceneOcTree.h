@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LOcTree.h"
+#include "LevOcTree.h"
 #include "SceneNode.h"
 #include "LPtr.h"
 #include "LUPtr.h"
@@ -26,7 +26,7 @@ namespace Leviathan
 		void Traverse(std::function<void(SceneNode&)> traverseFunc, bool bRecursion);
 
 	private:
-		LUPtr<LOcTree<SceneNode>> m_pRoot;
+		LUPtr<LevOcTree<SceneNode>> m_pRoot;
 	};
 
 	bool AddOcTreeToGLPass(SceneOcTree& OcTree, GLPass& pass);
