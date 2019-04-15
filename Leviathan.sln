@@ -45,13 +45,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OLD_VERSION", "OLD_VERSION", "{DE7A792B-8B41-419B-AEE2-8D23D149CD1B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Core", "src\Core\Core.vcxproj", "{2A8399E2-22AE-4997-9606-A70E4332E1B0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{183A93F0-079E-40E8-8BFB-F45FDE58C84E} = {183A93F0-079E-40E8-8BFB-F45FDE58C84E}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LevScene", "src\LevScene\LevScene.vcxproj", "{7B88C124-C6B8-46F6-94EB-81A61A915847}"
+	ProjectSection(ProjectDependencies) = postProject
+		{2A8399E2-22AE-4997-9606-A70E4332E1B0} = {2A8399E2-22AE-4997-9606-A70E4332E1B0}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LevRenderer", "src\LevRenderer\LevRenderer.vcxproj", "{5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576}"
-	ProjectSection(ProjectDependencies) = postProject
-		{7B88C124-C6B8-46F6-94EB-81A61A915847} = {7B88C124-C6B8-46F6-94EB-81A61A915847}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -37,9 +37,6 @@
     <ClInclude Include="LevSceneTree.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="LevSceneObjectAttribute.h">
-      <Filter>Source Files\SceneAttribute</Filter>
-    </ClInclude>
     <ClInclude Include="LevSceneObjectDescription.h">
       <Filter>Source Files\SceneDescription</Filter>
     </ClInclude>
@@ -51,9 +48,6 @@
     </ClInclude>
     <ClInclude Include="LevLAttrWorldCoord.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
-    </ClInclude>
-    <ClInclude Include="LevRAttrWorldTransform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
     <ClInclude Include="LevSceneLogicAttribute.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
@@ -87,6 +81,12 @@
     </ClInclude>
     <ClInclude Include="LevSceneTreeSearchVisitor.h">
       <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneObjectAttribute.h">
+      <Filter>Source Files\SceneAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevLAttrWorldTransform.h">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -129,18 +129,6 @@
     <ClCompile Include="LevPointLight.cpp">
       <Filter>Source Files\SceneObject</Filter>
     </ClCompile>
-    <ClCompile Include="LevRAttrWorldTransform.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevSceneLogicAttribute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevSceneObjectAttribute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevSceneRenderAttribute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LevResetObjModifiedVisitor.cpp">
       <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
@@ -149,6 +137,18 @@
     </ClCompile>
     <ClCompile Include="LevSceneTreeSearchVisitor.cpp">
       <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneRenderAttribute.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneLogicAttribute.cpp">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneObjectAttribute.cpp">
+      <Filter>Source Files\SceneAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevLAttrWorldTransform.cpp">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

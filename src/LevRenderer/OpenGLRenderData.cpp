@@ -84,15 +84,21 @@ namespace Leviathan
 				}
 
 				std::vector<LPtr<OpenGLObject>> pObjects;
-				LEV_ASSERT(ConvertMeshToGLObject(*pMesh, pObjects));
+				auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
+				LEV_ASSERT(inited && pObjects.size() > 0);
 
 				for (auto& pObject : pObjects)
 				{
 					_registerToPass(pObject);
 				}
 
-				auto& attributes = object.GetObjAttributes();
-				// TODO: Handle different attributes
+				Eigen::Matrix4f worldMatrix;
+
+				// Traverse stack object to calculate final result
+				for (int i = stack.size() - 1; i >= 0; --i)
+				{
+					auto& currentObj = stack[i];
+				}
 
 				return true;
 			};
@@ -293,10 +299,12 @@ namespace Leviathan
 
 			LPtr<OpenGLShaderProgram> pShaderProgram = new OpenGLShaderProgram(&_czpVertexShader, &_czpFragmentShader, nullptr);
 			LPtr<OpenGLPass> pass = new OpenGL3DPass(pShaderProgram, pCamera);
-			LEV_ASSERT(pass->Init());
+			bool inited = pass->Init();
+			LEV_ASSERT(inited);
 			m_passes.push_back(pass);
 
-			LEV_ASSERT(_setCurrentPass(pass));
+			bool _seted = _setCurrentPass(pass);
+			LEV_ASSERT(_seted);
 		}
 
 		void OpenGLRenderData::_registerToPass(LPtr<OpenGLObject> pObject)

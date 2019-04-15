@@ -20,6 +20,7 @@ namespace Leviathan
 			bool Render(GLuint shaderProgram);
 			bool ApplyMaterial(GLuint shaderProgram);
 			bool ApplyModelMatrix(LPtr<OpenGLUniform>& modelUniform);
+			bool ApplyWorldMatrix(LPtr<OpenGLUniform>& worldUniform);
 			bool ApplyUniform(GLuint shaderProgram);
 
 		private:

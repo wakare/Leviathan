@@ -112,6 +112,8 @@ namespace Leviathan
 			{
 				throw "Exception";
 			}
+
+			m_bAABBInited = true;
 		}
 
 		return m_AABB;

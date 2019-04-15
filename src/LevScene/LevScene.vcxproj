@@ -26,7 +26,7 @@
     <ClInclude Include="LevMathematicObject.h" />
     <ClInclude Include="LevMeshObject.h" />
     <ClInclude Include="LevPointLight.h" />
-    <ClInclude Include="LevRAttrWorldTransform.h" />
+    <ClInclude Include="LevLAttrWorldTransform.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
     <ClInclude Include="LevSceneData.h" />
@@ -48,7 +48,7 @@
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
-    <ClCompile Include="LevRAttrWorldTransform.cpp" />
+    <ClCompile Include="LevLAttrWorldTransform.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />

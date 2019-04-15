@@ -15,7 +15,8 @@ namespace Leviathan
 		m_pEventSystem->AddEventListener(INPUT_EVENT, TryCast<LevRenderWindow, EventListener>(m_pWindow));
 
 		m_pScene.Reset(new Scene::LevScene);
-		LEV_ASSERT(m_pScene->Init(ELST_3D_SCENE));
+		bool inited = m_pScene->Init(ELST_3D_SCENE);
+		LEV_ASSERT(inited);
 	}
 
 	Leviathan::EventSystem& ViewData::GetEventSystem()

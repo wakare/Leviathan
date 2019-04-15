@@ -15,6 +15,7 @@ namespace Leviathan
 	{
 		m_caller(t);
 	}
+
 	template<class T>
 	inline bool LevCoroutine<T>::Valid() const
 	{

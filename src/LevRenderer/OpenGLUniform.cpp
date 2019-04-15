@@ -52,7 +52,7 @@ namespace Leviathan
 			GLint uniformLocation = glGetUniformLocation(program, m_uniformName.c_str());
 			if (uniformLocation == -1)
 			{
-				throw "GLUniform::SetUniformVar(GLuint program) --> Get uniform location failed.";
+				throw "OpenGLUniform::Apply(GLuint program) --> Get uniform location failed.";
 				return false;
 			}
 

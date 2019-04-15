@@ -36,6 +36,7 @@ namespace Leviathan
 			GLboolean GetLightEnable();
 
 			void SetModelMatrix(const Eigen::Matrix4f& refModelMatrix);
+			void SetWorldMatrix(const Eigen::Matrix4f& refWorldMatrix);
 
 			void SetMaterial(LPtr<OpenGLMaterial> pMaterial);
 			void SetLightEnable(bool bLightEnable);
@@ -47,6 +48,7 @@ namespace Leviathan
 			virtual bool Init() = 0;
 			virtual bool ApplyMaterial(GLuint shaderProgram) = 0;
 			virtual bool ApplyModelMatrix(LPtr<OpenGLUniform>& modelUniform) = 0;
+			virtual bool ApplyWorldMatrix(LPtr<OpenGLUniform>& worldUniform) = 0;
 			virtual bool ApplyUniform(GLuint shaderProgram) = 0;
 			virtual bool Render(GLuint shaderProgram) = 0;
 
@@ -61,6 +63,8 @@ namespace Leviathan
 			GLuint m_vertexCount;
 			GLint m_vertexAttributeMask;
 			LPtr<OpenGLMaterial> m_pCommonGLMaterial;
+
+			LPtr<Eigen::Matrix4f> m_pWorldMatrix;
 			LPtr<Eigen::Matrix4f> m_pModelMatrix;
 			std::map<std::string, LPtr<OpenGLUniform>> m_pUniforms;
 		};

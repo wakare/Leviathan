@@ -162,6 +162,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 		pMesh->SetMaterial(new Material(ambient, diffuse, specular, (aiShininess > 1.0f) ? aiShininess : 1.0f, (texturePath.length > 0) ? (absPath.length() > 0 ? absPath : "") : ""));
 	}
 
+	pMesh->GetAABB();
 	result.push_back(pMesh);
 }
 

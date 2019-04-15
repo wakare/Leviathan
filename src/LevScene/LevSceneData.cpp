@@ -26,7 +26,8 @@ namespace Leviathan
 			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
 			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
-			LEV_ASSERT(pCamera->Set(eye.data(), lookAt.data(), up.data(), 90.0f, 1.0f, 0.01f, 1000.0f));
+			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), 90.0f, 1.0f, 0.01f, 1000.0f);
+			LEV_ASSERT(_seted);
 			auto pCameraNode = AddCamera(pCamera);
 			LEV_ASSERT(pCameraNode);
 
@@ -35,7 +36,8 @@ namespace Leviathan
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
-			LEV_ASSERT(AddLight(pLight, pCameraNode));
+			bool _added = AddLight(pLight, pCameraNode);
+			LEV_ASSERT(_added);
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()

@@ -154,6 +154,32 @@ namespace Leviathan
 			return true;
 		}
 
+		bool OpenGL3DObject::ApplyWorldMatrix(LPtr<OpenGLUniform>& worldMatrixUniform)
+		{
+			if (!worldMatrixUniform)
+			{
+				LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
+				return false;
+			}
+
+			// Set modelMatrix
+			if (!m_pWorldMatrix)
+			{
+				float fIdentityMatrix[16] =
+				{
+					1.0f, 0.0f, 0.0f, 0.0f,
+					0.0f, 1.0f, 0.0f, 0.0f,
+					0.0f, 0.0f, 1.0f, 0.0f,
+					0.0f, 0.0f, 0.0f, 1.0f,
+				};
+
+				m_pWorldMatrix = new Eigen::Matrix4f(fIdentityMatrix);
+			}
+
+			worldMatrixUniform->SetData(m_pWorldMatrix->data(), m_pWorldMatrix->size());
+			return true;
+		}
+
 		bool OpenGL3DObject::ApplyUniform(GLuint shaderProgram)
 		{
 			for (auto& pUniform : m_pUniforms)

@@ -76,7 +76,7 @@ namespace Leviathan
 		auto& sceneData = GetSceneData();
 		LPtr<Scene::LevSceneObject> pSceneObject = new Scene::LevSceneObject(Scene::ELSOT_DYNAMIC);
 		LPtr<Scene::LevMeshObject> pMeshObj = new Scene::LevMeshObject();
-		LEV_ASSERT(pMeshObj->LoadMeshFile(file));
+		EXIT_IF_FALSE(pMeshObj->LoadMeshFile(file));
 		pSceneObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObj));
 		LPtr<Scene::LevSceneNode> pMeshNode = new Scene::LevSceneNode(pSceneObject);
 		sceneData.AddSceneNode(pMeshNode);

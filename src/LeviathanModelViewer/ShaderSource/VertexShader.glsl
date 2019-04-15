@@ -6,6 +6,7 @@ layout (location = 2) in vec3 normal;
 layout (location = 3) in vec2 textureCoord;
 
 uniform mat4 modelMatrix;
+uniform mat4 worldMatrix;
 uniform mat4 viewMatrix;
 uniform mat4 projMatrix;
 uniform vec4 defaultVertexColor = vec4(1.0, 0.0, 0.0, 1.0);
@@ -20,9 +21,7 @@ out vec2 TextureCoord;
 
 void main()
 {
-    gl_Position = projMatrix * viewMatrix * modelMatrix * vec4(position.x, position.y, position.z, 1.0);
-	//gl_Position = projMatrix * viewMatrix * vec4(position.x, position.y, position.z, 1.0);
-	//gl_Position = vec4(0.0, 0.0, -1.0, 1.0);
+    gl_Position = projMatrix * viewMatrix * worldMatrix * modelMatrix * vec4(position.x, position.y, position.z, 1.0);
 
 	outColor = vec4(0.7, 0.7, 0.7, 1.0);
 	if ((VertexTypeMask & 0x2u) > 0u)

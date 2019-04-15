@@ -61,10 +61,12 @@ namespace Leviathan
 
 		void OpenGLObject::SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) 
 		{
-			if (!m_pModelMatrix)  
-				m_pModelMatrix = new Eigen::Matrix4f(refModelMatrix);
-			
-			*m_pModelMatrix = refModelMatrix;
+			m_pWorldMatrix.Reset(new Eigen::Matrix4f(refModelMatrix));
+		}
+
+		void OpenGLObject::SetWorldMatrix(const Eigen::Matrix4f & refWorldMatrix)
+		{
+			m_pWorldMatrix.Reset(new Eigen::Matrix4f(refWorldMatrix));
 		}
 
 		void OpenGLObject::SetMaterial(LPtr<OpenGLMaterial> pMaterial) 
@@ -72,7 +74,7 @@ namespace Leviathan
 			m_pCommonGLMaterial = pMaterial; 
 		}
 
-		void OpenGLObject::SetLightEnable(bool bLightEnable) \
+		void OpenGLObject::SetLightEnable(bool bLightEnable) 
 		{
 			m_bLightEnable = bLightEnable; 
 		}

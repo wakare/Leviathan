@@ -15,7 +15,8 @@ namespace Leviathan
 	{	
 		LEV_ASSERT(_scheduler().GetAppState() == EAS_UNINITED);
 		_scheduler().SetState(EAS_INITING);
-		LEV_ASSERT(_scheduler().GetViewScheduler().Init(width, height, parentHandle));
+		auto inited = _scheduler().GetViewScheduler().Init(width, height, parentHandle);
+		LEV_ASSERT(inited);
 		_scheduler().SetState(EAS_INITED);
 	}
 

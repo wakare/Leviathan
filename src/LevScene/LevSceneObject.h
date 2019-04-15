@@ -17,14 +17,13 @@ namespace Leviathan
 			ELSOT_DYNAMIC = 2,
 
 			ELSOT_LIGHT = 4,
-			ELSOT_UNRENDERABLE = 1024,
-
 			ELSOT_CAMERA = 8,
 			// Not set [self and children] modified flag while processing reset node modified
 			ELSOT_NOT_MODIFY = 16,
 
+			ELSOT_UNRENDERABLE = 1024,
+
 			// Special node defination
-			
 			ELSOT_ROOT = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE
 		};
 
