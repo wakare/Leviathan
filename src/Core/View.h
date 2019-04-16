@@ -5,6 +5,8 @@
 #include "LPtr.h"
 #include "ViewData.h"
 
+class AABB;
+
 namespace Leviathan
 {
 	class EventListener;
@@ -30,8 +32,11 @@ namespace Leviathan
 		Scene::LevSceneData& GetSceneData();
 
 		bool LoadMesh(const char* file, bool bResetCamera = true);
+		bool LoadPointCloud(const char* file, bool bResetCamera = true);
 
 	private:
+		void _resetCamera(const AABB& aabb);
+
 		std::unique_ptr<ViewData> m_pData;
 	};
 }

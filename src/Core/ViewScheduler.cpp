@@ -48,14 +48,26 @@ namespace Leviathan
 		return m_pView->GetWindowHandle();
 	}
 
-	bool ViewScheduler::LoadFile(const char* file)
+	bool ViewScheduler::LoadMeshFile(const char* file)
 	{
 		std::string path(file);
 
 		AddTask([this, path](CoPullType<int>& sink)
-		{
-			m_pView->LoadMesh(path.c_str());
-		});
+			{
+				m_pView->LoadMesh(path.c_str());
+			});
+
+		return true;
+	}
+
+	bool ViewScheduler::LoadPointCloudFile(const char * file)
+	{
+		std::string path(file);
+
+		AddTask([this, path](CoPullType<int>& sink)
+			{
+				m_pView->LoadPointCloud(path.c_str());
+			});
 
 		return true;
 	}

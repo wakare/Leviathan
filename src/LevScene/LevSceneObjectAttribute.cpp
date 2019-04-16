@@ -12,5 +12,9 @@ namespace Leviathan
 		LevSceneObjectAttribute::~LevSceneObjectAttribute()
 		{
 		}
+		SceneObjectAttributeType LevSceneObjectAttribute::GetType() const
+		{
+			return m_type;
+		}
 	}
 }

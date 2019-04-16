@@ -227,6 +227,11 @@ namespace Leviathan
 			m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
 			m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
 
+			if (m_fZFar < 4 * fDistance)
+			{
+				m_fZFar = 4 * fDistance;
+			}
+			
 			return true;
 		}
 

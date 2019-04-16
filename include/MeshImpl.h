@@ -14,9 +14,12 @@ namespace Leviathan
 		~MeshImpl();
 
 		EPrimitiveType GetPrimitiveType() const;
+		void SetPrimitiveType(EPrimitiveType type);
+
+		unsigned GetPrimitiveCount();
+		void SetPrimitiveCount(unsigned count);
 
 		unsigned GetVertexCount();
-		unsigned GetPrimitiveCount();
 		unsigned* GetPrimitiveIndexArray();
 		float* GetVertex3DCoordArray();
 		float* GetVertexNormalArray();

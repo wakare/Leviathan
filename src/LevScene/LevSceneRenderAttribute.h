@@ -10,7 +10,7 @@ namespace Leviathan
 		{
 		public:
 			LevSceneRenderAttribute();
-			~LevSceneRenderAttribute();
+			virtual ~LevSceneRenderAttribute();
 		};
 	}
 }

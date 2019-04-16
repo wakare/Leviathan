@@ -16,7 +16,9 @@ namespace Leviathan
 		bool Init(int width, int height, int parentHandle);
 
 		int GetWindowHandle();
-		bool LoadFile(const char* file);
+
+		bool LoadMeshFile(const char* file);
+		bool LoadPointCloudFile(const char* file);
 
 	private:
 

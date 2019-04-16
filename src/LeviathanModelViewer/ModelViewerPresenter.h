@@ -14,7 +14,8 @@ public:
 	virtual bool UnInit() = 0;
 
 	virtual int GetWindowHandle() = 0;
-	virtual bool LoadFile(const char* filePath) = 0;
+	virtual bool LoadMeshFile(const char* filePath) = 0;
+	virtual bool LoadPointCloudFile(const char* filePath) = 0;
 };
 
 // class ModelViewerPresenter : public IController
@@ -47,13 +48,13 @@ namespace Leviathan
 	class PresenterScheduler;
 }
 
-class ModelViewerPresenter2 : public IController
+class ModelViewerPresenter : public IController
 {
-	DECLARE_SELF_TO_SINGLETON(ModelViewerPresenter2)
+	DECLARE_SELF_TO_SINGLETON(ModelViewerPresenter)
 
 public:
-	~ModelViewerPresenter2();
-	static ModelViewerPresenter2& Instance();
+	~ModelViewerPresenter();
+	static ModelViewerPresenter& Instance();
 	Leviathan::AppState GetCurrentAppState();
 
 	bool Init(int width, int height, int handle = NULL);
@@ -62,9 +63,10 @@ public:
 	bool UnInit();
 
 	int GetWindowHandle();
-	bool LoadFile(const char* filePath);
+	bool LoadMeshFile(const char* filePath);
+	bool LoadPointCloudFile(const char* filePath);
 
 private:
-	ModelViewerPresenter2();
+	ModelViewerPresenter();
 	Leviathan::AppState m_appState;
 };

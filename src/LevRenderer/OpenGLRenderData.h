@@ -35,6 +35,7 @@ namespace Leviathan
 		private:
 			bool _updateLight(const Scene::LevLight& light);
 			bool _convertTriangleMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
+			bool _convertPointMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
 
 			void _createDefaultPass(const Scene::LevCamera* pCamera);
 			void _registerToPass(LPtr<OpenGLObject> pObject);

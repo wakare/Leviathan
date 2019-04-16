@@ -18,15 +18,24 @@ namespace Leviathan
 		};
 
 		virtual EPrimitiveType GetPrimitiveType() const = 0;
+		virtual void SetPrimitiveType(EPrimitiveType) = 0;
+
+		virtual unsigned	GetPrimitiveCount() = 0;
+		virtual void		SetPrimitiveCount(unsigned) = 0;
 
 		virtual unsigned	GetVertexCount() = 0;
-		virtual unsigned	GetPrimitiveCount() = 0;
-
 		virtual unsigned*	GetPrimitiveIndexArray() = 0;
 		virtual float*		GetVertex3DCoordArray() = 0;
 		virtual float*		GetVertexNormalArray() = 0;
 		virtual float*		GetVertexColorArray() = 0;
 		virtual float*		GetVertexTexArray() = 0;
+
+		virtual void SetVertexCoordData(float* vertexCoordData) = 0;
+		virtual void SetVertexNormalData(float* vertexNormalData) = 0;
+		virtual void SetPrimitiveIndexData(unsigned* triangleIndexData) = 0;
+		virtual void SetVertexTex2DData(float* vertexTexData) = 0;
+		virtual void SetVertexColorData(float* vertexColorData) = 0;
+		virtual void SetMaterial(LPtr<Material> material) = 0;
 
 		virtual LPtr<Material> GetMaterial() = 0;
 		virtual const AABB& GetAABB() = 0;

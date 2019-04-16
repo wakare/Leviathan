@@ -17,7 +17,8 @@ namespace Leviathan
 		static void Stop();
 		
 		static const BaseData& GetData();
-		static bool LoadFile(const char * file);
+		static bool LoadMeshFile(const char * file);
+		static bool LoadPointCloudFile(const char * file);
 
 	private:
 		static BaseData m_data;

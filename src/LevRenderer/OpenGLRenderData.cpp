@@ -9,6 +9,8 @@
 #include "LevPointLight.h"
 #include "LevSceneTreeTraverseVisitor.h"
 #include "LevSceneTreeSearchVisitor.h"
+#include "LevSceneObjectAttribute.h"
+#include "LevRAttrObjectColor.h"
 
 #include "IMesh.h"
 #include "DynamicArray.h"
@@ -22,7 +24,6 @@
 #include "OpenGLMaterial.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLPointLight.h"
-
 
 namespace Leviathan
 {
@@ -49,6 +50,12 @@ namespace Leviathan
 			// Default pass callback
 			auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)
 			{
+				// update scene drawable objects
+				if (!object.HasModified())
+				{
+					return true;
+				}
+
 				// Update light
 				if ((object.GetType() & Scene::ELSOT_LIGHT) > 0)
 				{
@@ -57,12 +64,6 @@ namespace Leviathan
 					{
 						_updateLight(*pLight);
 					}
-				}
-
-				// update scene drawable objects
-				if (!object.HasModified())
-				{
-					return true;
 				}
 
 				if ((object.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
@@ -83,6 +84,44 @@ namespace Leviathan
 					return true;
 				}
 
+				// Traverse render attribute
+				for (auto& attribute : object.GetObjAttributes())
+				{
+					if (attribute->GetType() != Scene::ESOLAT_RENDER)
+					{
+						continue;
+					}
+
+					// Color ?
+					const Scene::LevRAttrObjectColor* pColor = dynamic_cast<const Scene::LevRAttrObjectColor*>(attribute.Get());
+					if (pColor && pColor->GetColorType() == Scene::ELOCT_PURE_COLOR)
+					{
+						for (auto& mesh : pMesh->GetMesh())
+						{
+							float* colorData = new float[mesh->GetVertexCount() * 3 * sizeof(float)];
+							for (unsigned i = 0; i < mesh->GetVertexCount(); i++)
+							{
+								float * data = colorData + 3 * i;
+								memcpy(data, pColor->GetColorData().pure_color, 3 * sizeof(float));
+							}
+
+							mesh->SetVertexColorData(colorData);
+							delete[] colorData;
+						}
+					}
+
+					if (pColor && pColor->GetColorType() == Scene::ELOCT_COLOR_ARRAY)
+					{
+						auto* colorData = pColor->GetColorData().color_array;
+						for (auto& mesh : pMesh->GetMesh())
+						{
+							mesh->SetVertexColorData(colorData);
+							unsigned byteSize = mesh->GetVertexCount() * 3 * sizeof(float);
+							colorData += byteSize;
+						}
+					}
+				}
+
 				std::vector<LPtr<OpenGLObject>> pObjects;
 				auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
 				LEV_ASSERT(inited && pObjects.size() > 0);
@@ -92,13 +131,13 @@ namespace Leviathan
 					_registerToPass(pObject);
 				}
 
-				Eigen::Matrix4f worldMatrix;
-
-				// Traverse stack object to calculate final result
-				for (int i = stack.size() - 1; i >= 0; --i)
-				{
-					auto& currentObj = stack[i];
-				}
+// 				Eigen::Matrix4f worldMatrix;
+// 
+// 				// Traverse stack object to calculate final result
+// 				for (int i = stack.size() - 1; i >= 0; --i)
+// 				{
+// 					auto& currentObj = stack[i];
+// 				}
 
 				return true;
 			};
@@ -151,11 +190,11 @@ namespace Leviathan
 					continue;
 				}
 
-				/*if (pMesh->GetPrimitiveType() == IMesh::EPT_POINTS && !_convertPointMeshToGLObject(pMesh, pObject))
+				if (pMesh->GetPrimitiveType() == IMesh::EPT_POINTS && !_convertPointMeshToGLObject(pMesh, pObject))
 				{
 					LeviathanOutStream << "[ERROR] Convert triangle mesh to GLObject failed." << std::endl;
 					continue;
-				}*/
+				}
 
 				out.push_back(pObject);
 			}
@@ -167,7 +206,7 @@ namespace Leviathan
 		{
 			LPtr<OpenGLLight> pGLLight = nullptr;
 			switch (light.GetLightType())
-			{
+			{ 
 			case Scene::ELLT_POINT_LIGHT:
 			{
 				const Scene::LevPointLight* pPointLight = dynamic_cast<const Scene::LevPointLight*>(&light);
@@ -277,6 +316,57 @@ namespace Leviathan
 
 			out = new OpenGL3DObject(GL_TRIANGLES, pVertexData.m_pData, pMesh->GetVertexCount(),
 				uVertexTypeMask, nullptr, pGLMaterial, pMesh->GetPrimitiveIndexArray(), pMesh->GetPrimitiveCount() * 3);
+
+			return true;
+		}
+
+		bool OpenGLRenderData::_convertPointMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
+		{
+			int vertexMask = OpenGLObject::VERTEX_ATTRIBUTE_XYZ;
+			unsigned vertexDataSize = 3;
+
+			// Check with normal
+			if (pMesh->GetVertexNormalArray())
+			{
+				vertexMask |= OpenGLObject::VERTEX_ATTRIBUTE_NXYZ;
+				vertexDataSize += 3;
+			}
+
+			if (pMesh->GetVertexColorArray())
+			{
+				vertexMask |= OpenGLObject::VERTEX_ATTRIBUTE_RGBA;
+				vertexDataSize += 4;
+			}
+
+			DynamicArray<float> tempArray(pMesh->GetVertexCount() * vertexDataSize * sizeof(float));
+
+			for (unsigned i = 0; i < pMesh->GetVertexCount(); i++)
+			{
+				float* pData = tempArray.m_pData + vertexDataSize * i;
+				
+				// Fill vertex coord array
+				float* pCoord = pMesh->GetVertex3DCoordArray() + 3 * i;
+				memcpy(pData, pCoord, 3 * sizeof(float));
+				pData += 3;
+
+				if (vertexMask & OpenGLObject::VERTEX_ATTRIBUTE_RGBA)
+				{
+					float* color = pMesh->GetVertexColorArray() + 3 * i;
+					memcpy(pData, color, 3 * sizeof(float));
+					pData[3] = 1.0f;
+					pData += 4;
+				}
+
+				if(vertexMask & OpenGLObject::VERTEX_ATTRIBUTE_NXYZ)
+				{
+					float* pNormal = pMesh->GetVertexNormalArray() + 3 * i;
+					memcpy(pData, pNormal, 3 * sizeof(float));
+					pData += 3;
+				}
+			}
+
+			LPtr<OpenGLMaterial> defaultPointMateial = new OpenGLMaterial({ 0.2f, 0.2f, 0.2f }, { 0.3f, 0.3f, 0.3f }, { 1.0f, 1.0f, 1.0f }, 32.0f);
+			out = new OpenGL3DObject(GL_POINTS, tempArray.m_pData, pMesh->GetVertexCount(), vertexMask, nullptr, defaultPointMateial);
 
 			return true;
 		}

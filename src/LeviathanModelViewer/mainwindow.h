@@ -20,7 +20,8 @@ public:
     ~MainWindow();
 
 public slots:
-	void LoadFile();
+	void LoadMeshFile();
+	void LoadPointCloudFile();
 	void OpenglWidgetResize();
 	void Update();
 

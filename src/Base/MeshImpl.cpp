@@ -24,6 +24,11 @@ namespace Leviathan
 		return m_primitiveType;
 	}
 
+	void MeshImpl::SetPrimitiveType(EPrimitiveType type)
+	{
+		m_primitiveType = type;
+	}
+
 	unsigned MeshImpl::GetVertexCount()
 	{
 		return m_vertexNumber;
@@ -32,6 +37,11 @@ namespace Leviathan
 	unsigned MeshImpl::GetPrimitiveCount()
 	{
 		return m_primitiveNumber;
+	}
+
+	void MeshImpl::SetPrimitiveCount(unsigned count)
+	{
+		m_primitiveNumber = count;
 	}
 
 	float* MeshImpl::GetVertex3DCoordArray()

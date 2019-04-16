@@ -28,7 +28,8 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
-    QAction *actionLoad_Mesh;
+    QAction *actionLoad_MeshFile;
+    QAction *actionLoad_PointCloud;
     QWidget *centralWidget;
     QGridLayout *gridLayout;
     QOpenGLWidget *openGLWidget;
@@ -42,8 +43,10 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(888, 717);
-        actionLoad_Mesh = new QAction(MainWindow);
-        actionLoad_Mesh->setObjectName(QStringLiteral("actionLoad_Mesh"));
+        actionLoad_MeshFile = new QAction(MainWindow);
+        actionLoad_MeshFile->setObjectName(QStringLiteral("actionLoad_MeshFile"));
+        actionLoad_PointCloud = new QAction(MainWindow);
+        actionLoad_PointCloud->setObjectName(QStringLiteral("actionLoad_PointCloud"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -70,7 +73,8 @@ public:
         MainWindow->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());
-        menuFile->addAction(actionLoad_Mesh);
+        menuFile->addAction(actionLoad_MeshFile);
+        menuFile->addAction(actionLoad_PointCloud);
 
         retranslateUi(MainWindow);
 
@@ -80,7 +84,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", nullptr));
-        actionLoad_Mesh->setText(QApplication::translate("MainWindow", "Load Mesh", nullptr));
+        actionLoad_MeshFile->setText(QApplication::translate("MainWindow", "Load MeshFile", nullptr));
+        actionLoad_PointCloud->setText(QApplication::translate("MainWindow", "Load PointCloud", nullptr));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
 

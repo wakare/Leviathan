@@ -91,6 +91,9 @@
     <ClInclude Include="LevLAttrModelTransform.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevRAttrObjectColor.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="LevLAttrModelTransform.cpp">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrObjectColor.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

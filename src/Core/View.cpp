@@ -10,6 +10,8 @@
 #include "LevMeshObject.h"
 #include "LevSceneNode.h"
 #include "LevCamera.h"
+#include "LevSceneObjectAttribute.h"
+#include "LevRAttrObjectColor.h"
 
 namespace Leviathan
 {
@@ -83,11 +85,60 @@ namespace Leviathan
 
 		if (bResetCamera)
 		{
-			const auto& _meshAABB = pMeshObj->GetAABB();
-			Eigen::Vector3f worldCoord; memcpy(&worldCoord[0], _meshAABB.Center(), 3 * sizeof(float));
-			sceneData.GetCamera()->LookAt(worldCoord, _meshAABB.Radius());
+			_resetCamera(pMeshObj->GetAABB());
 		}
 
 		return true;
 	}
+
+	bool View::LoadPointCloud(const char* file, bool bResetCamera /*= true*/)
+	{
+		auto& sceneData = GetSceneData();
+		LPtr<Scene::LevSceneObject> pSceneObject = new Scene::LevSceneObject(Scene::ELSOT_DYNAMIC);
+		LPtr<Scene::LevMeshObject> pMeshObj = new Scene::LevMeshObject();
+		EXIT_IF_FALSE(pMeshObj->LoadMeshFile(file));
+
+		// Reset primitive type to point
+		unsigned totalVertexCount = 0;
+		for (auto& pMesh : pMeshObj->GetMesh())
+		{
+			pMesh->SetPrimitiveType(IMesh::EPT_POINTS);
+			pMesh->SetPrimitiveCount(pMesh->GetVertexCount());
+			totalVertexCount += pMesh->GetVertexCount();
+		}
+
+		pSceneObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObj));
+		LPtr<Scene::LevSceneNode> pMeshNode = new Scene::LevSceneNode(pSceneObject);
+
+		// Add color attribute
+		LPtr<Scene::LevObjectColorData> pColorData = new Scene::LevObjectColorData();
+		pColorData->color_array = new float[3 * totalVertexCount];
+		for (unsigned i = 0; i < totalVertexCount; i++)
+		{
+			auto* color = pColorData->color_array + 3 * i;
+			float _temp = (i * 1.0f) / totalVertexCount;
+			color[0] = _temp;
+			color[1] = 1.0f - _temp;
+			color[2] = 0.0f;
+		}
+
+		LPtr<Scene::LevSceneObjectAttribute> pColor = new Scene::LevRAttrObjectColor(Scene::ELOCT_COLOR_ARRAY, pColorData);
+		pMeshNode->GetNodeData()->AddAttribute(pColor);
+
+		sceneData.AddSceneNode(pMeshNode);
+
+		if (bResetCamera)
+		{
+			_resetCamera(pMeshObj->GetAABB());
+		}
+
+		return true;
+	}
+
+	void View::_resetCamera(const AABB & aabb)
+	{
+		Eigen::Vector3f worldCoord; memcpy(&worldCoord[0], aabb.Center(), 3 * sizeof(float));
+		GetSceneData().GetCamera()->LookAt(worldCoord, aabb.Radius());
+	}
+
 }

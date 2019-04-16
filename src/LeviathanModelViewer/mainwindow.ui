@@ -33,7 +33,8 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="actionLoad_Mesh"/>
+    <addaction name="actionLoad_MeshFile"/>
+    <addaction name="actionLoad_PointCloud"/>
    </widget>
    <addaction name="menuFile"/>
   </widget>
@@ -46,9 +47,14 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="actionLoad_Mesh">
+  <action name="actionLoad_MeshFile">
    <property name="text">
-    <string>Load Mesh</string>
+    <string>Load MeshFile</string>
+   </property>
+  </action>
+  <action name="actionLoad_PointCloud">
+   <property name="text">
+    <string>Load PointCloud</string>
    </property>
   </action>
  </widget>

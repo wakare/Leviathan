@@ -8,13 +8,16 @@ namespace Leviathan
 	namespace Renderer
 	{
 
-		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix /*= nullptr*/, LPtr<OpenGLMaterial> pCommonGLMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
-			OpenGLObject(primType, vertexSize, vertexMask, pModelMatrix, pCommonGLMaterial),
+		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix /*= nullptr*/, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
+			OpenGLObject(primType, vertexSize, vertexMask, pModelMatrix, pMaterial),
 			m_pData(pVertexArrayData),
 			m_pIndexData(pIndexArrayData),
 			m_uIndexArrayCount(uIndexArrayCount)
 		{
 			Init();
+
+			// Set light enable
+			SetLightEnable(m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ);
 		};
 
 		bool OpenGL3DObject::Init()

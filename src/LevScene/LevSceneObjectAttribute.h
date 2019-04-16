@@ -14,7 +14,9 @@ namespace Leviathan
 		{
 		public:
 			LevSceneObjectAttribute(SceneObjectAttributeType type);
-			~LevSceneObjectAttribute();
+			virtual ~LevSceneObjectAttribute();
+
+			SceneObjectAttributeType GetType() const;
 
 		private:
 			SceneObjectAttributeType m_type;

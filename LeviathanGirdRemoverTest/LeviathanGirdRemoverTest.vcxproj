@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,83 +19,37 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="LevCamera.h" />
-    <ClInclude Include="LevDirectionalLight.h" />
-    <ClInclude Include="LevLAttrModelTransform.h" />
-    <ClInclude Include="LevLAttrWorldCoord.h" />
-    <ClInclude Include="LevLight.h" />
-    <ClInclude Include="LevMathematicObject.h" />
-    <ClInclude Include="LevMeshObject.h" />
-    <ClInclude Include="LevPointLight.h" />
-    <ClInclude Include="LevLAttrWorldTransform.h" />
-    <ClInclude Include="LevRAttrObjectColor.h" />
-    <ClInclude Include="LevResetObjModifiedVisitor.h" />
-    <ClInclude Include="LevScene.h" />
-    <ClInclude Include="LevSceneData.h" />
-    <ClInclude Include="LevSceneEventListener.h" />
-    <ClInclude Include="LevSceneLogicAttribute.h" />
-    <ClInclude Include="LevSceneNode.h" />
-    <ClInclude Include="LevSceneObject.h" />
-    <ClInclude Include="LevSceneObjectDescription.h" />
-    <ClInclude Include="LevSceneRenderAttribute.h" />
-    <ClInclude Include="LevSceneTree.h" />
-    <ClInclude Include="LevSceneObjectAttribute.h" />
-    <ClInclude Include="LevSceneTreeSearchVisitor.h" />
-    <ClInclude Include="LevSceneTreeTraverseVisitor.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="LevCamera.cpp" />
-    <ClCompile Include="LevLAttrModelTransform.cpp" />
-    <ClCompile Include="LevLAttrWorldCoord.cpp" />
-    <ClCompile Include="LevLight.cpp" />
-    <ClCompile Include="LevMathematicObject.cpp" />
-    <ClCompile Include="LevMeshObject.cpp" />
-    <ClCompile Include="LevPointLight.cpp" />
-    <ClCompile Include="LevLAttrWorldTransform.cpp" />
-    <ClCompile Include="LevRAttrObjectColor.cpp" />
-    <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
-    <ClCompile Include="LevScene.cpp" />
-    <ClCompile Include="LevSceneData.cpp" />
-    <ClCompile Include="LevSceneEventListener.cpp" />
-    <ClCompile Include="LevSceneLogicAttribute.cpp" />
-    <ClCompile Include="LevSceneNode.cpp" />
-    <ClCompile Include="LevSceneObject.cpp" />
-    <ClCompile Include="LevSceneObjectAttribute.cpp" />
-    <ClCompile Include="LevSceneObjectDescription.cpp" />
-    <ClCompile Include="LevSceneRenderAttribute.cpp" />
-    <ClCompile Include="LevSceneTree.cpp" />
-    <ClCompile Include="LevSceneTreeSearchVisitor.cpp" />
-    <ClCompile Include="LevSceneTreeTraverseVisitor.cpp" />
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{7B88C124-C6B8-46F6-94EB-81A61A915847}</ProjectGuid>
+    <ProjectGuid>{AFA3C5C4-6705-4009-AFA1-6911566AC330}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LevScene</RootNamespace>
+    <RootNamespace>LeviathanGirdRemoverTest</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
@@ -141,13 +95,16 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\$(Platform)\$(Configuration)\;$(SolutionDir)3rdparty\BOOST\stage\lib;$(SolutionDir)3rdparty\assimp\install\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LevScene.lib;LevRenderer.lib;Core.lib;assimp-vc140-mt.lib;opengl32.lib;glew.lib;SOIL.lib;glfw3.lib;Base.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -156,11 +113,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
@@ -172,11 +130,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -190,15 +149,18 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)/include;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)\bin\$(Platform)\$(Configuration)\;$(SolutionDir)3rdparty\BOOST\stage\lib;$(SolutionDir)3rdparty\assimp\install\lib\x64\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>LevScene.lib;LevRenderer.lib;Core.lib;assimp-vc140-mt.lib;opengl32.lib;glew.lib;SOIL.lib;glfw3.lib;Base.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

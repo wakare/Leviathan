@@ -11,7 +11,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 	// Register
-	connect(ui->actionLoad_Mesh, SIGNAL(triggered(bool)), this, SLOT(LoadFile()));
+	connect(ui->actionLoad_MeshFile, SIGNAL(triggered(bool)), this, SLOT(LoadMeshFile())); 
+	connect(ui->actionLoad_PointCloud, SIGNAL(triggered(bool)), this, SLOT(LoadPointCloudFile()));
 	connect(ui->openGLWidget, SIGNAL(resized()), this, SLOT(OpenglWidgetResize()));
 
 	m_updateTimer.setInterval(200);
@@ -24,12 +25,20 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::LoadFile()
+void MainWindow::LoadMeshFile()
 {
 	QString path = QFileDialog::getOpenFileName(this,QString("Select mesh file"), QString("."), QString("Mesh file(*.*)"));
 	if (path.length() == 0) return;
 	
-	_controller().LoadFile(path.toStdString().c_str());
+	_controller().LoadMeshFile(path.toStdString().c_str());
+}
+
+void MainWindow::LoadPointCloudFile()
+{
+	QString path = QFileDialog::getOpenFileName(this, QString("Select point cloud file"), QString("."), QString("Mesh file(*.*)"));
+	if (path.length() == 0) return;
+
+	_controller().LoadPointCloudFile(path.toStdString().c_str());
 }
 
 void MainWindow::resizeEvent(QResizeEvent * event)
@@ -112,5 +121,5 @@ void MainWindow::Update()
 
 IController& MainWindow::_controller()
 {
-	return ModelViewerPresenter2::Instance();
+	return ModelViewerPresenter::Instance();
 }

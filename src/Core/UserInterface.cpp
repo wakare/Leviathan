@@ -39,9 +39,14 @@ namespace Leviathan
 		return m_data;
 	}
 
-	bool UserInterface::LoadFile(const char * file)
+	bool UserInterface::LoadMeshFile(const char * file)
 	{
-		return _scheduler().GetViewScheduler().LoadFile(file);
+		return _scheduler().GetViewScheduler().LoadMeshFile(file);
+	}
+
+	bool UserInterface::LoadPointCloudFile(const char * file)
+	{
+		return _scheduler().GetViewScheduler().LoadPointCloudFile(file);
 	}
 
 }
