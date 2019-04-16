@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <functional>
+#include <Eigen/Dense>
 #include "LPtr.h"
 
 namespace Leviathan
@@ -31,6 +32,9 @@ namespace Leviathan
 		class LevSceneObjectAttribute;
 		class LevSceneObjectDescription;
 
+		class LevLAttrWorldTransform;
+		class LevLAttrModelTransform;
+
 		typedef unsigned SceneObjectID;
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
 
@@ -54,6 +58,12 @@ namespace Leviathan
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
 			const LevSceneObjectDescription& GetObjDesc() const;
 
+			bool SetWorldTransform(const Eigen::Matrix4f& trans);
+			const Eigen::Matrix4f& GetWorldTransform() const;
+
+			bool SetModelTransform(const Eigen::Matrix4f& trans);
+			const Eigen::Matrix4f& GetModelTransform() const;
+
 		private:
 			SceneObjectID m_ID;
 
@@ -62,6 +72,10 @@ namespace Leviathan
 
 			const LevSceneObjectType m_type;
 			std::vector<LPtr<LevSceneObjectAttribute>> m_pAttributes;
+
+			LPtr<LevLAttrWorldTransform> m_pWorldTransform;
+			LPtr<LevLAttrModelTransform> m_pModelTransform;
+
 			LPtr<LevSceneObjectDescription> m_pObjDesc;
 		};
 	}

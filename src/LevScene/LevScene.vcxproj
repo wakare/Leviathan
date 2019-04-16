@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="LevCamera.h" />
     <ClInclude Include="LevDirectionalLight.h" />
+    <ClInclude Include="LevLAttrModelTransform.h" />
     <ClInclude Include="LevLAttrWorldCoord.h" />
     <ClInclude Include="LevLight.h" />
     <ClInclude Include="LevMathematicObject.h" />
@@ -43,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevCamera.cpp" />
+    <ClCompile Include="LevLAttrModelTransform.cpp" />
     <ClCompile Include="LevLAttrWorldCoord.cpp" />
     <ClCompile Include="LevLight.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />

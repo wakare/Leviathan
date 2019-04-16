@@ -5,17 +5,15 @@ namespace Leviathan
 	template <class T>
 	void LevScheduler<T>::AddTask(LPtr<LevTaskTemplate<T>> task)
 	{
-		m_tasks_lock.lock();
+		std::lock_guard<std::mutex> guard(m_tasks_lock);
 		m_tasks.push_back(task);
-		m_tasks_lock.unlock();
 	}
 
 	template <class T>
 	void LevScheduler<T>::AddTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task)
 	{
-		m_tasks_lock.lock();
+		std::lock_guard<std::mutex> guard(m_tasks_lock);
 		m_tasks.insert(m_tasks.end(), task.begin(), task.end());
-		m_tasks_lock.unlock();
 	}
 
 	template <class T>
@@ -28,10 +26,15 @@ namespace Leviathan
 	template <class T>
 	void LevScheduler<T>::Tick()
 	{
-		m_tasks_lock.lock();
+		std::vector<LPtr<LevTaskTemplate<T>>> _tasks;
+		{
+			std::lock_guard<std::mutex> guard(m_tasks_lock);
+			_tasks = m_tasks;
+			m_tasks.clear();
+		}
+		
 		std::vector<LPtr<LevTaskTemplate<T>>> remainTasks;
-
-		for (auto& task : m_tasks)
+		for (auto& task : _tasks)
 		{
 			task->Do();
 
@@ -41,8 +44,10 @@ namespace Leviathan
 			}
 		}
 
-		m_tasks = remainTasks;
-		m_tasks_lock.unlock();
+		{
+			std::lock_guard<std::mutex> guard(m_tasks_lock);
+			m_tasks.insert(m_tasks.end(), remainTasks.begin(), remainTasks.end());
+		}
 	}
 
 	template <class T>

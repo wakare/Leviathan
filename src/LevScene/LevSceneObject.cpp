@@ -1,6 +1,8 @@
 #include "LevSceneObject.h"
 #include "GlobalDef.h"
 #include "LevSceneObjectDescription.h"
+#include "LevLAttrModelTransform.h"
+#include "LevLAttrWorldTransform.h"
 
 namespace Leviathan
 {
@@ -9,10 +11,16 @@ namespace Leviathan
 		LevSceneObject::LevSceneObject(int type) 
 			: m_type((LevSceneObjectType)type)
 			, m_modified(true)
+			, m_pModelTransform(new LevLAttrModelTransform)
+			, m_pWorldTransform(new LevLAttrWorldTransform)
 		{
 			// Init unique id
 			static unsigned _globalID = 0;
 			m_ID = _globalID++;
+
+			// Add transforms
+			m_pAttributes.push_back(TryCast<LevLAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
+			m_pAttributes.push_back(TryCast<LevLAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
 		}
 
 		LevSceneObject::~LevSceneObject()
@@ -36,11 +44,6 @@ namespace Leviathan
 
 		void LevSceneObject::SetModified()
 		{
-// 			if (m_modified)
-// 			{
-// 				return;
-// 			}
-
 			m_modified = true;
 			if (m_modifiedCallback)
 			{
@@ -79,6 +82,28 @@ namespace Leviathan
 		{
 			LEV_ASSERT(m_pObjDesc.Get());
 			return *m_pObjDesc;
+		}
+
+		bool LevSceneObject::SetWorldTransform(const Eigen::Matrix4f& trans)
+		{
+			m_pWorldTransform->SetWorldTransform(trans);
+			return true;
+		}
+
+		const Eigen::Matrix4f& LevSceneObject::GetWorldTransform() const
+		{
+			return m_pWorldTransform->GetTransform();
+		}
+
+		bool LevSceneObject::SetModelTransform(const Eigen::Matrix4f & trans)
+		{
+			m_pModelTransform->SetModelTransform(trans);
+			return true;
+		}
+
+		const Eigen::Matrix4f& LevSceneObject::GetModelTransform() const
+		{
+			return m_pModelTransform->GetTransform();
 		}
 
 	}

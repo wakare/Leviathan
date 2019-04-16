@@ -32,7 +32,7 @@ namespace Leviathan
 			LEV_ASSERT(pCameraNode);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
-			pLight->LightCoordination(eye);
+			pLight->LightCoordination({0.0f, 0.0f, 0.0f});
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });

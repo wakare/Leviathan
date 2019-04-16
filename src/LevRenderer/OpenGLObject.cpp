@@ -61,7 +61,7 @@ namespace Leviathan
 
 		void OpenGLObject::SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) 
 		{
-			m_pWorldMatrix.Reset(new Eigen::Matrix4f(refModelMatrix));
+			m_pModelMatrix.Reset(new Eigen::Matrix4f(refModelMatrix));
 		}
 
 		void OpenGLObject::SetWorldMatrix(const Eigen::Matrix4f & refWorldMatrix)

@@ -88,6 +88,9 @@
     <ClInclude Include="LevLAttrWorldTransform.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevLAttrModelTransform.h">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -148,6 +151,9 @@
       <Filter>Source Files\SceneAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevLAttrWorldTransform.cpp">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevLAttrModelTransform.cpp">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClCompile>
   </ItemGroup>
