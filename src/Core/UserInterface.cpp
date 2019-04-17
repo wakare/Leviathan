@@ -55,4 +55,9 @@ namespace Leviathan
 		return _scheduler().GetViewScheduler().LoadPointCloudFile(file, out);
 	}
 
+	bool UserInterface::AddNodeToScene(LPtr<Scene::LevSceneNode> pNode)
+	{
+		return _scheduler().GetViewScheduler().AddNode(pNode);
+	}
+
 }

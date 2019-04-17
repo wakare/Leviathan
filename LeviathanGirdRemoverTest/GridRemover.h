@@ -15,6 +15,15 @@ struct Point3D
 
 struct GridBar
 {
+	void GetBoxRange(float* min, float* max) 
+	{
+		min[0] = box.min().x();
+		min[1] = box.min().y();
+
+		max[0] = box.max().x();
+		max[1] = box.max().y();
+	}
+
 	bool inited;
 	Eigen::AlignedBox2f box;
 	float tsdf;
@@ -27,11 +36,13 @@ struct GridRemoverConfig
 	GridRemoverConfig()
 	{
 		removePlaneOffset = 2.0f;
-		gridSize = 64;
+		//gridSize = 10;
+		gridCellLength = 200.0f;
 	}
 
 	float removePlaneOffset;
-	unsigned gridSize;
+	//unsigned gridSize;
+	float gridCellLength;
 };
 
 class IGridMerger
@@ -58,7 +69,12 @@ public:
 	void SetParameters(const GridRemoverConfig& config);
 	void SetTSDFCloud(const GridRemoverPointCloud& pointCloud);
 
-	void TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool> result);
+	void TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool>& result);
+
+	//Debug
+	const std::vector<GridBar>& GetGridBars() const;
+	std::vector<GridBar>& GetGridBars();
+
 private:
 	GridBar& _getParentGrid(const GridRemoverPoint& point);
 	GridBar& _getParentGrid(const float* data);
@@ -67,6 +83,9 @@ private:
 
 	float m_xStep;
 	float m_yStep;
+
+	unsigned m_maxIndexX;
+	unsigned m_maxIndexY;
 
 	GridRemoverConfig m_config;
 	Eigen::AlignedBox3d m_box;

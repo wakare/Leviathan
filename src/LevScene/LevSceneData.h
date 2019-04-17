@@ -29,8 +29,9 @@ namespace Leviathan
 
 			const std::vector<LPtr<LevLight>> GetLights() const;
 			bool AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode = nullptr);
-
 			bool AddSceneNode(LPtr<LevSceneNode> pNode);
+
+			void RemoveAllRenderables();
 
 			void Update();
 

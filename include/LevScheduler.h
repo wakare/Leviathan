@@ -16,6 +16,9 @@ namespace Leviathan
 		void DoTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
 		void DoTask(std::function<void(CoPullType<T>&)> func);
 
+		void DoSyncTask(LPtr<LevTaskTemplate<T>> task);
+		void DoSyncTask(std::function<void(CoPullType<T>&)> func);
+
 	protected:
 		void _tick();
 

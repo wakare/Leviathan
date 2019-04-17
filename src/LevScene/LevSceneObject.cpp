@@ -55,7 +55,7 @@ namespace Leviathan
 		void LevSceneObject::SetState(LevSceneObjectState state)
 		{
 			m_state = state;
-			m_modified = true;
+			SetModified();
 		}
 
 		LevSceneObjectState LevSceneObject::GetState() const

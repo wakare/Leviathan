@@ -34,6 +34,7 @@ namespace Leviathan
 
 		bool LoadMesh(const char* file, bool bResetCamera = true);
 		LPtr<Scene::LevSceneNode> LoadPointCloud(const char* file, bool bResetCamera = true);
+		void RemoveAllRenderables(bool bSync = false);
 
 	private:
 		void _resetCamera(const AABB& aabb);

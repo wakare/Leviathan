@@ -1,6 +1,10 @@
 #include "ViewScheduler.h"
 #include "RenderWindow.h"
 #include "LevSceneNode.h"
+#include "LevSceneData.h"
+#include "MeshImpl.h"
+#include "LevMeshObject.h"
+#include "LevSceneObject.h"
 
 namespace Leviathan
 {
@@ -65,11 +69,40 @@ namespace Leviathan
 	{
 		std::string path(file);
 
-		DoTask([this, path, &out](CoPullType<int>& sink)
+		DoSyncTask([this, &path, &out](CoPullType<int>& sink)
 			{
 				out = m_pView->LoadPointCloud(path.c_str());
 			});
 
 		return true;
 	}
+
+	bool ViewScheduler::AddNode(LPtr<Scene::LevSceneNode> pNode)
+	{
+		DoTask([this, pNode] (CoPullType<int>& sink)
+			{
+				auto& sceneData = m_pView->GetSceneData();
+				sceneData.AddSceneNode(pNode);
+			});
+
+		return true;
+	}
+
+	bool ViewScheduler::LoadCustomMesh(LPtr<IMesh> pMesh)
+	{
+		LPtr<Scene::LevMeshObject> pMeshObject = new Scene::LevMeshObject();
+		pMeshObject->SetMesh(pMesh);
+
+		LPtr<Scene::LevSceneObject> pObject = new Scene::LevSceneObject(Scene::ELSOT_DYNAMIC);
+		pObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObject));
+
+		LPtr<Scene::LevSceneNode> pNode = new Scene::LevSceneNode(pObject);
+		DoTask([this, pNode](Leviathan::CoPullType<int>&)
+			{
+				AddNode(pNode);
+			});
+
+		return true;
+	}
+
 }

@@ -25,9 +25,11 @@ namespace Leviathan
 		static void Stop();
 		
 		static const BaseData& GetData();
-		static ViewScheduler& GetViewScheduler();
 		static bool LoadMeshFile(const char * file);
 		static bool LoadPointCloudFile(const char * file, LPtr<Scene::LevSceneNode>& out);
+		static bool AddNodeToScene(LPtr<Scene::LevSceneNode> pNode);
+
+		static ViewScheduler& GetViewScheduler();
 
 	private:
 		static BaseData m_data;

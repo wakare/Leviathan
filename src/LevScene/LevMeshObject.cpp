@@ -20,15 +20,26 @@ namespace Leviathan
 
 			m_mesh = CFileImportFactory::GetFileImportFactory()->LoadFile(meshFile);
 			EXIT_IF_FALSE(m_mesh.size() > 0);
-
-			// Init AABB
-			m_pMeshAABB.Reset(new AABB);
-			for (const auto& mesh : m_mesh)
-			{
-				m_pMeshAABB->Merge(mesh->GetAABB());
-			}
+			_updateAABB();
 
 			return true;
+		}
+
+		bool LevMeshObject::SetMesh(const std::vector<LPtr<IMesh>>& meshes)
+		{
+			m_mesh = meshes;
+			_updateAABB();
+			
+			return true;
+		}
+
+		bool LevMeshObject::SetMesh(LPtr<IMesh> pMesh)
+		{
+			m_mesh.clear();
+			m_mesh.push_back(pMesh);
+			_updateAABB();
+
+			return false;
 		}
 
 		const std::vector<LPtr<IMesh>>& LevMeshObject::GetMesh() const
@@ -39,6 +50,16 @@ namespace Leviathan
 		const AABB & LevMeshObject::GetAABB() const
 		{
 			return *m_pMeshAABB;
+		}
+
+		void LevMeshObject::_updateAABB()
+		{
+			// Init AABB
+			m_pMeshAABB.Reset(new AABB);
+			for (const auto& mesh : m_mesh)
+			{
+				m_pMeshAABB->Merge(mesh->GetAABB());
+			}
 		}
 	}
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <vector>
+#include <map>
 #include "LPtr.h"
 
 namespace Leviathan
@@ -38,7 +39,8 @@ namespace Leviathan
 			bool _convertPointMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
 
 			void _createDefaultPass(const Scene::LevCamera* pCamera);
-			void _registerToPass(LPtr<OpenGLObject> pObject);
+			void _registerToPass(unsigned index, LPtr<OpenGLObject> pObject);
+			void _unregisterFromPass(unsigned index);
 			
 			bool _setCurrentPass(LPtr<OpenGLPass> pPass);
 			OpenGLPass& _currentPass();
@@ -48,6 +50,8 @@ namespace Leviathan
 			LPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
 			std::vector<LPtr<OpenGLPass>> m_passes;
 			std::vector<LPtr<OpenGLLight>> m_lights;
+
+			std::map<unsigned, std::vector<LPtr<OpenGLObject>>> m_registerRenderableObjects;
 		};
 	}
 }

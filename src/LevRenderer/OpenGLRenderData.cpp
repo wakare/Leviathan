@@ -122,13 +122,35 @@ namespace Leviathan
 					}
 				}
 
-				std::vector<LPtr<OpenGLObject>> pObjects;
-				auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
-				LEV_ASSERT(inited && pObjects.size() > 0);
-
-				for (auto& pObject : pObjects)
+				switch (object.GetState())
 				{
-					_registerToPass(pObject);
+				case Scene::ELSOS_ADDED:
+				{
+					std::vector<LPtr<OpenGLObject>> pObjects;
+					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
+					LEV_ASSERT(inited && pObjects.size() > 0);
+
+					for (auto& pObject : pObjects)
+					{
+						_registerToPass(object.GetID(), pObject);
+					}
+					break;
+				}
+
+				case Scene::ELSOS_UPDATE:
+				{
+					_unregisterFromPass(object.GetID());
+					std::vector<LPtr<OpenGLObject>> pObjects;
+					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
+					LEV_ASSERT(inited && pObjects.size() > 0);
+
+					for (auto& pObject : pObjects)
+					{
+						_registerToPass(object.GetID(), pObject);
+					}
+					break; 
+				}
+
 				}
 
 // 				Eigen::Matrix4f worldMatrix;
@@ -397,9 +419,24 @@ namespace Leviathan
 			LEV_ASSERT(_seted);
 		}
 
-		void OpenGLRenderData::_registerToPass(LPtr<OpenGLObject> pObject)
+		void OpenGLRenderData::_registerToPass(unsigned index, LPtr<OpenGLObject> pObject)
 		{
+			m_registerRenderableObjects[index].push_back(pObject);
 			_currentPass().AddGLObject(pObject);
+		}
+
+		void OpenGLRenderData::_unregisterFromPass(unsigned index)
+		{
+			auto itFind = m_registerRenderableObjects.find(index);
+			if (itFind != m_registerRenderableObjects.end())
+			{
+				for (auto& object : itFind->second)
+				{
+					_currentPass().DelGLObject(object);
+				}
+
+				m_registerRenderableObjects.erase(index);
+			}
 		}
 
 		bool OpenGLRenderData::_setCurrentPass(LPtr<OpenGLPass> pPass)
