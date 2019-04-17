@@ -23,7 +23,7 @@ namespace Leviathan
 			LogLine("[PRESENTER_MAIN_LOOP] Exit!");
 		};
 
-		AddTask(_mainLoop);
+		DoTask(_mainLoop);
 	}
 
 	PresenterScheduler & PresenterScheduler::Instance()
@@ -35,7 +35,7 @@ namespace Leviathan
 	{
 		m_pModelScheduler->Update();
 		m_pViewScheduler->Update();
-		Tick();
+		_tick();
 	}
 
 	void PresenterScheduler::SetDone()

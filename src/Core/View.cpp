@@ -39,13 +39,14 @@ namespace Leviathan
 		if (m_pData->GetScene().HasModified())
 		{
 			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
-			m_pData->GetScene().ResetModified();
 		}
 		
 		m_pData->GetRenderer().Update();
 
 		// Scene update must be later than render update, because it will overwrite modified state info.
-		m_pData->GetScene().Update();
+		//m_pData->GetScene().Update();
+
+		m_pData->GetScene().ResetModified();
 	}
 
 	void View::SyncStop()
@@ -93,7 +94,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool View::LoadPointCloud(const char* file, bool bResetCamera /*= true*/)
+	Leviathan::LPtr<Leviathan::Scene::LevSceneNode> View::LoadPointCloud(const char* file, bool bResetCamera /*= true*/)
 	{
 		auto& sceneData = GetSceneData();
 		LPtr<Scene::LevSceneObject> pSceneObject = new Scene::LevSceneObject(Scene::ELSOT_DYNAMIC);
@@ -134,7 +135,7 @@ namespace Leviathan
 			_resetCamera(pMeshObj->GetAABB());
 		}
 
-		return true;
+		return pMeshNode;
 	}
 
 	void View::_resetCamera(const AABB & aabb)

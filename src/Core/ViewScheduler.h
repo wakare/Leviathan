@@ -18,7 +18,7 @@ namespace Leviathan
 		int GetWindowHandle();
 
 		bool LoadMeshFile(const char* file);
-		bool LoadPointCloudFile(const char* file);
+		bool LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out);
 
 	private:
 

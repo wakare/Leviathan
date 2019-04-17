@@ -14,6 +14,7 @@ namespace Leviathan
 	namespace Scene
 	{
 		class LevSceneData;
+		class LevSceneNode;
 	}
 
 	class View
@@ -32,7 +33,7 @@ namespace Leviathan
 		Scene::LevSceneData& GetSceneData();
 
 		bool LoadMesh(const char* file, bool bResetCamera = true);
-		bool LoadPointCloud(const char* file, bool bResetCamera = true);
+		LPtr<Scene::LevSceneNode> LoadPointCloud(const char* file, bool bResetCamera = true);
 
 	private:
 		void _resetCamera(const AABB& aabb);

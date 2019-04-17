@@ -1,5 +1,6 @@
 #include "ViewScheduler.h"
 #include "RenderWindow.h"
+#include "LevSceneNode.h"
 
 namespace Leviathan
 {
@@ -22,12 +23,12 @@ namespace Leviathan
 			LogLine("[VIEW_MAIN_LOOP] Exit!");
 		};
 
-		AddTask(_mainLoop);
+		DoTask(_mainLoop);
 	}
 
 	void ViewScheduler::Update()
 	{
-		Tick();
+		_tick();
 	}
 
 	void ViewScheduler::SetDone()
@@ -52,7 +53,7 @@ namespace Leviathan
 	{
 		std::string path(file);
 
-		AddTask([this, path](CoPullType<int>& sink)
+		DoTask([this, path](CoPullType<int>& sink)
 			{
 				m_pView->LoadMesh(path.c_str());
 			});
@@ -60,13 +61,13 @@ namespace Leviathan
 		return true;
 	}
 
-	bool ViewScheduler::LoadPointCloudFile(const char * file)
+	bool ViewScheduler::LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out)
 	{
 		std::string path(file);
 
-		AddTask([this, path](CoPullType<int>& sink)
+		DoTask([this, path, &out](CoPullType<int>& sink)
 			{
-				m_pView->LoadPointCloud(path.c_str());
+				out = m_pView->LoadPointCloud(path.c_str());
 			});
 
 		return true;

@@ -1,6 +1,7 @@
 #include "UserInterface.h"
 #include "PresenterScheduler.h"
 #include "ViewScheduler.h"
+#include "LevSceneNode.h"
 
 namespace Leviathan
 {
@@ -39,14 +40,19 @@ namespace Leviathan
 		return m_data;
 	}
 
+	Leviathan::ViewScheduler& UserInterface::GetViewScheduler()
+	{
+		return _scheduler().GetViewScheduler();
+	}
+
 	bool UserInterface::LoadMeshFile(const char * file)
 	{
 		return _scheduler().GetViewScheduler().LoadMeshFile(file);
 	}
 
-	bool UserInterface::LoadPointCloudFile(const char * file)
+	bool UserInterface::LoadPointCloudFile(const char * file, LPtr<Scene::LevSceneNode>& out)
 	{
-		return _scheduler().GetViewScheduler().LoadPointCloudFile(file);
+		return _scheduler().GetViewScheduler().LoadPointCloudFile(file, out);
 	}
 
 }

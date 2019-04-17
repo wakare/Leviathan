@@ -12,14 +12,16 @@ namespace Leviathan
 	class LevScheduler
 	{
 	public:
-		void AddTask(LPtr<LevTaskTemplate<T>> task);
-		void AddTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
-		void AddTask(std::function<void(CoPullType<T>&)> func);
+		void DoTask(LPtr<LevTaskTemplate<T>> task);
+		void DoTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
+		void DoTask(std::function<void(CoPullType<T>&)> func);
 
 	protected:
-		void Tick();
+		void _tick();
+
 		LevScheduler();
 
+		bool m_executeTaskFlag;
 		std::mutex m_tasks_lock;
 		std::vector<LPtr<LevTaskTemplate<T>>> m_tasks;
 	};

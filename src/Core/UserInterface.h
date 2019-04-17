@@ -1,9 +1,17 @@
 #pragma once
 
 #include "Singleton.h"
+#include "LPtr.h"
 
 namespace Leviathan
 {
+	class ViewScheduler;
+
+	namespace Scene
+	{
+		class LevSceneNode;
+	}
+
 	class UserInterface
 	{
 	public:
@@ -17,8 +25,9 @@ namespace Leviathan
 		static void Stop();
 		
 		static const BaseData& GetData();
+		static ViewScheduler& GetViewScheduler();
 		static bool LoadMeshFile(const char * file);
-		static bool LoadPointCloudFile(const char * file);
+		static bool LoadPointCloudFile(const char * file, LPtr<Scene::LevSceneNode>& out);
 
 	private:
 		static BaseData m_data;

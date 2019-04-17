@@ -62,7 +62,7 @@ bool ModelViewerPresenter::LoadMeshFile(const char* filePath)
 
 bool ModelViewerPresenter::LoadPointCloudFile(const char* filePath)
 {
-	return UserInterface::LoadPointCloudFile(filePath);
+	return UserInterface::LoadPointCloudFile(filePath, TODO);
 }
 
 ModelViewerPresenter::ModelViewerPresenter():

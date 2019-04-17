@@ -15,12 +15,12 @@ namespace Leviathan
 			LogLine("[MODEL_MAIN_LOOP] Exit!");
 		};
 
-		AddTask(_mainLoop);
+		DoTask(_mainLoop);
 	}
 
 	void ModelScheduler::Update()
 	{
-		Tick();
+		_tick();
 	}
 
 	void ModelScheduler::SetDone()

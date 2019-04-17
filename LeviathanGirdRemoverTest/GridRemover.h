@@ -5,6 +5,9 @@
 
 struct Point3D
 {
+	Point3D(float* data) { memcpy(this, data, sizeof(float) * 3); }
+	Point3D() {}
+
 	float x;
 	float y;
 	float z;
