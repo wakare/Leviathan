@@ -28,6 +28,8 @@ namespace Leviathan
 			{
 				return;
 			}
+
+			m_pSceneData->Update();
 		}
 
 		void LevScene::SetViewport(int width, int height)
@@ -59,7 +61,7 @@ namespace Leviathan
 
 		void LevScene::ResetModified()
 		{
-			m_pSceneData->ResetModified();
+			m_pSceneData->ResetUnModified();
 		}
 
 	}

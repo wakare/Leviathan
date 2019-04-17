@@ -19,6 +19,7 @@ namespace Leviathan
 		void DelChild(LPtr<Node<T>> pChild);
 		const LPtr<T>& GetNodeData() const { return pNodeData; };
 		const std::vector<LPtr<Node<T>>>& GetChildren() const { return children; };
+		std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
 
 		virtual ~Node();
 		virtual void Accept(NodeVisitor<T>& nodeVisitor);
@@ -43,7 +44,11 @@ namespace Leviathan
 	template<class T>
 	inline void Node<T>::DelChild(LPtr<Node<T>> pChild)
 	{
-		children.erase(pChild);
+		auto itFind = std::find(children.begin(), children.end(), pChild);
+		if (itFind != children.end())
+		{
+			children.erase(itFind);
+		}
 	}
 
 	template<class T>

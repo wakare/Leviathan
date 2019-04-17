@@ -13,6 +13,7 @@ namespace Leviathan
 			, m_modified(true)
 			, m_pModelTransform(new LevLAttrModelTransform)
 			, m_pWorldTransform(new LevLAttrWorldTransform)
+			, m_state(ELSOS_ADDED)
 		{
 			// Init unique id
 			static unsigned _globalID = 0;
@@ -51,7 +52,18 @@ namespace Leviathan
 			}
 		}
 
-		void LevSceneObject::ResetModified()
+		void LevSceneObject::SetState(LevSceneObjectState state)
+		{
+			m_state = state;
+			m_modified = true;
+		}
+
+		LevSceneObjectState LevSceneObject::GetState() const
+		{
+			return m_state;
+		}
+
+		void LevSceneObject::ResetUnModified()
 		{
 			m_modified = false;
 		}
@@ -105,6 +117,5 @@ namespace Leviathan
 		{
 			return m_pModelTransform->GetTransform();
 		}
-
 	}
 }

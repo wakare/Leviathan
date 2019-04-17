@@ -94,6 +94,9 @@
     <ClInclude Include="LevRAttrObjectColor.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevStateUpdaterVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -161,6 +164,9 @@
     </ClCompile>
     <ClCompile Include="LevRAttrObjectColor.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevStateUpdaterVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

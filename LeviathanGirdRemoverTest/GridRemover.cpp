@@ -73,25 +73,52 @@ void GridRemover::SetTSDFCloud(const GridRemoverPointCloud& pointCloud)
 	for (auto& point : pointCloud)
 	{
 		auto grid = _convertPointToGridbar(point);
+		auto& _parent = _getParentGrid(point);
+		m_gridMerger->Merge(grid, _parent);
 	}
 }
 
 void GridRemover::TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool> result)
 {
+	for (auto& point : testPointCloud)
+	{
+		Eigen::Vector4f _point;
+		memcpy(_point.data(), &point, sizeof(float) * 4);
+		_point = trans * _point;
 
+		auto data = _point.data();
+		if (data[0] < m_box.min().x() || data[0] > m_box.max().x() || data[1] < m_box.min().y() || data[1] > m_box.max().y())
+		{
+			result.push_back(false);
+		}
+		else
+		{
+			auto& parent = _getParentGrid(_point.data());
+			auto _tsdf = parent.tsdf + m_config.removePlaneOffset;
+			auto _needFilter = _tsdf < point.z;
+			result.push_back(_needFilter);
+		}
+	}
 }
 
-GridBar& GridRemover::_getParentGrid(const GridRemoverPoint& point) const
+GridBar& GridRemover::_getParentGrid(const GridRemoverPoint& point)
 {
-
+	return _getParentGrid(&point.x);
 }
 
-GridBar& GridRemover::_getParentGrid(const float* data) const
+GridBar& GridRemover::_getParentGrid(const float* data) 
 {
+	unsigned xIndex = (data[0] - m_box.min().x()) / m_xStep;
+	unsigned yIndex = (data[1] - m_box.min().y()) / m_yStep;
 
+	return m_bars[xIndex * m_config.gridSize + yIndex];
 }
 
 GridBar GridRemover::_convertPointToGridbar(const GridRemoverPoint& point) const
 {
+	GridBar result;
+	result.tsdf = point.z;
+	result.vmax = 0.0f;
 
+	return std::move(result);
 }

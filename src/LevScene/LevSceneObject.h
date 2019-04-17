@@ -12,20 +12,41 @@ namespace Leviathan
 		enum LevSceneObjectType
 		{
 			// Only leaf node can be static node
-			ELSOT_STATIC = 1,
+			ELSOT_STATIC		= 1,
 
 			// Dynamic node is updated per traverse
-			ELSOT_DYNAMIC = 2,
+			ELSOT_DYNAMIC		= 2,
 
-			ELSOT_LIGHT = 4,
-			ELSOT_CAMERA = 8,
+			ELSOT_LIGHT			= 4,
+			ELSOT_CAMERA		= 8,
+
 			// Not set [self and children] modified flag while processing reset node modified
-			ELSOT_NOT_MODIFY = 16,
+			ELSOT_NOT_MODIFY	= 16,
 
-			ELSOT_UNRENDERABLE = 1024,
+			ELSOT_UNRENDERABLE	= 1024,
 
 			// Special node defination
 			ELSOT_ROOT = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE
+		};
+
+		enum LevSceneObjectState
+		{
+			// Most of object state
+			ELSOS_UNMODIFIED	= 0,
+
+			// Add to scene just now
+			ELSOS_ADDED			= 1,
+
+			// Attribute changed
+			ELSOS_UPDATE		= 2,
+
+			ELSOS_DISABLE		= 3,
+
+			// Delete this object next frame
+			ELSOS_DELETED		= 4,
+
+			// Default state
+			ELSOS_UNKNOWN		= 100
 		};
 
 		class LevSceneObject;
@@ -49,7 +70,11 @@ namespace Leviathan
 
 			bool HasModified() const;
 			void SetModified();
-			void ResetModified();
+
+			void SetState(LevSceneObjectState state);
+			LevSceneObjectState GetState() const;
+
+			void ResetUnModified();
 			void SetModifiedCallback(LevSceneObjModified modified);
 
 			bool AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute);
@@ -69,6 +94,7 @@ namespace Leviathan
 
 			bool m_modified;
 			LevSceneObjModified m_modifiedCallback;
+			LevSceneObjectState m_state;
 
 			const LevSceneObjectType m_type;
 			std::vector<LPtr<LevSceneObjectAttribute>> m_pAttributes;

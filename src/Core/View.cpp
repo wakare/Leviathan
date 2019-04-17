@@ -35,8 +35,7 @@ namespace Leviathan
 	{
 		m_pData->GetEventSystem().DispatchEvent();
 		m_pData->GetRenderWindow().Update();
-		m_pData->GetScene().Update();
-
+		
 		if (m_pData->GetScene().HasModified())
 		{
 			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
@@ -44,6 +43,9 @@ namespace Leviathan
 		}
 		
 		m_pData->GetRenderer().Update();
+
+		// Scene update must be later than render update, because it will overwrite modified state info.
+		m_pData->GetScene().Update();
 	}
 
 	void View::SyncStop()

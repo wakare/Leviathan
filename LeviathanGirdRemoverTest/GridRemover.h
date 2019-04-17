@@ -57,13 +57,16 @@ public:
 
 	void TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool> result);
 private:
-	GridBar& _getParentGrid(const GridRemoverPoint& point) const;
-	GridBar& _getParentGrid(const float* data) const;
+	GridBar& _getParentGrid(const GridRemoverPoint& point);
+	GridBar& _getParentGrid(const float* data);
 
 	GridBar _convertPointToGridbar(const GridRemoverPoint& point) const;
 
+	float m_xStep;
+	float m_yStep;
+
 	GridRemoverConfig m_config;
-	Eigen::AlignedBox2d m_box;
+	Eigen::AlignedBox3d m_box;
 	std::vector<GridBar> m_bars;
 	std::unique_ptr<IGridMerger> m_gridMerger;
 };

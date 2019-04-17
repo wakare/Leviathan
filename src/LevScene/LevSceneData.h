@@ -22,7 +22,7 @@ namespace Leviathan
 			const LevSceneTree& GetSceneTree() const;
 
 			bool HasModified() const;
-			void ResetModified();
+			void ResetUnModified();
 
 			LPtr<LevCamera> GetCamera();
 			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);
@@ -31,6 +31,8 @@ namespace Leviathan
 			bool AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode = nullptr);
 
 			bool AddSceneNode(LPtr<LevSceneNode> pNode);
+
+			void Update();
 
 		private:
 			bool m_modified;

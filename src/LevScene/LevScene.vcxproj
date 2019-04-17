@@ -42,6 +42,7 @@
     <ClInclude Include="LevSceneObjectAttribute.h" />
     <ClInclude Include="LevSceneTreeSearchVisitor.h" />
     <ClInclude Include="LevSceneTreeTraverseVisitor.h" />
+    <ClInclude Include="LevStateUpdaterVisitor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevCamera.cpp" />
@@ -66,6 +67,7 @@
     <ClCompile Include="LevSceneTree.cpp" />
     <ClCompile Include="LevSceneTreeSearchVisitor.cpp" />
     <ClCompile Include="LevSceneTreeTraverseVisitor.cpp" />
+    <ClCompile Include="LevStateUpdaterVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

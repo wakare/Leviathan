@@ -14,7 +14,7 @@ namespace Leviathan
 				return;
 			}
 			
-			nodeData->ResetModified();
+			nodeData->ResetUnModified();
 
 			for (auto& child : node.GetChildren())
 			{

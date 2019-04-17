@@ -57,6 +57,11 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LevRenderer", "src\LevRenderer\LevRenderer.vcxproj", "{5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "LeviathanGirdRemoverTest", "LeviathanGirdRemoverTest\LeviathanGirdRemoverTest.vcxproj", "{AFA3C5C4-6705-4009-AFA1-6911566AC330}"
+	ProjectSection(ProjectDependencies) = postProject
+		{7B88C124-C6B8-46F6-94EB-81A61A915847} = {7B88C124-C6B8-46F6-94EB-81A61A915847}
+		{5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576} = {5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576}
+		{2A8399E2-22AE-4997-9606-A70E4332E1B0} = {2A8399E2-22AE-4997-9606-A70E4332E1B0}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

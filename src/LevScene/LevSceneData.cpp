@@ -55,10 +55,10 @@ namespace Leviathan
 			return m_modified;
 		}
 
-		void LevSceneData::ResetModified()
+		void LevSceneData::ResetUnModified()
 		{
+			m_pSceneTree->ResetObjUnModified();
 			m_modified = false;
-			m_pSceneTree->ResetObjModifiedState();
 		}
 
 		LPtr<LevCamera> LevSceneData::GetCamera()
@@ -100,6 +100,11 @@ namespace Leviathan
 			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
 			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
 			return true;
+		}
+
+		void LevSceneData::Update()
+		{
+			m_pSceneTree->Update();
 		}
 	}
 }
