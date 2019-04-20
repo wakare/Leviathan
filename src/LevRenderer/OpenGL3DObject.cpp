@@ -7,7 +7,6 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-
 		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix /*= nullptr*/, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
 			OpenGLObject(primType, vertexSize, vertexMask, pModelMatrix, pMaterial),
 			m_pData(pVertexArrayData),
@@ -110,8 +109,16 @@ namespace Leviathan
 			return true;
 		}
 
+		bool OpenGL3DObject::Update()
+		{
+			
+			return true;
+		}
+
 		bool OpenGL3DObject::Render(GLuint shaderProgram)
 		{
+			ApplyUniform(shaderProgram);
+
 			EXIT_IF_FALSE(_updateVertexMaskUniform(shaderProgram));
 			EXIT_IF_FALSE(_updateDefaultUseVertexColorUniform(shaderProgram));
 
@@ -125,73 +132,57 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGL3DObject::ApplyMaterial(GLuint shaderProgram)
-		{
-			if (!m_pCommonGLMaterial) return false;
-			return m_pCommonGLMaterial->ApplyMaterial(shaderProgram);
-		}
+		//bool OpenGL3DObject::ApplyModelMatrix(LPtr<OpenGLUniform>& modelMatrixUniform)
+		//{
+		//	if (!modelMatrixUniform)
+		//	{
+		//		LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
+		//		return false;
+		//	}
 
-		bool OpenGL3DObject::ApplyModelMatrix(LPtr<OpenGLUniform>& modelMatrixUniform)
-		{
-			if (!modelMatrixUniform)
-			{
-				LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
-				return false;
-			}
+		//	// Set modelMatrix
+		//	if (!m_pModelMatrix)
+		//	{
+		//		float fIdentityMatrix[16] =
+		//		{
+		//			1.0f, 0.0f, 0.0f, 0.0f,
+		//			0.0f, 1.0f, 0.0f, 0.0f,
+		//			0.0f, 0.0f, 1.0f, 0.0f,
+		//			0.0f, 0.0f, 0.0f, 1.0f,
+		//		};
 
-			// Set modelMatrix
-			if (!m_pModelMatrix)
-			{
-				float fIdentityMatrix[16] =
-				{
-					1.0f, 0.0f, 0.0f, 0.0f,
-					0.0f, 1.0f, 0.0f, 0.0f,
-					0.0f, 0.0f, 1.0f, 0.0f,
-					0.0f, 0.0f, 0.0f, 1.0f,
-				};
+		//		m_pModelMatrix = new Eigen::Matrix4f(fIdentityMatrix);
+		//	}
 
-				m_pModelMatrix = new Eigen::Matrix4f(fIdentityMatrix);
-			}
+		//	modelMatrixUniform->SetData(m_pModelMatrix->data(), m_pModelMatrix->size());
+		//	return true;
+		//}
 
-			modelMatrixUniform->SetData(m_pModelMatrix->data(), m_pModelMatrix->size());
-			return true;
-		}
+		//bool OpenGL3DObject::ApplyWorldMatrix(LPtr<OpenGLUniform>& worldMatrixUniform)
+		//{
+		//	if (!worldMatrixUniform)
+		//	{
+		//		LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
+		//		return false;
+		//	}
 
-		bool OpenGL3DObject::ApplyWorldMatrix(LPtr<OpenGLUniform>& worldMatrixUniform)
-		{
-			if (!worldMatrixUniform)
-			{
-				LeviathanOutStream << "[ERROR] modelUniform is nullptr." << std::endl;
-				return false;
-			}
+		//	// Set modelMatrix
+		//	if (!m_pWorldMatrix)
+		//	{
+		//		float fIdentityMatrix[16] =
+		//		{
+		//			1.0f, 0.0f, 0.0f, 0.0f,
+		//			0.0f, 1.0f, 0.0f, 0.0f,
+		//			0.0f, 0.0f, 1.0f, 0.0f,
+		//			0.0f, 0.0f, 0.0f, 1.0f,
+		//		};
 
-			// Set modelMatrix
-			if (!m_pWorldMatrix)
-			{
-				float fIdentityMatrix[16] =
-				{
-					1.0f, 0.0f, 0.0f, 0.0f,
-					0.0f, 1.0f, 0.0f, 0.0f,
-					0.0f, 0.0f, 1.0f, 0.0f,
-					0.0f, 0.0f, 0.0f, 1.0f,
-				};
+		//		m_pWorldMatrix = new Eigen::Matrix4f(fIdentityMatrix);
+		//	}
 
-				m_pWorldMatrix = new Eigen::Matrix4f(fIdentityMatrix);
-			}
-
-			worldMatrixUniform->SetData(m_pWorldMatrix->data(), m_pWorldMatrix->size());
-			return true;
-		}
-
-		bool OpenGL3DObject::ApplyUniform(GLuint shaderProgram)
-		{
-			for (auto& pUniform : m_pUniforms)
-			{
-				EXIT_IF_FALSE(pUniform.second->Apply(shaderProgram));
-			}
-
-			return true;
-		}
+		//	worldMatrixUniform->SetData(m_pWorldMatrix->data(), m_pWorldMatrix->size());
+		//	return true;
+		//}
 
 		bool OpenGL3DObject::_updateDefaultUseVertexColorUniform(GLuint shaderProgram)
 		{

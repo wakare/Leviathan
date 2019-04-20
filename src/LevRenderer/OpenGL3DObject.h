@@ -17,11 +17,8 @@ namespace Leviathan
 			OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix = nullptr, LPtr<OpenGLMaterial> pCommonGLMaterial = nullptr, unsigned* pIndexArrayData = nullptr, unsigned uIndexArrayCount = 0U);
 
 			bool Init();
+			bool Update();
 			bool Render(GLuint shaderProgram);
-			bool ApplyMaterial(GLuint shaderProgram);
-			bool ApplyModelMatrix(LPtr<OpenGLUniform>& modelUniform);
-			bool ApplyWorldMatrix(LPtr<OpenGLUniform>& worldUniform);
-			bool ApplyUniform(GLuint shaderProgram);
 
 		private:
 			bool _updateDefaultUseVertexColorUniform(GLuint shaderProgram);

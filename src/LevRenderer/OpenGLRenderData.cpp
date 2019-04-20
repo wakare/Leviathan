@@ -24,6 +24,7 @@
 #include "OpenGLMaterial.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLPointLight.h"
+#include "OpenGLResourceMgr.h"
 
 namespace Leviathan
 {
@@ -46,6 +47,7 @@ namespace Leviathan
 		OpenGLRenderData::OpenGLRenderData()
 			: m_traverseVisitor(new Scene::LevSceneTreeTraverseVisitor)
 			, m_searchVisitor(new Scene::LevSceneTreeSearchVisitor)
+			, m_resourceMgr(new OpenGLResourceMgr)
 		{
 			// Default pass callback
 			auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)

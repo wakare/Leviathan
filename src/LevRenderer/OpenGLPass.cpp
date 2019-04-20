@@ -1,5 +1,6 @@
 #include "OpenGLPass.h"
 #include "OpenGLLight.h"
+#include "OpenGLUniform.h"
 
 namespace Leviathan
 {
@@ -82,6 +83,28 @@ namespace Leviathan
 		void OpenGLPass::SetDepthTestEnable(GLboolean bDepthTestEnable) 
 		{ 
 			m_bDepthTestEnable = bDepthTestEnable; 
+		}
+
+		void OpenGLPass::AddUniform(LPtr<OpenGLUniform> pUniform)
+		{
+			m_pUniforms.push_back(pUniform);
+		}
+
+		void OpenGLPass::RemoveUniform(LPtr<OpenGLUniform> pUniform)
+		{
+			auto itFind = std::find(m_pUniforms.begin(), m_pUniforms.end(), pUniform);
+			if (itFind != m_pUniforms.end())
+			{
+				m_pUniforms.erase(itFind);
+			}
+		}
+
+		void OpenGLPass::_applyUniforms()
+		{
+			for (auto& pUniform : m_pUniforms)
+			{
+				pUniform->Apply(m_pGLShaderProgram);
+			}
 		}
 
 		std::vector<LPtr<OpenGLObject>>::iterator OpenGLPass::_findGLObject(LPtr<OpenGLObject>& pObject)

@@ -22,6 +22,7 @@ namespace Leviathan
 		class OpenGLPass;
 		class OpenGLObject;
 		class OpenGLLight;
+		class OpenGLResourceMgr;
 
 		class OpenGLRenderData
 		{
@@ -44,6 +45,7 @@ namespace Leviathan
 			OpenGLPass& _currentPass();
 
 			LPtr<OpenGLPass> m_pCurrentPass;
+			LPtr<OpenGLResourceMgr> m_resourceMgr;
 			LPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;
 			LPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
 			std::vector<LPtr<OpenGLPass>> m_passes;

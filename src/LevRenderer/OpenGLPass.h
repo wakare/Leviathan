@@ -12,6 +12,7 @@ namespace Leviathan
 		class OpenGLShaderProgram;
 		class OpenGLObject;
 		class OpenGLLight;
+		class OpenGLUniform;
 
 		class OpenGLPass
 		{
@@ -22,7 +23,7 @@ namespace Leviathan
 
 			void AddGLObject(LPtr<OpenGLObject> pObject);
 			void AddGLObject(std::vector<LPtr<OpenGLObject>>& pGLObjectVec);
-			void DelGLObject(LPtr<OpenGLObject> pObject);
+			void RemoveGLObject(LPtr<OpenGLObject> pObject);
 			void ClearGLObject();
 			void AddGLLight(LPtr<OpenGLLight> pLight);
 			const std::vector<LPtr<OpenGLObject>> GetGLObjects();
@@ -36,10 +37,15 @@ namespace Leviathan
 			void SetLightEnable(GLboolean bOpen);
 			void SetDepthTestEnable(GLboolean bDepthTestEnable);
 
+			void AddUniform(LPtr<OpenGLUniform> pUniform);
+			void RemoveUniform(LPtr<OpenGLUniform> pUniform);
+
 		protected:
+			void _applyUniforms();
 			std::vector<LPtr<OpenGLObject>>::iterator _findGLObject(LPtr<OpenGLObject>& pObject);
 
 			LPtr<OpenGLShaderProgram> m_pGLShaderProgram;
+			std::vector<LPtr<OpenGLUniform>> m_pUniforms;
 			std::vector<LPtr<OpenGLObject>> m_GLObjects;
 			std::vector<LPtr<OpenGLLight>> m_lights;
 

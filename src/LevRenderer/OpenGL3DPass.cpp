@@ -108,6 +108,9 @@ namespace Leviathan
 			// Set viewMatrix
 			_updateCameraMatrixUniform(program);
 
+			// Apply uniforms
+			_applyUniforms();
+
 			// Render each GLObject
 			for (auto& pObject : m_GLObjects)
 			{
@@ -129,6 +132,7 @@ namespace Leviathan
 					LeviathanOutStream << "[ERROR] Update lightEnable uniform failed." << std::endl;
 
 				m_pGLShaderProgram->SetGLUniformState();
+				pObject->Update();
 				pObject->Render(program);
 			}
 
