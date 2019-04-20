@@ -23,6 +23,30 @@ namespace Leviathan
 		DoTask(pTask);
 	}
 
+	// Warning: DoSyncTask must bu called form non-render thread
+	template <class T>
+	void LevScheduler<T>::DoSyncTask(LPtr<LevTaskTemplate<T>> task)
+	{
+		{
+			std::lock_guard<std::mutex> guard(m_tasks_lock);
+			m_tasks.push_back(task);
+		}
+		
+		// Sync wait
+		while (task->Valid())
+		{
+			Sleep(10);
+		}
+	}
+
+	// Warning: DoSyncTask must bu called form non-render thread
+	template <class T>
+	void Leviathan::LevScheduler<T>::DoSyncTask(std::function<void(CoPullType<T>&)> func)
+	{
+		LPtr<LevTaskTemplate<T>> pTask = new LevTaskTemplate<T>(func);
+		DoSyncTask(pTask);
+	}
+
 	template <class T>
 	void LevScheduler<T>::_tick()
 	{

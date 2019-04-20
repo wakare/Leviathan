@@ -102,7 +102,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty/Eigen;$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src/LevScene/;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty/BOOST;$(SolutionDir)3rdparty/Eigen;$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src/LevScene/;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -156,7 +156,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty/Eigen;$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src/LevScene/;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty/BOOST;$(SolutionDir)3rdparty/Eigen;$(SolutionDir)src/Core/;$(SolutionDir)/include;$(SolutionDir)src/LevScene/;$(SolutionDir)src\base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>

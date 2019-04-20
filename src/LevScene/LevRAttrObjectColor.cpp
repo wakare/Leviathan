@@ -22,7 +22,17 @@ namespace Leviathan
 			return m_colorType;
 		}
 
+		void LevRAttrObjectColor::SetColorType(LevObjectColorType type)
+		{
+			m_colorType = type;
+		}
+
 		const LevObjectColorData & LevRAttrObjectColor::GetColorData() const
+		{
+			return *m_pColorData;
+		}
+
+		LevObjectColorData & LevRAttrObjectColor::GetColorData()
 		{
 			return *m_pColorData;
 		}

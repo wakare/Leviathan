@@ -62,7 +62,8 @@ bool ModelViewerPresenter::LoadMeshFile(const char* filePath)
 
 bool ModelViewerPresenter::LoadPointCloudFile(const char* filePath)
 {
-	return UserInterface::LoadPointCloudFile(filePath, TODO);
+	LPtr<Scene::LevSceneNode> pNode;
+	return UserInterface::LoadPointCloudFile(filePath, pNode);
 }
 
 ModelViewerPresenter::ModelViewerPresenter():

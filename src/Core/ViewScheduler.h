@@ -6,6 +6,8 @@
 
 namespace Leviathan 
 {
+	class IMesh;
+
 	class ViewScheduler : public LevScheduler<int>
 	{
 	public:
@@ -19,9 +21,10 @@ namespace Leviathan
 
 		bool LoadMeshFile(const char* file);
 		bool LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out);
+		bool AddNode(LPtr<Scene::LevSceneNode> pNode);
+		bool LoadCustomMesh(LPtr<IMesh> pMesh);
 
 	private:
-
 		bool m_done;
 		//std::unique_ptr<View> m_pView;
 		std::unique_ptr<View> m_pView;

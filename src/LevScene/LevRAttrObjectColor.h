@@ -36,7 +36,10 @@ namespace Leviathan
 			~LevRAttrObjectColor();
 
 			const LevObjectColorType& GetColorType() const;
+			void SetColorType(LevObjectColorType type);
+
 			const LevObjectColorData& GetColorData() const;
+			LevObjectColorData& GetColorData();
 
 		private:
 			LevObjectColorType m_colorType;

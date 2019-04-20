@@ -116,6 +116,7 @@ namespace Leviathan
 		// Add color attribute
 		LPtr<Scene::LevObjectColorData> pColorData = new Scene::LevObjectColorData();
 		pColorData->color_array = new float[3 * totalVertexCount];
+		pColorData->color_array_byte_size = 3 * totalVertexCount * sizeof(float);
 		for (unsigned i = 0; i < totalVertexCount; i++)
 		{
 			auto* color = pColorData->color_array + 3 * i;
@@ -136,6 +137,12 @@ namespace Leviathan
 		}
 
 		return pMeshNode;
+	}
+
+	void View::RemoveAllRenderables(bool bSync /*= false*/)
+	{
+		
+
 	}
 
 	void View::_resetCamera(const AABB & aabb)

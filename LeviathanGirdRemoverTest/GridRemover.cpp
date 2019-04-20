@@ -2,6 +2,10 @@
 
 void GridDefaultMerger::Merge(const GridBar & sourceGrid, GridBar & targetGrid)
 {
+	if (targetGrid.tsdf > sourceGrid.tsdf)
+	{
+		targetGrid.tsdf = sourceGrid.tsdf;
+	}
 }
 
 GridRemover::GridRemover()
@@ -26,8 +30,10 @@ void GridRemover::SetTSDFCloud(const GridRemoverPointCloud& pointCloud)
 		return;
 	}
 
+	const float _boxOffset = 1e-3f;
+
 	m_bars.clear();
-	m_bars.resize(m_config.gridSize * m_config.gridSize);
+	//m_bars.resize(m_config.gridSize * m_config.gridSize);
 
 	float _xmin, _xmax, _ymin, _ymax, _zmin;
 	_xmin = _xmax = pointCloud[0].x;
@@ -41,27 +47,35 @@ void GridRemover::SetTSDFCloud(const GridRemoverPointCloud& pointCloud)
 		if (_zmin > point.z) _zmin = point.z;
 
 		if (_xmax < point.x) _xmax = point.x;
-		if (_ymin < point.y) _ymin = point.y;
+		if (_ymax < point.y) _ymax = point.y;
 	}
 
-	m_box.min().x() = _xmin; m_box.max().x() = _xmax;
-	m_box.min().y() = _ymin; m_box.max().y() = _ymax;
+	m_box.min().x() = _xmin - _boxOffset; m_box.max().x() = _xmax + _boxOffset;
+	m_box.min().y() = _ymin - _boxOffset; m_box.max().y() = _ymax + _boxOffset;
 	m_box.min().z() = _zmin; m_box.max().z() = 0.0f;
 
-	m_xStep = (m_box.max().x() - m_box.min().x()) / m_config.gridSize;
-	m_yStep = (m_box.max().y() - m_box.min().y()) / m_config.gridSize;
+	int xCount = (_xmax - _xmin) / m_config.gridCellLength; xCount ++;
+	int yCount = (_ymax - _ymin) / m_config.gridCellLength; yCount ++;
 
-	for (unsigned i = 0; i < m_config.gridSize; i++)
+	m_maxIndexX = xCount;
+	m_maxIndexY = yCount;
+
+	m_bars.resize(m_maxIndexX * m_maxIndexY);
+
+	m_xStep = m_config.gridCellLength;
+	m_yStep = m_config.gridCellLength;
+
+	for (unsigned i = 0; i < xCount; i++)
 	{
-		for (unsigned j = 0; j < m_config.gridSize; j++)
+		for (unsigned j = 0; j < yCount; j++)
 		{
-			auto& bar = m_bars[i * m_config.gridSize + j];
+			auto& bar = m_bars[i * yCount + j];
 
 			bar.box.min().x() = _xmin + i * m_xStep;
 			bar.box.max().x() = _xmin + (i + 1) * m_xStep;
 
-			bar.box.min().y() = _ymin + i * m_yStep;
-			bar.box.max().y() = _ymin + (i + 1) * m_yStep;
+			bar.box.min().y() = _ymin + j * m_yStep;
+			bar.box.max().y() = _ymin + (j + 1) * m_yStep;
 
 			bar.tsdf = 0.0f;
 			bar.vmax = 0.0f;
@@ -78,7 +92,7 @@ void GridRemover::SetTSDFCloud(const GridRemoverPointCloud& pointCloud)
 	}
 }
 
-void GridRemover::TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool> result)
+void GridRemover::TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPointCloud& testPointCloud, std::vector<bool>& result)
 {
 	for (auto& point : testPointCloud)
 	{
@@ -96,9 +110,24 @@ void GridRemover::TestOverlap(const Eigen::Matrix4f& trans, const GridRemoverPoi
 			auto& parent = _getParentGrid(_point.data());
 			auto _tsdf = parent.tsdf + m_config.removePlaneOffset;
 			auto _needFilter = _tsdf < point.z;
-			result.push_back(_needFilter);
+
+			// For debug
+			if (_needFilter)
+				result.push_back(true);
+			else
+				result.push_back(false);
 		}
 	}
+}
+
+const std::vector<GridBar>& GridRemover::GetGridBars() const
+{
+	return m_bars;
+}
+
+std::vector<GridBar>& GridRemover::GetGridBars()
+{
+	return m_bars;
 }
 
 GridBar& GridRemover::_getParentGrid(const GridRemoverPoint& point)
@@ -111,7 +140,7 @@ GridBar& GridRemover::_getParentGrid(const float* data)
 	unsigned xIndex = (data[0] - m_box.min().x()) / m_xStep;
 	unsigned yIndex = (data[1] - m_box.min().y()) / m_yStep;
 
-	return m_bars[xIndex * m_config.gridSize + yIndex];
+	return m_bars[xIndex * m_maxIndexY + yIndex];
 }
 
 GridBar GridRemover::_convertPointToGridbar(const GridRemoverPoint& point) const

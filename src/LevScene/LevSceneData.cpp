@@ -102,6 +102,11 @@ namespace Leviathan
 			return true;
 		}
 
+		void LevSceneData::RemoveAllRenderables()
+		{
+
+		}
+
 		void LevSceneData::Update()
 		{
 			m_pSceneTree->Update();
