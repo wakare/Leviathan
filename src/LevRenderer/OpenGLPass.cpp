@@ -31,7 +31,7 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLPass::DelGLObject(LPtr<OpenGLObject> pObject)
+		void OpenGLPass::RemoveGLObject(LPtr<OpenGLObject> pObject)
 		{
 			auto it = _findGLObject(pObject);
 			if (it != m_GLObjects.end())

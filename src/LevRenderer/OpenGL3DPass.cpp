@@ -29,7 +29,7 @@ namespace Leviathan
 			EXIT_IF_FALSE(m_pGLShaderProgram->Init());
 
 			// Add matrix uniform to shaderProgram
-			LPtr<OpenGLUniform> modelMatrixUniform = new OpenGLUniform("modelMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+			/*LPtr<OpenGLUniform> modelMatrixUniform = new OpenGLUniform("modelMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			Eigen::Matrix4f modelMatrix = Eigen::Matrix4f::Identity();
 			modelMatrixUniform->SetData(modelMatrix.data(), modelMatrix.size());
 			if (!m_pGLShaderProgram->AddUniform(modelMatrixUniform))
@@ -45,7 +45,7 @@ namespace Leviathan
 			{
 				throw "TriDObjectGLPass::Init() failed.";
 				return false;
-			}
+			}*/
 
 			LPtr<OpenGLUniform> viewMatrixUniform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			auto viewMatrix = m_pMainCamera->GetViewportMatrix();
@@ -121,12 +121,6 @@ namespace Leviathan
 					LeviathanOutStream << "[DEBUG] Set material failed." << std::endl;
 					bLightEnable = false;
 				}
-
-				if (!pObject->ApplyModelMatrix(m_pGLShaderProgram->GetUniformByName("modelMatrix")))
-					LeviathanOutStream << "[ERROR] Set model matrix failed." << std::endl;
-
-				if (!pObject->ApplyWorldMatrix(m_pGLShaderProgram->GetUniformByName("worldMatrix")))
-					LeviathanOutStream << "[ERROR] Set world matrix failed." << std::endl;
 
 				if (!_updateLightEnableUniform(program, bLightEnable))
 					LeviathanOutStream << "[ERROR] Update lightEnable uniform failed." << std::endl;

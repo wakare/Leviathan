@@ -53,8 +53,8 @@ namespace Leviathan
 		class LevSceneObjectAttribute;
 		class LevSceneObjectDescription;
 
-		class LevLAttrWorldTransform;
-		class LevLAttrModelTransform;
+		class LevLRAttrWorldTransform;
+		class LevLRAttrModelTransform;
 
 		typedef unsigned SceneObjectID;
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
@@ -99,8 +99,8 @@ namespace Leviathan
 			const LevSceneObjectType m_type;
 			std::vector<LPtr<LevSceneObjectAttribute>> m_pAttributes;
 
-			LPtr<LevLAttrWorldTransform> m_pWorldTransform;
-			LPtr<LevLAttrModelTransform> m_pModelTransform;
+			LPtr<LevLRAttrWorldTransform> m_pWorldTransform;
+			LPtr<LevLRAttrModelTransform> m_pModelTransform;
 
 			LPtr<LevSceneObjectDescription> m_pObjDesc;
 		};

@@ -23,6 +23,9 @@
     <Filter Include="Source Files\SceneVisitor">
       <UniqueIdentifier>{0aa20861-64d4-4470-9b9b-f7bdcf26fdb3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SceneAttribute\MixAttribute">
+      <UniqueIdentifier>{ad3922ea-be52-4c9a-8e46-ae49979c183b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevScene.h">
@@ -45,9 +48,6 @@
     </ClInclude>
     <ClInclude Include="LevLight.h">
       <Filter>Source Files\SceneObject</Filter>
-    </ClInclude>
-    <ClInclude Include="LevLAttrWorldCoord.h">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClInclude>
     <ClInclude Include="LevSceneLogicAttribute.h">
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
@@ -85,17 +85,17 @@
     <ClInclude Include="LevSceneObjectAttribute.h">
       <Filter>Source Files\SceneAttribute</Filter>
     </ClInclude>
-    <ClInclude Include="LevLAttrWorldTransform.h">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
-    </ClInclude>
-    <ClInclude Include="LevLAttrModelTransform.h">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
-    </ClInclude>
     <ClInclude Include="LevRAttrObjectColor.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
     <ClInclude Include="LevStateUpdaterVisitor.h">
       <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
+    <ClInclude Include="LevLRAttrModelTransform.h">
+      <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevLRAttrWorldTransform.h">
+      <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -116,9 +116,6 @@
     </ClCompile>
     <ClCompile Include="LevSceneEventListener.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevLAttrWorldCoord.cpp">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevMeshObject.cpp">
       <Filter>Source Files\SceneDescription</Filter>
@@ -156,17 +153,17 @@
     <ClCompile Include="LevSceneObjectAttribute.cpp">
       <Filter>Source Files\SceneAttribute</Filter>
     </ClCompile>
-    <ClCompile Include="LevLAttrWorldTransform.cpp">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
-    </ClCompile>
-    <ClCompile Include="LevLAttrModelTransform.cpp">
-      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
-    </ClCompile>
     <ClCompile Include="LevRAttrObjectColor.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevStateUpdaterVisitor.cpp">
       <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevLRAttrModelTransform.cpp">
+      <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevLRAttrWorldTransform.cpp">
+      <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

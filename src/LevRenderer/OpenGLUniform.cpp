@@ -18,7 +18,7 @@ namespace Leviathan
 			return m_uniformName;
 		}
 
-		bool OpenGLUniform::SetData(float* data, unsigned dataCount)
+		bool OpenGLUniform::SetData(const float* data, unsigned dataCount)
 		{
 			unsigned dataSize = dataCount * sizeof(float);
 
@@ -33,7 +33,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLUniform::SetData(double* data, unsigned dataSize)
+		bool OpenGLUniform::SetData(const double* data, unsigned dataSize)
 		{
 			// Do nothing if data has inited before
 			if (_checkDataInited())

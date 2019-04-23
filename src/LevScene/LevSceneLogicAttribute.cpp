@@ -5,7 +5,7 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevSceneLogicAttribute::LevSceneLogicAttribute()
-			: LevSceneObjectAttribute(ESOLAT_LOGIC)
+			: LevSceneObjectAttribute(ELSOAT_LOGIC)
 		{
 		}
 

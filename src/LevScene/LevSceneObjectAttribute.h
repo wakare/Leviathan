@@ -6,20 +6,20 @@ namespace Leviathan
 	{
 		enum SceneObjectAttributeType
 		{
-			ESOLAT_LOGIC,
-			ESOLAT_RENDER,
+			ELSOAT_LOGIC,
+			ELSOAT_RENDER,
 		};
 
 		class LevSceneObjectAttribute
 		{
 		public:
-			LevSceneObjectAttribute(SceneObjectAttributeType type);
+			LevSceneObjectAttribute(int type);
 			virtual ~LevSceneObjectAttribute();
 
-			SceneObjectAttributeType GetType() const;
+			int GetType() const;
 
 		private:
-			SceneObjectAttributeType m_type;
+			int m_type;
 		};
 	}
 }

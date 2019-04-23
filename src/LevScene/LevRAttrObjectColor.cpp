@@ -7,7 +7,8 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevRAttrObjectColor::LevRAttrObjectColor(LevObjectColorType type, LPtr<LevObjectColorData> pColorData)
-			: m_colorType(type)
+			: LevSceneObjectAttribute(ELSOAT_RENDER)
+			, m_colorType(type)
 			, m_pColorData(pColorData)
 		{
 

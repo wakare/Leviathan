@@ -21,13 +21,12 @@
   <ItemGroup>
     <ClInclude Include="LevCamera.h" />
     <ClInclude Include="LevDirectionalLight.h" />
-    <ClInclude Include="LevLAttrModelTransform.h" />
-    <ClInclude Include="LevLAttrWorldCoord.h" />
+    <ClInclude Include="LevLRAttrModelTransform.h" />
     <ClInclude Include="LevLight.h" />
     <ClInclude Include="LevMathematicObject.h" />
     <ClInclude Include="LevMeshObject.h" />
     <ClInclude Include="LevPointLight.h" />
-    <ClInclude Include="LevLAttrWorldTransform.h" />
+    <ClInclude Include="LevLRAttrWorldTransform.h" />
     <ClInclude Include="LevRAttrObjectColor.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
@@ -46,13 +45,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevCamera.cpp" />
-    <ClCompile Include="LevLAttrModelTransform.cpp" />
-    <ClCompile Include="LevLAttrWorldCoord.cpp" />
+    <ClCompile Include="LevLRAttrModelTransform.cpp" />
     <ClCompile Include="LevLight.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
-    <ClCompile Include="LevLAttrWorldTransform.cpp" />
+    <ClCompile Include="LevLRAttrWorldTransform.cpp" />
     <ClCompile Include="LevRAttrObjectColor.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />

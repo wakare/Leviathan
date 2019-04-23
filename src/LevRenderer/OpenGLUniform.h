@@ -15,7 +15,7 @@ namespace Leviathan
 			UniformArray(unsigned arraySize) { m_data = new T[arraySize]; };
 			~UniformArray() { if (m_data) { delete[] m_data; m_data = nullptr; } };
 
-			void SetArrayData(T* data, unsigned dataSize) { memcpy(m_data, data, dataSize); };
+			void SetArrayData(const T* data, unsigned dataSize) { memcpy(m_data, data, dataSize); };
 			T* GetArraydata() { return m_data; }
 
 		private:
@@ -34,8 +34,8 @@ namespace Leviathan
 
 			std::string GetUniformName() const;
 
-			bool SetData(float* data, unsigned dataArrayCount);
-			bool SetData(double* data, unsigned dataArrayCount);
+			bool SetData(const float* data, unsigned dataArrayCount);
+			bool SetData(const double* data, unsigned dataArrayCount);
 
 			bool Apply(GLuint program);
 		private:

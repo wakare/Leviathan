@@ -1,8 +1,8 @@
 #include "LevSceneObject.h"
 #include "GlobalDef.h"
 #include "LevSceneObjectDescription.h"
-#include "LevLAttrModelTransform.h"
-#include "LevLAttrWorldTransform.h"
+#include "LevLRAttrModelTransform.h"
+#include "LevLRAttrWorldTransform.h"
 
 namespace Leviathan
 {
@@ -11,8 +11,8 @@ namespace Leviathan
 		LevSceneObject::LevSceneObject(int type) 
 			: m_type((LevSceneObjectType)type)
 			, m_modified(true)
-			, m_pModelTransform(new LevLAttrModelTransform)
-			, m_pWorldTransform(new LevLAttrWorldTransform)
+			, m_pModelTransform(new LevLRAttrModelTransform)
+			, m_pWorldTransform(new LevLRAttrWorldTransform)
 			, m_state(ELSOS_ADDED)
 		{
 			// Init unique id
@@ -20,8 +20,8 @@ namespace Leviathan
 			m_ID = _globalID++;
 
 			// Add transforms
-			m_pAttributes.push_back(TryCast<LevLAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
-			m_pAttributes.push_back(TryCast<LevLAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
+			m_pAttributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
+			m_pAttributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
 		}
 
 		LevSceneObject::~LevSceneObject()

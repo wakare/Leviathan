@@ -1,16 +1,17 @@
 #pragma once
 
 #include "LevSceneLogicAttribute.h"
+#include "LevSceneRenderAttribute.h"
 #include <Eigen/Dense>
 
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevLAttrModelTransform : public LevSceneLogicAttribute
+		class LevLRAttrModelTransform : public LevSceneLogicAttribute, public LevSceneRenderAttribute
 		{
 		public:
-			LevLAttrModelTransform(const Eigen::Matrix4f& trans = Eigen::Matrix4f::Identity());
+			LevLRAttrModelTransform(const Eigen::Matrix4f& trans = Eigen::Matrix4f::Identity());
 			void SetModelTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetTransform() const;
 

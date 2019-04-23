@@ -25,6 +25,10 @@
 #include "OpenGLShaderProgram.h"
 #include "OpenGLPointLight.h"
 #include "OpenGLResourceMgr.h"
+#include "LevSceneRenderAttribute.h"
+#include "LevLRAttrModelTransform.h"
+#include "LevLRAttrWorldTransform.h"
+#include "OpenGLUniform.h"
 
 namespace Leviathan
 {
@@ -89,7 +93,7 @@ namespace Leviathan
 				// Traverse render attribute
 				for (auto& attribute : object.GetObjAttributes())
 				{
-					if (attribute->GetType() != Scene::ESOLAT_RENDER)
+					if ((attribute->GetType() & Scene::ELSOAT_RENDER) == 0)
 					{
 						continue;
 					}
@@ -124,11 +128,13 @@ namespace Leviathan
 					}
 				}
 
+				// Get OpenGLObjects
+				std::vector<LPtr<OpenGLObject>> pObjects;
+
 				switch (object.GetState())
 				{
 				case Scene::ELSOS_ADDED:
 				{
-					std::vector<LPtr<OpenGLObject>> pObjects;
 					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
 
@@ -142,7 +148,6 @@ namespace Leviathan
 				case Scene::ELSOS_UPDATE:
 				{
 					_unregisterFromPass(object.GetID());
-					std::vector<LPtr<OpenGLObject>> pObjects;
 					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
 
@@ -150,18 +155,21 @@ namespace Leviathan
 					{
 						_registerToPass(object.GetID(), pObject);
 					}
-					break; 
+					break;
 				}
 
 				}
 
-// 				Eigen::Matrix4f worldMatrix;
-// 
-// 				// Traverse stack object to calculate final result
-// 				for (int i = stack.size() - 1; i >= 0; --i)
-// 				{
-// 					auto& currentObj = stack[i];
-// 				}
+				for (auto& attribute : object.GetObjAttributes())
+				{
+					const Scene::LevSceneRenderAttribute* pColor = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
+					if (!pColor)
+					{
+						continue;
+					}
+
+					EXIT_IF_FALSE(_applyRenderAttribute(pObjects, *pColor));
+				}
 
 				return true;
 			};
@@ -423,28 +431,60 @@ namespace Leviathan
 
 		void OpenGLRenderData::_registerToPass(unsigned index, LPtr<OpenGLObject> pObject)
 		{
-			m_registerRenderableObjects[index].push_back(pObject);
+			m_resourceMgr->AddGLObject(index, pObject);
 			_currentPass().AddGLObject(pObject);
 		}
 
 		void OpenGLRenderData::_unregisterFromPass(unsigned index)
 		{
-			auto itFind = m_registerRenderableObjects.find(index);
-			if (itFind != m_registerRenderableObjects.end())
-			{
-				for (auto& object : itFind->second)
-				{
-					_currentPass().DelGLObject(object);
-				}
+			auto& objects = m_resourceMgr->GetGLObjects(index);
 
-				m_registerRenderableObjects.erase(index);
+			for (auto& object : objects)
+			{
+				// TODO : search form all pass ?
+				_currentPass().RemoveGLObject(object);
 			}
+
+			m_resourceMgr->RemoveResource(index);
 		}
 
 		bool OpenGLRenderData::_setCurrentPass(LPtr<OpenGLPass> pPass)
 		{
 			LEV_ASSERT(pPass);
 			m_pCurrentPass = pPass;
+			return true;
+		}
+
+		bool OpenGLRenderData::_applyRenderAttribute(std::vector<LPtr<OpenGLObject>>& objects, const Scene::LevSceneRenderAttribute& render_attribute)
+		{
+			// Model Transform
+			const Scene::LevLRAttrModelTransform* modelTransform = dynamic_cast<const Scene::LevLRAttrModelTransform*>(&render_attribute);
+			if (modelTransform)
+			{
+				for (auto& pObject : objects)
+				{
+					LPtr<OpenGLUniform> pModelTransUniform = new OpenGLUniform("modelMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+					pModelTransUniform->SetData(modelTransform->GetTransform().data(), 16);
+					pObject->AddUniform(pModelTransUniform);
+				}
+
+				return true;
+			}
+
+			// World Transform
+			const Scene::LevLRAttrWorldTransform* worldTransform = dynamic_cast<const Scene::LevLRAttrWorldTransform*>(&render_attribute);
+			if (worldTransform)
+			{
+				for (auto& pObject : objects)
+				{
+					LPtr<OpenGLUniform> pWorldTransUniform = new OpenGLUniform("worldMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+					pWorldTransUniform->SetData(worldTransform->GetTransform().data(), 16);
+					pObject->AddUniform(pWorldTransUniform);
+				}
+
+				return true;
+			}
+
 			return true;
 		}
 

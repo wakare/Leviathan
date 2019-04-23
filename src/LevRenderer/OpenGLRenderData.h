@@ -16,6 +16,7 @@ namespace Leviathan
 		class LevLight;
 		class LevSceneTreeTraverseVisitor;
 		class LevSceneTreeSearchVisitor;
+		class LevSceneRenderAttribute;
 	}
 
 	namespace Renderer
@@ -44,6 +45,7 @@ namespace Leviathan
 			void _unregisterFromPass(unsigned index);
 			
 			bool _setCurrentPass(LPtr<OpenGLPass> pPass);
+			bool _applyRenderAttribute(std::vector<LPtr<OpenGLObject>>& objects, const Scene::LevSceneRenderAttribute& render_attribute);
 			OpenGLPass& _currentPass();
 
 			LPtr<OpenGLPass> m_pCurrentPass;

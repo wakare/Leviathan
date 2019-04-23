@@ -15,7 +15,7 @@ namespace Leviathan
 			auto itFind = m_objects.find(handle);
 			EXIT_IF_FALSE(itFind == m_objects.end());
 
-			m_objects[handle] = pObject;
+			m_objects[handle].push_back(pObject);
 			return true;
 		}
 
@@ -24,7 +24,7 @@ namespace Leviathan
 			auto itFind = m_lights.find(handle);
 			EXIT_IF_FALSE(itFind == m_lights.end());
 
-			m_lights[handle] = pLight;
+			m_lights[handle].push_back(pLight);
 			return true;
 		}
 
@@ -33,8 +33,29 @@ namespace Leviathan
 			auto itFind = m_cameras.find(handle);
 			EXIT_IF_FALSE(itFind == m_cameras.end());
 
-			m_cameras[handle] = pCamera;
+			m_cameras[handle].push_back(pCamera);
 			return true;
+		}
+
+		const std::vector<LPtr<OpenGLObject>>& OpenGLResourceMgr::GetGLObjects(OpenGLResourceHandle handle) const
+		{
+			auto itFind = m_objects.find(handle);
+			LEV_ASSERT(itFind != m_objects.end());
+			return itFind->second;
+		}
+
+		const std::vector<LPtr<OpenGLLight>>& OpenGLResourceMgr::GetGLLights(OpenGLResourceHandle handle) const
+		{
+			auto itFind = m_lights.find(handle);
+			LEV_ASSERT(itFind != m_lights.end());
+			return itFind->second;
+		}
+
+		const std::vector<LPtr<OpenGLCamera>>& OpenGLResourceMgr::GetGLCameras(OpenGLResourceHandle handle) const
+		{
+			auto itFind = m_cameras.find(handle);
+			LEV_ASSERT(itFind != m_cameras.end());
+			return itFind->second;
 		}
 
 		bool OpenGLResourceMgr::RemoveResource(OpenGLResourceHandle handle)

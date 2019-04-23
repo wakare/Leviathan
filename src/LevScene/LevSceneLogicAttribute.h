@@ -6,7 +6,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevSceneLogicAttribute : public LevSceneObjectAttribute
+		class LevSceneLogicAttribute : virtual public LevSceneObjectAttribute
 		{
 		public:
 			LevSceneLogicAttribute();

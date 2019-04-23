@@ -22,6 +22,7 @@
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="OpenGL3DObject.h" />
     <ClInclude Include="OpenGL3DPass.h" />
+    <ClInclude Include="OpenGLCamera.h" />
     <ClInclude Include="OpenGLLight.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />
@@ -29,6 +30,7 @@
     <ClInclude Include="OpenGLPass.h" />
     <ClInclude Include="OpenGLRenderData.h" />
     <ClInclude Include="OpenGLRenderer.h" />
+    <ClInclude Include="OpenGLResourceMgr.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
     <ClInclude Include="OpenGLTexture.h" />
     <ClInclude Include="OpenGLUniform.h" />
@@ -42,6 +44,7 @@
     <ClCompile Include="OpenGLPass.cpp" />
     <ClCompile Include="OpenGLRenderData.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
+    <ClCompile Include="OpenGLResourceMgr.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
     <ClCompile Include="OpenGLTexture.cpp" />
     <ClCompile Include="OpenGLUniform.cpp" />
