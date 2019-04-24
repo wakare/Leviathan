@@ -26,6 +26,7 @@ namespace Leviathan
 			const std::vector<LPtr<OpenGLLight>>& GetGLLights(OpenGLResourceHandle handle) const;
 			const std::vector<LPtr<OpenGLCamera>>& GetGLCameras(OpenGLResourceHandle handle) const;
 
+			bool ExistObject(OpenGLResourceHandle handle) const;
 			bool RemoveResource(OpenGLResourceHandle handle);
 
 		private:

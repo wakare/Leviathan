@@ -29,6 +29,7 @@
 #include "LevLRAttrModelTransform.h"
 #include "LevLRAttrWorldTransform.h"
 #include "OpenGLUniform.h"
+#include "OpenGLEmptyObject.h"
 
 namespace Leviathan
 {
@@ -69,6 +70,15 @@ namespace Leviathan
 					if (pLight)
 					{
 						_updateLight(*pLight);
+					}
+				}
+
+				if ((object.GetType() & Scene::ELSOT_CAMERA) > 0)
+				{
+					const Scene::LevCamera* pCamera = dynamic_cast<const Scene::LevCamera*>(&object);
+					if (pCamera)
+					{
+						//_updateCamera(*pCamera);
 					}
 				}
 
@@ -259,6 +269,24 @@ namespace Leviathan
 			return true;
 		}
 
+		bool OpenGLRenderData::_updateCamera(const Scene::LevCamera & camera)
+		{
+			_unregisterFromPass(camera.GetID());
+
+			LPtr<OpenGLEmptyObject> pCameraObject = new OpenGLEmptyObject;
+			LPtr<OpenGLUniform> pViewTransform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+			LPtr<OpenGLUniform> pProjTransform = new OpenGLUniform("projMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+			
+			pViewTransform->SetData(camera.GetViewportMatrix().data(), 16);
+			pProjTransform->SetData(camera.GetProjectMatrix().data(), 16);
+
+			pCameraObject->AddUniform(pViewTransform);
+			pCameraObject->AddUniform(pProjTransform);
+			
+			_registerToPass(camera.GetID(), TryCast<OpenGLEmptyObject, OpenGLObject>(pCameraObject));
+			return true;
+		}
+
 		bool OpenGLRenderData::_convertTriangleMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
 		{
 			unsigned uVertexFloatCount = 10;
@@ -437,6 +465,8 @@ namespace Leviathan
 
 		void OpenGLRenderData::_unregisterFromPass(unsigned index)
 		{
+			if (!m_resourceMgr->ExistObject(index)) return;
+
 			auto& objects = m_resourceMgr->GetGLObjects(index);
 
 			for (auto& object : objects)

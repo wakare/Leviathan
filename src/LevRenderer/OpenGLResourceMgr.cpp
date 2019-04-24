@@ -58,6 +58,11 @@ namespace Leviathan
 			return itFind->second;
 		}
 
+		bool OpenGLResourceMgr::ExistObject(OpenGLResourceHandle handle) const
+		{
+			return m_objects.find(handle) != m_objects.end();
+		}
+
 		bool OpenGLResourceMgr::RemoveResource(OpenGLResourceHandle handle)
 		{
 			bool _Object = _removeObject(handle);

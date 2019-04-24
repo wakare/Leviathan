@@ -55,6 +55,9 @@
     <ClInclude Include="OpenGLResourceMgr.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLEmptyNode.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderer.cpp">
@@ -91,6 +94,9 @@
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLResourceMgr.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLEmptyObject.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>

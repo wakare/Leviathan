@@ -23,6 +23,7 @@
     <ClInclude Include="OpenGL3DObject.h" />
     <ClInclude Include="OpenGL3DPass.h" />
     <ClInclude Include="OpenGLCamera.h" />
+    <ClInclude Include="OpenGLEmptyNode.h" />
     <ClInclude Include="OpenGLLight.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />
@@ -38,6 +39,7 @@
   <ItemGroup>
     <ClCompile Include="OpenGL3DObject.cpp" />
     <ClCompile Include="OpenGL3DPass.cpp" />
+    <ClCompile Include="OpenGLEmptyObject.cpp" />
     <ClCompile Include="OpenGLPointLight.cpp" />
     <ClCompile Include="OpenGLMaterial.cpp" />
     <ClCompile Include="OpenGLObject.cpp" />

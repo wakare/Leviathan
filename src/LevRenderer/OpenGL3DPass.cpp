@@ -39,7 +39,7 @@ namespace Leviathan
 			}
 
 			LPtr<OpenGLUniform> PerspectiveMatrixUniform = new OpenGLUniform("projMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-			auto projMatrix = m_pMainCamera->GetPerspectiveMatrix();
+			auto projMatrix = m_pMainCamera->GetProjectMatrix();
 			PerspectiveMatrixUniform->SetData(projMatrix.data(), projMatrix.size());
 			if (!m_pGLShaderProgram->AddUniform(PerspectiveMatrixUniform))
 			{
@@ -88,7 +88,7 @@ namespace Leviathan
 			}
 
 			// Set viewMatrix
-			_updateCameraMatrixUniform(program);
+			// _updateCameraMatrixUniform(program);
 
 			// Apply uniforms
 			_applyUniforms();
@@ -153,7 +153,7 @@ namespace Leviathan
 				return;
 			}
 
-			auto PerspectiveMatrix = m_pMainCamera->GetPerspectiveMatrix();
+			auto PerspectiveMatrix = m_pMainCamera->GetProjectMatrix();
 			pPerspectiveMatrixUniform->SetData(PerspectiveMatrix.data(), PerspectiveMatrix.size());
 
 			int viewPosLocation = glGetUniformLocation(shaderProgram, "viewPos");

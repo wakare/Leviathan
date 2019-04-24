@@ -20,7 +20,7 @@ namespace Leviathan
 
 			bool Set(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar);
 			Eigen::Matrix4f GetViewportMatrix() const;
-			Eigen::Matrix4f GetPerspectiveMatrix() const;
+			Eigen::Matrix4f GetProjectMatrix() const;
 			const Eigen::Vector3f& GetEyePos() const;
 
 			void Translate(float x, float y, float z);

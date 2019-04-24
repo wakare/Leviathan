@@ -70,7 +70,7 @@ namespace Leviathan
 			return Eigen::Matrix4f(data).transpose();
 		};
 
-		Eigen::Matrix4f LevCamera::GetPerspectiveMatrix() const
+		Eigen::Matrix4f LevCamera::GetProjectMatrix() const
 		{
 			float T = tanf(m_fovy / 2.0f);
 			float N = m_fZNear - m_fZFar;
