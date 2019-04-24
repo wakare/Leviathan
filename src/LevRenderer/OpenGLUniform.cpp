@@ -47,6 +47,24 @@ namespace Leviathan
 			return true;
 		}
 
+		bool OpenGLUniform::SetData(bool data)
+		{
+			m_boolData = data;
+			return true;
+		}
+
+		bool OpenGLUniform::SetData(int data)
+		{
+			m_intData = data;
+			return true;
+		}
+
+		bool OpenGLUniform::SetData(unsigned data)
+		{
+			m_uintData = data;
+			return true;
+		}
+
 		bool OpenGLUniform::Apply(GLuint program)
 		{
 			GLint uniformLocation = glGetUniformLocation(program, m_uniformName.c_str());
@@ -56,12 +74,22 @@ namespace Leviathan
 				return false;
 			}
 
-			float* data = m_fUniformArray->GetArraydata();
-
 			switch (m_uniformType)
 			{
 			case TYPE_FLOAT_MAT4:
 				glUniformMatrix4fv(uniformLocation, 1, false, m_fUniformArray->GetArraydata());
+				break;
+
+			case TYPE_BOOLEAN:
+				glUniform1i(uniformLocation, m_boolData);
+				break;
+
+			case TYPE_INTEGER:
+				glUniform1i(uniformLocation, m_intData);
+				break;
+
+			case TYPE_UNSIGNED_INTEGER:
+				glUniform1i(uniformLocation, m_uintData);
 				break;
 
 			default:

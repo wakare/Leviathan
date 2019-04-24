@@ -131,7 +131,7 @@ int main(int argc, char** argv)
 
 			for (auto& attr : attributes)
 			{
-				if (attr->GetType() != Scene::ESOLAT_RENDER)
+				if (attr->GetType() != Scene::ELSOAT_RENDER)
 				{
 					continue;
 				}

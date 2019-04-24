@@ -6,18 +6,16 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObject::OpenGLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix /*= nullptr*/, LPtr<OpenGLMaterial> pCommonGLMaterial /*= nullptr*/) :
-			m_bLightEnable(true),
-			m_bUseDefaultVertexColor(false),
+		OpenGLObject::OpenGLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/) :
 			m_VAO(0),
 			m_VBO(0),
 			m_IBO(0),
 			m_primitiveType(primType),
 			m_vertexCount(vertexCount),
 			m_vertexAttributeMask(vertexMask),
-			m_pMaterial(pCommonGLMaterial),
-			m_pModelMatrix(pModelMatrix)
+			m_pMaterial(pMaterial)
 		{
+			
 		}
 
 		OpenGLObject::~OpenGLObject() 
@@ -54,21 +52,6 @@ namespace Leviathan
 			return m_vertexAttributeMask;
 		}
 
-		GLboolean OpenGLObject::GetLightEnable()
-		{
-			return m_bLightEnable;
-		}
-
-		void OpenGLObject::SetModelMatrix(const Eigen::Matrix4f& refModelMatrix) 
-		{
-			m_pModelMatrix.Reset(new Eigen::Matrix4f(refModelMatrix));
-		}
-
-		void OpenGLObject::SetWorldMatrix(const Eigen::Matrix4f & refWorldMatrix)
-		{
-			m_pWorldMatrix.Reset(new Eigen::Matrix4f(refWorldMatrix));
-		}
-
 		void OpenGLObject::SetMaterial(LPtr<OpenGLMaterial> pMaterial) 
 		{
 			m_pMaterial = pMaterial; 
@@ -78,16 +61,6 @@ namespace Leviathan
 		{
 			if (!m_pMaterial) return false;
 			return m_pMaterial->ApplyMaterial(shaderProgram);
-		}
-
-		void OpenGLObject::SetLightEnable(bool bLightEnable) 
-		{
-			m_bLightEnable = bLightEnable; 
-		}
-
-		void OpenGLObject::SetDefaultVertexColorEnable(bool bUseDefaultVertexColor) 
-		{
-			m_bUseDefaultVertexColor = bUseDefaultVertexColor; 
 		}
 
 		GLboolean OpenGLObject::HasMaterial() const 

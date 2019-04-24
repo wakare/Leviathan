@@ -7,16 +7,31 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<Eigen::Matrix4f> pModelMatrix /*= nullptr*/, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
-			OpenGLObject(primType, vertexSize, vertexMask, pModelMatrix, pMaterial),
+		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
+			OpenGLObject(primType, vertexSize, vertexMask, pMaterial),
 			m_pData(pVertexArrayData),
 			m_pIndexData(pIndexArrayData),
 			m_uIndexArrayCount(uIndexArrayCount)
 		{
 			Init();
+		}
 
-			// Set light enable
-			SetLightEnable(m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ);
+		bool OpenGL3DObject::SetLightEnable(bool enable)
+		{
+			m_pLightEnableUniform->SetData(enable);
+			return true;
+		}
+
+		bool OpenGL3DObject::SetVertexMask(unsigned mask)
+		{
+			m_pVertexMaskUniform->SetData(mask);
+			return true;
+		}
+
+		bool OpenGL3DObject::SetUseDefaultColor(bool use)
+		{
+			m_pUseDefaultColorUniform->SetData(use);
+			return true;
 		};
 
 		bool OpenGL3DObject::Init()
@@ -106,21 +121,34 @@ namespace Leviathan
 			m_pData = nullptr;
 			m_pIndexData = nullptr;
 
+			// Set uniform
+
+			// Set light enable
+			m_pLightEnableUniform = new OpenGLUniform("bLightOpen", OpenGLUniform::TYPE_BOOLEAN);
+			m_pUniforms.push_back(m_pLightEnableUniform);
+			SetLightEnable(m_vertexAttributeMask & VERTEX_ATTRIBUTE_NXYZ);
+
+			// Set vertex mask
+			m_pVertexMaskUniform = new OpenGLUniform("VertexTypeMask", OpenGLUniform::TYPE_UNSIGNED_INTEGER);
+			m_pUniforms.push_back(m_pVertexMaskUniform);
+			SetVertexMask(m_vertexAttributeMask);
+
+			// Set use default color
+			m_pUseDefaultColorUniform = new OpenGLUniform("UseDefaultVertexColor", OpenGLUniform::TYPE_BOOLEAN);
+			m_pUniforms.push_back(m_pUseDefaultColorUniform);
+			SetUseDefaultColor(false);
+
 			return true;
 		}
 
 		bool OpenGL3DObject::Update()
 		{
-			
 			return true;
 		}
 
 		bool OpenGL3DObject::Render(GLuint shaderProgram)
 		{
 			ApplyUniform(shaderProgram);
-
-			EXIT_IF_FALSE(_updateVertexMaskUniform(shaderProgram));
-			EXIT_IF_FALSE(_updateDefaultUseVertexColorUniform(shaderProgram));
 
 			auto VAO = GetVAO();
 			EXIT_IF_FALSE(VAO);
@@ -131,33 +159,5 @@ namespace Leviathan
 
 			return true;
 		}
-
-		bool OpenGL3DObject::_updateDefaultUseVertexColorUniform(GLuint shaderProgram)
-		{
-			GLint nUseDefaultVertexColorEnableUniformLocation = glGetUniformLocation(shaderProgram, "UseDefaultVertexColor");
-			if (nUseDefaultVertexColorEnableUniformLocation == -1)
-			{
-				LeviathanOutStream << "[ERROR] Get UseDefaultVertexColor uniform failed." << std::endl;
-				return false;
-			}
-
-			glUniform1i(nUseDefaultVertexColorEnableUniformLocation, m_bUseDefaultVertexColor);
-			return true;
-		}
-
-		bool OpenGL3DObject::_updateVertexMaskUniform(GLuint shaderProgram)
-		{
-			// Set VertexTypeMask uniform
-			GLint uVertexTypeMaskLocation = glGetUniformLocation(shaderProgram, "VertexTypeMask");
-			if (uVertexTypeMaskLocation == -1)
-			{
-				LeviathanOutStream << "[ERROR] Get uVertexTypeMaskLocation failed." << std::endl;
-				return false;
-			}
-
-			glUniform1ui(uVertexTypeMaskLocation, GetVertexMask());
-			return true;
-		}
-
 	}
 }

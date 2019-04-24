@@ -347,7 +347,7 @@ namespace Leviathan
 			}
 
 			out = new OpenGL3DObject(GL_TRIANGLES, pVertexData.m_pData, pMesh->GetVertexCount(),
-				uVertexTypeMask, nullptr, pGLMaterial, pMesh->GetPrimitiveIndexArray(), pMesh->GetPrimitiveCount() * 3);
+				uVertexTypeMask,pGLMaterial, pMesh->GetPrimitiveIndexArray(), pMesh->GetPrimitiveCount() * 3);
 
 			return true;
 		}
@@ -398,7 +398,7 @@ namespace Leviathan
 			}
 
 			LPtr<OpenGLMaterial> defaultPointMateial = new OpenGLMaterial({ 0.2f, 0.2f, 0.2f }, { 0.3f, 0.3f, 0.3f }, { 1.0f, 1.0f, 1.0f }, 32.0f);
-			out = new OpenGL3DObject(GL_POINTS, tempArray.m_pData, pMesh->GetVertexCount(), vertexMask, nullptr, defaultPointMateial);
+			out = new OpenGL3DObject(GL_POINTS, tempArray.m_pData, pMesh->GetVertexCount(), vertexMask, defaultPointMateial);
 
 			return true;
 		}

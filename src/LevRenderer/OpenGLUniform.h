@@ -28,6 +28,9 @@ namespace Leviathan
 			enum UniformType
 			{
 				TYPE_FLOAT_MAT4 = GL_FLOAT_MAT4,
+				TYPE_BOOLEAN = GL_BOOL,
+				TYPE_INTEGER = GL_INT,
+				TYPE_UNSIGNED_INTEGER = GL_UNSIGNED_INT
 			};
 
 			OpenGLUniform(const char* uniformName, UniformType type);
@@ -36,6 +39,9 @@ namespace Leviathan
 
 			bool SetData(const float* data, unsigned dataArrayCount);
 			bool SetData(const double* data, unsigned dataArrayCount);
+			bool SetData(bool data);
+			bool SetData(unsigned data);
+			bool SetData(int data);
 
 			bool Apply(GLuint program);
 		private:
@@ -44,7 +50,10 @@ namespace Leviathan
 			std::string m_uniformName;
 			UniformType m_uniformType;
 
-			LPtr<UniformArray<float>> m_fUniformArray;
+			GLboolean m_boolData;
+			GLint m_intData;
+			GLuint m_uintData;
+ 			LPtr<UniformArray<float>> m_fUniformArray;
 			LPtr<UniformArray<double>> m_dUniformArray;
 		};
 	}

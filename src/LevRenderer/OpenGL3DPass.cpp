@@ -4,6 +4,7 @@
 #include "OpenGLObject.h"
 #include "OpenGLPointLight.h"
 #include "OpenGLMaterial.h"
+#include "OpenGL3DObject.h"
 
 namespace Leviathan
 {
@@ -27,25 +28,6 @@ namespace Leviathan
 			if (m_bInited || !m_pGLShaderProgram) return true;
 
 			EXIT_IF_FALSE(m_pGLShaderProgram->Init());
-
-			// Add matrix uniform to shaderProgram
-			/*LPtr<OpenGLUniform> modelMatrixUniform = new OpenGLUniform("modelMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-			Eigen::Matrix4f modelMatrix = Eigen::Matrix4f::Identity();
-			modelMatrixUniform->SetData(modelMatrix.data(), modelMatrix.size());
-			if (!m_pGLShaderProgram->AddUniform(modelMatrixUniform))
-			{
-				throw "TriDObjectGLPass::Init() failed.";
-				return false;
-			}
-
-			LPtr<OpenGLUniform> worldMatrixUniform = new OpenGLUniform("worldMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-			Eigen::Matrix4f worldMatrix = Eigen::Matrix4f::Identity();
-			worldMatrixUniform->SetData(worldMatrix.data(), worldMatrix.size());
-			if (!m_pGLShaderProgram->AddUniform(worldMatrixUniform))
-			{
-				throw "TriDObjectGLPass::Init() failed.";
-				return false;
-			}*/
 
 			LPtr<OpenGLUniform> viewMatrixUniform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			auto viewMatrix = m_pMainCamera->GetViewportMatrix();
@@ -100,7 +82,7 @@ namespace Leviathan
 				{
 					if (!pLight->SetLightUniformVar(program))
 					{
-						LeviathanOutStream << "[ERROR] Set light uniform var failed." << std::endl;
+						LogLine("[ERROR] Set light uniform var failed.");
 					}
 				}
 			}
@@ -114,16 +96,14 @@ namespace Leviathan
 			// Render each GLObject
 			for (auto& pObject : m_GLObjects)
 			{
-				bool bLightEnable = m_bLightEnable && pObject->GetLightEnable();
-
-				if (bLightEnable && pObject->HasMaterial() && !pObject->ApplyMaterial(program))
+				OpenGL3DObject* p3dObject = dynamic_cast<OpenGL3DObject*>(pObject.Get());
+				if (!p3dObject)
 				{
-					LeviathanOutStream << "[DEBUG] Set material failed." << std::endl;
-					bLightEnable = false;
+					continue;
 				}
 
-				if (!_updateLightEnableUniform(program, bLightEnable))
-					LeviathanOutStream << "[ERROR] Update lightEnable uniform failed." << std::endl;
+				auto lightEnable = m_bLightEnable && pObject->HasMaterial() && pObject->ApplyMaterial(program);
+				p3dObject->SetLightEnable(lightEnable);
 
 				m_pGLShaderProgram->SetGLUniformState();
 				pObject->Update();
