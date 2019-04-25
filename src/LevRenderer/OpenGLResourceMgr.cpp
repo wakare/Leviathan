@@ -10,21 +10,20 @@ namespace Leviathan
 
 		}
 
-		bool OpenGLResourceMgr::AddGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject)
+		bool OpenGLResourceMgr::AddGLObject(OpenGLResourceHandle handle, const std::vector<LPtr<OpenGLObject>>& pObject)
 		{
 			auto itFind = m_objects.find(handle);
 			EXIT_IF_FALSE(itFind == m_objects.end());
 
-			m_objects[handle].push_back(pObject);
+			m_objects[handle].insert(m_objects[handle].end(), pObject.begin(), pObject.end());
 			return true;
 		}
 
-		bool OpenGLResourceMgr::ReplaceGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject)
+		bool OpenGLResourceMgr::ReplaceGLObject(OpenGLResourceHandle handle, const std::vector<LPtr<OpenGLObject>>& pObject)
 		{
 			auto itFind = m_objects.find(handle);
 			EXIT_IF_FALSE(itFind != m_objects.end());
-			itFind->second.clear();
-			itFind->second.push_back(pObject);
+			itFind->second = pObject;
 			return true;
 		}
 

@@ -18,9 +18,6 @@ namespace Leviathan
 			void SetCullFaceEnable(GLboolean bEnable);
 
 		private:
-			void _updateCameraMatrixUniform(GLuint shaderProgram);
-			GLboolean _updateLightEnableUniform(GLuint shaderProgram, GLboolean bLightEnable);
-
 			bool m_bInited;
 			const Scene::LevCamera* m_pMainCamera;
 

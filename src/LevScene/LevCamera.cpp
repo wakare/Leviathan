@@ -50,7 +50,7 @@ namespace Leviathan
 			memcpy(m_fEye.data(), eye, sizeof(float) * 3);
 			memcpy(m_fLookAt.data(), lookAt, sizeof(float) * 3);
 			memcpy(m_fUp.data(), up, sizeof(float) * 3);
-
+			SetModified();
 			return true;
 		}
 
@@ -235,6 +235,7 @@ namespace Leviathan
 				m_fZFar = 4 * fDistance;
 			}
 			
+			SetModified();
 			return true;
 		}
 
@@ -250,6 +251,8 @@ namespace Leviathan
 			m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];
 			m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
 			m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
+
+			SetModified();
 		}
 	}
 }

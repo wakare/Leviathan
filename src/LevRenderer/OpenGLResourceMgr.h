@@ -18,11 +18,11 @@ namespace Leviathan
 		public:
 			OpenGLResourceMgr();
 
-			bool AddGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject);
+			bool AddGLObject(OpenGLResourceHandle handle, const std::vector<LPtr<OpenGLObject>>& pObject);
 			bool AddLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight);
 			bool AddCamera(OpenGLResourceHandle handle, LPtr<OpenGLCamera> pCamera);
 
-			bool ReplaceGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject);
+			bool ReplaceGLObject(OpenGLResourceHandle handle, const std::vector<LPtr<OpenGLObject>>& pObjects);
 			bool ReplaceLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight);
 			bool ReplaceCamera(OpenGLResourceHandle handle, LPtr<OpenGLCamera> pCamera);
 

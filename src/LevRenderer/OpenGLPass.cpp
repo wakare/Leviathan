@@ -18,43 +18,38 @@ namespace Leviathan
 
 		void OpenGLPass::AddGLObject(LPtr<OpenGLObject> pObject)
 		{
-			if (_findGLObject(pObject) == m_GLObjects.end())
-			{
-				m_GLObjects.push_back(pObject);			
-			}
+			m_GLObjectMap[pObject->GetID()].push_back(pObject);
 		}
 
-		void OpenGLPass::AddGLObject(std::vector<LPtr<OpenGLObject>>& pGLObjectVec)
+		void OpenGLPass::AddGLObject(unsigned id, const std::vector<LPtr<OpenGLObject>>& pGLObjectVec)
 		{
-			for (auto& pGLObject : pGLObjectVec)
-			{
-				AddGLObject(pGLObject);
-			}
+			m_GLObjectMap[id].insert(m_GLObjectMap[id].end(), pGLObjectVec.begin(), pGLObjectVec.end());
 		}
 
-		void OpenGLPass::ReplaceGLObject(LPtr<OpenGLObject> pObject)
+		bool OpenGLPass::ReplaceGLObject(unsigned id, const std::vector<LPtr<OpenGLObject>>& objects)
 		{
-			auto itFind = _findGLObject(pObject->GetID());
-			if (itFind == m_GLObjects.end())
+			auto itFind = m_GLObjectMap.find(id);
+			if (itFind == m_GLObjectMap.end())
 			{
-				return;
+				return false;
 			}
 
-			(*itFind).Reset(pObject);
+			itFind->second = objects;
+			return true;
 		}
 
-		void OpenGLPass::RemoveGLObject(LPtr<OpenGLObject> pObject)
+		void OpenGLPass::RemoveGLObject(unsigned id)
 		{
-			auto it = _findGLObject(pObject);
-			if (it != m_GLObjects.end())
+			auto itFind = m_GLObjectMap.find(id);
+			if (itFind != m_GLObjectMap.end())
 			{
-				m_GLObjects.erase(it);
+				m_GLObjectMap.erase(itFind);
 			}
 		}
 
 		void OpenGLPass::ClearGLObject()
 		{
-			m_GLObjects.clear();
+			m_GLObjectMap.clear();
 		}
 
 		void OpenGLPass::AddGLLight(LPtr<OpenGLLight> pLight) 
@@ -62,10 +57,6 @@ namespace Leviathan
 			m_lights.push_back(pLight); 
 		}
 
-		const std::vector<Leviathan::LPtr<Leviathan::Renderer::OpenGLObject>> OpenGLPass::GetGLObjects()
-		{
-			return m_GLObjects; 
-		};
 
 		OpenGLPass::~OpenGLPass()
 		{
@@ -119,24 +110,16 @@ namespace Leviathan
 			}
 		}
 
-		std::vector<LPtr<OpenGLObject>>::iterator OpenGLPass::_findGLObject(LPtr<OpenGLObject>& pObject)
+		bool OpenGLPass::_findGLObject(unsigned id, std::vector<LPtr<OpenGLObject>>& out)
 		{
-			return std::find(m_GLObjects.begin(), m_GLObjects.end(), pObject);
-		}
-
-		std::vector<LPtr<OpenGLObject>>::iterator OpenGLPass::_findGLObject(unsigned id)
-		{
-			auto it = m_GLObjects.begin();
-			while (it != m_GLObjects.end())
+			auto itFind = m_GLObjectMap.find(id);
+			if (itFind == m_GLObjectMap.end())
 			{
-				if ((*it)->GetID() == id)
-				{
-					break;
-				}
+				return false;
 			}
 
-			return it;
+			out = itFind->second;
+			return true;
 		}
-
 	}
 }

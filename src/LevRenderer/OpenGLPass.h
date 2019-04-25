@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <vector>
+#include <map>
 #include <gl/glew.h>
 #include "LPtr.h"
 
@@ -22,12 +23,11 @@ namespace Leviathan
 			virtual ~OpenGLPass();
 
 			void AddGLObject(LPtr<OpenGLObject> pObject);
-			void AddGLObject(std::vector<LPtr<OpenGLObject>>& pGLObjectVec);
-			void ReplaceGLObject(LPtr<OpenGLObject> pObject);
-			void RemoveGLObject(LPtr<OpenGLObject> pObject);
+			void AddGLObject(unsigned id, const std::vector<LPtr<OpenGLObject>>& pGLObjectVec);
+			bool ReplaceGLObject(unsigned id, const std::vector<LPtr<OpenGLObject>>& objects);
+			void RemoveGLObject(unsigned id);
 			void ClearGLObject();
 			void AddGLLight(LPtr<OpenGLLight> pLight);
-			const std::vector<LPtr<OpenGLObject>> GetGLObjects();
 
 			virtual bool Init() = 0;
 			virtual void Render() = 0;
@@ -43,12 +43,11 @@ namespace Leviathan
 
 		protected:
 			void _applyUniforms();
-			std::vector<LPtr<OpenGLObject>>::iterator _findGLObject(LPtr<OpenGLObject>& pObject);
-			std::vector<LPtr<OpenGLObject>>::iterator _findGLObject(unsigned id);
+			bool _findGLObject(unsigned id, std::vector<LPtr<OpenGLObject>>& out_pObject);
 
 			LPtr<OpenGLShaderProgram> m_pGLShaderProgram;
 			std::vector<LPtr<OpenGLUniform>> m_pUniforms;
-			std::vector<LPtr<OpenGLObject>> m_GLObjects;
+			std::map<unsigned, std::vector<LPtr<OpenGLObject>>> m_GLObjectMap;
 			std::vector<LPtr<OpenGLLight>> m_lights;
 
 			std::vector<Process> m_PreRenderCallBacks;

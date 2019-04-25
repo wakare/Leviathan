@@ -77,21 +77,36 @@ namespace Leviathan
 			switch (m_uniformType)
 			{
 			case TYPE_FLOAT_MAT4:
+			{
 				glUniformMatrix4fv(uniformLocation, 1, false, m_fUniformArray->GetArraydata());
 				break;
+			}	
+
+			case TYPE_FLOAT_VEC3:
+			{
+				auto* floatLocation = m_fUniformArray->GetArraydata();
+				glUniform3f(uniformLocation, floatLocation[0], floatLocation[1], floatLocation[2]);
+				break;
+			}	
 
 			case TYPE_BOOLEAN:
+			{
 				glUniform1i(uniformLocation, m_boolData);
 				break;
+			}
 
 			case TYPE_INTEGER:
+			{
 				glUniform1i(uniformLocation, m_intData);
 				break;
+			}	
 
 			case TYPE_UNSIGNED_INTEGER:
+			{
 				glUniform1i(uniformLocation, m_uintData);
 				break;
-
+			}
+			
 			default:
 				return false;
 			}

@@ -27,10 +27,11 @@ namespace Leviathan
 		public:
 			enum UniformType
 			{
-				TYPE_FLOAT_MAT4 = GL_FLOAT_MAT4,
-				TYPE_BOOLEAN = GL_BOOL,
-				TYPE_INTEGER = GL_INT,
-				TYPE_UNSIGNED_INTEGER = GL_UNSIGNED_INT
+				TYPE_FLOAT_MAT4			= 1,
+				TYPE_FLOAT_VEC3			= 2,
+				TYPE_BOOLEAN			= 3,
+				TYPE_INTEGER			= 4,
+				TYPE_UNSIGNED_INTEGER	= 5
 			};
 
 			OpenGLUniform(const char* uniformName, UniformType type);

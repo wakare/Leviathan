@@ -147,11 +147,7 @@ namespace Leviathan
 				{
 					auto inited = ConvertMeshToGLObject(object.GetID(), *pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
-
-					for (auto& pObject : pObjects)
-					{
-						_registerToPass(object.GetID(), pObject);
-					}
+					_registerToPass(object.GetID(), pObjects);
 					break;
 				}
 
@@ -160,11 +156,7 @@ namespace Leviathan
 					_unregisterFromPass(object.GetID());
 					auto inited = ConvertMeshToGLObject(object.GetID(), *pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
-
-					for (auto& pObject : pObjects)
-					{
-						_registerToPass(object.GetID(), pObject);
-					}
+					_registerToPass(object.GetID(), pObjects);
 					break;
 				}
 
@@ -274,14 +266,19 @@ namespace Leviathan
 			LPtr<OpenGLEmptyObject> pCameraObject = new OpenGLEmptyObject(camera.GetID());
 			LPtr<OpenGLUniform> pViewTransform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			LPtr<OpenGLUniform> pProjTransform = new OpenGLUniform("projMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
+			LPtr<OpenGLUniform> pViewPos = new OpenGLUniform("viewPos", OpenGLUniform::TYPE_FLOAT_VEC3);
 			
 			pViewTransform->SetData(camera.GetViewportMatrix().data(), 16);
 			pProjTransform->SetData(camera.GetProjectMatrix().data(), 16);
+			pViewPos->SetData(camera.GetEyePos().data(), 3);
 
 			pCameraObject->AddUniform(pViewTransform);
 			pCameraObject->AddUniform(pProjTransform);
+			pCameraObject->AddUniform(pViewPos);
 			
-			_registerToPass(camera.GetID(), TryCast<OpenGLEmptyObject, OpenGLObject>(pCameraObject));
+			std::vector<LPtr<OpenGLObject>> cameraObjs;
+			cameraObjs.push_back(TryCast<OpenGLEmptyObject, OpenGLObject>(pCameraObject));
+			_registerToPass(camera.GetID(), cameraObjs);
 			return true;
 		}
 
@@ -455,17 +452,17 @@ namespace Leviathan
 			LEV_ASSERT(_seted);
 		}
 
-		void OpenGLRenderData::_registerToPass(unsigned index, LPtr<OpenGLObject> pObject)
+		void OpenGLRenderData::_registerToPass(unsigned index, const std::vector<LPtr<OpenGLObject>>& pObjects)
 		{
 			if (!m_resourceMgr->ExistObject(index))
 			{
-				m_resourceMgr->AddGLObject(index, pObject);
-				_currentPass().AddGLObject(pObject);
+				m_resourceMgr->AddGLObject(index, pObjects);
+				_currentPass().AddGLObject(index, pObjects);
 			}
 			else
 			{
-				m_resourceMgr->ReplaceGLObject(index, pObject);
-				_currentPass().ReplaceGLObject(pObject);
+				m_resourceMgr->ReplaceGLObject(index, pObjects);
+				_currentPass().ReplaceGLObject(index, pObjects);
 			}
 		}
 
@@ -473,14 +470,7 @@ namespace Leviathan
 		{
 			if (!m_resourceMgr->ExistObject(index)) return;
 
-			auto& objects = m_resourceMgr->GetGLObjects(index);
-
-			for (auto& object : objects)
-			{
-				// TODO : search form all pass ?
-				_currentPass().RemoveGLObject(object);
-			}
-
+			_currentPass().RemoveGLObject(index);
 			m_resourceMgr->RemoveResource(index);
 		}
 

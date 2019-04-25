@@ -42,7 +42,7 @@ namespace Leviathan
 			bool _convertPointMeshToGLObject(unsigned id, LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
 
 			void _createDefaultPass(const Scene::LevCamera* pCamera);
-			void _registerToPass(unsigned index, LPtr<OpenGLObject> pObject);
+			void _registerToPass(unsigned index, const std::vector<LPtr<OpenGLObject>>& pObject);
 			void _unregisterFromPass(unsigned index);
 			
 			bool _setCurrentPass(LPtr<OpenGLPass> pPass);
