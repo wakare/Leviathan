@@ -63,6 +63,15 @@ namespace Leviathan
 					return true;
 				}
 
+				if ((object.GetType() & Scene::ELSOT_CAMERA) > 0)
+				{
+					const Scene::LevCamera* pCamera = dynamic_cast<const Scene::LevCamera*>(&object);
+					if (pCamera)
+					{
+						_updateCamera(*pCamera);
+					}
+				}
+
 				// Update light
 				if ((object.GetType() & Scene::ELSOT_LIGHT) > 0)
 				{
@@ -70,15 +79,6 @@ namespace Leviathan
 					if (pLight)
 					{
 						_updateLight(*pLight);
-					}
-				}
-
-				if ((object.GetType() & Scene::ELSOT_CAMERA) > 0)
-				{
-					const Scene::LevCamera* pCamera = dynamic_cast<const Scene::LevCamera*>(&object);
-					if (pCamera)
-					{
-						//_updateCamera(*pCamera);
 					}
 				}
 
@@ -145,7 +145,7 @@ namespace Leviathan
 				{
 				case Scene::ELSOS_ADDED:
 				{
-					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
+					auto inited = ConvertMeshToGLObject(object.GetID(), *pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
 
 					for (auto& pObject : pObjects)
@@ -158,7 +158,7 @@ namespace Leviathan
 				case Scene::ELSOS_UPDATE:
 				{
 					_unregisterFromPass(object.GetID());
-					auto inited = ConvertMeshToGLObject(*pMesh, pObjects);
+					auto inited = ConvertMeshToGLObject(object.GetID(), *pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
 
 					for (auto& pObject : pObjects)
@@ -218,7 +218,7 @@ namespace Leviathan
 			m_traverseVisitor->Apply(sceneTree.GetRoot());
 		}
 
-		bool OpenGLRenderData::ConvertMeshToGLObject(const Scene::LevMeshObject& mesh, std::vector<LPtr<OpenGLObject>>& out)
+		bool OpenGLRenderData::ConvertMeshToGLObject(unsigned id, const Scene::LevMeshObject& mesh, std::vector<LPtr<OpenGLObject>>& out)
 		{
 			out.clear();
 
@@ -226,13 +226,13 @@ namespace Leviathan
 			{
 				LPtr<OpenGLObject> pObject = nullptr;
 
-				if (pMesh->GetPrimitiveType() == IMesh::EPT_TRIANGLES && !_convertTriangleMeshToGLObject(pMesh, pObject))
+				if (pMesh->GetPrimitiveType() == IMesh::EPT_TRIANGLES && !_convertTriangleMeshToGLObject(id, pMesh, pObject))
 				{
 					LeviathanOutStream << "[ERROR] Convert triangle mesh to GLObject failed." << std::endl;
 					continue;
 				}
 
-				if (pMesh->GetPrimitiveType() == IMesh::EPT_POINTS && !_convertPointMeshToGLObject(pMesh, pObject))
+				if (pMesh->GetPrimitiveType() == IMesh::EPT_POINTS && !_convertPointMeshToGLObject(id, pMesh, pObject))
 				{
 					LeviathanOutStream << "[ERROR] Convert triangle mesh to GLObject failed." << std::endl;
 					continue;
@@ -271,9 +271,7 @@ namespace Leviathan
 
 		bool OpenGLRenderData::_updateCamera(const Scene::LevCamera & camera)
 		{
-			_unregisterFromPass(camera.GetID());
-
-			LPtr<OpenGLEmptyObject> pCameraObject = new OpenGLEmptyObject;
+			LPtr<OpenGLEmptyObject> pCameraObject = new OpenGLEmptyObject(camera.GetID());
 			LPtr<OpenGLUniform> pViewTransform = new OpenGLUniform("viewMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			LPtr<OpenGLUniform> pProjTransform = new OpenGLUniform("projMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
 			
@@ -287,7 +285,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderData::_convertTriangleMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
+		bool OpenGLRenderData::_convertTriangleMeshToGLObject(unsigned id, LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
 		{
 			unsigned uVertexFloatCount = 10;
 			auto pMaterial = pMesh->GetMaterial();
@@ -374,13 +372,13 @@ namespace Leviathan
 				}
 			}
 
-			out = new OpenGL3DObject(GL_TRIANGLES, pVertexData.m_pData, pMesh->GetVertexCount(),
+			out = new OpenGL3DObject(id, GL_TRIANGLES, pVertexData.m_pData, pMesh->GetVertexCount(),
 				uVertexTypeMask,pGLMaterial, pMesh->GetPrimitiveIndexArray(), pMesh->GetPrimitiveCount() * 3);
 
 			return true;
 		}
 
-		bool OpenGLRenderData::_convertPointMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
+		bool OpenGLRenderData::_convertPointMeshToGLObject(unsigned id, LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out)
 		{
 			int vertexMask = OpenGLObject::VERTEX_ATTRIBUTE_XYZ;
 			unsigned vertexDataSize = 3;
@@ -426,7 +424,7 @@ namespace Leviathan
 			}
 
 			LPtr<OpenGLMaterial> defaultPointMateial = new OpenGLMaterial({ 0.2f, 0.2f, 0.2f }, { 0.3f, 0.3f, 0.3f }, { 1.0f, 1.0f, 1.0f }, 32.0f);
-			out = new OpenGL3DObject(GL_POINTS, tempArray.m_pData, pMesh->GetVertexCount(), vertexMask, defaultPointMateial);
+			out = new OpenGL3DObject(id, GL_POINTS, tempArray.m_pData, pMesh->GetVertexCount(), vertexMask, defaultPointMateial);
 
 			return true;
 		}
@@ -459,8 +457,16 @@ namespace Leviathan
 
 		void OpenGLRenderData::_registerToPass(unsigned index, LPtr<OpenGLObject> pObject)
 		{
-			m_resourceMgr->AddGLObject(index, pObject);
-			_currentPass().AddGLObject(pObject);
+			if (!m_resourceMgr->ExistObject(index))
+			{
+				m_resourceMgr->AddGLObject(index, pObject);
+				_currentPass().AddGLObject(pObject);
+			}
+			else
+			{
+				m_resourceMgr->ReplaceGLObject(index, pObject);
+				_currentPass().ReplaceGLObject(pObject);
+			}
 		}
 
 		void OpenGLRenderData::_unregisterFromPass(unsigned index)

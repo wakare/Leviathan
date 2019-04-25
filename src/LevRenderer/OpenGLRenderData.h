@@ -34,12 +34,12 @@ namespace Leviathan
 			void Render();
 			void UpdateInputData(const Scene::LevSceneData& sceneData);
 
-			bool ConvertMeshToGLObject(const Scene::LevMeshObject& mesh, std::vector<LPtr<OpenGLObject>>& out);
+			bool ConvertMeshToGLObject(unsigned id, const Scene::LevMeshObject& mesh, std::vector<LPtr<OpenGLObject>>& out);
 		private:
 			bool _updateLight(const Scene::LevLight& light);
 			bool _updateCamera(const Scene::LevCamera& camera);
-			bool _convertTriangleMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
-			bool _convertPointMeshToGLObject(LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
+			bool _convertTriangleMeshToGLObject(unsigned index, LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
+			bool _convertPointMeshToGLObject(unsigned id, LPtr<IMesh> pMesh, LPtr<OpenGLObject>& out);
 
 			void _createDefaultPass(const Scene::LevCamera* pCamera);
 			void _registerToPass(unsigned index, LPtr<OpenGLObject> pObject);

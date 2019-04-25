@@ -19,6 +19,33 @@ namespace Leviathan
 			return true;
 		}
 
+		bool OpenGLResourceMgr::ReplaceGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject)
+		{
+			auto itFind = m_objects.find(handle);
+			EXIT_IF_FALSE(itFind != m_objects.end());
+			itFind->second.clear();
+			itFind->second.push_back(pObject);
+			return true;
+		}
+
+		bool OpenGLResourceMgr::ReplaceLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight)
+		{
+			auto itFind = m_lights.find(handle);
+			EXIT_IF_FALSE(itFind != m_lights.end());
+			itFind->second.clear();
+			itFind->second.push_back(pLight);
+			return true;
+		}
+
+		bool OpenGLResourceMgr::ReplaceCamera(OpenGLResourceHandle handle, LPtr<OpenGLCamera> pCamera)
+		{
+			auto itFind = m_cameras.find(handle);
+			EXIT_IF_FALSE(itFind != m_cameras.end());
+			itFind->second.clear();
+			itFind->second.push_back(pCamera);
+			return true;
+		}
+
 		bool OpenGLResourceMgr::AddLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight)
 		{
 			auto itFind = m_lights.find(handle);
@@ -56,6 +83,16 @@ namespace Leviathan
 			auto itFind = m_cameras.find(handle);
 			LEV_ASSERT(itFind != m_cameras.end());
 			return itFind->second;
+		}
+
+		bool OpenGLResourceMgr::ExistCamera(OpenGLResourceHandle handle) const
+		{
+			return m_cameras.find(handle) != m_cameras.end();
+		}
+
+		bool OpenGLResourceMgr::ExistLight(OpenGLResourceHandle handle) const
+		{
+			return m_lights.find(handle) != m_lights.end();
 		}
 
 		bool OpenGLResourceMgr::ExistObject(OpenGLResourceHandle handle) const

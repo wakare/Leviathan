@@ -23,6 +23,7 @@ namespace Leviathan
 
 			void AddGLObject(LPtr<OpenGLObject> pObject);
 			void AddGLObject(std::vector<LPtr<OpenGLObject>>& pGLObjectVec);
+			void ReplaceGLObject(LPtr<OpenGLObject> pObject);
 			void RemoveGLObject(LPtr<OpenGLObject> pObject);
 			void ClearGLObject();
 			void AddGLLight(LPtr<OpenGLLight> pLight);
@@ -43,6 +44,7 @@ namespace Leviathan
 		protected:
 			void _applyUniforms();
 			std::vector<LPtr<OpenGLObject>>::iterator _findGLObject(LPtr<OpenGLObject>& pObject);
+			std::vector<LPtr<OpenGLObject>>::iterator _findGLObject(unsigned id);
 
 			LPtr<OpenGLShaderProgram> m_pGLShaderProgram;
 			std::vector<LPtr<OpenGLUniform>> m_pUniforms;

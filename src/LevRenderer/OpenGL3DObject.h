@@ -14,7 +14,7 @@ namespace Leviathan
 		class OpenGL3DObject : public OpenGLObject
 		{
 		public:
-			OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<OpenGLMaterial> pCommonGLMaterial = nullptr, unsigned* pIndexArrayData = nullptr, unsigned uIndexArrayCount = 0U);
+			OpenGL3DObject(unsigned id, GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<OpenGLMaterial> pCommonGLMaterial = nullptr, unsigned* pIndexArrayData = nullptr, unsigned uIndexArrayCount = 0U);
 
 			bool SetLightEnable(bool enable);
 			bool SetVertexMask(unsigned mask);

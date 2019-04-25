@@ -23,7 +23,7 @@
     <ClInclude Include="OpenGL3DObject.h" />
     <ClInclude Include="OpenGL3DPass.h" />
     <ClInclude Include="OpenGLCamera.h" />
-    <ClInclude Include="OpenGLEmptyNode.h" />
+    <ClInclude Include="OpenGLEmptyObject.h" />
     <ClInclude Include="OpenGLLight.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />

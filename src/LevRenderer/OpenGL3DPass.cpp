@@ -97,13 +97,11 @@ namespace Leviathan
 			for (auto& pObject : m_GLObjects)
 			{
 				OpenGL3DObject* p3dObject = dynamic_cast<OpenGL3DObject*>(pObject.Get());
-				if (!p3dObject)
+				if (p3dObject)
 				{
-					continue;
+					auto lightEnable = m_bLightEnable && pObject->HasMaterial() && pObject->ApplyMaterial(program);
+					p3dObject->SetLightEnable(lightEnable);
 				}
-
-				auto lightEnable = m_bLightEnable && pObject->HasMaterial() && pObject->ApplyMaterial(program);
-				p3dObject->SetLightEnable(lightEnable);
 
 				m_pGLShaderProgram->SetGLUniformState();
 				pObject->Update();

@@ -22,10 +22,16 @@ namespace Leviathan
 			bool AddLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight);
 			bool AddCamera(OpenGLResourceHandle handle, LPtr<OpenGLCamera> pCamera);
 
+			bool ReplaceGLObject(OpenGLResourceHandle handle, LPtr<OpenGLObject> pObject);
+			bool ReplaceLight(OpenGLResourceHandle handle, LPtr<OpenGLLight> pLight);
+			bool ReplaceCamera(OpenGLResourceHandle handle, LPtr<OpenGLCamera> pCamera);
+
 			const std::vector<LPtr<OpenGLObject>>& GetGLObjects(OpenGLResourceHandle handle) const;
 			const std::vector<LPtr<OpenGLLight>>& GetGLLights(OpenGLResourceHandle handle) const;
 			const std::vector<LPtr<OpenGLCamera>>& GetGLCameras(OpenGLResourceHandle handle) const;
 
+			bool ExistCamera(OpenGLResourceHandle handle) const;
+			bool ExistLight(OpenGLResourceHandle handle) const;
 			bool ExistObject(OpenGLResourceHandle handle) const;
 			bool RemoveResource(OpenGLResourceHandle handle);
 

@@ -7,8 +7,8 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGL3DObject::OpenGL3DObject(GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
-			OpenGLObject(primType, vertexSize, vertexMask, pMaterial),
+		OpenGL3DObject::OpenGL3DObject(unsigned id, GLuint primType, GLfloat* pVertexArrayData, GLuint vertexSize, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/, unsigned* pIndexArrayData /*= nullptr*/, unsigned uIndexArrayCount /*= 0U*/) :
+			OpenGLObject(id, primType, vertexSize, vertexMask, pMaterial),
 			m_pData(pVertexArrayData),
 			m_pIndexData(pIndexArrayData),
 			m_uIndexArrayCount(uIndexArrayCount)

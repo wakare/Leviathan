@@ -23,10 +23,11 @@ namespace Leviathan
 				VERTEX_ATTRIBUTE_TEX = 0x8,
 			};
 
-			OpenGLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial = nullptr);
+			OpenGLObject(unsigned id, GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial = nullptr);
 
 			virtual ~OpenGLObject();
 
+			unsigned GetID() const;
 			GLuint GetVAO();
 			GLuint GetVBO();
 			GLuint GetIBO();
@@ -48,6 +49,7 @@ namespace Leviathan
 			virtual bool Render(GLuint shaderProgram) = 0;
 
 		protected:
+			const unsigned m_ID;
 			GLuint m_VAO;
 			GLuint m_VBO;
 			GLuint m_IBO;

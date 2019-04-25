@@ -9,7 +9,7 @@ namespace Leviathan
 		class OpenGLEmptyObject : public OpenGLObject
 		{
 		public:
-			OpenGLEmptyObject();
+			OpenGLEmptyObject(unsigned id);
 
 			bool Init();
 			bool Update();

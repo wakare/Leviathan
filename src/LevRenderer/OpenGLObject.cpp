@@ -6,7 +6,8 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObject::OpenGLObject(GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/) :
+		OpenGLObject::OpenGLObject(unsigned id, GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/) :
+			m_ID(id),
 			m_VAO(0),
 			m_VBO(0),
 			m_IBO(0),
@@ -21,6 +22,11 @@ namespace Leviathan
 		OpenGLObject::~OpenGLObject() 
 		{
 		};
+
+		unsigned OpenGLObject::GetID() const
+		{
+			return m_ID;
+		}
 
 		GLuint OpenGLObject::GetVAO()
 		{

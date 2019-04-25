@@ -52,7 +52,7 @@ namespace Leviathan
 			memcpy(m_fUp.data(), up, sizeof(float) * 3);
 
 			return true;
-		};
+		}
 
 		Eigen::Matrix4f LevCamera::GetViewportMatrix() const
 		{
@@ -123,6 +123,7 @@ namespace Leviathan
 		void LevCamera::MouseDrag(float x, float y)
 		{
 			TargetTranslate(x * m_currentDistance, -y * m_currentDistance);
+			SetModified();
 		}
 
 		void LevCamera::MouseTranslate(float x, float y, float z)
@@ -130,7 +131,8 @@ namespace Leviathan
 			float length = (m_fEye - m_fLookAt).norm();
 			float scaleRatio = length * m_mouseOperationScaleRatio;
 
-			return Translate(scaleRatio * x, scaleRatio * y, scaleRatio * z);
+			Translate(scaleRatio * x, scaleRatio * y, scaleRatio * z);
+			SetModified();
 		}
 
 		void LevCamera::MouseRotate(float x, float y)
@@ -147,6 +149,7 @@ namespace Leviathan
 			};
 
 			Rotate(RotateVec[0], RotateVec[1], RotateVec[2]);
+			SetModified();
 		}
 
 		void LevCamera::Rotate(float x, float y, float z)

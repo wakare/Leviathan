@@ -55,7 +55,7 @@
     <ClInclude Include="OpenGLResourceMgr.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLEmptyNode.h">
+    <ClInclude Include="OpenGLEmptyObject.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>

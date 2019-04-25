@@ -1,6 +1,7 @@
 #include "OpenGLPass.h"
 #include "OpenGLLight.h"
 #include "OpenGLUniform.h"
+#include "OpenGLObject.h"
 
 namespace Leviathan
 {
@@ -29,6 +30,17 @@ namespace Leviathan
 			{
 				AddGLObject(pGLObject);
 			}
+		}
+
+		void OpenGLPass::ReplaceGLObject(LPtr<OpenGLObject> pObject)
+		{
+			auto itFind = _findGLObject(pObject->GetID());
+			if (itFind == m_GLObjects.end())
+			{
+				return;
+			}
+
+			(*itFind).Reset(pObject);
 		}
 
 		void OpenGLPass::RemoveGLObject(LPtr<OpenGLObject> pObject)
@@ -110,6 +122,20 @@ namespace Leviathan
 		std::vector<LPtr<OpenGLObject>>::iterator OpenGLPass::_findGLObject(LPtr<OpenGLObject>& pObject)
 		{
 			return std::find(m_GLObjects.begin(), m_GLObjects.end(), pObject);
+		}
+
+		std::vector<LPtr<OpenGLObject>>::iterator OpenGLPass::_findGLObject(unsigned id)
+		{
+			auto it = m_GLObjects.begin();
+			while (it != m_GLObjects.end())
+			{
+				if ((*it)->GetID() == id)
+				{
+					break;
+				}
+			}
+
+			return it;
 		}
 
 	}
