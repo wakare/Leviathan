@@ -16,13 +16,14 @@ namespace Leviathan
 	class LevRenderWindow;
 	class EventSystem;
 	class LevWindowFactory;
+	class ILevWindow;
 
 	class ViewData
 	{
 	public:
 		ViewData(LevRendererType render_type);
 		EventSystem& GetEventSystem();
-		LevRenderWindow& GetRenderWindow();
+		ILevWindow& GetRenderWindow();
 		Scene::LevScene& GetScene();
 		Renderer::IRenderer& GetRenderer();
 		bool InitRenderer();
@@ -31,7 +32,8 @@ namespace Leviathan
 		LevRendererType m_renderType;
 		LPtr<LevWindowFactory> m_pLevWindowFactory;
 		LPtr<EventSystem> m_pEventSystem;
-		LPtr<LevRenderWindow> m_pWindow;
+		//LPtr<LevRenderWindow> m_pWindow;
+		LPtr<ILevWindow> m_pWindow;
 		LPtr<Scene::LevScene> m_pScene;
 		LPtr<Renderer::IRenderer> m_pRenderer;
 	};

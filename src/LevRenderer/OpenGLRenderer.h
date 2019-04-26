@@ -8,6 +8,8 @@
 
 namespace Leviathan
 {
+	class LevOpenGLWindow;
+
 	namespace Renderer
 	{
 		class OpenGLPass;
@@ -16,7 +18,7 @@ namespace Leviathan
 		class OpenGLRenderer : public IRenderer
 		{
 		public:
-			OpenGLRenderer(GLFWwindow* pWindow);
+			OpenGLRenderer(LevOpenGLWindow& pWindow);
 			
 			bool Clear();
 
@@ -26,7 +28,7 @@ namespace Leviathan
 		private:
 			void _renderOneFrame();
 
-			GLFWwindow* m_pWindow;
+			LevOpenGLWindow& m_window;
 			LPtr<OpenGLRenderData> m_pRenderData;
 		};
 	}

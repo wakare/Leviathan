@@ -20,6 +20,9 @@ namespace Leviathan
 			LevCamera();
 
 			bool Set(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar);
+			bool Set(float* eye, float* lookAt, float* up);
+			bool Set(float fovy, float aspect, float zNear, float zFar);
+
 			Eigen::Matrix4f GetViewportMatrix() const;
 			Eigen::Matrix4f GetProjectMatrix() const;
 			const Eigen::Vector3f& GetEyePos() const;

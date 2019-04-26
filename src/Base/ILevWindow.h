@@ -1,9 +1,10 @@
 #pragma once
 #include "EventListener.h"
+#include "EventSystem.h"
 
 namespace Leviathan
 {
-	class ILevWindow : public EventListener
+	class ILevWindow : public EventListener, public EventSystem
 	{
 	public:
 		virtual bool Create(int width, int height, int hParent = 0) = 0;

@@ -1,9 +1,10 @@
 #pragma once
 
-#include "ILevWindow.h"
-#include "LPtr.h"
 #include <gl/glew.h>
 #include <glfw/glfw3.h>
+
+#include "ILevWindow.h"
+#include "LPtr.h"
 
 namespace Leviathan
 {
@@ -21,6 +22,7 @@ namespace Leviathan
 		int GetWidth() const;
 		int GetHeight() const;
 		int GetWindowHandle() const;
+		void SwapBuffer();
 
 	private:
 		void _setWindowProcess();

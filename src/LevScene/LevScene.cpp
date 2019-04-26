@@ -1,5 +1,6 @@
 #include "LevScene.h"
 #include "LevSceneData.h"
+#include "LevCamera.h"
 #include "LevSceneEventListener.h"
 
 namespace Leviathan
@@ -34,6 +35,7 @@ namespace Leviathan
 
 		void LevScene::SetViewport(int width, int height)
 		{
+			m_pSceneData->GetCamera()->Set(ANGLE_TO_RADIAN(120.0f), width / height, 0.01f, 10000.0f);
 		}
 
 		bool LevScene::HasModified() const

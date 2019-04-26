@@ -40,16 +40,32 @@ namespace Leviathan
 
 		bool LevCamera::Set(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar)
 		{
+			m_minDistanceOfCameraToLookAt = 0.01f;
+			m_mouseOperationScaleRatio = 1.0f;
+
+			EXIT_IF_FALSE(Set(eye, lookAt, up));
+			EXIT_IF_FALSE(Set(fovy, aspect, zNear, zFar));
+
+			return true;
+		}
+
+		bool LevCamera::Set(float * eye, float * lookAt, float * up)
+		{
+			memcpy(m_fEye.data(), eye, sizeof(float) * 3);
+			memcpy(m_fLookAt.data(), lookAt, sizeof(float) * 3);
+			memcpy(m_fUp.data(), up, sizeof(float) * 3);
+
+			SetModified();
+			return true;
+		}
+
+		bool LevCamera::Set(float fovy, float aspect, float zNear, float zFar)
+		{
 			m_fovy = fovy;
 			m_fAspect = aspect;
 			m_fZNear = zNear;
 			m_fZFar = zFar;
-			m_minDistanceOfCameraToLookAt = 0.01f;
-			m_mouseOperationScaleRatio = 1.0f;
 
-			memcpy(m_fEye.data(), eye, sizeof(float) * 3);
-			memcpy(m_fLookAt.data(), lookAt, sizeof(float) * 3);
-			memcpy(m_fUp.data(), up, sizeof(float) * 3);
 			SetModified();
 			return true;
 		}

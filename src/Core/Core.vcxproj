@@ -20,8 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp" />
-    <ClCompile Include="LevRenderWindow.cpp" />
-    <ClCompile Include="LevWindowFactory.cpp" />
     <ClCompile Include="ModelScheduler.cpp" />
     <ClCompile Include="PresenterScheduler.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -34,10 +32,6 @@
     <ClInclude Include="DataStorer.h" />
     <ClInclude Include="DataStorer.hpp" />
     <ClInclude Include="IDataCenter.h" />
-    <ClInclude Include="ILevWindow.h" />
-    <ClInclude Include="LevOpenGLWindow.h" />
-    <ClInclude Include="LevRenderWindow.h" />
-    <ClInclude Include="LevWindowFactory.h" />
     <ClInclude Include="ModelScheduler.h" />
     <ClInclude Include="PresenterScheduler.h" />
     <ClInclude Include="UserInterface.h" />
@@ -119,9 +113,9 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;$(SolutionDir)/src/Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -168,9 +162,9 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)/src/LevRenderer;$(SolutionDir)/src/LevScene;$(SolutionDir)/src/Base;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

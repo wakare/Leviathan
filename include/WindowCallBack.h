@@ -153,6 +153,6 @@ namespace Leviathan
 
 		static GLFWInputMapEventCode m_sInputMap;
 		static GLFWActionMapEvent m_sActionMap;
-		static LPtr<EventSystem> m_spEventSystem;
+		static EventSystem* m_spEventSystem;
 	};
 }

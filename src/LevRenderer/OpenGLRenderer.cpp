@@ -1,13 +1,14 @@
 #include "OpenGLRenderer.h"
 #include "OpenGLRenderData.h"
 #include "OpenGLPass.h"
+#include "LevOpenGLWindow.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderer::OpenGLRenderer(GLFWwindow* pWindow) 
-			: m_pWindow(pWindow)
+		OpenGLRenderer::OpenGLRenderer(LevOpenGLWindow& pWindow)
+			: m_window(pWindow)
 			, m_pRenderData(new OpenGLRenderData)
 		{
 
@@ -15,8 +16,6 @@ namespace Leviathan
 
 		void OpenGLRenderer::_renderOneFrame()
 		{
-			LEV_ASSERT(m_pWindow);
-
 			// Set Global state
 			glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -24,7 +23,7 @@ namespace Leviathan
 			// Render
 			m_pRenderData->Render();
 
-			glfwSwapBuffers(m_pWindow);
+			m_window.SwapBuffer();
 		}
 
 		bool OpenGLRenderer::Clear()

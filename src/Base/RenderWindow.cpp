@@ -289,7 +289,7 @@ namespace Leviathan
 	{
 		if (m_pEventSystem)
 		{
-			WindowCallBack::m_spEventSystem = m_pEventSystem;
+			WindowCallBack::m_spEventSystem = m_pEventSystem.Get();
 		}
 
 		glfwSetKeyCallback(m_pWindow, (WindowCallBack::KeyCallback));

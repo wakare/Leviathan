@@ -72,6 +72,12 @@
     <ClCompile Include="LevOcTree.cpp">
       <Filter>SceneTool\SpaceManager</Filter>
     </ClCompile>
+    <ClCompile Include="LevOpenGLWindow.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="LevWindowFactory.cpp">
+      <Filter>Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\IMesh.h">
@@ -197,6 +203,15 @@
     </ClInclude>
     <ClInclude Include="..\..\include\LevOcTree.h">
       <Filter>SceneTool\SpaceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ILevWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="LevOpenGLWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="LevWindowFactory.h">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

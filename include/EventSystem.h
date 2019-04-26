@@ -18,7 +18,7 @@ namespace Leviathan
 		virtual void DispatchEvent();
 		void AddEvent(Event event);
 
-		void AddEventListener(EventType type, LPtr<EventListener> pListener)
+		void AddEventListener(EventType type, EventListener* pListener)
 		{
 			m_eventListeners[type].push_back(pListener);
 		}
@@ -37,6 +37,6 @@ namespace Leviathan
 		bool m_bAddMouseCoordToEvent;
 		MouseCoord m_currentMouseCoord;
 		std::list<Event> m_eventQueue;
-		std::map<EventType, std::vector<LPtr<EventListener>>> m_eventListeners;
+		std::map<EventType, std::vector<EventListener*>> m_eventListeners;
 	};
 }

@@ -3,6 +3,7 @@
 
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
+#include "WindowCallBack.h"
 
 namespace Leviathan
 {
@@ -21,6 +22,8 @@ namespace Leviathan
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+		AddEventListener(EventType::INPUT_EVENT, this);
 	}
 
 	bool LevOpenGLWindow::Create(int width, int height, int hParent)
@@ -98,13 +101,20 @@ namespace Leviathan
 		return (m_pWindow) ? (int)glfwGetWin32Window(m_pWindow) : NULL;
 	}
 
+	void LevOpenGLWindow::SwapBuffer()
+	{
+		glfwSwapBuffers(m_pWindow);
+	}
+
 	void LevOpenGLWindow::_setWindowProcess()
 	{
-		glfwSetKeyCallback(m_pWindow, (WindowCallBack::KeyCallback));
-		glfwSetCursorPosCallback(m_pWindow, (WindowCallBack::MousePositionCallback));
-		glfwSetScrollCallback(m_pWindow, (WindowCallBack::MouseScrollCallback));
-		glfwSetMouseButtonCallback(m_pWindow, (WindowCallBack::MouseButtonCallBack));
-		glfwSetWindowSizeCallback(m_pWindow, (WindowCallBack::ResizeCallback));
+		WindowCallBack::m_spEventSystem = this;
+
+		glfwSetKeyCallback(m_pWindow, WindowCallBack::KeyCallback);
+		glfwSetCursorPosCallback(m_pWindow, WindowCallBack::MousePositionCallback);
+		glfwSetScrollCallback(m_pWindow, WindowCallBack::MouseScrollCallback);
+		glfwSetMouseButtonCallback(m_pWindow, WindowCallBack::MouseButtonCallBack);
+		glfwSetWindowSizeCallback(m_pWindow, WindowCallBack::ResizeCallback);
 	}
 
 	bool LevOpenGLWindow::_glewInit()
@@ -142,4 +152,7 @@ namespace Leviathan
 
 		return true;
 	}
+
+	
+
 }

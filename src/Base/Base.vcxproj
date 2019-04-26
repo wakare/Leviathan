@@ -109,7 +109,7 @@
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -143,7 +143,7 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>GLEW_STATIC;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
@@ -157,6 +157,8 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CFileImportFactory.cpp" />
+    <ClCompile Include="LevOpenGLWindow.cpp" />
+    <ClCompile Include="LevWindowFactory.cpp" />
     <ClCompile Include="MeshImpl.cpp" />
     <ClCompile Include="CSTLFileImporter.cpp" />
     <ClCompile Include="EventSystem.cpp" />
@@ -206,8 +208,11 @@
     <ClInclude Include="..\..\include\RenderWindow.h" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
+    <ClInclude Include="ILevWindow.h" />
+    <ClInclude Include="LevOpenGLWindow.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />
+    <ClInclude Include="LevWindowFactory.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,7 +4,6 @@
 #include "EventSystem.h"
 #include "LevScene.h"
 #include "LevSceneData.h"
-#include "LevRenderWindow.h"
 #include "LevSceneEventListener.h"
 #include "LevSceneObject.h"
 #include "LevMeshObject.h"
@@ -12,6 +11,7 @@
 #include "LevCamera.h"
 #include "LevSceneObjectAttribute.h"
 #include "LevRAttrObjectColor.h"
+#include "ILevWindow.h"
 
 namespace Leviathan
 {
@@ -21,7 +21,7 @@ namespace Leviathan
 		m_pData.reset(new ViewData(ELRT_OPENGL));
 
 		LPtr<EventListener> eventListener = TryCast<Scene::LevSceneEventListener, EventListener>(m_pData->GetScene().GetEventListener());
-		m_pData->GetEventSystem().AddEventListener(INPUT_EVENT, eventListener);
+		m_pData->GetEventSystem().AddEventListener(INPUT_EVENT, eventListener.Get());
 	}
 
 	bool View::Init(int width, int height, int handle)
@@ -62,7 +62,7 @@ namespace Leviathan
 	bool View::AddEventListener(EventType eventType, LPtr<EventListener> listener)
 	{
 		EXIT_IF_FALSE(listener);
-		m_pData->GetEventSystem().AddEventListener(eventType, listener);
+		m_pData->GetEventSystem().AddEventListener(eventType, listener.Get());
 		return true;
 	}
 

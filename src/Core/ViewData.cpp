@@ -1,21 +1,21 @@
 #include "ViewData.h"
 #include "OpenGLRenderer.h"
 #include "IRenderer.h"
-#include "LevRenderWindow.h"
 #include "EventSystem.h"
 #include "LevScene.h"
 #include "LevWindowFactory.h"
+#include "LevOpenGLWindow.h"
 
 namespace Leviathan
 {
 	ViewData::ViewData(LevRendererType render_type):
 		m_renderType(render_type)
-	{
-		m_pEventSystem.Reset(new EventSystem);
+	{		
 		m_pLevWindowFactory.Reset(new LevWindowFactory);
-		m_pWindow.Reset(new LevRenderWindow(m_pEventSystem.Get()));
-		m_pEventSystem->AddEventListener(INPUT_EVENT, TryCast<LevRenderWindow, EventListener>(m_pWindow));
+		auto created = m_pLevWindowFactory->Create(LevWindowType::ELWT_OPENGL, m_pWindow);
+		LEV_ASSERT(created);
 
+		m_pEventSystem = TryCast<ILevWindow, EventSystem>(m_pWindow);
 		m_pScene.Reset(new Scene::LevScene);
 		bool inited = m_pScene->Init(ELST_3D_SCENE);
 		LEV_ASSERT(inited);
@@ -26,7 +26,7 @@ namespace Leviathan
 		return *m_pEventSystem;
 	}
 
-	LevRenderWindow & ViewData::GetRenderWindow()
+	Leviathan::ILevWindow& ViewData::GetRenderWindow()
 	{
 		return *m_pWindow;
 	}
@@ -46,8 +46,13 @@ namespace Leviathan
 		switch (m_renderType)
 		{
 		case ELRT_OPENGL:
-			m_pRenderer.Reset(new Renderer::OpenGLRenderer(m_pWindow->GetGLFWWindow()));
+		{
+			LevOpenGLWindow* pOpenGLWindow = dynamic_cast<LevOpenGLWindow*>(m_pWindow.Get());
+			EXIT_IF_FALSE(pOpenGLWindow);
+
+			m_pRenderer.Reset(new Renderer::OpenGLRenderer(*pOpenGLWindow));
 			break;
+		}
 
 		default:
 			return false;

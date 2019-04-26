@@ -27,16 +27,10 @@
     <ClCompile Include="ViewScheduler.cpp">
       <Filter>View</Filter>
     </ClCompile>
-    <ClCompile Include="LevRenderWindow.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
     <ClCompile Include="View.cpp">
       <Filter>View</Filter>
     </ClCompile>
     <ClCompile Include="ViewData.cpp">
-      <Filter>View</Filter>
-    </ClCompile>
-    <ClCompile Include="LevWindowFactory.cpp">
       <Filter>View</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,22 +59,10 @@
     <ClInclude Include="ViewScheduler.h">
       <Filter>View</Filter>
     </ClInclude>
-    <ClInclude Include="LevRenderWindow.h">
-      <Filter>View</Filter>
-    </ClInclude>
     <ClInclude Include="View.h">
       <Filter>View</Filter>
     </ClInclude>
     <ClInclude Include="ViewData.h">
-      <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="LevWindowFactory.h">
-      <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="ILevWindow.h">
-      <Filter>View</Filter>
-    </ClInclude>
-    <ClInclude Include="LevOpenGLWindow.h">
       <Filter>View</Filter>
     </ClInclude>
   </ItemGroup>
