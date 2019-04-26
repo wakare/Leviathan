@@ -5,6 +5,18 @@ namespace Leviathan
 {
 	namespace Renderer 
 	{
+		OpenGLShaderProgram::OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
+			m_pczVertexShader(pczVertexShader),
+			m_pczFragmentShader(pczFragmentShader),
+			m_pczGeomShader(pczGeomShader),
+			m_bInited(false)
+		{
+			if (!Init())
+			{
+				throw "exception";
+			}
+		};
+
 		bool OpenGLShaderProgram::Init()
 		{
 			if (m_bInited)
@@ -64,6 +76,11 @@ namespace Leviathan
 
 			return findIt->second;
 		}
+
+		GLuint OpenGLShaderProgram::GetShaderProgram() const 
+		{ 
+			return m_shaderProgram; 
+		};
 
 		bool OpenGLShaderProgram::_compileAll()
 		{

@@ -91,7 +91,6 @@ namespace Leviathan
 		{
 		};
 
-
 		static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
 			Event keyEvent = Event(EventType::INPUT_EVENT);

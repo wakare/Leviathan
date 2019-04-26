@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <gl/glew.h>
 #include <map>
@@ -13,24 +13,14 @@ namespace Leviathan
 		class OpenGLShaderProgram
 		{
 		public:
-			OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
-				m_pczVertexShader(pczVertexShader),
-				m_pczFragmentShader(pczFragmentShader),
-				m_pczGeomShader(pczGeomShader),
-				m_bInited(false)
-			{
-				if (!Init())
-				{
-					throw "exception";
-				}
-			};
+			OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader);
 
 			bool Init();
 			bool SetGLUniformState();
 
 			bool AddUniform(LPtr<OpenGLUniform> pUniform);
 			LPtr<OpenGLUniform>& GetUniformByName(std::string uniformName);
-			GLuint GetShaderProgram() { return m_shaderProgram; };
+			GLuint GetShaderProgram() const;
 
 		private:
 			bool _compileAll();

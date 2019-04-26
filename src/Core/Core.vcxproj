@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp" />
     <ClCompile Include="LevRenderWindow.cpp" />
+    <ClCompile Include="LevWindowFactory.cpp" />
     <ClCompile Include="ModelScheduler.cpp" />
     <ClCompile Include="PresenterScheduler.cpp" />
     <ClCompile Include="UserInterface.cpp" />
@@ -33,7 +34,10 @@
     <ClInclude Include="DataStorer.h" />
     <ClInclude Include="DataStorer.hpp" />
     <ClInclude Include="IDataCenter.h" />
+    <ClInclude Include="ILevWindow.h" />
+    <ClInclude Include="LevOpenGLWindow.h" />
     <ClInclude Include="LevRenderWindow.h" />
+    <ClInclude Include="LevWindowFactory.h" />
     <ClInclude Include="ModelScheduler.h" />
     <ClInclude Include="PresenterScheduler.h" />
     <ClInclude Include="UserInterface.h" />

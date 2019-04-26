@@ -4,6 +4,7 @@
 #include "LevRenderWindow.h"
 #include "EventSystem.h"
 #include "LevScene.h"
+#include "LevWindowFactory.h"
 
 namespace Leviathan
 {
@@ -11,6 +12,7 @@ namespace Leviathan
 		m_renderType(render_type)
 	{
 		m_pEventSystem.Reset(new EventSystem);
+		m_pLevWindowFactory.Reset(new LevWindowFactory);
 		m_pWindow.Reset(new LevRenderWindow(m_pEventSystem.Get()));
 		m_pEventSystem->AddEventListener(INPUT_EVENT, TryCast<LevRenderWindow, EventListener>(m_pWindow));
 
