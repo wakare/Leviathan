@@ -126,9 +126,7 @@ namespace Leviathan
 			color[2] = 0.0f;
 		}
 
-		LPtr<Scene::LevSceneObjectAttribute> pColor = new Scene::LevRAttrObjectColor(Scene::ELOCT_COLOR_ARRAY, pColorData);
-		pMeshNode->GetNodeData()->AddAttribute(pColor);
-
+		EXIT_IF_FALSE(pMeshObj->SetColorData(Scene::ELOCT_COLOR_ARRAY, *pColorData));
 		sceneData.AddSceneNode(pMeshNode);
 
 		if (bResetCamera)

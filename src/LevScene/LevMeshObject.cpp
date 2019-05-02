@@ -1,6 +1,7 @@
 #include "LevMeshObject.h"
 #include "GlobalDef.h"
 #include "CFileImportFactory.h"
+#include "LevRAttrObjectColor.h"
 
 namespace Leviathan
 {
@@ -50,6 +51,46 @@ namespace Leviathan
 		const AABB & LevMeshObject::GetAABB() const
 		{
 			return *m_pMeshAABB;
+		}
+
+		bool LevMeshObject::SetColorData(LevObjectColorType type, const LevObjectColorData& colorData)
+		{
+			switch (type)
+			{
+			case Scene::ELOCT_PURE_COLOR:
+			{
+				for (auto& mesh : GetMesh())
+				{
+					float* meshColor = new float[mesh->GetVertexCount() * 3 * sizeof(float)];
+					for (unsigned i = 0; i < mesh->GetVertexCount(); i++)
+					{
+						float *data = meshColor + 3 * i;
+						memcpy(data, colorData.pure_color, 3 * sizeof(float));
+					}
+
+					mesh->SetVertexColorData(meshColor);
+					delete[] meshColor;
+				}
+				break;
+			}
+
+			case Scene::ELOCT_COLOR_ARRAY:
+			{
+				auto* meshColor = colorData.color_array;
+				for (auto& mesh : GetMesh())
+				{
+					mesh->SetVertexColorData(meshColor);
+					unsigned byteSize = mesh->GetVertexCount() * 3 * sizeof(float);
+					meshColor += byteSize;
+				}
+				break;
+			}
+
+			default:
+				return false;
+			}
+
+			return true;
 		}
 
 		void LevMeshObject::_updateAABB()

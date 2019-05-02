@@ -3,6 +3,7 @@
 #include <vector>
 #include "LevSceneObjectDescription.h"
 #include "IMesh.h"
+#include "LevRAttrObjectColor.h"
 
 namespace Leviathan
 {
@@ -20,6 +21,8 @@ namespace Leviathan
 
 			const std::vector<LPtr<IMesh>>& GetMesh() const;
 			const AABB& GetAABB() const;
+
+			bool SetColorData(LevObjectColorType type, const LevObjectColorData& data);
 
 		private:
 			void _updateAABB();

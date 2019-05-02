@@ -100,44 +100,6 @@ namespace Leviathan
 					return true;
 				}
 
-				// Traverse render attribute
-				for (auto& attribute : object.GetObjAttributes())
-				{
-					if ((attribute->GetType() & Scene::ELSOAT_RENDER) == 0)
-					{
-						continue;
-					}
-
-					// Color ?
-					const Scene::LevRAttrObjectColor* pColor = dynamic_cast<const Scene::LevRAttrObjectColor*>(attribute.Get());
-					if (pColor && pColor->GetColorType() == Scene::ELOCT_PURE_COLOR)
-					{
-						for (auto& mesh : pMesh->GetMesh())
-						{
-							float* colorData = new float[mesh->GetVertexCount() * 3 * sizeof(float)];
-							for (unsigned i = 0; i < mesh->GetVertexCount(); i++)
-							{
-								float * data = colorData + 3 * i;
-								memcpy(data, pColor->GetColorData().pure_color, 3 * sizeof(float));
-							}
-
-							mesh->SetVertexColorData(colorData);
-							delete[] colorData;
-						}
-					}
-
-					if (pColor && pColor->GetColorType() == Scene::ELOCT_COLOR_ARRAY)
-					{
-						auto* colorData = pColor->GetColorData().color_array;
-						for (auto& mesh : pMesh->GetMesh())
-						{
-							mesh->SetVertexColorData(colorData);
-							unsigned byteSize = mesh->GetVertexCount() * 3 * sizeof(float);
-							colorData += byteSize;
-						}
-					}
-				}
-
 				// Get OpenGLObjects
 				std::vector<LPtr<OpenGLObject>> pObjects;
 
@@ -164,13 +126,13 @@ namespace Leviathan
 
 				for (auto& attribute : object.GetObjAttributes())
 				{
-					const Scene::LevSceneRenderAttribute* pColor = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
-					if (!pColor)
+					const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
+					if (!pAttribute)
 					{
 						continue;
 					}
 
-					EXIT_IF_FALSE(_applyRenderAttribute(pObjects, *pColor));
+					EXIT_IF_FALSE(_applyRenderAttribute(pObjects, *pAttribute));
 				}
 
 				return true;
