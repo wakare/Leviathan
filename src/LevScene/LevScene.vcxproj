@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
     <ClInclude Include="LevCamera.h" />
     <ClInclude Include="LevDirectionalLight.h" />
+    <ClInclude Include="LevLAttrLocalTransform.h" />
     <ClInclude Include="LevLRAttrModelTransform.h" />
     <ClInclude Include="LevLight.h" />
     <ClInclude Include="LevMathematicObject.h" />
@@ -44,7 +46,9 @@
     <ClInclude Include="LevStateUpdaterVisitor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LevCalculateWorldCoordVisitor.cpp" />
     <ClCompile Include="LevCamera.cpp" />
+    <ClCompile Include="LevLAttrLocalTransform.cpp" />
     <ClCompile Include="LevLRAttrModelTransform.cpp" />
     <ClCompile Include="LevLight.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />

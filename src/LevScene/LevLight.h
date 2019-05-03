@@ -20,8 +20,6 @@ namespace Leviathan
 			virtual ~LevLight();
 
 			LevLightType GetLightType() const;
-			const Eigen::Vector3f& LightCoordination() const;
-			void LightCoordination(const Eigen::Vector3f& val);
 			const Eigen::Vector3f& AmbientColor() const;
 			void AmbientColor(const Eigen::Vector3f& val);
 			const Eigen::Vector3f& DiffuseColor() const;
@@ -31,7 +29,6 @@ namespace Leviathan
 
 		private:
 			LevLightType m_lightType;
-			Eigen::Vector3f m_lightCoordination;
 			Eigen::Vector3f m_ambientColor;
 			Eigen::Vector3f m_diffuseColor;
 			Eigen::Vector3f m_specularColor;

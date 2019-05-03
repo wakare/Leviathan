@@ -45,12 +45,6 @@
     <ClCompile Include="Light.cpp">
       <Filter>BaseResource\BaseGraphics</Filter>
     </ClCompile>
-    <ClCompile Include="CSTLFileImporter.cpp">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="CFileImportFactory.cpp">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>SceneTool</Filter>
     </ClCompile>
@@ -77,6 +71,12 @@
     </ClCompile>
     <ClCompile Include="LevWindowFactory.cpp">
       <Filter>Window</Filter>
+    </ClCompile>
+    <ClCompile Include="FileImportFactory.cpp">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="STLFileImporter.cpp">
+      <Filter>CommonTool\FileIO</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -106,12 +106,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\OcTreeAccStruct.hpp">
       <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\CFileImportFactory.h">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\CSTLFileImporter.h">
-      <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\IFileImporter.h">
       <Filter>CommonTool\FileIO</Filter>
@@ -212,6 +206,12 @@
     </ClInclude>
     <ClInclude Include="LevWindowFactory.h">
       <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\FileImportFactory.h">
+      <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\STLFileImporter.h">
+      <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

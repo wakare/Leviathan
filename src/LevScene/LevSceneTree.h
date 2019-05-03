@@ -11,6 +11,7 @@ namespace Leviathan
 		class LevSceneObject;
 		class LevResetObjModifiedVisitor;
 		class LevStateUpdaterVisitor;
+		class LevCalculateWorldCoordVisitor;
 
 		class LevSceneTree
 		{
@@ -18,7 +19,7 @@ namespace Leviathan
 			LevSceneTree();
 			bool AddNodeToRoot(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode = nullptr);
 			bool ResetObjUnModified();
-
+			bool UpdateWorldCoord();
 			LevSceneNode& GetRoot();
 			const LevSceneNode& GetRoot() const;
 
@@ -29,6 +30,7 @@ namespace Leviathan
 
 			LPtr<LevResetObjModifiedVisitor> m_resetor;
 			LPtr<LevStateUpdaterVisitor> m_state_updater;
+			LPtr<LevCalculateWorldCoordVisitor> m_worldCoord_updater;
 			LPtr<LevSceneNode> m_root;
 		};
 	}

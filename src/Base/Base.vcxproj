@@ -156,11 +156,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="CFileImportFactory.cpp" />
+    <ClCompile Include="FileImportFactory.cpp" />
     <ClCompile Include="LevOpenGLWindow.cpp" />
     <ClCompile Include="LevWindowFactory.cpp" />
     <ClCompile Include="MeshImpl.cpp" />
-    <ClCompile Include="CSTLFileImporter.cpp" />
+    <ClCompile Include="STLFileImporter.cpp" />
     <ClCompile Include="EventSystem.cpp" />
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="Light.cpp" />
@@ -170,13 +170,13 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
-    <ClInclude Include="..\..\include\CFileImportFactory.h" />
+    <ClInclude Include="..\..\include\FileImportFactory.h" />
     <ClInclude Include="..\..\include\LevCoroutine.h" />
     <ClInclude Include="..\..\include\LevCoroutine.hpp" />
     <ClInclude Include="..\..\include\LevTask.h" />
     <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\Color.h" />
-    <ClInclude Include="..\..\include\CSTLFileImporter.h" />
+    <ClInclude Include="..\..\include\STLFileImporter.h" />
     <ClInclude Include="..\..\include\DynamicArray.h" />
     <ClInclude Include="..\..\include\Event.h" />
     <ClInclude Include="..\..\include\EventListener.h" />

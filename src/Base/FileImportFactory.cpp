@@ -1,4 +1,4 @@
-#include "CFileImportFactory.h"
+#include "FileImportFactory.h"
 #include "MeshImpl.h"
 #include "DynamicArray.h"
 #include <assimp/Importer.hpp>
@@ -9,15 +9,15 @@
 
 using namespace Leviathan;
 
-LPtr<IFileImportFactory> CFileImportFactory::m_spFileImportFactory = nullptr;
+LPtr<IFileImportFactory> FileImportFactory::m_spFileImportFactory = nullptr;
 
-std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::LoadFile(const char* czFileName)
+std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(const char* czFileName)
 {
 	std::string fileNameString(czFileName);
 	return LoadFile(fileNameString);
 }
 
-Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::CFileImportFactory::GetFileImportFactory()
+Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::FileImportFactory::GetFileImportFactory()
 {
 	static std::once_flag sFlag;
 
@@ -26,14 +26,14 @@ Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::CFileImportFactory::Ge
 		std::call_once(sFlag, [&]()
 		{
 			LeviathanOutStream << "[INFO] File import factory inited." << std::endl;
-			m_spFileImportFactory = LPtr<IFileImportFactory>(new CFileImportFactory());
+			m_spFileImportFactory = LPtr<IFileImportFactory>(new FileImportFactory());
 		});
 	}
 
 	return m_spFileImportFactory;
 }
 
-bool Leviathan::CFileImportFactory::RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter)
+bool Leviathan::FileImportFactory::RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter)
 {
 	auto itImporter = m_registerFileImport.find(typeName);
 	if (itImporter != m_registerFileImport.end())
@@ -46,7 +46,7 @@ bool Leviathan::CFileImportFactory::RegisterImporter(std::string typeName, LPtr<
 	return true;
 }
 
-Leviathan::CFileImportFactory::CFileImportFactory()
+Leviathan::FileImportFactory::FileImportFactory()
 = default;
 
 void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
@@ -180,7 +180,7 @@ void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::st
 	}
 }
 
-std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const std::string& strFileName)
+std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const std::string& strFileName)
 {
 	Assimp::Importer importer;
 	const aiScene* importerScene = importer.ReadFile(strFileName, aiProcessPreset_TargetRealtime_Fast);
@@ -213,7 +213,7 @@ std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::_loadModelByAssimp(const
 	return result;
 }
 
-std::vector<LPtr<IMesh>> Leviathan::CFileImportFactory::LoadFile(std::string strFileName)
+std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(std::string strFileName)
 {
 	auto pMesh = _loadModelByAssimp(strFileName);
 	if (!pMesh.empty())

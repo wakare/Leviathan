@@ -20,16 +20,6 @@ namespace Leviathan
 			return m_lightType;
 		}
 
-		const Eigen::Vector3f & LevLight::LightCoordination() const
-		{
-			return m_lightCoordination;
-		}
-
-		void LevLight::LightCoordination(const Eigen::Vector3f& val)
-		{
-			m_lightCoordination = val;
-		}
-
 		const Eigen::Vector3f & LevLight::AmbientColor() const
 		{
 			return m_ambientColor;

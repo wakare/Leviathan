@@ -3,6 +3,7 @@
 #include "LevSceneObjectDescription.h"
 #include "LevLRAttrModelTransform.h"
 #include "LevLRAttrWorldTransform.h"
+#include "LevLAttrLocalTransform.h"
 
 namespace Leviathan
 {
@@ -13,6 +14,7 @@ namespace Leviathan
 			, m_modified(true)
 			, m_pModelTransform(new LevLRAttrModelTransform)
 			, m_pWorldTransform(new LevLRAttrWorldTransform)
+			, m_pLocalTransform(new LevLAttrLocalTransform)
 			, m_state(ELSOS_ADDED)
 		{
 			// Init unique id
@@ -22,6 +24,7 @@ namespace Leviathan
 			// Add transforms
 			m_pAttributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
 			m_pAttributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
+			m_pAttributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
 		}
 
 		LevSceneObject::~LevSceneObject()
@@ -98,24 +101,41 @@ namespace Leviathan
 
 		bool LevSceneObject::SetWorldTransform(const Eigen::Matrix4f& trans)
 		{
-			m_pWorldTransform->SetWorldTransform(trans);
+			LEV_ASSERT(m_pWorldTransform);
+			m_pWorldTransform->SetMatrix(trans);
 			return true;
 		}
 
 		const Eigen::Matrix4f& LevSceneObject::GetWorldTransform() const
 		{
-			return m_pWorldTransform->GetTransform();
+			LEV_ASSERT(m_pWorldTransform.Get());
+			return m_pWorldTransform->GetMatrix();
 		}
 
 		bool LevSceneObject::SetModelTransform(const Eigen::Matrix4f & trans)
 		{
-			m_pModelTransform->SetModelTransform(trans);
+			LEV_ASSERT(m_pModelTransform);
+			m_pModelTransform->SetMatrix(trans);
 			return true;
 		}
 
 		const Eigen::Matrix4f& LevSceneObject::GetModelTransform() const
 		{
-			return m_pModelTransform->GetTransform();
+			LEV_ASSERT(m_pModelTransform.Get());
+			return m_pModelTransform->GetMatrix();
+		}
+
+		bool LevSceneObject::SetLocalTransform(const Eigen::Matrix4f & trans)
+		{
+			LEV_ASSERT(m_pLocalTransform);
+			m_pLocalTransform->SetMatrix(trans);
+			return true;
+		}
+
+		const Eigen::Matrix4f & LevSceneObject::GetLocalTransform() const
+		{
+			LEV_ASSERT(m_pLocalTransform.Get());
+			return m_pLocalTransform->GetMatrix();
 		}
 	}
 }

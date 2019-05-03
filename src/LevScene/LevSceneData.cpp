@@ -32,10 +32,12 @@ namespace Leviathan
 			LEV_ASSERT(pCameraNode);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
-			pLight->LightCoordination({0.0f, 0.0f, 0.0f});
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
+			LPtr<LevSceneNode> pLightNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
+			pCameraNode->AddChild(TryCast<LevSceneNode, Node<LevSceneObject>>(pLightNode));
+
 			bool _added = AddLight(pLight, pCameraNode);
 			LEV_ASSERT(_added);
 		}
@@ -59,6 +61,11 @@ namespace Leviathan
 		{
 			m_pSceneTree->ResetObjUnModified();
 			m_modified = false;
+		}
+
+		void LevSceneData::UpdateWorldCoord()
+		{
+			m_pSceneTree->UpdateWorldCoord();
 		}
 
 		LPtr<LevCamera> LevSceneData::GetCamera()

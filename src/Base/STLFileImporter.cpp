@@ -1,6 +1,6 @@
-#include "CSTLFileImporter.h"
+#include "STLFileImporter.h"
 #include "DynamicArray.h"
-#include "CFileImportFactory.h"
+#include "FileImportFactory.h"
 #include <fstream>
 #include <set>
 #include <mutex>
@@ -31,22 +31,22 @@ struct _point3D
 
 namespace Leviathan
 {
-	CSTLFileImporter::CSTLFileImporter()
+	STLFileImporter::STLFileImporter()
 	{
 		
 	}
 
-	IFileImporter& CSTLFileImporter::GetInstance()
+	IFileImporter& STLFileImporter::GetInstance()
 	{
-		return Singleton<CSTLFileImporter>::Instance();
+		return Singleton<STLFileImporter>::Instance();
 	}
 
-	std::string CSTLFileImporter::TypeName()
+	std::string STLFileImporter::TypeName()
 	{
 		return "stl";
 	}
 
-	std::vector<LPtr<IMesh>> CSTLFileImporter::LoadFile(const char* fileName)
+	std::vector<LPtr<IMesh>> STLFileImporter::LoadFile(const char* fileName)
 	{
 		std::ifstream fileStream(fileName, std::ios::in | std::ios::binary);
 		if (!fileStream.is_open())
@@ -118,9 +118,9 @@ namespace Leviathan
 		return std::vector<LPtr<IMesh>>(LPtr<IMesh>(pMesh));
 	}
 
-	bool CSTLFileImporter::RegisterToFactory()
+	bool STLFileImporter::RegisterToFactory()
 	{
-		return CFileImportFactory::GetFileImportFactory()->RegisterImporter(CSTLFileImporter::TypeName(), this);
+		return FileImportFactory::GetFileImportFactory()->RegisterImporter(STLFileImporter::TypeName(), this);
 	}
 }
 

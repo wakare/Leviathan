@@ -7,17 +7,22 @@ namespace Leviathan
 		LevLRAttrModelTransform::LevLRAttrModelTransform(const Eigen::Matrix4f& trans /*= Eigen::Matrix4f::Identity()*/):
 			LevSceneObjectAttribute(ELSOAT_LOGIC | ELSOAT_RENDER)
 		{
-			SetModelTransform(trans);
+			SetMatrix(trans);
 		}
 
-		void LevLRAttrModelTransform::SetModelTransform(const Eigen::Matrix4f& trans)
+		void LevLRAttrModelTransform::SetMatrix(const Eigen::Matrix4f& trans)
 		{
 			m_trans = trans;
 		}
 
-		const Eigen::Matrix4f& LevLRAttrModelTransform::GetTransform() const
+		const Eigen::Matrix4f& LevLRAttrModelTransform::GetMatrix() const
 		{
 			return m_trans;
+		}
+
+		void LevLRAttrModelTransform::Reset()
+		{
+			SetMatrix(Eigen::Matrix4f::Identity());
 		}
 
 	}

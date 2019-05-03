@@ -7,9 +7,9 @@
 
 namespace Leviathan
 {
-	class CSTLFileImporter : public IFileImporter
+	class STLFileImporter : public IFileImporter
 	{
-		DECLARE_SELF_TO_SINGLETON(CSTLFileImporter)
+		DECLARE_SELF_TO_SINGLETON(STLFileImporter)
 	public:
 		static IFileImporter& GetInstance();
 		std::string TypeName();
@@ -17,6 +17,6 @@ namespace Leviathan
 		bool RegisterToFactory();
 
 	private:
-		CSTLFileImporter();
+		STLFileImporter();
 	};
 }

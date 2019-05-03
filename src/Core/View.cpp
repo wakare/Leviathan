@@ -38,6 +38,7 @@ namespace Leviathan
 		
 		if (m_pData->GetScene().HasModified())
 		{
+			m_pData->GetScene().Update();
 			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
 		}
 		
@@ -55,7 +56,7 @@ namespace Leviathan
 	}
 
 	void View::AsyncStop()
-	{
+	{ 
 		m_pData->GetRenderWindow().Stop();
 	}
 

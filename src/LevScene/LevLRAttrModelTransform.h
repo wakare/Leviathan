@@ -12,8 +12,10 @@ namespace Leviathan
 		{
 		public:
 			LevLRAttrModelTransform(const Eigen::Matrix4f& trans = Eigen::Matrix4f::Identity());
-			void SetModelTransform(const Eigen::Matrix4f& trans);
-			const Eigen::Matrix4f& GetTransform() const;
+			void SetMatrix(const Eigen::Matrix4f& trans);
+			const Eigen::Matrix4f& GetMatrix() const;
+
+			void Reset();
 
 		private:
 			Eigen::Matrix4f m_trans;

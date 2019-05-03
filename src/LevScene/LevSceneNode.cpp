@@ -31,5 +31,9 @@ namespace Leviathan
 		{
 
 		}
+		Node<LevSceneObject>& LevSceneNode::ToBase()
+		{
+			return *this;
+		}
 	}
 }

@@ -25,17 +25,13 @@ namespace Leviathan
 
 		void LevScene::Update()
 		{
-			if (m_sceneType == ELST_UNKNOWN)
-			{
-				return;
-			}
-
 			m_pSceneData->Update();
+			m_pSceneData->UpdateWorldCoord();
 		}
 
 		void LevScene::SetViewport(int width, int height)
 		{
-			m_pSceneData->GetCamera()->Set(ANGLE_TO_RADIAN(120.0f), width / height, 0.01f, 10000.0f);
+			m_pSceneData->GetCamera()->Set(ANGLE_TO_RADIAN(120.0f), (1.0f * width) / height, 0.01f, 10000.0f);
 		}
 
 		bool LevScene::HasModified() const

@@ -97,6 +97,12 @@
     <ClInclude Include="LevLRAttrWorldTransform.h">
       <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevLAttrLocalTransform.h">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevCalculateWorldCoordVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -164,6 +170,12 @@
     </ClCompile>
     <ClCompile Include="LevLRAttrWorldTransform.cpp">
       <Filter>Source Files\SceneAttribute\MixAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevLAttrLocalTransform.cpp">
+      <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevCalculateWorldCoordVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

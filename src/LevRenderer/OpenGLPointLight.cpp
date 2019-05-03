@@ -26,7 +26,12 @@ namespace Leviathan
 				}
 			}
 
-			glUniform3f(m_lightPositionLocation, m_light.LightCoordination().x(), m_light.LightCoordination().y(), m_light.LightCoordination().z());
+			const Eigen::Matrix4f& lightWorldCoord = m_light.GetWorldTransform();
+			auto& lightCoordX = lightWorldCoord(0, 3);
+			auto& lightCoordY = lightWorldCoord(1, 3);
+			auto& lightCoordZ = lightWorldCoord(2, 3);
+
+			glUniform3f(m_lightPositionLocation, lightCoordX, lightCoordY, lightCoordZ);
 
 			if (m_lightAmbientLocation < 0)
 			{

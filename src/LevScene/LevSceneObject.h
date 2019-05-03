@@ -55,6 +55,7 @@ namespace Leviathan
 
 		class LevLRAttrWorldTransform;
 		class LevLRAttrModelTransform;
+		class LevLAttrLocalTransform;
 
 		typedef unsigned SceneObjectID;
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
@@ -89,6 +90,9 @@ namespace Leviathan
 			bool SetModelTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetModelTransform() const;
 
+			bool SetLocalTransform(const Eigen::Matrix4f& trans);
+			const Eigen::Matrix4f& GetLocalTransform() const;
+
 		private:
 			SceneObjectID m_ID;
 
@@ -101,6 +105,7 @@ namespace Leviathan
 
 			LPtr<LevLRAttrWorldTransform> m_pWorldTransform;
 			LPtr<LevLRAttrModelTransform> m_pModelTransform;
+			LPtr<LevLAttrLocalTransform> m_pLocalTransform;
 
 			LPtr<LevSceneObjectDescription> m_pObjDesc;
 		};

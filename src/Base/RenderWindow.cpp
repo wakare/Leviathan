@@ -5,7 +5,7 @@
 #include "WindowCallBack.h"
 #include "CommonScene.h"
 #include "PointCloudScene.h"
-#include "CFileImportFactory.h"
+#include "FileImportFactory.h"
 #include "GlobalDef.h"
 #include "ImporterRegister.h"
 #include "Camera.h"
@@ -37,7 +37,7 @@ namespace Leviathan
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-		m_pFileImporter = CFileImportFactory::GetFileImportFactory();
+		m_pFileImporter = FileImportFactory::GetFileImportFactory();
 		RegisterImporter();
 	}
 

@@ -7,17 +7,22 @@ namespace Leviathan
 		LevLRAttrWorldTransform::LevLRAttrWorldTransform(const Eigen::Matrix4f & trans)
 			: LevSceneObjectAttribute(ELSOAT_LOGIC | ELSOAT_RENDER)
 		{
-			SetWorldTransform(trans);
+			SetMatrix(trans);
 		}
 
-		void LevLRAttrWorldTransform::SetWorldTransform(const Eigen::Matrix4f & trans)
+		void LevLRAttrWorldTransform::SetMatrix(const Eigen::Matrix4f & trans)
 		{
 			m_trans = trans;
 		}
 
-		const Eigen::Matrix4f & LevLRAttrWorldTransform::GetTransform() const
+		const Eigen::Matrix4f & LevLRAttrWorldTransform::GetMatrix() const
 		{
 			return m_trans;
+		}
+
+		void LevLRAttrWorldTransform::Reset()
+		{
+			SetMatrix(Eigen::Matrix4f::Identity());
 		}
 	}
 }

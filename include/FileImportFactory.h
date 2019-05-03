@@ -5,7 +5,7 @@
 
 namespace Leviathan
 {
-	class CFileImportFactory : public IFileImportFactory
+	class FileImportFactory : public IFileImportFactory
 	{
 	public:
 		std::vector<LPtr<IMesh>> LoadFile(const char* fileName);
@@ -16,7 +16,7 @@ namespace Leviathan
 
 		bool RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter);
 	private:
-		CFileImportFactory();
+		FileImportFactory();
 		std::vector<LPtr<IMesh>> _loadModelByAssimp(const std::string& strFileName);
 
 		static LPtr<IFileImportFactory> m_spFileImportFactory;

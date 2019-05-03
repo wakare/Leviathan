@@ -23,6 +23,7 @@ namespace Leviathan
 
 			bool HasModified() const;
 			void ResetUnModified();
+			void UpdateWorldCoord();
 
 			LPtr<LevCamera> GetCamera();
 			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);

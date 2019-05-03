@@ -40,7 +40,7 @@ namespace Leviathan
 			std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 			if (!shaderSourceFileStream.is_open())
 			{
-				throw "std::string Scene::_getShaderSource(const char* pczShaderSourcePath) --> Invalid ShaderSource paths.";
+				LogLine("Invalid ShaderSource paths:" << pczShaderSourcePath);
 				return std::string();
 			}
 
@@ -452,11 +452,9 @@ namespace Leviathan
 				for (auto& pObject : objects)
 				{
 					LPtr<OpenGLUniform> pModelTransUniform = new OpenGLUniform("modelMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-					pModelTransUniform->SetData(modelTransform->GetTransform().data(), 16);
+					pModelTransUniform->SetData(modelTransform->GetMatrix().data(), 16);
 					pObject->AddUniform(pModelTransUniform);
 				}
-
-				return true;
 			}
 
 			// World Transform
@@ -466,14 +464,12 @@ namespace Leviathan
 				for (auto& pObject : objects)
 				{
 					LPtr<OpenGLUniform> pWorldTransUniform = new OpenGLUniform("worldMatrix", OpenGLUniform::TYPE_FLOAT_MAT4);
-					pWorldTransUniform->SetData(worldTransform->GetTransform().data(), 16);
+					pWorldTransUniform->SetData(worldTransform->GetMatrix().data(), 16);
 					pObject->AddUniform(pWorldTransUniform);
 				}
-
-				return true;
 			}
 
-			return true;
+			return worldTransform || modelTransform;
 		}
 
 		OpenGLPass & OpenGLRenderData::_currentPass()

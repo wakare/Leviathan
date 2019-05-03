@@ -1,6 +1,6 @@
 #include "LevMeshObject.h"
 #include "GlobalDef.h"
-#include "CFileImportFactory.h"
+#include "FileImportFactory.h"
 #include "LevRAttrObjectColor.h"
 
 namespace Leviathan
@@ -19,7 +19,7 @@ namespace Leviathan
 			// Can only load mesh once
 			EXIT_IF_FALSE(m_mesh.size() == 0);
 
-			m_mesh = CFileImportFactory::GetFileImportFactory()->LoadFile(meshFile);
+			m_mesh = FileImportFactory::GetFileImportFactory()->LoadFile(meshFile);
 			EXIT_IF_FALSE(m_mesh.size() > 0);
 			_updateAABB();
 

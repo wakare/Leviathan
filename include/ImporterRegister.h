@@ -1,13 +1,13 @@
 #pragma once
 
-#include "CSTLFileImporter.h"
+#include "STLFileImporter.h"
 
 namespace Leviathan
 {
 	bool RegisterImporter()
 	{
 		// Register
-		auto& stlImporter = Leviathan::CSTLFileImporter::GetInstance();
+		auto& stlImporter = Leviathan::STLFileImporter::GetInstance();
 		
 		if (!stlImporter.RegisterToFactory())
 		{
