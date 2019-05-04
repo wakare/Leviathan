@@ -6,6 +6,7 @@
 #include "LevLight.h"
 #include "LevPointLight.h"
 #include "LevSceneObject.h"
+#include "LevTimer.h"
 
 namespace Leviathan
 {
@@ -30,6 +31,14 @@ namespace Leviathan
 			LEV_ASSERT(_seted);
 			auto pCameraNode = AddCamera(pCamera);
 			LEV_ASSERT(pCameraNode);
+
+			auto _timeOut = [pCamera](const LevTimer&)
+			{
+				pCamera->MouseRotate(1, 0);
+			};
+
+			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
+			pCamera->SetTimer(pTimer);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
 			pLight->SetModifiedCallback(m_modifiedCallback);
@@ -69,6 +78,11 @@ namespace Leviathan
 		void LevSceneData::UpdateWorldTransform()
 		{
 			m_pSceneTree->UpdateWorldCoord();
+		}
+
+		void LevSceneData::UpdateTimer()
+		{
+			m_pSceneTree->UpdateTimer();
 		}
 
 		LPtr<LevCamera> LevSceneData::GetCamera()

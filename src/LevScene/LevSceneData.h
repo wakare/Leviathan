@@ -25,6 +25,7 @@ namespace Leviathan
 			void SetModified();
 			void ResetUnModified();
 			void UpdateWorldTransform();
+			void UpdateTimer();
 
 			LPtr<LevCamera> GetCamera();
 			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);

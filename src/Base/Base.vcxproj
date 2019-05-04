@@ -158,6 +158,7 @@
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FileImportFactory.cpp" />
     <ClCompile Include="LevOpenGLWindow.cpp" />
+    <ClCompile Include="LevTimer.cpp" />
     <ClCompile Include="LevWindowFactory.cpp" />
     <ClCompile Include="MeshImpl.cpp" />
     <ClCompile Include="STLFileImporter.cpp" />
@@ -171,9 +172,13 @@
   <ItemGroup>
     <ClInclude Include="..\..\include\AABB.h" />
     <ClInclude Include="..\..\include\FileImportFactory.h" />
+    <ClInclude Include="..\..\include\ILevWindow.h" />
     <ClInclude Include="..\..\include\LevCoroutine.h" />
     <ClInclude Include="..\..\include\LevCoroutine.hpp" />
+    <ClInclude Include="..\..\include\LevOpenGLWindow.h" />
     <ClInclude Include="..\..\include\LevTask.h" />
+    <ClInclude Include="..\..\include\LevTimer.h" />
+    <ClInclude Include="..\..\include\LevWindowFactory.h" />
     <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\Color.h" />
     <ClInclude Include="..\..\include\STLFileImporter.h" />
@@ -208,11 +213,8 @@
     <ClInclude Include="..\..\include\RenderWindow.h" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
-    <ClInclude Include="ILevWindow.h" />
-    <ClInclude Include="LevOpenGLWindow.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />
-    <ClInclude Include="LevWindowFactory.h" />
     <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

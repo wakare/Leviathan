@@ -35,7 +35,8 @@ namespace Leviathan
 	{
 		m_pData->GetEventSystem().DispatchEvent();
 		m_pData->GetRenderWindow().Update();
-		
+		m_pData->GetScene().UpdateTimer();
+
 		if (m_pData->GetScene().HasModified())
 		{
 			m_pData->GetScene().SetNodeModified();

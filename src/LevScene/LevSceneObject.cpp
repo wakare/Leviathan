@@ -4,6 +4,7 @@
 #include "LevLRAttrModelTransform.h"
 #include "LevLRAttrWorldTransform.h"
 #include "LevLAttrLocalTransform.h"
+#include "LevTimer.h"
 
 namespace Leviathan
 {
@@ -16,6 +17,7 @@ namespace Leviathan
 			, m_pModelTransform(new LevLRAttrModelTransform)
 			, m_pWorldTransform(new LevLRAttrWorldTransform)
 			, m_pLocalTransform(new LevLAttrLocalTransform)
+			, m_pTimer(nullptr)
 			, m_state(ELSOS_ADDED)
 		{
 			// Init unique id
@@ -108,6 +110,21 @@ namespace Leviathan
 		bool LevSceneObject::NeedRecalculateWorldTransform() const
 		{
 			return m_recalculateWorldTransform;
+		}
+
+		void LevSceneObject::SetTimer(LPtr<LevTimer> timer)
+		{
+			m_pTimer = timer;
+		}
+
+		LPtr<LevTimer> LevSceneObject::GetTimer()
+		{
+			return m_pTimer;
+		}
+
+		const LPtr<LevTimer> LevSceneObject::GetTimer() const
+		{
+			return m_pTimer;
 		}
 
 		bool LevSceneObject::SetWorldTransform(const Eigen::Matrix4f& trans)

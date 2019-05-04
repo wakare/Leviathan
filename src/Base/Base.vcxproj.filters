@@ -40,6 +40,9 @@
     <Filter Include="CommonTool\Scheduler">
       <UniqueIdentifier>{4502cec5-39d1-48ca-8459-8c79cc55faf4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CommonTool\Abstruct">
+      <UniqueIdentifier>{62368aa7-5749-4636-8eeb-bb4f524adfbc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Light.cpp">
@@ -77,6 +80,9 @@
     </ClCompile>
     <ClCompile Include="STLFileImporter.cpp">
       <Filter>CommonTool\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="LevTimer.cpp">
+      <Filter>CommonTool\Abstruct</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -156,9 +162,6 @@
       <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\GlobalDef.h" />
-    <ClInclude Include="Singleton.h">
-      <Filter>CommonTool</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\PictureObject.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
@@ -198,20 +201,26 @@
     <ClInclude Include="..\..\include\LevOcTree.h">
       <Filter>SceneTool\SpaceManager</Filter>
     </ClInclude>
-    <ClInclude Include="ILevWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="LevOpenGLWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="LevWindowFactory.h">
-      <Filter>Window</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\FileImportFactory.h">
       <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\STLFileImporter.h">
       <Filter>CommonTool\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.h">
+      <Filter>CommonTool\Abstruct</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\ILevWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevOpenGLWindow.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevWindowFactory.h">
+      <Filter>Window</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevTimer.h">
+      <Filter>CommonTool\Abstruct</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

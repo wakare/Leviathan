@@ -7,6 +7,8 @@
 
 namespace Leviathan
 {
+	class LevTimer;
+
 	namespace Scene
 	{
 		enum LevSceneObjectType
@@ -60,7 +62,7 @@ namespace Leviathan
 		class LevLRAttrWorldTransform;
 		class LevLRAttrModelTransform;
 		class LevLAttrLocalTransform;
-
+		
 		typedef unsigned SceneObjectID;
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
 
@@ -91,6 +93,11 @@ namespace Leviathan
 			void SetRecalculateWorldTransform(bool need);
 			bool NeedRecalculateWorldTransform() const;
 
+			void SetTimer(LPtr<LevTimer> timer);
+			
+			LPtr<LevTimer> GetTimer();
+			const LPtr<LevTimer> GetTimer() const;
+
 			bool SetWorldTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetWorldTransform() const;
 
@@ -114,8 +121,9 @@ namespace Leviathan
 			LPtr<LevLRAttrWorldTransform> m_pWorldTransform;
 			LPtr<LevLRAttrModelTransform> m_pModelTransform;
 			LPtr<LevLAttrLocalTransform> m_pLocalTransform;
-
 			LPtr<LevSceneObjectDescription> m_pObjDesc;
+
+			LPtr<LevTimer> m_pTimer;
 		};
 	}
 }

@@ -17,6 +17,7 @@ namespace Leviathan
 			bool Init(LevSceneType sceneType);
 			void UpdateNodeState();
 			void UpdateWorldTransform();
+			void UpdateTimer();
 			void SetNodeModified();
 			void SetViewport(int width, int height);
 

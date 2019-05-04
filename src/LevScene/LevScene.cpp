@@ -33,6 +33,11 @@ namespace Leviathan
 			m_pSceneData->UpdateWorldTransform();
 		}
 
+		void LevScene::UpdateTimer()
+		{
+			m_pSceneData->UpdateTimer();
+		}
+
 		void LevScene::SetNodeModified()
 		{
 			m_pSceneData->SetModified();
