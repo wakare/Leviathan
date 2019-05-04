@@ -3,7 +3,7 @@
 
 namespace Leviathan
 {
-	LevTimer::LevTimer(float interval, TimerOutCallback callback)
+	LevTimer::LevTimer(unsigned interval, TimerOutCallback callback)
 		: m_interval(interval)
 		, m_lastTick(GetTickCount64())
 	{
@@ -23,12 +23,12 @@ namespace Leviathan
 		}
 	}
 
-	float LevTimer::GetLastTime() const
+	unsigned LevTimer::GetLastTime() const
 	{
 		return m_lastTick;
 	}
 
-	float LevTimer::GetTimeInterval() const
+	unsigned LevTimer::GetTimeInterval() const
 	{
 		return m_interval;
 	}

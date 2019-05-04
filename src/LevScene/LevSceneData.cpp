@@ -32,13 +32,13 @@ namespace Leviathan
 			auto pCameraNode = AddCamera(pCamera);
 			LEV_ASSERT(pCameraNode);
 
-			auto _timeOut = [pCamera](const LevTimer&)
-			{
-				pCamera->MouseRotate(1, 0);
-			};
-
-			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
-			pCamera->SetTimer(pTimer);
+// 			auto _timeOut = [pCamera](const LevTimer&)
+// 			{
+// 				pCamera->MouseRotate(1, 0);
+// 			};
+// 
+// 			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
+// 			pCamera->SetTimer(pTimer);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
 			pLight->SetModifiedCallback(m_modifiedCallback);
@@ -47,6 +47,19 @@ namespace Leviathan
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
 			LPtr<LevSceneNode> pLightNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
 			pCameraNode->AddChild(TryCast<LevSceneNode, Node<LevSceneObject>>(pLightNode));
+
+			auto _timeOut = [pLight](const LevTimer&)
+			{
+				auto localTransform = pLight->GetLocalTransform();
+				localTransform(0, 3) -= 0.01f;
+				localTransform(1, 3) -= 0.01f;
+				localTransform(2, 3) -= 0.01f;
+				pLight->SetLocalTransform(localTransform);
+				pLight->SetModified();
+			};
+
+			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
+			pLight->SetTimer(pTimer);
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()

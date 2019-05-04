@@ -9,16 +9,16 @@ namespace Leviathan
 	class LevTimer
 	{
 	public: 
-		LevTimer(float interval, TimerOutCallback callback);
+		LevTimer(unsigned interval, TimerOutCallback callback);
 		void SetTimeOutCallback(TimerOutCallback callback);
 		void OnTimeOut();
-		float GetLastTime() const;
-		float GetTimeInterval() const;
+		unsigned GetLastTime() const;
+		unsigned GetTimeInterval() const;
 		void UpdateCurrentTickTime();
 
 	private:
-		float m_lastTick;
-		float m_interval;
+		unsigned m_lastTick;
+		unsigned m_interval;
 		TimerOutCallback m_callback;
 	};
 }
