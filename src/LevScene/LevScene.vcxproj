@@ -43,6 +43,7 @@
     <ClInclude Include="LevSceneObjectAttribute.h" />
     <ClInclude Include="LevSceneTreeSearchVisitor.h" />
     <ClInclude Include="LevSceneTreeTraverseVisitor.h" />
+    <ClInclude Include="LevSetObjectModifiedVisitor.h" />
     <ClInclude Include="LevStateUpdaterVisitor.h" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,7 @@
     <ClCompile Include="LevSceneTree.cpp" />
     <ClCompile Include="LevSceneTreeSearchVisitor.cpp" />
     <ClCompile Include="LevSceneTreeTraverseVisitor.cpp" />
+    <ClCompile Include="LevSetObjectModifiedVisitor.cpp" />
     <ClCompile Include="LevStateUpdaterVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

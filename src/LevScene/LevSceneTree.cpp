@@ -3,6 +3,7 @@
 #include "LevSceneNode.h"
 #include "LevSceneObject.h"
 #include "LevResetObjModifiedVisitor.h"
+#include "LevSetObjectModifiedVisitor.h"
 #include "LevStateUpdaterVisitor.h"
 #include "LevCalculateWorldCoordVisitor.h"
 
@@ -11,8 +12,9 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevSceneTree::LevSceneTree()
-			: m_resetor(new LevResetObjModifiedVisitor)
+			: m_modified_resetor(new LevResetObjModifiedVisitor)
 			, m_state_updater(new LevStateUpdaterVisitor)
+			, m_modified_setor(new LevSetObjModifiedVisitor)
 			, m_worldCoord_updater(new LevCalculateWorldCoordVisitor)
 			, m_root(nullptr)
 		{
@@ -69,7 +71,13 @@ namespace Leviathan
 
 		bool LevSceneTree::ResetObjUnModified()
 		{
-			m_root->Accept(*m_resetor);
+			m_root->Accept(*m_modified_resetor);
+			return true;
+		}
+
+		bool LevSceneTree::SetObjModified()
+		{
+			m_root->Accept(*m_modified_setor);
 			return true;
 		}
 

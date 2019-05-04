@@ -103,6 +103,9 @@
     <ClInclude Include="LevCalculateWorldCoordVisitor.h">
       <Filter>Source Files\SceneVisitor</Filter>
     </ClInclude>
+    <ClInclude Include="LevSetObjectModifiedVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -175,6 +178,9 @@
       <Filter>Source Files\SceneAttribute\LogicAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevCalculateWorldCoordVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSetObjectModifiedVisitor.cpp">
       <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
   </ItemGroup>

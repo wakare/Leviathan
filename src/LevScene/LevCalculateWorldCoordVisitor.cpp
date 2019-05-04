@@ -15,11 +15,10 @@ namespace Leviathan
 			}
 			
 			auto& nodeData = node.GetNodeData();
-			if (nodeData->NeedRecalculateWorldTransform())
+			if (nodeData->HasModified() && nodeData->NeedRecalculateWorldTransform())
 			{
 				curWorldTransform = nodeData->GetLocalTransform() * curWorldTransform;
 				nodeData->SetWorldTransform(curWorldTransform);
-				nodeData->SetModified();
 			}
 
 			m_stack.push_back(nodeData->GetWorldTransform());

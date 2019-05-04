@@ -33,6 +33,11 @@ namespace Leviathan
 			m_pSceneData->UpdateWorldTransform();
 		}
 
+		void LevScene::SetNodeModified()
+		{
+			m_pSceneData->SetModified();
+		}
+
 		void LevScene::SetViewport(int width, int height)
 		{
 			m_pSceneData->GetCamera()->Set(ANGLE_TO_RADIAN(120.0f), (1.0f * width) / height, 0.01f, 10000.0f);

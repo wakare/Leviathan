@@ -38,6 +38,7 @@ namespace Leviathan
 		
 		if (m_pData->GetScene().HasModified())
 		{
+			m_pData->GetScene().SetNodeModified();
 			m_pData->GetScene().UpdateWorldTransform();
 			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
 

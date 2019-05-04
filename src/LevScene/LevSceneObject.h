@@ -23,6 +23,10 @@ namespace Leviathan
 			// Not set [self and children] modified flag while processing reset node modified
 			ELSOT_NOT_MODIFY	= 16,
 
+			// Default situation: modify self cause setting child modified flag
+			ELSOT_ONLY_MODIFY_SELF = 32,
+
+			// No need add this object to render objects
 			ELSOT_UNRENDERABLE	= 1024,
 
 			// Special node defination

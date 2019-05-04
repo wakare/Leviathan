@@ -22,6 +22,7 @@ namespace Leviathan
 			const LevSceneTree& GetSceneTree() const;
 
 			bool HasModified() const;
+			void SetModified();
 			void ResetUnModified();
 			void UpdateWorldTransform();
 

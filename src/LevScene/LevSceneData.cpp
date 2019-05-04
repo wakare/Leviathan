@@ -55,6 +55,11 @@ namespace Leviathan
 			return m_modified;
 		}
 
+		void LevSceneData::SetModified()
+		{
+			m_pSceneTree->SetObjModified();
+		}
+
 		void LevSceneData::ResetUnModified()
 		{
 			m_pSceneTree->ResetObjUnModified();
@@ -81,23 +86,6 @@ namespace Leviathan
 
 			m_pCamera.Reset(pCamera);
 			return pNode;
-		}
-
-		const std::vector<LPtr<LevLight>> LevSceneData::GetLights() const
-		{
-			return m_pLights;
-		}
-
-		bool LevSceneData::AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode /*= nullptr*/)
-		{
-			LEV_ASSERT(pLight);
-
-			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
-			pLight->SetModifiedCallback(m_modifiedCallback);
-			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
-
-			m_pLights.push_back(pLight);
-			return true;
 		}
 
 		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)
