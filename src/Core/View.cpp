@@ -38,16 +38,16 @@ namespace Leviathan
 		
 		if (m_pData->GetScene().HasModified())
 		{
-			m_pData->GetScene().Update();
+			m_pData->GetScene().UpdateWorldTransform();
 			m_pData->GetRenderer().SetInputData(m_pData->GetScene().GetSceneData());
+
+			// Scene update must be later than render update, because it will overwrite modified state info.
+			m_pData->GetScene().UpdateNodeState();
+
+			m_pData->GetScene().ResetModified();
 		}
 		
 		m_pData->GetRenderer().Update();
-
-		// Scene update must be later than render update, because it will overwrite modified state info.
-		//m_pData->GetScene().Update();
-
-		m_pData->GetScene().ResetModified();
 	}
 
 	void View::SyncStop()

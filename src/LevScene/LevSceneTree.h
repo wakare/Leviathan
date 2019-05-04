@@ -23,7 +23,7 @@ namespace Leviathan
 			LevSceneNode& GetRoot();
 			const LevSceneNode& GetRoot() const;
 
-			void Update();
+			void UpdateNodeState();
 
 		private:
 			void _checkDeleteNode(LevSceneNode& pBeginNode);

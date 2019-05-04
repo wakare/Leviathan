@@ -39,6 +39,7 @@ namespace Leviathan
 			float _getDistance();
 			void _getNUVVector(Eigen::Vector3f& N, Eigen::Vector3f& U, Eigen::Vector3f& V) const;
 			bool _updateCurrentDistance(float newDistance = -1.0f);
+			void _setEyePosition(const Eigen::Vector3f& position);
 
 			Eigen::Vector3f m_fEye;
 			Eigen::Vector3f m_fLookAt;

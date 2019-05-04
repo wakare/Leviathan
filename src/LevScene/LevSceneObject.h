@@ -84,6 +84,9 @@ namespace Leviathan
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
 			const LevSceneObjectDescription& GetObjDesc() const;
 
+			void SetRecalculateWorldTransform(bool need);
+			bool NeedRecalculateWorldTransform() const;
+
 			bool SetWorldTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetWorldTransform() const;
 
@@ -97,6 +100,7 @@ namespace Leviathan
 			SceneObjectID m_ID;
 
 			bool m_modified;
+			bool m_recalculateWorldTransform;
 			LevSceneObjModified m_modifiedCallback;
 			LevSceneObjectState m_state;
 

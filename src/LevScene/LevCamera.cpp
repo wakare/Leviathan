@@ -7,7 +7,7 @@ namespace Leviathan
 		LevCamera::LevCamera()
 			: LevSceneObject(ELSOT_CAMERA | ELSOT_UNRENDERABLE |ELSOT_DYNAMIC)
 		{
-			
+			SetRecalculateWorldTransform(false);
 		}
 
 		void LevCamera::_getNUVVector(Eigen::Vector3f& N, Eigen::Vector3f& U, Eigen::Vector3f& V) const
@@ -38,6 +38,16 @@ namespace Leviathan
 			return true;
 		}
 
+		void LevCamera::_setEyePosition(const Eigen::Vector3f & position)
+		{
+			m_fEye = position;
+			Eigen::Matrix4f cameraWorldTransform = Eigen::Matrix4f::Identity();
+			cameraWorldTransform(0, 3) = m_fEye[0];
+			cameraWorldTransform(1, 3) = m_fEye[1];
+			cameraWorldTransform(2, 3) = m_fEye[2];
+			SetWorldTransform(cameraWorldTransform);
+		}
+
 		bool LevCamera::Set(float* eye, float* lookAt, float* up, float fovy, float aspect, float zNear, float zFar)
 		{
 			m_minDistanceOfCameraToLookAt = 0.01f;
@@ -55,6 +65,7 @@ namespace Leviathan
 			memcpy(m_fLookAt.data(), lookAt, sizeof(float) * 3);
 			memcpy(m_fUp.data(), up, sizeof(float) * 3);
 
+			_setEyePosition(m_fEye);
 			SetModified();
 			return true;
 		}
@@ -132,7 +143,7 @@ namespace Leviathan
 				return;
 			}
 
-			m_fEye = newEyeCoord;
+			_setEyePosition(newEyeCoord);
 			_updateCurrentDistance();
 		}
 
@@ -230,7 +241,7 @@ namespace Leviathan
 			Eigen::Vector3f N = m_fLookAt - m_fEye;
 			_updateCameraAttribute(N, rotateMatrix);
 
-			m_fEye = m_fLookAt - N;
+			_setEyePosition(m_fLookAt - N);
 			_updateCameraAttribute(m_fUp, rotateMatrix);
 		}
 
@@ -242,9 +253,7 @@ namespace Leviathan
 			m_fLookAt = worldCoord;
 			_updateCurrentDistance(fDistance);
 
-			m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];
-			m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
-			m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
+			_setEyePosition(m_fLookAt - m_currentDistance * N);
 
 			if (m_fZFar < 4 * fDistance)
 			{
@@ -264,9 +273,7 @@ namespace Leviathan
 			m_fLookAt[1] -= (U[1] * x + V[1] * y);
 			m_fLookAt[2] -= (U[2] * x + V[2] * y);
 
-			m_fEye[0] = m_fLookAt[0] - m_currentDistance * N[0];
-			m_fEye[1] = m_fLookAt[1] - m_currentDistance * N[1];
-			m_fEye[2] = m_fLookAt[2] - m_currentDistance * N[2];
+			_setEyePosition(m_fLookAt - m_currentDistance * N);
 
 			SetModified();
 		}

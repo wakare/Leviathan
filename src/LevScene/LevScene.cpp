@@ -23,10 +23,14 @@ namespace Leviathan
 			return true;
 		}
 
-		void LevScene::Update()
+		void LevScene::UpdateNodeState()
 		{
-			m_pSceneData->Update();
-			m_pSceneData->UpdateWorldCoord();
+			m_pSceneData->UpdateNodeState();
+		}
+
+		void LevScene::UpdateWorldTransform()
+		{
+			m_pSceneData->UpdateWorldTransform();
 		}
 
 		void LevScene::SetViewport(int width, int height)

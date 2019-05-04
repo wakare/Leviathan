@@ -23,18 +23,14 @@ namespace Leviathan
 
 			bool HasModified() const;
 			void ResetUnModified();
-			void UpdateWorldCoord();
+			void UpdateWorldTransform();
 
 			LPtr<LevCamera> GetCamera();
 			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);
 
-			const std::vector<LPtr<LevLight>> GetLights() const;
-			bool AddLight(LPtr<LevLight> pLight, LPtr<LevSceneNode> pParentNode = nullptr);
 			bool AddSceneNode(LPtr<LevSceneNode> pNode);
-
 			void RemoveAllRenderables();
-
-			void Update();
+			void UpdateNodeState();
 
 		private:
 			bool m_modified;

@@ -12,6 +12,7 @@ namespace Leviathan
 		LevSceneObject::LevSceneObject(int type) 
 			: m_type((LevSceneObjectType)type)
 			, m_modified(true)
+			, m_recalculateWorldTransform(true)
 			, m_pModelTransform(new LevLRAttrModelTransform)
 			, m_pWorldTransform(new LevLRAttrWorldTransform)
 			, m_pLocalTransform(new LevLAttrLocalTransform)
@@ -97,6 +98,16 @@ namespace Leviathan
 		{
 			LEV_ASSERT(m_pObjDesc.Get());
 			return *m_pObjDesc;
+		}
+
+		void LevSceneObject::SetRecalculateWorldTransform(bool need)
+		{
+			m_recalculateWorldTransform = need;
+		}
+
+		bool LevSceneObject::NeedRecalculateWorldTransform() const
+		{
+			return m_recalculateWorldTransform;
 		}
 
 		bool LevSceneObject::SetWorldTransform(const Eigen::Matrix4f& trans)

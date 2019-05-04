@@ -89,7 +89,7 @@ namespace Leviathan
 			return *m_root;
 		}
 
-		void LevSceneTree::Update()
+		void LevSceneTree::UpdateNodeState()
 		{
 			_checkDeleteNode(*m_root);
 			m_state_updater->Apply(*m_root);
