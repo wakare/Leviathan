@@ -26,9 +26,9 @@ namespace Leviathan
 			void ResetUnModified();
 			void UpdateWorldTransform();
 			void UpdateTimer();
+			void RegisterToMainCamera(LPtr<LevCamera> pCamera);
 
 			LPtr<LevCamera> GetCamera();
-			LPtr<LevSceneNode> AddCamera(LPtr<LevCamera> pCamera);
 
 			bool AddSceneNode(LPtr<LevSceneNode> pNode);
 			void RemoveAllRenderables();

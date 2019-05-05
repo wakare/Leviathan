@@ -29,16 +29,18 @@ namespace Leviathan
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
 			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), ANGLE_TO_RADIAN(120.0f), 1.0f, 0.01f, 10000.0f);
 			LEV_ASSERT(_seted);
-			auto pCameraNode = AddCamera(pCamera);
+			auto pCameraNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
+			AddSceneNode(pCameraNode);
+			RegisterToMainCamera(pCamera);
 			LEV_ASSERT(pCameraNode);
 
-// 			auto _timeOut = [pCamera](const LevTimer&)
-// 			{
-// 				pCamera->MouseRotate(1, 0);
-// 			};
-// 
-// 			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
-// 			pCamera->SetTimer(pTimer);
+ 			auto _camera_timeOut = [pCamera](const LevTimer&)
+ 			{
+ 				pCamera->MouseRotate(0.01, 0);
+ 			};
+ 
+ 			LPtr<LevTimer> pCameraTimer = new LevTimer(16.6f, _camera_timeOut);
+ 			pCamera->SetTimer(pCameraTimer);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
 			pLight->SetModifiedCallback(m_modifiedCallback);
@@ -48,18 +50,18 @@ namespace Leviathan
 			LPtr<LevSceneNode> pLightNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
 			pCameraNode->AddChild(TryCast<LevSceneNode, Node<LevSceneObject>>(pLightNode));
 
-			auto _timeOut = [pLight](const LevTimer&)
-			{
-				auto localTransform = pLight->GetLocalTransform();
-				localTransform(0, 3) -= 0.01f;
-				localTransform(1, 3) -= 0.01f;
-				localTransform(2, 3) -= 0.01f;
-				pLight->SetLocalTransform(localTransform);
-				pLight->SetModified();
-			};
-
-			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
-			pLight->SetTimer(pTimer);
+// 			auto _timeOut = [pLight](const LevTimer&)
+// 			{
+// 				auto localTransform = pLight->GetLocalTransform();
+// 				localTransform(0, 3) -= 0.01f;
+// 				localTransform(1, 3) -= 0.01f;
+// 				localTransform(2, 3) -= 0.01f;
+// 				pLight->SetLocalTransform(localTransform);
+// 				pLight->SetModified();
+// 			};
+// 
+// 			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
+// 			pLight->SetTimer(pTimer);
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -98,21 +100,14 @@ namespace Leviathan
 			m_pSceneTree->UpdateTimer();
 		}
 
+		void LevSceneData::RegisterToMainCamera(LPtr<LevCamera> pCamera)
+		{
+			m_pCamera = pCamera;
+		}
+
 		LPtr<LevCamera> LevSceneData::GetCamera()
 		{
 			return m_pCamera;
-		}
-
-		Leviathan::LPtr<Leviathan::Scene::LevSceneNode> LevSceneData::AddCamera(LPtr<LevCamera> pCamera)
-		{
-			LEV_ASSERT(!m_pCamera);
-
-			pCamera->SetModifiedCallback(m_modifiedCallback);
-			LPtr<LevSceneNode> pNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
-
-			m_pCamera.Reset(pCamera);
-			return pNode;
 		}
 
 		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)
