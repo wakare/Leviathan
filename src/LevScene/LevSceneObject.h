@@ -88,6 +88,7 @@ namespace Leviathan
 			const std::vector<LPtr<LevSceneObjectAttribute>>& GetObjAttributes() const;
 
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
+			LevSceneObjectDescription& GetObjDesc();
 			const LevSceneObjectDescription& GetObjDesc() const;
 
 			void SetRecalculateWorldTransform(bool need);

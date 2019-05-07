@@ -96,6 +96,11 @@ namespace Leviathan
 			return true;
 		}
 
+		LevSceneObjectDescription & LevSceneObject::GetObjDesc()
+		{
+			return *m_pObjDesc;
+		}
+
 		const LevSceneObjectDescription & LevSceneObject::GetObjDesc() const
 		{
 			LEV_ASSERT(m_pObjDesc.Get());

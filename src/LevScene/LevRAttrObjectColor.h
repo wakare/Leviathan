@@ -19,6 +19,13 @@ namespace Leviathan
 			float* color_array;
 			unsigned color_array_byte_size;
 
+			LevObjectColorData()
+				: color_array(nullptr)
+				, color_array_byte_size(0)
+			{
+
+			}
+
 			~LevObjectColorData()
 			{
 				if (color_array)

@@ -127,43 +127,67 @@ int main(int argc, char** argv)
 		unsigned currentPointIndex = 0;
 		for (auto& mesh : meshes)
 		{
-			auto& attributes = mesh->GetNodeData()->GetObjAttributes();
-
-			for (auto& attr : attributes)
+			auto& objDesc = mesh->GetNodeData()->GetObjDesc();
+			if (objDesc.GetType() & LevSceneObjectDescType::ELSOD_MESH == 0)
 			{
-				if (attr->GetType() != Scene::ELSOAT_RENDER)
-				{
-					continue;
-				}
-
-				Scene::LevRAttrObjectColor* pColorAttr = dynamic_cast<Scene::LevRAttrObjectColor*>(attr.Get());
-				if (pColorAttr)
-				{
-					// Reset color data array.
-					LEV_ASSERT(pColorAttr->GetColorType() == Scene::ELOCT_COLOR_ARRAY);
-					auto* pColorArrayData = pColorAttr->GetColorData().color_array;
-
-					auto _updateColorArray = [&testResult, &currentPointIndex, pColorAttr, pColorArrayData](Leviathan::CoPullType<int>&)
-					{
-						auto vertexCount = pColorAttr->GetColorData().color_array_byte_size / (3 * sizeof(float));
-
-						for (unsigned i = 0; i < vertexCount; i++)
-						{
-							float* pcolor = pColorArrayData + 3 * i;
-							if (testResult[currentPointIndex + i])
-							{
-								pcolor[0] = 0.0f;
-								pcolor[1] = 0.0f;
-								pcolor[2] = 0.0f;
-							}
-						}
-
-						currentPointIndex += vertexCount;
-					};
-
-					viewScheduler.DoSyncTask(_updateColorArray);
-				}
+				continue;
 			}
+
+			Scene::LevMeshObject* pMesh = dynamic_cast<Scene::LevMeshObject*>(&objDesc);
+			if (!pMesh)
+			{
+				continue;
+			}
+
+			Scene::LevObjectColorData colorData;
+			colorData.pure_color[0] = 0.1f;
+			colorData.pure_color[1] = 0.5f;
+			colorData.pure_color[2] = 0.1f;
+
+			auto _updateColor = [pMesh, &colorData](Leviathan::CoPullType<int>&)
+			{
+				pMesh->SetColorData(Scene::ELOCT_PURE_COLOR, colorData);
+			};
+
+			viewScheduler.DoSyncTask(_updateColor);
+
+// 			auto& attributes = mesh->GetNodeData()->GetObjAttributes();
+// 
+// 			for (auto& attr : attributes)
+// 			{
+// 				if (attr->GetType() != Scene::ELSOAT_RENDER)
+// 				{
+// 					continue;
+// 				}
+// 
+// 				Scene::LevRAttrObjectColor* pColorAttr = dynamic_cast<Scene::LevRAttrObjectColor*>(attr.Get());
+// 				if (pColorAttr)
+// 				{
+// 					// Reset color data array.
+// 					LEV_ASSERT(pColorAttr->GetColorType() == Scene::ELOCT_COLOR_ARRAY);
+// 					auto* pColorArrayData = pColorAttr->GetColorData().color_array;
+// 
+// 					auto _updateColorArray = [&testResult, &currentPointIndex, pColorAttr, pColorArrayData](Leviathan::CoPullType<int>&)
+// 					{
+// 						auto vertexCount = pColorAttr->GetColorData().color_array_byte_size / (3 * sizeof(float));
+// 
+// 						for (unsigned i = 0; i < vertexCount; i++)
+// 						{
+// 							float* pcolor = pColorArrayData + 3 * i;
+// 							if (testResult[currentPointIndex + i])
+// 							{
+// 								pcolor[0] = 0.0f;
+// 								pcolor[1] = 0.0f;
+// 								pcolor[2] = 0.0f;
+// 							}
+// 						}
+// 
+// 						currentPointIndex += vertexCount;
+// 					};
+// 
+// 					viewScheduler.DoSyncTask(_updateColorArray);
+//				}
+//			}
 
 			viewScheduler.DoTask([&mesh](Leviathan::CoPullType<int>&)
 			{
