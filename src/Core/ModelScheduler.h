@@ -7,6 +7,8 @@ namespace Leviathan
 	class ModelScheduler : public LevScheduler<int>
 	{
 	public:
+		UNIQUE_INSTANCE(ModelScheduler)
+
 		ModelScheduler();
 		void Update();
 		void SetDone();

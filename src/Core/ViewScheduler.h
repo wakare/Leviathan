@@ -11,6 +11,8 @@ namespace Leviathan
 	class ViewScheduler : public LevScheduler<int>
 	{
 	public:
+		UNIQUE_INSTANCE(ViewScheduler)
+
 		ViewScheduler();
 		void Update();
 		void SetDone();
@@ -26,7 +28,6 @@ namespace Leviathan
 
 	private:
 		bool m_done;
-		//std::unique_ptr<View> m_pView;
 		std::unique_ptr<View> m_pView;
 	};
 }

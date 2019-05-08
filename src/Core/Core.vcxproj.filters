@@ -10,6 +10,9 @@
     <Filter Include="View">
       <UniqueIdentifier>{77fa59ad-1c15-4de5-828f-808485596ef6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Tool">
+      <UniqueIdentifier>{2279b716-64e6-4c28-8a27-96680edcf56f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataCenterImpl.cpp">
@@ -32,6 +35,9 @@
     </ClCompile>
     <ClCompile Include="ViewData.cpp">
       <Filter>View</Filter>
+    </ClCompile>
+    <ClCompile Include="ToolModule.cpp">
+      <Filter>Tool</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +70,9 @@
     </ClInclude>
     <ClInclude Include="ViewData.h">
       <Filter>View</Filter>
+    </ClInclude>
+    <ClInclude Include="ToolModule.h">
+      <Filter>Tool</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

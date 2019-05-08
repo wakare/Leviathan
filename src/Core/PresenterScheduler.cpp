@@ -3,6 +3,7 @@
 #include "ModelScheduler.h"
 #include "ViewScheduler.h"
 #include "UserInterface.h"
+#include "ToolModule.h"
 
 namespace Leviathan
 {
@@ -10,7 +11,8 @@ namespace Leviathan
 		m_done(false),
 		m_pModelScheduler(new ModelScheduler),
 		m_pViewScheduler(new ViewScheduler),
-		m_pUserInterface(new UserInterface)
+		m_pUserInterface(new UserInterface),
+		m_pToolModule(new ToolModule)
 	{
 		// Presenter main loop coroutine
 		auto _mainLoop = [this](CoPullType<int>& sink)
@@ -63,6 +65,11 @@ namespace Leviathan
 	Leviathan::UserInterface& PresenterScheduler::GetUserInterface()
 	{
 		return *m_pUserInterface;
+	}
+
+	ToolModule & PresenterScheduler::GetToolModule()
+	{
+		return *m_pToolModule;
 	}
 
 	const AppState& PresenterScheduler::GetAppState() const

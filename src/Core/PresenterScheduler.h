@@ -9,10 +9,12 @@ namespace Leviathan
 	class ModelScheduler;
 	class ViewScheduler;
 	class UserInterface;
+	class ToolModule;
 
 	class PresenterScheduler : public LevScheduler<int>
 	{
 	public:
+		UNIQUE_INSTANCE(PresenterScheduler)
 		DECLARE_SELF_TO_SINGLETON(PresenterScheduler)
 		static PresenterScheduler& Instance();
 
@@ -23,6 +25,7 @@ namespace Leviathan
 		ModelScheduler& GetModelScheduler();
 		ViewScheduler& GetViewScheduler();
 		UserInterface& GetUserInterface();
+		ToolModule& GetToolModule();
 		const AppState& GetAppState() const;  
 
 	private:
@@ -31,8 +34,9 @@ namespace Leviathan
 		AppState m_state;
 		bool m_done;
 
-		std::shared_ptr<ModelScheduler> m_pModelScheduler;
-		std::shared_ptr<ViewScheduler> m_pViewScheduler;
-		std::shared_ptr<UserInterface> m_pUserInterface;
+		LPtr<ModelScheduler> m_pModelScheduler;
+		LPtr<ViewScheduler> m_pViewScheduler;
+		LPtr<UserInterface> m_pUserInterface;
+		LPtr<ToolModule> m_pToolModule;
 	};
 }

@@ -5,6 +5,8 @@
 #include "MeshImpl.h"
 #include "LevMeshObject.h"
 #include "LevSceneObject.h"
+#include "ToolModule.h"
+#include "PresenterScheduler.h"
 
 namespace Leviathan
 {
@@ -68,6 +70,11 @@ namespace Leviathan
 	bool ViewScheduler::LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out)
 	{
 		std::string path(file);
+
+		// Check call thread is the same as lev main module thread
+		auto mainModuleThreadId = PresenterScheduler::Instance().GetToolModule().GetMainModuleThreadID();
+		auto callThreadId = std::this_thread::get_id();
+		EXIT_IF_FALSE(mainModuleThreadId != callThreadId);
 
 		DoSyncTask([this, &path, &out](CoPullType<int>& sink)
 			{

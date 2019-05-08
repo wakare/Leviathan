@@ -5,6 +5,7 @@
 
 namespace Leviathan
 {
+	// TODO : Use datacenter class to manager all levObject
 	class DataCenterImpl : public IDataCenter
 	{
 	public:

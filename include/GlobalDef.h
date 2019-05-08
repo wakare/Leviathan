@@ -19,8 +19,26 @@ namespace Leviathan
 
 	#define EXIT_IF_FALSE(statement) { if (!(statement)) { /*assert(false);*/ LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
 	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
-	#define  LEV_ASSERT(a) assert((a))
+	#define LEV_ASSERT(a) assert((a))
 
+	#define NON_COPY_CONSTRUCTION(className)	className(const className& rhs) = delete;
+	#define NON_COPY_ASSIGNMENT(className)		className& operator=(const className& rhs) = delete;
+
+	#define NON_COPY(className) \
+			NON_COPY_CONSTRUCTION(className) \
+			NON_COPY_ASSIGNMENT(className) \
+
+	#define NON_MOVE_CONSTRUCTION(className)	className(const className&& rhs) = delete;
+	#define NON_MOVE_ASSIGNMENT(className)		className& operator=(const className&& rhs) = delete;
+
+	#define NON_MOVE(className) \
+			NON_MOVE_CONSTRUCTION(className) \
+			NON_MOVE_ASSIGNMENT(className) \
+
+	#define UNIQUE_INSTANCE(className) \
+			NON_COPY(className)\
+			NON_MOVE(className)\
+	
 	enum EventType
 	{
 		INPUT_EVENT,
