@@ -3,24 +3,24 @@
 namespace Leviathan
 {
 	template <class T>
-	void LevScheduler<T>::DoTask(LPtr<LevTaskTemplate<T>> task)
+	void LevScheduler<T>::DoAsyncTask(LPtr<LevTaskTemplate<T>> task)
 	{
 		std::lock_guard<std::mutex> guard(m_tasks_lock);
 		m_tasks.push_back(task);
 	}
 
 	template <class T>
-	void LevScheduler<T>::DoTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task)
+	void LevScheduler<T>::DoAsyncTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task)
 	{
 		std::lock_guard<std::mutex> guard(m_tasks_lock);
 		m_tasks.insert(m_tasks.end(), task.begin(), task.end());
 	}
 
 	template <class T>
-	void Leviathan::LevScheduler<T>::DoTask(std::function<void(CoPullType<T>&)> func)
+	void Leviathan::LevScheduler<T>::DoAsyncTask(std::function<void(CoPullType<T>&)> func)
 	{
 		LPtr<LevTaskTemplate<T>> pTask = new LevTaskTemplate<T>(func);
-		DoTask(pTask);
+		DoAsyncTask(pTask);
 	}
 
 	// Warning: DoSyncTask must be called form non-render thread
@@ -41,7 +41,7 @@ namespace Leviathan
 		return true;
 	}
 
-	// Warning: DoSyncTask must bu called form non-Leviathan-main thread
+	// Warning: DoSyncTask must be called form non-Leviathan-main thread
 	template <class T>
 	bool Leviathan::LevScheduler<T>::DoSyncTask(std::function<void(CoPullType<T>&)> func)
 	{

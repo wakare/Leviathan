@@ -40,7 +40,10 @@
     <Filter Include="CommonTool\Scheduler">
       <UniqueIdentifier>{4502cec5-39d1-48ca-8459-8c79cc55faf4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CommonTool\Abstruct">
+    <Filter Include="CommonTool\Thread">
+      <UniqueIdentifier>{31d73134-01ee-4bfa-b691-0653815e5fd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CommonTool\Abstract">
       <UniqueIdentifier>{62368aa7-5749-4636-8eeb-bb4f524adfbc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -81,8 +84,11 @@
     <ClCompile Include="STLFileImporter.cpp">
       <Filter>CommonTool\FileIO</Filter>
     </ClCompile>
+    <ClCompile Include="ThreadRecorder.cpp">
+      <Filter>CommonTool\Thread</Filter>
+    </ClCompile>
     <ClCompile Include="LevTimer.cpp">
-      <Filter>CommonTool\Abstruct</Filter>
+      <Filter>CommonTool\Profiler</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -208,7 +214,7 @@
       <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
     <ClInclude Include="Singleton.h">
-      <Filter>CommonTool\Abstruct</Filter>
+      <Filter>CommonTool\Abstract</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ILevWindow.h">
       <Filter>Window</Filter>
@@ -219,8 +225,11 @@
     <ClInclude Include="..\..\include\LevWindowFactory.h">
       <Filter>Window</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\include\ThreadRecorder.h">
+      <Filter>CommonTool\Thread</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\include\LevTimer.h">
-      <Filter>CommonTool\Abstruct</Filter>
+      <Filter>CommonTool\Profiler</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

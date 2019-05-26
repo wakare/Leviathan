@@ -30,6 +30,10 @@
 #include "LevLRAttrWorldTransform.h"
 #include "OpenGLUniform.h"
 #include "OpenGLEmptyObject.h"
+#include "LevRAttrPointSize.h"
+#include "LevRAttrDepthFunc.h"
+#include "LevRAttrLightEnable.h"
+#include "LevRAttrVisible.h"
 
 namespace Leviathan
 {
@@ -87,7 +91,12 @@ namespace Leviathan
 					return true;
 				}
 
-				auto& objDesc = object.GetObjDesc();
+				if (!object.HasObjectDesc())
+				{
+					return true;
+				}
+
+				auto& objDesc = object.GetObjectDesc();
 				if (objDesc.GetType() != ELSOD_MESH)
 				{
 					return true;
@@ -119,6 +128,13 @@ namespace Leviathan
 					auto inited = ConvertMeshToGLObject(object.GetID(), *pMesh, pObjects);
 					LEV_ASSERT(inited && pObjects.size() > 0);
 					_registerToPass(object.GetID(), pObjects);
+					break;
+				}
+
+				case Scene::ELSOS_DELETED:
+				case Scene::ELSOS_DISABLE:
+				{
+					_unregisterFromPass(object.GetID());
 					break;
 				}
 
@@ -455,6 +471,8 @@ namespace Leviathan
 					pModelTransUniform->SetData(modelTransform->GetMatrix().data(), 16);
 					pObject->AddUniform(pModelTransUniform);
 				}
+
+				return true;
 			}
 
 			// World Transform
@@ -467,9 +485,85 @@ namespace Leviathan
 					pWorldTransUniform->SetData(worldTransform->GetMatrix().data(), 16);
 					pObject->AddUniform(pWorldTransUniform);
 				}
+
+				return true;
 			}
 
-			return worldTransform || modelTransform;
+			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
+			if (point_size)
+			{
+				for (auto& pObject : objects)
+				{
+					auto size = point_size->GetSize();
+					pObject->AddPreProcess([size]() {glPointSize(size); });
+					pObject->AddPostProcess([size]() {glPointSize(1); });
+				}
+
+				return true;
+			}
+
+			const Scene::LevRAttrDepthFunc* depth_func = dynamic_cast<const Scene::LevRAttrDepthFunc*>(&render_attribute);
+			if (depth_func)
+			{
+				for (auto& pObject : objects)
+				{
+					GLenum gl_depth_parameter;
+					switch (depth_func->GetDepthParameter())
+					{
+					case Scene::ELDFP_LESS:
+						gl_depth_parameter = GL_LESS;
+						break;
+
+					case Scene::ELDFP_LEQUAL:
+						gl_depth_parameter = GL_LEQUAL;
+						break;
+
+					case Scene::ELDFP_EQUAL:
+						gl_depth_parameter = GL_EQUAL;
+						break;
+
+					case Scene::ELDFP_ALWAYS:
+						gl_depth_parameter = GL_ALWAYS;
+						break;
+
+					case Scene::ELDFP_UNKNOWN:
+					default:
+						LEV_ASSERT(false);
+						return false;
+					}
+
+					pObject->AddPreProcess([gl_depth_parameter]() {glDepthFunc(gl_depth_parameter); });
+					pObject->AddPostProcess([]() {glDepthFunc(GL_LESS); });
+				}
+
+				return true;
+			}
+
+			const Scene::LevRAttrLightEnable* light_enable = dynamic_cast<const Scene::LevRAttrLightEnable*>(&render_attribute);
+			if (light_enable)
+			{
+				for (auto& pObject : objects)
+				{
+					auto current_light_enable = m_pCurrentPass->GetLightEnable();
+					auto enable = light_enable->GetLightEnable();
+
+					pObject->AddPreProcess([enable, this]() {m_pCurrentPass->SetLightEnable(enable); });
+					pObject->AddPostProcess([current_light_enable, this]() {m_pCurrentPass->SetLightEnable(current_light_enable); });
+				}
+			}
+
+			const Scene::LevRAttrVisible* visible = dynamic_cast<const Scene::LevRAttrVisible*>(&render_attribute);
+			if (visible)
+			{
+				for (auto& pObject : objects)
+				{
+					pObject->SetVisible(visible->GetVisible());
+				}
+
+				return true;
+			}
+
+			return false;
 		}
 
 		OpenGLPass & OpenGLRenderData::_currentPass()

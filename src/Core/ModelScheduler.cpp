@@ -15,7 +15,7 @@ namespace Leviathan
 			LogLine("[MODEL_MAIN_LOOP] Exit!");
 		};
 
-		DoTask(_mainLoop);
+		DoAsyncTask(_mainLoop);
 	}
 
 	void ModelScheduler::Update()

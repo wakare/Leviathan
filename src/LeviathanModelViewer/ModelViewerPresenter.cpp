@@ -3,7 +3,7 @@
 #include "ModelViewerUserInterface.h"
 #include "RenderService.h"
 #include "GlobalDef.h"
-#include "UserInterface.h"
+#include "LevRuntimeInterface.h"
 
 using namespace Leviathan;
 
@@ -25,7 +25,7 @@ Leviathan::AppState ModelViewerPresenter::GetCurrentAppState()
 bool ModelViewerPresenter::Init(int width, int height, int handle /*= NULL*/)
 {
 	m_appState = EAS_INITING;
-	UserInterface::Init(width, height, handle);
+	LevRuntimeInterface::Init(width, height, handle);
 	m_appState = EAS_INITED;
 
 	return true;
@@ -36,13 +36,13 @@ void ModelViewerPresenter::Run()
 	m_appState = EAS_RUNNING;
 	while (true)
 	{
-		UserInterface::UpdatePresenter();
+		LevRuntimeInterface::Update();
 	}
 }
 
 void ModelViewerPresenter::Stop()
 {
-	UserInterface::Stop();
+	LevRuntimeInterface::Stop();
 }
 
 bool ModelViewerPresenter::UnInit()
@@ -52,18 +52,18 @@ bool ModelViewerPresenter::UnInit()
 
 int ModelViewerPresenter::GetWindowHandle()
 {
-	return UserInterface::GetData().windowHandle;
+	return LevRuntimeInterface::GetRuntimeData().windowHandle;
 }
 
 bool ModelViewerPresenter::LoadMeshFile(const char* filePath)
 {
-	return UserInterface::LoadMeshFile(filePath);
+	return LevRuntimeInterface::LoadMesh(filePath);
 }
 
 bool ModelViewerPresenter::LoadPointCloudFile(const char* filePath)
 {
 	LPtr<Scene::LevSceneNode> pNode;
-	return UserInterface::LoadPointCloudFile(filePath, pNode);
+	return LevRuntimeInterface::LoadPointCloud(filePath, pNode);
 }
 
 ModelViewerPresenter::ModelViewerPresenter():

@@ -2,8 +2,9 @@
 
 #include <memory>
 #include "GlobalDef.h"
-#include "LPtr.h"
+#include "PointCloud.h"
 #include "ViewData.h"
+#include "LPtr.h"
 
 class AABB;
 
@@ -34,6 +35,7 @@ namespace Leviathan
 
 		bool LoadMesh(const char* file, bool bResetCamera = true);
 		LPtr<Scene::LevSceneNode> LoadPointCloud(const char* file, bool bResetCamera = true);
+		LPtr<Scene::LevSceneNode> LoadPointCloud(const PointCloudf& point_cloud, bool bResetCamera = true);
 		void RemoveAllRenderables(bool bSync = false);
 
 	private:

@@ -87,9 +87,10 @@ namespace Leviathan
 			bool AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute);
 			const std::vector<LPtr<LevSceneObjectAttribute>>& GetObjAttributes() const;
 
+			bool HasObjectDesc() const;
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
-			LevSceneObjectDescription& GetObjDesc();
-			const LevSceneObjectDescription& GetObjDesc() const;
+			LevSceneObjectDescription& GetObjectDesc();
+			const LevSceneObjectDescription& GetObjectDesc() const;
 
 			void SetRecalculateWorldTransform(bool need);
 			bool NeedRecalculateWorldTransform() const;
@@ -99,6 +100,11 @@ namespace Leviathan
 			LPtr<LevTimer> GetTimer();
 			const LPtr<LevTimer> GetTimer() const;
 
+			/*
+				Warn:
+					World coord will be caluculate automatic by LevCalculateWorldCoordVisitor,
+					if you want to disable the process, please set m_recalculateWorldTransform to false.
+			*/
 			bool SetWorldTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetWorldTransform() const;
 
@@ -108,7 +114,11 @@ namespace Leviathan
 			bool SetLocalTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetLocalTransform() const;
 
+			bool SetEmpty();
+
 		private:
+			void _setBaseAttribute();
+
 			SceneObjectID m_ID;
 
 			bool m_modified;

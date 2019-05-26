@@ -12,6 +12,7 @@
 #include "LevSceneObjectAttribute.h"
 #include "LevRAttrObjectColor.h"
 #include "ILevWindow.h"
+#include "MeshImpl.h"
 
 namespace Leviathan
 {
@@ -104,6 +105,9 @@ namespace Leviathan
 		LPtr<Scene::LevMeshObject> pMeshObj = new Scene::LevMeshObject();
 		EXIT_IF_FALSE(pMeshObj->LoadMeshFile(file));
 
+		pSceneObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObj));
+		LPtr<Scene::LevSceneNode> pMeshNode = new Scene::LevSceneNode(pSceneObject);
+
 		// Reset primitive type to point
 		unsigned totalVertexCount = 0;
 		for (auto& pMesh : pMeshObj->GetMesh())
@@ -113,8 +117,55 @@ namespace Leviathan
 			totalVertexCount += pMesh->GetVertexCount();
 		}
 
+		// Add color attribute
+		LPtr<Scene::LevObjectColorData> pColorData = new Scene::LevObjectColorData();
+		pColorData->color_array = new float[3 * totalVertexCount];
+		pColorData->color_array_byte_size = 3 * totalVertexCount * sizeof(float);
+		for (unsigned i = 0; i < totalVertexCount; i++)
+		{
+			auto* color = pColorData->color_array + 3 * i;
+			float _temp = (i * 1.0f) / totalVertexCount;
+			color[0] = _temp;
+			color[1] = 1.0f - _temp;
+			color[2] = 0.0f;
+		}
+
+		EXIT_IF_FALSE(pMeshObj->SetColorData(Scene::ELOCT_COLOR_ARRAY, *pColorData));
+		sceneData.AddSceneNode(pMeshNode);
+
+		if (bResetCamera)
+		{
+			_resetCamera(pMeshObj->GetAABB());
+		}
+
+		return pMeshNode;
+	}
+
+	Leviathan::LPtr<Leviathan::Scene::LevSceneNode> View::LoadPointCloud(const PointCloudf& point_cloud, bool bResetCamera /*= true*/)
+	{
+		auto& sceneData = GetSceneData();
+		LPtr<Scene::LevSceneObject> pSceneObject = new Scene::LevSceneObject(Scene::ELSOT_DYNAMIC);
+		LPtr<Scene::LevMeshObject> pMeshObj = new Scene::LevMeshObject();
+
+		LPtr<MeshImpl> pMesh = new MeshImpl(point_cloud.m_pointCount, point_cloud.m_pointCount, IMesh::EPT_POINTS);
+		pMesh->SetVertexCoordData(point_cloud.m_pCoord->m_pData);
+		pMesh->SetVertexNormalData(point_cloud.m_pNormal->m_pData);
+		if (!pMeshObj->SetMesh(TryCast<MeshImpl, IMesh>(pMesh)))
+		{
+			return nullptr;
+		}
+
 		pSceneObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObj));
 		LPtr<Scene::LevSceneNode> pMeshNode = new Scene::LevSceneNode(pSceneObject);
+
+		// Reset primitive type to point
+		unsigned totalVertexCount = 0;
+		for (auto& pMesh : pMeshObj->GetMesh())
+		{
+			pMesh->SetPrimitiveType(IMesh::EPT_POINTS);
+			pMesh->SetPrimitiveCount(pMesh->GetVertexCount());
+			totalVertexCount += pMesh->GetVertexCount();
+		}
 
 		// Add color attribute
 		LPtr<Scene::LevObjectColorData> pColorData = new Scene::LevObjectColorData();

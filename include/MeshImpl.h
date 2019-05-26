@@ -5,6 +5,11 @@
 
 class AABB;
 
+/*
+	TODO:
+		Split mesh impl into trangleMesh and pointCloudMesh
+*/
+
 namespace Leviathan
 {
 	class MeshImpl : public IMesh
@@ -18,7 +23,7 @@ namespace Leviathan
 
 		unsigned GetPrimitiveCount();
 		void SetPrimitiveCount(unsigned count);
-
+		 
 		unsigned GetVertexCount();
 		unsigned* GetPrimitiveIndexArray();
 		float* GetVertex3DCoordArray();

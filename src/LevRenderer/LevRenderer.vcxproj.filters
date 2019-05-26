@@ -58,6 +58,9 @@
     <ClInclude Include="OpenGLEmptyObject.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLStateSet.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderer.cpp">

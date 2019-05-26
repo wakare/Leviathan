@@ -74,6 +74,22 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 
 	pMesh->SetVertexCoordData( vertexCoordData.m_pData);
 
+	if (mesh.HasNormals())
+	{
+		DynamicArray<float> vertexNormalData(mesh.mNumVertices * 3 * sizeof(float));
+		for (unsigned j = 0; j < mesh.mNumVertices; j++)
+		{
+			auto vertexCoord = mesh.mNormals[j];
+			float* pVertexData = vertexNormalData.m_pData + 3 * j;
+
+			pVertexData[0] = vertexCoord.x;
+			pVertexData[1] = vertexCoord.y;
+			pVertexData[2] = vertexCoord.z;
+		}
+
+		pMesh->SetVertexNormalData(vertexNormalData.m_pData);
+	}
+
 	if (mesh.HasFaces())
 	{
 		DynamicArray<unsigned> indexData(mesh.mNumFaces * 3 * sizeof(unsigned));

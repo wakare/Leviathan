@@ -3,15 +3,16 @@
 
 namespace Leviathan
 {
-	MeshImpl::MeshImpl(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type) :
-		m_vertexNumber(uVertexCount),
-		m_primitiveNumber(uPrimitiveCount),
-		m_vertexCoords(nullptr),
-		m_primitiveIndex(nullptr),
-		m_vertexColorData(nullptr),
-		m_vertexTexData(nullptr),
-		m_pMaterial(nullptr),
-		m_primitiveType(type)
+	MeshImpl::MeshImpl(size_t uVertexCount, size_t uPrimitiveCount, EPrimitiveType type) 
+		: m_vertexNumber(uVertexCount)
+		, m_primitiveNumber(uPrimitiveCount)
+		, m_vertexCoords(nullptr)
+		, m_primitiveIndex(nullptr)
+		, m_vertexColorData(nullptr)
+		, m_vertexTexData(nullptr)
+		, m_pMaterial(nullptr)
+		, m_primitiveType(type)
+		, m_bAABBInited(false)
 	{
 
 	}
@@ -138,6 +139,12 @@ namespace Leviathan
 	{
 		float AABBData[6];
 		bool bInited = false;
+
+		if (m_vertexNumber == 0)
+		{
+			memset(AABBData, 0, sizeof(AABBData));
+			bInited = true; 
+		}
 
 		// Traverse vertex coord
 		for (unsigned i = 0; i < m_vertexNumber; i++)

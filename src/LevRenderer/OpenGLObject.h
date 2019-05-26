@@ -35,6 +35,9 @@ namespace Leviathan
 			GLuint GetVertexCount();
 			GLuint GetVertexMask();
 
+			void SetVisible(bool visible);
+			bool GetVisible() const;
+
 			void SetMaterial(LPtr<OpenGLMaterial> pMaterial);
 			bool ApplyMaterial(GLuint shaderProgram);
 
@@ -44,11 +47,17 @@ namespace Leviathan
 			void RemoveUniform(LPtr<OpenGLUniform> pUniform);
 			bool ApplyUniform(GLuint shaderProgram);
 
+			void AddPreProcess(std::function<void()> fn);
+			void AddPostProcess(std::function<void()> fn);
+
+			bool PreProcess();
+			bool PostProcess();
+
 			virtual bool Init() = 0;
 			virtual bool Update() = 0;
 			virtual bool Render(GLuint shaderProgram) = 0;
 
-		protected:
+		protected: 
 			const unsigned m_ID;
 			GLuint m_VAO;
 			GLuint m_VBO;
@@ -57,8 +66,13 @@ namespace Leviathan
 			GLuint m_vertexCount;
 			GLint m_vertexAttributeMask;
 
+			bool m_visible;
+
 			LPtr<OpenGLMaterial> m_pMaterial;
 			std::vector<LPtr<OpenGLUniform>> m_pUniforms;
+
+			std::vector<std::function<void()>> m_preprocess_fns;
+			std::vector<std::function<void()>> m_postprocess_fns;
 		};
 	}
 }

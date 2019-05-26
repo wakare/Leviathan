@@ -103,7 +103,7 @@ namespace Leviathan
 
 			case TYPE_UNSIGNED_INTEGER:
 			{
-				glUniform1i(uniformLocation, m_uintData);
+				glUniform1ui(uniformLocation, m_uintData);
 				break;
 			}
 			

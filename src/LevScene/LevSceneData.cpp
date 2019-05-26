@@ -40,10 +40,9 @@ namespace Leviathan
  			};
  
  			LPtr<LevTimer> pCameraTimer = new LevTimer(16.6f, _camera_timeOut);
- 			pCamera->SetTimer(pCameraTimer);
+ 			//pCamera->SetTimer(pCameraTimer);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
-			pLight->SetModifiedCallback(m_modifiedCallback);
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });

@@ -33,6 +33,7 @@
     <ClInclude Include="OpenGLRenderer.h" />
     <ClInclude Include="OpenGLResourceMgr.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
+    <ClInclude Include="OpenGLStateSet.h" />
     <ClInclude Include="OpenGLTexture.h" />
     <ClInclude Include="OpenGLUniform.h" />
   </ItemGroup>

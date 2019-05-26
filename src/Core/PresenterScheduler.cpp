@@ -2,7 +2,7 @@
 
 #include "ModelScheduler.h"
 #include "ViewScheduler.h"
-#include "UserInterface.h"
+#include "LevRuntimeInterface.h"
 #include "ToolModule.h"
 
 namespace Leviathan
@@ -11,7 +11,7 @@ namespace Leviathan
 		m_done(false),
 		m_pModelScheduler(new ModelScheduler),
 		m_pViewScheduler(new ViewScheduler),
-		m_pUserInterface(new UserInterface),
+		m_pUserInterface(new LevRuntimeInterface),
 		m_pToolModule(new ToolModule)
 	{
 		// Presenter main loop coroutine
@@ -25,7 +25,7 @@ namespace Leviathan
 			LogLine("[PRESENTER_MAIN_LOOP] Exit!");
 		};
 
-		DoTask(_mainLoop);
+		DoAsyncTask(_mainLoop);
 	}
 
 	PresenterScheduler & PresenterScheduler::Instance()
@@ -62,7 +62,7 @@ namespace Leviathan
 		return *m_pViewScheduler;
 	}
 
-	Leviathan::UserInterface& PresenterScheduler::GetUserInterface()
+	Leviathan::LevRuntimeInterface& PresenterScheduler::GetUserInterface()
 	{
 		return *m_pUserInterface;
 	}

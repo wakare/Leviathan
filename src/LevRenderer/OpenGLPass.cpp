@@ -83,7 +83,12 @@ namespace Leviathan
 			m_bLightEnable = bOpen; 
 		}
 
-		void OpenGLPass::SetDepthTestEnable(GLboolean bDepthTestEnable) 
+		GLboolean OpenGLPass::GetLightEnable() const
+		{
+			return m_bLightEnable;
+		}
+
+		void OpenGLPass::SetDepthTestEnable(GLboolean bDepthTestEnable)
 		{ 
 			m_bDepthTestEnable = bDepthTestEnable; 
 		}

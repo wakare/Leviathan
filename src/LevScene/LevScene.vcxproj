@@ -29,7 +29,11 @@
     <ClInclude Include="LevMeshObject.h" />
     <ClInclude Include="LevPointLight.h" />
     <ClInclude Include="LevLRAttrWorldTransform.h" />
+    <ClInclude Include="LevRAttrDepthFunc.h" />
+    <ClInclude Include="LevRAttrLightEnable.h" />
     <ClInclude Include="LevRAttrObjectColor.h" />
+    <ClInclude Include="LevRAttrPointSize.h" />
+    <ClInclude Include="LevRAttrVisible.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
     <ClInclude Include="LevSceneData.h" />
@@ -57,7 +61,11 @@
     <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
     <ClCompile Include="LevLRAttrWorldTransform.cpp" />
+    <ClCompile Include="LevRAttrDepthFunc.cpp" />
+    <ClCompile Include="LevRAttrLightEnable.cpp" />
     <ClCompile Include="LevRAttrObjectColor.cpp" />
+    <ClCompile Include="LevRAttrPointSize.cpp" />
+    <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />

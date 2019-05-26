@@ -17,7 +17,7 @@ namespace Leviathan
 			auto& nodeData = node.GetNodeData();
 			if (nodeData->HasModified() && nodeData->NeedRecalculateWorldTransform())
 			{
-				curWorldTransform = nodeData->GetLocalTransform() * curWorldTransform;
+				curWorldTransform = curWorldTransform * nodeData->GetLocalTransform();
 				nodeData->SetWorldTransform(curWorldTransform);
 			}
 

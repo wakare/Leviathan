@@ -40,7 +40,7 @@ namespace Leviathan
 			m_mesh.push_back(pMesh);
 			_updateAABB();
 
-			return false;
+			return true;
 		}
 
 		const std::vector<LPtr<IMesh>>& LevMeshObject::GetMesh() const

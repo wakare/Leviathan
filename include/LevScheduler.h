@@ -12,9 +12,9 @@ namespace Leviathan
 	class LevScheduler
 	{
 	public:
-		void DoTask(LPtr<LevTaskTemplate<T>> task);
-		void DoTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
-		void DoTask(std::function<void(CoPullType<T>&)> func);
+		void DoAsyncTask(LPtr<LevTaskTemplate<T>> task);
+		void DoAsyncTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
+		void DoAsyncTask(std::function<void(CoPullType<T>&)> func);
 
 		bool DoSyncTask(LPtr<LevTaskTemplate<T>> task);
 		bool DoSyncTask(std::function<void(CoPullType<T>&)> func);

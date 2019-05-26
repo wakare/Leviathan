@@ -36,6 +36,7 @@ namespace Leviathan
 			void AddPostProcess(Process process);
 			void SetPolygonMode(GLuint nPolygonMode);
 			void SetLightEnable(GLboolean bOpen);
+			GLboolean GetLightEnable() const;
 			void SetDepthTestEnable(GLboolean bDepthTestEnable);
 
 			void AddUniform(LPtr<OpenGLUniform> pUniform);

@@ -10,9 +10,9 @@
 
 namespace Leviathan
 {
-	ViewScheduler::ViewScheduler():
-		m_done(false),
-		 m_pView(nullptr)
+	ViewScheduler::ViewScheduler()
+		: m_done(false)
+		, m_pView(nullptr)
 	{
 		auto _mainLoop = [this](CoPullType<int>& sink)
 		{
@@ -27,9 +27,9 @@ namespace Leviathan
 			}
 
 			LogLine("[VIEW_MAIN_LOOP] Exit!");
-		};
+		}; 
 
-		DoTask(_mainLoop);
+		DoAsyncTask(_mainLoop);
 	}
 
 	void ViewScheduler::Update()
@@ -42,7 +42,7 @@ namespace Leviathan
 		m_done = true;
 	}
 
-	bool ViewScheduler::Init(int width, int height, int parentHandle)
+	bool ViewScheduler::Sync_Init(int width, int height, int parentHandle)
 	{
 		m_pView.reset(new View());
 		EXIT_IF_FALSE(m_pView->Init(width, height, parentHandle));
@@ -50,16 +50,16 @@ namespace Leviathan
 		return true;
 	}
 
-	int ViewScheduler::GetWindowHandle()
+	int ViewScheduler::Sync_GetWindowHandle()
 	{
 		return m_pView->GetWindowHandle();
 	}
 
-	bool ViewScheduler::LoadMeshFile(const char* file)
+	bool ViewScheduler::Async_LoadMeshFile(const char* file)
 	{
 		std::string path(file);
 
-		DoTask([this, path](CoPullType<int>& sink)
+		DoAsyncTask([this, path](CoPullType<int>& sink)
 			{
 				m_pView->LoadMesh(path.c_str());
 			});
@@ -67,15 +67,13 @@ namespace Leviathan
 		return true;
 	}
 
-	bool ViewScheduler::LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out)
+	bool ViewScheduler::Sync_LoadPointCloudFile(const char* file, LPtr<Scene::LevSceneNode>& out)
 	{
+		// Check call thread is the same as create thread
+		EXIT_IF_FALSE(!IsCreateThread());
+
 		std::string path(file);
-
-		// Check call thread is the same as lev main module thread
-		auto mainModuleThreadId = PresenterScheduler::Instance().GetToolModule().GetMainModuleThreadID();
-		auto callThreadId = std::this_thread::get_id();
-		EXIT_IF_FALSE(mainModuleThreadId != callThreadId);
-
+		out = m_pView->LoadPointCloud(path.c_str());
 		DoSyncTask([this, &path, &out](CoPullType<int>& sink)
 			{
 				out = m_pView->LoadPointCloud(path.c_str());
@@ -84,9 +82,21 @@ namespace Leviathan
 		return true;
 	}
 
-	bool ViewScheduler::AddNode(LPtr<Scene::LevSceneNode> pNode)
+	bool ViewScheduler::Sync_LoadPointCloud(const PointCloudf& point_cloud, LPtr<Scene::LevSceneNode>& out)
 	{
-		DoTask([this, pNode] (CoPullType<int>& sink)
+		// Check call thread is the same as create thread
+		EXIT_IF_FALSE(!IsCreateThread());
+		DoSyncTask([this, &point_cloud, &out](CoPullType<int>& sink)
+			{
+				out = m_pView->LoadPointCloud(point_cloud);
+			});
+
+		return true;
+	}
+
+	bool ViewScheduler::Async_AddNode(LPtr<Scene::LevSceneNode> pNode)
+	{
+		DoAsyncTask([this, pNode] (CoPullType<int>& sink)
 			{
 				auto& sceneData = m_pView->GetSceneData();
 				sceneData.AddSceneNode(pNode);
@@ -95,7 +105,7 @@ namespace Leviathan
 		return true;
 	}
 
-	bool ViewScheduler::LoadCustomMesh(LPtr<IMesh> pMesh)
+	bool ViewScheduler::Async_LoadCustomMesh(LPtr<IMesh> pMesh)
 	{
 		LPtr<Scene::LevMeshObject> pMeshObject = new Scene::LevMeshObject();
 		pMeshObject->SetMesh(pMesh);
@@ -104,9 +114,9 @@ namespace Leviathan
 		pObject->SetObjectDesc(TryCast<Scene::LevMeshObject, Scene::LevSceneObjectDescription>(pMeshObject));
 
 		LPtr<Scene::LevSceneNode> pNode = new Scene::LevSceneNode(pObject);
-		DoTask([this, pNode](Leviathan::CoPullType<int>&)
+		DoAsyncTask([this, pNode](Leviathan::CoPullType<int>&)
 			{
-				AddNode(pNode);
+				Async_AddNode(pNode);
 			});
 
 		return true;

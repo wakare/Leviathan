@@ -167,6 +167,7 @@
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LevOcTree.cpp" />
     <ClCompile Include="RenderWindow.cpp" />
+    <ClCompile Include="ThreadRecorder.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -212,6 +213,7 @@
     <ClInclude Include="..\..\include\PointCloud.hpp" />
     <ClInclude Include="..\..\include\RenderWindow.h" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
+    <ClInclude Include="..\..\include\ThreadRecorder.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />

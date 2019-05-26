@@ -16,7 +16,7 @@ namespace Leviathan
 			m_vertexAttributeMask(vertexMask),
 			m_pMaterial(pMaterial)
 		{
-			
+			SetVisible(true);
 		}
 
 		OpenGLObject::~OpenGLObject() 
@@ -58,7 +58,17 @@ namespace Leviathan
 			return m_vertexAttributeMask;
 		}
 
-		void OpenGLObject::SetMaterial(LPtr<OpenGLMaterial> pMaterial) 
+		void OpenGLObject::SetVisible(bool visible)
+		{
+			m_visible = visible;
+		}
+
+		bool OpenGLObject::GetVisible() const
+		{
+			return m_visible;
+		}
+
+		void OpenGLObject::SetMaterial(LPtr<OpenGLMaterial> pMaterial)
 		{
 			m_pMaterial = pMaterial; 
 		}
@@ -93,6 +103,36 @@ namespace Leviathan
 			for (auto& pUniform : m_pUniforms)
 			{
 				EXIT_IF_FALSE(pUniform->Apply(shaderProgram));
+			}
+
+			return true;
+		}
+
+		void OpenGLObject::AddPreProcess(std::function<void()> fn)
+		{
+			m_preprocess_fns.push_back(fn);
+		}
+
+		void OpenGLObject::AddPostProcess(std::function<void()> fn)
+		{
+			m_postprocess_fns.push_back(fn);
+		}
+
+		bool OpenGLObject::PreProcess()
+		{
+			for (auto& fn : m_preprocess_fns)
+			{
+				fn();
+			}
+
+			return true;
+		}
+
+		bool OpenGLObject::PostProcess()
+		{
+			for (auto& fn : m_postprocess_fns)
+			{
+				fn();
 			}
 
 			return true;

@@ -109,6 +109,18 @@
     <ClInclude Include="LevTimerTickVisitor.h">
       <Filter>Source Files\SceneVisitor</Filter>
     </ClInclude>
+    <ClInclude Include="LevRAttrPointSize.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrDepthFunc.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrVisible.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrLightEnable.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -188,6 +200,18 @@
     </ClCompile>
     <ClCompile Include="LevTimerTickVisitor.cpp">
       <Filter>Source Files\SceneVisitor</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrPointSize.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrDepthFunc.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrVisible.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrLightEnable.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

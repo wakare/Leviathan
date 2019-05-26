@@ -24,10 +24,7 @@ namespace Leviathan
 			static unsigned _globalID = 0;
 			m_ID = _globalID++;
 
-			// Add transforms
-			m_pAttributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
-			m_pAttributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
-			m_pAttributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
+			_setBaseAttribute();
 		}
 
 		LevSceneObject::~LevSceneObject()
@@ -90,18 +87,23 @@ namespace Leviathan
 			return m_pAttributes;
 		}
 
+		bool LevSceneObject::HasObjectDesc() const
+		{
+			return m_pObjDesc.Get();
+		}
+
 		bool LevSceneObject::SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc)
 		{
 			m_pObjDesc.Reset(pObjDesc);
 			return true;
 		}
 
-		LevSceneObjectDescription & LevSceneObject::GetObjDesc()
+		LevSceneObjectDescription & LevSceneObject::GetObjectDesc()
 		{
 			return *m_pObjDesc;
 		}
 
-		const LevSceneObjectDescription & LevSceneObject::GetObjDesc() const
+		const LevSceneObjectDescription & LevSceneObject::GetObjectDesc() const
 		{
 			LEV_ASSERT(m_pObjDesc.Get());
 			return *m_pObjDesc;
@@ -169,6 +171,31 @@ namespace Leviathan
 		{
 			LEV_ASSERT(m_pLocalTransform.Get());
 			return m_pLocalTransform->GetMatrix();
+		}
+
+		bool LevSceneObject::SetEmpty()
+		{
+			// Clear run time data.
+			m_pObjDesc.Reset(nullptr);
+			m_pTimer.Reset(nullptr);
+			m_pAttributes.clear();
+			
+			m_pLocalTransform->Reset();
+			m_pModelTransform->Reset();
+			m_pWorldTransform->Reset();
+			_setBaseAttribute();
+
+			SetState(ELSOS_UPDATE);
+
+			return true;
+		}
+
+		void LevSceneObject::_setBaseAttribute()
+		{
+			// Add transforms
+			m_pAttributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
+			m_pAttributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
+			m_pAttributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
 		}
 	}
 }

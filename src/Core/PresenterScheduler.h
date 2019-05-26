@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	class ModelScheduler;
 	class ViewScheduler;
-	class UserInterface;
+	class LevRuntimeInterface;
 	class ToolModule;
 
 	class PresenterScheduler : public LevScheduler<int>
@@ -24,7 +24,7 @@ namespace Leviathan
 
 		ModelScheduler& GetModelScheduler();
 		ViewScheduler& GetViewScheduler();
-		UserInterface& GetUserInterface();
+		LevRuntimeInterface& GetUserInterface();
 		ToolModule& GetToolModule();
 		const AppState& GetAppState() const;  
 
@@ -36,7 +36,7 @@ namespace Leviathan
 
 		LPtr<ModelScheduler> m_pModelScheduler;
 		LPtr<ViewScheduler> m_pViewScheduler;
-		LPtr<UserInterface> m_pUserInterface;
+		LPtr<LevRuntimeInterface> m_pUserInterface;
 		LPtr<ToolModule> m_pToolModule;
 	};
 }

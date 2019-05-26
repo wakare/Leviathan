@@ -76,6 +76,13 @@ namespace Leviathan
 			{
 				for (auto& pObject : pObjectSet.second)
 				{
+					if (!pObject->GetVisible())
+					{
+						continue;
+					}
+
+					pObject->PreProcess();
+
 					OpenGL3DObject* p3dObject = dynamic_cast<OpenGL3DObject*>(pObject.Get());
 					if (p3dObject)
 					{
@@ -86,6 +93,8 @@ namespace Leviathan
 					m_pGLShaderProgram->SetGLUniformState();
 					pObject->Update();
 					pObject->Render(program);
+
+					pObject->PostProcess();
 				}
 			}
 
