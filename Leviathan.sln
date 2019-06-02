@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0_External", "0_External", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_LeviathanBase", "1_LeviathanBase", "{77840663-B0DF-4184-95BB-8F7957820628}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_LeviathanTest", "2_LeviathanTest", "{47E0B754-34D6-499A-AC21-EDD064A4E6B7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_LeviathanViewer", "2_LeviathanViewer", "{47E0B754-34D6-499A-AC21-EDD064A4E6B7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "glew", "3rdparty\glew\glew.vcxproj", "{C7217F52-1918-4B1F-9F12-810B8C2710ED}"
 EndProject

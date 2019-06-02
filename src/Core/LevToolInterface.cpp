@@ -2,7 +2,11 @@
 #include "PresenterScheduler.h"
 #include "ViewScheduler.h"
 #include "FileImportFactory.h"
-#include "PointCloud.h"
+#include "LevSceneObject.h"
+#include "LevMeshObject.h"
+#include "GlobalDef.h"
+#include "MeshImpl.h"
+#include "LevSceneNode.h"
 
 namespace Leviathan
 {
@@ -51,6 +55,30 @@ namespace Leviathan
 	bool LevToolInterface::LoadMesh(const char* file, std::vector<LPtr<IMesh>>& out)
 	{
 		out = FileImportFactory::GetFileImportFactory()->LoadFile(file);
+		return true;
+	}
+
+	bool LevToolInterface::SetPointCloudData(LPtr<PointCloudf> point_cloud, LPtr<Scene::LevSceneNode> out_node)
+	{
+		EXIT_IF_FALSE(out_node);
+
+		LPtr<MeshImpl> mesh = new MeshImpl(point_cloud->m_pointCount, 0, IMesh::EPT_POINTS);
+		mesh->SetVertexCoordData(point_cloud->m_pCoord->m_pData);
+		mesh->SetVertexNormalData(point_cloud->m_pNormal->m_pData);
+		std::vector<LPtr<IMesh>> meshes; meshes.push_back(TryCast<MeshImpl, IMesh>(mesh));
+
+		EXIT_IF_FALSE(SetMeshData(meshes, out_node));
+
+		return true;
+	}
+
+	bool LevToolInterface::SetMeshData(const std::vector<LPtr<IMesh>>& point_cloud, LPtr<Scene::LevSceneNode> out_node)
+	{
+		auto& obj_desc = out_node->GetNodeData()->GetObjectDesc();
+		Scene::LevMeshObject* mesh_object = dynamic_cast<Scene::LevMeshObject*>(&obj_desc);
+		EXIT_IF_FALSE(mesh_object);
+
+		mesh_object->SetMesh(point_cloud);
 		return true;
 	}
 

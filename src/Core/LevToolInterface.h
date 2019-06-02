@@ -3,7 +3,9 @@
 */
 
 #pragma once
+#include <vector>
 #include "LPtr.h"
+#include "PointCloud.h"
 
 namespace Leviathan
 {
@@ -13,12 +15,14 @@ namespace Leviathan
 	}
 
 	class IMesh;
-	class PointCloudf;
 
 	class LevToolInterface
 	{
 	public:
 		static bool LoadPointCloudFile(const char * file, LPtr<PointCloudf>& out);
-		static bool LoadMesh(const char* file, LPtr<IMesh>& out);
+		static bool LoadMesh(const char* file, std::vector<LPtr<IMesh>>& out);
+
+		static bool SetPointCloudData(LPtr<PointCloudf> point_cloud, LPtr<Scene::LevSceneNode> out_node);
+		static bool SetMeshData(const std::vector<LPtr<IMesh>>& point_cloud, LPtr<Scene::LevSceneNode> out_node);
 	};
 }
