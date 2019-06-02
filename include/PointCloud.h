@@ -22,7 +22,7 @@ namespace Leviathan
 		LPtr<DynamicArray<scalar>> m_pNormal;
 	};
 	
-	#define PointCloudf PointCloud<float>
+	typedef PointCloud<float> PointCloudf;
 }
 
 #include "PointCloud.hpp"

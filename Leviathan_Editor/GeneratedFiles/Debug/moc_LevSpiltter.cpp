@@ -63,7 +63,7 @@ void LevSpiltter::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 }
 
 QT_INIT_METAOBJECT const QMetaObject LevSpiltter::staticMetaObject = { {
-    &QMainWindow::staticMetaObject,
+    &QSplitter::staticMetaObject,
     qt_meta_stringdata_LevSpiltter.data,
     qt_meta_data_LevSpiltter,
     qt_static_metacall,
@@ -82,12 +82,12 @@ void *LevSpiltter::qt_metacast(const char *_clname)
     if (!_clname) return nullptr;
     if (!strcmp(_clname, qt_meta_stringdata_LevSpiltter.stringdata0))
         return static_cast<void*>(this);
-    return QMainWindow::qt_metacast(_clname);
+    return QSplitter::qt_metacast(_clname);
 }
 
 int LevSpiltter::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = QMainWindow::qt_metacall(_c, _id, _a);
+    _id = QSplitter::qt_metacall(_c, _id, _a);
     return _id;
 }
 QT_WARNING_POP

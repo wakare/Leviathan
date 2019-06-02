@@ -36,7 +36,10 @@
     <ClCompile Include="Leviathan_Editor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LevSpiltter.cpp">
+    <ClCompile Include="LevListView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevAttributeWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,15 +47,9 @@
     <QtMoc Include="Leviathan_Editor.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="LevSpiltter.h">
-      <Filter>Header Files</Filter>
-    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="Leviathan_Editor.ui">
-      <Filter>Form Files</Filter>
-    </QtUic>
-    <QtUic Include="LevSpliter.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -65,8 +62,11 @@
     <ClInclude Include="GeneratedFiles\ui_Leviathan_Editor.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="GeneratedFiles\ui_LevSpliter.h">
-      <Filter>Generated Files</Filter>
+    <ClInclude Include="LevListView.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevAttributeWidget.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,7 +1,11 @@
 #include <QLabel>
 #include <QLayout>
+#include <QLineEdit>
+#include <QSplitter>
 
 #include "Leviathan_Editor.h"
+#include "QSizePolicy"
+#include "LevAttributeWidget.h"
 
 Leviathan_Editor::Leviathan_Editor(QWidget *parent)
 	: QMainWindow(parent)
@@ -14,22 +18,28 @@ Leviathan_Editor::Leviathan_Editor(QWidget *parent)
 
 void Leviathan_Editor::_setupWidget()
 {
-	// Test label
-	QLabel* m_test_label0 = new QLabel;
-	QLabel* m_test_label1 = new QLabel;
+	m_openGL_widget.reset(new QOpenGLWidget);
+	m_runtime_object_list_view.reset(new LevListView);
+	m_resource_list_view.reset(new LevListView);
+	m_attribute_view.reset(new LevAttributeWidget);
 
-	m_test_label0->setText(QString("This is label 0."));
-	m_test_label1->setText(QString("This is label 1."));
-
-	QLayout* central_layout = new QGridLayout(this);
-
-	// Init main splitter
-	m_main_splitter.reset(new LevSpiltter(Qt::Vertical, m_test_label0, m_test_label1, ui.centralWidget));
+	m_main_splitter.reset(new QSplitter(Qt::Horizontal, ui.centralWidget));
+	m_middle_splitter.reset(new QSplitter(Qt::Vertical));
 	
-	central_layout->addWidget(m_main_splitter.get());
-	ui.centralWidget->setLayout(central_layout);
+	m_middle_splitter->addWidget(m_openGL_widget.get());
+	m_middle_splitter->addWidget(m_resource_list_view.get());
+	m_middle_splitter->setStretchFactor(0, 5);
+	m_middle_splitter->setStretchFactor(1, 1);
 
-// 	QVBoxLayout* vbox_layout = new  QVBoxLayout;
-// 	m_main_splitter->setLayout(vbox_layout);
-// 	setCentralWidget(m_main_splitter.get());
+	m_main_splitter->addWidget(m_runtime_object_list_view.get());
+	m_main_splitter->addWidget(m_middle_splitter.get());
+	m_main_splitter->addWidget(m_attribute_view.get());
+	
+	m_main_splitter->setStretchFactor(0, 1);
+	m_main_splitter->setStretchFactor(1, 5);
+	m_main_splitter->setStretchFactor(2, 1);
+
+	ui.centralWidget->setLayout(new QGridLayout);
+	ui.centralWidget->layout()->addWidget(m_main_splitter.get());
+	//ui.centralWidget->setBackgroundRole(QPalette::Dark);
 }

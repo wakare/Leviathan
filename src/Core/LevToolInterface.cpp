@@ -2,6 +2,7 @@
 #include "PresenterScheduler.h"
 #include "ViewScheduler.h"
 #include "FileImportFactory.h"
+#include "PointCloud.h"
 
 namespace Leviathan
 {
@@ -44,6 +45,12 @@ namespace Leviathan
 		delete[] coord_data;
 		delete[] normal_data;
 
+		return true;
+	}
+
+	bool LevToolInterface::LoadMesh(const char* file, std::vector<LPtr<IMesh>>& out)
+	{
+		out = FileImportFactory::GetFileImportFactory()->LoadFile(file);
 		return true;
 	}
 
