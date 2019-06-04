@@ -1,12 +1,14 @@
+#include "Leviathan_Editor.h"
+
 #include <thread>
 #include <QLabel>
 #include <QLayout>
 #include <QLineEdit>
 #include <QSplitter>
+#include <QSizePolicy>
 
-#include "Leviathan_Editor.h"
-#include "QSizePolicy"
 #include "LevAttributeWidget.h"
+#include "LevScene.h"
 
 Leviathan_Editor::Leviathan_Editor(QWidget *parent)
 	: QMainWindow(parent)
@@ -70,7 +72,9 @@ void Leviathan_Editor::SLOT_UPDATE()
 	if (!_proxy_inited && m_leviathan_proxy && m_leviathan_proxy->HasInited())
 	{
 		_leviathan_initialized();
+
 		_proxy_inited = true;
+		return;
 	}
 }
 
@@ -82,6 +86,19 @@ void Leviathan_Editor::_widget_initialized()
 void Leviathan_Editor::_leviathan_initialized()
 {
 	SLOT_RESIZE();
+
+	auto _scene_modified_callback = [this]()
+	{
+		_update_runtime_scene_object();
+	};
+
+	m_leviathan_proxy->GetScene().RegisterModifiedCallback(_scene_modified_callback);
+	_update_runtime_scene_object();
+}
+
+void Leviathan_Editor::_update_runtime_scene_object()
+{
+	m_runtime_object_list_view->SetSceneData(m_leviathan_proxy->GetScene().GetSceneData());
 }
 
 void Leviathan_Editor::_attachRenderer()
@@ -108,7 +125,7 @@ void Leviathan_Editor::_attachRenderer()
 void Leviathan_Editor::_setupWidget()
 {
 	m_openGL_widget.reset(new QOpenGLWidget);
-	m_runtime_object_list_view.reset(new LevListView);
+	m_runtime_object_list_view.reset(new LevSceneObjectListView);
 	m_resource_list_view.reset(new LevListView);
 	m_attribute_view.reset(new LevAttributeWidget);
 

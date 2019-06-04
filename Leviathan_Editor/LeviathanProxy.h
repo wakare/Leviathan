@@ -24,6 +24,8 @@ public:
 	void Update();
 
 	unsigned GetWindowHandle() const;
+	Scene::LevScene& GetScene();
+	const Scene::LevScene& GetScene() const;
 
 private:
 	bool _initScene();

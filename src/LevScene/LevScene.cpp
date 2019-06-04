@@ -33,9 +33,17 @@ namespace Leviathan
 			m_pSceneData->UpdateWorldTransform();
 		}
 
-		void LevScene::UpdateTimer()
+		void LevScene::Update()
 		{
 			m_pSceneData->UpdateTimer();
+
+			if (HasModified())
+			{
+				for (auto& callback : m_scene_modified_callbacks)
+				{
+					callback();
+				}
+			}
 		}
 
 		void LevScene::SetNodeModified()
@@ -74,6 +82,11 @@ namespace Leviathan
 		void LevScene::ResetModified()
 		{
 			m_pSceneData->ResetUnModified();
+		}
+
+		void LevScene::RegisterModifiedCallback(LevSceneModifiedCallback callback)
+		{
+			m_scene_modified_callbacks.push_back(callback);
 		}
 
 	}

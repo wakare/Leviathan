@@ -49,7 +49,7 @@ namespace Leviathan
 		{
 			m_event_system->DispatchEvent();
 			m_window->Update();
-			m_current_scene->UpdateTimer();
+			m_current_scene->Update();
 
 			if (m_current_scene->HasModified())
 			{

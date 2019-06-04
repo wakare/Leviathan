@@ -9,6 +9,7 @@
 #include "LevListView.h"
 #include "LevAttributeWidget.h"
 #include "LeviathanProxy.h"
+#include "LevSceneObjectListView.h"
 
 class Leviathan_Editor : public QMainWindow
 {
@@ -28,6 +29,7 @@ protected:
 private:
 	void _widget_initialized();
 	void _leviathan_initialized();
+	void _update_runtime_scene_object();
 	void _attachRenderer();
 	void _setupWidget();
 
@@ -38,7 +40,7 @@ private:
 	QScopedPointer<QSplitter> m_sub_splitter;
 
 	QScopedPointer<QOpenGLWidget> m_openGL_widget;
-	QScopedPointer<LevListView> m_runtime_object_list_view;
+	QScopedPointer<LevSceneObjectListView> m_runtime_object_list_view;
 	QScopedPointer<LevListView> m_resource_list_view;
 	QScopedPointer<LevAttributeWidget> m_attribute_view;
 

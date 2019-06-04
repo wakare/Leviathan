@@ -56,3 +56,13 @@ unsigned LeviathanProxy::GetWindowHandle() const
 {
 	return m_viewer->GetRenderWindow().GetWindowHandle();
 }
+
+Leviathan::Scene::LevScene& LeviathanProxy::GetScene()
+{
+	return *m_main_scene;
+}
+
+const Leviathan::Scene::LevScene& LeviathanProxy::GetScene() const
+{
+	return *m_main_scene;
+}

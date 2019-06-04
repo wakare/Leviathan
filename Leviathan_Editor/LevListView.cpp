@@ -10,15 +10,18 @@ LevListView::LevListView(QWidget * parent)
 
 	auto listView_inited = _initListView();
 	LEV_ASSERT(listView_inited);
+}
 
-	// Test add item
-	QStandardItem* item0 = new QStandardItem;
-	item0->setText(QString("Item"));
-	m_standard_model->appendRow(item0);
+void LevListView::ClearCurrentItems()
+{
+	m_items.clear();
+	m_standard_model->clear();
+}
 
-	QStandardItem* item1 = new QStandardItem;
-	item1->setText(QString("Item"));
-	m_standard_model->appendRow(item1);
+void LevListView::AddListItem(std::unique_ptr<QStandardItem> item)
+{
+	m_standard_model->appendRow(item.get());
+	m_items.push_back(std::move(item));
 }
 
 bool LevListView::_initStandardModel()
