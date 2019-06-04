@@ -59,6 +59,8 @@ void Leviathan_Editor::closeEvent(QCloseEvent * event)
 	{
 		Sleep(100);
 	}
+
+	QMainWindow::closeEvent(event);
 }
 
 void Leviathan_Editor::SLOT_UPDATE()
@@ -93,10 +95,12 @@ void Leviathan_Editor::_attachRenderer()
 			m_leviathan_proxy.Reset(new LeviathanProxy);
 			m_leviathan_proxy->Init(width, height, handle);
 
-			while (true)
+			while (!m_leviathan_proxy->HasStoped())
 			{
 				m_leviathan_proxy->Update();
 			}
+
+			LogLine("[DEBUG] Exit leviathan proxy.");
 		});
 	_lev_render_thread.detach();
 }

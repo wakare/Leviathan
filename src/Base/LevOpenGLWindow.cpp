@@ -75,12 +75,13 @@ namespace Leviathan
 		}
 
 		glfwPollEvents();
-		m_bStopped = true;
 	}
 
 	void LevOpenGLWindow::SetStop()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
+
+		m_bStopped = true;
 	}
 
 	bool LevOpenGLWindow::Stoped()
