@@ -5,8 +5,10 @@
 #include <QScopedPointer>
 #include <QOpenGLWidget>
 #include <QSplitter>
+#include <QTimer>
 #include "LevListView.h"
 #include "LevAttributeWidget.h"
+#include "LeviathanProxy.h"
 
 class Leviathan_Editor : public QMainWindow
 {
@@ -15,7 +17,18 @@ class Leviathan_Editor : public QMainWindow
 public:
 	Leviathan_Editor(QWidget *parent = Q_NULLPTR);
 
+public slots:
+	void SLOT_RESIZE();
+	void SLOT_UPDATE();
+
+protected:
+	virtual void resizeEvent(QResizeEvent *event);
+	virtual void closeEvent(QCloseEvent *event);
+
 private:
+	void _widget_initialized();
+	void _leviathan_initialized();
+	void _attachRenderer();
 	void _setupWidget();
 
 	Ui::Leviathan_EditorClass ui;
@@ -28,4 +41,7 @@ private:
 	QScopedPointer<LevListView> m_runtime_object_list_view;
 	QScopedPointer<LevListView> m_resource_list_view;
 	QScopedPointer<LevAttributeWidget> m_attribute_view;
+
+	QScopedPointer<QTimer> m_timer;
+	LPtr<LeviathanProxy> m_leviathan_proxy;
 };

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'SOFilterDebuger.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.2
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,10 +10,13 @@
 #define UI_SOFILTERDEBUGER_H
 
 #include <QtCore/QVariant>
+#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QOpenGLWidget>
@@ -44,21 +47,21 @@ public:
     void setupUi(QMainWindow *SOFilterDebugerClass)
     {
         if (SOFilterDebugerClass->objectName().isEmpty())
-            SOFilterDebugerClass->setObjectName(QString::fromUtf8("SOFilterDebugerClass"));
+            SOFilterDebugerClass->setObjectName(QStringLiteral("SOFilterDebugerClass"));
         SOFilterDebugerClass->resize(1086, 914);
         centralWidget = new QWidget(SOFilterDebugerClass);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
         gridLayout->setSpacing(6);
         gridLayout->setContentsMargins(11, 11, 11, 11);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
         openGLWidget = new QOpenGLWidget(centralWidget);
-        openGLWidget->setObjectName(QString::fromUtf8("openGLWidget"));
+        openGLWidget->setObjectName(QStringLiteral("openGLWidget"));
 
         gridLayout->addWidget(openGLWidget, 1, 0, 1, 1);
 
         ControlGroup = new QGroupBox(centralWidget);
-        ControlGroup->setObjectName(QString::fromUtf8("ControlGroup"));
+        ControlGroup->setObjectName(QStringLiteral("ControlGroup"));
         QSizePolicy sizePolicy(QSizePolicy::Expanding, QSizePolicy::Maximum);
         sizePolicy.setHorizontalStretch(0);
         sizePolicy.setVerticalStretch(100);
@@ -66,37 +69,37 @@ public:
         ControlGroup->setSizePolicy(sizePolicy);
         ControlGroup->setMinimumSize(QSize(0, 50));
         tickButton = new QPushButton(ControlGroup);
-        tickButton->setObjectName(QString::fromUtf8("tickButton"));
+        tickButton->setObjectName(QStringLiteral("tickButton"));
         tickButton->setGeometry(QRect(550, 20, 75, 23));
         RollBackButton = new QPushButton(ControlGroup);
-        RollBackButton->setObjectName(QString::fromUtf8("RollBackButton"));
+        RollBackButton->setObjectName(QStringLiteral("RollBackButton"));
         RollBackButton->setGeometry(QRect(630, 20, 75, 23));
         SpeedControlGroup = new QGroupBox(ControlGroup);
-        SpeedControlGroup->setObjectName(QString::fromUtf8("SpeedControlGroup"));
+        SpeedControlGroup->setObjectName(QStringLiteral("SpeedControlGroup"));
         SpeedControlGroup->setGeometry(QRect(880, 10, 181, 41));
         speedBox = new QDoubleSpinBox(SpeedControlGroup);
-        speedBox->setObjectName(QString::fromUtf8("speedBox"));
+        speedBox->setObjectName(QStringLiteral("speedBox"));
         speedBox->setGeometry(QRect(50, 10, 131, 22));
-        speedBox->setValue(1.000000000000000);
+        speedBox->setValue(1);
         stopButton = new QPushButton(ControlGroup);
-        stopButton->setObjectName(QString::fromUtf8("stopButton"));
+        stopButton->setObjectName(QStringLiteral("stopButton"));
         stopButton->setGeometry(QRect(470, 20, 75, 23));
         startButton = new QPushButton(ControlGroup);
-        startButton->setObjectName(QString::fromUtf8("startButton"));
+        startButton->setObjectName(QStringLiteral("startButton"));
         startButton->setGeometry(QRect(390, 20, 75, 23));
 
         gridLayout->addWidget(ControlGroup, 0, 0, 1, 1);
 
         SOFilterDebugerClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(SOFilterDebugerClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 1086, 21));
         SOFilterDebugerClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(SOFilterDebugerClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         SOFilterDebugerClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(SOFilterDebugerClass);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setObjectName(QStringLiteral("statusBar"));
         SOFilterDebugerClass->setStatusBar(statusBar);
 
         retranslateUi(SOFilterDebugerClass);

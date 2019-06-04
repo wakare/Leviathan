@@ -13,6 +13,7 @@ namespace Leviathan
 		, m_pWindowTitle(pTitle)
 		, m_pWindow(nullptr)
 		, m_bRunning(false)
+		, m_bStopped(false)
 	{
 		if (GLFW_FALSE == glfwInit())
 		{
@@ -74,11 +75,17 @@ namespace Leviathan
 		}
 
 		glfwPollEvents();
+		m_bStopped = true;
 	}
 
-	void LevOpenGLWindow::Stop()
+	void LevOpenGLWindow::SetStop()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
+	}
+
+	bool LevOpenGLWindow::Stoped()
+	{
+		return m_bStopped;
 	}
 
 	void LevOpenGLWindow::Accept(Event & event)

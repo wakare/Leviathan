@@ -55,12 +55,12 @@ namespace Leviathan
 
 	void View::SyncStop()
 	{
-		m_pData->GetRenderWindow().Stop();
+		m_pData->GetRenderWindow().SetStop();
 	}
 
 	void View::AsyncStop()
 	{ 
-		m_pData->GetRenderWindow().Stop();
+		m_pData->GetRenderWindow().SetStop();
 	}
 
 	bool View::AddEventListener(EventType eventType, LPtr<EventListener> listener)

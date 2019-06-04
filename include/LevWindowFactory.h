@@ -15,6 +15,6 @@ namespace Leviathan
 	{
 	public:
 		LevWindowFactory();
-		bool Create(LevWindowType type, LPtr<ILevWindow>& out);
+		static bool Create(LevWindowType type, LPtr<ILevWindow>& out);
 	};
 }

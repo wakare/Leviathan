@@ -10,7 +10,9 @@ namespace Leviathan
 		virtual bool Create(int width, int height, int hParent = 0) = 0;
 		virtual void Run() = 0;
 		virtual void Update() = 0;
-		virtual void Stop() = 0;
+		virtual void SetStop() = 0;
+		virtual bool Stoped() = 0;
+
 		virtual void Accept(Event& event) = 0;
 
 		virtual int GetWidth() const = 0;

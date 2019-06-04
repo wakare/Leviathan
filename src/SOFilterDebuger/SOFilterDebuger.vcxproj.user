@@ -2,7 +2,7 @@
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <QTDIR>D:\Qt\Qt5.12.2\5.12.2\msvc2017_64</QTDIR>
+    <QTDIR>C:\Qt\Qt5.10.0\5.10.0\msvc2017_64</QTDIR>
     <LocalDebuggerCommandArguments>D:\WangJie\KungFusion-master\data\A_frames  "frame_%2504d.ply" 0 100</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(VCRedistPaths)%PATH%
@@ -10,7 +10,7 @@ $(LocalDebuggerEnvironment)
     </LocalDebuggerEnvironment>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <QTDIR>D:\Qt\Qt5.12.2\5.12.2\msvc2017_64</QTDIR>
+    <QTDIR>C:\Qt\Qt5.10.0\5.10.0\msvc2017_64</QTDIR>
     <LocalDebuggerCommandArguments>D:\WangJie\KungFusion-master\data\A_frames  "frame_%2504d.ply" 0 100</LocalDebuggerCommandArguments>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerEnvironment>PATH=$(QTDIR)\bin%3b$(VCRedistPaths)%PATH%

@@ -16,7 +16,8 @@ namespace Leviathan
 		bool Create(int width, int height, int hParent = 0);
 		void Run();
 		void Update();
-		void Stop();
+		void SetStop();
+		bool Stoped();
 		void Accept(Event& event);
 
 		int GetWidth() const;
@@ -34,6 +35,7 @@ namespace Leviathan
 		int m_height;
 		char* m_pWindowTitle;
 		bool m_bRunning;
+		volatile bool m_bStopped;
 
 		GLFWwindow* m_pWindow;
 	};

@@ -31,8 +31,8 @@ bool LevListView::_initListView()
 {
 	QVBoxLayout* box_layout = new QVBoxLayout;
 
-	LEV_ASSERT(m_standard_model.get());
-	setModel(m_standard_model.get());
+	LEV_ASSERT(m_standard_model.data());
+	setModel(m_standard_model.data());
 
 	setSelectionRectVisible(true);
 	setSelectionMode(QAbstractItemView::ExtendedSelection);
