@@ -3,7 +3,7 @@
 
 namespace Leviathan
 {
-	EventSystem* WindowCallBack::m_spEventSystem = nullptr;
 	GLFWInputMapEventCode WindowCallBack::m_sInputMap;
 	GLFWActionMapEvent WindowCallBack::m_sActionMap;
+	std::map<GLFWwindow*, EventSystem*> WindowCallBack::m_window_event_system_map;
 }

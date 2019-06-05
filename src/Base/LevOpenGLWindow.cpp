@@ -69,8 +69,9 @@ namespace Leviathan
 	{
 		if (glfwWindowShouldClose(m_pWindow))
 		{
-			m_bRunning = false;
 			glfwTerminate();
+			m_bRunning = false;
+			m_bStopped = true;
 			return;
 		}
 
@@ -80,8 +81,6 @@ namespace Leviathan
 	void LevOpenGLWindow::SetStop()
 	{
 		glfwSetWindowShouldClose(m_pWindow, true);
-
-		m_bStopped = true;
 	}
 
 	bool LevOpenGLWindow::Stoped()
@@ -116,7 +115,7 @@ namespace Leviathan
 
 	void LevOpenGLWindow::_setWindowProcess()
 	{
-		WindowCallBack::m_spEventSystem = this;
+		WindowCallBack::RegisterEventSystem(m_pWindow, this);
 
 		glfwSetKeyCallback(m_pWindow, WindowCallBack::KeyCallback);
 		glfwSetCursorPosCallback(m_pWindow, WindowCallBack::MousePositionCallback);

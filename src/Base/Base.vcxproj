@@ -166,7 +166,6 @@
     <ClCompile Include="GeometryCalculator.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="LevOcTree.cpp" />
-    <ClCompile Include="RenderWindow.cpp" />
     <ClCompile Include="ThreadRecorder.cpp" />
     <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
@@ -211,10 +210,10 @@
     <ClInclude Include="..\..\include\PictureObject.h" />
     <ClInclude Include="..\..\include\PointCloud.h" />
     <ClInclude Include="..\..\include\PointCloud.hpp" />
-    <ClInclude Include="..\..\include\RenderWindow.h" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\ThreadRecorder.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
+    <ClInclude Include="LevGLFWWindowWarpper.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />
     <ClInclude Include="Singleton.h" />

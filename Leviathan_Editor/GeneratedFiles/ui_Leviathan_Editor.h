@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'Leviathan_Editor.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.2
+** Created by: Qt User Interface Compiler version 5.10.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -12,6 +12,8 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
@@ -38,32 +40,32 @@ public:
     void setupUi(QMainWindow *Leviathan_EditorClass)
     {
         if (Leviathan_EditorClass->objectName().isEmpty())
-            Leviathan_EditorClass->setObjectName(QString::fromUtf8("Leviathan_EditorClass"));
+            Leviathan_EditorClass->setObjectName(QStringLiteral("Leviathan_EditorClass"));
         Leviathan_EditorClass->resize(1066, 839);
         centralWidget = new QWidget(Leviathan_EditorClass);
-        centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
+        centralWidget->setObjectName(QStringLiteral("centralWidget"));
         Leviathan_EditorClass->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Leviathan_EditorClass);
-        menuBar->setObjectName(QString::fromUtf8("menuBar"));
+        menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 1066, 21));
         menuFile = new QMenu(menuBar);
-        menuFile->setObjectName(QString::fromUtf8("menuFile"));
+        menuFile->setObjectName(QStringLiteral("menuFile"));
         menuEdit = new QMenu(menuBar);
-        menuEdit->setObjectName(QString::fromUtf8("menuEdit"));
+        menuEdit->setObjectName(QStringLiteral("menuEdit"));
         menuView = new QMenu(menuBar);
-        menuView->setObjectName(QString::fromUtf8("menuView"));
+        menuView->setObjectName(QStringLiteral("menuView"));
         menuWindow = new QMenu(menuBar);
-        menuWindow->setObjectName(QString::fromUtf8("menuWindow"));
+        menuWindow->setObjectName(QStringLiteral("menuWindow"));
         menuTool = new QMenu(menuBar);
-        menuTool->setObjectName(QString::fromUtf8("menuTool"));
+        menuTool->setObjectName(QStringLiteral("menuTool"));
         menuHelp = new QMenu(menuBar);
-        menuHelp->setObjectName(QString::fromUtf8("menuHelp"));
+        menuHelp->setObjectName(QStringLiteral("menuHelp"));
         Leviathan_EditorClass->setMenuBar(menuBar);
         mainToolBar = new QToolBar(Leviathan_EditorClass);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
+        mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
         Leviathan_EditorClass->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(Leviathan_EditorClass);
-        statusBar->setObjectName(QString::fromUtf8("statusBar"));
+        statusBar->setObjectName(QStringLiteral("statusBar"));
         Leviathan_EditorClass->setStatusBar(statusBar);
 
         menuBar->addAction(menuFile->menuAction());

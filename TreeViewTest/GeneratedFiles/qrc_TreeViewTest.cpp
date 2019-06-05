@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Resource object code
 **
-** Created by: The Resource Compiler for Qt version 5.10.0
+** Created by: The Resource Compiler for Qt version 5.11.2
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -26,21 +26,21 @@ namespace QT_NAMESPACE {
 }
 #endif
 
-int QT_RCC_MANGLE_NAMESPACE(qInitResources_Leviathan_Editor)();
-int QT_RCC_MANGLE_NAMESPACE(qInitResources_Leviathan_Editor)()
+int QT_RCC_MANGLE_NAMESPACE(qInitResources_TreeViewTest)();
+int QT_RCC_MANGLE_NAMESPACE(qInitResources_TreeViewTest)()
 {
     return 1;
 }
 
-int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_Leviathan_Editor)();
-int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_Leviathan_Editor)()
+int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_TreeViewTest)();
+int QT_RCC_MANGLE_NAMESPACE(qCleanupResources_TreeViewTest)()
 {
     return 1;
 }
 
 namespace {
    struct initializer {
-       initializer() { QT_RCC_MANGLE_NAMESPACE(qInitResources_Leviathan_Editor)(); }
-       ~initializer() { QT_RCC_MANGLE_NAMESPACE(qCleanupResources_Leviathan_Editor)(); }
+       initializer() { QT_RCC_MANGLE_NAMESPACE(qInitResources_TreeViewTest)(); }
+       ~initializer() { QT_RCC_MANGLE_NAMESPACE(qCleanupResources_TreeViewTest)(); }
    } dummy;
 }

@@ -33,58 +33,23 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Leviathan_Editor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevListView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevAttributeWidget.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LeviathanProxy.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevSceneObjectListView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="LevTreeView.cpp">
+    <ClCompile Include="TreeViewTest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <QtMoc Include="Leviathan_Editor.h">
+    <QtMoc Include="TreeViewTest.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
-    <QtUic Include="Leviathan_Editor.ui">
+    <QtUic Include="TreeViewTest.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
   <ItemGroup>
-    <QtRcc Include="Leviathan_Editor.qrc">
+    <QtRcc Include="TreeViewTest.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="GeneratedFiles\ui_Leviathan_Editor.h">
-      <Filter>Generated Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevListView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevAttributeWidget.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LeviathanProxy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevSceneObjectListView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevTreeView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

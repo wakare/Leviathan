@@ -60,9 +60,6 @@
     <ClCompile Include="GeometryCalculator.cpp">
       <Filter>BaseAlgorithm</Filter>
     </ClCompile>
-    <ClCompile Include="RenderWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
     <ClCompile Include="WindowCallBack.cpp">
       <Filter>Window</Filter>
     </ClCompile>
@@ -174,9 +171,6 @@
     <ClInclude Include="..\..\include\AABB.h">
       <Filter>SceneTool\SpaceManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\RenderWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\WindowCallBack.h">
       <Filter>Window</Filter>
     </ClInclude>
@@ -230,6 +224,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\LevTimer.h">
       <Filter>CommonTool\Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="LevGLFWWindowWarpper.h">
+      <Filter>Window</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -93,6 +93,12 @@ namespace Leviathan
 
 		static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 		{
+			auto event_system = m_window_event_system_map[window];
+			if (!event_system)
+			{
+				return;
+			}
+
 			Event keyEvent = Event(EventType::INPUT_EVENT);
 			keyEvent.m_action = m_sActionMap.GetAction(action);
 			keyEvent.m_code = m_sInputMap.GetInputCode(key);
@@ -100,7 +106,7 @@ namespace Leviathan
 			if (keyEvent.m_action != Event::InputAction::NONE &&
 				keyEvent.m_code != Event::InputCode::INPUT_NONE)
 			{
-				m_spEventSystem->AddEvent(keyEvent);
+				event_system->AddEvent(keyEvent);
 			}
 			else
 			{
@@ -110,16 +116,28 @@ namespace Leviathan
 
 		static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos)
 		{
-			WindowCallBack::m_spEventSystem->SetCurrentMouseCoord(static_cast<int>(xpos), static_cast<int>(ypos));
+			auto event_system = m_window_event_system_map[window];
+			if (!event_system)
+			{
+				return;
+			}
+
+			event_system->SetCurrentMouseCoord(static_cast<int>(xpos), static_cast<int>(ypos));
 			Event mouseEvent = Event(EventType::INPUT_EVENT);
 			mouseEvent.m_action = Event::InputAction::MOVE;
 			mouseEvent.m_code = Event::InputCode::INPUT_NONE;
 
-			m_spEventSystem->AddEvent(mouseEvent);
+			event_system->AddEvent(mouseEvent);
 		};
 
 		static void MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 		{
+			auto event_system = m_window_event_system_map[window];
+			if (!event_system)
+			{
+				return;
+			}
+
 			Event mouseEvent = Event(EventType::INPUT_EVENT);
 			mouseEvent.m_action = m_sActionMap.GetAction(action);
 			mouseEvent.m_code = m_sInputMap.GetInputCode(button);
@@ -127,32 +145,50 @@ namespace Leviathan
 			if (mouseEvent.m_action != Event::InputAction::NONE &&
 				mouseEvent.m_code != Event::InputCode::INPUT_NONE)
 			{
-				m_spEventSystem->AddEvent(mouseEvent);
+				event_system->AddEvent(mouseEvent);
 			}
 		}
 
 		static void MouseScrollCallback(GLFWwindow* window, double xOffset, double yOffset)
 		{
+			auto event_system = m_window_event_system_map[window];
+			if (!event_system)
+			{
+				return;
+			}
+
 			Event scrollEvent = Event(EventType::INPUT_EVENT);
 			scrollEvent.m_action = Event::InputAction::SCROLL;
 			scrollEvent.m_code = Event::InputCode::INPUT_NONE;
 			scrollEvent.m_context.m_mouseScrollState.x = static_cast<int>(xOffset);
 			scrollEvent.m_context.m_mouseScrollState.y = static_cast<int>(yOffset);
-			m_spEventSystem->AddEvent(scrollEvent);
+			event_system->AddEvent(scrollEvent);
 		}
 
 		static void ResizeCallback(GLFWwindow* window, int width, int height)
 		{
+			auto event_system = m_window_event_system_map[window];
+			if (!event_system)
+			{
+				return;
+			}
+
 			Event resizeEvent = Event(EventType::INPUT_EVENT);
 			resizeEvent.m_action = Event::InputAction::RESIZE;
 			resizeEvent.m_code = Event::InputCode::INPUT_NONE;
 			resizeEvent.m_context.m_windowResizeSize.width = width;
 			resizeEvent.m_context.m_windowResizeSize.height = height;
-			m_spEventSystem->AddEvent(resizeEvent);
+			event_system->AddEvent(resizeEvent);
+		}
+
+		static bool RegisterEventSystem(GLFWwindow* window, EventSystem* event_system)
+		{
+			m_window_event_system_map[window] = event_system;
+			return true;
 		}
 
 		static GLFWInputMapEventCode m_sInputMap;
 		static GLFWActionMapEvent m_sActionMap;
-		static EventSystem* m_spEventSystem;
+		static std::map<GLFWwindow*, EventSystem*> m_window_event_system_map;
 	};
 }
