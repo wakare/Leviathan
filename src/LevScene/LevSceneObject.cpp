@@ -19,11 +19,29 @@ namespace Leviathan
 			, m_pLocalTransform(new LevLAttrLocalTransform)
 			, m_pTimer(nullptr)
 			, m_state(ELSOS_ADDED)
+			, m_modifiedCallback(nullptr)
 		{
 			// Init unique id
 			static unsigned _globalID = 0;
 			m_ID = _globalID++;
 
+			_setBaseAttribute();
+		}
+
+		LevSceneObject::LevSceneObject(const LevSceneObject& object)
+			: m_type(object.GetType())
+			, m_modified(object.m_modified)
+			, m_recalculateWorldTransform(object.m_recalculateWorldTransform)
+			, m_pModelTransform(new LevLRAttrModelTransform(*object.m_pModelTransform))
+			, m_pWorldTransform(new LevLRAttrWorldTransform(*object.m_pWorldTransform))
+			, m_pLocalTransform(new LevLAttrLocalTransform(*object.m_pLocalTransform))
+			, m_pTimer(new LevTimer(*object.m_pTimer))
+			, m_state(ELSOS_ADDED)
+			, m_ID(object.m_ID)
+			// No need copy obj_desc 
+			, m_pObjDesc(object.m_pObjDesc)
+			, m_modifiedCallback(nullptr)
+		{
 			_setBaseAttribute();
 		}
 

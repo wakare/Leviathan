@@ -132,7 +132,7 @@ namespace Leviathan
 
 		static void MouseButtonCallBack(GLFWwindow* window, int button, int action, int mods)
 		{
-			auto event_system = m_window_event_system_map[window];
+			auto event_system = m_window_event_system_map[window]; 
 			if (!event_system)
 			{
 				return;
@@ -146,7 +146,7 @@ namespace Leviathan
 				mouseEvent.m_code != Event::InputCode::INPUT_NONE)
 			{
 				event_system->AddEvent(mouseEvent);
-			}
+			} 
 		}
 
 		static void MouseScrollCallback(GLFWwindow* window, double xOffset, double yOffset)

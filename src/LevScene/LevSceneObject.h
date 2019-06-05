@@ -70,6 +70,8 @@ namespace Leviathan
 		{
 		public:
 			LevSceneObject(int type);
+			LevSceneObject(const LevSceneObject& object);
+
 			virtual ~LevSceneObject();
 
 			SceneObjectID GetID() const;
