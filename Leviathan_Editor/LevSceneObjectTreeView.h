@@ -1,15 +1,15 @@
 #pragma once
-#include "LevListView.h"
+#include "LevTreeView.h"
 #include "LevSceneData.h"
 
 using namespace Leviathan;
 
-class LevSceneObjectListView : public LevListView
+class LevSceneObjectTreeView : public LevTreeView
 {
 	Q_OBJECT
 
 public:
-	LevSceneObjectListView(QWidget* parent = nullptr);
+	LevSceneObjectTreeView(QWidget* parent = nullptr);
 	void SetSceneData(const Scene::LevSceneData& scene_data);
 
 private:

@@ -6,6 +6,8 @@
 
 class LevListView : public QListView
 {
+	Q_OBJECT
+
 public:
 	LevListView(QWidget* parent = nullptr);
 	void ClearCurrentItems();

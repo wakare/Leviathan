@@ -35,5 +35,5 @@ void TreeViewTest::_setupTreeView()
 	item->appendRow(sub_item);
 	m_item_model->appendRow(item);
 	m_item_model->setItem(m_item_model->indexFromItem(item).row(), 1, item_subItem);
-	m_item_model->setItem(m_item_model->indexFromItem(sub_item).row(), 1, sub_item_subItem);
+	item->setChild(sub_item->index().row(), 1, sub_item_subItem);
 }

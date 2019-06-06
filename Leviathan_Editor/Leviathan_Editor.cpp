@@ -7,13 +7,12 @@
 #include <QSplitter>
 #include <QSizePolicy>
 
-#include "LevAttributeWidget.h"
 #include "LevScene.h"
+#include "LevAttributeWidget.h"
 
 Leviathan_Editor::Leviathan_Editor(QWidget *parent)
 	: QMainWindow(parent)
 {
-	// Actually setup ui do nothing.
 	ui.setupUi(this);
 
 	_setupWidget();
@@ -125,8 +124,8 @@ void Leviathan_Editor::_attachRenderer()
 void Leviathan_Editor::_setupWidget()
 {
 	m_openGL_widget.reset(new QOpenGLWidget);
-	m_runtime_object_list_view.reset(new LevSceneObjectListView);
-	m_resource_list_view.reset(new LevListView);
+	m_runtime_object_list_view.reset(new LevSceneObjectTreeView);
+	m_resource_list_view.reset(new LevTreeView);
 	m_attribute_view.reset(new LevAttributeWidget);
 
 	m_main_splitter.reset(new QSplitter(Qt::Horizontal, ui.centralWidget));

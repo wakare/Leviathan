@@ -26,6 +26,11 @@ namespace Leviathan
 			m_ID = _globalID++;
 
 			_setBaseAttribute();
+
+			// Default name: SceneObject: + id
+			char name_buf[50];
+			snprintf(name_buf, sizeof(name_buf), "SceneObject:%u", m_ID);
+			SetName(name_buf);
 		}
 
 		LevSceneObject::LevSceneObject(const LevSceneObject& object)
@@ -38,6 +43,7 @@ namespace Leviathan
 			, m_pTimer(object.m_pTimer.Get() ? new LevTimer(*object.m_pTimer) : nullptr)
 			, m_state(ELSOS_ADDED)
 			, m_ID(object.m_ID)
+			, m_name(object.m_name)
 			// No need copy obj_desc 
 			, m_pObjDesc(object.m_pObjDesc)
 			, m_modifiedCallback(nullptr)
@@ -57,6 +63,16 @@ namespace Leviathan
 		LevSceneObjectType LevSceneObject::GetType() const
 		{
 			return m_type;
+		}
+
+		void LevSceneObject::SetName(std::string name)
+		{
+			m_name = name;
+		}
+
+		const std::string & LevSceneObject::GetName() const
+		{
+			return m_name;
 		}
 
 		bool LevSceneObject::HasModified() const

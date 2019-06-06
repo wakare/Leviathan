@@ -51,9 +51,24 @@
     <ClCompile Include="LevTreeView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LevSceneObjectTreeView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="Leviathan_Editor.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LevTreeView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LevSceneObjectTreeView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LevListView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="LevSceneObjectListView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>
@@ -71,19 +86,10 @@
     <ClInclude Include="GeneratedFiles\ui_Leviathan_Editor.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
-    <ClInclude Include="LevListView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevAttributeWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LeviathanProxy.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevSceneObjectListView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="LevTreeView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

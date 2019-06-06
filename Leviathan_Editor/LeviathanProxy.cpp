@@ -17,6 +17,18 @@ bool LeviathanProxy::_initScene()
 	return true;
 }
 
+void LeviathanProxy::_processDataUpdateRequest()
+{
+	std::lock_guard<std::mutex> lock(m_scene_data_request_mutex);
+
+	for (auto& request : m_scene_update_request)
+	{
+		request(*m_main_scene);
+	}
+
+	m_scene_update_request.clear();
+}
+
 bool LeviathanProxy::Init(unsigned width, unsigned height, unsigned handle)
 {
 	m_viewer->CreateRenderWindow(width, height, handle);
@@ -49,6 +61,8 @@ void LeviathanProxy::Update()
 	}
 
 	m_viewer->TickFrame();
+	_processDataUpdateRequest();
+
 	m_state = EPS_RUNNING;
 }
 
@@ -57,12 +71,8 @@ unsigned LeviathanProxy::GetWindowHandle() const
 	return m_viewer->GetRenderWindow().GetWindowHandle();
 }
 
-Leviathan::Scene::LevScene& LeviathanProxy::GetScene()
+void LeviathanProxy::UpdateSceneData(SceneDataUpdateRequest request)
 {
-	return *m_main_scene;
-}
-
-const Leviathan::Scene::LevScene& LeviathanProxy::GetScene() const
-{
-	return *m_main_scene;
+	std::lock_guard<std::mutex> lock(m_scene_data_request_mutex);
+	m_scene_update_request.push_back(request);
 }

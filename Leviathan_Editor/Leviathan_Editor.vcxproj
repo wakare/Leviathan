@@ -119,6 +119,7 @@
     <ClCompile Include="Leviathan_Editor.cpp" />
     <ClCompile Include="LevListView.cpp" />
     <ClCompile Include="LevSceneObjectListView.cpp" />
+    <ClCompile Include="LevSceneObjectTreeView.cpp" />
     <ClCompile Include="LevTreeView.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="LevAttributeWidget.cpp" />
@@ -136,9 +137,22 @@
     <ClInclude Include="GeneratedFiles\ui_Leviathan_Editor.h" />
     <ClInclude Include="LevAttributeWidget.h" />
     <ClInclude Include="LeviathanProxy.h" />
-    <ClInclude Include="LevListView.h" />
-    <ClInclude Include="LevSceneObjectListView.h" />
-    <ClInclude Include="LevTreeView.h" />
+    <QtMoc Include="LevListView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LevSceneObjectListView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LevSceneObjectTreeView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+    </QtMoc>
+    <QtMoc Include="LevTreeView.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)3rdparty\Eigen;$(SolutionDir)src\LevViewer;$(SolutionDir)src\LevScene;$(SolutionDir)src\LevRenderer;$(SolutionDir)3rdparty\BOOST;$(SolutionDir)include;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtWidgets;C:\Program Files (x86)\Visual Leak Detector\include</IncludePath>
+    </QtMoc>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

@@ -66,12 +66,16 @@ namespace Leviathan
 				m_current_scene->ResetModified();
 			}
 
-			m_renderer->Update();
+			if (!m_window->Stoped())
+			{
+				m_renderer->Update();
+			}
 		}
 
 		void LevViewer::SetStop()
 		{
 			m_window->SetStop();
+			TickFrame();
 		}
 
 		bool LevViewer::HasStoped()

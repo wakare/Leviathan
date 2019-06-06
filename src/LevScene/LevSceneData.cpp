@@ -24,6 +24,8 @@ namespace Leviathan
 
 			// FOR DEBUG
 			LPtr<LevCamera> pCamera = new LevCamera;
+			pCamera->SetName("Main Camera");
+
 			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
 			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
@@ -43,6 +45,8 @@ namespace Leviathan
  			//pCamera->SetTimer(pCameraTimer);
 
 			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
+			pLight->SetName("Default light");
+
 			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
 			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
 			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });

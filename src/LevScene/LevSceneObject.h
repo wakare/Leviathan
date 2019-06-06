@@ -3,6 +3,7 @@
 #include <vector>
 #include <functional>
 #include <Eigen/Dense>
+#include <string>
 #include "LPtr.h"
 
 namespace Leviathan
@@ -77,6 +78,9 @@ namespace Leviathan
 			SceneObjectID GetID() const;
 			LevSceneObjectType GetType() const;
 
+			void SetName(std::string name);
+			const std::string& GetName() const;
+
 			bool HasModified() const;
 			void SetModified();
 
@@ -128,6 +132,7 @@ namespace Leviathan
 			void _setBaseAttribute();
 
 			SceneObjectID m_ID;
+			std::string m_name;
 
 			bool m_modified;
 			bool m_recalculateWorldTransform;
@@ -144,6 +149,7 @@ namespace Leviathan
 
 			LPtr<LevTimer> m_pTimer;
 		};
+
 		template<typename T>
 		inline void LevSceneObject::UpdateAttribute(LPtr<T> attribute)
 		{

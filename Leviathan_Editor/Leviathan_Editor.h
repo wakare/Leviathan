@@ -7,9 +7,10 @@
 #include <QSplitter>
 #include <QTimer>
 #include "LevListView.h"
+#include "LevTreeView.h"
 #include "LevAttributeWidget.h"
 #include "LeviathanProxy.h"
-#include "LevSceneObjectListView.h"
+#include "LevSceneObjectTreeView.h"
 
 class Leviathan_Editor : public QMainWindow
 {
@@ -40,8 +41,8 @@ private:
 	QScopedPointer<QSplitter> m_sub_splitter;
 
 	QScopedPointer<QOpenGLWidget> m_openGL_widget;
-	QScopedPointer<LevSceneObjectListView> m_runtime_object_list_view;
-	QScopedPointer<LevListView> m_resource_list_view;
+	QScopedPointer<LevSceneObjectTreeView> m_runtime_object_list_view;
+	QScopedPointer<LevTreeView> m_resource_list_view;
 	QScopedPointer<LevAttributeWidget> m_attribute_view;
 
 	QScopedPointer<QTimer> m_timer;
