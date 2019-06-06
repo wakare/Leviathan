@@ -35,13 +35,13 @@ namespace Leviathan
 			, m_pModelTransform(new LevLRAttrModelTransform(*object.m_pModelTransform))
 			, m_pWorldTransform(new LevLRAttrWorldTransform(*object.m_pWorldTransform))
 			, m_pLocalTransform(new LevLAttrLocalTransform(*object.m_pLocalTransform))
-			, m_pTimer(new LevTimer(*object.m_pTimer))
+			, m_pTimer(object.m_pTimer.Get() ? new LevTimer(*object.m_pTimer) : nullptr)
 			, m_state(ELSOS_ADDED)
 			, m_ID(object.m_ID)
 			// No need copy obj_desc 
 			, m_pObjDesc(object.m_pObjDesc)
 			, m_modifiedCallback(nullptr)
-		{
+		{ 
 			_setBaseAttribute();
 		}
 
@@ -96,13 +96,13 @@ namespace Leviathan
 
 		bool LevSceneObject::AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute)
 		{
-			m_pAttributes.push_back(pAttribute);
+			m_attributes.push_back(pAttribute);
 			return true;
 		}
 
-		const std::vector<LPtr<LevSceneObjectAttribute>>& LevSceneObject::GetObjAttributes() const
+		const std::vector<LPtr<LevSceneObjectAttribute>>& LevSceneObject::GetAllAttributes() const
 		{
-			return m_pAttributes;
+			return m_attributes;
 		}
 
 		bool LevSceneObject::HasObjectDesc() const
@@ -196,7 +196,7 @@ namespace Leviathan
 			// Clear run time data.
 			m_pObjDesc.Reset(nullptr);
 			m_pTimer.Reset(nullptr);
-			m_pAttributes.clear();
+			m_attributes.clear();
 			
 			m_pLocalTransform->Reset();
 			m_pModelTransform->Reset();
@@ -211,9 +211,9 @@ namespace Leviathan
 		void LevSceneObject::_setBaseAttribute()
 		{
 			// Add transforms
-			m_pAttributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
-			m_pAttributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
-			m_pAttributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
+			m_attributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
+			m_attributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
+			m_attributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
 		}
 	}
 }

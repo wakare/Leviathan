@@ -12,7 +12,7 @@ namespace Leviathan
 	namespace Viewer
 	{
 		LevViewer::LevViewer()
-			: m_event_system(new EventSystem)
+			: m_event_system(nullptr)
 		{
 			
 		}
@@ -26,8 +26,11 @@ namespace Leviathan
 
 			// Reset render
 			LevOpenGLWindow* openGL_window = dynamic_cast<LevOpenGLWindow*>(m_window.Get());
-			//LPtr<LevOpenGLWindow> openGL_window = TryCast<ILevWindow, LevOpenGLWindow>(m_window);
 			EXIT_IF_FALSE(openGL_window);
+
+			// Set event system
+			m_event_system = TryCast<ILevWindow, EventSystem>(m_window);
+			LEV_ASSERT(m_event_system);
 
 			m_renderer.Reset(new Renderer::OpenGLRenderer(*openGL_window));
 			return true;

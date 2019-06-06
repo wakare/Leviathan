@@ -140,7 +140,7 @@ namespace Leviathan
 
 				}
 
-				for (auto& attribute : object.GetObjAttributes())
+				for (auto& attribute : object.GetAllAttributes())
 				{
 					const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
 					if (!pAttribute)

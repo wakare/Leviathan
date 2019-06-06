@@ -87,7 +87,13 @@ namespace Leviathan
 			void SetModifiedCallback(LevSceneObjModified modified);
 
 			bool AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute);
-			const std::vector<LPtr<LevSceneObjectAttribute>>& GetObjAttributes() const;
+			const std::vector<LPtr<LevSceneObjectAttribute>>& GetAllAttributes() const;
+
+			template<typename T>
+			void UpdateAttribute(LPtr<T> attribute);
+
+			template<typename T>
+			bool GetAttribute(LPtr<T>& out);
 
 			bool HasObjectDesc() const;
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
@@ -101,7 +107,7 @@ namespace Leviathan
 			
 			LPtr<LevTimer> GetTimer();
 			const LPtr<LevTimer> GetTimer() const;
-
+			
 			/*
 				Warn:
 					World coord will be caluculate automatic by LevCalculateWorldCoordVisitor,
@@ -129,7 +135,7 @@ namespace Leviathan
 			LevSceneObjectState m_state;
 
 			const LevSceneObjectType m_type;
-			std::vector<LPtr<LevSceneObjectAttribute>> m_pAttributes;
+			std::vector<LPtr<LevSceneObjectAttribute>> m_attributes;
 
 			LPtr<LevLRAttrWorldTransform> m_pWorldTransform;
 			LPtr<LevLRAttrModelTransform> m_pModelTransform;
@@ -138,5 +144,39 @@ namespace Leviathan
 
 			LPtr<LevTimer> m_pTimer;
 		};
-	}
+		template<typename T>
+		inline void LevSceneObject::UpdateAttribute(LPtr<T> attribute)
+		{
+			LPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
+
+			for (auto& old_attribute : m_attributes)
+			{
+				auto p = dynamic_cast<T*>(old_attribute.Get());
+				if (p)
+				{
+					old_attribute = scene_attribute;
+					return;
+				}
+			}
+
+			AddAttribute(attribute);
+			return;
+		}
+
+		template<typename T>
+		inline bool LevSceneObject::GetAttribute(LPtr<T>& out)
+		{
+			for (auto& attribute : m_attributes)
+			{
+				T* p = dynamic_cast<T*>(attribute.Get());
+				if (p)
+				{
+					out.Reset(new T(*p));
+					return true;
+				}
+			}
+
+			return false;
+		}
+}
 }
