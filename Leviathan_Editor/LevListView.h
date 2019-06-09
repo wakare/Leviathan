@@ -10,8 +10,8 @@ class LevListView : public QListView
 
 public:
 	LevListView(QWidget* parent = nullptr);
-	void ClearCurrentItems();
-	void AddListItem(std::unique_ptr<QStandardItem> item);
+	void ClearItems();
+	void AddItem(std::unique_ptr<QStandardItem> item);
 
 private:
 	bool _initStandardModel();

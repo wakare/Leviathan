@@ -54,12 +54,12 @@ void LevSceneObjectTreeView::Update()
 	
 	std::lock_guard<std::mutex> lock(m_next_update_items_lock);
 	m_need_update_list = false;
-	ClearCurrentItems();
+	ClearItems();
 
 	for (auto* item : m_next_update_items)
 	{
 		LEV_ASSERT(item);
-		AddListItem(item);
+		AddItem(item);
 	}
 
 	m_next_update_items.clear();

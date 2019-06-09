@@ -14,12 +14,12 @@ LevTreeView::LevTreeView(QWidget * parent)
 	LEV_ASSERT(treeView_inited);
 }
 
-void LevTreeView::ClearCurrentItems()
+void LevTreeView::ClearItems()
 {
 	m_standard_model->clear();
 }
 
-void LevTreeView::AddListItem(QStandardItem* item)
+void LevTreeView::AddItem(QStandardItem* item)
 {
  	m_standard_model->appendRow(item);
 }

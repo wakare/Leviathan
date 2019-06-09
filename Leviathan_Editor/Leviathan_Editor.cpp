@@ -78,7 +78,7 @@ void Leviathan_Editor::SLOT_UPDATE()
 
 	if (_proxy_inited)
 	{
-		m_runtime_object_list_view->Update();
+		m_runtime_object_view->Update();
 	}
 }
 
@@ -108,7 +108,7 @@ void Leviathan_Editor::_update_runtime_scene_object()
 {
 	m_leviathan_proxy->UpdateSceneData([this](Scene::LevScene& scene) 
 		{
-			m_runtime_object_list_view->SetSceneData(scene.GetSceneData());
+			m_runtime_object_view->SetSceneData(scene.GetSceneData());
 		});
 }
 
@@ -136,19 +136,19 @@ void Leviathan_Editor::_attachRenderer()
 void Leviathan_Editor::_setupWidget()
 {
 	m_openGL_widget.reset(new QOpenGLWidget);
-	m_runtime_object_list_view.reset(new LevSceneObjectTreeView);
-	m_resource_list_view.reset(new LevTreeView);
+	m_runtime_object_view.reset(new LevSceneObjectTreeView);
+	m_resource_view.reset(new LevTreeView);
 	m_attribute_view.reset(new LevAttributeWidget);
 
 	m_main_splitter.reset(new QSplitter(Qt::Horizontal, ui.centralWidget));
 	m_middle_splitter.reset(new QSplitter(Qt::Vertical));
 	
 	m_middle_splitter->addWidget(m_openGL_widget.data());
-	m_middle_splitter->addWidget(m_resource_list_view.data());
+	m_middle_splitter->addWidget(m_resource_view.data());
 	m_middle_splitter->setStretchFactor(0, 5);
 	m_middle_splitter->setStretchFactor(1, 1);
 
-	m_main_splitter->addWidget(m_runtime_object_list_view.data());
+	m_main_splitter->addWidget(m_runtime_object_view.data());
 	m_main_splitter->addWidget(m_middle_splitter.data());
 	m_main_splitter->addWidget(m_attribute_view.data());
 	

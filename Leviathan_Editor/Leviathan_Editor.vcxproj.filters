@@ -45,13 +45,13 @@
     <ClCompile Include="LeviathanProxy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LevSceneObjectListView.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="LevTreeView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="LevSceneObjectTreeView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevResourcesListView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -68,7 +68,7 @@
     <QtMoc Include="LevListView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
-    <QtMoc Include="LevSceneObjectListView.h">
+    <QtMoc Include="LevResourcesListView.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

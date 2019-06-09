@@ -41,8 +41,8 @@ private:
 	QScopedPointer<QSplitter> m_sub_splitter;
 
 	QScopedPointer<QOpenGLWidget> m_openGL_widget;
-	QScopedPointer<LevSceneObjectTreeView> m_runtime_object_list_view;
-	QScopedPointer<LevTreeView> m_resource_list_view;
+	QScopedPointer<LevSceneObjectTreeView> m_runtime_object_view;
+	QScopedPointer<LevTreeView> m_resource_view;
 	QScopedPointer<LevAttributeWidget> m_attribute_view;
 
 	QScopedPointer<QTimer> m_timer;

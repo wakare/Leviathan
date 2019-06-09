@@ -10,8 +10,8 @@ class LevTreeView : public QTreeView
 
 public:
 	LevTreeView(QWidget* parent = nullptr);
-	void ClearCurrentItems();
-	void AddListItem(QStandardItem* item);
+	void ClearItems();
+	void AddItem(QStandardItem* item);
 
 private:
 	bool _initStandardModel();
