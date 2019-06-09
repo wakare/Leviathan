@@ -21,7 +21,7 @@ void LevTreeView::ClearCurrentItems()
 
 void LevTreeView::AddListItem(QStandardItem* item)
 {
-	m_standard_model->appendRow(item);
+ 	m_standard_model->appendRow(item);
 }
 
 bool LevTreeView::_initStandardModel()

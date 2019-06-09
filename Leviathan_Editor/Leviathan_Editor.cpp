@@ -75,6 +75,11 @@ void Leviathan_Editor::SLOT_UPDATE()
 		_proxy_inited = true;
 		return;
 	}
+
+	if (_proxy_inited)
+	{
+		m_runtime_object_list_view->Update();
+	}
 }
 
 void Leviathan_Editor::_widget_initialized()
@@ -91,13 +96,20 @@ void Leviathan_Editor::_leviathan_initialized()
 		_update_runtime_scene_object();
 	};
 
-	m_leviathan_proxy->GetScene().RegisterModifiedCallback(_scene_modified_callback);
+	m_leviathan_proxy->UpdateSceneData([this, _scene_modified_callback](Scene::LevScene& scene)
+	{
+		scene.RegisterModifiedCallback(_scene_modified_callback);
+	});
+	
 	_update_runtime_scene_object();
 }
 
 void Leviathan_Editor::_update_runtime_scene_object()
 {
-	m_runtime_object_list_view->SetSceneData(m_leviathan_proxy->GetScene().GetSceneData());
+	m_leviathan_proxy->UpdateSceneData([this](Scene::LevScene& scene) 
+		{
+			m_runtime_object_list_view->SetSceneData(scene.GetSceneData());
+		});
 }
 
 void Leviathan_Editor::_attachRenderer()
