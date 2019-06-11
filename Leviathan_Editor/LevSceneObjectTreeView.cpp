@@ -11,7 +11,7 @@ LevSceneObjectTreeView::LevSceneObjectTreeView(QWidget* parent /*= nullptr*/)
 	: LevTreeView(parent)
 	, m_need_update_list(false)
 {
-
+	m_standard_model->setHorizontalHeaderLabels(QStringList() << QStringLiteral("Current scene object"));
 }
 
 void LevSceneObjectTreeView::SetSceneData(const Scene::LevSceneData & scene_data)

@@ -14,14 +14,12 @@ LevListView::LevListView(QWidget * parent)
 
 void LevListView::ClearItems()
 {
-	m_items.clear();
-	m_standard_model->clear();
+	m_standard_model->removeRows(0, m_standard_model->rowCount());
 }
 
-void LevListView::AddItem(std::unique_ptr<QStandardItem> item)
+void LevListView::AddItem(QStandardItem* item)
 {
-	m_standard_model->appendRow(item.get());
-	m_items.push_back(std::move(item));
+	m_standard_model->appendRow(item);
 }
 
 bool LevListView::_initStandardModel()

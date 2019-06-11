@@ -13,7 +13,7 @@ public:
 	void ClearItems();
 	void AddItem(QStandardItem* item);
 
-private:
+protected:
 	bool _initStandardModel();
 	bool _initTreeView();
 

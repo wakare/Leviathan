@@ -157,6 +157,7 @@
   <ItemGroup>
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="FileImportFactory.cpp" />
+    <ClCompile Include="LevFileSystem.cpp" />
     <ClCompile Include="LevOpenGLWindow.cpp" />
     <ClCompile Include="LevTimer.cpp" />
     <ClCompile Include="LevWindowFactory.cpp" />
@@ -175,6 +176,7 @@
     <ClInclude Include="..\..\include\ILevWindow.h" />
     <ClInclude Include="..\..\include\LevCoroutine.h" />
     <ClInclude Include="..\..\include\LevCoroutine.hpp" />
+    <ClInclude Include="..\..\include\LevFileSystem.h" />
     <ClInclude Include="..\..\include\LevOpenGLWindow.h" />
     <ClInclude Include="..\..\include\LevTask.h" />
     <ClInclude Include="..\..\include\LevTimer.h" />

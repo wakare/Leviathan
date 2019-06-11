@@ -16,7 +16,7 @@ LevTreeView::LevTreeView(QWidget * parent)
 
 void LevTreeView::ClearItems()
 {
-	m_standard_model->clear();
+	m_standard_model->removeRows(0, m_standard_model->rowCount());
 }
 
 void LevTreeView::AddItem(QStandardItem* item)

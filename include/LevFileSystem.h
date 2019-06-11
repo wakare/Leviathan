@@ -6,15 +6,9 @@
 
 using namespace Leviathan;
 
-enum FileType
-{
-	EFT_REGULAR_FILE,
-	EFT_DIR_FILE
-};
-
 struct LevFileDesc
 {
-	FileType type;
+	LevFileType type;
 	std::string file_name;
 };
 

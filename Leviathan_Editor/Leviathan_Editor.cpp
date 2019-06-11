@@ -133,13 +133,13 @@ void Leviathan_Editor::_attachRenderer()
 	_lev_render_thread.detach();
 }
 
-void Leviathan_Editor::_setupWidget()
+bool Leviathan_Editor::_setupWidget()
 {
-	m_openGL_widget.reset(new QOpenGLWidget);
-	m_runtime_object_view.reset(new LevSceneObjectTreeView);
-	m_resource_view.reset(new LevTreeView);
-	m_attribute_view.reset(new LevAttributeWidget);
+	EXIT_IF_FALSE(_setupResourceListView());
+	EXIT_IF_FALSE(_setupSceneRuntimeObjectView());
+	EXIT_IF_FALSE(_setupAttributePanelView());
 
+	m_openGL_widget.reset(new QOpenGLWidget);
 	m_main_splitter.reset(new QSplitter(Qt::Horizontal, ui.centralWidget));
 	m_middle_splitter.reset(new QSplitter(Qt::Vertical));
 	
@@ -158,4 +158,27 @@ void Leviathan_Editor::_setupWidget()
 
 	ui.centralWidget->setLayout(new QGridLayout);
 	ui.centralWidget->layout()->addWidget(m_main_splitter.data());
+}
+
+bool Leviathan_Editor::_setupResourceListView()
+{
+	m_resource_view.reset(new LevResourcesListView);
+
+	// For test
+	EXIT_IF_FALSE(m_resource_view->SetResourcesFolderPath("C:\\Users\\wangjie\\Documents\\Leviathan\\src"));
+	EXIT_IF_FALSE(m_resource_view->InitItemsFormNode(m_resource_view->GetRootNode()));
+
+	return true;
+}
+
+bool Leviathan_Editor::_setupSceneRuntimeObjectView()
+{
+	m_runtime_object_view.reset(new LevSceneObjectTreeView);
+	return true;
+}
+
+bool Leviathan_Editor::_setupAttributePanelView()
+{
+	m_attribute_view.reset(new LevAttributeWidget);
+	return true;
 }

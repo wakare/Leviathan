@@ -2,7 +2,7 @@
 #include "LevFileSystem.h"
 #include "NodeVisitor.h"
 
-class TestNodeVisitor : public NodeVisitor<LevFileDesc>
+class FileNodeVisitor : public NodeVisitor<LevFileDesc>
 {
 public:
 	virtual void Apply(Node<LevFileDesc>& node);
@@ -12,17 +12,17 @@ private:
 	void ApplyImpl(const Node<LevFileDesc>& node);
 };
 
-void TestNodeVisitor::Apply(Node<LevFileDesc>& node)
+void FileNodeVisitor::Apply(Node<LevFileDesc>& node)
 {
 	ApplyImpl(node);
 }
 
-void TestNodeVisitor::Apply(const Node<LevFileDesc>& node)
+void FileNodeVisitor::Apply(const Node<LevFileDesc>& node)
 {
 	ApplyImpl(node);
 }
 
-void TestNodeVisitor::ApplyImpl(const Node<LevFileDesc>& node)
+void FileNodeVisitor::ApplyImpl(const Node<LevFileDesc>& node)
 {
 	auto& data = node.GetNodeData();
 	std::cout << ((data->type == FileType::EFT_DIR_FILE) ? "Directory: " : "Regular: ") << data->file_name << std::endl;
@@ -45,7 +45,7 @@ int main(int argc, char** argv)
 	LPtr<LevFileNode> root_node = nullptr;
 	LevFileSystem::LoadDirectory(file_directory, root_node);
 
-	TestNodeVisitor visitor;
+	FileNodeVisitor visitor;
 	visitor.Apply(*root_node);
 
 	return 0;

@@ -11,12 +11,11 @@ class LevListView : public QListView
 public:
 	LevListView(QWidget* parent = nullptr);
 	void ClearItems();
-	void AddItem(std::unique_ptr<QStandardItem> item);
+	void AddItem(QStandardItem* item);
 
-private:
+protected:
 	bool _initStandardModel();
 	bool _initListView();
 
 	QScopedPointer<QStandardItemModel> m_standard_model;
-	std::vector<std::unique_ptr<QStandardItem>> m_items;
 };

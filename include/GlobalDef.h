@@ -73,5 +73,12 @@ namespace Leviathan
 		ELSOD_MATHEMATIC = 2,
 	};
 
+	enum LevFileType
+	{
+		EFT_REGULAR_FILE,
+		EFT_DIR_FILE
+	};
+
+
 	typedef std::function<void(void)> SceneDataRequestFunc;
 }

@@ -92,5 +92,8 @@
     <ClInclude Include="LeviathanProxy.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevStaticIconResource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
