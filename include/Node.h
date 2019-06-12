@@ -14,20 +14,45 @@ namespace Leviathan
 	class Node
 	{
 	public:
-		Node(LPtr<T> pData) : pNodeData(pData) {};
+		Node(LPtr<T> pData);
 		void AddChild(LPtr<Node<T>> pChild);
 		void DelChild(LPtr<Node<T>> pChild);
-		const LPtr<T>& GetNodeData() const { return pNodeData; };
-		const std::vector<LPtr<Node<T>>>& GetChildren() const { return children; };
-		std::vector<LPtr<Node<T>>>& GetChildren() { return children; };
+
+		void SetParent(LPtr<Node<T>> parent);
+		const LPtr<Node<T>> GetParent() const;
+
+		const LPtr<T>& GetNodeData() const { return m_node_data; };
+		const std::vector<LPtr<Node<T>>>& GetChildren() const { return m_children; };
+		std::vector<LPtr<Node<T>>>& GetChildren() { return m_children; };
 
 		virtual ~Node();
 		virtual void Accept(NodeVisitor<T>& nodeVisitor);
 
 	protected:
-		LPtr<T> pNodeData;
-		std::vector<LPtr<Node<T>>> children;
+		LPtr<T> m_node_data;
+		std::vector<LPtr<Node<T>>> m_children;
+		LPtr<Node<T>> m_parent;
 	};
+
+	template<class T>
+	inline void Leviathan::Node<T>::SetParent(LPtr<Node<T>> parent)
+	{
+		m_parent = parent;
+	}
+
+	template<class T>
+	inline const Leviathan::LPtr<Leviathan::Node<T>> Leviathan::Node<T>::GetParent() const
+	{
+		return m_parent;
+	}
+
+	template<class T>
+	inline Leviathan::Node<T>::Node(LPtr<T> pData)
+		: m_node_data(pData)
+		, m_parent(nullptr)
+	{
+
+	}
 
 	template<class T>
 	inline Leviathan::Node<T>::~Node()
@@ -38,16 +63,16 @@ namespace Leviathan
 	template<class T>
 	inline void Node<T>::AddChild(LPtr<Node<T>> pChild)
 	{
-		children.push_back(pChild);
+		m_children.push_back(pChild);
 	}
 
 	template<class T>
 	inline void Node<T>::DelChild(LPtr<Node<T>> pChild)
 	{
-		auto itFind = std::find(children.begin(), children.end(), pChild);
-		if (itFind != children.end())
+		auto itFind = std::find(m_children.begin(), m_children.end(), pChild);
+		if (itFind != m_children.end())
 		{
-			children.erase(itFind);
+			m_children.erase(itFind);
 		}
 	}
 

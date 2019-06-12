@@ -15,7 +15,8 @@ Leviathan_Editor::Leviathan_Editor(QWidget *parent)
 {
 	ui.setupUi(this);
 
-	_setupWidget();
+	bool seted = _setupWidget();
+	LEV_ASSERT(seted);
 
 	m_timer.reset(new QTimer);
 	m_timer->setInterval(100);
@@ -158,6 +159,8 @@ bool Leviathan_Editor::_setupWidget()
 
 	ui.centralWidget->setLayout(new QGridLayout);
 	ui.centralWidget->layout()->addWidget(m_main_splitter.data());
+
+	return true;
 }
 
 bool Leviathan_Editor::_setupResourceListView()
@@ -165,8 +168,15 @@ bool Leviathan_Editor::_setupResourceListView()
 	m_resource_view.reset(new LevResourcesListView);
 
 	// For test
-	EXIT_IF_FALSE(m_resource_view->SetResourcesFolderPath("C:\\Users\\wangjie\\Documents\\Leviathan\\src"));
-	EXIT_IF_FALSE(m_resource_view->InitItemsFormNode(m_resource_view->GetRootNode()));
+	auto command_args = QApplication::arguments();
+	if (command_args.size() > 1)
+	{
+		auto& resource_folder_path = command_args[1];
+
+		// TODO: the way getting raw char pointer too stupid
+		EXIT_IF_FALSE(m_resource_view->SetResourcesFolderPath(resource_folder_path.toStdString().c_str()));
+		EXIT_IF_FALSE(m_resource_view->InitItemsFormNode(m_resource_view->GetRootNode()));
+	}
 
 	return true;
 }

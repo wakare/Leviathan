@@ -1,6 +1,7 @@
 #include "LevResourcesListView.h"
 #include "NodeVisitor.h"
 #include "GlobalDef.h"
+#include "LevFileSystem.h"
 
 class FileNodeVisitor : public NodeVisitor<LevFileDesc>
 {
@@ -36,18 +37,38 @@ void FileNodeVisitor::ApplyImpl(const Node<LevFileDesc>& node)
 	// Clear all items
 	m_view.ClearItems();
 
-	auto& data = node.GetNodeData();
-	// std::cout << ((data->type == LevFileType::EFT_DIR_FILE) ? "Directory: " : "Regular: ") << data->file_name << std::endl;
+	bool is_root_file = !node.GetParent().Get();
 
-	QIcon icon =  m_view.style()->standardIcon((data->type == EFT_REGULAR_FILE) ? QStyle::SP_FileIcon : QStyle::SP_DirIcon);
-	QStandardItem* item = new QStandardItem(icon, QString("File"));
+	if (!is_root_file)
+	{
+		auto& parent_node = node.GetParent();
 
-	FileNodeType* node_data = new FileNodeType;
-	node_data->SetData(&node);
-	
-	item->setData(QVariant::fromValue(node_data));
-	item->setText(QString(data->file_name.c_str()));
-	m_view.AddItem(item);
+		QIcon icon = m_view.style()->standardIcon(QStyle::SP_DirIcon);
+		QStandardItem* item = new QStandardItem(icon, QString("File"));
+
+		FileNodeType* node_data = new FileNodeType;
+		node_data->SetData(parent_node.Get());
+
+		item->setData(QVariant::fromValue(node_data));
+		item->setText(QString(".."));
+		m_view.AddItem(item);
+	}
+
+	for (auto& child : node.GetChildren())
+	{
+		auto& data = child->GetNodeData();
+		// std::cout << ((data->type == LevFileType::EFT_DIR_FILE) ? "Directory: " : "Regular: ") << data->file_name << std::endl;
+
+		QIcon icon = m_view.style()->standardIcon((data->type == EFT_REGULAR_FILE) ? QStyle::SP_FileIcon : QStyle::SP_DirIcon);
+		QStandardItem* item = new QStandardItem(icon, QString("File"));
+
+		FileNodeType* node_data = new FileNodeType;
+		node_data->SetData(child.Get());
+
+		item->setData(QVariant::fromValue(node_data));
+		item->setText(QString(data->file_name.c_str()));
+		m_view.AddItem(item);
+	}
 }
 
 LevResourcesListView::LevResourcesListView(QWidget* parent /*= nullptr*/)
@@ -83,6 +104,27 @@ void LevResourcesListView::ListViewClicked(const QModelIndex & index)
 	// Qt::UserRole + 1 is hard code, should be more elegant
 	FileNodeType* node_data = index.data(Qt::UserRole + 1).value<FileNodeType*>();
 
-	/*LogLine("[DEBUG] Click " << node_data->GetData()->GetNodeData()->file_name);*/
-	InitItemsFormNode(*node_data->GetData());
+	switch (node_data->GetData()->GetNodeData()->type)
+	{
+	case Leviathan::EFT_DIR_FILE:
+		_folderClicked(*node_data->GetData());
+		break;
+
+	case Leviathan::EFT_REGULAR_FILE:
+		_regularFileClicked(*node_data->GetData());
+		break;
+
+	default:
+		break;
+	}
+}
+
+void LevResourcesListView::_folderClicked(const Node<LevFileDesc>& node)
+{
+	InitItemsFormNode(node);
+}
+
+void LevResourcesListView::_regularFileClicked(const Node<LevFileDesc>& node)
+{
+	// Do nothing
 }

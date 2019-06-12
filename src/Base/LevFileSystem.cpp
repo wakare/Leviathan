@@ -36,6 +36,7 @@ bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& o
 			desc->type = LevFileType::EFT_REGULAR_FILE;
 
 			LPtr<Node<LevFileDesc>> file = new LevFileNode(desc);
+			file->SetParent(TryCast<LevFileNode, Node<LevFileDesc>>(out));
 			out->AddChild(file);
 		}
 
@@ -49,7 +50,7 @@ bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& o
 	{
 		LPtr<LevFileNode> directory_out;
 		EXIT_IF_FALSE (_recursiveLoadDirectory(p, directory_out));
-
+		directory_out->SetParent(TryCast<LevFileNode, Node<LevFileDesc>>(out));
 		out->AddChild(TryCast<LevFileNode, Node<LevFileDesc>>(directory_out));
 	}
 

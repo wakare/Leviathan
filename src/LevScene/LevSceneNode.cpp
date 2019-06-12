@@ -7,16 +7,16 @@ namespace Leviathan
 	{
 		bool LevSceneNode::HasModified() const
 		{
-			return pNodeData->HasModified();
+			return m_node_data->HasModified();
 		}
 
 		void LevSceneNode::SetModified(bool bRecursion)
 		{
-			pNodeData->SetModified();
+			m_node_data->SetModified();
 
 			if (bRecursion)
 			{
-				for (auto& child : children)
+				for (auto& child : m_children)
 				{
 					LevSceneNode* pChild = dynamic_cast<LevSceneNode*>(child.Get());
 					LEV_ASSERT(pChild);
@@ -31,6 +31,7 @@ namespace Leviathan
 		{
 
 		}
+
 		Node<LevSceneObject>& LevSceneNode::ToBase()
 		{
 			return *this;
