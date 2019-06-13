@@ -62,6 +62,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TreeViewTest", "TreeViewTes
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileSystem", "FileSystem\FileSystem.vcxproj", "{D5EA0FE7-0669-4C1C-AD83-8714E7FE0896}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RuntimeAttributeWatcher", "RuntimeAttributeWatcher\RuntimeAttributeWatcher.vcxproj", "{C9C21974-CF46-4278-8231-951263A801AA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -164,6 +166,14 @@ Global
 		{D5EA0FE7-0669-4C1C-AD83-8714E7FE0896}.Release|x64.Build.0 = Release|x64
 		{D5EA0FE7-0669-4C1C-AD83-8714E7FE0896}.Release|x86.ActiveCfg = Release|Win32
 		{D5EA0FE7-0669-4C1C-AD83-8714E7FE0896}.Release|x86.Build.0 = Release|Win32
+		{C9C21974-CF46-4278-8231-951263A801AA}.Debug|x64.ActiveCfg = Debug|x64
+		{C9C21974-CF46-4278-8231-951263A801AA}.Debug|x64.Build.0 = Debug|x64
+		{C9C21974-CF46-4278-8231-951263A801AA}.Debug|x86.ActiveCfg = Debug|Win32
+		{C9C21974-CF46-4278-8231-951263A801AA}.Debug|x86.Build.0 = Debug|Win32
+		{C9C21974-CF46-4278-8231-951263A801AA}.Release|x64.ActiveCfg = Release|x64
+		{C9C21974-CF46-4278-8231-951263A801AA}.Release|x64.Build.0 = Release|x64
+		{C9C21974-CF46-4278-8231-951263A801AA}.Release|x86.ActiveCfg = Release|Win32
+		{C9C21974-CF46-4278-8231-951263A801AA}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -182,6 +192,7 @@ Global
 		{C5D1E332-6B9F-496D-94D8-F24CAAB0362D} = {47E0B754-34D6-499A-AC21-EDD064A4E6B7}
 		{275435E1-E60E-4ECE-A240-5C535D1DF91C} = {8A5062DE-9257-4976-A516-1B68E40DE8CA}
 		{D5EA0FE7-0669-4C1C-AD83-8714E7FE0896} = {8A5062DE-9257-4976-A516-1B68E40DE8CA}
+		{C9C21974-CF46-4278-8231-951263A801AA} = {8A5062DE-9257-4976-A516-1B68E40DE8CA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {96707CC0-136C-45D6-ABE8-364AB736690D}
