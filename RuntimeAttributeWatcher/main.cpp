@@ -1,4 +1,6 @@
+#include <conio.h>
 #include <iostream>
+#include <vector>
 
 #include "RuntimeAttributeWatcher.h"
 #include "InternRuntimeAttribute.h"
@@ -15,6 +17,11 @@ std::string& trim(std::string &s)
 	s.erase(0, s.find_first_not_of(" "));
 	s.erase(s.find_last_not_of(" ") + 1);
 	return s;
+}
+
+void _clearCurrentLine()
+{
+	std::cout << "\r                                                                                                             \r";
 }
 
 bool _processAssignment(const std::string& source, RuntimeAttributeWatcher& watcher)
@@ -88,60 +95,131 @@ int main()
 
 	bool exit = false;
 	char input_buffer[100];
-
-	memset(input_buffer, 0, sizeof(input_buffer));
 	size_t buf_pointer = 0;
 
-	std::cout << std::endl << "Please input varaible name:" << std::endl;
+	auto _clear_input_buf = [&]()
+	{
+		buf_pointer = 0;
+		memset(input_buffer, 0, sizeof(input_buffer));
+	};
+
+	std::cout << "Please input varaible name:" << std::endl;
+
+	bool during_tab = false;
+	unsigned tab_index = 0;
+	std::vector<std::string> backup_select_items;
+
+	auto _clear_tab_objects = [&]() 
+	{
+		during_tab = false;
+		tab_index = 0;
+		backup_select_items.clear();
+	};
 
 	while (!exit)
 	{
 		char current_input_char;
 		//std::cin.get(current_input_char);
-		current_input_char = getchar();
+		current_input_char = _getch();
+		std::cout << current_input_char;
 
-		bool is_regular_char = current_input_char != '\n' &&current_input_char != '\t';
+		bool is_regular_char = current_input_char != '\r' &&current_input_char != '\t';
 		if (is_regular_char)
 		{
+			_clear_tab_objects();
 			input_buffer[buf_pointer++] = current_input_char;
+			input_buffer[buf_pointer] = 0;
 			continue;
+		}
+
+		if (current_input_char == '\t')
+		{
+			_clearCurrentLine();
+
+			if (!during_tab)
+			{
+				during_tab = true;
+				auto _searched = [&backup_select_items](RuntimeAttribute& attribute)
+				{
+					backup_select_items.push_back(attribute.GetName());
+				};
+
+				std::string current_search_string = input_buffer;
+				watcher.SearchAll(current_search_string, _searched);	
+			}
+			else
+			{
+
+			}
+
+			if (backup_select_items.size() != 0)
+			{
+				auto& tab_string = backup_select_items[tab_index];
+
+				tab_index = (tab_index + 1) % backup_select_items.size();
+
+				_clear_input_buf();
+				memcpy(input_buffer, tab_string.c_str(), tab_string.size());
+				buf_pointer = tab_string.size();
+
+				_clearCurrentLine();
+				std::cout << tab_string;
+			}
+
+			continue;
+		}
+
+		else if (current_input_char == '\r')
+		{
+			_clearCurrentLine();
 		}
 
 		input_buffer[buf_pointer] = 0;
 		std::string line = input_buffer;
-		memset(input_buffer, 0, sizeof(input_buffer));
-		buf_pointer = 0;
-
 		std::cout << "Current input string is " << line << std::endl;
 
+		_clear_input_buf();
+		
+		_clear_tab_objects();
+		
+		bool has_searched = false;
+		bool has_matched = false;
+		
 		if (line.size() == 0)
 		{
 			std::cout << "Input string is empty." << std::endl;
-			continue;
+			goto ExitSuccess;
 		}
 
 		// First, do regex_match
-		bool has_matched = watcher.MatchOne(line, _matched);
+		has_matched = watcher.MatchOne(line, _matched);
 		if (has_matched)
 		{
-			continue;
+			goto ExitSuccess;
 		}
 
 		std::cout << "No Attribute has matched, try to search other attribute." << std::endl;
-		bool has_searched = watcher.SearchAll(line, _searched);
+		has_searched = watcher.SearchAll(line, _searched);
 
 		if (has_searched)
 		{
-			continue;
+			goto ExitSuccess;
 		}
 
 		// Maybe this statement is a assignment string
 		if (_processAssignment(line, watcher))
 		{
-			continue;
+			goto ExitSuccess;
 		}
 
 		std::cout << "No Attribute has searched, please use . to find all attribute." << std::endl;
+		goto Loop;
+
+	ExitSuccess:
+		std::cout << "Please input varaible name:" << std::endl;
+
+	Loop:
+		continue;
 	}
 	
 	return 0;
