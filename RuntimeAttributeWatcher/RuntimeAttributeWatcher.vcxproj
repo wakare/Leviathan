@@ -154,12 +154,14 @@
     <ClCompile Include="InternRuntimeAttribute.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RuntimeAttributeWatcher.cpp" />
+    <ClCompile Include="StringMatcher.cpp" />
     <ClCompile Include="UniqueIdDispatcher.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="InternRuntimeAttribute.h" />
     <ClInclude Include="RuntimeAttribute.h" />
     <ClInclude Include="RuntimeAttributeWatcher.h" />
+    <ClInclude Include="StringMatcher.h" />
     <ClInclude Include="UniqueIdDispatcher.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

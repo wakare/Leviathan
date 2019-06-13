@@ -49,6 +49,9 @@
     <Filter Include="CommonTool\FileSystem">
       <UniqueIdentifier>{87aa0b38-00b8-44cb-9e7b-889acbbde38b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CommonTool\StringMatch">
+      <UniqueIdentifier>{466d8057-0f76-424f-afef-7add38962506}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Light.cpp">
