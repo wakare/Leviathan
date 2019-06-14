@@ -29,6 +29,8 @@ namespace Util
 	{
 	public:
 		RuntimeAttribute();
+		virtual ~RuntimeAttribute();
+
 		RuntimeAttribute(const RuntimeAttribute& lhs) = delete;
 		RuntimeAttribute(const RuntimeAttribute&& lhs) = delete;
 
@@ -49,6 +51,11 @@ namespace Util
 	inline RuntimeAttribute::RuntimeAttribute()
 	{
 		m_attribute_id = IdDispatcher::Instance().GetCurrentIdAndIncrement();
+	}
+
+	inline RuntimeAttribute::~RuntimeAttribute()
+	{
+
 	}
 
 	inline unsigned RuntimeAttribute::GetId() const

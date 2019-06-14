@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CommandView.cpp" />
     <ClCompile Include="InternRuntimeAttribute.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RuntimeAttributeWatcher.cpp" />
@@ -158,6 +159,7 @@
     <ClCompile Include="UniqueIdDispatcher.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CommandView.h" />
     <ClInclude Include="InternRuntimeAttribute.h" />
     <ClInclude Include="RuntimeAttribute.h" />
     <ClInclude Include="RuntimeAttributeWatcher.h" />
