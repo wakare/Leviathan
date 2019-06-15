@@ -162,10 +162,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FileSystem.cpp" />
-    <ClCompile Include="LevFileSystem.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="LevFileSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
