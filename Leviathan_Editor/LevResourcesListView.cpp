@@ -76,6 +76,11 @@ LevResourcesListView::LevResourcesListView(QWidget* parent /*= nullptr*/)
 	, m_file_system_root_node(nullptr)
 {
 	connect(this, SIGNAL(doubleClicked(const QModelIndex &)), this, SLOT(ListViewClicked(const QModelIndex &)));
+
+	setAcceptDrops(true);
+	//setDragDropMode(QAbstractItemView::InternalMove);
+	setDragDropMode(QAbstractItemView::DragDrop);
+	setSelectionMode(QAbstractItemView::SingleSelection);
 }
 
 bool LevResourcesListView::SetResourcesFolderPath(const char* path)
