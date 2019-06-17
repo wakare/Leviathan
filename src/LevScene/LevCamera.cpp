@@ -6,6 +6,7 @@ namespace Leviathan
 	{
 		LevCamera::LevCamera()
 			: LevSceneObject(ELSOT_CAMERA | ELSOT_UNRENDERABLE |ELSOT_DYNAMIC)
+			, m_receive_input(true)
 		{
 			SetRecalculateWorldTransform(false);
 		}
@@ -149,12 +150,22 @@ namespace Leviathan
 
 		void LevCamera::MouseDrag(float x, float y)
 		{
+			if (!m_receive_input)
+			{
+				return;
+			}
+
 			TargetTranslate(x * m_currentDistance, -y * m_currentDistance);
 			SetModified();
 		}
 
 		void LevCamera::MouseTranslate(float x, float y, float z)
 		{
+			if (!m_receive_input)
+			{
+				return;
+			}
+
 			float length = (m_fEye - m_fLookAt).norm();
 			float scaleRatio = length * m_mouseOperationScaleRatio;
 
@@ -164,6 +175,11 @@ namespace Leviathan
 
 		void LevCamera::MouseRotate(float x, float y)
 		{
+			if (!m_receive_input)
+			{
+				return;
+			}
+
 			Eigen::Vector3f N, U, V;
 			_getNUVVector(N, U, V);
 			m_fUp = V;
@@ -276,6 +292,11 @@ namespace Leviathan
 			_setEyePosition(m_fLookAt - m_currentDistance * N);
 
 			SetModified();
+		}
+
+		void LevCamera::SetReceiveInput(bool receive)
+		{
+			m_receive_input = receive;
 		}
 	}
 }

@@ -42,5 +42,7 @@ namespace Leviathan
 			std::vector<LPtr<LevLight>> m_pLights;
 			LPtr<LevSceneTree> m_pSceneTree;
 		};
+
+		bool InitCameraAndLight(LevSceneData& scene_data);
 	}
 }

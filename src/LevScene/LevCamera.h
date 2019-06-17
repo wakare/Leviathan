@@ -35,11 +35,15 @@ namespace Leviathan
 			bool LookAt(const Eigen::Vector3f& worldCoord, float fDistance /*= 100.0f*/);
 			void TargetTranslate(float x, float y);
 
+			void SetReceiveInput(bool receive);
+
 		private:
 			float _getDistance();
 			void _getNUVVector(Eigen::Vector3f& N, Eigen::Vector3f& U, Eigen::Vector3f& V) const;
 			bool _updateCurrentDistance(float newDistance = -1.0f);
 			void _setEyePosition(const Eigen::Vector3f& position);
+
+			bool m_receive_input;
 
 			Eigen::Vector3f m_fEye;
 			Eigen::Vector3f m_fLookAt;
