@@ -5,6 +5,7 @@
 
 #include "LPtr.h"
 #include "GlobalDef.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -15,7 +16,7 @@ namespace Leviathan
 
 		typedef std::function<void()> LevSceneModifiedCallback;
 
-		class LevScene
+		class LEV_SCENE_API LevScene
 		{
 		public:
 			LevScene();

@@ -4,12 +4,13 @@
 #include "LevSceneObjectDescription.h"
 #include "IMesh.h"
 #include "LevRAttrObjectColor.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevMeshObject : public LevSceneObjectDescription
+		class LEV_SCENE_API LevMeshObject : public LevSceneObjectDescription
 		{
 		public:
 			LevMeshObject();

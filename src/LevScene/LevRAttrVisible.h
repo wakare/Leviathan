@@ -5,7 +5,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevRAttrVisible : public LevSceneRenderAttribute
+		class LEV_SCENE_API LevRAttrVisible : public LevSceneRenderAttribute
 		{
 		public: 
 			LevRAttrVisible(bool visible);

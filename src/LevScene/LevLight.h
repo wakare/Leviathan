@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LevSceneObject.h"
+#include "LevSceneAPIDefine.h"
 #include <Eigen/Dense>
 
 namespace Leviathan
@@ -13,7 +14,7 @@ namespace Leviathan
 			ELLT_DIR_LIGHT,
 		};
 
-		class LevLight : public LevSceneObject
+		class LEV_SCENE_API LevLight : public LevSceneObject
 		{
 		public: 
 			LevLight(LevLightType type, int scene_obj_type);

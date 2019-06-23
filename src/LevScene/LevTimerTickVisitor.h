@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NodeVisitor.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -8,7 +9,7 @@ namespace Leviathan
 	{
 		class LevSceneObject;
 
-		class LevTimerTickVisitor : public NodeVisitor<LevSceneObject>
+		class LEV_SCENE_API LevTimerTickVisitor : public NodeVisitor<LevSceneObject>
 		{
 		public:
 			virtual void Apply(Node<LevSceneObject>& node);

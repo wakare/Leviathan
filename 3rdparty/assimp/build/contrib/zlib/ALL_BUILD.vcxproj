@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{556C6F2F-CBE9-3F28-B639-264D0AF58888}</ProjectGuid>
+    <ProjectGuid>{A37F9C2F-30B3-3050-838D-A337D85467C0}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
@@ -29,22 +30,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -62,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -72,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -82,7 +83,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -92,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -101,10 +102,10 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt</Message>
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp -BC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build --check-stamp-file C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -112,12 +113,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zlib.pc.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zconf.h.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp -BC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build --check-stamp-file C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -125,12 +126,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zlib.pc.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zconf.h.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp -BC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build --check-stamp-file C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -138,12 +139,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zlib.pc.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zconf.h.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -HC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp -BC:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build --check-stamp-file C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
+"D:\Program Files\CMake\bin\cmake.exe" -SD:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0 -BD:/Git/Leviathan/3rdparty/assimp/build --check-stamp-file D:/Git/Leviathan/3rdparty/assimp/build/contrib/zlib/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -151,25 +152,31 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/contrib/zlib/CMakeLists.txt;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFileCXX.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckTypeSize.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckFunctionExists.c;C:\Program Files\CMake\share\cmake-3.11\Modules\CheckIncludeFile.c.in;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zlib.pc.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\zconf.h.cmakein;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/contrib/zlib/CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zconf.h.cmakein;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\zlib.pc.cmakein;D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\CheckTypeSize\OFF64_T.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckCSourceCompiles.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.c;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckFunctionExists.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFile.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckIncludeFileCXX.cmake;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.c.in;D:\Program Files\CMake\share\cmake-3.14\Modules\CheckTypeSize.cmake;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\ZERO_CHECK.vcxproj">
-      <Project>{4629B9CA-6898-3E96-BCF2-44BB11A2B35C}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\build\ZERO_CHECK.vcxproj">
+      <Project>{9C546C4A-2A9D-39FF-932D-5486B7A94626}</Project>
       <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\zlib.vcxproj">
-      <Project>{6D6A5F18-EC96-3854-8CF4-CC7E04F465CF}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\zlib.vcxproj">
+      <Project>{6FDD5B66-06CB-306B-8C16-5C73FF2D0CB9}</Project>
       <Name>zlib</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\zlibstatic.vcxproj">
-      <Project>{A0EC1C9D-9BF4-368E-8447-A094D583D6FB}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\zlibstatic.vcxproj">
+      <Project>{900575C6-8B29-30EF-936A-23CA73A07FC6}</Project>
       <Name>zlibstatic</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

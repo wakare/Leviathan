@@ -4,6 +4,7 @@
 */
 
 #pragma once
+#include "LevViewerAPIDefine.h"
 #include "LPtr.h"
 
 namespace Leviathan
@@ -23,7 +24,7 @@ namespace Leviathan
 
 	namespace Viewer
 	{
-		class LevViewer
+		class LEV_VIEWER_API LevViewer
 		{
 		public:
 			LevViewer();

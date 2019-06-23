@@ -18,6 +18,9 @@
     <ClInclude Include="LevViewer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevViewerAPIDefine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevViewer.cpp">

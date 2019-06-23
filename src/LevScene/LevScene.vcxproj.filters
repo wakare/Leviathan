@@ -121,6 +121,9 @@
     <ClInclude Include="LevRAttrLightEnable.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevSceneAPIDefine.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">

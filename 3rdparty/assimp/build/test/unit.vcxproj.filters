@@ -1,291 +1,288 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\gtest\src\gtest-all.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\gtest\src\gtest-all.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\CCompilerTest.c">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\CCompilerTest.c">
       <Filter>UnitTests\Compiler</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\Main.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Version.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Version.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSimd.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utIOSystem.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utIOSystem.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utIOStreamBuffer.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utIOStreamBuffer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utIssues.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utIssues.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utAnim.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utAnim.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\AssimpAPITest.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\AssimpAPITest.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBatchLoader.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBatchLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utDefaultIOStream.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utDefaultIOStream.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utFastAtof.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utFastAtof.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utMetadata.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utMetadata.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\SceneDiffer.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\SceneDiffer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\AbstractImportExportBase.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\AbstractImportExportBase.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utTypes.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utTypes.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utVersion.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utVersion.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utProfiler.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utProfiler.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSharedPPData.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSharedPPData.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utStringUtils.cpp">
       <Filter>UnitTests\Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utStringUtils.cpp">
-      <Filter>UnitTests\Common</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utLWSImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utLWSImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSMDImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSMDImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utglTFImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utglTFImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utglTF2ImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utglTF2ImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utHMPImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utHMPImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utIFCImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utIFCImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utFBXImporterExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utFBXImporterExporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utImporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\ut3DImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\ut3DImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\ut3DSImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\ut3DSImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utACImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utACImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utAMFImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utAMFImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utASEImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utASEImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utD3MFImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utD3MFImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utQ3DImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utQ3DImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSTLImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSTLImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utXImporterExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utXImporterExporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utX3DImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utX3DImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utDXFImporterExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utDXFImporterExporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utPMXImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utPMXImporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utPLYImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utPLYImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utObjImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utObjImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utObjTools.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utObjTools.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utOpenGEXImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utOpenGEXImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSIBImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSIBImporter.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBlenderIntermediate.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBlenderIntermediate.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBlendImportAreaLight.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBlendImportAreaLight.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBlenderImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBlenderImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBlendImportMaterials.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBlendImportMaterials.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utBVHImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utBVHImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utColladaExportCamera.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utColladaExportCamera.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utColladaExportLight.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utColladaExportLight.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utColladaImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utColladaImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utCSMImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utCSMImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utB3DImportExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utB3DImportExport.cpp">
       <Filter>UnitTests\Importers</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utMaterialSystem.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utMaterialSystem.cpp">
       <Filter>UnitTests\Material</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utMatrix3x3.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utMatrix3x3.cpp">
       <Filter>UnitTests\Math</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utMatrix4x4.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utMatrix4x4.cpp">
       <Filter>UnitTests\Math</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utVector3.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utVector3.cpp">
       <Filter>UnitTests\Math</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utImproveCacheLocality.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utImproveCacheLocality.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utFixInfacingNormals.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utFixInfacingNormals.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utGenNormals.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utGenNormals.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utTriangulate.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utTriangulate.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utTextureTransform.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utTextureTransform.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utRemoveRedundantMaterials.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utRemoveRedundantMaterials.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utRemoveVCProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utRemoveVCProcess.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utScaleProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utScaleProcess.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utJoinVertices.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utJoinVertices.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utRemoveComments.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utRemoveComments.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utRemoveComponent.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utRemoveComponent.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utVertexTriangleAdjacency.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utVertexTriangleAdjacency.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSplitLargeMeshes.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSplitLargeMeshes.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utFindDegenerates.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utFindDegenerates.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utFindInvalidData.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utFindInvalidData.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utLimitBoneWeights.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utLimitBoneWeights.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utPretransformVertices.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utPretransformVertices.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utScenePreprocessor.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utScenePreprocessor.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utTargetAnimation.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utTargetAnimation.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSortByPType.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSortByPType.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\utSceneCombiner.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\utSceneCombiner.cpp">
       <Filter>UnitTests\PostProcess</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\SceneDiffer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\SceneDiffer.h">
       <Filter>UnitTests\Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\UTLogStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\UTLogStream.h">
       <Filter>UnitTests\Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\TestIOSystem.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\TestIOSystem.h">
       <Filter>UnitTests\Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\unit\TestModelFactory.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\unit\TestModelFactory.h">
       <Filter>UnitTests\Common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\test\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\test\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{85ECC57C-EF83-32B7-8F3C-0F9065F536E5}</UniqueIdentifier>
+      <UniqueIdentifier>{5F3935F9-9D0F-393F-8698-121BA1438A40}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests">
-      <UniqueIdentifier>{E83E210D-1652-3EC6-AE19-8B4583651CC3}</UniqueIdentifier>
+      <UniqueIdentifier>{09530938-2DCB-32C2-BE47-88254312940B}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\Common">
-      <UniqueIdentifier>{F1023B9A-414F-35EA-B3DD-180732C0E759}</UniqueIdentifier>
+      <UniqueIdentifier>{7278A57E-422E-3BAC-A13D-74C2E4803E59}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\Compiler">
-      <UniqueIdentifier>{AD845CB6-0951-3A02-841B-C077CD2E1235}</UniqueIdentifier>
+      <UniqueIdentifier>{B69D8904-3B4E-3FDD-A6A5-7FBCCF9C7EED}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\Importers">
-      <UniqueIdentifier>{007E114C-2759-3832-B96E-A72124880B31}</UniqueIdentifier>
+      <UniqueIdentifier>{094DF315-48F5-35B9-98DB-8D608639D313}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\Material">
-      <UniqueIdentifier>{4377D6DC-8005-3C25-8C73-4E73A7E1B35B}</UniqueIdentifier>
+      <UniqueIdentifier>{54467710-2639-3ADD-80A4-535778532DC5}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\Math">
-      <UniqueIdentifier>{0514B33B-547B-386F-83C8-B2C8B4BB7DC3}</UniqueIdentifier>
+      <UniqueIdentifier>{77BD0931-E017-3E8D-8ECC-2D9D651835D4}</UniqueIdentifier>
     </Filter>
     <Filter Include="UnitTests\PostProcess">
-      <UniqueIdentifier>{F8378292-028D-3043-B947-52769201CD6A}</UniqueIdentifier>
+      <UniqueIdentifier>{7334E4C8-B650-306B-B72B-5D358C475897}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

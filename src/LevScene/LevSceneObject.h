@@ -5,6 +5,7 @@
 #include <Eigen/Dense>
 #include <string>
 #include "LPtr.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -67,7 +68,7 @@ namespace Leviathan
 		typedef unsigned SceneObjectID;
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
 
-		class LevSceneObject
+		class LEV_SCENE_API LevSceneObject
 		{
 		public:
 			LevSceneObject(int type);

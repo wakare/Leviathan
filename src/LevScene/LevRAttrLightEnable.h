@@ -5,7 +5,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevRAttrLightEnable : public LevSceneRenderAttribute
+		class LEV_SCENE_API LevRAttrLightEnable : public LevSceneRenderAttribute
 		{
 		public:
 			LevRAttrLightEnable(bool enable);

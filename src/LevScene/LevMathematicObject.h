@@ -1,12 +1,13 @@
 #pragma once
 
 #include "LevSceneObjectDescription.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevMathematicObject : public LevSceneObjectDescription
+		class LEV_SCENE_API LevMathematicObject : public LevSceneObjectDescription
 		{
 		public:
 			LevMathematicObject();

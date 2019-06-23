@@ -5,7 +5,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevRAttrPointSize : public LevSceneRenderAttribute
+		class LEV_SCENE_API LevRAttrPointSize : public LevSceneRenderAttribute
 		{
 		public:
 			LevRAttrPointSize(unsigned size);

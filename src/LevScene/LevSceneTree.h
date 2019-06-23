@@ -2,6 +2,7 @@
 
 #include <vector>
 #include "LPtr.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -15,7 +16,7 @@ namespace Leviathan
 		class LevSetObjModifiedVisitor;
 		class LevTimerTickVisitor;
 
-		class LevSceneTree
+		class LEV_SCENE_API LevSceneTree
 		{
 		public:
 			LevSceneTree();

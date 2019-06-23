@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp
+# Install script for directory: D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/Assimp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Assimp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,22 +34,22 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xlibassimp4.1.0-devx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/assimp-4.1" TYPE FILE FILES
-    "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/assimp-config.cmake"
-    "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/assimp-config-version.cmake"
+    "D:/Git/Leviathan/3rdparty/assimp/build/assimp-config.cmake"
+    "D:/Git/Leviathan/3rdparty/assimp/build/assimp-config-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xlibassimp4.1.0-devx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/assimp.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "D:/Git/Leviathan/3rdparty/assimp/build/assimp.pc")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/zlib/cmake_install.cmake")
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/contrib/cmake_install.cmake")
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/code/cmake_install.cmake")
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/tools/assimp_cmd/cmake_install.cmake")
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/test/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/contrib/zlib/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/contrib/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/code/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/tools/assimp_cmd/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/test/cmake_install.cmake")
 
 endif()
 
@@ -61,5 +61,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/Git/Leviathan/3rdparty/assimp/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

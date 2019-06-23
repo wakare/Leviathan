@@ -1,1743 +1,1695 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Assimp.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Assimp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BaseImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BaseImporter.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BaseProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BaseProcess.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PostStepRegistry.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PostStepRegistry.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ImporterRegistry.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ImporterRegistry.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DefaultIOStream.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DefaultIOStream.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DefaultIOSystem.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DefaultIOSystem.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CInterfaceIOWrapper.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CInterfaceIOWrapper.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Importer.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SGSpatialSort.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SGSpatialSort.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\VertexTriangleAdjacency.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\VertexTriangleAdjacency.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SpatialSort.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SpatialSort.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SceneCombiner.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SceneCombiner.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ScenePreprocessor.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ScenePreprocessor.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SkeletonMeshBuilder.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SkeletonMeshBuilder.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SplitByBoneCountProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SplitByBoneCountProcess.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\StandardShapes.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ScaleProcess.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TargetAnimation.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StandardShapes.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RemoveComments.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TargetAnimation.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Subdivision.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveComments.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\scene.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Subdivision.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Bitmap.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\scene.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Version.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Bitmap.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CreateAnimMesh.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Version.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\simd.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CreateAnimMesh.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DefaultLogger.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DefaultLogger.cpp">
       <Filter>Logging</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Exporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Exporter.cpp">
       <Filter>Exporter</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssimpCExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssimpCExport.cpp">
       <Filter>Exporter</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CalcTangentsProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CalcTangentsProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ComputeUVMappingProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ComputeUVMappingProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ConvertToLHProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ConvertToLHProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\EmbedTexturesProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindDegenerates.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindDegenerates.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindInstancesProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindInstancesProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindInvalidDataProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindInvalidDataProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FixNormalsStep.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FixNormalsStep.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\GenFaceNormalsProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\GenFaceNormalsProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\GenVertexNormalsProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\GenVertexNormalsProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PretransformVertices.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PretransformVertices.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ImproveCacheLocality.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ImproveCacheLocality.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\JoinVerticesProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\JoinVerticesProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LimitBoneWeightsProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LimitBoneWeightsProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveRedundantMaterials.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RemoveRedundantMaterials.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveVCProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RemoveVCProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SortByPTypeProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SortByPTypeProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SplitLargeMeshes.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SplitLargeMeshes.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TextureTransform.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TextureTransform.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TriangulateProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TriangulateProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ValidateDataStructure.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ValidateDataStructure.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OptimizeGraph.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OptimizeGraph.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OptimizeMeshes.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OptimizeMeshes.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DeboneProcess.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DeboneProcess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ProcessHelper.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ProcessHelper.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MakeVerboseFormat.cpp">
       <Filter>PostProcessing</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MakeVerboseFormat.cpp">
-      <Filter>PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ScaleProcess.cpp">
-      <Filter>PostProcessing</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MaterialSystem.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MaterialSystem.cpp">
       <Filter>MaterialSystem</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\StepExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StepExporter.cpp">
       <Filter>Step</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter.cpp">
       <Filter>AMF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter_Geometry.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter_Geometry.cpp">
       <Filter>AMF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter_Material.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter_Material.cpp">
       <Filter>AMF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter_Postprocess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter_Postprocess.cpp">
       <Filter>AMF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSConverter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSConverter.cpp">
       <Filter>3DS</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSLoader.cpp">
       <Filter>3DS</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSExporter.cpp">
       <Filter>3DS</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ACLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ACLoader.cpp">
       <Filter>AC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ASELoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ASELoader.cpp">
       <Filter>ASE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ASEParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ASEParser.cpp">
       <Filter>ASE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssbinExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssbinExporter.cpp">
       <Filter>ASSBIN</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssbinLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssbinLoader.cpp">
       <Filter>ASSBIN</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssxmlExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssxmlExporter.cpp">
       <Filter>ASSXML</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\B3DImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\B3DImporter.cpp">
       <Filter>B3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BVHLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BVHLoader.cpp">
       <Filter>BVH</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaLoader.cpp">
       <Filter>COLLADA</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaParser.cpp">
       <Filter>COLLADA</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaExporter.cpp">
       <Filter>COLLADA</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DXFLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DXFLoader.cpp">
       <Filter>DXF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CSMLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CSMLoader.cpp">
       <Filter>CSM</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\HMPLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\HMPLoader.cpp">
       <Filter>HMP</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRMeshLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRMeshLoader.cpp">
       <Filter>IRRMESH</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRShared.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRShared.cpp">
       <Filter>IRR</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRLoader.cpp">
       <Filter>IRR</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOAnimation.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOAnimation.cpp">
       <Filter>LWO</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOBLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOBLoader.cpp">
       <Filter>LWO</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOLoader.cpp">
       <Filter>LWO</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOMaterial.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOMaterial.cpp">
       <Filter>LWO</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWSLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWSLoader.cpp">
       <Filter>LWS</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD2Loader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD2Loader.cpp">
       <Filter>MD2</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD3Loader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD3Loader.cpp">
       <Filter>MD3</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD5Loader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD5Loader.cpp">
       <Filter>MD5</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD5Parser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD5Parser.cpp">
       <Filter>MD5</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDCLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDCLoader.cpp">
       <Filter>MDC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDLLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDLLoader.cpp">
       <Filter>MDL</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDLMaterialLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDLMaterialLoader.cpp">
       <Filter>MDL</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\NFFLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\NFFLoader.cpp">
       <Filter>NFF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\NDOLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\NDOLoader.cpp">
       <Filter>NDO</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OFFLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OFFLoader.cpp">
       <Filter>OFF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileImporter.cpp">
       <Filter>OBJ</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileMtlImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileMtlImporter.cpp">
       <Filter>OBJ</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileParser.cpp">
       <Filter>OBJ</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjExporter.cpp">
       <Filter>OBJ</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreImporter.cpp">
       <Filter>OGRE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreStructs.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreStructs.cpp">
       <Filter>OGRE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreBinarySerializer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreBinarySerializer.cpp">
       <Filter>OGRE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreXmlSerializer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreXmlSerializer.cpp">
       <Filter>OGRE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreMaterial.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreMaterial.cpp">
       <Filter>OGRE</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OpenGEXExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OpenGEXExporter.cpp">
       <Filter>OPENGEX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OpenGEXImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OpenGEXImporter.cpp">
       <Filter>OPENGEX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyLoader.cpp">
       <Filter>PLY</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyParser.cpp">
       <Filter>PLY</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyExporter.cpp">
       <Filter>PLY</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MS3DLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MS3DLoader.cpp">
       <Filter>MS3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\COBLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\COBLoader.cpp">
       <Filter>COB</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderLoader.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderDNA.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderDNA.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderScene.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderScene.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderModifier.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderModifier.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderBMesh.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderBMesh.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderTessellator.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderTessellator.cpp">
       <Filter>BLEND</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCLoader.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCReaderGen1_2x3.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCReaderGen1.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCReaderGen2_2x3.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCReaderGen2.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCUtil.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCUtil.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCGeometry.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCGeometry.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCMaterial.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCMaterial.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCProfile.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCProfile.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCCurve.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCCurve.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCBoolean.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCBoolean.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCOpenings.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCOpenings.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\STEPFileReader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STEPFileReader.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\STEPFileEncoding.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STEPFileEncoding.cpp">
       <Filter>IFC</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XGLLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XGLLoader.cpp">
       <Filter>XGL</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXImporter.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXParser.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXTokenizer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXTokenizer.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXConverter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXConverter.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXUtil.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXUtil.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXDocument.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXDocument.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXProperties.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXProperties.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXMeshGeometry.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXMeshGeometry.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXMaterial.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXMaterial.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXModel.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXModel.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXAnimation.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXAnimation.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXNodeAttribute.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXNodeAttribute.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXDeformer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXDeformer.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXBinaryTokenizer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXBinaryTokenizer.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXDocumentUtil.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXDocumentUtil.cpp">
       <Filter>FBX</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExporter.cpp">
-      <Filter>FBX</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExportNode.cpp">
-      <Filter>FBX</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExportProperty.cpp">
-      <Filter>FBX</Filter>
-    </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3DLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3DLoader.cpp">
       <Filter>Q3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPFileParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPFileParser.cpp">
       <Filter>Q3BSP</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPFileImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPFileImporter.cpp">
       <Filter>Q3BSP</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPZipArchive.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPZipArchive.cpp">
       <Filter>Q3BSP</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RawLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RawLoader.cpp">
       <Filter>RAW</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SIBImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SIBImporter.cpp">
       <Filter>SIB</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SMDLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SMDLoader.cpp">
       <Filter>SMD</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\STLLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STLLoader.cpp">
       <Filter>STL</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\STLExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STLExporter.cpp">
       <Filter>STL</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TerragenLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TerragenLoader.cpp">
       <Filter>TERRAGEN</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\UnrealLoader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\UnrealLoader.cpp">
       <Filter>3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileImporter.cpp">
       <Filter>X</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileParser.cpp">
       <Filter>X</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileExporter.cpp">
       <Filter>X</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DExporter.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Geometry2D.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Geometry2D.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Geometry3D.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Geometry3D.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Group.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Group.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Light.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Light.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Metadata.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Metadata.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Networking.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Networking.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Postprocess.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Postprocess.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Rendering.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Rendering.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Shape.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Shape.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Texturing.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Texturing.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FIReader.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FIReader.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DVocabulary.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DVocabulary.cpp">
       <Filter>X3D</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFImporter.cpp">
       <Filter>GLTF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFExporter.cpp">
       <Filter>GLTF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Importer.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Importer.cpp">
       <Filter>GLTF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Exporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Exporter.cpp">
       <Filter>GLTF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFImporter.cpp">
       <Filter>3MF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFExporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFExporter.cpp">
       <Filter>3MF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFOpcPackage.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFOpcPackage.cpp">
       <Filter>3MF</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDImporter.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDImporter.cpp">
       <Filter>MMD</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDPmxParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDPmxParser.cpp">
       <Filter>MMD</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\unzip\ioapi.c">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\unzip\ioapi.c">
       <Filter>unzip</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\unzip\unzip.c">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\unzip\unzip.c">
       <Filter>unzip</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\common\shapes.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\common\shapes.cc">
       <Filter>Poly2Tri</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\advancing_front.cc">
       <Filter>Poly2Tri</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\cdt.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\cdt.cc">
       <Filter>Poly2Tri</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\sweep.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep.cc">
       <Filter>Poly2Tri</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep_context.cc">
       <Filter>Poly2Tri</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\clipper\clipper.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\clipper\clipper.cpp">
       <Filter>Clipper</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\OpenDDLParser.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\OpenDDLParser.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\DDLNode.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\DDLNode.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\OpenDDLCommon.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\OpenDDLCommon.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\OpenDDLExport.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\OpenDDLExport.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\Value.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\Value.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\code\OpenDDLStream.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\code\OpenDDLStream.cpp">
       <Filter>openddl_parser</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcArithmeticCodec.cpp">
       <Filter>open3dgc</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorDecoder.cpp">
       <Filter>open3dgc</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorEncoder.cpp">
       <Filter>open3dgc</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTools.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTools.cpp">
       <Filter>open3dgc</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleFans.cpp">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleFans.cpp">
       <Filter>open3dgc</Filter>
     </ClCompile>
-    <ClCompile Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zip\src\zip.c">
+    <ClCompile Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zip\src\zip.c">
       <Filter>ziplib</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BaseProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\fast_atof.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\qnan.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ScenePrivate.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BaseImporter.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DefaultProgressHandler.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BaseProcess.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CInterfaceIOWrapper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Importer.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IFF.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ScenePrivate.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\VertexTriangleAdjacency.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ByteSwapper.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ScenePreprocessor.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DefaultProgressHandler.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SplitByBoneCountProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CInterfaceIOWrapper.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TargetAnimation.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Hash.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\simd.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFF.h">
       <Filter>Common</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\DefaultLogger.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MemoryIOWrapper.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ParsingUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StreamReader.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StreamWriter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StringComparison.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StringUtils.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SGSpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\VertexTriangleAdjacency.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\GenericProperty.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SpatialSort.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ScenePreprocessor.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SkeletonMeshBuilder.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SplitByBoneCountProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ScaleProcess.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SmoothingGroups.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StandardShapes.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TargetAnimation.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveComments.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Subdivision.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Vertex.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LineSplitter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TinyFormatter.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Profiler.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LogAux.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Bitmap.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XMLTools.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IOStreamBuffer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CreateAnimMesh.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\DefaultLogger.hpp">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\LogStream.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\LogStream.hpp">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Logger.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Logger.hpp">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\NullLogger.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\NullLogger.hpp">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Win32DebugLogStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Win32DebugLogStream.h">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FileLogStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FileLogStream.h">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\StdOStreamLogStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StdOStreamLogStream.h">
       <Filter>Logging</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\BlobIOSystem.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlobIOSystem.h">
       <Filter>Exporter</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CalcTangentsProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CalcTangentsProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ComputeUVMappingProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ComputeUVMappingProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ConvertToLHProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ConvertToLHProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\EmbedTexturesProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindDegenerates.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindDegenerates.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindInstancesProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindInstancesProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FindInvalidDataProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FindInvalidDataProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FixNormalsStep.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FixNormalsStep.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\GenFaceNormalsProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\GenFaceNormalsProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\GenVertexNormalsProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\GenVertexNormalsProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PretransformVertices.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PretransformVertices.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ImproveCacheLocality.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ImproveCacheLocality.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\JoinVerticesProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\JoinVerticesProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LimitBoneWeightsProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LimitBoneWeightsProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveRedundantMaterials.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RemoveRedundantMaterials.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RemoveVCProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RemoveVCProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SortByPTypeProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SortByPTypeProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SplitLargeMeshes.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SplitLargeMeshes.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TextureTransform.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TextureTransform.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TriangulateProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TriangulateProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ValidateDataStructure.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ValidateDataStructure.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OptimizeGraph.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OptimizeGraph.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OptimizeMeshes.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OptimizeMeshes.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DeboneProcess.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DeboneProcess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ProcessHelper.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ProcessHelper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PolyTools.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PolyTools.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MakeVerboseFormat.h">
       <Filter>PostProcessing</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MakeVerboseFormat.h">
-      <Filter>PostProcessing</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ScaleProcess.h">
-      <Filter>PostProcessing</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MaterialSystem.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MaterialSystem.h">
       <Filter>MaterialSystem</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\STEPFile.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\StepExporter.h">
       <Filter>Step</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\StepExporter.h">
-      <Filter>Step</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter.hpp">
       <Filter>AMF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter_Macro.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter_Macro.hpp">
       <Filter>AMF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AMFImporter_Node.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AMFImporter_Node.hpp">
       <Filter>AMF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSHelper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSHelper.h">
       <Filter>3DS</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSLoader.h">
       <Filter>3DS</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3DSExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3DSExporter.h">
       <Filter>3DS</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ACLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ACLoader.h">
       <Filter>AC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ASELoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ASELoader.h">
       <Filter>ASE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ASEParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ASEParser.h">
       <Filter>ASE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssbinExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssbinExporter.h">
       <Filter>ASSBIN</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssbinLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssbinLoader.h">
       <Filter>ASSBIN</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\AssxmlExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\AssxmlExporter.h">
       <Filter>ASSXML</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\B3DImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\B3DImporter.h">
       <Filter>B3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BVHLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BVHLoader.h">
       <Filter>BVH</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaHelper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaHelper.h">
       <Filter>COLLADA</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaLoader.h">
       <Filter>COLLADA</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaParser.h">
       <Filter>COLLADA</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ColladaExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ColladaExporter.h">
       <Filter>COLLADA</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DXFLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DXFLoader.h">
       <Filter>DXF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\DXFHelper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\DXFHelper.h">
       <Filter>DXF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CSMLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CSMLoader.h">
       <Filter>CSM</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\HMPFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\HMPFileData.h">
       <Filter>HMP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\HMPLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\HMPLoader.h">
       <Filter>HMP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\HalfLifeFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\HalfLifeFileData.h">
       <Filter>HMP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRMeshLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRMeshLoader.h">
       <Filter>IRRMESH</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRShared.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRShared.h">
       <Filter>IRR</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\IRRLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IRRLoader.h">
       <Filter>IRR</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOAnimation.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOAnimation.h">
       <Filter>LWO</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOFileData.h">
       <Filter>LWO</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWOLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWOLoader.h">
       <Filter>LWO</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\LWSLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\LWSLoader.h">
       <Filter>LWS</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD2FileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD2FileData.h">
       <Filter>MD2</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD2Loader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD2Loader.h">
       <Filter>MD2</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD2NormalTable.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD2NormalTable.h">
       <Filter>MD2</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD3FileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD3FileData.h">
       <Filter>MD3</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD3Loader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD3Loader.h">
       <Filter>MD3</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD5Loader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD5Loader.h">
       <Filter>MD5</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MD5Parser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MD5Parser.h">
       <Filter>MD5</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDCFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDCFileData.h">
       <Filter>MDC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDCLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDCLoader.h">
       <Filter>MDC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDCNormalTable.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDCNormalTable.h">
       <Filter>MDC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDLDefaultColorMap.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDLDefaultColorMap.h">
       <Filter>MDL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDLFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDLFileData.h">
       <Filter>MDL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MDLLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MDLLoader.h">
       <Filter>MDL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\NFFLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\NFFLoader.h">
       <Filter>NFF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\NDOLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\NDOLoader.h">
       <Filter>NDO</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OFFLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OFFLoader.h">
       <Filter>OFF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileData.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileImporter.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileMtlImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileMtlImporter.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjFileParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjFileParser.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjTools.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjTools.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\ObjExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\ObjExporter.h">
       <Filter>OBJ</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreImporter.h">
       <Filter>OGRE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreStructs.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreStructs.h">
       <Filter>OGRE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreParsingUtils.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreParsingUtils.h">
       <Filter>OGRE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreBinarySerializer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreBinarySerializer.h">
       <Filter>OGRE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OgreXmlSerializer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OgreXmlSerializer.h">
       <Filter>OGRE</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OpenGEXExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OpenGEXExporter.h">
       <Filter>OPENGEX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OpenGEXImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OpenGEXImporter.h">
       <Filter>OPENGEX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\OpenGEXStructs.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\OpenGEXStructs.h">
       <Filter>OPENGEX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyLoader.h">
       <Filter>PLY</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyParser.h">
       <Filter>PLY</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\PlyExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\PlyExporter.h">
       <Filter>PLY</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MS3DLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MS3DLoader.h">
       <Filter>MS3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\COBLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\COBLoader.h">
       <Filter>COB</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\COBScene.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\COBScene.h">
       <Filter>COB</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderLoader.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderDNA.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderDNA.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderDNA.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderDNA.inl">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderScene.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderScene.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderSceneGen.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderSceneGen.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderIntermediate.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderIntermediate.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderModifier.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderModifier.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderBMesh.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderBMesh.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\BlenderTessellator.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\BlenderTessellator.h">
       <Filter>BLEND</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCLoader.h">
       <Filter>IFC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCReaderGen_2x3.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCReaderGen.h">
       <Filter>IFC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\IFCUtil.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\IFCUtil.h">
       <Filter>IFC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\STEPFileReader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STEPFile.h">
       <Filter>IFC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Importer\IFC\STEPFileEncoding.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STEPFileReader.h">
       <Filter>IFC</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XGLLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STEPFileEncoding.h">
+      <Filter>IFC</Filter>
+    </ClInclude>
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XGLLoader.h">
       <Filter>XGL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXCompileConfig.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXCompileConfig.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXImporter.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXParser.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXTokenizer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXTokenizer.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXImportSettings.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXImportSettings.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXConverter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXConverter.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXUtil.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXUtil.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXDocument.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXDocument.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXProperties.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXProperties.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXMeshGeometry.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FBXMeshGeometry.h">
       <Filter>FBX</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExporter.h">
-      <Filter>FBX</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExportNode.h">
-      <Filter>FBX</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXExportProperty.h">
-      <Filter>FBX</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FBXCommon.h">
-      <Filter>FBX</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3DLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3DLoader.h">
       <Filter>Q3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPFileData.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPFileData.h">
       <Filter>Q3BSP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPFileParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPFileParser.h">
       <Filter>Q3BSP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPFileImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPFileImporter.h">
       <Filter>Q3BSP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\Q3BSPZipArchive.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\Q3BSPZipArchive.h">
       <Filter>Q3BSP</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\RawLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\RawLoader.h">
       <Filter>RAW</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SIBImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SIBImporter.h">
       <Filter>SIB</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\SMDLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\SMDLoader.h">
       <Filter>SMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\STLLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STLLoader.h">
       <Filter>STL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\STLExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\STLExporter.h">
       <Filter>STL</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\TerragenLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\TerragenLoader.h">
       <Filter>TERRAGEN</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\UnrealLoader.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\UnrealLoader.h">
       <Filter>3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileHelper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileHelper.h">
       <Filter>X</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileImporter.h">
       <Filter>X</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileParser.h">
       <Filter>X</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\XFileExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\XFileExporter.h">
       <Filter>X</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DExporter.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DExporter.hpp">
       <Filter>X3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter.hpp">
       <Filter>X3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Macro.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Macro.hpp">
       <Filter>X3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\X3DImporter_Node.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\X3DImporter_Node.hpp">
       <Filter>X3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\FIReader.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\FIReader.hpp">
       <Filter>X3D</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFAsset.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFAsset.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFAsset.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFAsset.inl">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFAssetWriter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFAssetWriter.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFAssetWriter.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFAssetWriter.inl">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFImporter.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTFExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTFExporter.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Asset.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Asset.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Asset.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Asset.inl">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2AssetWriter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2AssetWriter.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2AssetWriter.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2AssetWriter.inl">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Importer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Importer.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\glTF2Exporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\glTF2Exporter.h">
       <Filter>GLTF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFImporter.h">
       <Filter>3MF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFExporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFExporter.h">
       <Filter>3MF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\D3MFOpcPackage.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\D3MFOpcPackage.h">
       <Filter>3MF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\3MFXmlTags.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\3MFXmlTags.h">
       <Filter>3MF</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDCpp14.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDCpp14.h">
       <Filter>MMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDImporter.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDImporter.h">
       <Filter>MMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDPmdParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDPmdParser.h">
       <Filter>MMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDPmxParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDPmxParser.h">
       <Filter>MMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\MMDVmdParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\MMDVmdParser.h">
       <Filter>MMD</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\irrXMLWrapper.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\irrXMLWrapper.h">
       <Filter>IrrXML</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\unzip\crypt.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\unzip\crypt.h">
       <Filter>unzip</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\unzip\ioapi.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\unzip\ioapi.h">
       <Filter>unzip</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\unzip\unzip.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\unzip\unzip.h">
       <Filter>unzip</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\common\shapes.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\common\shapes.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\common\utils.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\common\utils.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\advancing_front.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\cdt.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\cdt.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\sweep.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\poly2tri\poly2tri\sweep\sweep_context.h">
       <Filter>Poly2Tri</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\clipper\clipper.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\clipper\clipper.hpp">
       <Filter>Clipper</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParser.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLParser.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLParserUtils.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLCommon.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\OpenDDLExport.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLExport.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\OpenDDLStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\OpenDDLStream.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\DDLNode.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\DDLNode.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\openddlparser\include\openddlparser\Value.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\openddlparser\include\openddlparser\Value.h">
       <Filter>openddl_parser</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcAdjacencyInfo.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcAdjacencyInfo.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcArithmeticCodec.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcArithmeticCodec.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcBinaryStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcBinaryStream.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcCommon.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcCommon.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDVEncodeParams.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDVEncodeParams.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorDecoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVectorEncoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcDynamicVector.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcDynamicVector.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcFIFO.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcFIFO.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcIndexedFaceSet.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcIndexedFaceSet.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcIndexedFaceSet.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCDecoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCDecoder.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncodeParams.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcSC3DMCEncoder.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTimer.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTimer.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleFans.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleFans.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListDecoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleListDecoder.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListDecoder.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListEncoder.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcTriangleListEncoder.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcTriangleListEncoder.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcVector.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcVector.h">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\Open3DGC\o3dgcVector.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\Open3DGC\o3dgcVector.inl">
       <Filter>open3dgc</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zip\src\miniz.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zip\src\miniz.h">
       <Filter>ziplib</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zip\src\zip.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zip\src\zip.h">
       <Filter>ziplib</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\anim.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\anim.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\ai_assert.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\ai_assert.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\camera.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\camera.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\color4.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\color4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\color4.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\color4.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include\assimp\config.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\build\include\assimp\config.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\defs.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\defs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Defines.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Defines.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\cfileio.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\cfileio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\light.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\light.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\material.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\material.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\material.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\material.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\matrix3x3.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\matrix3x3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\matrix3x3.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\matrix3x3.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\matrix4x4.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\matrix4x4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\matrix4x4.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\matrix4x4.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\mesh.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\pbrmaterial.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\postprocess.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\postprocess.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\quaternion.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\quaternion.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\quaternion.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\quaternion.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\scene.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\metadata.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\metadata.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\texture.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\texture.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\types.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\types.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\vector2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\vector2.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\vector2.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\vector2.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\vector3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\vector3.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\vector3.inl">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\vector3.inl">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\version.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\version.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\cimport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\cimport.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\importerdesc.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\importerdesc.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Importer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Importer.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\ProgressHandler.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\ProgressHandler.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\IOStream.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\IOStream.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\IOSystem.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\IOSystem.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\cexport.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\cexport.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Exporter.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Exporter.hpp">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\DefaultIOStream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\DefaultIOStream.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\DefaultIOSystem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\DefaultIOSystem.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\SceneCombiner.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SceneCombiner.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\fast_atof.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\qnan.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\BaseImporter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Hash.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\MemoryIOWrapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\ParsingUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\StreamReader.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\StreamWriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\StringComparison.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\StringUtils.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SGSpatialSort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\GenericProperty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SpatialSort.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SkeletonMeshBuilder.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SmoothingGroups.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\SmoothingGroups.inl">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\StandardShapes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\RemoveComments.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Subdivision.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Vertex.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\LineSplitter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\TinyFormatter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Profiler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\LogAux.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Bitmap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\XMLTools.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\IOStreamBuffer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\CreateAnimMesh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\MathFunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Macros.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Exceptional.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\ByteSwapper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Compiler\pushpack1.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Compiler\pushpack1.h">
       <Filter>Compiler</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Compiler\poppack1.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Compiler\poppack1.h">
       <Filter>Compiler</Filter>
     </ClInclude>
-    <ClInclude Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include\assimp\Compiler\pstdint.h">
+    <ClInclude Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include\assimp\Compiler\pstdint.h">
       <Filter>Compiler</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\code\CMakeLists.txt" />
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\code\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="3D">
-      <UniqueIdentifier>{699CCC80-30C5-3263-9C93-9BC401FBB80B}</UniqueIdentifier>
+      <UniqueIdentifier>{A6951F04-55E0-35E0-B265-A3A55F77A0AE}</UniqueIdentifier>
     </Filter>
     <Filter Include="3DS">
-      <UniqueIdentifier>{4D5E9836-F0B7-3280-87DD-82A6540AFE01}</UniqueIdentifier>
+      <UniqueIdentifier>{64E9038E-7DFA-3F22-9B50-96689BE5F5D8}</UniqueIdentifier>
     </Filter>
     <Filter Include="3MF">
-      <UniqueIdentifier>{6EB5D58E-3011-3620-AC98-AC1DDE9D1876}</UniqueIdentifier>
+      <UniqueIdentifier>{9A23E62B-7972-36B4-B280-2FD8626635BA}</UniqueIdentifier>
     </Filter>
     <Filter Include="AC">
-      <UniqueIdentifier>{7D78246B-B2C6-391F-8BC8-A8689BC1078D}</UniqueIdentifier>
+      <UniqueIdentifier>{16939C68-71C1-3526-92AE-CA5A38E000F3}</UniqueIdentifier>
     </Filter>
     <Filter Include="AMF">
-      <UniqueIdentifier>{0F35690D-10A8-3793-BC35-D7636AAC5D52}</UniqueIdentifier>
+      <UniqueIdentifier>{D42A2360-103E-3C0E-98ED-13A917DC949D}</UniqueIdentifier>
     </Filter>
     <Filter Include="ASE">
-      <UniqueIdentifier>{417099C8-5B8F-3D02-9238-8E725F59C3C9}</UniqueIdentifier>
+      <UniqueIdentifier>{5F689780-A62B-3D05-BD37-D26FCCB967AF}</UniqueIdentifier>
     </Filter>
     <Filter Include="ASSBIN">
-      <UniqueIdentifier>{C19EC8E6-E16D-365D-AE76-3CAB4DE96E83}</UniqueIdentifier>
+      <UniqueIdentifier>{0B7469C0-E93A-3649-A309-79FBE7851D7B}</UniqueIdentifier>
     </Filter>
     <Filter Include="ASSXML">
-      <UniqueIdentifier>{A8FC7F40-7DD7-3F96-8280-06F690629C4C}</UniqueIdentifier>
+      <UniqueIdentifier>{9AB49FDA-44DD-3282-8CF7-1A67BA528AA8}</UniqueIdentifier>
     </Filter>
     <Filter Include="B3D">
-      <UniqueIdentifier>{D5F003A6-18E1-39CF-BBC6-FEC708A1872B}</UniqueIdentifier>
+      <UniqueIdentifier>{5ABC5B54-2465-35A1-846A-29BD74D76236}</UniqueIdentifier>
     </Filter>
     <Filter Include="BLEND">
-      <UniqueIdentifier>{9542CDC6-7B84-3988-9C4B-9B9D74622B3A}</UniqueIdentifier>
+      <UniqueIdentifier>{58A79D56-CFF0-316B-A08F-FAFF55A9D3D7}</UniqueIdentifier>
     </Filter>
     <Filter Include="BVH">
-      <UniqueIdentifier>{0F9CCDCB-9519-3854-AD5B-B27455F8EA05}</UniqueIdentifier>
+      <UniqueIdentifier>{A0240A3F-AA38-3802-9F01-4C4F07285F39}</UniqueIdentifier>
     </Filter>
     <Filter Include="COB">
-      <UniqueIdentifier>{74660D97-5091-3536-AD8C-F5188374F579}</UniqueIdentifier>
+      <UniqueIdentifier>{0127C754-C6A2-3FEB-AF72-50FD1ADE0BD9}</UniqueIdentifier>
     </Filter>
     <Filter Include="COLLADA">
-      <UniqueIdentifier>{63A462FE-5841-3534-A4D5-F490DEF06855}</UniqueIdentifier>
+      <UniqueIdentifier>{3F6F19C5-027C-3A38-9017-DF735B10B40A}</UniqueIdentifier>
     </Filter>
     <Filter Include="CSM">
-      <UniqueIdentifier>{A08E6891-36E2-3035-B1DE-7F46FBA3CAC8}</UniqueIdentifier>
+      <UniqueIdentifier>{C766046B-2AED-3943-8F5E-734509DC8013}</UniqueIdentifier>
     </Filter>
     <Filter Include="Clipper">
-      <UniqueIdentifier>{1FC1B38A-5184-3360-A945-6D54D8F83B78}</UniqueIdentifier>
+      <UniqueIdentifier>{2C5100E5-C854-317B-90BA-F79BC02BF6BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="Common">
-      <UniqueIdentifier>{0621911D-EEE1-3D45-8894-DD738AEA784A}</UniqueIdentifier>
+      <UniqueIdentifier>{2219A1D4-38F7-37D8-9B36-0F388B23F9EE}</UniqueIdentifier>
     </Filter>
     <Filter Include="Compiler">
-      <UniqueIdentifier>{269396F5-FFCD-3CE1-80FD-9920855968AB}</UniqueIdentifier>
+      <UniqueIdentifier>{3A96B039-758D-3DBA-9B23-632970C9EA9B}</UniqueIdentifier>
     </Filter>
     <Filter Include="DXF">
-      <UniqueIdentifier>{9394AC9C-515C-39EB-9979-7B1E907B3312}</UniqueIdentifier>
+      <UniqueIdentifier>{FD728FEA-AD32-3BB1-93C1-A14EF6B4BE6F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Exporter">
-      <UniqueIdentifier>{A804146B-465C-3C10-8F02-3A1197DE40AC}</UniqueIdentifier>
+      <UniqueIdentifier>{A3B3E749-9937-3C0C-9F22-599A34ED23BD}</UniqueIdentifier>
     </Filter>
     <Filter Include="FBX">
-      <UniqueIdentifier>{49DF708A-BBBC-3A99-8F6F-14E19F1ABF6C}</UniqueIdentifier>
+      <UniqueIdentifier>{396CD2B0-3902-3A09-84B1-5AD146D68242}</UniqueIdentifier>
     </Filter>
     <Filter Include="GLTF">
-      <UniqueIdentifier>{36DE3499-696D-3808-885B-C19B148D6934}</UniqueIdentifier>
+      <UniqueIdentifier>{D143DD44-1473-3B24-8971-49FA176126F2}</UniqueIdentifier>
     </Filter>
     <Filter Include="HMP">
-      <UniqueIdentifier>{44427B35-B43F-3C2F-A83C-A4784F2BE10C}</UniqueIdentifier>
+      <UniqueIdentifier>{A64790AC-5FCC-32D9-8B55-EA6F85A9F9FB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Header Files">
-      <UniqueIdentifier>{9E156370-597B-393B-BC9E-A5DA703EDEBF}</UniqueIdentifier>
+      <UniqueIdentifier>{BDFD69F0-10B6-36F8-A99B-011B18BD9F53}</UniqueIdentifier>
     </Filter>
     <Filter Include="IFC">
-      <UniqueIdentifier>{CD4B552C-6C30-39B3-8FC3-441D9E221AAD}</UniqueIdentifier>
+      <UniqueIdentifier>{7D3B32E8-CC7C-3260-B5B5-02D45CC7B48B}</UniqueIdentifier>
     </Filter>
     <Filter Include="IRR">
-      <UniqueIdentifier>{DA39B038-32A0-3598-97C5-A6E93A5089A0}</UniqueIdentifier>
+      <UniqueIdentifier>{BA6EA879-03FF-3135-880B-9F3DA4B0B506}</UniqueIdentifier>
     </Filter>
     <Filter Include="IRRMESH">
-      <UniqueIdentifier>{E077B1D7-88FD-3D22-8FA7-BDD36C873D5B}</UniqueIdentifier>
+      <UniqueIdentifier>{AE99ED9C-07B4-3EE6-B273-B515873779CE}</UniqueIdentifier>
     </Filter>
     <Filter Include="IrrXML">
-      <UniqueIdentifier>{2FB53C56-E9EC-3D1F-AE11-74F18E2C8CE5}</UniqueIdentifier>
+      <UniqueIdentifier>{4501B515-A235-3DB3-B113-7BD2E16E5CFA}</UniqueIdentifier>
     </Filter>
     <Filter Include="LWO">
-      <UniqueIdentifier>{AA662FD4-6212-3E99-9C63-DCEADF8484BE}</UniqueIdentifier>
+      <UniqueIdentifier>{CDD7352F-CD74-3EC1-9235-4AACBFA7B153}</UniqueIdentifier>
     </Filter>
     <Filter Include="LWS">
-      <UniqueIdentifier>{83519B06-A3C4-3E40-A042-3FA3E4D44B97}</UniqueIdentifier>
+      <UniqueIdentifier>{093F3C20-40EA-3B5E-AE21-1977AC194259}</UniqueIdentifier>
     </Filter>
     <Filter Include="Logging">
-      <UniqueIdentifier>{33B95F8F-3BEB-3D11-A604-8A50E30F813B}</UniqueIdentifier>
+      <UniqueIdentifier>{5DA79318-0D6D-37AE-9A4D-6DD0D4D51DBF}</UniqueIdentifier>
     </Filter>
     <Filter Include="MD2">
-      <UniqueIdentifier>{864AB286-745C-32A5-88AD-82E77D6B55FD}</UniqueIdentifier>
+      <UniqueIdentifier>{3E0DC196-9560-3849-B0C4-C98CCED12912}</UniqueIdentifier>
     </Filter>
     <Filter Include="MD3">
-      <UniqueIdentifier>{09F375C1-5D23-3A85-8BEF-463BFBCAD95A}</UniqueIdentifier>
+      <UniqueIdentifier>{AA88AF02-186E-306B-9691-4248E56FDB67}</UniqueIdentifier>
     </Filter>
     <Filter Include="MD5">
-      <UniqueIdentifier>{61298B02-2531-38FB-92D1-603311C746CC}</UniqueIdentifier>
+      <UniqueIdentifier>{1D1DC908-906E-3B29-80FE-DEB70A3FD310}</UniqueIdentifier>
     </Filter>
     <Filter Include="MDC">
-      <UniqueIdentifier>{4D33D780-7DB3-364D-A955-EB2D3361773D}</UniqueIdentifier>
+      <UniqueIdentifier>{65C12526-7E50-3B1F-AF6D-B5D61715F79E}</UniqueIdentifier>
     </Filter>
     <Filter Include="MDL">
-      <UniqueIdentifier>{3B6902F6-89FF-3684-9635-AB711B26104D}</UniqueIdentifier>
+      <UniqueIdentifier>{1F018F7F-616E-37ED-975C-DB5282E760FC}</UniqueIdentifier>
     </Filter>
     <Filter Include="MMD">
-      <UniqueIdentifier>{33D4B3A1-2BF7-35C9-8A38-AD9E7B25D359}</UniqueIdentifier>
+      <UniqueIdentifier>{9F654B31-678B-33C8-B598-916661F82D95}</UniqueIdentifier>
     </Filter>
     <Filter Include="MS3D">
-      <UniqueIdentifier>{279BD30C-FB63-3635-ACD1-E51E639028E0}</UniqueIdentifier>
+      <UniqueIdentifier>{53040EBE-86A7-3C7B-BC95-030F9B38FE1A}</UniqueIdentifier>
     </Filter>
     <Filter Include="MaterialSystem">
-      <UniqueIdentifier>{4E82645D-7B0B-3422-A9D9-56CBB8F9A651}</UniqueIdentifier>
+      <UniqueIdentifier>{3FB00196-A1F1-39EB-8A0B-E4B738370F13}</UniqueIdentifier>
     </Filter>
     <Filter Include="NDO">
-      <UniqueIdentifier>{7ABF875B-D580-33E2-B427-11B96DAFBA52}</UniqueIdentifier>
+      <UniqueIdentifier>{67000B9B-3942-32E6-9BEB-7A82BE6D302C}</UniqueIdentifier>
     </Filter>
     <Filter Include="NFF">
-      <UniqueIdentifier>{4213597D-51B4-3C3E-9B66-B8249B0A5410}</UniqueIdentifier>
+      <UniqueIdentifier>{6B85D606-DC05-3889-9ACB-328AC8EC00AA}</UniqueIdentifier>
     </Filter>
     <Filter Include="OBJ">
-      <UniqueIdentifier>{BA86DA67-7A88-3270-903E-B4688C1F3BA6}</UniqueIdentifier>
+      <UniqueIdentifier>{08ECEA81-6F28-3671-B0C8-F947C306EB53}</UniqueIdentifier>
     </Filter>
     <Filter Include="OFF">
-      <UniqueIdentifier>{25C30CB8-1522-38DB-B828-944AD3FFCB7A}</UniqueIdentifier>
+      <UniqueIdentifier>{EA00B32C-4703-3035-AF5D-5AEA1829A7FF}</UniqueIdentifier>
     </Filter>
     <Filter Include="OGRE">
-      <UniqueIdentifier>{81B74AFC-74AB-3F9A-BC1C-E04A1999F34D}</UniqueIdentifier>
+      <UniqueIdentifier>{ED7A9723-DCB1-3244-A8E7-B455880DCA38}</UniqueIdentifier>
     </Filter>
     <Filter Include="OPENGEX">
-      <UniqueIdentifier>{D64E5CFB-18A5-399E-AA2F-6225DF3089EF}</UniqueIdentifier>
+      <UniqueIdentifier>{7935A723-B31C-3B46-BC7A-7738F21E12BE}</UniqueIdentifier>
     </Filter>
     <Filter Include="PLY">
-      <UniqueIdentifier>{434402CB-C126-3F9C-A13D-CEE628F23A24}</UniqueIdentifier>
+      <UniqueIdentifier>{F80CDF37-1F48-3A0F-B2DC-73BFC12F342F}</UniqueIdentifier>
     </Filter>
     <Filter Include="Poly2Tri">
-      <UniqueIdentifier>{62E15F07-9C65-366D-980D-7D4782880A35}</UniqueIdentifier>
+      <UniqueIdentifier>{F82757BE-9393-3EAB-8307-D08F4D8325C3}</UniqueIdentifier>
     </Filter>
     <Filter Include="PostProcessing">
-      <UniqueIdentifier>{2DD70D87-72D0-3C83-AB99-73A128A5AEB6}</UniqueIdentifier>
+      <UniqueIdentifier>{9ADBE396-A753-3CC5-A745-D82A5375E702}</UniqueIdentifier>
     </Filter>
     <Filter Include="Q3BSP">
-      <UniqueIdentifier>{64DBEC5E-9E2B-3662-BE02-AA33BFA2FA3E}</UniqueIdentifier>
+      <UniqueIdentifier>{DBD9E190-55E5-3EAD-B03C-C2325D11FCFB}</UniqueIdentifier>
     </Filter>
     <Filter Include="Q3D">
-      <UniqueIdentifier>{688C48C4-F90C-31BC-B79B-819C1ABAE456}</UniqueIdentifier>
+      <UniqueIdentifier>{536C64AB-3705-3330-9026-7BFB74AA7E06}</UniqueIdentifier>
     </Filter>
     <Filter Include="RAW">
-      <UniqueIdentifier>{8AF3003C-2807-3220-9C0D-52099976F4BE}</UniqueIdentifier>
+      <UniqueIdentifier>{B72EC708-4EFE-34F9-B802-DD28A103416D}</UniqueIdentifier>
     </Filter>
     <Filter Include="SIB">
-      <UniqueIdentifier>{EF67A926-86C5-321E-9C73-886481E0F49D}</UniqueIdentifier>
+      <UniqueIdentifier>{9D3F99A0-D75F-35ED-B2F6-144B5C3F2798}</UniqueIdentifier>
     </Filter>
     <Filter Include="SMD">
-      <UniqueIdentifier>{9C28C6F5-9DA2-3F29-A135-50187DEB3D0A}</UniqueIdentifier>
+      <UniqueIdentifier>{A462BD57-5FC8-31A3-9F99-7482BECD0520}</UniqueIdentifier>
     </Filter>
     <Filter Include="STL">
-      <UniqueIdentifier>{B6BFF414-371C-38B5-BA0C-BD32A5403760}</UniqueIdentifier>
+      <UniqueIdentifier>{7A88DA1A-CE5E-338C-AFEE-298E41149ED5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files">
-      <UniqueIdentifier>{85ECC57C-EF83-32B7-8F3C-0F9065F536E5}</UniqueIdentifier>
+      <UniqueIdentifier>{5F3935F9-9D0F-393F-8698-121BA1438A40}</UniqueIdentifier>
     </Filter>
     <Filter Include="Step">
-      <UniqueIdentifier>{BF252A5F-9E4D-30F9-BA1D-74A8A6F0D1EC}</UniqueIdentifier>
+      <UniqueIdentifier>{0FEAE4B1-47E9-3672-8E54-7F7EF88B5708}</UniqueIdentifier>
     </Filter>
     <Filter Include="TERRAGEN">
-      <UniqueIdentifier>{F2532E35-495B-301A-9FA1-A8B648236E70}</UniqueIdentifier>
+      <UniqueIdentifier>{378B3DB7-92FC-39CB-B3DC-0AA2A3B46C58}</UniqueIdentifier>
     </Filter>
     <Filter Include="X">
-      <UniqueIdentifier>{E6B459D0-258A-36BF-A442-BD10346BCFAB}</UniqueIdentifier>
+      <UniqueIdentifier>{993FD7C2-CF45-3644-BB6F-05C3360E601A}</UniqueIdentifier>
     </Filter>
     <Filter Include="X3D">
-      <UniqueIdentifier>{5309EF5C-66C4-3A01-AE53-213C538EDCF2}</UniqueIdentifier>
+      <UniqueIdentifier>{D9152265-7EA7-384B-BEED-4F1824B68772}</UniqueIdentifier>
     </Filter>
     <Filter Include="XGL">
-      <UniqueIdentifier>{D96C53C1-71F8-39ED-BAA4-F26CAB4211B5}</UniqueIdentifier>
+      <UniqueIdentifier>{46D502D8-A4BB-33C8-BE50-A6F1435E08FB}</UniqueIdentifier>
     </Filter>
     <Filter Include="open3dgc">
-      <UniqueIdentifier>{A8A6ADCA-B300-36FD-A804-5310157453B7}</UniqueIdentifier>
+      <UniqueIdentifier>{7B8F81E5-FDCF-3BD9-B81E-47C383CD385C}</UniqueIdentifier>
     </Filter>
     <Filter Include="openddl_parser">
-      <UniqueIdentifier>{E0167CCB-7029-3552-88C7-1A89CC72CAD6}</UniqueIdentifier>
+      <UniqueIdentifier>{FCAD86E3-6C0A-3AC7-A33A-5BABCBE023AC}</UniqueIdentifier>
     </Filter>
     <Filter Include="unzip">
-      <UniqueIdentifier>{4E5398B7-0EAA-3B41-8363-11F0C452F9D1}</UniqueIdentifier>
+      <UniqueIdentifier>{FB0E2378-85C6-38C1-9513-0B7297939543}</UniqueIdentifier>
     </Filter>
     <Filter Include="ziplib">
-      <UniqueIdentifier>{57BAEF79-00A1-33A2-9400-6E10E368CD4F}</UniqueIdentifier>
+      <UniqueIdentifier>{D261D904-0B63-3ADF-8EC4-FAD7496DFBF6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

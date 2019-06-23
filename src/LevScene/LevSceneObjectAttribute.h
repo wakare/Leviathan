@@ -1,5 +1,7 @@
 #pragma once
 
+#include "LevSceneAPIDefine.h"
+
 namespace Leviathan
 {
 	namespace Scene
@@ -10,7 +12,7 @@ namespace Leviathan
 			ELSOAT_RENDER,
 		};
 
-		class LevSceneObjectAttribute
+		class LEV_SCENE_API LevSceneObjectAttribute
 		{
 		public:
 			LevSceneObjectAttribute(int type);

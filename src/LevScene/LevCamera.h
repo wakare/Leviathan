@@ -1,14 +1,15 @@
 #pragma once
 
 #include <Eigen/Dense>
-#include "LevSceneObject.h"
 #include <functional>
+#include "LevSceneObject.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevCamera : public LevSceneObject
+		class LEV_SCENE_API LevCamera : public LevSceneObject
 		{
 		public:
 			enum class CameraType

@@ -3,6 +3,7 @@
 #include <functional>
 #include <vector>
 #include "NodeVisitor.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -13,7 +14,7 @@ namespace Leviathan
 	{
 		class LevSceneObject;
 
-		class LevSceneTreeSearchVisitor : public NodeVisitor<LevSceneObject>
+		class LEV_SCENE_API  LevSceneTreeSearchVisitor : public NodeVisitor<LevSceneObject>
 		{
 		public:
 			// Callback parameters:

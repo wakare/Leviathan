@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\1150c5016d4122e46ac7b195a400a795\INSTALL_force.rule">
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\ea358dc6c72cd37c2807da66fc18c9d5\INSTALL_force.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{D8D9B065-9058-3B77-B83A-24BA7B3E7FCF}</UniqueIdentifier>
+      <UniqueIdentifier>{60DD949B-A9EF-3A4C-BBB6-296BFD21CD1B}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

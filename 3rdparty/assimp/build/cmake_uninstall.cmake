@@ -1,13 +1,13 @@
-IF(NOT EXISTS "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/install_manifest.txt")
-  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/install_manifest.txt\"")
-ENDIF(NOT EXISTS "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/install_manifest.txt")
+IF(NOT EXISTS "D:/Git/Leviathan/3rdparty/assimp/build/install_manifest.txt")
+  MESSAGE(FATAL_ERROR "Cannot find install manifest: \"D:/Git/Leviathan/3rdparty/assimp/build/install_manifest.txt\"")
+ENDIF(NOT EXISTS "D:/Git/Leviathan/3rdparty/assimp/build/install_manifest.txt")
 
-FILE(READ "C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/install_manifest.txt" files)
+FILE(READ "D:/Git/Leviathan/3rdparty/assimp/build/install_manifest.txt" files)
 STRING(REGEX REPLACE "\n" ";" files "${files}")
 FOREACH(file ${files})
   MESSAGE(STATUS "Uninstalling \"$ENV{DESTDIR}${file}\"")
   EXEC_PROGRAM(
-    "C:/Program Files/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
+    "D:/Program Files/CMake/bin/cmake.exe" ARGS "-E remove \"$ENV{DESTDIR}${file}\""
     OUTPUT_VARIABLE rm_out
     RETURN_VALUE rm_retval
     )

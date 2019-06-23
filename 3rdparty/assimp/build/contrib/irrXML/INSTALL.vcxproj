@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{9462E219-3E12-3DA8-8B0E-2AB507A3DEC7}</ProjectGuid>
+    <ProjectGuid>{565AB605-F97D-360F-B99E-20D5E231CCBD}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
     <Platform>x64</Platform>
     <ProjectName>INSTALL</ProjectName>
@@ -29,22 +30,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v141</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -62,7 +63,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -72,7 +73,7 @@
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -84,7 +85,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -94,7 +95,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -106,7 +107,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -116,7 +117,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,7 +129,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
-      <AdditionalIncludeDirectories>C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\.;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\include;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\contrib\zlib;C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\.;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\include;D:\Git\Leviathan\3rdparty\assimp\build;D:\Git\Leviathan\3rdparty\assimp\build\include;D:\Git\Leviathan\3rdparty\assimp\assimp-4.1.0\contrib\zlib;D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -138,7 +139,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <PostBuildEvent>
       <Message></Message>
       <Command>setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
+"D:\Program Files\CMake\bin\cmake.exe" -DBUILD_TYPE=$(Configuration) -P cmake_install.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -149,7 +150,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\CMakeFiles\bee62785304374a6fbb0531512590679\INSTALL_force.rule">
+    <CustomBuild Include="D:\Git\Leviathan\3rdparty\assimp\build\CMakeFiles\c3c5767ecbfbebf21b64810ee57b24e8\INSTALL_force.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd .
@@ -160,8 +161,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/CMakeFiles/bee62785304374a6fbb0531512590679/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:/Git/Leviathan/3rdparty/assimp/build/CMakeFiles/c3c5767ecbfbebf21b64810ee57b24e8/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -173,8 +174,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/CMakeFiles/bee62785304374a6fbb0531512590679/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:/Git/Leviathan/3rdparty/assimp/build/CMakeFiles/c3c5767ecbfbebf21b64810ee57b24e8/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -186,8 +187,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/CMakeFiles/bee62785304374a6fbb0531512590679/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:/Git/Leviathan/3rdparty/assimp/build/CMakeFiles/c3c5767ecbfbebf21b64810ee57b24e8/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"> </Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -199,19 +200,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/CMakeFiles/bee62785304374a6fbb0531512590679/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:/Git/Leviathan/3rdparty/assimp/build/CMakeFiles/c3c5767ecbfbebf21b64810ee57b24e8/INSTALL_force.rule;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Git\Leviathan\3rdparty\assimp\build\contrib\irrXML\CMakeFiles\INSTALL_force</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\ZERO_CHECK.vcxproj">
-      <Project>{4629B9CA-6898-3E96-BCF2-44BB11A2B35C}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\build\ZERO_CHECK.vcxproj">
+      <Project>{9C546C4A-2A9D-39FF-932D-5486B7A94626}</Project>
       <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\wangjie\Documents\Leviathan\3rdparty\assimp\build\contrib\zlib\ALL_BUILD.vcxproj">
-      <Project>{556C6F2F-CBE9-3F28-B639-264D0AF58888}</Project>
+    <ProjectReference Include="D:\Git\Leviathan\3rdparty\assimp\build\contrib\zlib\ALL_BUILD.vcxproj">
+      <Project>{A37F9C2F-30B3-3050-838D-A337D85467C0}</Project>
       <Name>ALL_BUILD</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

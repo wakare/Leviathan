@@ -2,6 +2,7 @@
 
 #include <functional>
 #include "NodeVisitor.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -9,7 +10,7 @@ namespace Leviathan
 	{
 		class LevSceneObject;
 
-		class LevStateUpdaterVisitor : public NodeVisitor<LevSceneObject>
+		class LEV_SCENE_API LevStateUpdaterVisitor : public NodeVisitor<LevSceneObject>
 		{
 		public:
 			typedef std::function<bool(LevSceneObject&)> LevStateUpdateCallback;

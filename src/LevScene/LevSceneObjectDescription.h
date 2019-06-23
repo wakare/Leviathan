@@ -1,12 +1,13 @@
 #pragma once
 
 #include "GlobalDef.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevSceneObjectDescription
+		class LEV_SCENE_API LevSceneObjectDescription
 		{
 		public:
 			LevSceneObjectDescription(LevSceneObjectDescType descType);

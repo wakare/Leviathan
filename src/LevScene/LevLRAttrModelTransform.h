@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevLRAttrModelTransform : public LevSceneLogicAttribute, public LevSceneRenderAttribute
+		class LEV_SCENE_API LevLRAttrModelTransform : public LevSceneLogicAttribute, public LevSceneRenderAttribute
 		{
 		public:
 			LevLRAttrModelTransform(const Eigen::Matrix4f& trans = Eigen::Matrix4f::Identity());

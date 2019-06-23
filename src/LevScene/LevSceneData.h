@@ -1,7 +1,8 @@
 #pragma once
 
-#include "LPtr.h"
 #include <vector>
+#include "LPtr.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -13,7 +14,7 @@ namespace Leviathan
 		class LevSceneNode;
 		class LevSceneObject;
 
-		class LevSceneData
+		class LEV_SCENE_API LevSceneData
 		{
 		public:
 			LevSceneData();

@@ -1,8 +1,8 @@
-# Install script for directory: C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/test
+# Install script for directory: D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files/Assimp")
+  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/Assimp")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -34,7 +34,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/wangjie/Documents/Leviathan/3rdparty/assimp/build/test/headercheck/cmake_install.cmake")
+  include("D:/Git/Leviathan/3rdparty/assimp/build/test/headercheck/cmake_install.cmake")
 
 endif()
 

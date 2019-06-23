@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Node.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -8,7 +9,7 @@ namespace Leviathan
 	{
 		class LevSceneObject;
 
-		class LevSceneNode : public Node<LevSceneObject>
+		class LEV_SCENE_API LevSceneNode : public Node<LevSceneObject>
 		{
 		public:
 			LevSceneNode(LPtr<LevSceneObject> pSceneNodeData);

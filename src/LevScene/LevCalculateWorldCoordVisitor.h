@@ -1,6 +1,7 @@
 #pragma once
 
 #include "NodeVisitor.h"
+#include "LevSceneAPIDefine.h"
 #include <vector>
 #include <Eigen/Dense>
 
@@ -10,7 +11,7 @@ namespace Leviathan
 	{
 		class LevSceneObject;
 
-		class LevCalculateWorldCoordVisitor : public NodeVisitor<LevSceneObject>
+		class LEV_SCENE_API LevCalculateWorldCoordVisitor : public NodeVisitor<LevSceneObject>
 		{
 		public:
 			void Apply(Node<LevSceneObject>& node);

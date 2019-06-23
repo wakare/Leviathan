@@ -36,7 +36,7 @@ namespace Leviathan
 			}
 		}; 
 
-		class LevRAttrObjectColor : public LevSceneRenderAttribute
+		class LEV_SCENE_API LevRAttrObjectColor : public LevSceneRenderAttribute
 		{
 		public:
 			LevRAttrObjectColor(LevObjectColorType type, LPtr<LevObjectColorData> pColorData);

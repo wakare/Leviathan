@@ -14,7 +14,7 @@ namespace Leviathan
 			ELDFP_UNKNOWN,
 		};
 
-		class LevRAttrDepthFunc : public LevSceneRenderAttribute
+		class LEV_SCENE_API LevRAttrDepthFunc : public LevSceneRenderAttribute
 		{
 		public:
 			LevRAttrDepthFunc(LevDepthFuncParameter parameter);

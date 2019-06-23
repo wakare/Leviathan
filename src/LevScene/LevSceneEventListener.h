@@ -1,5 +1,6 @@
 #pragma once
 #include "EventListener.h"
+#include "LevSceneAPIDefine.h"
 
 namespace Leviathan
 {
@@ -8,7 +9,7 @@ namespace Leviathan
 		class LevScene;
 		class LevCamera;
 
-		class LevSceneEventListener : public EventListener
+		class LEV_SCENE_API LevSceneEventListener : public EventListener
 		{
 		public:
 			LevSceneEventListener(LevScene& scene);
