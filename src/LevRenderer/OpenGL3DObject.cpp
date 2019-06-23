@@ -148,7 +148,7 @@ namespace Leviathan
 
 		bool OpenGL3DObject::Render(GLuint shaderProgram)
 		{
-			ApplyUniform(shaderProgram);
+			EXIT_IF_FALSE(ApplyUniform(shaderProgram));
 
 			auto VAO = GetVAO();
 			EXIT_IF_FALSE(VAO);

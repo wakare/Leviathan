@@ -33,6 +33,7 @@
     <ClInclude Include="LevRAttrLightEnable.h" />
     <ClInclude Include="LevRAttrObjectColor.h" />
     <ClInclude Include="LevRAttrPointSize.h" />
+    <ClInclude Include="LevRAttrShaderProgram.h" />
     <ClInclude Include="LevRAttrVisible.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
@@ -48,6 +49,7 @@
     <ClInclude Include="LevSceneObjectAttribute.h" />
     <ClInclude Include="LevSceneTreeSearchVisitor.h" />
     <ClInclude Include="LevSceneTreeTraverseVisitor.h" />
+    <ClInclude Include="LevSceneUtil.h" />
     <ClInclude Include="LevSetObjectModifiedVisitor.h" />
     <ClInclude Include="LevStateUpdaterVisitor.h" />
     <ClInclude Include="LevTimerTickVisitor.h" />
@@ -66,6 +68,7 @@
     <ClCompile Include="LevRAttrLightEnable.cpp" />
     <ClCompile Include="LevRAttrObjectColor.cpp" />
     <ClCompile Include="LevRAttrPointSize.cpp" />
+    <ClCompile Include="LevRAttrShaderProgram.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
@@ -80,6 +83,7 @@
     <ClCompile Include="LevSceneTree.cpp" />
     <ClCompile Include="LevSceneTreeSearchVisitor.cpp" />
     <ClCompile Include="LevSceneTreeTraverseVisitor.cpp" />
+    <ClCompile Include="LevSceneUtil.cpp" />
     <ClCompile Include="LevSetObjectModifiedVisitor.cpp" />
     <ClCompile Include="LevStateUpdaterVisitor.cpp" />
     <ClCompile Include="LevTimerTickVisitor.cpp" />

@@ -10,20 +10,20 @@ namespace Leviathan
 
 	namespace Scene
 	{
+		class LevLight;
+		class LevCamera;
 		class LevSceneData;
 		class LevMeshObject;
-		class LevCamera;
-		class LevLight;
-		class LevSceneTreeTraverseVisitor;
-		class LevSceneTreeSearchVisitor;
 		class LevSceneRenderAttribute;
+		class LevSceneTreeSearchVisitor;
+		class LevSceneTreeTraverseVisitor;
 	}
 
 	namespace Renderer
 	{
 		class OpenGLPass;
-		class OpenGLObject;
 		class OpenGLLight;
+		class OpenGLObject;
 		class OpenGLResourceMgr;
 
 		class OpenGLRenderData

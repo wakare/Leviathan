@@ -9,7 +9,7 @@ namespace Leviathan
 		LevUISystem::LevUISystem()
 			: m_ui_scene(new LevScene)
 		{
-			auto main_camera = m_ui_scene->GetSceneData().GetCamera();
+			auto main_camera = m_ui_scene->GetSceneData().GetMainCamera();
 			main_camera->SetReceiveInput(false);
 
 			m_root_ui_rect = new UIRect;

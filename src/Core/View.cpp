@@ -200,7 +200,7 @@ namespace Leviathan
 	void View::_resetCamera(const AABB & aabb)
 	{
 		Eigen::Vector3f worldCoord; memcpy(&worldCoord[0], aabb.Center(), 3 * sizeof(float));
-		GetSceneData().GetCamera()->LookAt(worldCoord, aabb.Radius());
+		GetSceneData().GetMainCamera()->LookAt(worldCoord, aabb.Radius());
 	}
 
 }

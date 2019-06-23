@@ -15,7 +15,7 @@ namespace Leviathan
 		LevSceneData::LevSceneData()
 			: m_pSceneTree(new LevSceneTree)
 			, m_modified(true)
-			, m_pCamera(nullptr)
+			, m_main_camera(nullptr)
 		{
 			m_modifiedCallback = [this](const LevSceneObject& obj)
 			{
@@ -63,12 +63,19 @@ namespace Leviathan
 
 		void LevSceneData::RegisterToMainCamera(LPtr<LevCamera> pCamera)
 		{
-			m_pCamera = pCamera;
+			m_main_camera = pCamera;
 		}
 
-		LPtr<LevCamera> LevSceneData::GetCamera()
+		LPtr<LevCamera> LevSceneData::GetMainCamera()
 		{
-			return m_pCamera;
+			return m_main_camera;
+		}
+
+		bool LevSceneData::SetMainCamera(LPtr<LevCamera> camera)
+		{
+			EXIT_IF_FALSE(camera);
+			m_main_camera = camera;
+			return true;
 		}
 
 		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)

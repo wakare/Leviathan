@@ -35,7 +35,7 @@ namespace Leviathan
 
 		LevCamera & LevSceneEventListener::_camera()
 		{
-			return *m_scene.GetSceneData().GetCamera();
+			return *m_scene.GetSceneData().GetMainCamera();
 		}
 
 		bool LevSceneEventListener::_handleResize(Event & event)

@@ -6,15 +6,16 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObject::OpenGLObject(unsigned id, GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/) :
-			m_ID(id),
-			m_VAO(0),
-			m_VBO(0),
-			m_IBO(0),
-			m_primitiveType(primType),
-			m_vertexCount(vertexCount),
-			m_vertexAttributeMask(vertexMask),
-			m_pMaterial(pMaterial)
+		OpenGLObject::OpenGLObject(unsigned id, GLuint primType, GLuint vertexCount, GLint vertexMask, LPtr<OpenGLMaterial> pMaterial /*= nullptr*/) 
+			: m_ID(id)
+			, m_VAO(0)
+			, m_VBO(0)
+			, m_IBO(0)
+			, m_primitiveType(primType)
+			, m_vertexCount(vertexCount)
+			, m_vertexAttributeMask(vertexMask)
+			, m_pMaterial(pMaterial)
+			, m_shader_program(nullptr)
 		{
 			SetVisible(true);
 		}
@@ -106,6 +107,16 @@ namespace Leviathan
 			}
 
 			return true;
+		}
+
+		void OpenGLObject::SetShaderProgram(LPtr<OpenGLShaderProgram> shader_program)
+		{
+			m_shader_program = shader_program;
+		}
+
+		const Leviathan::LPtr<Leviathan::Renderer::OpenGLShaderProgram> OpenGLObject::GetShaderProgram() const
+		{
+			return m_shader_program;
 		}
 
 		void OpenGLObject::AddPreProcess(std::function<void()> fn)

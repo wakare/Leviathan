@@ -54,7 +54,6 @@ namespace Leviathan
 			// Set GLProgram
 			auto program = m_pGLShaderProgram->GetShaderProgram();
 			glUseProgram(program);
-			//m_pGLShaderProgram->SetGLUniformState();
 
 			// Set light
 			if (m_bLightEnable)

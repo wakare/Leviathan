@@ -57,7 +57,6 @@ namespace Leviathan
 			m_lights.push_back(pLight); 
 		}
 
-
 		OpenGLPass::~OpenGLPass()
 		{
 

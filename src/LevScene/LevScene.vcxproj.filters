@@ -26,6 +26,9 @@
     <Filter Include="Source Files\SceneAttribute\MixAttribute">
       <UniqueIdentifier>{ad3922ea-be52-4c9a-8e46-ae49979c183b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SceneUtil">
+      <UniqueIdentifier>{f9c02928-bc48-4729-8cc8-e7137ccd51aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevScene.h">
@@ -124,6 +127,12 @@
     <ClInclude Include="LevSceneAPIDefine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="LevRAttrShaderProgram.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneUtil.h">
+      <Filter>Source Files\SceneUtil</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -215,6 +224,12 @@
     </ClCompile>
     <ClCompile Include="LevRAttrLightEnable.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrShaderProgram.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevSceneUtil.cpp">
+      <Filter>Source Files\SceneUtil</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

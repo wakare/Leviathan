@@ -1,4 +1,5 @@
 #include "VFXSampleBaseViewer.h"
+#include "VFXCommonScene.h"
 #include "LevViewer.h"
 #include "LevScene.h"
 
@@ -12,7 +13,7 @@ namespace Leviathan
 			auto created = m_viewer->CreateRenderWindow(800, 600, 0);
 			LEV_ASSERT(created);
 
-			LPtr<Scene::LevScene> scene = new Scene::LevScene;
+			LPtr<Scene::LevScene> scene = new VFXCommonScene;
 			scene->Init(LevSceneType::ELST_3D_SCENE);
 			m_viewer->SetCurrentScene(scene);
 		}

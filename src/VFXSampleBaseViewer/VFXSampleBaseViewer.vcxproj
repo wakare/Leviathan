@@ -19,11 +19,17 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="VFXCommonScene.h" />
+    <ClInclude Include="VFXDeferRenderScene.h" />
     <ClInclude Include="VFXSampleBaseViewer.h" />
     <ClInclude Include="VFXSampleBaseViewerAPIDefine.h" />
+    <ClInclude Include="VFXShadowMapScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="VFXCommonScene.cpp" />
+    <ClCompile Include="VFXDeferRenderScene.cpp" />
     <ClCompile Include="VFXSampleBaseViewer.cpp" />
+    <ClCompile Include="VFXShadowMapScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -101,7 +107,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>LEV_VFX_SAMPLE_BASE_VIEWER_API_EXPORT;_DEBUG;VFXSAMPLEBASEVIEWER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src/LevViewer;$(SolutionDir)src/LevScene;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src/LevViewer;$(SolutionDir)src/LevScene;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -152,7 +158,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>LEV_VFX_SAMPLE_BASE_VIEWER_API_EXPORT;NDEBUG;VFXSAMPLEBASEVIEWER_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src/LevViewer;$(SolutionDir)src/LevScene;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;$(SolutionDir)src/LevViewer;$(SolutionDir)src/LevScene;$(SolutionDir)3rdparty/Eigen</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

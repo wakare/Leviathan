@@ -11,6 +11,7 @@ namespace Leviathan
 	{
 		class OpenGLMaterial;
 		class OpenGLUniform;
+		class OpenGLShaderProgram;
 
 		class OpenGLObject
 		{
@@ -47,6 +48,9 @@ namespace Leviathan
 			void RemoveUniform(LPtr<OpenGLUniform> pUniform);
 			bool ApplyUniform(GLuint shaderProgram);
 
+			void SetShaderProgram(LPtr<OpenGLShaderProgram> shader_program);
+			const LPtr<OpenGLShaderProgram> GetShaderProgram() const;
+
 			void AddPreProcess(std::function<void()> fn);
 			void AddPostProcess(std::function<void()> fn);
 
@@ -69,6 +73,7 @@ namespace Leviathan
 			bool m_visible;
 
 			LPtr<OpenGLMaterial> m_pMaterial;
+			LPtr<OpenGLShaderProgram> m_shader_program;
 			std::vector<LPtr<OpenGLUniform>> m_pUniforms;
 
 			std::vector<std::function<void()>> m_preprocess_fns;
