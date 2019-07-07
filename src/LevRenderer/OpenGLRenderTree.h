@@ -8,19 +8,19 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLObject2;
+		class OpenGLObject;
 		class OpenGLShaderProgram;
 
 		class OpenGLRenderNodeObject
 		{
 		public:
-			OpenGLRenderNodeObject(LPtr<OpenGLObject2> object);
+			OpenGLRenderNodeObject(LPtr<OpenGLObject> object);
 			bool Valid() const;
 			unsigned GetID() const;
 			void Render(GLuint shader_program);
 
 		private:
-			LPtr<OpenGLObject2> m_object;
+			LPtr<OpenGLObject> m_object;
 		};
 
 		class OpenGLRenderNode : public Node<OpenGLRenderNodeObject>

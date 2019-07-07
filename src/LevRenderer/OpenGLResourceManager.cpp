@@ -1,7 +1,7 @@
 #include "OpenGLResourceManager.h"
 #include "OpenGLRenderTree.h"
 #include "LevRAttrShaderProgram.h"
-#include "OpenGLPass2.h"
+#include "OpenGLPass.h"
 #include "OpenGLShaderProgram.h"
 
 namespace Leviathan
@@ -23,13 +23,13 @@ namespace Leviathan
 				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree;
 
 				LPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
-				m_render_pass[shader_program.GetID()] = new OpenGLPass2(opengl_shader_program);
+				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program);
 			}
 
 			return shader_program.GetID();
 		}
 
-		bool OpenGLResourceManager::AddGLObject(RenderTreeID handle, LPtr<OpenGLObject2> pObject)
+		bool OpenGLResourceManager::AddGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -44,7 +44,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLResourceManager::ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject2> pObject)
+		bool OpenGLResourceManager::ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 

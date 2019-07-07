@@ -216,7 +216,6 @@
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\ThreadRecorder.h" />
     <ClInclude Include="..\..\include\WindowCallBack.h" />
-    <ClInclude Include="LevGLFWWindowWarpper.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />
     <ClInclude Include="Singleton.h" />

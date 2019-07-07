@@ -24,8 +24,8 @@
     <ClInclude Include="OpenGLCamera.h" />
     <ClInclude Include="OpenGLEmptyObject.h" />
     <ClInclude Include="OpenGLLight.h" />
-    <ClInclude Include="OpenGLObject2.h" />
-    <ClInclude Include="OpenGLPass2.h" />
+    <ClInclude Include="OpenGLObject.h" />
+    <ClInclude Include="OpenGLPass.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />
     <ClInclude Include="OpenGLRenderDataProcessor.h" />
@@ -39,8 +39,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLEmptyObject.cpp" />
-    <ClCompile Include="OpenGLObject2.cpp" />
-    <ClCompile Include="OpenGLPass2.cpp" />
+    <ClCompile Include="OpenGLObject.cpp" />
+    <ClCompile Include="OpenGLPass.cpp" />
     <ClCompile Include="OpenGLPointLight.cpp" />
     <ClCompile Include="OpenGLMaterial.cpp" />
     <ClCompile Include="OpenGLRenderDataProcessor.cpp" />

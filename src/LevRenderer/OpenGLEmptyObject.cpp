@@ -8,7 +8,7 @@ namespace Leviathan
 	}
 
 	Renderer::OpenGLEmptyObject::OpenGLEmptyObject(unsigned id)
-		: OpenGLObject2(id)
+		: OpenGLObject(id)
 	{
 
 	}

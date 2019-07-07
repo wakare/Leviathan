@@ -15,8 +15,8 @@ namespace Leviathan
 	namespace Renderer
 	{
 		class OpenGLObject;
-		class OpenGLObject2;
-		class OpenGLPass2;
+		class OpenGLObject;
+		class OpenGLPass;
 		class OpenGLRenderTree;
 		class OpenGLRenderNodeObject;
 
@@ -26,14 +26,14 @@ namespace Leviathan
 		public:
 			OpenGLResourceManager();
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
-			bool AddGLObject(RenderTreeID handle, LPtr<OpenGLObject2> pObject);
-			bool ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject2> pObjects);
+			bool AddGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject);
+			bool ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObjects);
 			bool RemoveResource(RenderTreeID handle, unsigned object_id);
 
 			bool Render();
 
 		private:
-			std::map<RenderTreeID, LPtr<OpenGLPass2>> m_render_pass;
+			std::map<RenderTreeID, LPtr<OpenGLPass>> m_render_pass;
 			std::map<RenderTreeID, LPtr<OpenGLRenderTree>> m_render_trees;
 		};
 	}

@@ -43,12 +43,6 @@
     <ClInclude Include="OpenGLResourceManager.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLPass2.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLObject2.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLRenderTree.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
@@ -60,6 +54,12 @@
     </ClInclude>
     <ClInclude Include="LevRendererAPIDefine.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLObject.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLPass.h">
+      <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -87,12 +87,6 @@
     <ClCompile Include="OpenGLResourceManager.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLPass2.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLObject2.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGLRenderNode.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
@@ -100,6 +94,12 @@
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLRenderTree.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLObject.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLPass.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>

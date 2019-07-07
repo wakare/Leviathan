@@ -1,6 +1,6 @@
 #include "OpenGLRenderTree.h"
-#include "OpenGLObject2.h"
-#include "OpenGLPass2.h"
+#include "OpenGLObject.h"
+#include "OpenGLPass.h"
 
 namespace Leviathan
 {
@@ -55,7 +55,7 @@ namespace Leviathan
 		{
 		}
 
-		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LPtr<OpenGLObject2> object)
+		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LPtr<OpenGLObject> object)
 			: m_object(object)
 		{
 		}

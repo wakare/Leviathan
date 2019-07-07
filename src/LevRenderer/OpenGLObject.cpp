@@ -1,11 +1,11 @@
-#include "OpenGLObject2.h"
+#include "OpenGLObject.h"
 #include "OpenGLUniform.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObject2::OpenGLObject2(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
+		OpenGLObject::OpenGLObject(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
 			: m_attribute_binder(attribute_binder)
 			, m_inited(false)
 			, m_primitive_type(primitive_type)
@@ -17,7 +17,7 @@ namespace Leviathan
 		/*
 			A Empty object
 		*/
-		OpenGLObject2::OpenGLObject2(unsigned id)
+		OpenGLObject::OpenGLObject(unsigned id)
 			: m_attribute_binder(Scene::LevRAttrRenderObjectAttributeBinder(0))
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
@@ -26,12 +26,12 @@ namespace Leviathan
 
 		}
 
-		void OpenGLObject2::AddUniform(LPtr<OpenGLUniform> uniform)
+		void OpenGLObject::AddUniform(LPtr<OpenGLUniform> uniform)
 		{
 			m_uniforms.push_back(uniform);
 		}
 
-		bool OpenGLObject2::Render(GLuint shaderProgram)
+		bool OpenGLObject::Render(GLuint shaderProgram)
 		{
 			if (!m_inited)
 			{
@@ -60,7 +60,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObject2::ApplyUniform(GLuint shaderProgram)
+		bool OpenGLObject::ApplyUniform(GLuint shaderProgram)
 		{
 			for (auto& pUniform : m_uniforms)
 			{
@@ -70,22 +70,22 @@ namespace Leviathan
 			return true;
 		}
 
-		unsigned OpenGLObject2::GetID() const
+		unsigned OpenGLObject::GetID() const
 		{
 			return m_id;
 		}
 
-		void OpenGLObject2::AddPreProcess(std::function<void()> fn)
+		void OpenGLObject::AddPreProcess(std::function<void()> fn)
 		{
 			m_preprocess_fns.push_back(fn);
 		}
 
-		void OpenGLObject2::AddPostProcess(std::function<void()> fn)
+		void OpenGLObject::AddPostProcess(std::function<void()> fn)
 		{
 			m_postprocess_fns.push_back(fn);
 		}
 
-		bool OpenGLObject2::_init()
+		bool OpenGLObject::_init()
 		{
 			// Merge attribute data to temp array
 			size_t attribute_size = m_attribute_binder.GetAttributes().size();

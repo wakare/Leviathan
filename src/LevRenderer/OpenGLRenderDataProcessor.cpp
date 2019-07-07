@@ -33,7 +33,7 @@
 #include "LevRAttrLightEnable.h"
 #include "LevRAttrVisible.h"
 #include "LevRAttrUniform.h"
-#include "OpenGLObject2.h"
+#include "OpenGLObject.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
@@ -114,7 +114,7 @@ namespace Leviathan
 					return false;
 				}
 
-				LPtr<OpenGLObject2> opengl_object = nullptr;
+				LPtr<OpenGLObject> opengl_object = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
 
@@ -148,7 +148,7 @@ namespace Leviathan
 				{
 					EXIT_IF_FALSE(attribute_binder);
 
-					opengl_object = new OpenGLObject2(object.GetID(), primitive_type, *attribute_binder);
+					opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
 					for (auto& attribute : object.GetAllAttributes())
 					{
 						const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
@@ -168,7 +168,7 @@ namespace Leviathan
 				{
 					EXIT_IF_FALSE(attribute_binder);
 					
-					opengl_object = new OpenGLObject2(object.GetID(), primitive_type, *attribute_binder);
+					opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
 					for (auto& attribute : object.GetAllAttributes())
 					{
 						const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
@@ -216,7 +216,7 @@ namespace Leviathan
 			return *m_resource_manager;
 		}
 
-		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLObject2> objects, const Scene::LevSceneRenderAttribute& render_attribute)
+		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLObject> objects, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
 			// Point size attribute
 			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);

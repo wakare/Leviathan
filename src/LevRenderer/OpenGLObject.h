@@ -11,10 +11,10 @@ namespace Leviathan
 	{
 		class OpenGLUniform;
 
-		class OpenGLObject2
+		class OpenGLObject
 		{
 		public:
-			OpenGLObject2(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
+			OpenGLObject(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
 			void AddUniform(LPtr<OpenGLUniform> uniform);
 			virtual bool Render(GLuint shaderProgram);
 			bool ApplyUniform(GLuint shaderProgram);
@@ -23,7 +23,7 @@ namespace Leviathan
 			void AddPostProcess(std::function<void()> fn);
 
 		protected:
-			OpenGLObject2(unsigned id);
+			OpenGLObject(unsigned id);
 			virtual bool _init();
 
 			const Scene::LevRAttrRenderObjectAttributeBinder m_attribute_binder;

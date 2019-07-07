@@ -1,6 +1,6 @@
 #include "OpenGLRenderer.h"
 #include "OpenGLRenderDataProcessor.h"
-#include "OpenGLPass2.h"
+#include "OpenGLPass.h"
 #include "LevOpenGLWindow.h"
 #include "OpenGLResourceManager.h"
 

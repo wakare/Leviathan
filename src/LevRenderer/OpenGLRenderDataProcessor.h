@@ -24,7 +24,7 @@ namespace Leviathan
 		class OpenGLPass;
 		class OpenGLLight;
 		class OpenGLObject;
-		class OpenGLObject2;
+		class OpenGLObject;
 		class OpenGLResourceManager;
 
 		class OpenGLRenderDataProcessor
@@ -38,7 +38,7 @@ namespace Leviathan
 			const OpenGLResourceManager& GetResourceManager() const;
 			
 		private:
-			bool _applyRenderAttribute(LPtr<OpenGLObject2> objects, const Scene::LevSceneRenderAttribute& render_attribute);
+			bool _applyRenderAttribute(LPtr<OpenGLObject> objects, const Scene::LevSceneRenderAttribute& render_attribute);
 
 			int m_current_render_tree_id;
 			LPtr<OpenGLResourceManager> m_resource_manager;

@@ -9,7 +9,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLObject2;
+		class OpenGLObject;
 		class OpenGLShaderProgram;
 		class OpenGLResourceManager;
 
@@ -47,10 +47,10 @@ namespace Leviathan
 			GLuint m_shader_program;
 		};
 
-		class OpenGLPass2
+		class OpenGLPass
 		{
 		public:
-			OpenGLPass2(LPtr<OpenGLShaderProgram> shader_program);
+			OpenGLPass(LPtr<OpenGLShaderProgram> shader_program);
 			bool Render(OpenGLRenderTree& render_tree);
 
 			unsigned GetID() const;

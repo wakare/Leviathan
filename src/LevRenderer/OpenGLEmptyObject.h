@@ -1,12 +1,12 @@
 #pragma once
 
-#include "OpenGLObject2.h"
+#include "OpenGLObject.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLEmptyObject : public OpenGLObject2
+		class OpenGLEmptyObject : public OpenGLObject
 		{
 		public:
 			OpenGLEmptyObject(unsigned id);

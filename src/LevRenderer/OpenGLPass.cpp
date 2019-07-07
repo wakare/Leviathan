@@ -1,5 +1,5 @@
-#include "OpenGLPass2.h"
-#include "OpenGLObject2.h"
+#include "OpenGLPass.h"
+#include "OpenGLObject.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLResourceManager.h"
 
@@ -7,7 +7,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLPass2::OpenGLPass2(LPtr<OpenGLShaderProgram> shader_program)
+		OpenGLPass::OpenGLPass(LPtr<OpenGLShaderProgram> shader_program)
 			: m_id(shader_program->GetID())
 			, m_shader_program(shader_program)
 			, m_render_visitor(new OpenGLRenderNodeVisitor(shader_program->GetShaderProgram()))
@@ -15,7 +15,7 @@ namespace Leviathan
 
 		}
 
-		bool OpenGLPass2::Render(OpenGLRenderTree& render_tree)
+		bool OpenGLPass::Render(OpenGLRenderTree& render_tree)
 		{
 			// Set GLProgram
 			auto program = m_shader_program->GetShaderProgram();
@@ -29,12 +29,12 @@ namespace Leviathan
 			return true;
 		}
 
-		unsigned OpenGLPass2::GetID() const
+		unsigned OpenGLPass::GetID() const
 		{
 			return m_id;
 		}
 
-		Leviathan::Renderer::OpenGLRenderNodeVisitor& OpenGLPass2::GetRenderVisitor()
+		Leviathan::Renderer::OpenGLRenderNodeVisitor& OpenGLPass::GetRenderVisitor()
 		{
 			return *m_render_visitor;
 		}

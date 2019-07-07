@@ -237,9 +237,6 @@
     <ClInclude Include="..\..\include\LevTimer.h">
       <Filter>CommonTool\Profiler</Filter>
     </ClInclude>
-    <ClInclude Include="LevGLFWWindowWarpper.h">
-      <Filter>Window</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\LevFileSystem.h">
       <Filter>CommonTool\FileSystem</Filter>
     </ClInclude>
