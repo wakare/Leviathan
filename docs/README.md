@@ -25,4 +25,5 @@
 	1. provide interface to modify shader effect
 	2. provide interface to add custom shader effect
 
-
+### 7.7 Updated:
+	Now user must add default shader program to a "render-base" root node, all of children of the node will be added into the pass util traverse a node owned their shader program.
