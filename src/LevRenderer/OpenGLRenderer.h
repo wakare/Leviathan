@@ -13,7 +13,8 @@ namespace Leviathan
 	namespace Renderer
 	{
 		class OpenGLPass;
-		class OpenGLRenderData;
+		class OpenGLResourceManager;
+		class OpenGLRenderDataProcessor;
 
 		class OpenGLRenderer : public IRenderer
 		{
@@ -26,10 +27,11 @@ namespace Leviathan
 			void Update();
 
 		private:
+			void _render(OpenGLResourceManager& resource_manager);
 			void _renderOneFrame();
 
 			LevOpenGLWindow& m_window;
-			LPtr<OpenGLRenderData> m_pRenderData;
+			LPtr<OpenGLRenderDataProcessor> m_pRenderData;
 		};
 	}
 }

@@ -14,7 +14,6 @@ namespace Leviathan
 			LEV_ASSERT(created);
 
 			LPtr<Scene::LevScene> scene = new VFXCommonScene;
-			scene->Init(LevSceneType::ELST_3D_SCENE);
 			m_viewer->SetCurrentScene(scene);
 		}
 

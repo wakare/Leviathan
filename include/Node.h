@@ -22,6 +22,11 @@ namespace Leviathan
 		const LPtr<Node<T>> GetParent() const;
 
 		const LPtr<T>& GetNodeData() const { return m_node_data; };
+		void SetNodeData(LPtr<T> pData) { m_node_data.Reset(pData); }
+
+		void SetInvalid() { SetNodeData(nullptr); }
+		bool Invalid() const { return m_node_data.Get(); }
+
 		const std::vector<LPtr<Node<T>>>& GetChildren() const { return m_children; };
 		std::vector<LPtr<Node<T>>>& GetChildren() { return m_children; };
 

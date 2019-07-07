@@ -8,17 +8,24 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevScene::LevScene() 
-			:m_sceneType(ELST_UNKNOWN)
-			,m_pSceneData(nullptr)
-			,m_pEventListener(nullptr)
+			: m_sceneType(ELST_UNKNOWN)
+			, m_pSceneData(nullptr)
+			, m_pEventListener(nullptr)
+			, m_inited(false)
 		{
 		}
 
 		bool LevScene::Init(LevSceneType sceneType)
 		{
+			if (m_inited)
+			{
+				return false;
+			}
+
 			m_sceneType = sceneType;
 			m_pSceneData.Reset(new LevSceneData);
 			m_pEventListener.Reset(new LevSceneEventListener(*this));
+			m_inited = true;
 
 			return true;
 		}

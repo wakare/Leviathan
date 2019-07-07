@@ -1,19 +1,19 @@
 #pragma once
 
-#include "OpenGLObject.h"
+#include "OpenGLObject2.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLEmptyObject : public OpenGLObject
+		class OpenGLEmptyObject : public OpenGLObject2
 		{
 		public:
 			OpenGLEmptyObject(unsigned id);
 
-			bool Init();
-			bool Update();
-			bool Render(GLuint shaderProgram);
+		protected:
+			virtual bool _init();
+			virtual bool Render(GLuint shaderProgram);
 		};
 	}
 }

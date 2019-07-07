@@ -23,7 +23,7 @@ namespace Leviathan
 			bool Init(LevSceneType sceneType);
 			void UpdateNodeState();
 			void UpdateWorldTransform();
-			void Update();
+			virtual void Update();
 			void SetNodeModified();
 			void SetViewport(int width, int height);
 
@@ -37,6 +37,7 @@ namespace Leviathan
 			LevSceneData& GetSceneData();
 
 		private:
+			bool m_inited;
 			LevSceneType m_sceneType;
 			LPtr<LevSceneData> m_pSceneData;
 			LPtr<LevSceneEventListener> m_pEventListener;

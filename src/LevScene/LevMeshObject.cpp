@@ -8,7 +8,7 @@ namespace Leviathan
 	namespace Scene
 	{
 		LevMeshObject::LevMeshObject()
-			: LevSceneObjectDescription(ELSOD_MESH)
+			: LevSceneObjectDescription(ELSOD_MESH_TRIANGLE)
 			, m_pMeshAABB(nullptr)
 		{
 			

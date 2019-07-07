@@ -21,34 +21,33 @@
   <ItemGroup>
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
-    <ClInclude Include="OpenGL3DObject.h" />
-    <ClInclude Include="OpenGL3DPass.h" />
     <ClInclude Include="OpenGLCamera.h" />
     <ClInclude Include="OpenGLEmptyObject.h" />
     <ClInclude Include="OpenGLLight.h" />
+    <ClInclude Include="OpenGLObject2.h" />
+    <ClInclude Include="OpenGLPass2.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />
-    <ClInclude Include="OpenGLObject.h" />
-    <ClInclude Include="OpenGLPass.h" />
-    <ClInclude Include="OpenGLRenderData.h" />
+    <ClInclude Include="OpenGLRenderDataProcessor.h" />
     <ClInclude Include="OpenGLRenderer.h" />
-    <ClInclude Include="OpenGLResourceMgr.h" />
+    <ClInclude Include="OpenGLRenderTree.h" />
+    <ClInclude Include="OpenGLResourceManager.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
     <ClInclude Include="OpenGLStateSet.h" />
     <ClInclude Include="OpenGLTexture.h" />
     <ClInclude Include="OpenGLUniform.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenGL3DObject.cpp" />
-    <ClCompile Include="OpenGL3DPass.cpp" />
     <ClCompile Include="OpenGLEmptyObject.cpp" />
+    <ClCompile Include="OpenGLObject2.cpp" />
+    <ClCompile Include="OpenGLPass2.cpp" />
     <ClCompile Include="OpenGLPointLight.cpp" />
     <ClCompile Include="OpenGLMaterial.cpp" />
-    <ClCompile Include="OpenGLObject.cpp" />
-    <ClCompile Include="OpenGLPass.cpp" />
-    <ClCompile Include="OpenGLRenderData.cpp" />
+    <ClCompile Include="OpenGLRenderDataProcessor.cpp" />
     <ClCompile Include="OpenGLRenderer.cpp" />
-    <ClCompile Include="OpenGLResourceMgr.cpp" />
+    <ClCompile Include="OpenGLRenderNode.cpp" />
+    <ClCompile Include="OpenGLRenderTree.cpp" />
+    <ClCompile Include="OpenGLResourceManager.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
     <ClCompile Include="OpenGLTexture.cpp" />
     <ClCompile Include="OpenGLUniform.cpp" />

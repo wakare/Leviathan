@@ -10,22 +10,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IRenderer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGL3DObject.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGL3DPass.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLMaterial.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLObject.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLPass.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLRenderer.h">
@@ -40,9 +25,6 @@
     <ClInclude Include="OpenGLUniform.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLRenderData.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLPointLight.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
@@ -52,14 +34,29 @@
     <ClInclude Include="OpenGLCamera.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLResourceMgr.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLEmptyObject.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLStateSet.h">
       <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLResourceManager.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLPass2.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLObject2.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderTree.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderDataProcessor.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderer.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="LevRendererAPIDefine.h">
       <Filter>Source Files</Filter>
@@ -81,28 +78,28 @@
     <ClCompile Include="OpenGLMaterial.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLPass.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGL3DPass.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLObject.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGL3DObject.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLRenderData.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGLPointLight.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLResourceMgr.cpp">
+    <ClCompile Include="OpenGLEmptyObject.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLEmptyObject.cpp">
+    <ClCompile Include="OpenGLResourceManager.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLPass2.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLObject2.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderNode.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderDataProcessor.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderTree.cpp">
       <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>

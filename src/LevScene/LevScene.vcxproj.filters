@@ -133,6 +133,24 @@
     <ClInclude Include="LevSceneUtil.h">
       <Filter>Source Files\SceneUtil</Filter>
     </ClInclude>
+    <ClInclude Include="LevRAttrUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevNormalScene.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrRenderObjectAttributeBinder.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneDefaultShader.h">
+      <Filter>Source Files\SceneUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="LevSceneDefaultShader_simple.h">
+      <Filter>Source Files\SceneUtil</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrUniformManager.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -230,6 +248,15 @@
     </ClCompile>
     <ClCompile Include="LevSceneUtil.cpp">
       <Filter>Source Files\SceneUtil</Filter>
+    </ClCompile>
+    <ClCompile Include="LevNormalScene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrRenderObjectAttributeBinder.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrUniformManager.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

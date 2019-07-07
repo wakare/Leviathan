@@ -7,6 +7,8 @@
 #include "LevPointLight.h"
 #include "LevSceneObject.h"
 #include "LevTimer.h"
+#include "LevRAttrShaderProgram.h"
+#include "LevRAttrUniform.h"
 
 namespace Leviathan
 {
@@ -21,8 +23,6 @@ namespace Leviathan
 			{
 				m_modified = true;
 			};
-
-			InitCameraAndLight(*this);
 		}
 
 		LevSceneTree & LevSceneData::GetSceneTree()
@@ -93,55 +93,6 @@ namespace Leviathan
 		void LevSceneData::UpdateNodeState()
 		{
 			m_pSceneTree->UpdateNodeState();
-		}
-
-		bool InitCameraAndLight(LevSceneData & scene_data)
-		{
-			// FOR DEBUG
-			LPtr<LevCamera> pCamera = new LevCamera;
-			pCamera->SetName("Main Camera");
-
-			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
-			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
-			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
-			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), ANGLE_TO_RADIAN(120.0f), 1.0f, 0.01f, 10000.0f);
-			LEV_ASSERT(_seted);
-			auto pCameraNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			scene_data.AddSceneNode(pCameraNode);
-			scene_data.RegisterToMainCamera(pCamera);
-			LEV_ASSERT(pCameraNode);
-
-			auto _camera_timeOut = [pCamera](const LevTimer&)
-			{
-				pCamera->MouseRotate(0.01, 0);
-			};
-
-			LPtr<LevTimer> pCameraTimer = new LevTimer(16.6f, _camera_timeOut);
-			//pCamera->SetTimer(pCameraTimer);
-
-			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
-			pLight->SetName("Default light");
-
-			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
-			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
-			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
-			LPtr<LevSceneNode> pLightNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
-			pCameraNode->AddChild(TryCast<LevSceneNode, Node<LevSceneObject>>(pLightNode));
-
-			// 			auto _timeOut = [pLight](const LevTimer&)
-			// 			{
-			// 				auto localTransform = pLight->GetLocalTransform();
-			// 				localTransform(0, 3) -= 0.01f;
-			// 				localTransform(1, 3) -= 0.01f;
-			// 				localTransform(2, 3) -= 0.01f;
-			// 				pLight->SetLocalTransform(localTransform);
-			// 				pLight->SetModified();
-			// 			};
-			// 
-			// 			LPtr<LevTimer> pTimer = new LevTimer(100.0f, _timeOut);
-			// 			pLight->SetTimer(pTimer);
-
-			return true;
 		}
 }
 }

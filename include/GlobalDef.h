@@ -10,7 +10,8 @@ namespace Leviathan
 	static std::ofstream g_levLogFile("Leviathan.log", std::ios::out);
 
 	#define LeviathanInStream std::cin
-	#define LeviathanOutStream Leviathan::g_levLogFile
+	//#define LeviathanOutStream Leviathan::g_levLogFile
+#define LeviathanOutStream std::cout
 	#define LogLine(s) LeviathanOutStream << s << std::endl;
 
 	#define PI_DOUBLE 3.141592653589793
@@ -69,8 +70,10 @@ namespace Leviathan
 
 	enum LevSceneObjectDescType
 	{
-		ELSOD_MESH = 1,
-		ELSOD_MATHEMATIC = 2,
+		ELSOD_MESH_TRIANGLE = 1,
+		ELSOD_MESH_POINT = 2,
+		ELSOD_MESH_LINE = 3,
+		ELSOD_MATHEMATIC = 1024,
 	};
 
 	enum LevFileType
@@ -79,6 +82,23 @@ namespace Leviathan
 		EFT_DIR_FILE
 	};
 
+	// RAII Array
+	class RAIIBufferData
+	{
+	public:
+		RAIIBufferData(unsigned byteSize) : m_byte_size(byteSize) { m_data = malloc(byteSize); };
+		~RAIIBufferData() { if (m_data) { free(m_data); m_data = nullptr; } };
+
+		void SetArrayData(const void* data, unsigned dataSize) { memcpy(m_data, data, dataSize); };
+		void* GetArrayData() { return m_data; }
+		const void* GetArrayData() const { return m_data; }
+
+		unsigned GetArrayDataByteSize() const { return m_byte_size; }
+
+	private:
+		unsigned m_byte_size;
+		void* m_data;
+	};
 
 	typedef std::function<void(void)> SceneDataRequestFunc;
 }

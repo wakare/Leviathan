@@ -8,17 +8,12 @@ namespace Leviathan
 	}
 
 	Renderer::OpenGLEmptyObject::OpenGLEmptyObject(unsigned id)
-		: OpenGLObject(id, 0, 0, 0)
+		: OpenGLObject2(id)
 	{
 
 	}
 
-	bool Renderer::OpenGLEmptyObject::Init()
-	{
-		return true;
-	}
-
-	bool Renderer::OpenGLEmptyObject::Update()
+	bool Renderer::OpenGLEmptyObject::_init()
 	{
 		return true;
 	}

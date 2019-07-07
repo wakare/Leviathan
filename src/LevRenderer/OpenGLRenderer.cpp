@@ -1,7 +1,8 @@
 #include "OpenGLRenderer.h"
-#include "OpenGLRenderData.h"
-#include "OpenGLPass.h"
+#include "OpenGLRenderDataProcessor.h"
+#include "OpenGLPass2.h"
 #include "LevOpenGLWindow.h"
+#include "OpenGLResourceManager.h"
 
 namespace Leviathan
 {
@@ -9,9 +10,14 @@ namespace Leviathan
 	{
 		OpenGLRenderer::OpenGLRenderer(LevOpenGLWindow& pWindow)
 			: m_window(pWindow)
-			, m_pRenderData(new OpenGLRenderData)
+			, m_pRenderData(new OpenGLRenderDataProcessor)
 		{
 
+		}
+
+		void OpenGLRenderer::_render(OpenGLResourceManager& resource_manager)
+		{
+			resource_manager.Render();
 		}
 
 		void OpenGLRenderer::_renderOneFrame()
@@ -21,7 +27,7 @@ namespace Leviathan
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 			// Render
-			m_pRenderData->Render();
+			_render(m_pRenderData->GetResourceManager());
 
 			m_window.SwapBuffer();
 		}

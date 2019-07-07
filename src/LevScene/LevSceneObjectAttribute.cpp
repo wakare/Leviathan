@@ -9,8 +9,10 @@ namespace Leviathan
 		{
 
 		}
+
 		LevSceneObjectAttribute::~LevSceneObjectAttribute()
 		{
+
 		}
 
 		int LevSceneObjectAttribute::GetType() const

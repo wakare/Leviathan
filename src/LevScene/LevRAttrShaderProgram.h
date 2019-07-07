@@ -23,9 +23,12 @@ namespace Leviathan
 		public:
 			LevRAttrShaderProgram();
 			bool SetShaderProgram(LPtr<LevShaderProgram> program);
+			unsigned GetID() const;
+			const LevShaderProgram& GetShaderProgram() const;
 
 		private:
 			LPtr<LevShaderProgram> m_shader_program;
+			const unsigned m_id;
 		};
 	}
 }

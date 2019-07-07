@@ -4,106 +4,63 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLUniform::OpenGLUniform(const char* uniformName, UniformType type) :
-			m_uniformName(uniformName),
-			m_uniformType(type),
-			m_fUniformArray(nullptr),
-			m_dUniformArray(nullptr)
+		using namespace Scene;
+
+		OpenGLUniform::OpenGLUniform(const Scene::LevRAttrUniform& scene_uniform)
+			: m_scene_uniform(scene_uniform)
 		{
 
 		}
 
-		std::string OpenGLUniform::GetUniformName() const
+		const std::string& OpenGLUniform::GetUniformName() const
 		{
-			return m_uniformName;
-		}
-
-		bool OpenGLUniform::SetData(const float* data, unsigned dataCount)
-		{
-			unsigned dataSize = dataCount * sizeof(float);
-
-			// Do nothing if data has inited before
-			if (!_checkDataInited())
-			{
-				m_fUniformArray = new UniformArray<float>(dataSize);
-			}
-
-			m_fUniformArray->SetArrayData(data, dataSize);
-
-			return true;
-		}
-
-		bool OpenGLUniform::SetData(const double* data, unsigned dataSize)
-		{
-			// Do nothing if data has inited before
-			if (_checkDataInited())
-			{
-				return false;
-			}
-
-			m_dUniformArray = new UniformArray<double>(dataSize);
-			m_dUniformArray->SetArrayData(data, dataSize);
-
-			return true;
-		}
-
-		bool OpenGLUniform::SetData(bool data)
-		{
-			m_boolData = data;
-			return true;
-		}
-
-		bool OpenGLUniform::SetData(int data)
-		{
-			m_intData = data;
-			return true;
-		}
-
-		bool OpenGLUniform::SetData(unsigned data)
-		{
-			m_uintData = data;
-			return true;
+			return m_scene_uniform.GetName();
 		}
 
 		bool OpenGLUniform::Apply(GLuint program)
 		{
-			GLint uniformLocation = glGetUniformLocation(program, m_uniformName.c_str());
+			GLint uniformLocation = glGetUniformLocation(program, GetUniformName().c_str());
 			if (uniformLocation == -1)
 			{
 				throw "OpenGLUniform::Apply(GLuint program) --> Get uniform location failed.";
 				return false;
 			}
 
-			switch (m_uniformType)
+			const void* uniform_data = m_scene_uniform.GetData().GetArrayData();
+
+			switch (m_scene_uniform.GetUniformType())
 			{
 			case TYPE_FLOAT_MAT4:
 			{
-				glUniformMatrix4fv(uniformLocation, 1, false, m_fUniformArray->GetArraydata());
+				glUniformMatrix4fv(uniformLocation, 1, false, static_cast<const GLfloat*>(uniform_data));
 				break;
 			}	
 
 			case TYPE_FLOAT_VEC3:
 			{
-				auto* floatLocation = m_fUniformArray->GetArraydata();
+				const float* floatLocation = static_cast<const float*>(uniform_data);
 				glUniform3f(uniformLocation, floatLocation[0], floatLocation[1], floatLocation[2]);
 				break;
 			}	
 
 			case TYPE_BOOLEAN:
 			{
-				glUniform1i(uniformLocation, m_boolData);
+				const bool* bool_data = static_cast<const bool*>(uniform_data);
+				glUniform1i(uniformLocation, *bool_data);
 				break;
 			}
 
 			case TYPE_INTEGER:
 			{
-				glUniform1i(uniformLocation, m_intData);
+				const int* int_data = static_cast<const int*>(uniform_data);
+				glUniform1i(uniformLocation, *int_data);
 				break;
 			}	
 
 			case TYPE_UNSIGNED_INTEGER:
 			{
-				glUniform1ui(uniformLocation, m_uintData);
+				const unsigned* uint_data = static_cast<const unsigned*>(uniform_data);
+				glUniform1ui(uniformLocation, *uint_data);
 				break;
 			}
 			
@@ -112,16 +69,6 @@ namespace Leviathan
 			}
 
 			return true;
-		}
-
-		bool OpenGLUniform::_checkDataInited()
-		{
-			if (m_dUniformArray || m_fUniformArray)
-			{
-				return true;
-			}
-
-			return false;
 		}
 	}
 }

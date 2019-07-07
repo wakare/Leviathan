@@ -52,6 +52,9 @@
     <Filter Include="CommonTool\StringMatch">
       <UniqueIdentifier>{466d8057-0f76-424f-afef-7add38962506}</UniqueIdentifier>
     </Filter>
+    <Filter Include="CommonTool\TokenDispatch">
+      <UniqueIdentifier>{18785f5a-b40d-4f2a-947c-b1b1556e1c0f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Light.cpp">
@@ -239,6 +242,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\LevFileSystem.h">
       <Filter>CommonTool\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LevTokenDispatch.h">
+      <Filter>CommonTool\TokenDispatch</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

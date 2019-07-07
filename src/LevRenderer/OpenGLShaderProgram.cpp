@@ -1,15 +1,26 @@
 #include "OpenGLShaderProgram.h"
 #include "OpenGLUniform.h"
+#include "LevRAttrShaderProgram.h"
 
 namespace Leviathan
 {
 	namespace Renderer 
 	{
-		OpenGLShaderProgram::OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
-			m_pczVertexShader(pczVertexShader),
-			m_pczFragmentShader(pczFragmentShader),
-			m_pczGeomShader(pczGeomShader),
-			m_bInited(false)
+// 		OpenGLShaderProgram::OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
+// 			m_pczVertexShader(pczVertexShader),
+// 			m_pczFragmentShader(pczFragmentShader),
+// 			m_pczGeomShader(pczGeomShader),
+// 			m_bInited(false)
+// 		{
+// 			if (!Init())
+// 			{
+// 				throw "exception";
+// 			}
+// 		};
+
+		OpenGLShaderProgram::OpenGLShaderProgram(const Scene::LevRAttrShaderProgram& shader_program) 
+			: m_shader_program(shader_program)
+			, m_bInited(false)
 		{
 			if (!Init())
 			{
@@ -82,28 +93,33 @@ namespace Leviathan
 			return m_shaderProgram; 
 		};
 
+		unsigned OpenGLShaderProgram::GetID() const
+		{
+			return m_shader_program.GetID();
+		}
+
 		bool OpenGLShaderProgram::_compileAll()
 		{
 			m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
-			if (!_compileShader(m_pczVertexShader, m_VertexShader))
+			if (!_compileShader(m_shader_program.GetShaderProgram().m_vert_shader.c_str(), m_VertexShader))
 			{
 				return false;
 			}
 
 			m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-			if (!_compileShader(m_pczFragmentShader, m_FragmentShader))
+			if (!_compileShader(m_shader_program.GetShaderProgram().m_frag_shader.c_str(), m_FragmentShader))
 			{
 				return false;
 			}
 
-			if (m_pczGeomShader)
-			{
-				m_GeomShader = glCreateShader(GL_GEOMETRY_SHADER);
-				if (!_compileShader(m_pczGeomShader, m_GeomShader))
-				{
-					return false;
-				}
-			}
+// 			if (m_pczGeomShader)
+// 			{
+// 				m_GeomShader = glCreateShader(GL_GEOMETRY_SHADER);
+// 				if (!_compileShader(m_pczGeomShader, m_GeomShader))
+// 				{
+// 					return false;
+// 				}
+// 			}
 
 			return true;
 		}
@@ -117,10 +133,10 @@ namespace Leviathan
 			// Link shader program
 			glAttachShader(m_shaderProgram, m_VertexShader);
 			glAttachShader(m_shaderProgram, m_FragmentShader);
-			if (m_pczGeomShader)
-			{
-				glAttachShader(m_shaderProgram, m_GeomShader);
-			}
+// 			if (m_pczGeomShader)
+// 			{
+// 				glAttachShader(m_shaderProgram, m_GeomShader);
+// 			}
 
 			glLinkProgram(m_shaderProgram);
 			glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success);
@@ -134,11 +150,11 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLShaderProgram::_compileShader(const GLchar* const* pczShaderSource, GLuint shaderProgram)
+		bool OpenGLShaderProgram::_compileShader(const char* pczShaderSource, GLuint shaderProgram)
 		{
 			GLint success = GL_FALSE;
 
-			glShaderSource(shaderProgram, 1, pczShaderSource, nullptr);
+			glShaderSource(shaderProgram, 1, &pczShaderSource, nullptr);
 			glCompileShader(shaderProgram);
 			glGetShaderiv(shaderProgram, GL_COMPILE_STATUS, &success);
 			GLchar infoLog[512];

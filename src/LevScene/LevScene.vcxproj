@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevRAttrUniformManager.h" />
+    <ClInclude Include="LevSceneDefaultShader_simple.h" />
     <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
     <ClInclude Include="LevCamera.h" />
     <ClInclude Include="LevDirectionalLight.h" />
@@ -27,18 +29,22 @@
     <ClInclude Include="LevLight.h" />
     <ClInclude Include="LevMathematicObject.h" />
     <ClInclude Include="LevMeshObject.h" />
+    <ClInclude Include="LevNormalScene.h" />
     <ClInclude Include="LevPointLight.h" />
     <ClInclude Include="LevLRAttrWorldTransform.h" />
     <ClInclude Include="LevRAttrDepthFunc.h" />
     <ClInclude Include="LevRAttrLightEnable.h" />
     <ClInclude Include="LevRAttrObjectColor.h" />
     <ClInclude Include="LevRAttrPointSize.h" />
+    <ClInclude Include="LevRAttrRenderObjectAttributeBinder.h" />
     <ClInclude Include="LevRAttrShaderProgram.h" />
+    <ClInclude Include="LevRAttrUniform.h" />
     <ClInclude Include="LevRAttrVisible.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
     <ClInclude Include="LevSceneAPIDefine.h" />
     <ClInclude Include="LevSceneData.h" />
+    <ClInclude Include="LevSceneDefaultShader.h" />
     <ClInclude Include="LevSceneEventListener.h" />
     <ClInclude Include="LevSceneLogicAttribute.h" />
     <ClInclude Include="LevSceneNode.h" />
@@ -62,13 +68,16 @@
     <ClCompile Include="LevLight.cpp" />
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
+    <ClCompile Include="LevNormalScene.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
     <ClCompile Include="LevLRAttrWorldTransform.cpp" />
     <ClCompile Include="LevRAttrDepthFunc.cpp" />
     <ClCompile Include="LevRAttrLightEnable.cpp" />
     <ClCompile Include="LevRAttrObjectColor.cpp" />
     <ClCompile Include="LevRAttrPointSize.cpp" />
+    <ClCompile Include="LevRAttrRenderObjectAttributeBinder.cpp" />
     <ClCompile Include="LevRAttrShaderProgram.cpp" />
+    <ClCompile Include="LevRAttrUniformManager.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />

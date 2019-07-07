@@ -180,6 +180,7 @@
     <ClInclude Include="..\..\include\LevOpenGLWindow.h" />
     <ClInclude Include="..\..\include\LevTask.h" />
     <ClInclude Include="..\..\include\LevTimer.h" />
+    <ClInclude Include="..\..\include\LevTokenDispatch.h" />
     <ClInclude Include="..\..\include\LevWindowFactory.h" />
     <ClInclude Include="..\..\include\MeshImpl.h" />
     <ClInclude Include="..\..\include\Color.h" />

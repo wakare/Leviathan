@@ -98,7 +98,10 @@ namespace Leviathan
 			void UpdateAttribute(LPtr<T> attribute);
 
 			template<typename T>
-			bool GetAttribute(LPtr<T>& out);
+			bool GetAttribute(const T*& out) const;
+
+			template<typename T>
+			bool GetAttribute(T*& out);
 
 			bool HasObjectDesc() const;
 			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
@@ -171,19 +174,36 @@ namespace Leviathan
 		}
 
 		template<typename T>
-		inline bool LevSceneObject::GetAttribute(LPtr<T>& out)
+		inline bool LevSceneObject::GetAttribute(const T*& out) const
 		{
 			for (auto& attribute : m_attributes)
 			{
 				T* p = dynamic_cast<T*>(attribute.Get());
 				if (p)
 				{
-					out.Reset(new T(*p));
+					out = p;
 					return true;
 				}
 			}
 
 			return false;
 		}
+
+		template<typename T>
+		inline bool LevSceneObject::GetAttribute(T*& out)
+		{
+			for (auto& attribute : m_attributes)
+			{
+				T* p = dynamic_cast<T*>(attribute.Get());
+				if (p)
+				{
+					out = p;
+					return true;
+				}
+			}
+
+			return false;
+		}
+
 }
 }
