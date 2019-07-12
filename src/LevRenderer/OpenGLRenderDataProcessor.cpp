@@ -76,43 +76,31 @@ namespace Leviathan
 					return true;
 				}
 
-				if (!object.HasObjectDesc())
-				{
-					return true;
-				}
+// 				if (!object.HasObjectDesc())
+// 				{
+// 					return true;
+// 				}
 
-				auto& objDesc = object.GetObjectDesc();
-				if (objDesc.GetType() != ELSOD_MESH_TRIANGLE)
-				{
-					return true;
-				}
-
-				// TODO: change style to get mesh data?
-				const Scene::LevMeshObject* pMesh = dynamic_cast<const Scene::LevMeshObject*>(&objDesc);
-				if (!pMesh)
-				{
-					return true;
-				}
-
-				GLenum primitive_type;
-				switch (object.GetObjectDesc().GetType())
-				{
-				case ELSOD_MESH_TRIANGLE:
-					primitive_type = GL_TRIANGLES;
-					break;
-
-				case ELSOD_MESH_POINT:
-					primitive_type = GL_POINTS;
-					break;
-
-				case ELSOD_MESH_LINE:
-					primitive_type = GL_LINES;
-					break;
-
-				default:
-					LEV_ASSERT(false);
-					return false;
-				}
+				GLenum primitive_type = GL_TRIANGLES;
+// 				switch (object.GetObjectDesc().GetType())
+// 				{
+// 				case ELSOD_MESH_TRIANGLE:
+// 					primitive_type = GL_TRIANGLES;
+// 					break;
+// 
+// 				case ELSOD_MESH_POINT:
+// 					primitive_type = GL_POINTS;
+// 					break;
+// 
+// 				case ELSOD_MESH_LINE:
+// 					primitive_type = GL_LINES;
+// 					break;
+// 
+// 				default:
+// 					//LEV_ASSERT(false);
+// 					//return false;
+// 					primitive_type = GL_TRIANGLES;
+// 				}
 
 				LPtr<OpenGLObject> opengl_object = nullptr;
 

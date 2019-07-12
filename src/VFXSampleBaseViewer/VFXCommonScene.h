@@ -20,7 +20,8 @@ namespace Leviathan
 			bool SetCamera(LPtr<Scene::LevCamera> camera);
 
 		private:
-
+			void _createMeshTestScene();
+			void _createSphereTestScene();
 		};
 	}
 }

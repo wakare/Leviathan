@@ -49,7 +49,16 @@ namespace Leviathan
 			EXIT_IF_FALSE(m_VAO);
 			glBindVertexArray(m_VAO);
 
-			m_attribute_binder.HasIndexAttribute() ? (glDrawElements(m_primitive_type, m_attribute_binder.GetVertexCount(), GL_UNSIGNED_INT, 0)) : (glDrawArrays(m_primitive_type, 0, m_attribute_binder.GetVertexCount()));
+			bool use_index = m_attribute_binder.HasIndexAttribute();
+			if (use_index)
+			{
+				glDrawElements(m_primitive_type, m_attribute_binder.GetVertexCount(), GL_UNSIGNED_INT, 0);
+			}
+			else
+			{
+				glDrawArrays(m_primitive_type, 0, m_attribute_binder.GetVertexCount());
+			}
+
 			glBindVertexArray(0);
 
 			for (auto& fn : m_postprocess_fns)
