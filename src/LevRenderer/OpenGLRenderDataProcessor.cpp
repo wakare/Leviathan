@@ -71,10 +71,10 @@ namespace Leviathan
 					return true;
 				}
 
-				if ((object.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
-				{
-					return true;
-				}
+// 				if ((object.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
+// 				{
+// 					return true;
+// 				}
 
 // 				if (!object.HasObjectDesc())
 // 				{
@@ -134,9 +134,15 @@ namespace Leviathan
 				{
 				case Scene::ELSOS_ADDED:
 				{
-					EXIT_IF_FALSE(attribute_binder);
-
-					opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+					if (attribute_binder)
+					{
+						opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+					}
+					else
+					{
+						opengl_object = new OpenGLEmptyObject(object.GetID());
+					}
+					
 					for (auto& attribute : object.GetAllAttributes())
 					{
 						const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
@@ -154,9 +160,15 @@ namespace Leviathan
 
 				case Scene::ELSOS_UPDATE:
 				{
-					EXIT_IF_FALSE(attribute_binder);
-					
-					opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+					if (attribute_binder)
+					{
+						opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+					}
+					else
+					{
+						opengl_object = new OpenGLEmptyObject(object.GetID());
+					}
+
 					for (auto& attribute : object.GetAllAttributes())
 					{
 						const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());

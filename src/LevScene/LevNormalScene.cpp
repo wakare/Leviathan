@@ -22,6 +22,7 @@ namespace Leviathan
 			, m_default_world_matrix(nullptr)
 			, m_default_view_matrix(nullptr)
 			, m_default_proj_matrix(nullptr)
+			, m_camera_node(nullptr)
 		{
 			bool inited = false;
 
@@ -61,36 +62,6 @@ namespace Leviathan
 			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
-			// Add default uniform
-			float identity_matrix[] =
-			{
-				1.0f, 0.0f, 0.0f, 0.0f,
-				0.0f, 1.0f, 0.0f, 0.0f,
-				0.0f, 0.0f, 1.0f, 0.0f,
-				0.0f, 0.0f, 0.0f, 1.0f
-			};
-
-			m_default_model_matrix = new LevRAttrUniform("modelMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> model_matrix_data = new RAIIBufferData(16 * sizeof(float));
-
-			model_matrix_data->SetArrayData(identity_matrix, sizeof(identity_matrix));
-			m_default_model_matrix->SetData(model_matrix_data);
-
-			m_default_world_matrix = new LevRAttrUniform("worldMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> world_matrix_data = new RAIIBufferData(16 * sizeof(float));
-
-			world_matrix_data->SetArrayData(identity_matrix, sizeof(identity_matrix));
-			m_default_world_matrix->SetData(world_matrix_data);
-			m_default_view_matrix = new LevRAttrUniform("viewMatrix", TYPE_FLOAT_MAT4);
-			m_default_proj_matrix = new LevRAttrUniform("projMatrix", TYPE_FLOAT_MAT4);
-
-			uniform_manager->AddUniform(m_default_model_matrix);
-			uniform_manager->AddUniform(m_default_world_matrix);
-			uniform_manager->AddUniform(m_default_view_matrix);
-			uniform_manager->AddUniform(m_default_proj_matrix);
-
-			_update_camera();
-
 			return true;
 		}
 
@@ -105,17 +76,27 @@ namespace Leviathan
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
 			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), ANGLE_TO_RADIAN(120.0f), 1.0f, 0.01f, 10000.0f);
 			LEV_ASSERT(_seted);
-			auto pCameraNode = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
-			GetSceneData().AddSceneNode(pCameraNode);
+
+			m_camera_node = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
+			LEV_ASSERT(m_camera_node);
+
+			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
+			m_camera_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
+
+			m_default_view_matrix = new LevRAttrUniform("viewMatrix", TYPE_FLOAT_MAT4);
+			m_default_proj_matrix = new LevRAttrUniform("projMatrix", TYPE_FLOAT_MAT4);
+
+			LPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			m_default_view_matrix->SetData(view_matrix_data);
+
+			LPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			m_default_proj_matrix->SetData(proj_matrix_data);
+
+			uniform_manager->AddUniform(m_default_view_matrix);
+			uniform_manager->AddUniform(m_default_proj_matrix);
+
+			GetSceneData().AddSceneNode(m_camera_node);
 			GetSceneData().RegisterToMainCamera(pCamera);
-			LEV_ASSERT(pCameraNode);
-
-			auto _camera_timeOut = [pCamera](const LevTimer&)
-			{
-				pCamera->MouseRotate(0.01, 0);
-			};
-
-			LPtr<LevTimer> pCameraTimer = new LevTimer(16.6f, _camera_timeOut);
 			
 			return true;
 		}
@@ -136,6 +117,11 @@ namespace Leviathan
 
 		void LevNormalScene::_update_camera()
 		{
+			if (m_camera_node->GetNodeData()->GetState() == Scene::LevSceneObjectState::ELSOS_ADDED)
+			{
+				return;
+			}
+
 			LPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			view_matrix_data->SetArrayData(GetSceneData().GetMainCamera()->GetViewportMatrix().data(), 16 * sizeof(float));
 			m_default_view_matrix->SetData(view_matrix_data);
@@ -143,6 +129,8 @@ namespace Leviathan
 			LPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			proj_matrix_data->SetArrayData(GetSceneData().GetMainCamera()->GetProjectMatrix().data(), 16 * sizeof(float));
 			m_default_proj_matrix->SetData(proj_matrix_data);
+
+			m_camera_node->GetNodeData()->SetState(Scene::LevSceneObjectState::ELSOS_UPDATE);
 		}
 	}
 }

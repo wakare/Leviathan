@@ -20,8 +20,8 @@ namespace Leviathan
 		{
 			Init(LevSceneType::ELST_3D_SCENE);
 
-			//_createSphereTestScene();
-			_createMeshTestScene();
+			_createSphereTestScene();
+			//_createMeshTestScene();
 		}
 
 		bool VFXCommonScene::AddLight(LPtr<Scene::LevLight> light)
@@ -70,23 +70,11 @@ namespace Leviathan
 				world_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
 				world_matrix_uniform->SetData(world_matrix);
 
-				LPtr<LevRAttrUniform> view_matrix_uniform = new LevRAttrUniform("viewMatrix", TYPE_FLOAT_MAT4);
-				LPtr<RAIIBufferData> view_matrix = new RAIIBufferData(sizeof(identity_matrix));
-				view_matrix->SetArrayData(GetSceneData().GetMainCamera()->GetViewportMatrix().data(), sizeof(identity_matrix));
-				view_matrix_uniform->SetData(view_matrix);
-
-				LPtr<LevRAttrUniform> proj_matrix_uniform = new LevRAttrUniform("projMatrix", TYPE_FLOAT_MAT4);
-				LPtr<RAIIBufferData> proj_matrix = new RAIIBufferData(sizeof(identity_matrix));
-				proj_matrix->SetArrayData(GetSceneData().GetMainCamera()->GetProjectMatrix().data(), sizeof(identity_matrix));
-				proj_matrix_uniform->SetData(proj_matrix);
-
 				LevRAttrUniformManager* uniform_manager = nullptr;
 				mesh_node->GetNodeData()->GetAttribute<LevRAttrUniformManager>(uniform_manager);
 
 				uniform_manager->AddUniform(model_matrix_uniform);
 				uniform_manager->AddUniform(world_matrix_uniform);
-				uniform_manager->AddUniform(view_matrix_uniform);
-				uniform_manager->AddUniform(proj_matrix_uniform);
 
 				mesh_node->GetNodeData()->SetState(ELSOS_UPDATE);
 			};
@@ -95,8 +83,6 @@ namespace Leviathan
 			mesh_node->GetNodeData()->SetTimer(mesh_timer);
 
 			GetSceneData().AddSceneNode(mesh_node);
-			//auto mesh = mesh_node->GetNodeData()->GetObjectDesc()
-
 			GetSceneData().GetMainCamera()->LookAt({ -1000.0f, -1000.0f, 0.0f }, 1000.0f);
 		}
 
@@ -129,23 +115,11 @@ namespace Leviathan
 			world_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
 			world_matrix_uniform->SetData(world_matrix);
 
-			LPtr<LevRAttrUniform> view_matrix_uniform = new LevRAttrUniform("viewMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> view_matrix = new RAIIBufferData(sizeof(identity_matrix));
-			view_matrix->SetArrayData(GetSceneData().GetMainCamera()->GetViewportMatrix().data(), sizeof(identity_matrix));
-			view_matrix_uniform->SetData(view_matrix);
-
-			LPtr<LevRAttrUniform> proj_matrix_uniform = new LevRAttrUniform("projMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> proj_matrix = new RAIIBufferData(sizeof(identity_matrix));
-			proj_matrix->SetArrayData(GetSceneData().GetMainCamera()->GetProjectMatrix().data(), sizeof(identity_matrix));
-			proj_matrix_uniform->SetData(proj_matrix);
-
 			uniform_manager->AddUniform(model_matrix_uniform);
 			uniform_manager->AddUniform(world_matrix_uniform);
-			uniform_manager->AddUniform(view_matrix_uniform);
-			uniform_manager->AddUniform(proj_matrix_uniform);
 
 			GetSceneData().AddSceneNode(sphere_node);
-			GetSceneData().GetMainCamera()->LookAt({ 0.0f, 0.0f, 0.0f }, 1000.0f);
+			GetSceneData().GetMainCamera()->LookAt({ 0.0f, 0.0f, 0.0f }, 10.0f);
 		}
 
 	}
