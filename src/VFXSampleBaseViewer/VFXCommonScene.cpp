@@ -89,7 +89,8 @@ namespace Leviathan
 		void VFXCommonScene::_createSphereTestScene()
 		{
 			LPtr<LevSceneNode> sphere_node = nullptr;
-			auto generated = LevSceneUtil::GenerateBallNode(nullptr, 0, sphere_node);
+			float center[] = { 10.0f, 10.0f, 10.0f };
+			auto generated = LevSceneUtil::GenerateBallNode(center, 10.0f, sphere_node);
 			LEV_ASSERT(generated);
 
 			// Set uniform

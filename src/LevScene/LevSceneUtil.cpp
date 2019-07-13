@@ -72,8 +72,8 @@ namespace Leviathan
 
 		bool LevSceneUtil::GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node)
 		{
-			constexpr float angle_delta = 5.0f * PI_FLOAT / 180.0f;
-			constexpr size_t step_count = PI_FLOAT / angle_delta;
+			constexpr float angle_delta = 15.0f * PI_FLOAT / 180.0f;
+			constexpr size_t step_count = 2 * PI_FLOAT / angle_delta;
 
 			Eigen::Vector3f current_scan_half_ball[step_count + 1];
 
@@ -142,6 +142,16 @@ namespace Leviathan
 				current_index_offset += (step_count + 1);
 			}
 
+			// Do radius scale
+			Eigen::Vector3f ball_center_vector; memcpy(ball_center_vector.data(), ball_center, 3 * sizeof(float));
+			for (size_t i = 0; i < m_vertices.size(); i++)
+			{
+				auto& vertex = m_vertices[i];
+
+				vertex *= ball_radius;
+				vertex += ball_center_vector;
+			}
+
 			// Convert vertices data
 			LPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(m_vertices.size() * 3 * sizeof(float));
 			float* coord_data = static_cast<float*>(vertices_buffer_data->GetArrayData());
@@ -164,8 +174,6 @@ namespace Leviathan
 				unsigned* data = indices_data + i;
 				*data = m_indices[i];
 			}
-
-			//memcpy(indices_buffer_data->GetArrayData(), &m_indices[0], m_indices.size() * sizeof(unsigned));
 
 			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer_data);
 			attribute_binder->SetIndexAttribute(index_attribute);
