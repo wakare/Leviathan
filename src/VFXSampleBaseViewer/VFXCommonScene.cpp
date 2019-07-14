@@ -120,6 +120,34 @@ namespace Leviathan
 			uniform_manager->AddUniform(world_matrix_uniform);
 
 			GetSceneData().AddSceneNode(sphere_node);
+			
+			// Create a plane
+			const float plane_nodes[] = 
+			{
+				-10.0f, -10.0f, -10.0f,
+				-10.0f, 10.0f, -10.0f,
+				10.0f, -10.0f, -10.0f,
+				10.0f, 10.0f, -10.0f,
+			};
+
+			LPtr<LevSceneNode> plane_node = nullptr;
+			LevSceneUtil::GeneratePlaneNode(plane_nodes, plane_nodes + 3, plane_nodes + 6, plane_nodes + 9, plane_node);
+			
+			LPtr<LevRAttrUniformManager> plane_uniform_manager = new LevRAttrUniformManager;
+			sphere_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
+
+			LPtr<LevRAttrUniform> plane_model_matrix_uniform = nullptr;
+			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", plane_model_matrix_uniform);
+
+			LPtr<LevRAttrUniform> plane_world_matrix_uniform = nullptr;
+			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", plane_world_matrix_uniform);
+
+			plane_uniform_manager->AddUniform(plane_model_matrix_uniform);
+			plane_uniform_manager->AddUniform(plane_world_matrix_uniform);
+
+			plane_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
+
+			GetSceneData().AddSceneNode(plane_node);
 			GetSceneData().GetMainCamera()->LookAt({ 0.0f, 0.0f, 0.0f }, 10.0f);
 		}
 

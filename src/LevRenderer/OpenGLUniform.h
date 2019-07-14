@@ -18,6 +18,7 @@ namespace Leviathan
 
 		private:
 			const Scene::LevRAttrUniform& m_scene_uniform;
+			GLint m_uniform_location;
 		};
 	}
 }

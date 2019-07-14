@@ -188,6 +188,55 @@ namespace Leviathan
 
 		bool LevSceneUtil::GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LPtr<LevSceneNode>& out_plane_node)
 		{
+			float vertices[12];
+			memcpy(vertices, plane_node0, 3 * sizeof(float));
+			memcpy(vertices + 3, plane_node1, 3 * sizeof(float));
+			memcpy(vertices + 6, plane_node2, 3 * sizeof(float));
+			memcpy(vertices + 9, plane_node3, 3 * sizeof(float));
+
+			LPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(sizeof(vertices));
+			memcpy(vertices_buffer_data->GetArrayData(), vertices, sizeof(vertices));
+
+			LPtr<LevRenderObjectAttribute> vertex_attibute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
+
+			unsigned indexs[6] =
+			{
+				0, 1, 2,
+				2, 1, 3
+			};
+
+			LPtr<RAIIBufferData> index_buffer_data = new RAIIBufferData(sizeof(indexs));
+			memcpy(index_buffer_data->GetArrayData(), indexs, sizeof(indexs));
+
+			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), index_buffer_data);
+
+			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(4);
+			attribute_binder->BindAttribute(0, vertex_attibute);
+			attribute_binder->SetIndexAttribute(index_attribute);
+
+			LPtr<LevSceneObject> plane_object = new LevSceneObject(ELSOT_DYNAMIC);
+			plane_object->AddAttribute(TryCast<LevRAttrRenderObjectAttributeBinder, LevSceneObjectAttribute>(attribute_binder));
+
+			out_plane_node.Reset(new LevSceneNode(plane_object));
+
+			return true;
+		}
+
+		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevRAttrUniform>& out_uniform)
+		{
+			static float identity_matrix[] =
+			{
+				1.0f, 0.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f, 0.0f,
+				0.0f, 0.0f, 1.0f, 0.0f,
+				0.0f, 0.0f, 0.0f, 1.0f
+			};
+
+			out_uniform.Reset(new LevRAttrUniform(uniform_name, TYPE_FLOAT_MAT4));
+			LPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(identity_matrix));
+			identity_matrix_buffer_data->SetArrayData(identity_matrix, sizeof(identity_matrix));
+			out_uniform->SetData(identity_matrix_buffer_data);
+
 			return true;
 		}
 
