@@ -20,7 +20,7 @@ namespace Leviathan
 		{
 		public:
 			LevSceneTree();
-			bool AddNodeToRoot(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode = nullptr);
+			bool AddNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode = nullptr);
 			bool ResetObjUnModified();
 			bool SetObjModified();
 			bool UpdateWorldCoord();

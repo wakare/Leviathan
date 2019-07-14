@@ -15,19 +15,20 @@ namespace Leviathan
 			LevNormalScene();
 			virtual void Update();
 
+			LPtr<LevSceneNode> GetLightRootNode();
+
 		private:
 			bool _init_root_node();
 			bool _init_main_camera();
-			bool _init_default_light();
+			bool _init_default_light_root_node();
 
 			void _update_camera();
 
-			LPtr<LevRAttrUniform> m_default_model_matrix;
-			LPtr<LevRAttrUniform> m_default_world_matrix;
+			LPtr<LevSceneNode> m_camera_node;
 			LPtr<LevRAttrUniform> m_default_view_matrix;
 			LPtr<LevRAttrUniform> m_default_proj_matrix;
 
-			LPtr<LevSceneNode> m_camera_node;
+			LPtr<LevSceneNode> m_light_root_node;
 		};
 	}
 }

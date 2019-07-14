@@ -101,9 +101,12 @@ namespace Leviathan
 			EXIT_IF_FALSE(attribute_size > 0)
 			
 			size_t total_byte_size = 0;
+			size_t element_byte_size = 0;
+
 			for (const auto& attribute : m_attribute_binder.GetAttributes())
 			{
 				total_byte_size += attribute.second->GetData().GetArrayDataByteSize();
+				element_byte_size += attribute.second->GetByteSizePerElement();
 			}
 
 			LPtr<RAIIBufferData> buffer_data = new RAIIBufferData(total_byte_size);
@@ -140,7 +143,7 @@ namespace Leviathan
 				// TODO: modify hard code.
 				auto element_component_count = attribute.second->GetByteSizePerElement() / sizeof(float);
 
-				glVertexAttribPointer(attribute.first, element_component_count, GL_FLOAT, GL_FALSE, attribute.second->GetByteSizePerElement(), (GLvoid*)uOffset);
+				glVertexAttribPointer(attribute.first, element_component_count, GL_FLOAT, GL_FALSE, element_byte_size, (GLvoid*)uOffset);
 				glEnableVertexAttribArray(attribute.first);
 
 				uOffset += attribute.second->GetByteSizePerElement();

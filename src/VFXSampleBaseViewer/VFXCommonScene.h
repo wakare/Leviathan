@@ -16,12 +16,8 @@ namespace Leviathan
 		{
 		public:
 			VFXCommonScene();
-			bool AddLight(LPtr<Scene::LevLight> light);
-			bool SetCamera(LPtr<Scene::LevCamera> camera);
-
-		private:
-			void _createMeshTestScene();
-			void _createSphereTestScene();
+			bool AddLightToLightRootNode(LPtr<Scene::LevLight> light);
+			bool SetMainCamera(LPtr<Scene::LevCamera> camera);
 		};
 	}
 }

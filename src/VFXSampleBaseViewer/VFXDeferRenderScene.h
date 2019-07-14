@@ -12,7 +12,7 @@ namespace Leviathan
 			VFXDeferRenderScene();
 
 		private:
-
+			void _createDeferRenderTestScene();
 		};
 	}
 }

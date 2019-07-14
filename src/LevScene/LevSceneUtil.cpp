@@ -96,6 +96,7 @@ namespace Leviathan
 			memcpy(rotation_step.data(), rotation, sizeof(rotation));
 
 			std::vector<Eigen::Vector3f> m_vertices;
+			std::vector<Eigen::Vector3f> m_normals;
 			std::vector<unsigned> m_indices;
 			unsigned current_index_offset = 0;
 
@@ -142,6 +143,13 @@ namespace Leviathan
 				current_index_offset += (step_count + 1);
 			}
 
+			// calculate normals
+			size_t vertices_count = m_vertices.size();
+			for (size_t i = 0; i < vertices_count; i++)
+			{
+				m_normals.push_back(m_vertices[i].normalized());
+			}
+
 			// Do radius scale
 			Eigen::Vector3f ball_center_vector; memcpy(ball_center_vector.data(), ball_center, 3 * sizeof(float));
 			for (size_t i = 0; i < m_vertices.size(); i++)
@@ -162,10 +170,21 @@ namespace Leviathan
 				memcpy(data, m_vertices[i].data(), 3 * sizeof(float));
 			}
 
+			LPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(m_normals.size() * 3 * sizeof(float));
+			float* normal_data = static_cast<float*>(normals_buffer_data->GetArrayData());
+			for (size_t i = 0; i < m_normals.size(); i++)
+			{
+				float* data = normal_data + 3 * i;
+				memcpy(data, m_normals[i].data(), 3 * sizeof(float));
+			}
+
 			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(m_vertices.size());
 
 			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
 			attribute_binder->BindAttribute(0, vertices_attribute);
+
+			LPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
+			attribute_binder->BindAttribute(1, normals_attribute);
 
 			LPtr<RAIIBufferData> indices_buffer_data = new RAIIBufferData(m_indices.size() * sizeof(unsigned));
 			unsigned* indices_data = static_cast<unsigned*>(indices_buffer_data->GetArrayData());
@@ -197,12 +216,37 @@ namespace Leviathan
 			LPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(sizeof(vertices));
 			memcpy(vertices_buffer_data->GetArrayData(), vertices, sizeof(vertices));
 
+			/*
+				Calculate plane normal
+			*/
+			Eigen::Vector3f edge0;
+			edge0.x() = plane_node0[0] - plane_node1[0];
+			edge0.y() = plane_node0[1] - plane_node1[1];
+			edge0.z() = plane_node0[2] - plane_node1[2];
+
+			Eigen::Vector3f edge1;
+			edge1.x() = plane_node1[0] - plane_node2[0];
+			edge1.y() = plane_node1[1] - plane_node2[1];
+			edge1.z() = plane_node1[2] - plane_node2[2];
+
+			Eigen::Vector3f normal;
+			normal = edge0.cross(edge1);
+			normal.normalize();
+
+			LPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(sizeof(vertices));
+			float* normal_data = static_cast<float*>(normals_buffer_data->GetArrayData());
+			for (size_t i = 0; i < 4; i++)
+			{
+				memcpy(normal_data + 3 * i, normal.data(), 3 * sizeof(float));
+			}
+
 			LPtr<LevRenderObjectAttribute> vertex_attibute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
+			LPtr<LevRenderObjectAttribute> normal_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
 
 			unsigned indexs[6] =
 			{
 				0, 1, 2,
-				2, 1, 3
+				0, 2, 3
 			};
 
 			LPtr<RAIIBufferData> index_buffer_data = new RAIIBufferData(sizeof(indexs));
@@ -212,6 +256,7 @@ namespace Leviathan
 
 			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(4);
 			attribute_binder->BindAttribute(0, vertex_attibute);
+			attribute_binder->BindAttribute(1, normal_attribute);
 			attribute_binder->SetIndexAttribute(index_attribute);
 
 			LPtr<LevSceneObject> plane_object = new LevSceneObject(ELSOT_DYNAMIC);

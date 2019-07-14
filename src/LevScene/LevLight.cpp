@@ -25,16 +25,17 @@ namespace Leviathan
 			return m_ambientColor;
 		}
 
-		void LevLight::AmbientColor(const Eigen::Vector3f & val)
+		void LevLight::SetAmbientColor(const Eigen::Vector3f & val)
 		{ 
 			m_ambientColor = val; 
 		}
+
 		const Eigen::Vector3f & LevLight::DiffuseColor() const
 		{
 			return m_diffuseColor;
 		}
 
-		void LevLight::DiffuseColor(const Eigen::Vector3f & val)
+		void LevLight::SetDiffuseColor(const Eigen::Vector3f & val)
 		{
 			m_diffuseColor = val;
 		}
@@ -44,7 +45,7 @@ namespace Leviathan
 			return m_specularColor;
 		}
 
-		void LevLight::SpecularColor(const Eigen::Vector3f & val)
+		void LevLight::SetSpecularColor(const Eigen::Vector3f & val)
 		{
 			m_specularColor = val;
 		}

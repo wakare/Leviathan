@@ -32,7 +32,8 @@ namespace Leviathan
 			LPtr<LevCamera> GetMainCamera();
 			bool SetMainCamera(LPtr<LevCamera> camera);
 
-			bool AddSceneNode(LPtr<LevSceneNode> pNode);
+			bool AddSceneNodeToRoot(LPtr<LevSceneNode> pNode);
+			bool AddSceneNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> parent_node);
 			void RemoveAllRenderables();
 			void UpdateNodeState();
 

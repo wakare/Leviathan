@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="VFXCommonScene.h" />
     <ClInclude Include="VFXDeferRenderScene.h" />
+    <ClInclude Include="VFXMeshTestScene.h" />
     <ClInclude Include="VFXSampleBaseViewer.h" />
     <ClInclude Include="VFXSampleBaseViewerAPIDefine.h" />
     <ClInclude Include="VFXShadowMapScene.h" />
@@ -28,6 +29,7 @@
   <ItemGroup>
     <ClCompile Include="VFXCommonScene.cpp" />
     <ClCompile Include="VFXDeferRenderScene.cpp" />
+    <ClCompile Include="VFXMeshTestScene.cpp" />
     <ClCompile Include="VFXSampleBaseViewer.cpp" />
     <ClCompile Include="VFXShadowMapScene.cpp" />
   </ItemGroup>

@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevRAttrUniformManager.h" />
+    <ClInclude Include="LevSceneDefaultShader_phong.h" />
     <ClInclude Include="LevSceneDefaultShader_simple.h" />
     <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
     <ClInclude Include="LevCamera.h" />

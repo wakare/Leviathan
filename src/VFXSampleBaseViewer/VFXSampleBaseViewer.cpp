@@ -2,6 +2,7 @@
 #include "VFXCommonScene.h"
 #include "LevViewer.h"
 #include "LevScene.h"
+#include "VFXDeferRenderScene.h"
 
 namespace Leviathan
 {
@@ -28,7 +29,7 @@ namespace Leviathan
 		{
 			if (!m_viewer->HasAttachedScene())
 			{
-				LPtr<Scene::LevScene> scene = new VFXCommonScene;
+				LPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
 				m_viewer->SetCurrentScene(scene);
 			}
 

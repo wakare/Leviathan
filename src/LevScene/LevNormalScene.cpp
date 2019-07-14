@@ -9,7 +9,7 @@
 #include "LevTimer.h"
 #include "LevLight.h"
 #include "LevPointLight.h"
-#include "LevSceneDefaultShader_simple.h"
+#include "LevSceneDefaultShader_phong.h"
 #include "LevRAttrUniformManager.h"
 
 namespace Leviathan
@@ -18,11 +18,9 @@ namespace Leviathan
 	{
 		LevNormalScene::LevNormalScene()
 			: LevScene()
-			, m_default_model_matrix(nullptr)
-			, m_default_world_matrix(nullptr)
+			, m_camera_node(nullptr)
 			, m_default_view_matrix(nullptr)
 			, m_default_proj_matrix(nullptr)
-			, m_camera_node(nullptr)
 		{
 			bool inited = false;
 
@@ -31,10 +29,10 @@ namespace Leviathan
 			inited = _init_main_camera();
 			LEV_ASSERT(inited);
 
-			inited = _init_default_light();
+			inited = _init_root_node();
 			LEV_ASSERT(inited);
 
-			inited = _init_root_node();
+			inited = _init_default_light_root_node();
 			LEV_ASSERT(inited);
 		}
 
@@ -43,6 +41,11 @@ namespace Leviathan
 			LevScene::Update();
 
 			_update_camera();
+		}
+
+		Leviathan::LPtr<Leviathan::Scene::LevSceneNode> LevNormalScene::GetLightRootNode()
+		{
+			return m_light_root_node;
 		}
 
 		bool LevNormalScene::_init_root_node()
@@ -95,23 +98,18 @@ namespace Leviathan
 			uniform_manager->AddUniform(m_default_view_matrix);
 			uniform_manager->AddUniform(m_default_proj_matrix);
 
-			GetSceneData().AddSceneNode(m_camera_node);
+			GetSceneData().AddSceneNodeToRoot(m_camera_node);
 			GetSceneData().RegisterToMainCamera(pCamera);
 			
 			return true;
 		}
 
-		bool LevNormalScene::_init_default_light()
+		bool LevNormalScene::_init_default_light_root_node()
 		{
-			LPtr<LevLight> pLight = new LevPointLight(ELSOT_LIGHT | ELSOT_DYNAMIC | ELSOT_UNRENDERABLE);
-			pLight->SetName("Default light");
+			LPtr<LevSceneObject> light_object = new LevSceneObject(ELSOT_DYNAMIC);
+			m_light_root_node = new LevSceneNode(light_object);
 
-			pLight->AmbientColor({ 0.2f, 0.2f, 0.2f });
-			pLight->DiffuseColor({ 0.5f, 0.5f, 0.5f });
-			pLight->SpecularColor({ 1.0f, 1.0f, 1.0f });
-			LPtr<LevSceneNode> pLightNode = new LevSceneNode(TryCast<LevLight, LevSceneObject>(pLight));
-			GetSceneData().AddSceneNode(pLightNode);
-
+			GetSceneData().AddSceneNodeToRoot(m_light_root_node);
 			return true;
 		}
 

@@ -151,6 +151,9 @@
     <ClInclude Include="LevRAttrUniformManager.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevSceneDefaultShader_phong.h">
+      <Filter>Source Files\SceneUtil</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">

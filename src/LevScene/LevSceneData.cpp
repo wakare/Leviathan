@@ -78,10 +78,17 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneData::AddSceneNode(LPtr<LevSceneNode> pNode)
+		bool LevSceneData::AddSceneNodeToRoot(LPtr<LevSceneNode> pNode)
 		{
 			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
-			EXIT_IF_FALSE(m_pSceneTree->AddNodeToRoot(pNode));
+			EXIT_IF_FALSE(m_pSceneTree->AddNodeToParent(pNode));
+			return true;
+		}
+
+		bool LevSceneData::AddSceneNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> parent_node)
+		{
+			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
+			EXIT_IF_FALSE(m_pSceneTree->AddNodeToParent(pNode, parent_node));
 			return true;
 		}
 

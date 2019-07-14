@@ -51,7 +51,7 @@ namespace Leviathan
 			m_state_updater->SetStateUpdateCallback(_state_updater);
 		}
 
-		bool LevSceneTree::AddNodeToRoot(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode)
+		bool LevSceneTree::AddNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode /*= nullptr*/)
 		{
 			EXIT_IF_FALSE(m_root && pNode);
 

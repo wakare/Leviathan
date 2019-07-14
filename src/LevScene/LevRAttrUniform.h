@@ -21,6 +21,9 @@ namespace Leviathan
 		class LEV_SCENE_API LevRAttrUniform 
 		{
 		public:
+			/*
+				uniform array must be started with index 1.
+			*/
 			LevRAttrUniform(const std::string& name, UniformType type);
 
 			unsigned GetId() const;
@@ -45,7 +48,6 @@ namespace Leviathan
 			, m_uniform_type(type)
 			, m_uniform_id(LevTokenDispatch<LevRAttrUniform, unsigned>::GetToken())
 		{
-			
 		}
 
 		inline unsigned LevRAttrUniform::GetId() const

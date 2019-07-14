@@ -22,11 +22,11 @@ namespace Leviathan
 
 			LevLightType GetLightType() const;
 			const Eigen::Vector3f& AmbientColor() const;
-			void AmbientColor(const Eigen::Vector3f& val);
+			void SetAmbientColor(const Eigen::Vector3f& val);
 			const Eigen::Vector3f& DiffuseColor() const;
-			void DiffuseColor(const Eigen::Vector3f& val);
+			void SetDiffuseColor(const Eigen::Vector3f& val);
 			const Eigen::Vector3f& SpecularColor() const;
-			void SpecularColor(const Eigen::Vector3f& val);
+			void SetSpecularColor(const Eigen::Vector3f& val);
 
 		private:
 			LevLightType m_lightType;
