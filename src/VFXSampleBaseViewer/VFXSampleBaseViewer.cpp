@@ -12,13 +12,26 @@ namespace Leviathan
 		{
 			auto created = m_viewer->CreateRenderWindow(800, 600, 0);
 			LEV_ASSERT(created);
+		}
 
-			LPtr<Scene::LevScene> scene = new VFXCommonScene;
-			m_viewer->SetCurrentScene(scene);
+		Leviathan::Viewer::LevViewer& VFXSampleBaseViewer::GetViewer()
+		{
+			return *m_viewer;
+		}
+
+		const Leviathan::Viewer::LevViewer& VFXSampleBaseViewer::GetViewer() const
+		{
+			return *m_viewer;
 		}
 
 		void VFXSampleBaseViewer::Run()
 		{
+			if (!m_viewer->HasAttachedScene())
+			{
+				LPtr<Scene::LevScene> scene = new VFXCommonScene;
+				m_viewer->SetCurrentScene(scene);
+			}
+
 			while (true)
 			{
 				m_viewer->TickFrame();

@@ -48,6 +48,11 @@ namespace Leviathan
 			return true;
 		}
 
+		bool LevViewer::HasAttachedScene() const
+		{
+			return m_current_scene.Get();
+		}
+
 		void LevViewer::TickFrame()
 		{
 			m_event_system->DispatchEvent();

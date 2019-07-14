@@ -26,6 +26,8 @@ namespace Leviathan
 				Comfortable generate function for basic geometry.
 			*/
 			static bool BindMeshDataToRenderAttribute(LevSceneNode& node, int bind_type_mask);
+
+			// TODO: Can calculate static ball coordination in compile time.
 			static bool GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node);
 			static bool GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LPtr<LevSceneNode>& out_plane_node);
 

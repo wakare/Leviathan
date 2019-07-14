@@ -29,7 +29,10 @@ namespace Leviathan
 		public:
 			LevViewer();
 			bool CreateRenderWindow(int width, int height, unsigned handle);
+			
 			bool SetCurrentScene(LPtr<Scene::LevScene> current_scene);
+			bool HasAttachedScene() const;
+
 			void TickFrame();
 			void SetStop();
 			bool HasStoped();

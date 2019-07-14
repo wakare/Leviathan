@@ -20,7 +20,7 @@ namespace Leviathan
 		{
 			Init(LevSceneType::ELST_3D_SCENE);
 
-			_createSphereTestScene();
+			_createDeferRenderTestScene();
 			//_createMeshTestScene();
 		}
 
@@ -86,55 +86,52 @@ namespace Leviathan
 			GetSceneData().GetMainCamera()->LookAt({ -1000.0f, -1000.0f, 0.0f }, 1000.0f);
 		}
 
-		void VFXCommonScene::_createSphereTestScene()
+		void VFXCommonScene::_createDeferRenderTestScene()
 		{
-			LPtr<LevSceneNode> sphere_node = nullptr;
-			float center[] = { 10.0f, 10.0f, 10.0f };
-			auto generated = LevSceneUtil::GenerateBallNode(center, 10.0f, sphere_node);
-			LEV_ASSERT(generated);
-
-			// Set uniform
-			// Add default uniform
-			float identity_matrix[] =
+			constexpr size_t RANDOM_BALL_COUNT = 100;
+			for (size_t i = 0; i < RANDOM_BALL_COUNT; i++)
 			{
-				1.0f, 0.0f, 0.0f, 0.0f,
-				0.0f, 1.0f, 0.0f, 0.0f,
-				0.0f, 0.0f, 1.0f, 0.0f,
-				0.0f, 0.0f, 0.0f, 1.0f
-			};
+				LPtr<LevSceneNode> sphere_node = nullptr;
 
-			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
-			sphere_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
+				float rand_x = (1.0f * rand() / RAND_MAX) * 100.0f;
+				float rand_y = (1.0f * rand() / RAND_MAX) * 100.0f;
+				float rand_z = (1.0f * rand() / RAND_MAX) * 10.0f;
+				float rand_radius = (1.0f * rand() / RAND_MAX) * 5.0f;
 
-			LPtr<LevRAttrUniform> model_matrix_uniform = new LevRAttrUniform("modelMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> model_matrix = new RAIIBufferData(sizeof(identity_matrix));
-			model_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
-			model_matrix_uniform->SetData(model_matrix);
+				float center[] = { rand_x, rand_y, rand_z };
+				LevSceneUtil::GenerateBallNode(center, rand_radius, sphere_node);
 
-			LPtr<LevRAttrUniform> world_matrix_uniform = new LevRAttrUniform("worldMatrix", TYPE_FLOAT_MAT4);
-			LPtr<RAIIBufferData> world_matrix = new RAIIBufferData(sizeof(identity_matrix));
-			world_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
-			world_matrix_uniform->SetData(world_matrix);
+				// Set uniform
 
-			uniform_manager->AddUniform(model_matrix_uniform);
-			uniform_manager->AddUniform(world_matrix_uniform);
+				LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
+				sphere_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
-			GetSceneData().AddSceneNode(sphere_node);
+				LPtr<LevRAttrUniform> model_matrix_uniform = nullptr;
+				LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
+
+				LPtr<LevRAttrUniform> world_matrix_uniform = nullptr;
+				LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
+
+				uniform_manager->AddUniform(model_matrix_uniform);
+				uniform_manager->AddUniform(world_matrix_uniform);
+
+				GetSceneData().AddSceneNode(sphere_node);
+			}
 			
 			// Create a plane
 			const float plane_nodes[] = 
 			{
-				-10.0f, -10.0f, -10.0f,
-				-10.0f, 10.0f, -10.0f,
-				10.0f, -10.0f, -10.0f,
-				10.0f, 10.0f, -10.0f,
+				0.0f, 0.0f, -10.0f,
+				0.0f, 100.0f, -10.0f,
+				100.0f, 0.0f, -10.0f,
+				100.0f, 100.0f, -10.0f,
 			};
 
 			LPtr<LevSceneNode> plane_node = nullptr;
 			LevSceneUtil::GeneratePlaneNode(plane_nodes, plane_nodes + 3, plane_nodes + 6, plane_nodes + 9, plane_node);
 			
 			LPtr<LevRAttrUniformManager> plane_uniform_manager = new LevRAttrUniformManager;
-			sphere_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
+			plane_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
 
 			LPtr<LevRAttrUniform> plane_model_matrix_uniform = nullptr;
 			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", plane_model_matrix_uniform);
@@ -148,7 +145,7 @@ namespace Leviathan
 			plane_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
 
 			GetSceneData().AddSceneNode(plane_node);
-			GetSceneData().GetMainCamera()->LookAt({ 0.0f, 0.0f, 0.0f }, 10.0f);
+			GetSceneData().GetMainCamera()->LookAt({ 50.0f, 50.0f, 0.0f }, 10.0f);
 		}
 
 	}
