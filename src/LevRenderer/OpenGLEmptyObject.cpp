@@ -20,8 +20,6 @@ namespace Leviathan
 
 	bool Renderer::OpenGLEmptyObject::Render(GLuint shaderProgram)
 	{
-		EXIT_IF_FALSE(ApplyUniform(shaderProgram));
-
 		return true;
 	}
 

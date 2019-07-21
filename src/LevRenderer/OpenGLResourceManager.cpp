@@ -29,7 +29,7 @@ namespace Leviathan
 			return shader_program.GetID();
 		}
 
-		bool OpenGLResourceManager::AddGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject)
+		bool OpenGLResourceManager::AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -44,7 +44,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLResourceManager::ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject)
+		bool OpenGLResourceManager::ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObjects)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -53,7 +53,7 @@ namespace Leviathan
 				return false;
 			}
 
-			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
+			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObjects));
 			it->second->ReplaceNode(node);
 
 			return true;

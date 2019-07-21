@@ -8,6 +8,9 @@
     <Filter Include="Source Files\OpenGL">
       <UniqueIdentifier>{e74dd62b-2326-42bb-ad36-0b1c8dc7d11c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\OpenGL\OpenGLRenderState">
+      <UniqueIdentifier>{d4baf05f-9176-41d1-95f8-5f01565cc7a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLMaterial.h">
@@ -37,9 +40,6 @@
     <ClInclude Include="OpenGLEmptyObject.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLStateSet.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLResourceManager.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
@@ -60,6 +60,15 @@
     </ClInclude>
     <ClInclude Include="OpenGLPass.h">
       <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderState.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderStateDepthFunc.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderStateManager.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -101,6 +110,12 @@
     </ClCompile>
     <ClCompile Include="OpenGLPass.cpp">
       <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderStateDepthFunc.cpp">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderStateManager.cpp">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -29,7 +29,6 @@
 #include "OpenGLUniform.h"
 #include "OpenGLEmptyObject.h"
 #include "LevRAttrPointSize.h"
-#include "LevRAttrDepthFunc.h"
 #include "LevRAttrLightEnable.h"
 #include "LevRAttrVisible.h"
 #include "LevRAttrUniform.h"
@@ -37,6 +36,8 @@
 #include "LevRAttrRenderObjectAttributeBinder.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
+#include "LevRAttrRenderStateManager.h"
+#include "OpenGLRenderStateDepthFunc.h"
 
 namespace Leviathan
 {
@@ -71,37 +72,6 @@ namespace Leviathan
 					return true;
 				}
 
-// 				if ((object.GetType() & Scene::ELSOT_UNRENDERABLE) > 0)
-// 				{
-// 					return true;
-// 				}
-
-// 				if (!object.HasObjectDesc())
-// 				{
-// 					return true;
-// 				}
-
-				GLenum primitive_type = GL_TRIANGLES;
-// 				switch (object.GetObjectDesc().GetType())
-// 				{
-// 				case ELSOD_MESH_TRIANGLE:
-// 					primitive_type = GL_TRIANGLES;
-// 					break;
-// 
-// 				case ELSOD_MESH_POINT:
-// 					primitive_type = GL_POINTS;
-// 					break;
-// 
-// 				case ELSOD_MESH_LINE:
-// 					primitive_type = GL_LINES;
-// 					break;
-// 
-// 				default:
-// 					//LEV_ASSERT(false);
-// 					//return false;
-// 					primitive_type = GL_TRIANGLES;
-// 				}
-
 				LPtr<OpenGLObject> opengl_object = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
@@ -130,6 +100,29 @@ namespace Leviathan
 				const Scene::LevRAttrRenderObjectAttributeBinder* attribute_binder = nullptr;
 				object.GetAttribute<Scene::LevRAttrRenderObjectAttributeBinder>(attribute_binder);
 
+				GLenum primitive_type = GL_NONE;
+				if (attribute_binder)
+				{
+					switch (attribute_binder->GetPrimitiveType())
+					{
+					case Scene::EROPT_POINTS:
+						primitive_type = GL_POINTS;
+						break;
+
+					case Scene::EROPT_LINES:
+						primitive_type = GL_LINES;
+						break;
+
+					case Scene::EROPT_TRIANGLES:
+						primitive_type = GL_TRIANGLES;
+						break;
+
+					default:
+						primitive_type = GL_NONE;
+						break;
+					}
+				}
+
 				switch (object.GetState())
 				{
 				case Scene::ELSOS_ADDED:
@@ -154,7 +147,7 @@ namespace Leviathan
 						_applyRenderAttribute(opengl_object, *pAttribute);
 					}
 
-					m_resource_manager->AddGLObject(render_tree_id, opengl_object);
+					m_resource_manager->AddGLObjectToRenderTree(render_tree_id, opengl_object);
 					break;
 				}
 
@@ -180,7 +173,7 @@ namespace Leviathan
 						_applyRenderAttribute(opengl_object, *pAttribute);
 					}
 
-					m_resource_manager->ReplaceGLObject(render_tree_id, opengl_object);
+					m_resource_manager->ReplaceGLObjectFromRenderTree(render_tree_id, opengl_object);
 					break;
 				}
 
@@ -216,51 +209,24 @@ namespace Leviathan
 			return *m_resource_manager;
 		}
 
-		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLObject> objects, const Scene::LevSceneRenderAttribute& render_attribute)
+		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLObject> opengl_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
 			// Point size attribute
 			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
 			if (point_size)
 			{
 				auto size = point_size->GetSize();
-				objects->AddPreProcess([size]() {glPointSize(size); });
-				objects->AddPostProcess([size]() {glPointSize(1); });
+				opengl_object->AddPreProcess([size]() {glPointSize(size); });
+				opengl_object->AddPostProcess([size]() {glPointSize(1); });
 				
 				return true;
 			}
 
 			// Depth func attribute
-			const Scene::LevRAttrDepthFunc* depth_func = dynamic_cast<const Scene::LevRAttrDepthFunc*>(&render_attribute);
-			if (depth_func)
+			const Scene::LevRAttrRenderStateManager* render_state_manager = dynamic_cast<const Scene::LevRAttrRenderStateManager*>(&render_attribute);
+			if (render_state_manager)
 			{
-					GLenum gl_depth_parameter;
-					switch (depth_func->GetDepthParameter())
-					{
-					case Scene::ELDFP_LESS:
-						gl_depth_parameter = GL_LESS;
-						break;
-
-					case Scene::ELDFP_LEQUAL:
-						gl_depth_parameter = GL_LEQUAL;
-						break;
-
-					case Scene::ELDFP_EQUAL:
-						gl_depth_parameter = GL_EQUAL;
-						break;
-
-					case Scene::ELDFP_ALWAYS:
-						gl_depth_parameter = GL_ALWAYS;
-						break;
-
-					case Scene::ELDFP_UNKNOWN:
-					default:
-						LEV_ASSERT(false);
-						return false;
-					}
-
-					objects->AddPreProcess([gl_depth_parameter]() {glDepthFunc(gl_depth_parameter); });
-					objects->AddPostProcess([]() {glDepthFunc(GL_LESS); });
-			
+				opengl_object->SetRenderStateManager(*render_state_manager);
 				return true;
 			}
 
@@ -293,7 +259,7 @@ namespace Leviathan
 				for (const auto& uniform : uniform_manager->GetUniforms())
 				{
 					LPtr<OpenGLUniform> opengl_uniform = new OpenGLUniform(*uniform.second);
-					objects->AddUniform(opengl_uniform);
+					opengl_object->AddUniform(opengl_uniform);
 				}
 
 				return true;

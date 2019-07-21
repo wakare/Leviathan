@@ -11,6 +11,8 @@
 #include "LevPointLight.h"
 #include "LevSceneDefaultShader_phong.h"
 #include "LevRAttrUniformManager.h"
+#include "LevRAttrRenderStateManager.h"
+#include "LevRenderStateDepthFunc.h"
 
 namespace Leviathan
 {
@@ -64,6 +66,13 @@ namespace Leviathan
 
 			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
+
+			/*
+				Set default render state.
+			*/
+			LPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
+			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrRenderStateManager, LevSceneObjectAttribute>(render_state_manager));
+			render_state_manager->UpdateRenderState(new LevRenderStateDepthFunc(ELDF_LESS));
 
 			return true;
 		}

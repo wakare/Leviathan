@@ -15,6 +15,10 @@ namespace Leviathan
 		{
 		}
 
+		LevScene::~LevScene()
+		{
+		}
+
 		bool LevScene::Init(LevSceneType sceneType)
 		{
 			if (m_inited)

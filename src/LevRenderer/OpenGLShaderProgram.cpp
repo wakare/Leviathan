@@ -6,18 +6,6 @@ namespace Leviathan
 {
 	namespace Renderer 
 	{
-// 		OpenGLShaderProgram::OpenGLShaderProgram(const GLchar* const* pczVertexShader, const GLchar* const* pczFragmentShader, const GLchar* const* pczGeomShader) :
-// 			m_pczVertexShader(pczVertexShader),
-// 			m_pczFragmentShader(pczFragmentShader),
-// 			m_pczGeomShader(pczGeomShader),
-// 			m_bInited(false)
-// 		{
-// 			if (!Init())
-// 			{
-// 				throw "exception";
-// 			}
-// 		};
-
 		OpenGLShaderProgram::OpenGLShaderProgram(const Scene::LevRAttrShaderProgram& shader_program) 
 			: m_shader_program(shader_program)
 			, m_bInited(false)

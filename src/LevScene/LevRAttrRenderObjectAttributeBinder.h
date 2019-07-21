@@ -30,6 +30,13 @@ namespace Leviathan
 			LPtr<RAIIBufferData> m_data;
 		};
 
+		enum RenderObjectPrimitiveType
+		{
+			EROPT_POINTS,
+			EROPT_LINES,
+			EROPT_TRIANGLES,
+		};
+
 		class LEV_SCENE_API LevRAttrRenderObjectAttributeBinder : public LevSceneRenderAttribute
 		{
 		public: 
@@ -46,8 +53,12 @@ namespace Leviathan
 			size_t GetElementCount() const;
 			size_t GetVertexCount() const;
 
+			void SetPrimitiveType(RenderObjectPrimitiveType type);
+			RenderObjectPrimitiveType GetPrimitiveType() const;
+
 		private:
 			size_t m_element_count;
+			RenderObjectPrimitiveType m_primitive_type;
 			std::map<ATTRIBUTE_HANDLE, LPtr<LevRenderObjectAttribute>> m_bind_attributes;
 			LPtr<LevRenderObjectAttribute> m_index_attribute;
 		};

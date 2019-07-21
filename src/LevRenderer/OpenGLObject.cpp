@@ -1,5 +1,8 @@
 #include "OpenGLObject.h"
 #include "OpenGLUniform.h"
+#include "OpenGLRenderStateManager.h"
+#include "LevRAttrRenderStateManager.h"
+#include "OpenGLRenderStateDepthFunc.h"
 
 namespace Leviathan
 {
@@ -7,6 +10,7 @@ namespace Leviathan
 	{
 		OpenGLObject::OpenGLObject(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
 			: m_attribute_binder(attribute_binder)
+			, m_render_state_manager(nullptr)
 			, m_inited(false)
 			, m_primitive_type(primitive_type)
 			, m_id(id)
@@ -19,11 +23,39 @@ namespace Leviathan
 		*/
 		OpenGLObject::OpenGLObject(unsigned id)
 			: m_attribute_binder(Scene::LevRAttrRenderObjectAttributeBinder(0))
+			, m_render_state_manager(nullptr)
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(id)
 		{
 
+		}
+
+		void OpenGLObject::SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state)
+		{
+			const auto& states = render_state.GetAllRenderState();
+			if (states.size() == 0)
+			{
+				return;
+			}
+
+			m_render_state_manager.Reset(new OpenGLRenderStateManager);
+			for (const auto& state : states)
+			{
+				switch (state.first)
+				{
+				case Scene::ELRST_DEPTH_FUNC:
+				{
+					const Scene::LevRenderStateDepthFunc* depth_func_point = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
+					LEV_ASSERT(depth_func_point);
+
+					LPtr<OpenGLRenderStateDepthFunc> depth_func = new OpenGLRenderStateDepthFunc(*depth_func_point);
+					m_render_state_manager->AddRenderState(TryCast<Renderer::OpenGLRenderStateDepthFunc, OpenGLRenderState>(depth_func));
+				}
+				break;
+
+				}
+			}
 		}
 
 		void OpenGLObject::AddUniform(LPtr<OpenGLUniform> uniform)
@@ -38,13 +70,6 @@ namespace Leviathan
 				m_inited = _init();
 				LEV_ASSERT(m_inited);
 			}
-
-			for (auto& fn : m_preprocess_fns)
-			{
-				fn();
-			}
-
-			EXIT_IF_FALSE(ApplyUniform(shaderProgram));
 
 			EXIT_IF_FALSE(m_VAO);
 			glBindVertexArray(m_VAO);
@@ -61,10 +86,31 @@ namespace Leviathan
 
 			glBindVertexArray(0);
 
+			return true;
+		}
+
+		bool OpenGLObject::PostRender(GLuint shaderProgram)
+		{
+			_unapplyAllState();
+
 			for (auto& fn : m_postprocess_fns)
 			{
 				fn();
 			}
+
+			return true;
+		}
+
+		bool OpenGLObject::PreRender(GLuint shaderProgram)
+		{
+			for (auto& fn : m_preprocess_fns)
+			{
+				fn();
+			}
+
+			EXIT_IF_FALSE(ApplyUniform(shaderProgram));
+
+			_applyAllState();
 
 			return true;
 		}
@@ -166,6 +212,22 @@ namespace Leviathan
 			glBindVertexArray(0);
 
 			return true;
+		}
+
+		void OpenGLObject::_applyAllState()
+		{
+			if (m_render_state_manager)
+			{
+				m_render_state_manager->ApplyAllRenderState();
+			}
+		}
+
+		void OpenGLObject::_unapplyAllState()
+		{
+			if (m_render_state_manager)
+			{
+				m_render_state_manager->UnApplyAllRenderState();
+			}
 		}
 
 	}

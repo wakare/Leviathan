@@ -25,7 +25,7 @@ namespace Leviathan
 
 				float rand_x = (1.0f * rand() / RAND_MAX) * 100.0f;
 				float rand_y = (1.0f * rand() / RAND_MAX) * 100.0f;
-				float rand_z = (1.0f * rand() / RAND_MAX) * 10.0f;
+				float rand_z = (1.0f * rand() / RAND_MAX) * 100.0f;
 				float rand_radius = (1.0f * rand() / RAND_MAX) * 5.0f;
 
 				float center[] = { rand_x, rand_y, rand_z };
@@ -85,10 +85,10 @@ namespace Leviathan
 			// Create a plane
 			const float plane_nodes[] =
 			{
-				0.0f, 0.0f, -10.0f,
-				100.0f, 0.0f, -10.0f,
-				100.0f, 100.0f, -10.0f,
-				0.0f, 100.0f, -10.0f,
+				-1000.0f, -1000.0f, -10.0f,
+				1000.0f, -1000.0f, -10.0f,
+				1000.0f, 1000.0f, -10.0f,
+				-1000.0f, 1000.0f, -10.0f,
 			};
 
 			LPtr<LevSceneNode> plane_node = nullptr;

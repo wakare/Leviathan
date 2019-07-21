@@ -26,8 +26,8 @@ namespace Leviathan
 		public:
 			OpenGLResourceManager();
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
-			bool AddGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObject);
-			bool ReplaceGLObject(RenderTreeID handle, LPtr<OpenGLObject> pObjects);
+			bool AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObject);
+			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObjects);
 			bool RemoveResource(RenderTreeID handle, unsigned object_id);
 
 			bool Render();

@@ -29,6 +29,9 @@
     <Filter Include="Source Files\SceneUtil">
       <UniqueIdentifier>{f9c02928-bc48-4729-8cc8-e7137ccd51aa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SceneAttribute\RenderAttribute\RenderState">
+      <UniqueIdentifier>{5e5241cc-70af-47ad-95e4-038620a30fa1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevScene.h">
@@ -154,6 +157,15 @@
     <ClInclude Include="LevSceneDefaultShader_phong.h">
       <Filter>Source Files\SceneUtil</Filter>
     </ClInclude>
+    <ClInclude Include="LevRenderState.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRenderStateDepthFunc.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrRenderStateManager.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -259,6 +271,12 @@
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevRAttrUniformManager.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRenderStateDepthFunc.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrRenderStateManager.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>

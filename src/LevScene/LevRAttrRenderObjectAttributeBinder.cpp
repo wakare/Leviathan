@@ -36,7 +36,10 @@ namespace Leviathan
 			, m_index_attribute(nullptr)
 			, m_element_count(element_count)
 		{
-
+			/*
+				Default primitive type is triangle.
+			*/
+			SetPrimitiveType(EROPT_TRIANGLES);
 		}
 
 		bool LevRAttrRenderObjectAttributeBinder::BindAttribute(ATTRIBUTE_HANDLE handle, LPtr<LevRenderObjectAttribute> attribute)
@@ -81,6 +84,16 @@ namespace Leviathan
 			}
 
 			return m_element_count;
+		}
+
+		void LevRAttrRenderObjectAttributeBinder::SetPrimitiveType(RenderObjectPrimitiveType type)
+		{
+			m_primitive_type = type;
+		}
+
+		Leviathan::Scene::RenderObjectPrimitiveType LevRAttrRenderObjectAttributeBinder::GetPrimitiveType() const
+		{
+			return m_primitive_type;
 		}
 
 	}

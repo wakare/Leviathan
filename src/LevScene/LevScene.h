@@ -20,6 +20,8 @@ namespace Leviathan
 		{
 		public:
 			LevScene();
+			virtual ~LevScene();
+
 			bool Init(LevSceneType sceneType);
 			void UpdateNodeState();
 			void UpdateWorldTransform();

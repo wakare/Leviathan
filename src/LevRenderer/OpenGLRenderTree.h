@@ -17,7 +17,9 @@ namespace Leviathan
 			OpenGLRenderNodeObject(LPtr<OpenGLObject> object);
 			bool Valid() const;
 			unsigned GetID() const;
+			void PreRender(GLuint shader_program);
 			void Render(GLuint shader_program);
+			void PostRender(GLuint shader_program);
 
 		private:
 			LPtr<OpenGLObject> m_object;
@@ -27,6 +29,7 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderNode(LPtr<OpenGLRenderNodeObject> object);
+			virtual void Accept(NodeVisitor<OpenGLRenderNodeObject>& nodeVisitor);
 		};
 
 		/*

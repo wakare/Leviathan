@@ -19,7 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevRAttrRenderStateManager.h" />
+    <ClInclude Include="LevRenderState.h" />
     <ClInclude Include="LevRAttrUniformManager.h" />
+    <ClInclude Include="LevRenderStateDepthFunc.h" />
     <ClInclude Include="LevSceneDefaultShader_phong.h" />
     <ClInclude Include="LevSceneDefaultShader_simple.h" />
     <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
@@ -78,8 +81,10 @@
     <ClCompile Include="LevRAttrPointSize.cpp" />
     <ClCompile Include="LevRAttrRenderObjectAttributeBinder.cpp" />
     <ClCompile Include="LevRAttrShaderProgram.cpp" />
+    <ClCompile Include="LevRAttrRenderStateManager.cpp" />
     <ClCompile Include="LevRAttrUniformManager.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
+    <ClCompile Include="LevRenderStateDepthFunc.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />

@@ -29,12 +29,18 @@ namespace Leviathan
 				auto node_data = node.GetNodeData();
 				if (node_data && node_data->Valid())
 				{
+					node_data->PreRender(m_shader_program);
 					node_data->Render(m_shader_program);
 				}
 
 				for (auto& child : node.GetChildren())
 				{
 					Apply(*child);
+				}
+
+				if (node_data)
+				{
+					node_data->PostRender(m_shader_program);
 				}
 			}
 
