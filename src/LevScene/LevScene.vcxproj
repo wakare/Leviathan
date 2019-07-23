@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevFrameBufferObject.h" />
     <ClInclude Include="LevRAttrRenderStateManager.h" />
     <ClInclude Include="LevRenderState.h" />
     <ClInclude Include="LevRAttrUniformManager.h" />
@@ -67,6 +68,7 @@
   <ItemGroup>
     <ClCompile Include="LevCalculateWorldCoordVisitor.cpp" />
     <ClCompile Include="LevCamera.cpp" />
+    <ClCompile Include="LevFrameBufferObject.cpp" />
     <ClCompile Include="LevLAttrLocalTransform.cpp" />
     <ClCompile Include="LevLRAttrModelTransform.cpp" />
     <ClCompile Include="LevLight.cpp" />

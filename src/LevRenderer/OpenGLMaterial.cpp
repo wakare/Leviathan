@@ -40,7 +40,7 @@ namespace Leviathan
 
 			for (unsigned i = 0; i < m_pTexture2DVec.size(); i++)
 			{
-				if (m_pTexture2DVec[i]->ApplyTexture(i, program, "outTexture" + i))
+				if (m_pTexture2DVec[i]->ApplyTexture(program, "outTexture" + i, i))
 				{
 					LeviathanOutStream << "[WARN] Apply texture failed." << std::endl;
 					return false;
@@ -54,7 +54,7 @@ namespace Leviathan
 		{
 			for (unsigned i = 0; i < m_pTexture2DVec.size(); i++)
 			{
-				if (m_pTexture2DVec[i]->UnApplyTexture(i, program))
+				if (m_pTexture2DVec[i]->UnApplyTexture(program, i))
 				{
 					LeviathanOutStream << "[WARN] UnApply texture failed." << std::endl;
 					return false;

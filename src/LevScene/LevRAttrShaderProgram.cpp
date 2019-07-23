@@ -7,7 +7,7 @@ namespace Leviathan
 	{
 		LevRAttrShaderProgram::LevRAttrShaderProgram()
 			: LevSceneObjectAttribute(ELSOAT_RENDER)
-			, m_id(LevTokenDispatch<LevRAttrShaderProgram, unsigned>::GetToken())
+			, m_id(LevTokenDispatch<LevRAttrShaderProgram, unsigned>::GetIncrementToken())
 		{
 
 		}

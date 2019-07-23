@@ -4,9 +4,7 @@
 #include "LevCamera.h"
 #include "LevMeshObject.h"
 #include "LevLight.h"
-#include "LevPointLight.h"
 #include "LevSceneObject.h"
-#include "LevTimer.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniform.h"
 

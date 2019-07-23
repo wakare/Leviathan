@@ -14,7 +14,7 @@ namespace Leviathan
 	{
 	public:
 		UNIQUE_INSTANCE(LevTokenDispatch)
-		static scalar GetToken();
+		static scalar GetIncrementToken();
 
 	private:
 		LevTokenDispatch() = delete;
@@ -22,7 +22,7 @@ namespace Leviathan
 	};
 
 	template<typename class_type, typename scalar>
-	inline scalar LevTokenDispatch<class_type, scalar>::GetToken()
+	inline scalar LevTokenDispatch<class_type, scalar>::GetIncrementToken()
 	{
 		return m_token_seed++;
 	}

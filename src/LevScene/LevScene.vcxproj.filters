@@ -32,6 +32,9 @@
     <Filter Include="Source Files\SceneAttribute\RenderAttribute\RenderState">
       <UniqueIdentifier>{5e5241cc-70af-47ad-95e4-038620a30fa1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SceneAttribute\RenderAttribute\Advance">
+      <UniqueIdentifier>{9b92f7b5-eba1-4109-af84-533e50a28825}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LevScene.h">
@@ -166,6 +169,9 @@
     <ClInclude Include="LevRAttrRenderStateManager.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevFrameBufferObject.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -278,6 +284,9 @@
     </ClCompile>
     <ClCompile Include="LevRAttrRenderStateManager.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevFrameBufferObject.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -46,7 +46,7 @@ namespace Leviathan
 		inline LevRAttrUniform::LevRAttrUniform(const std::string& name, UniformType type)
 			: m_name(name)
 			, m_uniform_type(type)
-			, m_uniform_id(LevTokenDispatch<LevRAttrUniform, unsigned>::GetToken())
+			, m_uniform_id(LevTokenDispatch<LevRAttrUniform, unsigned>::GetIncrementToken())
 		{
 		}
 
