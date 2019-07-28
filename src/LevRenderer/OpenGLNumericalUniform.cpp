@@ -1,4 +1,4 @@
-#include "OpenGLUniform.h"
+#include "OpenGLNumericalUniform.h"
 
 namespace Leviathan
 {
@@ -6,19 +6,19 @@ namespace Leviathan
 	{
 		using namespace Scene;
 
-		OpenGLUniform::OpenGLUniform(const Scene::LevRAttrUniform& scene_uniform)
+		OpenGLNumericalUniform::OpenGLNumericalUniform(const Scene::LevRAttrUniform& scene_uniform)
 			: m_scene_uniform(scene_uniform)
 			, m_uniform_location(-1)
 		{
 
 		}
 
-		const std::string& OpenGLUniform::GetUniformName() const
+		const std::string& OpenGLNumericalUniform::GetUniformName() const
 		{
 			return m_scene_uniform.GetName();
 		}
 
-		bool OpenGLUniform::Apply(GLuint program)
+		bool OpenGLNumericalUniform::Apply(GLuint program)
 		{
 			if (m_uniform_location == -1)
 			{
@@ -26,8 +26,7 @@ namespace Leviathan
 			
 				if (m_uniform_location == -1)
 				{
-					throw "OpenGLUniform::Apply(GLuint program) --> Get uniform location failed.";
-					return false;
+					throw "OpenGLNumericalUniform::Apply(GLuint program) --> Get uniform location failed.";
 				}
 			}
 
@@ -73,6 +72,11 @@ namespace Leviathan
 				return false;
 			}
 
+			return true;
+		}
+
+		bool OpenGLNumericalUniform::UnApply(GLuint program)
+		{
 			return true;
 		}
 	}

@@ -15,6 +15,8 @@ namespace Leviathan
 			unsigned GetWidth() const;
 			unsigned GetHeight() const;
 
+			LevTextureObject* ToLevTextureObject() override;
+
 			const void* GetTextureData() const;
 			const std::string& GetTextureUniformName() const;
 

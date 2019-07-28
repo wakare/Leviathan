@@ -9,7 +9,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLObject;
+		class OpenGLRenderEntry;
 		class OpenGLShaderProgram;
 		class OpenGLResourceManager;
 

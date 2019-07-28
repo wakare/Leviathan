@@ -1,9 +1,7 @@
 #pragma once
 
 #include <map>
-#include <vector>
 #include "LPtr.h"
-#include "NodeVisitor.h"
 
 namespace Leviathan
 {
@@ -14,8 +12,7 @@ namespace Leviathan
 
 	namespace Renderer
 	{
-		class OpenGLObject;
-		class OpenGLObject;
+		class OpenGLRenderEntry;
 		class OpenGLPass;
 		class OpenGLRenderTree;
 		class OpenGLRenderNodeObject;
@@ -26,8 +23,8 @@ namespace Leviathan
 		public:
 			OpenGLResourceManager();
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
-			bool AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObject);
-			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLObject> pObjects);
+			bool AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject);
+			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObjects);
 			bool RemoveResource(RenderTreeID handle, unsigned object_id);
 
 			bool Render();

@@ -4436,7 +4436,7 @@ GLFWAPI GLFWwindow* glfwGetCurrentContext(void);
  *  a window without a context will generate a @ref GLFW_NO_WINDOW_CONTEXT
  *  error.
  *
- *  This function does not apply to Vulkan.  If you are rendering with Vulkan,
+ *  This function does not Apply to Vulkan.  If you are rendering with Vulkan,
  *  see `vkQueuePresentKHR` instead.
  *
  *  @param[in] window The window whose buffers to swap.
@@ -4477,7 +4477,7 @@ GLFWAPI void glfwSwapBuffers(GLFWwindow* window);
  *  A context must be current on the calling thread.  Calling this function
  *  without a current context will cause a @ref GLFW_NO_CURRENT_CONTEXT error.
  *
- *  This function does not apply to Vulkan.  If you are rendering with Vulkan,
+ *  This function does not Apply to Vulkan.  If you are rendering with Vulkan,
  *  see the present mode of your swapchain instead.
  *
  *  @param[in] interval The minimum number of screen updates to wait for
@@ -4521,7 +4521,7 @@ GLFWAPI void glfwSwapInterval(int interval);
  *  frequently.  The extension strings will not change during the lifetime of
  *  a context, so there is no danger in doing this.
  *
- *  This function does not apply to Vulkan.  If you are using Vulkan, see @ref
+ *  This function does not Apply to Vulkan.  If you are using Vulkan, see @ref
  *  glfwGetRequiredInstanceExtensions, `vkEnumerateInstanceExtensionProperties`
  *  and `vkEnumerateDeviceExtensionProperties` instead.
  *
@@ -4554,7 +4554,7 @@ GLFWAPI int glfwExtensionSupported(const char* extension);
  *  A context must be current on the calling thread.  Calling this function
  *  without a current context will cause a @ref GLFW_NO_CURRENT_CONTEXT error.
  *
- *  This function does not apply to Vulkan.  If you are rendering with Vulkan,
+ *  This function does not Apply to Vulkan.  If you are rendering with Vulkan,
  *  see @ref glfwGetInstanceProcAddress, `vkGetInstanceProcAddr` and
  *  `vkGetDeviceProcAddr` instead.
  *

@@ -1,8 +1,8 @@
 #include "OpenGLRenderTree.h"
-#include "OpenGLObject.h"
+#include "OpenGLRenderEntry.h"
 #include "OpenGLPass.h"
 #include "NodeVisitor.h"
-#include "OpenGLEmptyObject.h"
+#include "OpenGLEmptyRenderEntry.h"
 
 namespace Leviathan
 {
@@ -70,7 +70,7 @@ namespace Leviathan
 			nodeVisitor.Apply(*this);
 		}
 
-		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LPtr<OpenGLObject> object)
+		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LPtr<OpenGLRenderEntry> object)
 			: m_object(object)
 		{
 			LEV_ASSERT(object);

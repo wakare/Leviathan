@@ -9,7 +9,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLTexture;
+		class OpenGLTextureUniform;
 
 		class OpenGLMaterial
 		{
@@ -19,7 +19,7 @@ namespace Leviathan
 
 			bool ApplyMaterial(GLuint program);
 			bool UnApplyMaterial(GLuint program);
-			bool AddTexture2D(LPtr<OpenGLTexture> pTexture2D);
+			bool AddTexture2D(LPtr<OpenGLTextureUniform> pTexture2D);
 
 		private:
 			Color m_CAmbient;
@@ -28,7 +28,7 @@ namespace Leviathan
 			GLfloat m_fShininess;
 			GLuint m_uMaxTexture2DCount;
 
-			std::vector<LPtr<OpenGLTexture>> m_pTexture2DVec;
+			std::vector<LPtr<OpenGLTextureUniform>> m_pTexture2DVec;
 		};
 	}
 }

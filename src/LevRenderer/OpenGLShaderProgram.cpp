@@ -1,5 +1,5 @@
 #include "OpenGLShaderProgram.h"
-#include "OpenGLUniform.h"
+#include "OpenGLNumericalUniform.h"
 #include "LevRAttrShaderProgram.h"
 
 namespace Leviathan
@@ -52,7 +52,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLShaderProgram::AddUniform(LPtr<OpenGLUniform> pUniform)
+		bool OpenGLShaderProgram::AddUniform(LPtr<OpenGLNumericalUniform> pUniform)
 		{
 			if (m_pGLUniforms.find(pUniform->GetUniformName()) != m_pGLUniforms.end())
 			{
@@ -65,7 +65,7 @@ namespace Leviathan
 			return true;
 		}
 
-		LPtr<OpenGLUniform>& OpenGLShaderProgram::GetUniformByName(std::string uniformName)
+		LPtr<OpenGLNumericalUniform>& OpenGLShaderProgram::GetUniformByName(std::string uniformName)
 		{
 			auto findIt = m_pGLUniforms.find(uniformName);
 			if (findIt == m_pGLUniforms.end())

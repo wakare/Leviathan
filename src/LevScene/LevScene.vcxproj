@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LevAttachment.h" />
     <ClInclude Include="LevFrameBufferObject.h" />
     <ClInclude Include="LevRAttrRenderStateManager.h" />
     <ClInclude Include="LevRenderState.h" />
@@ -63,9 +64,11 @@
     <ClInclude Include="LevSceneUtil.h" />
     <ClInclude Include="LevSetObjectModifiedVisitor.h" />
     <ClInclude Include="LevStateUpdaterVisitor.h" />
+    <ClInclude Include="LevTextureObject.h" />
     <ClInclude Include="LevTimerTickVisitor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="LevAttachment.cpp" />
     <ClCompile Include="LevCalculateWorldCoordVisitor.cpp" />
     <ClCompile Include="LevCamera.cpp" />
     <ClCompile Include="LevFrameBufferObject.cpp" />
@@ -103,6 +106,7 @@
     <ClCompile Include="LevSceneUtil.cpp" />
     <ClCompile Include="LevSetObjectModifiedVisitor.cpp" />
     <ClCompile Include="LevStateUpdaterVisitor.cpp" />
+    <ClCompile Include="LevTextureObject.cpp" />
     <ClCompile Include="LevTimerTickVisitor.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

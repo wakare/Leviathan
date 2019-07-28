@@ -1,6 +1,6 @@
 #pragma once
 
-#include "OpenGLObject.h"
+#include "OpenGLRenderEntry.h"
 
 namespace Leviathan
 {
@@ -8,10 +8,10 @@ namespace Leviathan
 	{
 		static unsigned INVALID_ID = UINT_MAX;
 
-		class OpenGLEmptyObject : public OpenGLObject
+		class OpenGLEmptyRenderEntry : public OpenGLRenderEntry
 		{
 		public:
-			OpenGLEmptyObject(unsigned id = INVALID_ID);
+			OpenGLEmptyRenderEntry(unsigned id = INVALID_ID);
 
 		protected:
 			virtual bool _init();

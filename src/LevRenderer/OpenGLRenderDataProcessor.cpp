@@ -1,43 +1,26 @@
 #include "OpenGLRenderDataProcessor.h"
-
 #include "LevSceneData.h"
 #include "LevSceneTree.h"
 #include "LevSceneNode.h"
 #include "LevSceneObject.h"
-#include "LevMeshObject.h"
 #include "LevLight.h"
-#include "LevPointLight.h"
 #include "LevSceneTreeTraverseVisitor.h"
 #include "LevSceneTreeSearchVisitor.h"
-#include "LevSceneObjectAttribute.h"
-#include "LevRAttrObjectColor.h"
-
-#include "IMesh.h"
-#include "DynamicArray.h"
-#include "GLTexture.h"
 #include "PictureObject.h"
-#include "GeometryCalculator.h"
-
-#include "OpenGLTexture.h"
-#include "OpenGLMaterial.h"
 #include "OpenGLShaderProgram.h"
-#include "OpenGLPointLight.h"
 #include "OpenGLResourceManager.h"
 #include "LevSceneRenderAttribute.h"
-#include "LevLRAttrModelTransform.h"
-#include "LevLRAttrWorldTransform.h"
-#include "OpenGLUniform.h"
-#include "OpenGLEmptyObject.h"
+#include "OpenGLNumericalUniform.h"
+#include "OpenGLEmptyRenderEntry.h"
 #include "LevRAttrPointSize.h"
 #include "LevRAttrLightEnable.h"
 #include "LevRAttrVisible.h"
 #include "LevRAttrUniform.h"
-#include "OpenGLObject.h"
+#include "OpenGLRenderEntry.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
 #include "LevRAttrRenderStateManager.h"
-#include "OpenGLRenderStateDepthFunc.h"
 
 namespace Leviathan
 {
@@ -72,7 +55,7 @@ namespace Leviathan
 					return true;
 				}
 
-				LPtr<OpenGLObject> opengl_object = nullptr;
+				LPtr<OpenGLRenderEntry> opengl_object = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
 
@@ -129,11 +112,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+						opengl_object = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
 					}
 					else
 					{
-						opengl_object = new OpenGLEmptyObject(object.GetID());
+						opengl_object = new OpenGLEmptyRenderEntry(object.GetID());
 					}
 					
 					for (auto& attribute : object.GetAllAttributes())
@@ -155,11 +138,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						opengl_object = new OpenGLObject(object.GetID(), primitive_type, *attribute_binder);
+						opengl_object = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
 					}
 					else
 					{
-						opengl_object = new OpenGLEmptyObject(object.GetID());
+						opengl_object = new OpenGLEmptyRenderEntry(object.GetID());
 					}
 
 					for (auto& attribute : object.GetAllAttributes())
@@ -209,7 +192,7 @@ namespace Leviathan
 			return *m_resource_manager;
 		}
 
-		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLObject> opengl_object, const Scene::LevSceneRenderAttribute& render_attribute)
+		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLRenderEntry> opengl_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
 			// Point size attribute
 			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
@@ -258,7 +241,7 @@ namespace Leviathan
 			{
 				for (const auto& uniform : uniform_manager->GetUniforms())
 				{
-					LPtr<OpenGLUniform> opengl_uniform = new OpenGLUniform(*uniform.second);
+					LPtr<OpenGLNumericalUniform> opengl_uniform = new OpenGLNumericalUniform(*uniform.second);
 					opengl_object->AddUniform(opengl_uniform);
 				}
 

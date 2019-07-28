@@ -1,5 +1,5 @@
 #include "OpenGLMaterial.h"
-#include "OpenGLTexture.h"
+#include "OpenGLTextureUniform.h"
 
 namespace Leviathan
 {
@@ -40,7 +40,7 @@ namespace Leviathan
 
 			for (unsigned i = 0; i < m_pTexture2DVec.size(); i++)
 			{
-				if (m_pTexture2DVec[i]->ApplyTexture(program, "outTexture" + i, i))
+				if (m_pTexture2DVec[i]->Apply(program))
 				{
 					LeviathanOutStream << "[WARN] Apply texture failed." << std::endl;
 					return false;
@@ -54,7 +54,7 @@ namespace Leviathan
 		{
 			for (unsigned i = 0; i < m_pTexture2DVec.size(); i++)
 			{
-				if (m_pTexture2DVec[i]->UnApplyTexture(program, i))
+				if (m_pTexture2DVec[i]->UnApply(program))
 				{
 					LeviathanOutStream << "[WARN] UnApply texture failed." << std::endl;
 					return false;
@@ -64,7 +64,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLMaterial::AddTexture2D(LPtr<OpenGLTexture> pTexture2D)
+		bool OpenGLMaterial::AddTexture2D(LPtr<OpenGLTextureUniform> pTexture2D)
 		{
 			if (m_pTexture2DVec.size() >= m_uMaxTexture2DCount)
 			{

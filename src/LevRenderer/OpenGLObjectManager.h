@@ -4,9 +4,9 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLCamera
+		class OpenGLObjectManager
 		{
-
+			
 		};
 	}
 }

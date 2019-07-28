@@ -40,7 +40,7 @@ namespace Leviathan
 			"struct point_light_struct"
 			"{"
 			"	vec3 coord;"
-			"	vec3 color;"
+			"	vec3 diffuse_color;"
 			"};"
 
 			"uniform point_light_struct point_light[100];"
@@ -53,7 +53,7 @@ namespace Leviathan
 			"	vec3 normal = normalize(outNormal);"
 
 			"	float diff = max(dot(normal, light_direction), 0.0);"
-			"	vec3 diffuse_color = diff * cur_point_light.color;"
+			"	vec3 diffuse_color = diff * cur_point_light.diffuse_color;"
 
 			"	return vec4(diffuse_color, 1.0);"
 			"}"

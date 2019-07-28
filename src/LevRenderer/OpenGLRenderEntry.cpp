@@ -1,5 +1,5 @@
-#include "OpenGLObject.h"
-#include "OpenGLUniform.h"
+#include "OpenGLRenderEntry.h"
+#include "OpenGLNumericalUniform.h"
 #include "OpenGLRenderStateManager.h"
 #include "LevRAttrRenderStateManager.h"
 #include "OpenGLRenderStateDepthFunc.h"
@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObject::OpenGLObject(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
+		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
 			: m_attribute_binder(attribute_binder)
 			, m_render_state_manager(nullptr)
 			, m_inited(false)
@@ -21,7 +21,7 @@ namespace Leviathan
 		/*
 			A Empty object
 		*/
-		OpenGLObject::OpenGLObject(unsigned id)
+		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id)
 			: m_attribute_binder(Scene::LevRAttrRenderObjectAttributeBinder(0))
 			, m_render_state_manager(nullptr)
 			, m_inited(false)
@@ -31,7 +31,7 @@ namespace Leviathan
 
 		}
 
-		void OpenGLObject::SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state)
+		void OpenGLRenderEntry::SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state)
 		{
 			const auto& states = render_state.GetAllRenderState();
 			if (states.size() == 0)
@@ -58,12 +58,12 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLObject::AddUniform(LPtr<OpenGLUniform> uniform)
+		void OpenGLRenderEntry::AddUniform(LPtr<OpenGLNumericalUniform> uniform)
 		{
 			m_uniforms.push_back(uniform);
 		}
 
-		bool OpenGLObject::Render(GLuint shaderProgram)
+		bool OpenGLRenderEntry::Render(GLuint shaderProgram)
 		{
 			if (!m_inited)
 			{
@@ -89,7 +89,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObject::PostRender(GLuint shaderProgram)
+		bool OpenGLRenderEntry::PostRender(GLuint shaderProgram)
 		{
 			_unapplyAllState();
 
@@ -101,7 +101,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObject::PreRender(GLuint shaderProgram)
+		bool OpenGLRenderEntry::PreRender(GLuint shaderProgram)
 		{
 			for (auto& fn : m_preprocess_fns)
 			{
@@ -115,7 +115,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObject::ApplyUniform(GLuint shaderProgram)
+		bool OpenGLRenderEntry::ApplyUniform(GLuint shaderProgram)
 		{
 			for (auto& pUniform : m_uniforms)
 			{
@@ -125,22 +125,22 @@ namespace Leviathan
 			return true;
 		}
 
-		unsigned OpenGLObject::GetID() const
+		unsigned OpenGLRenderEntry::GetID() const
 		{
 			return m_id;
 		}
 
-		void OpenGLObject::AddPreProcess(std::function<void()> fn)
+		void OpenGLRenderEntry::AddPreProcess(std::function<void()> fn)
 		{
 			m_preprocess_fns.push_back(fn);
 		}
 
-		void OpenGLObject::AddPostProcess(std::function<void()> fn)
+		void OpenGLRenderEntry::AddPostProcess(std::function<void()> fn)
 		{
 			m_postprocess_fns.push_back(fn);
 		}
 
-		bool OpenGLObject::_init()
+		bool OpenGLRenderEntry::_init()
 		{
 			// Merge attribute data to temp array
 			size_t attribute_size = m_attribute_binder.GetAttributes().size();
@@ -214,7 +214,7 @@ namespace Leviathan
 			return true;
 		}
 
-		void OpenGLObject::_applyAllState()
+		void OpenGLRenderEntry::_applyAllState()
 		{
 			if (m_render_state_manager)
 			{
@@ -222,7 +222,7 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLObject::_unapplyAllState()
+		void OpenGLRenderEntry::_unapplyAllState()
 		{
 			if (m_render_state_manager)
 			{

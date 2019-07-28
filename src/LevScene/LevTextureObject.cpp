@@ -1,6 +1,6 @@
 ﻿#include "LevTextureObject.h"
-#include <utility>
 #include "LevTokenDispatch.h"
+#include <utility>
 
 namespace Leviathan
 {
@@ -29,6 +29,11 @@ namespace Leviathan
 		unsigned LevTextureObject::GetHeight() const
 		{
 			return m_height;
+		}
+
+		LevTextureObject* LevTextureObject::ToLevTextureObject()
+		{
+			return this;
 		}
 
 		const void* LevTextureObject::GetTextureData() const

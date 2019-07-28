@@ -8,13 +8,13 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLObject;
+		class OpenGLRenderEntry;
 		class OpenGLShaderProgram;
 
 		class OpenGLRenderNodeObject
 		{
 		public:
-			OpenGLRenderNodeObject(LPtr<OpenGLObject> object);
+			OpenGLRenderNodeObject(LPtr<OpenGLRenderEntry> object);
 			bool Valid() const;
 			unsigned GetID() const;
 			void PreRender(GLuint shader_program);
@@ -22,7 +22,7 @@ namespace Leviathan
 			void PostRender(GLuint shader_program);
 
 		private:
-			LPtr<OpenGLObject> m_object;
+			LPtr<OpenGLRenderEntry> m_object;
 		};
 
 		class OpenGLRenderNode : public Node<OpenGLRenderNodeObject>

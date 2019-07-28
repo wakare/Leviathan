@@ -54,7 +54,7 @@ namespace Leviathan
 				// Add first 100 light object to scene
 				LPtr<LevLight> point_light = new LevLight(ELLT_POINT_LIGHT, ELSOT_DYNAMIC);
 				point_light->SetAmbientColor({ 0.0f, 0.0f, 0.0f });
-				point_light->SetDiffuseColor({ 0.2f, 0.2f, 0.2f });
+				point_light->SetDiffuseColor({ 0.0f, 0.0f, 0.0f });
 				point_light->SetSpecularColor({ 0.8f, 0.8f, 0.8f });
 
 				LPtr<LevRAttrUniformManager> point_light_uniform_manager = new LevRAttrUniformManager;
@@ -69,11 +69,11 @@ namespace Leviathan
 				light_coord_uniform->SetData(light_coord_data);
 
 				char uniform_color_name[100];
-				snprintf(uniform_color_name, sizeof(uniform_color_name), "point_light[%d].color", i);
+				snprintf(uniform_color_name, sizeof(uniform_color_name), "point_light[%d].diffuse_color", i);
 
 				LPtr<LevRAttrUniform> light_color_uniform = new LevRAttrUniform(uniform_color_name, Scene::TYPE_FLOAT_VEC3);
 				LPtr<RAIIBufferData> light_color_data = new RAIIBufferData(3 * sizeof(float));
-				float light_color[] = { 1.0f, 1.0f ,1.0f };
+				float light_color[] = { 0.08f, 0.03f ,0.01f };
 				memcpy(light_color_data->GetArrayData(), light_color, 3 * sizeof(float));
 				light_color_uniform->SetData(light_color_data);
 				

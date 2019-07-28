@@ -172,6 +172,12 @@
     <ClInclude Include="LevFrameBufferObject.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
     </ClInclude>
+    <ClInclude Include="LevTextureObject.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClInclude>
+    <ClInclude Include="LevAttachment.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -286,6 +292,12 @@
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
     <ClCompile Include="LevFrameBufferObject.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClCompile>
+    <ClCompile Include="LevAttachment.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClCompile>
+    <ClCompile Include="LevTextureObject.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
     </ClCompile>
   </ItemGroup>

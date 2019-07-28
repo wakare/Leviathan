@@ -1,5 +1,5 @@
 #include "OpenGLPass.h"
-#include "OpenGLObject.h"
+#include "OpenGLRenderEntry.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLResourceManager.h"
 

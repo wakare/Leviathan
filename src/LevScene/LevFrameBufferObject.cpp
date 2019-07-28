@@ -23,6 +23,11 @@ namespace Leviathan
 
 			return true;
 		}
+
+		const std::map<LevFrameAttachmentType, LPtr<LevAttachment>>& LevFrameBufferObject::GetAttachments() const
+		{
+			return m_attachments;
+		}
 	}	
 }
 

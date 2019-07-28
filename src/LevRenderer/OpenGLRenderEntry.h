@@ -14,13 +14,13 @@ namespace Leviathan
 
 	namespace Renderer
 	{
-		class OpenGLUniform;
+		class OpenGLNumericalUniform;
 		class OpenGLRenderStateManager;
 
-		class OpenGLObject
+		class OpenGLRenderEntry
 		{
 		public:
-			OpenGLObject(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
+			OpenGLRenderEntry(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
 			
 			virtual bool PreRender(GLuint shaderProgram);
 			virtual bool Render(GLuint shaderProgram);
@@ -29,14 +29,14 @@ namespace Leviathan
 			unsigned GetID() const;
 
 			void SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state);
-			void AddUniform(LPtr<OpenGLUniform> uniform);
+			void AddUniform(LPtr<OpenGLNumericalUniform> uniform);
 			bool ApplyUniform(GLuint shaderProgram);
 			
 			void AddPreProcess(std::function<void()> fn);
 			void AddPostProcess(std::function<void()> fn);
 
 		protected:
-			OpenGLObject(unsigned id);
+			OpenGLRenderEntry(unsigned id);
 			virtual bool _init();
 			void _applyAllState();
 			void _unapplyAllState();
@@ -44,7 +44,7 @@ namespace Leviathan
 			const Scene::LevRAttrRenderObjectAttributeBinder m_attribute_binder;
 
 			bool m_inited;
-			std::vector<LPtr<OpenGLUniform>> m_uniforms;
+			std::vector<LPtr<OpenGLNumericalUniform>> m_uniforms;
 			LPtr<OpenGLRenderStateManager> m_render_state_manager;
 
 			GLuint m_VAO;

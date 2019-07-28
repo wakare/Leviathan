@@ -19,12 +19,16 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="IOpenGLObject.h" />
+    <ClInclude Include="IOpenGLResource.h" />
+    <ClInclude Include="IOpenGLUniform.h" />
     <ClInclude Include="IRenderer.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
-    <ClInclude Include="OpenGLCamera.h" />
-    <ClInclude Include="OpenGLEmptyObject.h" />
+    <ClInclude Include="OpenGLEmptyRenderEntry.h" />
+    <ClInclude Include="OpenGLFrameBuffer.h" />
     <ClInclude Include="OpenGLLight.h" />
-    <ClInclude Include="OpenGLObject.h" />
+    <ClInclude Include="OpenGLRenderEntry.h" />
+    <ClInclude Include="OpenGLObjectManager.h" />
     <ClInclude Include="OpenGLPass.h" />
     <ClInclude Include="OpenGLPointLight.h" />
     <ClInclude Include="OpenGLMaterial.h" />
@@ -36,12 +40,14 @@
     <ClInclude Include="OpenGLRenderTree.h" />
     <ClInclude Include="OpenGLResourceManager.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
-    <ClInclude Include="OpenGLTexture.h" />
-    <ClInclude Include="OpenGLUniform.h" />
+    <ClInclude Include="OpenGLTextureUniform.h" />
+    <ClInclude Include="OpenGLTextureObject.h" />
+    <ClInclude Include="OpenGLNumericalUniform.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenGLEmptyObject.cpp" />
-    <ClCompile Include="OpenGLObject.cpp" />
+    <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
+    <ClCompile Include="OpenGLFrameBuffer.cpp" />
+    <ClCompile Include="OpenGLRenderEntry.cpp" />
     <ClCompile Include="OpenGLPass.cpp" />
     <ClCompile Include="OpenGLPointLight.cpp" />
     <ClCompile Include="OpenGLMaterial.cpp" />
@@ -53,8 +59,9 @@
     <ClCompile Include="OpenGLRenderTree.cpp" />
     <ClCompile Include="OpenGLResourceManager.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
-    <ClCompile Include="OpenGLTexture.cpp" />
-    <ClCompile Include="OpenGLUniform.cpp" />
+    <ClCompile Include="OpenGLTextureUniform.cpp" />
+    <ClCompile Include="OpenGLTextureObject.cpp" />
+    <ClCompile Include="OpenGLNumericalUniform.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

@@ -30,6 +30,7 @@ namespace Leviathan
 
 			unsigned GetID() const;
 			bool Attach(LevFrameAttachmentType attach_type, LPtr<LevAttachment> attachment);
+			const std::map<LevFrameAttachmentType, LPtr<LevAttachment>>& GetAttachments() const;
 
 		private:
 			const unsigned m_id;
