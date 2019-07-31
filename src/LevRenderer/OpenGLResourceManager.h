@@ -16,6 +16,7 @@ namespace Leviathan
 		class OpenGLPass;
 		class OpenGLRenderTree;
 		class OpenGLRenderNodeObject;
+		class OpenGLRenderStateManager;
 
 		typedef int RenderTreeID;
 		class OpenGLResourceManager
@@ -30,6 +31,7 @@ namespace Leviathan
 			bool Render();
 
 		private:
+			LPtr<OpenGLRenderStateManager> m_render_state_manager;
 			std::map<RenderTreeID, LPtr<OpenGLPass>> m_render_pass;
 			std::map<RenderTreeID, LPtr<OpenGLRenderTree>> m_render_trees;
 		};

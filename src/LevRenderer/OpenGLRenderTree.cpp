@@ -1,15 +1,18 @@
 #include "OpenGLRenderTree.h"
+#include <utility>
 #include "OpenGLRenderEntry.h"
 #include "OpenGLPass.h"
 #include "NodeVisitor.h"
-#include "OpenGLEmptyRenderEntry.h"
+#include "OpenGLRenderStateManager.h"
+#include "OpenGLUniformManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderTree::OpenGLRenderTree()
+		OpenGLRenderTree::OpenGLRenderTree(LPtr<OpenGLRenderStateManager> render_state_manager)
 			: m_root(nullptr)
+			, m_render_state_manager(std::move(render_state_manager))
 		{
 
 		}
@@ -86,19 +89,27 @@ namespace Leviathan
 			return m_object->GetID();
 		}
 
-		void OpenGLRenderNodeObject::PreRender(GLuint shader_program)
+		void OpenGLRenderNodeObject::ApplyRenderState(OpenGLRenderStateManager& render_state_manager)
 		{
-			m_object->PreRender(shader_program);
+			auto& render_states = m_object->GetRenderState();
+			for (auto& state : render_states)
+			{
+				render_state_manager.ApplyRenderState(state);
+			}
+		}
+
+		void OpenGLRenderNodeObject::ApplyUniform(OpenGLUniformManager& uniform_manager)
+		{
+			auto& uniforms = m_object->GetUniforms();
+			for (auto& uniform : uniforms)
+			{
+				uniform_manager.ApplyUniform(uniform);
+			}
 		}
 
 		void OpenGLRenderNodeObject::Render(GLuint shader_program)
 		{
 			m_object->Render(shader_program);
-		}
-
-		void OpenGLRenderNodeObject::PostRender(GLuint shader_program)
-		{
-			m_object->PostRender(shader_program);
 		}
 	}
 }

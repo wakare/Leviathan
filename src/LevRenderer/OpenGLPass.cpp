@@ -1,16 +1,18 @@
 #include "OpenGLPass.h"
 #include "OpenGLRenderEntry.h"
 #include "OpenGLShaderProgram.h"
-#include "OpenGLResourceManager.h"
+#include "OpenGLUniformManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLPass::OpenGLPass(LPtr<OpenGLShaderProgram> shader_program)
+		OpenGLPass::OpenGLPass(LPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager)
 			: m_id(shader_program->GetID())
+			, m_render_state_manager(render_state_manager)
 			, m_shader_program(shader_program)
-			, m_render_visitor(new OpenGLRenderNodeVisitor(shader_program->GetShaderProgram()))
+			, m_pass_uniform_manager(new OpenGLUniformManager(m_shader_program->GetShaderProgram()))
+			, m_render_visitor(new OpenGLRenderNodeVisitor(shader_program->GetShaderProgram(), m_render_state_manager, *m_pass_uniform_manager))
 		{
 
 		}

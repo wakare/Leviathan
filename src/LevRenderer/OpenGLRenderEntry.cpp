@@ -2,7 +2,7 @@
 #include "OpenGLNumericalUniform.h"
 #include "OpenGLRenderStateManager.h"
 #include "LevRAttrRenderStateManager.h"
-#include "OpenGLRenderStateDepthFunc.h"
+#include "OpenGLRStateDepthFunc.h"
 
 namespace Leviathan
 {
@@ -10,7 +10,6 @@ namespace Leviathan
 	{
 		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
 			: m_attribute_binder(attribute_binder)
-			, m_render_state_manager(nullptr)
 			, m_inited(false)
 			, m_primitive_type(primitive_type)
 			, m_id(id)
@@ -23,7 +22,6 @@ namespace Leviathan
 		*/
 		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id)
 			: m_attribute_binder(Scene::LevRAttrRenderObjectAttributeBinder(0))
-			, m_render_state_manager(nullptr)
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(id)
@@ -34,23 +32,22 @@ namespace Leviathan
 		void OpenGLRenderEntry::SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state)
 		{
 			const auto& states = render_state.GetAllRenderState();
-			if (states.size() == 0)
+			if (states.empty())
 			{
 				return;
 			}
 
-			m_render_state_manager.Reset(new OpenGLRenderStateManager);
 			for (const auto& state : states)
 			{
 				switch (state.first)
 				{
 				case Scene::ELRST_DEPTH_FUNC:
 				{
-					const Scene::LevRenderStateDepthFunc* depth_func_point = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
+					const auto* depth_func_point = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
 					LEV_ASSERT(depth_func_point);
 
-					LPtr<OpenGLRenderStateDepthFunc> depth_func = new OpenGLRenderStateDepthFunc(*depth_func_point);
-					m_render_state_manager->AddRenderState(TryCast<Renderer::OpenGLRenderStateDepthFunc, OpenGLRenderState>(depth_func));
+					LPtr<IOpenGLRenderState> depth_func = new OpenGLRStateDepthFunc(*depth_func_point);
+					m_render_states.push_back(depth_func);
 				}
 				break;
 
@@ -58,7 +55,12 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLRenderEntry::AddUniform(LPtr<OpenGLNumericalUniform> uniform)
+		void OpenGLRenderEntry::AddRenderState(LPtr<IOpenGLRenderState> render_state)
+		{
+			m_render_states.push_back(render_state);
+		}
+
+		void OpenGLRenderEntry::AddUniform(LPtr<IOpenGLUniform> uniform)
 		{
 			m_uniforms.push_back(uniform);
 		}
@@ -89,55 +91,19 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderEntry::PostRender(GLuint shaderProgram)
-		{
-			_unapplyAllState();
-
-			for (auto& fn : m_postprocess_fns)
-			{
-				fn();
-			}
-
-			return true;
-		}
-
-		bool OpenGLRenderEntry::PreRender(GLuint shaderProgram)
-		{
-			for (auto& fn : m_preprocess_fns)
-			{
-				fn();
-			}
-
-			EXIT_IF_FALSE(ApplyUniform(shaderProgram));
-
-			_applyAllState();
-
-			return true;
-		}
-
-		bool OpenGLRenderEntry::ApplyUniform(GLuint shaderProgram)
-		{
-			for (auto& pUniform : m_uniforms)
-			{
-				EXIT_IF_FALSE(pUniform->Apply(shaderProgram));
-			}
-
-			return true;
-		}
-
 		unsigned OpenGLRenderEntry::GetID() const
 		{
 			return m_id;
 		}
 
-		void OpenGLRenderEntry::AddPreProcess(std::function<void()> fn)
+		const std::vector<LPtr<IOpenGLRenderState>>& OpenGLRenderEntry::GetRenderState() const
 		{
-			m_preprocess_fns.push_back(fn);
+			return m_render_states;
 		}
 
-		void OpenGLRenderEntry::AddPostProcess(std::function<void()> fn)
+		const std::vector<LPtr<IOpenGLUniform>>& OpenGLRenderEntry::GetUniforms() const
 		{
-			m_postprocess_fns.push_back(fn);
+			return m_uniforms;
 		}
 
 		bool OpenGLRenderEntry::_init()
@@ -213,22 +179,5 @@ namespace Leviathan
 
 			return true;
 		}
-
-		void OpenGLRenderEntry::_applyAllState()
-		{
-			if (m_render_state_manager)
-			{
-				m_render_state_manager->ApplyAllRenderState();
-			}
-		}
-
-		void OpenGLRenderEntry::_unapplyAllState()
-		{
-			if (m_render_state_manager)
-			{
-				m_render_state_manager->UnApplyAllRenderState();
-			}
-		}
-
 	}
 }

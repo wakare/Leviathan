@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Node.h"
-#include <gl/glew.h>
+#include <GL/glew.h>
 #include <map>
 
 namespace Leviathan
@@ -10,6 +10,8 @@ namespace Leviathan
 	{
 		class OpenGLRenderEntry;
 		class OpenGLShaderProgram;
+		class OpenGLRenderStateManager;
+		class OpenGLUniformManager;
 
 		class OpenGLRenderNodeObject
 		{
@@ -17,9 +19,11 @@ namespace Leviathan
 			OpenGLRenderNodeObject(LPtr<OpenGLRenderEntry> object);
 			bool Valid() const;
 			unsigned GetID() const;
-			void PreRender(GLuint shader_program);
+
+			void ApplyRenderState(OpenGLRenderStateManager& render_state_manager);
+			void ApplyUniform(OpenGLUniformManager& uniform_manager);
+
 			void Render(GLuint shader_program);
-			void PostRender(GLuint shader_program);
 
 		private:
 			LPtr<OpenGLRenderEntry> m_object;
@@ -38,7 +42,7 @@ namespace Leviathan
 		class OpenGLRenderTree
 		{
 		public:
-			OpenGLRenderTree();
+			OpenGLRenderTree(LPtr<OpenGLRenderStateManager> render_state_manager);
 			bool AddNodeToRoot(LPtr<OpenGLRenderNode> node);
 			bool ReplaceNode(LPtr<OpenGLRenderNode> node);
 			bool RemoveNode(unsigned handle);
@@ -47,6 +51,7 @@ namespace Leviathan
 
 		private:
 			LPtr<OpenGLRenderNode> m_root;
+			LPtr<OpenGLRenderStateManager> m_render_state_manager;
 
 			std::map<unsigned, LPtr<OpenGLRenderNode>> m_nodes;
 		};

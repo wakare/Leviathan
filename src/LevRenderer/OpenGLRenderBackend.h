@@ -3,7 +3,7 @@
 #include <vector>
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
-#include "IRenderer.h"
+#include "IRendererBackend.h"
 #include "LPtr.h"
 
 namespace Leviathan
@@ -16,10 +16,10 @@ namespace Leviathan
 		class OpenGLResourceManager;
 		class OpenGLRenderDataProcessor;
 
-		class OpenGLRenderer : public IRenderer
+		class OpenGLRenderBackend : public IRendererBackend
 		{
 		public:
-			OpenGLRenderer(LevOpenGLWindow& pWindow);
+			OpenGLRenderBackend(LevOpenGLWindow& pWindow);
 			
 			bool Clear();
 

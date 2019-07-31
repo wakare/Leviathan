@@ -1,4 +1,4 @@
-#include "OpenGLRenderer.h"
+#include "OpenGLRenderBackend.h"
 #include "OpenGLRenderDataProcessor.h"
 #include "OpenGLPass.h"
 #include "LevOpenGLWindow.h"
@@ -8,19 +8,19 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderer::OpenGLRenderer(LevOpenGLWindow& pWindow)
+		OpenGLRenderBackend::OpenGLRenderBackend(LevOpenGLWindow& pWindow)
 			: m_window(pWindow)
 			, m_pRenderData(new OpenGLRenderDataProcessor)
 		{
 
 		}
 
-		void OpenGLRenderer::_render(OpenGLResourceManager& resource_manager)
+		void OpenGLRenderBackend::_render(OpenGLResourceManager& resource_manager)
 		{
 			resource_manager.Render();
 		}
 
-		void OpenGLRenderer::_renderOneFrame()
+		void OpenGLRenderBackend::_renderOneFrame()
 		{
 			// Set Global state
 			glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
@@ -32,18 +32,18 @@ namespace Leviathan
 			m_window.SwapBuffer();
 		}
 
-		bool OpenGLRenderer::Clear()
+		bool OpenGLRenderBackend::Clear()
 		{
 			return true;
 		}
 
-		bool OpenGLRenderer::SetInputData(const Scene::LevSceneData& data)
+		bool OpenGLRenderBackend::SetInputData(const Scene::LevSceneData& data)
 		{
 			m_pRenderData->UpdateInputData(data);
 			return true;
 		}
 
-		void OpenGLRenderer::Update()
+		void OpenGLRenderBackend::Update()
 		{
 			_renderOneFrame();
 		}

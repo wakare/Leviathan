@@ -1,24 +1,23 @@
 #pragma once
 
-#include <vector>
 #include "LPtr.h"
+#include <map>
+#include "IOpenGLRenderState.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLRenderState;
+		class IOpenGLRenderState;
 
 		class OpenGLRenderStateManager
 		{
 		public:
 			OpenGLRenderStateManager();
-			void AddRenderState(LPtr<OpenGLRenderState> redner_state);
-			void ApplyAllRenderState();
-			void UnApplyAllRenderState();
+			void ApplyRenderState(LPtr<IOpenGLRenderState> render_state);
 
 		private:
-			std::vector<LPtr<OpenGLRenderState>> m_render_states;
+			std::map<OpenGLRenderStateType, LPtr<IOpenGLRenderState>> m_current_render_state;
 		};
 	}
 }

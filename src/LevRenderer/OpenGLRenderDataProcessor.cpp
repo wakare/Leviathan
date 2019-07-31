@@ -21,6 +21,7 @@
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
 #include "LevRAttrRenderStateManager.h"
+#include "OpenGLRStatePointSize.h"
 
 namespace Leviathan
 {
@@ -28,7 +29,7 @@ namespace Leviathan
 	{
 		std::string _getShaderSource(const char* pczShaderSourcePath)
 		{
-			std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
+			const std::ifstream shaderSourceFileStream(pczShaderSourcePath, std::ios::in);
 			if (!shaderSourceFileStream.is_open())
 			{
 				LogLine("Invalid ShaderSource paths:" << pczShaderSourcePath);
@@ -47,7 +48,7 @@ namespace Leviathan
 			, m_current_render_tree_id(-1)
 		{
 			// Default pass callback
-			auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)
+			const auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)
 			{
 				// update scene drawable objects
 				if (!object.HasModified())
@@ -55,7 +56,7 @@ namespace Leviathan
 					return true;
 				}
 
-				LPtr<OpenGLRenderEntry> opengl_object = nullptr;
+				LPtr<OpenGLRenderEntry> gl_render_entry = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
 
@@ -112,11 +113,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						opengl_object = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
+						gl_render_entry = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
 					}
 					else
 					{
-						opengl_object = new OpenGLEmptyRenderEntry(object.GetID());
+						gl_render_entry = new OpenGLEmptyRenderEntry(object.GetID());
 					}
 					
 					for (auto& attribute : object.GetAllAttributes())
@@ -127,10 +128,10 @@ namespace Leviathan
 							continue;
 						}
 
-						_applyRenderAttribute(opengl_object, *pAttribute);
+						_applyRenderAttribute(gl_render_entry, *pAttribute);
 					}
 
-					m_resource_manager->AddGLObjectToRenderTree(render_tree_id, opengl_object);
+					m_resource_manager->AddGLObjectToRenderTree(render_tree_id, gl_render_entry);
 					break;
 				}
 
@@ -138,11 +139,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						opengl_object = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
+						gl_render_entry = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
 					}
 					else
 					{
-						opengl_object = new OpenGLEmptyRenderEntry(object.GetID());
+						gl_render_entry = new OpenGLEmptyRenderEntry(object.GetID());
 					}
 
 					for (auto& attribute : object.GetAllAttributes())
@@ -153,10 +154,10 @@ namespace Leviathan
 							continue;
 						}
 
-						_applyRenderAttribute(opengl_object, *pAttribute);
+						_applyRenderAttribute(gl_render_entry, *pAttribute);
 					}
 
-					m_resource_manager->ReplaceGLObjectFromRenderTree(render_tree_id, opengl_object);
+					m_resource_manager->ReplaceGLObjectFromRenderTree(render_tree_id, gl_render_entry);
 					break;
 				}
 
@@ -169,7 +170,7 @@ namespace Leviathan
 
 				}
 
-				LEV_ASSERT(opengl_object);
+				LEV_ASSERT(gl_render_entry);
 
 				return true;
 			};
@@ -198,9 +199,8 @@ namespace Leviathan
 			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
 			if (point_size)
 			{
-				auto size = point_size->GetSize();
-				opengl_object->AddPreProcess([size]() {glPointSize(size); });
-				opengl_object->AddPostProcess([size]() {glPointSize(1); });
+				const auto size = point_size->GetSize();
+				opengl_object->AddRenderState(new OpenGLRStatePointSize(size));
 				
 				return true;
 			}
@@ -241,7 +241,7 @@ namespace Leviathan
 			{
 				for (const auto& uniform : uniform_manager->GetUniforms())
 				{
-					LPtr<OpenGLNumericalUniform> opengl_uniform = new OpenGLNumericalUniform(*uniform.second);
+					LPtr<IOpenGLUniform> opengl_uniform = new OpenGLNumericalUniform(*uniform.second);
 					opengl_object->AddUniform(opengl_uniform);
 				}
 

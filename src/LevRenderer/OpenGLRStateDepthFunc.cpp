@@ -1,10 +1,10 @@
-#include "OpenGLRenderStateDepthFunc.h"
+#include "OpenGLRStateDepthFunc.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderStateDepthFunc::OpenGLRenderStateDepthFunc(const Scene::LevRenderStateDepthFunc & depth_func)
+		OpenGLRStateDepthFunc::OpenGLRStateDepthFunc(const Scene::LevRenderStateDepthFunc & depth_func)
 		{
 			switch (depth_func.GetDepthFunc())
 			{
@@ -46,22 +46,32 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLRenderStateDepthFunc::ApplyState()
+		OpenGLRStateDepthFunc* OpenGLRStateDepthFunc::ToDepthFunc()
 		{
-			glGetIntegerv(GL_DEPTH_FUNC, &m_last_enum_value);
-			m_last_enable_depth_test = glIsEnabled(GL_DEPTH_TEST);
-
-			glDepthFunc(m_depth_func_value);
-			glEnable(GL_DEPTH_TEST);
+			return this;
 		}
 
-		void OpenGLRenderStateDepthFunc::UnApplyState()
+		OpenGLRenderStateType OpenGLRStateDepthFunc::GetRenderStateType() const
 		{
-			glDepthFunc(m_last_enum_value);
+			return EOGLRST_DEPTH_FUNC;
+		}
 
-			if (!m_last_enable_depth_test)
+		void OpenGLRStateDepthFunc::Apply()
+		{
+			glEnable(GL_DEPTH_TEST);
+			glDepthFunc(m_depth_func_value);
+		}
+
+		void OpenGLRStateDepthFunc::UnApply()
+		{
+			if (m_last_render_state)
 			{
-				glDisable(GL_DEPTH_TEST);
+				auto* last_depth_func = m_last_render_state->ToDepthFunc();
+				last_depth_func->Apply();
+			}
+			else
+			{
+				glDepthFunc(GL_LESS);
 			}
 		}
 	}

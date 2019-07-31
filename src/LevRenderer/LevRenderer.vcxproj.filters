@@ -17,49 +17,22 @@
     <Filter Include="Source Files\OpenGL\OpenGLResource">
       <UniqueIdentifier>{6b809639-04c4-4657-a5ce-801fde29d34f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLObject">
+    <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLRenderResource">
+      <UniqueIdentifier>{1efcbde3-df75-442c-b55a-6f4ac5189bb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLObjectResource">
       <UniqueIdentifier>{17ce6fa3-31ae-44d7-b103-24c537e53e65}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLUniform">
+    <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLUniformResource">
       <UniqueIdentifier>{01647f16-39d1-4a22-878b-2e0b1b0b4bb6}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="OpenGLMaterial.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLRenderer.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLShaderProgram.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLPointLight.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLLight.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLRenderTree.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="OpenGLRenderDataProcessor.h">
       <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="IRenderer.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="LevRendererAPIDefine.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLPass.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLRenderState.h">
-      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLRenderStateDepthFunc.h">
-      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLRenderStateManager.h">
       <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
@@ -67,64 +40,67 @@
     <ClInclude Include="OpenGLFrameBuffer.h">
       <Filter>Source Files\OpenGL\Advance</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLObjectManager.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
     <ClInclude Include="IOpenGLResource.h">
       <Filter>Source Files\OpenGL\OpenGLResource</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLRenderEntry.h">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLEmptyRenderEntry.h">
-      <Filter>Source Files\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLResourceManager.h">
       <Filter>Source Files\OpenGL\OpenGLResource</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLTextureObject.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObject</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLTextureUniform.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniform</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClInclude>
     <ClInclude Include="OpenGLNumericalUniform.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniform</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClInclude>
     <ClInclude Include="IOpenGLUniform.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniform</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClInclude>
     <ClInclude Include="IOpenGLObject.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObject</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLObjectManager.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderBackend.h">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="IRendererBackend.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderEntry.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLPass.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLEmptyRenderEntry.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderTree.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLShaderProgram.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRStatePointSize.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="IOpenGLRenderState.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRStateDepthFunc.h">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLUniformManager.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="OpenGLRenderer.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLShaderProgram.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLMaterial.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLPointLight.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLRenderNode.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
       <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLRenderTree.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLPass.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLRenderStateDepthFunc.cpp">
-      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLRenderStateManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
@@ -132,23 +108,44 @@
     <ClCompile Include="OpenGLFrameBuffer.cpp">
       <Filter>Source Files\OpenGL\Advance</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLRenderEntry.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLEmptyRenderEntry.cpp">
-      <Filter>Source Files\OpenGL</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGLResourceManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLTextureObject.cpp">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObject</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLTextureUniform.cpp">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniform</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLNumericalUniform.cpp">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniform</Filter>
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderBackend.cpp">
+      <Filter>Source Files\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderEntry.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLPass.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLEmptyRenderEntry.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderTree.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLShaderProgram.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRStatePointSize.cpp">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRStateDepthFunc.cpp">
+      <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLUniformManager.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

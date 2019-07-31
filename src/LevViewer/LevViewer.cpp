@@ -2,7 +2,7 @@
 #include "LevScene.h"
 #include "LevWindowFactory.h"
 #include "ILevWindow.h"
-#include "OpenGLRenderer.h"
+#include "OpenGLRenderBackend.h"
 #include "EventSystem.h"
 #include "LevOpenGLWindow.h"
 #include "LevSceneEventListener.h"
@@ -32,7 +32,7 @@ namespace Leviathan
 			m_event_system = TryCast<ILevWindow, EventSystem>(m_window);
 			LEV_ASSERT(m_event_system);
 
-			m_renderer.Reset(new Renderer::OpenGLRenderer(*openGL_window));
+			m_renderer.Reset(new Renderer::OpenGLRenderBackend(*openGL_window));
 			return true;
 		}
 

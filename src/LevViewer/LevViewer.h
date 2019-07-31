@@ -19,7 +19,7 @@ namespace Leviathan
 
 	namespace Renderer
 	{
-		class IRenderer;
+		class IRendererBackend;
 	}
 
 	namespace Viewer
@@ -43,7 +43,7 @@ namespace Leviathan
 			LPtr<EventSystem> m_event_system;
 			LPtr<ILevWindow> m_window;
 			LPtr<Scene::LevScene> m_current_scene;
-			LPtr<Renderer::IRenderer> m_renderer;
+			LPtr<Renderer::IRendererBackend> m_renderer;
 		};
 	}
 }

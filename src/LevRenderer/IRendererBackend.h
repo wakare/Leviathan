@@ -6,7 +6,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class LEV_RENDERER_API IRenderer
+		class LEV_RENDERER_API IRendererBackend
 		{
 		public:
 			virtual bool SetInputData(const Scene::LevSceneData& data) = 0;

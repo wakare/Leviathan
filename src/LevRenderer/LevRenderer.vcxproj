@@ -22,20 +22,18 @@
     <ClInclude Include="IOpenGLObject.h" />
     <ClInclude Include="IOpenGLResource.h" />
     <ClInclude Include="IOpenGLUniform.h" />
-    <ClInclude Include="IRenderer.h" />
+    <ClInclude Include="IRendererBackend.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
     <ClInclude Include="OpenGLEmptyRenderEntry.h" />
     <ClInclude Include="OpenGLFrameBuffer.h" />
-    <ClInclude Include="OpenGLLight.h" />
+    <ClInclude Include="OpenGLRStatePointSize.h" />
     <ClInclude Include="OpenGLRenderEntry.h" />
     <ClInclude Include="OpenGLObjectManager.h" />
     <ClInclude Include="OpenGLPass.h" />
-    <ClInclude Include="OpenGLPointLight.h" />
-    <ClInclude Include="OpenGLMaterial.h" />
     <ClInclude Include="OpenGLRenderDataProcessor.h" />
-    <ClInclude Include="OpenGLRenderer.h" />
-    <ClInclude Include="OpenGLRenderState.h" />
-    <ClInclude Include="OpenGLRenderStateDepthFunc.h" />
+    <ClInclude Include="OpenGLRenderBackend.h" />
+    <ClInclude Include="IOpenGLRenderState.h" />
+    <ClInclude Include="OpenGLRStateDepthFunc.h" />
     <ClInclude Include="OpenGLRenderStateManager.h" />
     <ClInclude Include="OpenGLRenderTree.h" />
     <ClInclude Include="OpenGLResourceManager.h" />
@@ -43,18 +41,17 @@
     <ClInclude Include="OpenGLTextureUniform.h" />
     <ClInclude Include="OpenGLTextureObject.h" />
     <ClInclude Include="OpenGLNumericalUniform.h" />
+    <ClInclude Include="OpenGLUniformManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
     <ClCompile Include="OpenGLFrameBuffer.cpp" />
+    <ClCompile Include="OpenGLRStatePointSize.cpp" />
     <ClCompile Include="OpenGLRenderEntry.cpp" />
     <ClCompile Include="OpenGLPass.cpp" />
-    <ClCompile Include="OpenGLPointLight.cpp" />
-    <ClCompile Include="OpenGLMaterial.cpp" />
     <ClCompile Include="OpenGLRenderDataProcessor.cpp" />
-    <ClCompile Include="OpenGLRenderer.cpp" />
-    <ClCompile Include="OpenGLRenderNode.cpp" />
-    <ClCompile Include="OpenGLRenderStateDepthFunc.cpp" />
+    <ClCompile Include="OpenGLRenderBackend.cpp" />
+    <ClCompile Include="OpenGLRStateDepthFunc.cpp" />
     <ClCompile Include="OpenGLRenderStateManager.cpp" />
     <ClCompile Include="OpenGLRenderTree.cpp" />
     <ClCompile Include="OpenGLResourceManager.cpp" />
@@ -62,6 +59,7 @@
     <ClCompile Include="OpenGLTextureUniform.cpp" />
     <ClCompile Include="OpenGLTextureObject.cpp" />
     <ClCompile Include="OpenGLNumericalUniform.cpp" />
+    <ClCompile Include="OpenGLUniformManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

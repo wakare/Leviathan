@@ -3,12 +3,14 @@
 #include "LevRAttrShaderProgram.h"
 #include "OpenGLPass.h"
 #include "OpenGLShaderProgram.h"
+#include "OpenGLRenderStateManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
 		OpenGLResourceManager::OpenGLResourceManager()
+			: m_render_state_manager(new OpenGLRenderStateManager)
 		{
 
 		}
@@ -20,10 +22,10 @@ namespace Leviathan
 			if (it == m_render_trees.end())
 			{
 				// Create
-				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree;
+				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(m_render_state_manager);
 
 				LPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
-				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program);
+				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program, *m_render_state_manager);
 			}
 
 			return shader_program.GetID();

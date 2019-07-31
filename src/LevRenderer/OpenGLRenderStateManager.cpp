@@ -1,34 +1,35 @@
 #include "OpenGLRenderStateManager.h"
-#include "OpenGLRenderState.h"
+#include "IOpenGLRenderState.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
 		OpenGLRenderStateManager::OpenGLRenderStateManager()
-		{
-		}
+		= default;
 
-		void OpenGLRenderStateManager::AddRenderState(LPtr<OpenGLRenderState> render_state)
+		void OpenGLRenderStateManager::ApplyRenderState(LPtr<IOpenGLRenderState> render_state)
 		{
-			m_render_states.push_back(render_state);
-		}
-
-		void OpenGLRenderStateManager::ApplyAllRenderState()
-		{
-			for (auto& render_state : m_render_states)
+			auto it = m_current_render_state.find(render_state->GetRenderStateType());
+			if (it != m_current_render_state.end())
 			{
-				render_state->ApplyState();
+				/*
+				 * Check whether the same render state
+				 */
+				if (render_state.Get() == it->second.Get())
+				{
+					render_state->Apply();
+					return;
+				}
+
+				render_state->SetLastRenderState(it->second);
+				it->second->UnApply();
 			}
+
+			render_state->Apply();
+			m_current_render_state[render_state->GetRenderStateType()] = render_state;
 		}
 
-		void OpenGLRenderStateManager::UnApplyAllRenderState()
-		{
-			for (auto& render_state : m_render_states)
-			{
-				render_state->UnApplyState();
-			}
-		}
 	}
 }
 
