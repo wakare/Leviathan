@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="IOpenGLObject.h" />
     <ClInclude Include="IOpenGLResource.h" />
+    <ClInclude Include="IOpenGLTextureObject.h" />
     <ClInclude Include="IOpenGLUniform.h" />
     <ClInclude Include="IRendererBackend.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
@@ -38,8 +39,9 @@
     <ClInclude Include="OpenGLRenderTree.h" />
     <ClInclude Include="OpenGLResourceManager.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
+    <ClInclude Include="OpenGLTexture3DObject.h" />
     <ClInclude Include="OpenGLTextureUniform.h" />
-    <ClInclude Include="OpenGLTextureObject.h" />
+    <ClInclude Include="OpenGLTexture2DObject.h" />
     <ClInclude Include="OpenGLNumericalUniform.h" />
     <ClInclude Include="OpenGLUniformManager.h" />
   </ItemGroup>
@@ -56,8 +58,9 @@
     <ClCompile Include="OpenGLRenderTree.cpp" />
     <ClCompile Include="OpenGLResourceManager.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
+    <ClCompile Include="OpenGLTexture3DObject.cpp" />
     <ClCompile Include="OpenGLTextureUniform.cpp" />
-    <ClCompile Include="OpenGLTextureObject.cpp" />
+    <ClCompile Include="OpenGLTexture2DObject.cpp" />
     <ClCompile Include="OpenGLNumericalUniform.cpp" />
     <ClCompile Include="OpenGLUniformManager.cpp" />
   </ItemGroup>

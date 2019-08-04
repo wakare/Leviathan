@@ -5,7 +5,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLTextureObject;
+		class IOpenGLTextureObject;
 
 		class IOpenGLObject : public Renderer::IOpenGLResource
 		{
@@ -13,8 +13,7 @@ namespace Leviathan
 			virtual ~IOpenGLObject() = default;
 
 			IOpenGLObject* ToOpenGLObject() override { return this; };
-
-			virtual OpenGLTextureObject* ToOpenGLTextureObject() { return nullptr; };
+			virtual IOpenGLTextureObject* ToOpenGLTextureObject() { return nullptr; };
 		};
 	}
 }

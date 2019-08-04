@@ -28,6 +28,8 @@ namespace Leviathan
 
 			LevTextureType GetTextureType() const;
 
+			LevAttachmentType GetAttachmentType() const override;
+
 			const void* GetTextureData() const;
 			const std::string& GetTextureUniformName() const;
 

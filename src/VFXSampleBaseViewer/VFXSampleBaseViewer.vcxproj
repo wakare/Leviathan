@@ -19,18 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="SDFVoxel.h" />
+    <ClInclude Include="SDFVoxelManager.h" />
     <ClInclude Include="VFXCommonScene.h" />
     <ClInclude Include="VFXDeferRenderScene.h" />
     <ClInclude Include="VFXMeshTestScene.h" />
     <ClInclude Include="VFXSampleBaseViewer.h" />
     <ClInclude Include="VFXSampleBaseViewerAPIDefine.h" />
+    <ClInclude Include="VFXSDFScene.h" />
     <ClInclude Include="VFXShadowMapScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="SDFVoxelManager.cpp" />
     <ClCompile Include="VFXCommonScene.cpp" />
     <ClCompile Include="VFXDeferRenderScene.cpp" />
     <ClCompile Include="VFXMeshTestScene.cpp" />
     <ClCompile Include="VFXSampleBaseViewer.cpp" />
+    <ClCompile Include="VFXSDFScene.cpp" />
     <ClCompile Include="VFXShadowMapScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

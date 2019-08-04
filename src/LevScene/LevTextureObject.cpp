@@ -48,6 +48,11 @@ namespace Leviathan
 			return m_texture_type;
 		}
 
+		LevAttachmentType LevTextureObject::GetAttachmentType() const
+		{
+			return ELAT_TEXTURE_OBJECT;
+		}
+
 		const void* LevTextureObject::GetTextureData() const
 		{
 			return m_texture_data->GetArrayData();

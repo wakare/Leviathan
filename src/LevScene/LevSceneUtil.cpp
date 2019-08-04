@@ -70,6 +70,69 @@ namespace Leviathan
 			return true;
 		}
 
+		bool LevSceneUtil::GenerateCube(const float* cube_center, float cube_length, LPtr<LevSceneNode>& out_cube_node)
+		{
+			LPtr<RAIIBufferData> vertices_buffer = new RAIIBufferData(8 * 3 * sizeof(float));
+			float* data = static_cast<float*>(vertices_buffer->GetArrayData());
+
+			float _cube[] =
+			{
+				-cube_length, -cube_length, -cube_length,
+				-cube_length, -cube_length, cube_length,
+				-cube_length, cube_length, -cube_length,
+				-cube_length, cube_length, cube_length,
+				cube_length, -cube_length, -cube_length,
+				cube_length, -cube_length, cube_length,
+				cube_length, cube_length, -cube_length,
+				cube_length, cube_length, cube_length
+			};
+
+			for (unsigned i = 0; i < 8; i++)
+			{
+				_cube[3 * i] += cube_center[0];
+				_cube[3 * i + 1] += cube_center[1];
+				_cube[3 * i + 2] += cube_center[2];
+			}
+
+			memcpy(data, _cube, sizeof(_cube));
+
+			LPtr<RAIIBufferData> indices_buffer = new RAIIBufferData(6 * 2 * 3 * sizeof(unsigned));
+			unsigned* indices_data = static_cast<unsigned*>(indices_buffer->GetArrayData());
+
+			unsigned indices[] =
+			{
+				0, 3, 1,
+				0, 2, 3,
+				0, 2, 6,
+				0, 6, 4,
+				0, 1, 5,
+				0, 5, 4,
+				7, 6, 4,
+				7, 4, 5,
+				7, 5, 1,
+				7, 1, 3,
+				7, 6, 2,
+				7, 2, 3
+			};
+
+			memcpy(indices_data, indices, sizeof(indices));
+
+			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(8);
+
+			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer);
+			attribute_binder->BindAttribute(0, vertices_attribute);
+
+			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer);
+			attribute_binder->SetIndexAttribute(index_attribute);
+
+			LPtr<LevSceneObject> object = new LevSceneObject(ELSOT_DYNAMIC);
+			object->AddAttribute(TryCast<LevRAttrRenderObjectAttributeBinder, LevSceneObjectAttribute>(attribute_binder));
+
+			out_cube_node.Reset(new LevSceneNode(object));
+
+			return true;
+		}
+
 		bool LevSceneUtil::GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node)
 		{
 			constexpr float angle_delta = 15.0f * PI_FLOAT / 180.0f;

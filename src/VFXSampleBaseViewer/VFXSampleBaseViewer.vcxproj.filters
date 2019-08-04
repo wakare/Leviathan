@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="SDFRender">
+      <UniqueIdentifier>{b2c9d360-c563-4da5-9ac9-7deb9e9b1456}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VFXSampleBaseViewer.h">
@@ -33,6 +36,15 @@
     <ClInclude Include="VFXMeshTestScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="VFXSDFScene.h">
+      <Filter>SDFRender</Filter>
+    </ClInclude>
+    <ClInclude Include="SDFVoxelManager.h">
+      <Filter>SDFRender</Filter>
+    </ClInclude>
+    <ClInclude Include="SDFVoxel.h">
+      <Filter>SDFRender</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VFXCommonScene.cpp">
@@ -49,6 +61,12 @@
     </ClCompile>
     <ClCompile Include="VFXMeshTestScene.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="VFXSDFScene.cpp">
+      <Filter>SDFRender</Filter>
+    </ClCompile>
+    <ClCompile Include="SDFVoxelManager.cpp">
+      <Filter>SDFRender</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

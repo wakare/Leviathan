@@ -1,14 +1,12 @@
-﻿#include "OpenGLTextureObject.h"
+﻿#include "OpenGLTexture2DObject.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTextureObject::OpenGLTextureObject(GLuint width, GLuint height, const GLvoid* data)
+		OpenGLTexture2DObject::OpenGLTexture2DObject(GLuint width, GLuint height, const GLvoid* data)
 			: m_width(width)
 			, m_height(height)
-			, m_texture_unit_offset(0)
-			, m_texture_object(0)
 		{
 			glGenTextures(1, &m_texture_object);
 			glBindTexture(GL_TEXTURE_2D, m_texture_object);
@@ -25,24 +23,9 @@ namespace Leviathan
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
 
-		OpenGLTextureObject::~OpenGLTextureObject()
+		OpenGLTexture2DObject::~OpenGLTexture2DObject()
 		{
 			glDeleteTextures(1, &m_texture_object);
-		}
-
-		GLuint OpenGLTextureObject::GetTextureObject() const
-		{
-			return m_texture_object;
-		}
-
-		void OpenGLTextureObject::SetTextureUnitOffset(GLuint unit_offset)
-		{
-			m_texture_unit_offset = unit_offset;
-		}
-
-		GLuint OpenGLTextureObject::GetTextureUnitOffset() const
-		{
-			return m_texture_unit_offset;
 		}
 	}
 }

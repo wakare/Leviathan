@@ -13,7 +13,7 @@ namespace Leviathan
 
 	namespace Renderer
 	{
-		class OpenGLTextureObject;
+		class IOpenGLTextureObject;
 
 		class OpenGLTextureUniform : public IOpenGLUniform
 		{
@@ -30,7 +30,7 @@ namespace Leviathan
 			std::string m_texture_uniform_name;
 			GLint m_texture_uniform_location;
 
-			LPtr<OpenGLTextureObject> m_texture_object;
+			LPtr<IOpenGLTextureObject> m_texture_object;
 		};
 	}
 }

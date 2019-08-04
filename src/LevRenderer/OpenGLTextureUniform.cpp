@@ -1,6 +1,7 @@
 #include "OpenGLTextureUniform.h"
 #include "LevTextureObject.h"
-#include "OpenGLTextureObject.h"
+#include "OpenGLTexture2DObject.h"
+#include "OpenGLTexture3DObject.h"
 
 namespace Leviathan
 {
@@ -10,7 +11,20 @@ namespace Leviathan
 			: m_texture_uniform_name(texture.GetTextureUniformName())
 			, m_texture_uniform_location(-1)
 		{
-			m_texture_object.Reset(new OpenGLTextureObject(texture.GetWidth(), texture.GetHeight(), texture.GetTextureData()));
+			switch(texture.GetTextureType())
+			{
+				case Scene::ELTT_2D_TEXTURE:
+					m_texture_object.Reset(new OpenGLTexture2DObject(texture.GetWidth(), texture.GetHeight(), texture.GetTextureData()));
+					break;
+
+				case Scene::ELTT_3D_TEXTURE:
+					m_texture_object.Reset(new OpenGLTexture3DObject(texture.GetWidth(), texture.GetHeight(), texture.GetDepth(), texture.GetTextureData()));
+					break;
+
+				default:
+					LEV_ASSERT(false);
+			}
+			
 		}
 
 		OpenGLTextureUniform::~OpenGLTextureUniform()
@@ -23,8 +37,7 @@ namespace Leviathan
 
 		bool OpenGLTextureUniform::Apply(GLuint shaderProgram)
 		{
-			glActiveTexture(GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset());
-			glBindTexture(GL_TEXTURE_2D, m_texture_object->GetTextureObject());
+			m_texture_object->ActiveAndBind();
 
 			if (m_texture_uniform_location == -1)
 			{
@@ -38,9 +51,7 @@ namespace Leviathan
 
 		bool OpenGLTextureUniform::UnApply(GLuint shaderProgram)
 		{
-			glActiveTexture(GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset());
-			glBindTexture(GL_TEXTURE_2D, 0);
-
+			m_texture_object->UnActiveAndUnBind();
 			return true;
 		}
 
