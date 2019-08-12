@@ -1,5 +1,5 @@
 #include "LevSceneRenderAttribute.h"
-#include "LevRAttrUniform.h"
+#include "LevRAttrNumericalUniform.h"
 
 namespace Leviathan
 {

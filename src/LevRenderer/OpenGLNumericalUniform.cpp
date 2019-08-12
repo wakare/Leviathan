@@ -6,7 +6,7 @@ namespace Leviathan
 	{
 		using namespace Scene;
 
-		OpenGLNumericalUniform::OpenGLNumericalUniform(const Scene::LevRAttrUniform& scene_uniform)
+		OpenGLNumericalUniform::OpenGLNumericalUniform(const Scene::LevRAttrNumericalUniform& scene_uniform)
 			: m_scene_uniform(scene_uniform)
 			, m_uniform_location(-1)
 		{
@@ -32,7 +32,7 @@ namespace Leviathan
 
 			const void* uniform_data = m_scene_uniform.GetData().GetArrayData();
 
-			switch (m_scene_uniform.GetUniformType())
+			switch (m_scene_uniform.GetNumericalUniformType())
 			{
 			case TYPE_FLOAT_MAT4:
 			{

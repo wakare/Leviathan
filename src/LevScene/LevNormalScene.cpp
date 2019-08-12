@@ -1,6 +1,6 @@
 #include "LevNormalScene.h"
 #include "LevRAttrShaderProgram.h"
-#include "LevRAttrUniform.h"
+#include "LevRAttrNumericalUniform.h"
 #include "LevSceneData.h"
 #include "LevSceneTree.h"
 #include "LevSceneNode.h"
@@ -95,8 +95,8 @@ namespace Leviathan
 			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			m_camera_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
-			m_default_view_matrix = new LevRAttrUniform("viewMatrix", TYPE_FLOAT_MAT4);
-			m_default_proj_matrix = new LevRAttrUniform("projMatrix", TYPE_FLOAT_MAT4);
+			m_default_view_matrix = new LevRAttrNumericalUniform("viewMatrix", TYPE_FLOAT_MAT4);
+			m_default_proj_matrix = new LevRAttrNumericalUniform("projMatrix", TYPE_FLOAT_MAT4);
 
 			LPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			m_default_view_matrix->SetData(view_matrix_data);
@@ -104,8 +104,8 @@ namespace Leviathan
 			LPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			m_default_proj_matrix->SetData(proj_matrix_data);
 
-			uniform_manager->AddUniform(m_default_view_matrix);
-			uniform_manager->AddUniform(m_default_proj_matrix);
+			uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(m_default_view_matrix));
+			uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(m_default_proj_matrix));
 
 			GetSceneData().AddSceneNodeToRoot(m_camera_node);
 			GetSceneData().RegisterToMainCamera(pCamera);

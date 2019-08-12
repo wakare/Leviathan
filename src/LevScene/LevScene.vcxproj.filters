@@ -139,9 +139,6 @@
     <ClInclude Include="LevSceneUtil.h">
       <Filter>Source Files\SceneUtil</Filter>
     </ClInclude>
-    <ClInclude Include="LevRAttrUniform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
     <ClInclude Include="LevNormalScene.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -177,6 +174,18 @@
     </ClInclude>
     <ClInclude Include="LevAttachment.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrAttachmentManager.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrNumericalUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrTextureUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="ILevRAttrUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -299,6 +308,9 @@
     </ClCompile>
     <ClCompile Include="LevTextureObject.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrTextureUniform.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

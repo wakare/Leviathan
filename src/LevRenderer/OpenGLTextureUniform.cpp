@@ -1,5 +1,6 @@
 #include "OpenGLTextureUniform.h"
 #include "LevTextureObject.h"
+#include "LevRAttrTextureUniform.h"
 #include "OpenGLTexture2DObject.h"
 #include "OpenGLTexture3DObject.h"
 
@@ -7,18 +8,20 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTextureUniform::OpenGLTextureUniform(const Scene::LevTextureObject& texture) 
-			: m_texture_uniform_name(texture.GetTextureUniformName())
+		OpenGLTextureUniform::OpenGLTextureUniform(const Scene::LevRAttrTextureUniform& texture)
+			: m_texture_uniform_name(texture.GetName())
 			, m_texture_uniform_location(-1)
 		{
-			switch(texture.GetTextureType())
+			const auto& texture_object = texture.GetUniformData();
+
+			switch(texture_object.GetTextureType())
 			{
 				case Scene::ELTT_2D_TEXTURE:
-					m_texture_object.Reset(new OpenGLTexture2DObject(texture.GetWidth(), texture.GetHeight(), texture.GetTextureData()));
+					m_texture_object.Reset(new OpenGLTexture2DObject(texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetTextureData()));
 					break;
 
 				case Scene::ELTT_3D_TEXTURE:
-					m_texture_object.Reset(new OpenGLTexture3DObject(texture.GetWidth(), texture.GetHeight(), texture.GetDepth(), texture.GetTextureData()));
+					m_texture_object.Reset(new OpenGLTexture3DObject(texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData()));
 					break;
 
 				default:

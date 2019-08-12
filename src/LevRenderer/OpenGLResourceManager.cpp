@@ -46,7 +46,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLResourceManager::ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObjects)
+		bool OpenGLResourceManager::ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -55,7 +55,7 @@ namespace Leviathan
 				return false;
 			}
 
-			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObjects));
+			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
 			it->second->ReplaceNode(node);
 
 			return true;

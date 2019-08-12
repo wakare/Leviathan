@@ -19,9 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ILevRAttrUniform.h" />
     <ClInclude Include="LevAttachment.h" />
     <ClInclude Include="LevFrameBufferObject.h" />
+    <ClInclude Include="LevRAttrAttachmentManager.h" />
     <ClInclude Include="LevRAttrRenderStateManager.h" />
+    <ClInclude Include="LevRAttrTextureUniform.h" />
     <ClInclude Include="LevRenderState.h" />
     <ClInclude Include="LevRAttrUniformManager.h" />
     <ClInclude Include="LevRenderStateDepthFunc.h" />
@@ -44,7 +47,7 @@
     <ClInclude Include="LevRAttrPointSize.h" />
     <ClInclude Include="LevRAttrRenderObjectAttributeBinder.h" />
     <ClInclude Include="LevRAttrShaderProgram.h" />
-    <ClInclude Include="LevRAttrUniform.h" />
+    <ClInclude Include="LevRAttrNumericalUniform.h" />
     <ClInclude Include="LevRAttrVisible.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
@@ -87,6 +90,7 @@
     <ClCompile Include="LevRAttrRenderObjectAttributeBinder.cpp" />
     <ClCompile Include="LevRAttrShaderProgram.cpp" />
     <ClCompile Include="LevRAttrRenderStateManager.cpp" />
+    <ClCompile Include="LevRAttrTextureUniform.cpp" />
     <ClCompile Include="LevRAttrUniformManager.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevRenderStateDepthFunc.cpp" />

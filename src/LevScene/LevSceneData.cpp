@@ -6,7 +6,7 @@
 #include "LevLight.h"
 #include "LevSceneObject.h"
 #include "LevRAttrShaderProgram.h"
-#include "LevRAttrUniform.h"
+#include "LevRAttrNumericalUniform.h"
 
 namespace Leviathan
 {

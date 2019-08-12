@@ -2,6 +2,9 @@
 #include "SDFVoxelManager.h"
 #include "LevTextureObject.h"
 #include "LevSceneUtil.h"
+#include "LevRAttrTextureUniform.h"
+#include "LevRAttrUniformManager.h"
+#include "LevSceneData.h"
 
 namespace Leviathan
 {
@@ -10,6 +13,7 @@ namespace Leviathan
 		VFXSDFScene::VFXSDFScene()
 			: m_sdf_manager(nullptr)
 			, m_sdf_texture(nullptr)
+			, m_sdf_texture_uniform(nullptr)
 			, m_sdf_normal_texture(nullptr)
 			, m_render_node(nullptr)
 		{
@@ -45,6 +49,7 @@ namespace Leviathan
 
 			m_sdf_manager->UpdateSDFVoxelByFunc(sphere_sdf);
 
+			InitRenderNode();
 			UpdateSDFToTexture();
 		}
 
@@ -53,9 +58,16 @@ namespace Leviathan
 			const float cube_center[] = { 0.0f, 0.0f, 0.0f };
 			const float cube_size = 5.0f;
 
-			Scene::LevSceneUtil::GenerateBallNode(cube_center, cube_size, m_render_node);
+			Scene::LevSceneUtil::GenerateCube(cube_center, cube_size, m_render_node);
+			LEV_ASSERT(m_render_node);
 
-			m_render_node->GetNodeData()->AddAttribute()	
+			m_sdf_texture_uniform = new Scene::LevRAttrTextureUniform("SDF_TEXTURE");
+			
+			LPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
+			uniform_manager->AddUniform(TryCast<LevRAttrTextureUniform, ILevRAttrUniform>(m_sdf_texture_uniform));
+
+			m_render_node->GetNodeData()->AddAttribute(TryCast<Scene::LevRAttrUniformManager, Scene::LevSceneObjectAttribute>(uniform_manager));
+			GetSceneData().AddSceneNodeToRoot(m_render_node);
 		}
 
 		void VFXSDFScene::UpdateSDFToTexture()
@@ -63,6 +75,11 @@ namespace Leviathan
 			/*
 			 * Fill texture data
 			 */
+
+			if (!m_sdf_texture_uniform)
+			{
+				return;
+			}
 
 			const auto& grids = m_sdf_manager->GetAllGrids();
 
@@ -74,7 +91,10 @@ namespace Leviathan
 				data[i] = grids[i].weight;
 			}
 
-			m_sdf_texture = new Scene::LevTextureObject(Scene::ELTT_3D_TEXTURE, 100, 100, 100, texture_data, "SDF_TEXTURE");
+			m_sdf_texture = new Scene::LevTextureObject(Scene::ELTT_3D_TEXTURE, 100, 100, 100, texture_data);
+			m_sdf_texture_uniform->SetUniformData(m_sdf_texture);
+
+			m_render_node->GetNodeData()->SetState(Scene::LevSceneObjectState::ELSOS_UPDATE);
 		}
 	}
 }

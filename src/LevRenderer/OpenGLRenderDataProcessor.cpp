@@ -15,13 +15,15 @@
 #include "LevRAttrPointSize.h"
 #include "LevRAttrLightEnable.h"
 #include "LevRAttrVisible.h"
-#include "LevRAttrUniform.h"
+#include "LevRAttrNumericalUniform.h"
 #include "OpenGLRenderEntry.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
+#include "LevRAttrTextureUniform.h"
 #include "LevRAttrRenderStateManager.h"
 #include "OpenGLRStatePointSize.h"
+#include "OpenGLTextureUniform.h"
 
 namespace Leviathan
 {
@@ -193,14 +195,14 @@ namespace Leviathan
 			return *m_resource_manager;
 		}
 
-		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLRenderEntry> opengl_object, const Scene::LevSceneRenderAttribute& render_attribute)
+		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLRenderEntry> OpenGL_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
 			// Point size attribute
 			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
 			if (point_size)
 			{
 				const auto size = point_size->GetSize();
-				opengl_object->AddRenderState(new OpenGLRStatePointSize(size));
+				OpenGL_object->AddRenderState(new OpenGLRStatePointSize(size));
 				
 				return true;
 			}
@@ -209,7 +211,7 @@ namespace Leviathan
 			const Scene::LevRAttrRenderStateManager* render_state_manager = dynamic_cast<const Scene::LevRAttrRenderStateManager*>(&render_attribute);
 			if (render_state_manager)
 			{
-				opengl_object->SetRenderStateManager(*render_state_manager);
+				OpenGL_object->SetRenderStateManager(*render_state_manager);
 				return true;
 			}
 
@@ -241,8 +243,26 @@ namespace Leviathan
 			{
 				for (const auto& uniform : uniform_manager->GetUniforms())
 				{
-					LPtr<IOpenGLUniform> opengl_uniform = new OpenGLNumericalUniform(*uniform.second);
-					opengl_object->AddUniform(opengl_uniform);
+					LPtr<IOpenGLUniform> OpenGL_uniform = nullptr;
+
+					switch (uniform.second->GetUniformType())
+					{
+					case Scene::ELUT_NUMERICAL:
+					{
+						const Scene::LevRAttrNumericalUniform* numerical_uniform = dynamic_cast<const Scene::LevRAttrNumericalUniform*>(uniform.second.Get());
+						OpenGL_uniform = new OpenGLNumericalUniform(*numerical_uniform);
+						break;
+					}	
+					case Scene::ELUT_TEXTURE:
+					{
+						const Scene::LevRAttrTextureUniform* texture_uniform = dynamic_cast<const Scene::LevRAttrTextureUniform*>(uniform.second.Get());
+						OpenGL_uniform = new OpenGLTextureUniform(*texture_uniform);
+						break;
+					}	
+					}
+
+					LEV_ASSERT(OpenGL_uniform);
+					OpenGL_object->AddUniform(OpenGL_uniform);
 				}
 
 				return true;

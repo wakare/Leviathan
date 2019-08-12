@@ -24,6 +24,8 @@ namespace Leviathan
 			m_inverse_grid_unit_length[1] = 1.0f / m_grid_unit_length[1];
 			m_inverse_grid_unit_length[2] = 1.0f / m_grid_unit_length[2];
 
+			m_grids.resize(m_dimension * m_square_dimension);
+
 			m_grid_merged_func = [this](SDFVoxel& be_merged, const SDFVoxel& merged_grid)
 			{
 				be_merged.weight = merged_grid.weight;

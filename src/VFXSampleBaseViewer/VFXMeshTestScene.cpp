@@ -39,12 +39,12 @@ namespace Leviathan
 					0.0f, 0.0f, 0.0f, 1.0f
 				};
 
-				LPtr<LevRAttrUniform> model_matrix_uniform = new LevRAttrUniform("modelMatrix", TYPE_FLOAT_MAT4);
+				LPtr<LevRAttrNumericalUniform> model_matrix_uniform = new LevRAttrNumericalUniform("modelMatrix", TYPE_FLOAT_MAT4);
 				LPtr<RAIIBufferData> model_matrix = new RAIIBufferData(sizeof(identity_matrix));
 				model_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
 				model_matrix_uniform->SetData(model_matrix);
 
-				LPtr<LevRAttrUniform> world_matrix_uniform = new LevRAttrUniform("worldMatrix", TYPE_FLOAT_MAT4);
+				LPtr<LevRAttrNumericalUniform> world_matrix_uniform = new LevRAttrNumericalUniform("worldMatrix", TYPE_FLOAT_MAT4);
 				LPtr<RAIIBufferData> world_matrix = new RAIIBufferData(sizeof(identity_matrix));
 				world_matrix->SetArrayData(identity_matrix, sizeof(identity_matrix));
 				world_matrix_uniform->SetData(world_matrix);
@@ -52,8 +52,8 @@ namespace Leviathan
 				LevRAttrUniformManager* uniform_manager = nullptr;
 				mesh_node->GetNodeData()->GetAttribute<LevRAttrUniformManager>(uniform_manager);
 
-				uniform_manager->AddUniform(model_matrix_uniform);
-				uniform_manager->AddUniform(world_matrix_uniform);
+				uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(model_matrix_uniform));
+				uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(world_matrix_uniform));
 
 				mesh_node->GetNodeData()->SetState(ELSOS_UPDATE);
 			};

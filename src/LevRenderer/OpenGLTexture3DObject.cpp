@@ -18,7 +18,7 @@ namespace Leviathan
 			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-			glTexImage3D(GL_TEXTURE_3D, 0, GL_RGB, m_width, m_height,m_depth, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTexImage3D(GL_TEXTURE_3D, 0, GL_R32F, m_width, m_height, m_depth, 0, GL_RED, GL_FLOAT, data);
 			glGenerateMipmap(GL_TEXTURE_3D);
 
 			glBindTexture(GL_TEXTURE_3D, 0);

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "LevAttachment.h"
+#include "LevSceneAPIDefine.h"
 #include "LPtr.h"
 
 namespace Leviathan
@@ -14,24 +15,23 @@ namespace Leviathan
 			ELTT_3D_TEXTURE
 		};
 
-		class LevTextureObject : public LevAttachment
+		class LEV_SCENE_API LevTextureObject : public LevAttachment
 		{
 		public:
-			LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LPtr<RAIIBufferData> data, const std::string& texture_uniform_name);
+			LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LPtr<RAIIBufferData> data);
 			
 			unsigned GetID() const;
 			unsigned GetWidth() const;
 			unsigned GetHeight() const;
 			unsigned GetDepth() const;
 
+			void SetTextureObjectData(LPtr<RAIIBufferData> texture_data);
+			const RAIIBufferData& GetTextureObjectData() const;
+
 			LevTextureObject* ToLevTextureObject() override;
-
 			LevTextureType GetTextureType() const;
-
 			LevAttachmentType GetAttachmentType() const override;
-
 			const void* GetTextureData() const;
-			const std::string& GetTextureUniformName() const;
 
 		private:
 			const unsigned m_id;
@@ -41,8 +41,6 @@ namespace Leviathan
 			const unsigned m_depth;
 
 			const LevTextureType m_texture_type;
-
-			const std::string m_texture_uniform_name;
 			LPtr<RAIIBufferData> m_texture_data;
 		};
 	}

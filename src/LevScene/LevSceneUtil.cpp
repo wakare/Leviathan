@@ -330,7 +330,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevRAttrUniform>& out_uniform)
+		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevRAttrNumericalUniform>& out_uniform)
 		{
 			static float identity_matrix[] =
 			{
@@ -340,7 +340,7 @@ namespace Leviathan
 				0.0f, 0.0f, 0.0f, 1.0f
 			};
 
-			out_uniform.Reset(new LevRAttrUniform(uniform_name, TYPE_FLOAT_MAT4));
+			out_uniform.Reset(new LevRAttrNumericalUniform(uniform_name, TYPE_FLOAT_MAT4));
 			LPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(identity_matrix));
 			identity_matrix_buffer_data->SetArrayData(identity_matrix, sizeof(identity_matrix));
 			out_uniform->SetData(identity_matrix_buffer_data);

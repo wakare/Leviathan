@@ -2,7 +2,7 @@
 
 #include <gl/glew.h>
 #include "IOpenGLUniform.h"
-#include "LevRAttrUniform.h"
+#include "LevRAttrNumericalUniform.h"
 
 namespace Leviathan
 {
@@ -11,14 +11,14 @@ namespace Leviathan
 		class OpenGLNumericalUniform : public IOpenGLUniform
 		{
 		public:
-			OpenGLNumericalUniform(const Scene::LevRAttrUniform& scene_uniform);
+			OpenGLNumericalUniform(const Scene::LevRAttrNumericalUniform& scene_uniform);
 			const std::string& GetUniformName() const override;
 
 			bool Apply(GLuint program) override;
 			bool UnApply(GLuint program) override;
 
 		private:
-			const Scene::LevRAttrUniform& m_scene_uniform;
+			const Scene::LevRAttrNumericalUniform& m_scene_uniform;
 			GLint m_uniform_location;
 		};
 	}

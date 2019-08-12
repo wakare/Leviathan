@@ -37,7 +37,7 @@ namespace Leviathan
 			auto it = m_nodes.find(node->GetNodeData()->GetID());
 			if (it == m_nodes.end())
 			{
-				return false;
+				return AddNodeToRoot(node);
 			}
 
 			it->second->SetNodeData(node->GetNodeData());

@@ -8,6 +8,7 @@ namespace Leviathan
 	namespace Scene
 	{
 		class LevTextureObject;
+		class LevRAttrTextureUniform;
 	}
 
 	namespace Viewer
@@ -28,6 +29,7 @@ namespace Leviathan
 			LPtr<Scene::LevSceneNode> m_render_node;
 			LPtr<Scene::LevTextureObject> m_sdf_texture;
 			LPtr<Scene::LevTextureObject> m_sdf_normal_texture;
+			LPtr<Scene::LevRAttrTextureUniform> m_sdf_texture_uniform;
 			std::shared_ptr<SDFVoxelManager> m_sdf_manager;
 		};
 	}
