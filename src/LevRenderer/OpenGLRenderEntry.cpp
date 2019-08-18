@@ -3,18 +3,37 @@
 #include "OpenGLRenderStateManager.h"
 #include "LevRAttrRenderStateManager.h"
 #include "OpenGLRStateDepthFunc.h"
+#include "LevRenderStatePointSize.h"
+#include "OpenGLRStatePointSize.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
+		OpenGLRenderEntry::OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
 			: m_attribute_binder(attribute_binder)
 			, m_inited(false)
-			, m_primitive_type(primitive_type)
+			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(id)
 		{
+			switch (attribute_binder.GetPrimitiveType())
+			{
+			case Scene::EROPT_POINTS:
+				m_primitive_type = GL_POINTS;
+				break;
 
+			case Scene::EROPT_LINES:
+				m_primitive_type = GL_LINES;
+				break;
+
+			case Scene::EROPT_TRIANGLES:
+				m_primitive_type = GL_TRIANGLES;
+				break;
+
+			default:
+				m_primitive_type = GL_INVALID_ENUM;
+				break;
+			}
 		}
 
 		/*
@@ -43,11 +62,21 @@ namespace Leviathan
 				{
 				case Scene::ELRST_DEPTH_FUNC:
 				{
-					const auto* depth_func_point = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
-					LEV_ASSERT(depth_func_point);
+					const auto* depth_func = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
+					LEV_ASSERT(depth_func);
 
-					LPtr<IOpenGLRenderState> depth_func = new OpenGLRStateDepthFunc(*depth_func_point);
-					m_render_states.push_back(depth_func);
+					LPtr<IOpenGLRenderState> depth_func_state = new OpenGLRStateDepthFunc(*depth_func);
+					m_render_states.push_back(depth_func_state);
+				}
+				break;
+
+				case Scene::ELRST_POINT_SIZE:
+				{
+					const auto* point_size = dynamic_cast<const Scene::LevRenderStatePointSize*>(state.second.Get());
+					LEV_ASSERT(point_size);
+
+					LPtr<IOpenGLRenderState> point_size_state = new OpenGLRStatePointSize(point_size->GetPointSize());
+					m_render_states.push_back(point_size_state);
 				}
 				break;
 

@@ -33,7 +33,7 @@ namespace Leviathan
 			static bool GenerateCube(const float* cube_center, float cube_length, LPtr<LevSceneNode>& out_cube_node);
 			static bool GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node);
 			static bool GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LPtr<LevSceneNode>& out_plane_node);
-
+			static bool GeneratePoints(const float* vertices, const float* normals, unsigned count, LPtr<LevSceneNode>& out_points_node);
 
 			/*
 				Easy-interface to generate uniform.

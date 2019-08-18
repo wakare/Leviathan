@@ -22,6 +22,8 @@ namespace Leviathan
 
 		private:
 			void InitRenderNode();
+			void InitCubeNode();
+			void InitDebugNode();
 			void UpdateSDFToTexture();
 
 			float m_sdf_range[6];

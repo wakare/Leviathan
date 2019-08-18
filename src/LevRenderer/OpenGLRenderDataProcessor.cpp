@@ -86,36 +86,13 @@ namespace Leviathan
 				const Scene::LevRAttrRenderObjectAttributeBinder* attribute_binder = nullptr;
 				object.GetAttribute<Scene::LevRAttrRenderObjectAttributeBinder>(attribute_binder);
 
-				GLenum primitive_type = GL_NONE;
-				if (attribute_binder)
-				{
-					switch (attribute_binder->GetPrimitiveType())
-					{
-					case Scene::EROPT_POINTS:
-						primitive_type = GL_POINTS;
-						break;
-
-					case Scene::EROPT_LINES:
-						primitive_type = GL_LINES;
-						break;
-
-					case Scene::EROPT_TRIANGLES:
-						primitive_type = GL_TRIANGLES;
-						break;
-
-					default:
-						primitive_type = GL_NONE;
-						break;
-					}
-				}
-
 				switch (object.GetState())
 				{
 				case Scene::ELSOS_ADDED:
 				{
 					if (attribute_binder)
 					{
-						gl_render_entry = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
+						gl_render_entry = new OpenGLRenderEntry(object.GetID(), *attribute_binder);
 					}
 					else
 					{
@@ -141,7 +118,7 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						gl_render_entry = new OpenGLRenderEntry(object.GetID(), primitive_type, *attribute_binder);
+						gl_render_entry = new OpenGLRenderEntry(object.GetID(), *attribute_binder);
 					}
 					else
 					{

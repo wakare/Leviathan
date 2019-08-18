@@ -28,6 +28,7 @@
     <ClInclude Include="LevRenderState.h" />
     <ClInclude Include="LevRAttrUniformManager.h" />
     <ClInclude Include="LevRenderStateDepthFunc.h" />
+    <ClInclude Include="LevRenderStatePointSize.h" />
     <ClInclude Include="LevSceneDefaultShader_phong.h" />
     <ClInclude Include="LevSceneDefaultShader_simple.h" />
     <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
@@ -94,6 +95,7 @@
     <ClCompile Include="LevRAttrUniformManager.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevRenderStateDepthFunc.cpp" />
+    <ClCompile Include="LevRenderStatePointSize.cpp" />
     <ClCompile Include="LevResetObjModifiedVisitor.cpp" />
     <ClCompile Include="LevScene.cpp" />
     <ClCompile Include="LevSceneData.cpp" />

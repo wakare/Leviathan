@@ -20,7 +20,7 @@ namespace Leviathan
 		class OpenGLRenderEntry
 		{
 		public:
-			OpenGLRenderEntry(unsigned id, GLenum primitive_type, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
+			OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
 			
 			virtual bool Render(GLuint shaderProgram);
 

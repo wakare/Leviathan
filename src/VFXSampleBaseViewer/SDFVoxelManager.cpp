@@ -53,6 +53,8 @@ namespace Leviathan
 				float world_coord[3];
 				GetCoordByIndex(i, world_coord);
 
+				//LogLine("world_coord" << world_coord[0] << " " << world_coord[1] << " " << world_coord[2] << " ");
+
 				update_func(world_coord, grid);
 			}
 		}
@@ -65,6 +67,11 @@ namespace Leviathan
 		const float* SDFVoxelManager::GetSize() const
 		{
 			return m_grid_length;
+		}
+
+		const float* SDFVoxelManager::GetMin() const
+		{
+			return m_min;
 		}
 
 		bool SDFVoxelManager::Inside(const float* world_coord) const
@@ -90,9 +97,9 @@ namespace Leviathan
 
 			unsigned index_z = index;
 
-			out_world_coord[0] = index_x * m_grid_unit_length[0];
-			out_world_coord[1] = index_y * m_grid_unit_length[1];
-			out_world_coord[2] = index_z * m_grid_unit_length[2];
+			out_world_coord[0] = m_min[0] + index_x * m_grid_unit_length[0];
+			out_world_coord[1] = m_min[1] + index_y * m_grid_unit_length[1];
+			out_world_coord[2] = m_min[2] + index_z * m_grid_unit_length[2];
 		}
 
 		unsigned SDFVoxelManager::GetIndexByCoord(const float* world_coord) const

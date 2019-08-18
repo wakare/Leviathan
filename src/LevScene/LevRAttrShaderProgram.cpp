@@ -21,7 +21,7 @@ namespace Leviathan
 
 		unsigned LevRAttrShaderProgram::GetID() const
 		{
-			return 0;
+			return m_id;
 		}
 
 		const Leviathan::Scene::LevShaderProgram& LevRAttrShaderProgram::GetShaderProgram() const

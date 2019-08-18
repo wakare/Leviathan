@@ -97,15 +97,6 @@ namespace Leviathan
 			LPtr<LevRAttrUniformManager> plane_uniform_manager = new LevRAttrUniformManager;
 			plane_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
 
-			LPtr<LevRAttrNumericalUniform> plane_model_matrix_uniform = nullptr;
-			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", plane_model_matrix_uniform);
-
-			LPtr<LevRAttrNumericalUniform> plane_world_matrix_uniform = nullptr;
-			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", plane_world_matrix_uniform);
-
-			plane_uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(plane_model_matrix_uniform));
-			plane_uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(plane_world_matrix_uniform));
-
 			plane_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(plane_uniform_manager));
 
 			GetSceneData().AddSceneNodeToRoot(plane_node);

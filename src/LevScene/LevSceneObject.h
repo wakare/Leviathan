@@ -16,25 +16,26 @@ namespace Leviathan
 		enum LevSceneObjectType
 		{
 			// Only leaf node can be static node
-			ELSOT_STATIC		= 1,
+			ELSOT_STATIC = 1,
 
 			// Dynamic node is updated per traverse
-			ELSOT_DYNAMIC		= 2,
-
-			ELSOT_LIGHT			= 4,
-			ELSOT_CAMERA		= 8,
+			ELSOT_DYNAMIC = 2,
 
 			// Not set [self and children] modified flag while processing reset node modified
-			ELSOT_NOT_MODIFY	= 16,
+			ELSOT_NOT_MODIFY = 4,
 
 			// Default situation: modify self cause setting child modified flag
-			ELSOT_ONLY_MODIFY_SELF = 32,
+			ELSOT_ONLY_MODIFY_SELF = 8,
 
 			// No need add this object to render objects
-			ELSOT_UNRENDERABLE	= 1024,
+			ELSOT_UNRENDERABLE = 16,
 
 			// Special node defination
-			ELSOT_ROOT = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE
+			ELSOT_LIGHT		= 32,
+			ELSOT_CAMERA	= 64,
+
+			ELSOT_EMPTY = ELSOT_DYNAMIC | ELSOT_UNRENDERABLE | 128,
+			ELSOT_ROOT	= ELSOT_DYNAMIC | ELSOT_UNRENDERABLE | 256
 		};
 
 		enum LevSceneObjectState
@@ -91,7 +92,9 @@ namespace Leviathan
 			void ResetUnModified();
 			void SetModifiedCallback(LevSceneObjModified modified);
 
-			bool AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute);
+			template <typename T>
+			bool AddAttribute(LPtr<T> pAttribute);
+
 			const std::vector<LPtr<LevSceneObjectAttribute>>& GetAllAttributes() const;
 
 			template<typename T>
@@ -154,8 +157,29 @@ namespace Leviathan
 			LPtr<LevTimer> m_pTimer;
 		};
 
+		template <typename T>
+		bool LevSceneObject::AddAttribute(LPtr<T> pAttribute)
+		{
+			const LPtr<LevSceneObjectAttribute> attribute = pAttribute.To<LevSceneObjectAttribute>();
+			LEV_ASSERT(attribute.Get());
+			return AddAttribute(attribute);
+		}
+
+		template <>
+		inline bool LevSceneObject::AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute)
+		{
+			LEV_ASSERT(pAttribute.Get());
+			if (!pAttribute)
+			{
+				return false;
+			}
+
+			m_attributes.push_back(pAttribute);
+			return true;
+		}
+
 		template<typename T>
-		inline void LevSceneObject::UpdateAttribute(LPtr<T> attribute)
+		void LevSceneObject::UpdateAttribute(LPtr<T> attribute)
 		{
 			LPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
 
@@ -170,11 +194,10 @@ namespace Leviathan
 			}
 
 			AddAttribute(attribute);
-			return;
 		}
 
 		template<typename T>
-		inline bool LevSceneObject::GetAttribute(const T*& out) const
+		bool LevSceneObject::GetAttribute(const T*& out) const
 		{
 			for (auto& attribute : m_attributes)
 			{
@@ -190,7 +213,7 @@ namespace Leviathan
 		}
 
 		template<typename T>
-		inline bool LevSceneObject::GetAttribute(T*& out)
+		bool LevSceneObject::GetAttribute(T*& out)
 		{
 			for (auto& attribute : m_attributes)
 			{

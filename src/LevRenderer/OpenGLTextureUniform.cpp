@@ -27,7 +27,8 @@ namespace Leviathan
 				default:
 					LEV_ASSERT(false);
 			}
-			
+
+			m_texture_object->SetTextureUnitOffset(0);
 		}
 
 		OpenGLTextureUniform::~OpenGLTextureUniform()

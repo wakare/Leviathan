@@ -110,12 +110,6 @@ namespace Leviathan
 			m_modifiedCallback = modified;
 		}
 
-		bool LevSceneObject::AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute)
-		{
-			m_attributes.push_back(pAttribute);
-			return true;
-		}
-
 		const std::vector<LPtr<LevSceneObjectAttribute>>& LevSceneObject::GetAllAttributes() const
 		{
 			return m_attributes;

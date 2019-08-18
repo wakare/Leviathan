@@ -27,7 +27,9 @@ namespace Leviathan
 			void ResetUnModified();
 			void UpdateWorldTransform();
 			void UpdateTimer();
-			void RegisterToMainCamera(LPtr<LevCamera> pCamera);
+
+			void RegisterToMainCamera(LPtr<LevCamera> camera, LPtr<LevSceneNode> camera_node);
+			LPtr<LevSceneNode> GetMainCameraNode();
 
 			LPtr<LevCamera> GetMainCamera();
 			bool SetMainCamera(LPtr<LevCamera> camera);
@@ -41,7 +43,10 @@ namespace Leviathan
 			bool m_modified;
 
 			std::function<void(const LevSceneObject&)> m_modifiedCallback;
+
 			LPtr<LevCamera> m_main_camera;
+			LPtr<LevSceneNode> m_main_camera_node;
+
 			std::vector<LPtr<LevLight>> m_pLights;
 			LPtr<LevSceneTree> m_pSceneTree;
 		};

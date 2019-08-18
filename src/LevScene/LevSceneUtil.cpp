@@ -330,6 +330,35 @@ namespace Leviathan
 			return true;
 		}
 
+		bool LevSceneUtil::GeneratePoints(const float* vertices, const float* normals,
+		                                  unsigned count, LPtr<LevSceneNode>& out_points_node)
+		{
+			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(count);
+
+			LPtr<RAIIBufferData> vertices_data = new RAIIBufferData(count * 3 * sizeof(float));
+			memcpy(vertices_data->GetArrayData(), vertices, 3 * count * sizeof(float));
+
+			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_data);
+			attribute_binder->BindAttribute(0, vertices_attribute);
+
+			if (normals)
+			{
+				LPtr<RAIIBufferData> normals_data = new RAIIBufferData(count * 3 * sizeof(float));
+				memcpy(normals_data->GetArrayData(), normals, 3 * count * sizeof(float));
+
+				LPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * count * sizeof(float), normals_data);
+				attribute_binder->BindAttribute(1, normals_attribute);
+			}
+
+			attribute_binder->SetPrimitiveType(EROPT_POINTS);
+
+			LPtr<LevSceneObject> point_object = new LevSceneObject(ELSOT_DYNAMIC);
+			point_object->AddAttribute(attribute_binder);
+
+			out_points_node.Reset(new LevSceneNode(point_object));
+			return true;
+		}
+
 		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevRAttrNumericalUniform>& out_uniform)
 		{
 			static float identity_matrix[] =

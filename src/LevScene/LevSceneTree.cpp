@@ -55,16 +55,13 @@ namespace Leviathan
 		{
 			EXIT_IF_FALSE(m_root && pNode);
 
-			auto _pNode = TryCast<LevSceneNode, Node<LevSceneObject>>(pNode);
-			EXIT_IF_FALSE(_pNode);
-
 			if (pParentNode)
 			{
-				pParentNode->AddChild(_pNode);
+				pParentNode->AddChild(pNode);
 			}
 			else
 			{
-				m_root->AddChild(_pNode);
+				m_root->AddChild(pNode);
 			}
 			
 			pNode->SetModified();
@@ -115,10 +112,12 @@ namespace Leviathan
 		{
 			LEV_ASSERT(pBeginNode.GetNodeData()->GetState() != ELSOS_DELETED);
 
+			Node<LevSceneObject>& begin_node = pBeginNode;
+
 			// Delete children
 			std::vector<LPtr<Node<LevSceneObject>>> deletedChildren;
 
-			for (auto& child : pBeginNode.GetChildren())
+			for (auto& child : begin_node.GetChildren())
 			{
 				if (child->GetNodeData()->GetState() == ELSOS_DELETED)
 				{
@@ -128,7 +127,7 @@ namespace Leviathan
 
 			for (auto& child : deletedChildren)
 			{
-				pBeginNode.DelChild(child);
+				begin_node.DelChild(child);
 			}
 
 			for (auto& child : pBeginNode.GetChildren())

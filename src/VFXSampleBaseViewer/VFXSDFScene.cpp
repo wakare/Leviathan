@@ -1,10 +1,14 @@
 ﻿#include "VFXSDFScene.h"
+#include "VFXSDFShaderProgram.h"
 #include "SDFVoxelManager.h"
 #include "LevTextureObject.h"
 #include "LevSceneUtil.h"
 #include "LevRAttrTextureUniform.h"
 #include "LevRAttrUniformManager.h"
 #include "LevSceneData.h"
+#include "LevRAttrShaderProgram.h"
+#include "LevRAttrRenderStateManager.h"
+#include "LevRenderStatePointSize.h"
 
 namespace Leviathan
 {
@@ -32,7 +36,7 @@ namespace Leviathan
 				0.0f, 0.0f, 0.0f
 			};
 
-			float sphere_radius = 10.0f;
+			float sphere_radius = 5.0f;
 
 			const auto sphere_sdf = [&](const float* world_coord, SDFVoxel& grid)
 			{
@@ -50,24 +54,98 @@ namespace Leviathan
 			m_sdf_manager->UpdateSDFVoxelByFunc(sphere_sdf);
 
 			InitRenderNode();
+			//InitCubeNode();
+			InitDebugNode();
 			UpdateSDFToTexture();
 		}
 
 		void VFXSDFScene::InitRenderNode()
 		{
-			const float cube_center[] = { 0.0f, 0.0f, 0.0f };
-			const float cube_size = 5.0f;
-
-			Scene::LevSceneUtil::GenerateCube(cube_center, cube_size, m_render_node);
-			LEV_ASSERT(m_render_node);
-
+			m_render_node.Reset(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)));
 			m_sdf_texture_uniform = new Scene::LevRAttrTextureUniform("SDF_TEXTURE");
-			
-			LPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
-			uniform_manager->AddUniform(TryCast<LevRAttrTextureUniform, ILevRAttrUniform>(m_sdf_texture_uniform));
 
-			m_render_node->GetNodeData()->AddAttribute(TryCast<Scene::LevRAttrUniformManager, Scene::LevSceneObjectAttribute>(uniform_manager));
+			LPtr<LevRAttrNumericalUniform> SDF_MIN = new LevRAttrNumericalUniform("SDF_MIN", TYPE_FLOAT_VEC3);
+			LPtr<RAIIBufferData> min_data = new RAIIBufferData(3 * sizeof(float));
+			min_data->SetArrayData(m_sdf_manager->GetMin(), 3 * sizeof(float));
+			SDF_MIN->SetData(min_data);
+			
+			LPtr<LevRAttrNumericalUniform> SDF_GRID_LENGTH = new LevRAttrNumericalUniform("SDF_GRID_LENGTH", TYPE_FLOAT_VEC3);
+			LPtr<RAIIBufferData> length_data = new RAIIBufferData(3 * sizeof(float));
+			length_data->SetArrayData(m_sdf_manager->GetSize(), 3 * sizeof(float));
+			SDF_GRID_LENGTH->SetData(length_data);
+
+			LPtr<LevRAttrNumericalUniform> model_matrix_uniform = nullptr;
+			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
+
+			LPtr<LevRAttrNumericalUniform> world_matrix_uniform = nullptr;
+			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
+
+			LPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
+			
+			uniform_manager->AddUniform(model_matrix_uniform.To<ILevRAttrUniform>());
+			uniform_manager->AddUniform(world_matrix_uniform.To<ILevRAttrUniform>());
+			uniform_manager->AddUniform(m_sdf_texture_uniform.To<ILevRAttrUniform>());
+			uniform_manager->AddUniform(SDF_MIN.To<ILevRAttrUniform>());
+			uniform_manager->AddUniform(SDF_GRID_LENGTH.To<ILevRAttrUniform>());
+
+			LPtr<Scene::LevShaderProgram> shader_program = new Scene::LevShaderProgram;
+			shader_program->m_vert_shader = vfx_sdf_vert;
+			shader_program->m_frag_shader = vfx_sdf_frag;
+
+			LPtr<Scene::LevRAttrShaderProgram> shader_program_attr = new Scene::LevRAttrShaderProgram;
+			shader_program_attr->SetShaderProgram(shader_program);
+
+			m_render_node->GetNodeData()->AddAttribute(shader_program_attr);
+			m_render_node->GetNodeData()->AddAttribute(uniform_manager);
+
 			GetSceneData().AddSceneNodeToRoot(m_render_node);
+			m_render_node->AddChild(GetSceneData().GetMainCameraNode());
+			GetSceneData().GetMainCamera()->LookAt(Eigen::Vector3f( 0.0f, 0.0f, 0.0f ), 10.0f);
+		}
+
+		void VFXSDFScene::InitCubeNode()
+		{
+			const float cube_center[] = { 0.0f, 0.0f, 0.0f };
+			const float cube_size = 10.0f;
+
+			LPtr<LevSceneNode> cube_node;
+			Scene::LevSceneUtil::GenerateCube(cube_center, cube_size, cube_node);
+			LEV_ASSERT(cube_node);
+
+			m_render_node->AddChild(cube_node);
+		}
+
+		void VFXSDFScene::InitDebugNode()
+		{
+			std::vector<float> vertices;
+
+			float min[3] = { -10.0f, -10.0f, -10.0f };
+			float step[3] = { 0.5f, 0.5f, 0.5f };
+			unsigned step_count = 40;
+
+			for (unsigned i = 0 ; i < step_count; i++)
+			{
+				for (unsigned j = 0; j < step_count; j++)
+				{
+					for (unsigned k = 0; k < step_count; k++)
+					{
+						float temp_point[] = { min[0] + i * step[0] ,min[1] + j * step[1] ,min[2] + k * step[2] };
+						vertices.push_back(temp_point[0]);
+						vertices.push_back(temp_point[1]);
+						vertices.push_back(temp_point[2]);
+					}
+				}
+			}
+
+			LPtr<LevSceneNode> points_node;
+			LevSceneUtil::GeneratePoints(&vertices[0], nullptr, vertices.size() / 3, points_node);
+
+			LPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
+			render_state_manager->UpdateRenderState(new LevRenderStatePointSize(3));
+
+			points_node->GetNodeData()->AddAttribute(render_state_manager);
+
+			m_render_node->AddChild(points_node);
 		}
 
 		void VFXSDFScene::UpdateSDFToTexture()

@@ -15,6 +15,10 @@ namespace Leviathan
 			LevSceneNode(LPtr<LevSceneObject> pSceneNodeData);
 			Node<LevSceneObject>& ToBase();
 
+			void AddChild(LPtr<LevSceneNode> child_node);
+			void DelChild(LPtr<LevSceneNode> child_node);
+			void SetParent(LPtr<LevSceneNode> parent_node);
+
 			bool HasModified() const;
 			void SetModified(bool bRecursion = true);
 		};

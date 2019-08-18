@@ -187,6 +187,9 @@
     <ClInclude Include="ILevRAttrUniform.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevRenderStatePointSize.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -311,6 +314,9 @@
     </ClCompile>
     <ClCompile Include="LevRAttrTextureUniform.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRenderStatePointSize.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

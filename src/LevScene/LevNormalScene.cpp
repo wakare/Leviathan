@@ -107,8 +107,7 @@ namespace Leviathan
 			uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(m_default_view_matrix));
 			uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(m_default_proj_matrix));
 
-			GetSceneData().AddSceneNodeToRoot(m_camera_node);
-			GetSceneData().RegisterToMainCamera(pCamera);
+			GetSceneData().RegisterToMainCamera(pCamera, m_camera_node);
 			
 			return true;
 		}

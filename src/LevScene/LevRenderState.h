@@ -7,7 +7,7 @@ namespace Leviathan
 		enum LevRenderStateType
 		{
 			ELRST_DEPTH_FUNC,
-
+			ELRST_POINT_SIZE,
 		};
 
 		class LevRenderState

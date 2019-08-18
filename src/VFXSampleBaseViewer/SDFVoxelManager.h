@@ -27,6 +27,7 @@ namespace Leviathan
 			unsigned GetIndexByCoord(const float* world_coord) const;
 			
 			const float* GetSize() const;
+			const float* GetMin() const;
 
 		private:
 			bool Inside(const float* world_coord) const;

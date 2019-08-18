@@ -27,6 +27,7 @@
     <ClInclude Include="VFXSampleBaseViewer.h" />
     <ClInclude Include="VFXSampleBaseViewerAPIDefine.h" />
     <ClInclude Include="VFXSDFScene.h" />
+    <ClInclude Include="VFXSDFShaderProgram.h" />
     <ClInclude Include="VFXShadowMapScene.h" />
   </ItemGroup>
   <ItemGroup>

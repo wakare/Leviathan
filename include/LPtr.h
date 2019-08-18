@@ -8,10 +8,8 @@ namespace Leviathan
 	class LPtr
 	{
 	public:
-		template<class T, class N>
-		friend LPtr<N> TryCast(LPtr<T> lPtr);
-
 		LPtr(T* pointer);
+		LPtr(const std::shared_ptr<T>& ref) : m_lPtr(ref) {}
 		LPtr() : LPtr(nullptr) {};
 
 		LPtr(const LPtr<T>& rhs);
@@ -28,6 +26,10 @@ namespace Leviathan
 		bool operator==(const LPtr<T>& rhs) const;
 		bool operator!=(const LPtr<T>& rhs) const;
 		bool operator!=(T* rhs) const;
+
+		template <typename N>
+		LPtr<N> To();
+
 		operator bool();
 
 	private:
@@ -35,58 +37,63 @@ namespace Leviathan
 	};
 
 	template <class T>
-	bool Leviathan::LPtr<T>::operator!=(T* rhs) const
+	bool LPtr<T>::operator!=(T* rhs) const
 	{
 		return m_lPtr.get() != rhs;
 	}
 
 	template <class T>
-	Leviathan::LPtr<T>::LPtr(const LPtr<T>&& rhs)
+	template <typename N>
+	LPtr<N> LPtr<T>::To()
+	{
+		std::shared_ptr<N> convert_pointer = std::dynamic_pointer_cast<N, T>(m_lPtr);
+		return LPtr<N>(convert_pointer);
+	}
+
+	template <class T>
+	LPtr<T>::LPtr(const LPtr<T>&& rhs)
 	{
 		Reset(rhs);
 	}
 
 	template <class T>
-	void Leviathan::LPtr<T>::Reset(const LPtr<T>& rhs)
+	void LPtr<T>::Reset(const LPtr<T>& rhs)
 	{
 		m_lPtr= rhs.m_lPtr;
 	}
 
 	template <class T>
-	bool Leviathan::LPtr<T>::operator!=(const LPtr<T>& rhs) const
+	bool LPtr<T>::operator!=(const LPtr<T>& rhs) const
 	{
 		return !(*this == rhs);
 	}
 
 	template <class T>
-	T* Leviathan::LPtr<T>::Get() const
+	T* LPtr<T>::Get() const
 	{
 		return m_lPtr.get();
 	}
 
 	template <class T>
-	T& Leviathan::LPtr<T>::operator*() const
+	T& LPtr<T>::operator*() const
 	{
 		return *m_lPtr;
 	}
 
 	template <class T>
-	bool Leviathan::LPtr<T>::operator==(const LPtr<T>& rhs) const
+	bool LPtr<T>::operator==(const LPtr<T>& rhs) const
 	{
 		return m_lPtr == rhs.m_lPtr;
 	}
 
 	template <class T>
-	Leviathan::LPtr<T>::operator bool()
+	LPtr<T>::operator bool()
 	{
 		return m_lPtr != nullptr;
 	}
 
 	template <class T>
-	Leviathan::LPtr<T>::~LPtr()
-	{
-		//LeviathanOutStream << "[INFO] LPtr destroy." << std::endl;
-	}
+	LPtr<T>::~LPtr() = default;
 
 	template <class T>
 	std::shared_ptr<T> LPtr<T>::operator->() const
@@ -110,26 +117,12 @@ namespace Leviathan
 	template <class T>
 	LPtr<T>::LPtr(T* pointer)
 	{
-		if (!pointer)
-		{
-			//LeviathanOutStream << "[ERROR] nullptr set." << std::endl;
-		}
-
 		m_lPtr = std::shared_ptr<T>(pointer);
 	}
 
 	template<class T, class N>
 	LPtr<N> TryCast(LPtr<T> lPtr)
 	{
-		if (!lPtr.m_lPtr)
-		{
-			//LeviathanOutStream << "[ERROR] Nullptr need not convert." << std::endl;
-			return nullptr;
-		}
-
-		LPtr<N> result;
-		result.m_lPtr = lPtr.m_lPtr;
-
-		return result;
+		return lPtr.To<N>();
 	}
 }
