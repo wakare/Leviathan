@@ -54,8 +54,8 @@ namespace Leviathan
 			m_sdf_manager->UpdateSDFVoxelByFunc(sphere_sdf);
 
 			InitRenderNode();
-			//InitCubeNode();
-			InitDebugNode();
+			InitCubeNode();
+			//InitDebugNode();
 			UpdateSDFToTexture();
 		}
 

@@ -12,21 +12,21 @@ namespace Leviathan
 		"uniform mat4 projMatrix;"
 		"uniform vec4 defaultVertexColor = vec4(1.0, 1.0, 1.0, 1.0);"
 
-		"out vec3 frag_world_coord;"
+		"out vec4 frag_world_coord;"
 		"flat out vec3 obverse_world_coord;"
 
 		"void main()"
 		"{"
 		"	vec4 world_coord = worldMatrix * modelMatrix * vec4(position, 1.0);"
-		"	frag_world_coord = vec3(world_coord);"
+		"	frag_world_coord = world_coord;"
 		"	gl_Position = projMatrix * viewMatrix * world_coord;"
-		"	vec4 obverse = viewMatrix * vec4(0.0, 0.0, 0.0, 1.0);"
-		"	obverse_world_coord = -vec3(obverse);"
+		"	vec4 obverse = inverse(viewMatrix) * vec4(0.0, 0.0, 0.0, 1.0);"
+		"	obverse_world_coord = vec3(obverse);"
 		"}";
 
 	const char* vfx_sdf_frag =
 		"#version 330 core\n"
-		"in vec3 frag_world_coord;"
+		"in vec4 frag_world_coord;"
 		"flat in vec3 obverse_world_coord;"
 
 		"out vec4 color;"
@@ -70,13 +70,13 @@ namespace Leviathan
 		"		if (weight < 0.0) return texture_coord;"
 		"	}"
 		"	discard;"
-		//"	return 1.0;"
 		"}"
 
 		"void main()"
 		"{"
-		"	vec3 obverse_dir = normalize(frag_world_coord - obverse_world_coord);"
-		"	vec3 tex_coord = RayMarching(frag_world_coord, obverse_dir, 0.2, 100);"
+		"	vec3 frag_world_vector = vec3(frag_world_coord / frag_world_coord.w);"
+		"	vec3 obverse_dir = normalize(frag_world_vector - obverse_world_coord);"
+		"	vec3 tex_coord = RayMarching(frag_world_vector, obverse_dir, 0.2, 100);"
 		"	float weight = GetWeight(tex_coord);"
 		"	weight = clamp(weight, 0.0, 1.0);"
 		"	color = vec4(weight, weight, weight, 1.0);"
