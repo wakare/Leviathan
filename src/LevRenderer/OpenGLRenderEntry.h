@@ -16,6 +16,7 @@ namespace Leviathan
 	{
 		class IOpenGLRenderState;
 		class IOpenGLUniform;
+		class OpenGLFrameBufferObject;
 
 		class OpenGLRenderEntry
 		{
@@ -30,6 +31,9 @@ namespace Leviathan
 			const std::vector<LPtr<IOpenGLUniform>>& GetUniforms() const;
 
 			void SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state);
+			
+			void SetFrameBufferObject(LPtr<OpenGLFrameBufferObject> frame_buffer);
+			LPtr<OpenGLFrameBufferObject> GetFrameBufferObject();
 
 			void AddRenderState(LPtr<IOpenGLRenderState> render_state);
 			void AddUniform(LPtr<IOpenGLUniform> uniform);
@@ -41,6 +45,8 @@ namespace Leviathan
 			const Scene::LevRAttrRenderObjectAttributeBinder m_attribute_binder;
 
 			bool m_inited;
+
+			LPtr<OpenGLFrameBufferObject> m_frame_buffer_object;
 			std::vector<LPtr<IOpenGLUniform>> m_uniforms;
 			std::vector<LPtr<IOpenGLRenderState>> m_render_states;
 

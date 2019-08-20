@@ -3,7 +3,7 @@
 #include "SDFVoxelManager.h"
 #include "LevTextureObject.h"
 #include "LevSceneUtil.h"
-#include "LevRAttrTextureUniform.h"
+#include "LevTextureUniform.h"
 #include "LevRAttrUniformManager.h"
 #include "LevSceneData.h"
 #include "LevRAttrShaderProgram.h"
@@ -36,7 +36,7 @@ namespace Leviathan
 				0.0f, 0.0f, 0.0f
 			};
 
-			float sphere_radius = 5.0f;
+			float sphere_radius = 7.0f;
 
 			const auto sphere_sdf = [&](const float* world_coord, SDFVoxel& grid)
 			{
@@ -62,31 +62,31 @@ namespace Leviathan
 		void VFXSDFScene::InitRenderNode()
 		{
 			m_render_node.Reset(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)));
-			m_sdf_texture_uniform = new Scene::LevRAttrTextureUniform("SDF_TEXTURE");
+			m_sdf_texture_uniform = new Scene::LevTextureUniform("SDF_TEXTURE");
 
-			LPtr<LevRAttrNumericalUniform> SDF_MIN = new LevRAttrNumericalUniform("SDF_MIN", TYPE_FLOAT_VEC3);
+			LPtr<LevNumericalUniform> SDF_MIN = new LevNumericalUniform("SDF_MIN", TYPE_FLOAT_VEC3);
 			LPtr<RAIIBufferData> min_data = new RAIIBufferData(3 * sizeof(float));
 			min_data->SetArrayData(m_sdf_manager->GetMin(), 3 * sizeof(float));
 			SDF_MIN->SetData(min_data);
 			
-			LPtr<LevRAttrNumericalUniform> SDF_GRID_LENGTH = new LevRAttrNumericalUniform("SDF_GRID_LENGTH", TYPE_FLOAT_VEC3);
+			LPtr<LevNumericalUniform> SDF_GRID_LENGTH = new LevNumericalUniform("SDF_GRID_LENGTH", TYPE_FLOAT_VEC3);
 			LPtr<RAIIBufferData> length_data = new RAIIBufferData(3 * sizeof(float));
 			length_data->SetArrayData(m_sdf_manager->GetSize(), 3 * sizeof(float));
 			SDF_GRID_LENGTH->SetData(length_data);
 
-			LPtr<LevRAttrNumericalUniform> model_matrix_uniform = nullptr;
+			LPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
 			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
 
-			LPtr<LevRAttrNumericalUniform> world_matrix_uniform = nullptr;
+			LPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
 			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
 
 			LPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
 			
-			uniform_manager->AddUniform(model_matrix_uniform.To<ILevRAttrUniform>());
-			uniform_manager->AddUniform(world_matrix_uniform.To<ILevRAttrUniform>());
-			uniform_manager->AddUniform(m_sdf_texture_uniform.To<ILevRAttrUniform>());
-			uniform_manager->AddUniform(SDF_MIN.To<ILevRAttrUniform>());
-			uniform_manager->AddUniform(SDF_GRID_LENGTH.To<ILevRAttrUniform>());
+			uniform_manager->AddUniform(model_matrix_uniform.To<ILevUniform>());
+			uniform_manager->AddUniform(world_matrix_uniform.To<ILevUniform>());
+			uniform_manager->AddUniform(m_sdf_texture_uniform.To<ILevUniform>());
+			uniform_manager->AddUniform(SDF_MIN.To<ILevUniform>());
+			uniform_manager->AddUniform(SDF_GRID_LENGTH.To<ILevUniform>());
 
 			LPtr<Scene::LevShaderProgram> shader_program = new Scene::LevShaderProgram;
 			shader_program->m_vert_shader = vfx_sdf_vert;

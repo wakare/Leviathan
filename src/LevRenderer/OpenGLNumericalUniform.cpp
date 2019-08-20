@@ -6,7 +6,7 @@ namespace Leviathan
 	{
 		using namespace Scene;
 
-		OpenGLNumericalUniform::OpenGLNumericalUniform(const Scene::LevRAttrNumericalUniform& scene_uniform)
+		OpenGLNumericalUniform::OpenGLNumericalUniform(const Scene::LevNumericalUniform& scene_uniform)
 			: m_scene_uniform(scene_uniform)
 			, m_uniform_location(-1)
 		{

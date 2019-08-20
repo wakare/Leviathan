@@ -2,6 +2,8 @@
 #include "OpenGLRenderEntry.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLUniformManager.h"
+#include "OpenGLRenderNodeVisitor.h"
+#include "OpenGLRenderNode.h"
 
 namespace Leviathan
 {

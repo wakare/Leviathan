@@ -37,9 +37,6 @@
     <ClInclude Include="OpenGLRenderStateManager.h">
       <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLFrameBuffer.h">
-      <Filter>Source Files\OpenGL\Advance</Filter>
-    </ClInclude>
     <ClInclude Include="IOpenGLResource.h">
       <Filter>Source Files\OpenGL\OpenGLResource</Filter>
     </ClInclude>
@@ -103,6 +100,18 @@
     <ClInclude Include="IOpenGLTextureObject.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLRenderNodeVisitor.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLFrameBufferObject.h">
+      <Filter>Source Files\OpenGL\Advance</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderNodeObject.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLRenderNode.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
@@ -110,9 +119,6 @@
     </ClCompile>
     <ClCompile Include="OpenGLRenderStateManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLRenderState</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLFrameBuffer.cpp">
-      <Filter>Source Files\OpenGL\Advance</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLResourceManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource</Filter>
@@ -155,6 +161,18 @@
     </ClCompile>
     <ClCompile Include="OpenGLTexture3DObject.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderNodeVisitor.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLFrameBufferObject.cpp">
+      <Filter>Source Files\OpenGL\Advance</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderNodeObject.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLRenderNode.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

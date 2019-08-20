@@ -35,14 +35,14 @@ namespace Leviathan
 				LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 				sphere_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
-				LPtr<LevRAttrNumericalUniform> model_matrix_uniform = nullptr;
+				LPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
 				LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
 
-				LPtr<LevRAttrNumericalUniform> world_matrix_uniform = nullptr;
+				LPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
 				LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
 
-				uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(model_matrix_uniform));
-				uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(world_matrix_uniform));
+				uniform_manager->AddUniform(TryCast<LevNumericalUniform, ILevUniform>(model_matrix_uniform));
+				uniform_manager->AddUniform(TryCast<LevNumericalUniform, ILevUniform>(world_matrix_uniform));
 
 				GetSceneData().AddSceneNodeToRoot(sphere_node);
 
@@ -63,7 +63,7 @@ namespace Leviathan
 				char uniform_coord_name[100];
 				snprintf(uniform_coord_name, sizeof(uniform_coord_name), "point_light[%d].coord", i);
 
-				LPtr<LevRAttrNumericalUniform> light_coord_uniform = new LevRAttrNumericalUniform(uniform_coord_name, Scene::TYPE_FLOAT_VEC3);
+				LPtr<LevNumericalUniform> light_coord_uniform = new LevNumericalUniform(uniform_coord_name, Scene::TYPE_FLOAT_VEC3);
 				LPtr<RAIIBufferData> light_coord_data = new RAIIBufferData(3 * sizeof(float));
 				memcpy(light_coord_data->GetArrayData(), center, 3 * sizeof(float));
 				light_coord_uniform->SetData(light_coord_data);
@@ -71,14 +71,14 @@ namespace Leviathan
 				char uniform_color_name[100];
 				snprintf(uniform_color_name, sizeof(uniform_color_name), "point_light[%d].diffuse_color", i);
 
-				LPtr<LevRAttrNumericalUniform> light_color_uniform = new LevRAttrNumericalUniform(uniform_color_name, Scene::TYPE_FLOAT_VEC3);
+				LPtr<LevNumericalUniform> light_color_uniform = new LevNumericalUniform(uniform_color_name, Scene::TYPE_FLOAT_VEC3);
 				LPtr<RAIIBufferData> light_color_data = new RAIIBufferData(3 * sizeof(float));
 				float light_color[] = { 0.08f, 0.03f ,0.01f };
 				memcpy(light_color_data->GetArrayData(), light_color, 3 * sizeof(float));
 				light_color_uniform->SetData(light_color_data);
 				
-				point_light_uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(light_coord_uniform));
-				point_light_uniform_manager->AddUniform(TryCast<LevRAttrNumericalUniform, ILevRAttrUniform>(light_color_uniform));
+				point_light_uniform_manager->AddUniform(TryCast<LevNumericalUniform, ILevUniform>(light_coord_uniform));
+				point_light_uniform_manager->AddUniform(TryCast<LevNumericalUniform, ILevUniform>(light_color_uniform));
 				AddLightToLightRootNode(point_light);
 			}
 

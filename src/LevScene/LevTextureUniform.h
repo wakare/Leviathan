@@ -1,5 +1,5 @@
 #pragma once
-#include "ILevRAttrUniform.h"
+#include "ILevUniform.h"
 #include "LevSceneAPIDefine.h"
 #include <string>
 #include "LPtr.h"
@@ -9,10 +9,10 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LEV_SCENE_API LevRAttrTextureUniform : public ILevRAttrUniform
+		class LEV_SCENE_API LevTextureUniform : public ILevUniform
 		{
 		public:
-			LevRAttrTextureUniform(const std::string& name);
+			LevTextureUniform(const std::string& name);
 
 			unsigned GetId() const override;
 			void SetName(const std::string& name) override;

@@ -15,6 +15,7 @@ namespace Leviathan
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(id)
+			, m_frame_buffer_object(nullptr)
 		{
 			switch (attribute_binder.GetPrimitiveType())
 			{
@@ -82,6 +83,16 @@ namespace Leviathan
 
 				}
 			}
+		}
+
+		void OpenGLRenderEntry::SetFrameBufferObject(LPtr<OpenGLFrameBufferObject> frame_buffer)
+		{
+			m_frame_buffer_object = frame_buffer;
+		}
+
+		LPtr<OpenGLFrameBufferObject> OpenGLRenderEntry::GetFrameBufferObject()
+		{
+			return m_frame_buffer_object;
 		}
 
 		void OpenGLRenderEntry::AddRenderState(LPtr<IOpenGLRenderState> render_state)

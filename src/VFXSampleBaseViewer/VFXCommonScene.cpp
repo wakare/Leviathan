@@ -4,7 +4,7 @@
 #include "LevSceneObject.h"
 #include "LevSceneObjectDescription.h"
 #include "LevNormalScene.h"
-#include "LevRAttrNumericalUniform.h"
+#include "LevNumericalUniform.h"
 #include "LevRAttrUniformManager.h"
 
 namespace Leviathan

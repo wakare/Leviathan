@@ -4,6 +4,8 @@
 #include "OpenGLPass.h"
 #include "OpenGLShaderProgram.h"
 #include "OpenGLRenderStateManager.h"
+#include "OpenGLRenderNodeObject.h"
+#include "OpenGLRenderNode.h"
 
 namespace Leviathan
 {

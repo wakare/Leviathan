@@ -26,7 +26,10 @@
     <ClInclude Include="IRendererBackend.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
     <ClInclude Include="OpenGLEmptyRenderEntry.h" />
-    <ClInclude Include="OpenGLFrameBuffer.h" />
+    <ClInclude Include="OpenGLFrameBufferObject.h" />
+    <ClInclude Include="OpenGLRenderNode.h" />
+    <ClInclude Include="OpenGLRenderNodeObject.h" />
+    <ClInclude Include="OpenGLRenderNodeVisitor.h" />
     <ClInclude Include="OpenGLRStatePointSize.h" />
     <ClInclude Include="OpenGLRenderEntry.h" />
     <ClInclude Include="OpenGLObjectManager.h" />
@@ -47,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
-    <ClCompile Include="OpenGLFrameBuffer.cpp" />
+    <ClCompile Include="OpenGLFrameBufferObject.cpp" />
+    <ClCompile Include="OpenGLRenderNode.cpp" />
+    <ClCompile Include="OpenGLRenderNodeObject.cpp" />
+    <ClCompile Include="OpenGLRenderNodeVisitor.cpp" />
     <ClCompile Include="OpenGLRStatePointSize.cpp" />
     <ClCompile Include="OpenGLRenderEntry.cpp" />
     <ClCompile Include="OpenGLPass.cpp" />

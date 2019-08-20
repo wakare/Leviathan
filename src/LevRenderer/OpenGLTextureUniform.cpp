@@ -1,6 +1,6 @@
 #include "OpenGLTextureUniform.h"
 #include "LevTextureObject.h"
-#include "LevRAttrTextureUniform.h"
+#include "LevTextureUniform.h"
 #include "OpenGLTexture2DObject.h"
 #include "OpenGLTexture3DObject.h"
 
@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTextureUniform::OpenGLTextureUniform(const Scene::LevRAttrTextureUniform& texture)
+		OpenGLTextureUniform::OpenGLTextureUniform(const Scene::LevTextureUniform& texture)
 			: m_texture_uniform_name(texture.GetName())
 			, m_texture_uniform_location(-1)
 		{

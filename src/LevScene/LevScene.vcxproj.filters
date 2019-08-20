@@ -178,17 +178,20 @@
     <ClInclude Include="LevRAttrAttachmentManager.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
-    <ClInclude Include="LevRAttrNumericalUniform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
-    <ClInclude Include="LevRAttrTextureUniform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
-    <ClInclude Include="ILevRAttrUniform.h">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClInclude>
     <ClInclude Include="LevRenderStatePointSize.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClInclude>
+    <ClInclude Include="ILevUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevTextureUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevNumericalUniform.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClInclude>
+    <ClInclude Include="LevRAttrFrameBufferObject.h">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -312,11 +315,17 @@
     <ClCompile Include="LevTextureObject.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute\Advance</Filter>
     </ClCompile>
-    <ClCompile Include="LevRAttrTextureUniform.cpp">
-      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
-    </ClCompile>
     <ClCompile Include="LevRenderStatePointSize.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute\RenderState</Filter>
+    </ClCompile>
+    <ClCompile Include="LevTextureUniform.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrAttachmentManager.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevRAttrFrameBufferObject.cpp">
+      <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

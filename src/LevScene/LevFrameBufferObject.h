@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include "LPtr.h"
+#include "LevSceneAPIDefine.h"
 #include <map>
 
 namespace Leviathan
@@ -23,7 +24,7 @@ namespace Leviathan
 
 		class LevAttachment;
 
-		class LevFrameBufferObject
+		class LEV_SCENE_API LevFrameBufferObject
 		{
 		public:
 			LevFrameBufferObject();

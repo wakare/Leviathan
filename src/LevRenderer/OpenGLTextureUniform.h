@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevRAttrTextureUniform;
+		class LevTextureUniform;
 		class LevTextureObject;
 	}
 
@@ -19,7 +19,7 @@ namespace Leviathan
 		class OpenGLTextureUniform : public IOpenGLUniform
 		{
 		public:
-			OpenGLTextureUniform(const Scene::LevRAttrTextureUniform& texture);
+			OpenGLTextureUniform(const Scene::LevTextureUniform& texture);
 			~OpenGLTextureUniform();
 
 			const std::string& GetUniformName() const override;

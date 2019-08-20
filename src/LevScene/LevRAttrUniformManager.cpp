@@ -1,5 +1,5 @@
 #include "LevRAttrUniformManager.h"
-#include "ILevRAttrUniform.h"
+#include "ILevUniform.h"
 
 namespace Leviathan
 {
@@ -10,13 +10,13 @@ namespace Leviathan
 		{
 		}
 
-		void LevRAttrUniformManager::AddUniform(LPtr<ILevRAttrUniform> uniform)
+		void LevRAttrUniformManager::AddUniform(LPtr<ILevUniform> uniform)
 		{
 			m_uniforms[uniform->GetName()] = uniform;
 		}
 
 
-		const std::map<std::string, Leviathan::LPtr<Leviathan::Scene::ILevRAttrUniform>>& LevRAttrUniformManager::GetUniforms() const
+		const std::map<std::string, Leviathan::LPtr<Leviathan::Scene::ILevUniform>>& LevRAttrUniformManager::GetUniforms() const
 		{
 			return m_uniforms;
 		}

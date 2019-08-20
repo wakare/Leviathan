@@ -15,15 +15,18 @@
 #include "LevRAttrPointSize.h"
 #include "LevRAttrLightEnable.h"
 #include "LevRAttrVisible.h"
-#include "LevRAttrNumericalUniform.h"
+#include "LevNumericalUniform.h"
 #include "OpenGLRenderEntry.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
 #include "LevRAttrShaderProgram.h"
 #include "LevRAttrUniformManager.h"
-#include "LevRAttrTextureUniform.h"
+#include "LevTextureUniform.h"
 #include "LevRAttrRenderStateManager.h"
 #include "OpenGLRStatePointSize.h"
 #include "OpenGLTextureUniform.h"
+#include "LevRAttrAttachmentManager.h"
+#include "LevRAttrFrameBufferObject.h"
+#include "OpenGLFrameBufferObject.h"
 
 namespace Leviathan
 {
@@ -226,13 +229,13 @@ namespace Leviathan
 					{
 					case Scene::ELUT_NUMERICAL:
 					{
-						const Scene::LevRAttrNumericalUniform* numerical_uniform = dynamic_cast<const Scene::LevRAttrNumericalUniform*>(uniform.second.Get());
+						const Scene::LevNumericalUniform* numerical_uniform = dynamic_cast<const Scene::LevNumericalUniform*>(uniform.second.Get());
 						OpenGL_uniform = new OpenGLNumericalUniform(*numerical_uniform);
 						break;
 					}	
 					case Scene::ELUT_TEXTURE:
 					{
-						const Scene::LevRAttrTextureUniform* texture_uniform = dynamic_cast<const Scene::LevRAttrTextureUniform*>(uniform.second.Get());
+						const Scene::LevTextureUniform* texture_uniform = dynamic_cast<const Scene::LevTextureUniform*>(uniform.second.Get());
 						OpenGL_uniform = new OpenGLTextureUniform(*texture_uniform);
 						break;
 					}	
@@ -243,6 +246,20 @@ namespace Leviathan
 				}
 
 				return true;
+			}
+
+			/*const Scene::LevRAttrAttachmentManager* attachment_manager = dynamic_cast<const Scene::LevRAttrAttachmentManager*>(&render_attribute);
+			if (attachment_manager)
+			{
+				const auto& attachments = attachment_manager->GetAttachments();
+				
+			}*/
+
+			const Scene::LevRAttrFrameBufferObject* frame_buffer_object = dynamic_cast<const Scene::LevRAttrFrameBufferObject*>(&render_attribute);
+			if (frame_buffer_object && frame_buffer_object->GetFrameBufferObject())
+			{
+				LPtr<OpenGLFrameBufferObject> gl_frame_buffer = new OpenGLFrameBufferObject(*frame_buffer_object->GetFrameBufferObject());
+
 			}
 
 			return false;

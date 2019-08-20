@@ -1,4 +1,4 @@
-﻿#include "OpenGLFrameBuffer.h"
+﻿#include "OpenGLFrameBufferObject.h"
 #include "GlobalDef.h"
 #include "LevFrameBufferObject.h"
 #include "LevAttachment.h"
@@ -7,7 +7,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLFrameBuffer::OpenGLFrameBuffer(const Scene::LevFrameBufferObject& frame_buffer)
+		OpenGLFrameBufferObject::OpenGLFrameBufferObject(const Scene::LevFrameBufferObject& frame_buffer)
 			: m_frame_buffer(frame_buffer)
 		{
 			glGenFramebuffers(1, &m_frame_buffer_object);
@@ -33,17 +33,17 @@ namespace Leviathan
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 		}
 
-		OpenGLFrameBuffer::~OpenGLFrameBuffer()
+		OpenGLFrameBufferObject::~OpenGLFrameBufferObject()
 		{
 			glDeleteFramebuffers(1, &m_frame_buffer_object);
 		}
 
-		void OpenGLFrameBuffer::Apply()
+		void OpenGLFrameBufferObject::Apply()
 		{
 
 		}
 
-		void OpenGLFrameBuffer::UnApply()
+		void OpenGLFrameBufferObject::UnApply()
 		{
 
 		}

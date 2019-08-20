@@ -3,7 +3,7 @@
 #include "LevSceneAPIDefine.h"
 #include "LPtr.h"
 #include "LevSceneNode.h"
-#include "LevRAttrNumericalUniform.h"
+#include "LevNumericalUniform.h"
 
 namespace Leviathan
 {
@@ -38,7 +38,7 @@ namespace Leviathan
 			/*
 				Easy-interface to generate uniform.
 			*/
-			static bool GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevRAttrNumericalUniform>& out_uniform);
+			static bool GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevNumericalUniform>& out_uniform);
 		};
 	}
 }

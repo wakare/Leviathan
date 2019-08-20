@@ -6,8 +6,8 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class LevRAttrNumericalUniform;
-		class LevRAttrTextureUniform;
+		class LevNumericalUniform;
+		class LevTextureUniform;
 
 		enum LevUniformType
 		{
@@ -15,7 +15,7 @@ namespace Leviathan
 			ELUT_TEXTURE,
 		};
 
-		class ILevRAttrUniform
+		class ILevUniform
 		{
 		public:
 			virtual unsigned GetId() const = 0;

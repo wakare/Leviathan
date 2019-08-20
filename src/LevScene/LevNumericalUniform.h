@@ -3,7 +3,7 @@
 #include "LevSceneAPIDefine.h"
 #include "LevTokenDispatch.h"
 #include "LPtr.h"
-#include "ILevRAttrUniform.h"
+#include "ILevUniform.h"
 #include <string>
 
 namespace Leviathan
@@ -19,13 +19,13 @@ namespace Leviathan
 			TYPE_UNSIGNED_INTEGER = 5
 		};
 
-		class LEV_SCENE_API LevRAttrNumericalUniform : public ILevRAttrUniform
+		class LEV_SCENE_API LevNumericalUniform : public ILevUniform
 		{
 		public:
 			/*
 				uniform array must be started with index 1.
 			*/
-			LevRAttrNumericalUniform(const std::string& name, UniformNumericalType type);
+			LevNumericalUniform(const std::string& name, UniformNumericalType type);
 
 			unsigned GetId() const override;
 
@@ -45,44 +45,44 @@ namespace Leviathan
 			LPtr<RAIIBufferData> m_data;
 		};
 
-		inline LevRAttrNumericalUniform::LevRAttrNumericalUniform(const std::string& name, UniformNumericalType type)
+		inline LevNumericalUniform::LevNumericalUniform(const std::string& name, UniformNumericalType type)
 			: m_name(name)
 			, m_uniform_type(type)
-			, m_uniform_id(LevTokenDispatch<ILevRAttrUniform, unsigned>::GetIncrementToken())
+			, m_uniform_id(LevTokenDispatch<ILevUniform, unsigned>::GetIncrementToken())
 		{
 		}
 
-		inline unsigned LevRAttrNumericalUniform::GetId() const
+		inline unsigned LevNumericalUniform::GetId() const
 		{
 			return m_uniform_id;
 		}
 
-		inline void LevRAttrNumericalUniform::SetName(const std::string& name)
+		inline void LevNumericalUniform::SetName(const std::string& name)
 		{
 			m_name = name;
 		}
 
-		inline const std::string & LevRAttrNumericalUniform::GetName() const
+		inline const std::string & LevNumericalUniform::GetName() const
 		{
 			return m_name;
 		}
 
-		inline void LevRAttrNumericalUniform::SetData(LPtr<RAIIBufferData> data)
+		inline void LevNumericalUniform::SetData(LPtr<RAIIBufferData> data)
 		{
 			m_data = data;
 		}
 
-		inline const Leviathan::RAIIBufferData& LevRAttrNumericalUniform::GetData() const
+		inline const Leviathan::RAIIBufferData& LevNumericalUniform::GetData() const
 		{
 			return *m_data;
 		}
 
-		inline LevUniformType LevRAttrNumericalUniform::GetUniformType() const
+		inline LevUniformType LevNumericalUniform::GetUniformType() const
 		{
 			return ELUT_NUMERICAL;
 		}
 
-		inline Leviathan::Scene::UniformNumericalType LevRAttrNumericalUniform::GetNumericalUniformType() const
+		inline Leviathan::Scene::UniformNumericalType LevNumericalUniform::GetNumericalUniformType() const
 		{
 			return m_uniform_type;
 		}

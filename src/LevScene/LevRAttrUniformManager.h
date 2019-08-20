@@ -7,18 +7,18 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		class ILevRAttrUniform;
+		class ILevUniform;
 
 		class LEV_SCENE_API LevRAttrUniformManager : public LevSceneRenderAttribute
 		{
 		public:
 			LevRAttrUniformManager();
 
-			void AddUniform(LPtr<ILevRAttrUniform> uniform);
-			const std::map<std::string, LPtr<ILevRAttrUniform>>& GetUniforms() const;
+			void AddUniform(LPtr<ILevUniform> uniform);
+			const std::map<std::string, LPtr<ILevUniform>>& GetUniforms() const;
 
 		private:
-			std::map<std::string, LPtr<ILevRAttrUniform>> m_uniforms;
+			std::map<std::string, LPtr<ILevUniform>> m_uniforms;
 		};
 	}
 }

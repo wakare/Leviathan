@@ -19,12 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ILevRAttrUniform.h" />
+    <ClInclude Include="ILevUniform.h" />
     <ClInclude Include="LevAttachment.h" />
     <ClInclude Include="LevFrameBufferObject.h" />
     <ClInclude Include="LevRAttrAttachmentManager.h" />
+    <ClInclude Include="LevRAttrFrameBufferObject.h" />
     <ClInclude Include="LevRAttrRenderStateManager.h" />
-    <ClInclude Include="LevRAttrTextureUniform.h" />
+    <ClInclude Include="LevTextureUniform.h" />
     <ClInclude Include="LevRenderState.h" />
     <ClInclude Include="LevRAttrUniformManager.h" />
     <ClInclude Include="LevRenderStateDepthFunc.h" />
@@ -48,7 +49,7 @@
     <ClInclude Include="LevRAttrPointSize.h" />
     <ClInclude Include="LevRAttrRenderObjectAttributeBinder.h" />
     <ClInclude Include="LevRAttrShaderProgram.h" />
-    <ClInclude Include="LevRAttrNumericalUniform.h" />
+    <ClInclude Include="LevNumericalUniform.h" />
     <ClInclude Include="LevRAttrVisible.h" />
     <ClInclude Include="LevResetObjModifiedVisitor.h" />
     <ClInclude Include="LevScene.h" />
@@ -84,14 +85,16 @@
     <ClCompile Include="LevNormalScene.cpp" />
     <ClCompile Include="LevPointLight.cpp" />
     <ClCompile Include="LevLRAttrWorldTransform.cpp" />
+    <ClCompile Include="LevRAttrAttachmentManager.cpp" />
     <ClCompile Include="LevRAttrDepthFunc.cpp" />
+    <ClCompile Include="LevRAttrFrameBufferObject.cpp" />
     <ClCompile Include="LevRAttrLightEnable.cpp" />
     <ClCompile Include="LevRAttrObjectColor.cpp" />
     <ClCompile Include="LevRAttrPointSize.cpp" />
     <ClCompile Include="LevRAttrRenderObjectAttributeBinder.cpp" />
     <ClCompile Include="LevRAttrShaderProgram.cpp" />
     <ClCompile Include="LevRAttrRenderStateManager.cpp" />
-    <ClCompile Include="LevRAttrTextureUniform.cpp" />
+    <ClCompile Include="LevTextureUniform.cpp" />
     <ClCompile Include="LevRAttrUniformManager.cpp" />
     <ClCompile Include="LevRAttrVisible.cpp" />
     <ClCompile Include="LevRenderStateDepthFunc.cpp" />
