@@ -1,13 +1,11 @@
 ﻿#pragma once
 #include <GL/glew.h>
+#include <map>
+#include "LevFrameBufferObject.h"
+#include "IOpenGLBufferObject.h"
 
 namespace Leviathan
 {
-	namespace Scene
-	{
-		class LevFrameBufferObject;
-	}
-
 	namespace Renderer
 	{
 		class OpenGLFrameBufferObject
@@ -20,8 +18,10 @@ namespace Leviathan
 			void UnApply();
 
 		private:
+			bool _init_frame_object();
+
 			GLuint m_frame_buffer_object;
-			const Scene::LevFrameBufferObject& m_frame_buffer;
+			std::map<Scene::LevFrameAttachmentType, LPtr<IOpenGLBufferObject>> m_attachments;
 		};
 	}
 }
