@@ -6,6 +6,7 @@ namespace Leviathan
 	class EventListener
 	{
 	public:
+		virtual ~EventListener() = default;
 		virtual void Accept(Event& event) = 0;
 	};
 }

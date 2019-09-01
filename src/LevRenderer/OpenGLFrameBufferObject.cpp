@@ -103,6 +103,8 @@ namespace Leviathan
 
 			LEV_ASSERT(glCheckFramebufferStatus(m_frame_buffer_object) == GL_FRAMEBUFFER_COMPLETE);
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+			return true;
 		}
 	}
 }

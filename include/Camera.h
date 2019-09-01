@@ -4,16 +4,17 @@
 #include <iostream>
 #include "VectorOperation.h"
 #include "GlobalDef.h"
+#include "LevCoreExport.h"
 #include <Eigen/Dense>
 
 namespace Leviathan
 {
-	class Camera
+	class LEV_CORE_API Camera
 	{
 	private:
 		float _getDistance();
 		void _getNUVVector(float* N, float* U, float* V);
-		bool _updateCurrentDistance(float newDistance = -1.0f);
+		bool _updateCurrentDistance(float newDistance = -1.0f); 
 
 	public:
 		enum class eCameraType

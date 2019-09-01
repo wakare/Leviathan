@@ -1,14 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="SceneTool">
-      <UniqueIdentifier>{6a40ffd5-2b0f-487c-9472-1f3a3e06dca7}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CommonTool">
       <UniqueIdentifier>{ae0fc903-c7e4-48bf-ab0d-9c291f5c8fb9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SceneTool\SpaceManager">
-      <UniqueIdentifier>{4a1ebbff-73f6-4248-8204-0e978ea84f0b}</UniqueIdentifier>
     </Filter>
     <Filter Include="CommonTool\NodeManager">
       <UniqueIdentifier>{b82aa092-2e4d-4175-86b9-189cb62e66a1}</UniqueIdentifier>
@@ -19,23 +13,11 @@
     <Filter Include="CommonTool\MemoryManager">
       <UniqueIdentifier>{b4375558-c86d-4ff0-afe6-1cfda53c325d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="BaseAlgorithm">
-      <UniqueIdentifier>{7ad320e2-ce1c-4aa4-9f60-bf9300f30d8c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CommonTool\FileIO">
       <UniqueIdentifier>{206051eb-f1df-428b-96b5-11237d9518bf}</UniqueIdentifier>
     </Filter>
     <Filter Include="CommonTool\Profiler">
       <UniqueIdentifier>{1d5537ee-056f-4e18-ab6d-bb4f4d26fe1b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{8db98950-ae3c-450a-9e2e-399eca6352e5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BaseResource">
-      <UniqueIdentifier>{49fc812d-1278-4bb4-9b69-0bdeaa85c8ca}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BaseResource\BaseGraphics">
-      <UniqueIdentifier>{817b7f5e-96d1-413d-a6c2-9c4db6d5d554}</UniqueIdentifier>
     </Filter>
     <Filter Include="CommonTool\Scheduler">
       <UniqueIdentifier>{4502cec5-39d1-48ca-8459-8c79cc55faf4}</UniqueIdentifier>
@@ -43,52 +25,19 @@
     <Filter Include="CommonTool\Thread">
       <UniqueIdentifier>{31d73134-01ee-4bfa-b691-0653815e5fd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CommonTool\Abstract">
-      <UniqueIdentifier>{62368aa7-5749-4636-8eeb-bb4f524adfbc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="CommonTool\FileSystem">
       <UniqueIdentifier>{87aa0b38-00b8-44cb-9e7b-889acbbde38b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CommonTool\StringMatch">
-      <UniqueIdentifier>{466d8057-0f76-424f-afef-7add38962506}</UniqueIdentifier>
     </Filter>
     <Filter Include="CommonTool\TokenDispatch">
       <UniqueIdentifier>{18785f5a-b40d-4f2a-947c-b1b1556e1c0f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="DesignPattern">
+      <UniqueIdentifier>{99d4caf1-604c-46b3-b5fd-5ab4787ed56f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Light.cpp">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>SceneTool</Filter>
-    </ClCompile>
     <ClCompile Include="EventSystem.cpp">
       <Filter>CommonTool\EventSystem</Filter>
-    </ClCompile>
-    <ClCompile Include="GeometryCalculator.cpp">
-      <Filter>BaseAlgorithm</Filter>
-    </ClCompile>
-    <ClCompile Include="WindowCallBack.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="MeshImpl.cpp">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClCompile>
-    <ClCompile Include="LevOcTree.cpp">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClCompile>
-    <ClCompile Include="LevOpenGLWindow.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="LevWindowFactory.cpp">
-      <Filter>Window</Filter>
-    </ClCompile>
-    <ClCompile Include="FileImportFactory.cpp">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClCompile>
-    <ClCompile Include="STLFileImporter.cpp">
-      <Filter>CommonTool\FileIO</Filter>
     </ClCompile>
     <ClCompile Include="ThreadRecorder.cpp">
       <Filter>CommonTool\Thread</Filter>
@@ -101,33 +50,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\IMesh.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Material.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\PointCloud.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Light.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\PointCloud.hpp">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Color.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\ISpaceAccStruct.h">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\OcTreeAccStruct.h">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\OcTreeAccStruct.hpp">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\IFileImporter.h">
       <Filter>CommonTool\FileIO</Filter>
     </ClInclude>
@@ -136,9 +58,6 @@
     </ClInclude>
     <ClInclude Include="..\..\include\ImporterRegister.h">
       <Filter>CommonTool\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\Camera.h">
-      <Filter>SceneTool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\Node.h">
       <Filter>CommonTool\NodeManager</Filter>
@@ -167,9 +86,6 @@
     <ClInclude Include="..\..\include\LUPtr.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\GeometryCalculator.h">
-      <Filter>BaseAlgorithm</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\KProfile.h">
       <Filter>CommonTool\Profiler</Filter>
     </ClInclude>
@@ -179,15 +95,6 @@
     <ClInclude Include="..\..\include\GlobalDef.h" />
     <ClInclude Include="..\..\include\PictureObject.h">
       <Filter>CommonTool\MemoryManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\AABB.h">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\WindowCallBack.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\IResource.h">
-      <Filter>BaseResource</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\LevTask.h">
       <Filter>CommonTool\Scheduler</Filter>
@@ -206,30 +113,6 @@
     </ClInclude>
     <ClInclude Include="LevScheduler.hpp">
       <Filter>CommonTool\Scheduler</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\MeshImpl.h">
-      <Filter>BaseResource\BaseGraphics</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LevOcTree.h">
-      <Filter>SceneTool\SpaceManager</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\FileImportFactory.h">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\STLFileImporter.h">
-      <Filter>CommonTool\FileIO</Filter>
-    </ClInclude>
-    <ClInclude Include="Singleton.h">
-      <Filter>CommonTool\Abstract</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\ILevWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LevOpenGLWindow.h">
-      <Filter>Window</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\LevWindowFactory.h">
-      <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\ThreadRecorder.h">
       <Filter>CommonTool\Thread</Filter>

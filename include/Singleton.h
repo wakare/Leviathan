@@ -16,7 +16,7 @@
 		}
 
 	protected:
-		Singleton<T>() = delete;
+		Singleton<T>() = default;
 		Singleton<T>(const Singleton<T>&) = delete;
 		Singleton<T>(const Singleton<T>&&) = delete;
 		Singleton<T> operator=(const Singleton<T>& rhs) = delete;

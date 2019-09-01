@@ -26,6 +26,7 @@ namespace Leviathan
 		class OpenGLRenderEntry;
 		class OpenGLRenderEntry;
 		class OpenGLResourceManager;
+		class OpenGLObjectManager;
 
 		class OpenGLRenderDataProcessor
 		{
@@ -41,7 +42,6 @@ namespace Leviathan
 			bool _applyRenderAttribute(LPtr<OpenGLRenderEntry> objects, const Scene::LevSceneRenderAttribute& render_attribute);
 
 			int m_current_render_tree_id;
-			LPtr<OpenGLResourceManager> m_resource_manager;
 			LPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;
 			LPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
 		};

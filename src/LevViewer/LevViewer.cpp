@@ -71,7 +71,7 @@ namespace Leviathan
 				m_current_scene->ResetModified();
 			}
 
-			if (!m_window->Stoped())
+			if (!m_window->HasStoped())
 			{
 				m_renderer->Update();
 			}
@@ -85,7 +85,7 @@ namespace Leviathan
 
 		bool LevViewer::HasStoped()
 		{
-			return m_window->Stoped();
+			return m_window->HasStoped();
 		}
 
 		const ILevWindow & LevViewer::GetRenderWindow() const

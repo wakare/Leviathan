@@ -12,9 +12,6 @@
 #include "LevSceneRenderAttribute.h"
 #include "OpenGLNumericalUniform.h"
 #include "OpenGLEmptyRenderEntry.h"
-#include "LevRAttrPointSize.h"
-#include "LevRAttrLightEnable.h"
-#include "LevRAttrVisible.h"
 #include "LevNumericalUniform.h"
 #include "OpenGLRenderEntry.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
@@ -22,9 +19,7 @@
 #include "LevRAttrUniformManager.h"
 #include "LevTextureUniform.h"
 #include "LevRAttrRenderStateManager.h"
-#include "OpenGLRStatePointSize.h"
 #include "OpenGLTextureUniform.h"
-#include "LevRAttrAttachmentManager.h"
 #include "LevRAttrFrameBufferObject.h"
 #include "OpenGLFrameBufferObject.h"
 
@@ -49,7 +44,6 @@ namespace Leviathan
 		OpenGLRenderDataProcessor::OpenGLRenderDataProcessor()
 			: m_traverseVisitor(new Scene::LevSceneTreeTraverseVisitor)
 			, m_searchVisitor(new Scene::LevSceneTreeSearchVisitor)
-			, m_resource_manager(new OpenGLResourceManager)
 			, m_current_render_tree_id(-1)
 		{
 			// Default pass callback
@@ -76,7 +70,7 @@ namespace Leviathan
 
 					if (shader_program)
 					{
-						render_tree_id = m_resource_manager->GetOrCreateRenderTree(*shader_program);
+						render_tree_id = GetResourceManager().GetOrCreateRenderTree(*shader_program);
 						break;
 					}
 				}
@@ -113,7 +107,7 @@ namespace Leviathan
 						_applyRenderAttribute(gl_render_entry, *pAttribute);
 					}
 
-					m_resource_manager->AddGLObjectToRenderTree(render_tree_id, gl_render_entry);
+					GetResourceManager().AddGLObjectToRenderTree(render_tree_id, gl_render_entry);
 					break;
 				}
 
@@ -139,14 +133,14 @@ namespace Leviathan
 						_applyRenderAttribute(gl_render_entry, *pAttribute);
 					}
 
-					m_resource_manager->ReplaceGLObjectFromRenderTree(render_tree_id, gl_render_entry);
+					GetResourceManager().ReplaceGLObjectFromRenderTree(render_tree_id, gl_render_entry);
 					break;
 				}
 
 				case Scene::ELSOS_DELETED:
 				case Scene::ELSOS_DISABLE:
 				{
-					m_resource_manager->RemoveResource(render_tree_id, object.GetID());
+					GetResourceManager().RemoveRenderTree(render_tree_id, object.GetID());
 					return true;
 				}
 
@@ -167,26 +161,16 @@ namespace Leviathan
 
 		OpenGLResourceManager & OpenGLRenderDataProcessor::GetResourceManager()
 		{
-			return *m_resource_manager;
+			return OpenGLResourceManager::Instance();
 		}
 
 		const Leviathan::Renderer::OpenGLResourceManager& OpenGLRenderDataProcessor::GetResourceManager() const
 		{
-			return *m_resource_manager;
+			return OpenGLResourceManager::Instance();
 		}
 
 		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLRenderEntry> OpenGL_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
-			// Point size attribute
-			const Scene::LevRAttrPointSize* point_size = dynamic_cast<const Scene::LevRAttrPointSize*>(&render_attribute);
-			if (point_size)
-			{
-				const auto size = point_size->GetSize();
-				OpenGL_object->AddRenderState(new OpenGLRStatePointSize(size));
-				
-				return true;
-			}
-
 			// Depth func attribute
 			const Scene::LevRAttrRenderStateManager* render_state_manager = dynamic_cast<const Scene::LevRAttrRenderStateManager*>(&render_attribute);
 			if (render_state_manager)
@@ -195,28 +179,17 @@ namespace Leviathan
 				return true;
 			}
 
-			// Light enable attribute
-			const Scene::LevRAttrLightEnable* light_enable = dynamic_cast<const Scene::LevRAttrLightEnable*>(&render_attribute);
-			if (light_enable)
-			{
-// 					auto current_light_enable = m_pCurrentPass->GetLightEnable();
-// 					auto enable = light_enable->GetLightEnable();
-// 
-// 					objects->AddPreProcess([enable, this]() {m_pCurrentPass->SetLightEnable(enable); });
-// 					objects->AddPostProcess([current_light_enable, this]() {m_pCurrentPass->SetLightEnable(current_light_enable); });
-			}
-
 			// Object visible attribute
-			const Scene::LevRAttrVisible* visible = dynamic_cast<const Scene::LevRAttrVisible*>(&render_attribute);
+			/*const Scene::LevRAttrVisible* visible = dynamic_cast<const Scene::LevRAttrVisible*>(&render_attribute);
 			if (visible)
 			{
-// 				for (auto& pObject : objects)
-// 				{
-// 					pObject->SetVisible(visible->GetVisible());
-// 				}
-// 
-// 				return true;
-			}
+ 				for (auto& pObject : OpenGL_object)
+ 				{
+					OpenGL_object->SetVisible(visible->GetVisible());
+ 				}
+ 
+ 				return true;
+			}*/
 
 			const Scene::LevRAttrUniformManager* uniform_manager = dynamic_cast<const Scene::LevRAttrUniformManager*>(&render_attribute);
 			if (uniform_manager)
@@ -247,13 +220,6 @@ namespace Leviathan
 
 				return true;
 			}
-
-			/*const Scene::LevRAttrAttachmentManager* attachment_manager = dynamic_cast<const Scene::LevRAttrAttachmentManager*>(&render_attribute);
-			if (attachment_manager)
-			{
-				const auto& attachments = attachment_manager->GetAttachments();
-				
-			}*/
 
 			const Scene::LevRAttrFrameBufferObject* frame_buffer_object = dynamic_cast<const Scene::LevRAttrFrameBufferObject*>(&render_attribute);
 			if (frame_buffer_object && frame_buffer_object->GetFrameBufferObject())

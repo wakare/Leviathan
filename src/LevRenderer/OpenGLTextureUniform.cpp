@@ -3,6 +3,7 @@
 #include "LevTextureUniform.h"
 #include "OpenGLTexture2DObject.h"
 #include "OpenGLTexture3DObject.h"
+#include "OpenGLResourceManager.h"
 
 namespace Leviathan
 {
@@ -17,11 +18,13 @@ namespace Leviathan
 			switch(texture_object.GetTextureType())
 			{
 				case Scene::ELTT_2D_TEXTURE:
-					m_texture_object.Reset(new OpenGLTexture2DObject(texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetTextureData()));
+					m_texture_object.Reset(new OpenGLTexture2DObject(OpenGLResourceManager::Instance().GetObjectManager(), texture_object.GetWidth(), 
+						texture_object.GetHeight(), texture_object.GetTextureData()));
 					break;
 
 				case Scene::ELTT_3D_TEXTURE:
-					m_texture_object.Reset(new OpenGLTexture3DObject(texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData()));
+					m_texture_object.Reset(new OpenGLTexture3DObject(OpenGLResourceManager::Instance().GetObjectManager(), texture_object.GetWidth(), 
+						texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData()));
 					break;
 
 				default:

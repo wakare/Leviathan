@@ -1,9 +1,10 @@
 #pragma once
 #include <cstring>
 #include <cmath>
+#include "LevCoreExport.h"
 #include "GlobalDef.h"
 
-class AABB
+class LEV_CORE_API AABB
 {
 public:
 	AABB(const float* _min, const float* _max)

@@ -22,7 +22,8 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
-			
+			virtual ~OpenGLRenderEntry() = default;
+
 			virtual bool Render(GLuint shaderProgram);
 
 			unsigned GetID() const;

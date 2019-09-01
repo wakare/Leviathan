@@ -1,5 +1,6 @@
 ﻿#include "OpenGLTextureBufferObject.h"
 #include "OpenGLTexture2DObject.h"
+#include "OpenGLResourceManager.h"
 
 namespace Leviathan
 {
@@ -11,7 +12,7 @@ namespace Leviathan
 			switch (texture_object.GetTextureType())
 			{
 				case Scene::LevTextureType::ELTT_2D_TEXTURE:
-					m_texture_object.Reset(new OpenGLTexture2DObject(texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetTextureData()));
+					m_texture_object.Reset(new OpenGLTexture2DObject(OpenGLResourceManager::Instance().GetObjectManager(), texture_object.GetWidth(), texture_object.GetHeight(), texture_object.GetTextureData()));
 					break;
 
 				default:

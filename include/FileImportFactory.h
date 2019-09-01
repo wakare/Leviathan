@@ -2,10 +2,11 @@
 
 #include <map>
 #include "IFileImportFactory.h"
+#include "LevCoreExport.h"
 
 namespace Leviathan
 {
-	class FileImportFactory : public IFileImportFactory
+	class LEV_CORE_API FileImportFactory : public IFileImportFactory
 	{
 	public:
 		std::vector<LPtr<IMesh>> LoadFile(const char* fileName);

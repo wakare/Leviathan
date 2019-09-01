@@ -3,6 +3,7 @@
 
 #define GLFW_EXPOSE_NATIVE_WIN32
 #include <GLFW/glfw3native.h>
+
 #include "WindowCallBack.h"
 
 namespace Leviathan
@@ -83,7 +84,7 @@ namespace Leviathan
 		glfwSetWindowShouldClose(m_pWindow, true);
 	}
 
-	bool LevOpenGLWindow::Stoped()
+	bool LevOpenGLWindow::HasStoped()
 	{
 		return m_bStopped;
 	}

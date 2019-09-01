@@ -112,6 +112,12 @@
     <ClInclude Include="OpenGLRenderNode.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
     </ClInclude>
+    <ClInclude Include="IOpenGLBufferObject.h">
+      <Filter>Source Files\OpenGL\Advance</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLTextureBufferObject.h">
+      <Filter>Source Files\OpenGL\Advance</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
@@ -173,6 +179,12 @@
     </ClCompile>
     <ClCompile Include="OpenGLRenderNode.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="IOpenGLBufferObject.cpp">
+      <Filter>Source Files\OpenGL\Advance</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLTextureBufferObject.cpp">
+      <Filter>Source Files\OpenGL\Advance</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

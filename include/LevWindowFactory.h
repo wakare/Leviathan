@@ -1,6 +1,7 @@
 #pragma once
 
 #include "LPtr.h"
+#include "LevCoreExport.h"
 
 namespace Leviathan
 {
@@ -11,7 +12,7 @@ namespace Leviathan
 
 	class ILevWindow;
 
-	class LevWindowFactory
+	class LEV_CORE_API LevWindowFactory
 	{
 	public:
 		LevWindowFactory();

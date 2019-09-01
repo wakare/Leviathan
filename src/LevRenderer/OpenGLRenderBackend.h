@@ -4,6 +4,7 @@
 #include <gl/glew.h>
 #include <GLFW/glfw3.h>
 #include "IRendererBackend.h"
+#include "LevRendererAPIDefine.h"
 #include "LPtr.h"
 
 namespace Leviathan
@@ -16,7 +17,7 @@ namespace Leviathan
 		class OpenGLResourceManager;
 		class OpenGLRenderDataProcessor;
 
-		class OpenGLRenderBackend : public IRendererBackend
+		class LEV_RENDERER_API OpenGLRenderBackend : public IRendererBackend
 		{
 		public:
 			OpenGLRenderBackend(LevOpenGLWindow& pWindow);

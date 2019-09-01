@@ -19,66 +19,43 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="IOpenGLBufferObject.h" />
-    <ClInclude Include="IOpenGLObject.h" />
-    <ClInclude Include="IOpenGLResource.h" />
-    <ClInclude Include="IOpenGLTextureObject.h" />
-    <ClInclude Include="IOpenGLUniform.h" />
-    <ClInclude Include="IRendererBackend.h" />
-    <ClInclude Include="LevRendererAPIDefine.h" />
-    <ClInclude Include="OpenGLEmptyRenderEntry.h" />
-    <ClInclude Include="OpenGLFrameBufferObject.h" />
-    <ClInclude Include="OpenGLRenderNode.h" />
-    <ClInclude Include="OpenGLRenderNodeObject.h" />
-    <ClInclude Include="OpenGLRenderNodeVisitor.h" />
-    <ClInclude Include="OpenGLRStatePointSize.h" />
-    <ClInclude Include="OpenGLRenderEntry.h" />
-    <ClInclude Include="OpenGLObjectManager.h" />
-    <ClInclude Include="OpenGLPass.h" />
-    <ClInclude Include="OpenGLRenderDataProcessor.h" />
-    <ClInclude Include="OpenGLRenderBackend.h" />
-    <ClInclude Include="IOpenGLRenderState.h" />
-    <ClInclude Include="OpenGLRStateDepthFunc.h" />
-    <ClInclude Include="OpenGLRenderStateManager.h" />
-    <ClInclude Include="OpenGLRenderTree.h" />
-    <ClInclude Include="OpenGLResourceManager.h" />
-    <ClInclude Include="OpenGLShaderProgram.h" />
-    <ClInclude Include="OpenGLTexture3DObject.h" />
-    <ClInclude Include="OpenGLTextureBufferObject.h" />
-    <ClInclude Include="OpenGLTextureUniform.h" />
-    <ClInclude Include="OpenGLTexture2DObject.h" />
-    <ClInclude Include="OpenGLNumericalUniform.h" />
-    <ClInclude Include="OpenGLUniformManager.h" />
+    <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="FileImportFactory.cpp" />
+    <ClCompile Include="GeometryCalculator.cpp" />
+    <ClCompile Include="LevOcTree.cpp" />
+    <ClCompile Include="LevOpenGLWindow.cpp" />
+    <ClCompile Include="LevWindowFactory.cpp" />
+    <ClCompile Include="MeshImpl.cpp" />
+    <ClCompile Include="STLFileImporter.cpp" />
+    <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="IOpenGLBufferObject.cpp" />
-    <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
-    <ClCompile Include="OpenGLFrameBufferObject.cpp" />
-    <ClCompile Include="OpenGLRenderNode.cpp" />
-    <ClCompile Include="OpenGLRenderNodeObject.cpp" />
-    <ClCompile Include="OpenGLRenderNodeVisitor.cpp" />
-    <ClCompile Include="OpenGLRStatePointSize.cpp" />
-    <ClCompile Include="OpenGLRenderEntry.cpp" />
-    <ClCompile Include="OpenGLPass.cpp" />
-    <ClCompile Include="OpenGLRenderDataProcessor.cpp" />
-    <ClCompile Include="OpenGLRenderBackend.cpp" />
-    <ClCompile Include="OpenGLRStateDepthFunc.cpp" />
-    <ClCompile Include="OpenGLRenderStateManager.cpp" />
-    <ClCompile Include="OpenGLRenderTree.cpp" />
-    <ClCompile Include="OpenGLResourceManager.cpp" />
-    <ClCompile Include="OpenGLShaderProgram.cpp" />
-    <ClCompile Include="OpenGLTexture3DObject.cpp" />
-    <ClCompile Include="OpenGLTextureBufferObject.cpp" />
-    <ClCompile Include="OpenGLTextureUniform.cpp" />
-    <ClCompile Include="OpenGLTexture2DObject.cpp" />
-    <ClCompile Include="OpenGLNumericalUniform.cpp" />
-    <ClCompile Include="OpenGLUniformManager.cpp" />
+    <ClInclude Include="..\..\include\AABB.h" />
+    <ClInclude Include="..\..\include\Camera.h" />
+    <ClInclude Include="..\..\include\FileImportFactory.h" />
+    <ClInclude Include="..\..\include\GeometryCalculator.h" />
+    <ClInclude Include="..\..\include\ILevWindow.h" />
+    <ClInclude Include="..\..\include\IMesh.h" />
+    <ClInclude Include="..\..\include\IResource.h" />
+    <ClInclude Include="..\..\include\ISpaceAccStruct.h" />
+    <ClInclude Include="..\..\include\LevCoreExport.h" />
+    <ClInclude Include="..\..\include\LevOcTree.h" />
+    <ClInclude Include="..\..\include\LevOpenGLWindow.h" />
+    <ClInclude Include="..\..\include\LevWindowFactory.h" />
+    <ClInclude Include="..\..\include\Material.h" />
+    <ClInclude Include="..\..\include\MeshImpl.h" />
+    <ClInclude Include="..\..\include\OcTreeAccStruct.h" />
+    <ClInclude Include="..\..\include\OcTreeAccStruct.hpp" />
+    <ClInclude Include="..\..\include\PointCloud.h" />
+    <ClInclude Include="..\..\include\PointCloud.hpp" />
+    <ClInclude Include="..\..\include\STLFileImporter.h" />
+    <ClInclude Include="..\..\include\WindowCallBack.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{5CBCFA4C-D4C9-4AB9-ADB4-F8CEC36B5576}</ProjectGuid>
+    <ProjectGuid>{F095573F-D93C-474C-B9CD-8D581709A85C}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LevRenderer</RootNamespace>
+    <RootNamespace>Core</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -128,19 +105,23 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)\bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)\obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -148,51 +129,53 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LEV_RENDERER_API_EXPORT;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LEV_CORE_API_EXPORT;GLEW_STATIC;_DEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;$(SolutionDir)src\LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;SOIL.lib;Base.lib;opengl32.lib;glew.lib;glfw3.lib;LevScene.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>$(OutDir);</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glew.lib;glfw3.lib;SOIL.lib;Base.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LEV_CORE_API_EXPORT;GLEW_STATIC;WIN32;_DEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glew.lib;glfw3.lib;SOIL.lib;Base.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LEV_CORE_API_EXPORT;GLEW_STATIC;WIN32;NDEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glew.lib;glfw3.lib;SOIL.lib;Base.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -203,17 +186,17 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>LEV_RENDERER_API_EXPORT;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;LEV_CORE_API_EXPORT;GLEW_STATIC;NDEBUG;CORE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\Eigen;$(SolutionDir)/include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)src\Base;$(SolutionDir)src\LevScene;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)3rdparty\BOOST;$(SolutionDir)3rdparty\assimp\include;$(SolutionDir)include;$(SolutionDir)3rdparty\glew\;$(SolutionDir)3rdparty\SOIL\include;$(SolutionDir)3rdparty\glfw\include;$(SolutionDir)3rdparty\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(OutDir);$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;SOIL.lib;Base.lib;opengl32.lib;glew.lib;glfw3.lib;LevScene.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>assimp-vc140-mt.lib;glew.lib;glfw3.lib;SOIL.lib;Base.lib;opengl32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

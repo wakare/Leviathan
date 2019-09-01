@@ -18,7 +18,7 @@ namespace Leviathan
 		class IOpenGLTextureObject : public IOpenGLObject
 		{
 		public:
-			IOpenGLTextureObject() : m_texture_unit(-1), m_texture_object(-1) {}
+			IOpenGLTextureObject(OpenGLObjectManager& manager) : IOpenGLObject(manager), m_texture_unit(-1), m_texture_object(-1) {}
 			virtual ~IOpenGLTextureObject() = default;
 
 			void SetTextureUnitOffset(GLuint unit_offset) { m_texture_unit = unit_offset; };

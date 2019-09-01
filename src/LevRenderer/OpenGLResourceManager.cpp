@@ -6,6 +6,7 @@
 #include "OpenGLRenderStateManager.h"
 #include "OpenGLRenderNodeObject.h"
 #include "OpenGLRenderNode.h"
+#include "OpenGLObjectManager.h"
 
 namespace Leviathan
 {
@@ -13,6 +14,7 @@ namespace Leviathan
 	{
 		OpenGLResourceManager::OpenGLResourceManager()
 			: m_render_state_manager(new OpenGLRenderStateManager)
+			, m_object_manager(new OpenGLObjectManager)
 		{
 
 		}
@@ -63,7 +65,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLResourceManager::RemoveResource(RenderTreeID handle, unsigned object_id)
+		bool OpenGLResourceManager::RemoveRenderTree(RenderTreeID handle, unsigned object_id)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -75,6 +77,11 @@ namespace Leviathan
 			it->second->RemoveNode(object_id);
 
 			return true;
+		}
+
+		OpenGLObjectManager& OpenGLResourceManager::GetObjectManager()
+		{
+			return *m_object_manager;
 		}
 
 		bool OpenGLResourceManager::Render()

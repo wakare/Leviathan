@@ -1,28 +1,29 @@
 #pragma once
 
-#include <gl/glew.h>
+#include <GL/glew.h>
 #include <glfw/glfw3.h>
 
 #include "ILevWindow.h"
-#include "LPtr.h"
+#include "LevCoreExport.h"
 
 namespace Leviathan
 {
-	class LevOpenGLWindow : public ILevWindow
+	class LEV_CORE_API LevOpenGLWindow : public ILevWindow
 	{
 	public:
 		LevOpenGLWindow(int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
 
-		bool Create(int width, int height, int hParent = 0);
-		void Run();
-		void Update();
-		void SetStop();
-		bool Stoped();
-		void Accept(Event& event);
+		bool Create(int width, int height, int hParent = 0) override;
+		void Run() override;
+		void Update() override;
+		void SetStop() override;
+		bool HasStoped() override;
+		void Accept(Event& event) override;
 
-		int GetWidth() const;
-		int GetHeight() const;
-		int GetWindowHandle() const;
+		int GetWidth() const override;
+		int GetHeight() const override;
+		int GetWindowHandle() const override;
+
 		void SwapBuffer();
 
 	private:

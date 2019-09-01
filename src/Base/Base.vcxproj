@@ -155,70 +155,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="FileImportFactory.cpp" />
     <ClCompile Include="LevFileSystem.cpp" />
-    <ClCompile Include="LevOpenGLWindow.cpp" />
     <ClCompile Include="LevTimer.cpp" />
-    <ClCompile Include="LevWindowFactory.cpp" />
-    <ClCompile Include="MeshImpl.cpp" />
-    <ClCompile Include="STLFileImporter.cpp" />
     <ClCompile Include="EventSystem.cpp" />
-    <ClCompile Include="GeometryCalculator.cpp" />
-    <ClCompile Include="Light.cpp" />
-    <ClCompile Include="LevOcTree.cpp" />
     <ClCompile Include="ThreadRecorder.cpp" />
-    <ClCompile Include="WindowCallBack.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\AABB.h" />
-    <ClInclude Include="..\..\include\FileImportFactory.h" />
-    <ClInclude Include="..\..\include\ILevWindow.h" />
     <ClInclude Include="..\..\include\LevCoroutine.h" />
     <ClInclude Include="..\..\include\LevCoroutine.hpp" />
     <ClInclude Include="..\..\include\LevFileSystem.h" />
-    <ClInclude Include="..\..\include\LevOpenGLWindow.h" />
     <ClInclude Include="..\..\include\LevTask.h" />
     <ClInclude Include="..\..\include\LevTimer.h" />
     <ClInclude Include="..\..\include\LevTokenDispatch.h" />
-    <ClInclude Include="..\..\include\LevWindowFactory.h" />
-    <ClInclude Include="..\..\include\MeshImpl.h" />
-    <ClInclude Include="..\..\include\Color.h" />
-    <ClInclude Include="..\..\include\STLFileImporter.h" />
     <ClInclude Include="..\..\include\DynamicArray.h" />
     <ClInclude Include="..\..\include\Event.h" />
     <ClInclude Include="..\..\include\EventListener.h" />
     <ClInclude Include="..\..\include\EventSystem.h" />
-    <ClInclude Include="..\..\include\GeometryCalculator.h" />
-    <ClInclude Include="..\..\include\Camera.h" />
     <ClInclude Include="..\..\include\GlobalDef.h" />
     <ClInclude Include="..\..\include\IFileImporter.h" />
     <ClInclude Include="..\..\include\IFileImportFactory.h" />
-    <ClInclude Include="..\..\include\IMesh.h" />
     <ClInclude Include="..\..\include\ImporterRegister.h" />
-    <ClInclude Include="..\..\include\IResource.h" />
-    <ClInclude Include="..\..\include\ISpaceAccStruct.h" />
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KProfile.h" />
-    <ClInclude Include="..\..\include\Light.h" />
-    <ClInclude Include="..\..\include\LevOcTree.h" />
     <ClInclude Include="..\..\include\LPtr.h" />
     <ClInclude Include="..\..\include\LUPtr.h" />
-    <ClInclude Include="..\..\include\Material.h" />
     <ClInclude Include="..\..\include\Node.h" />
     <ClInclude Include="..\..\include\NodeVisitor.h" />
     <ClInclude Include="..\..\include\NodeVisitor.hpp" />
-    <ClInclude Include="..\..\include\OcTreeAccStruct.h" />
-    <ClInclude Include="..\..\include\OcTreeAccStruct.hpp" />
     <ClInclude Include="..\..\include\PictureObject.h" />
-    <ClInclude Include="..\..\include\PointCloud.h" />
-    <ClInclude Include="..\..\include\PointCloud.hpp" />
     <ClInclude Include="..\..\include\LevScheduler.h" />
     <ClInclude Include="..\..\include\ThreadRecorder.h" />
-    <ClInclude Include="..\..\include\WindowCallBack.h" />
     <ClInclude Include="LevScheduler.hpp" />
     <ClInclude Include="LevTask.hpp" />
-    <ClInclude Include="Singleton.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
