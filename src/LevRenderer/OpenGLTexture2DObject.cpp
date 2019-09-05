@@ -4,8 +4,8 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTexture2DObject::OpenGLTexture2DObject(OpenGLObjectManager& manager, GLuint width, GLuint height, const GLvoid* data)
-			: IOpenGLTextureObject(manager)
+		OpenGLTexture2DObject::OpenGLTexture2DObject(OpenGLObjectManager& manager, GLuint texture_object_uid, GLuint width, GLuint height, const GLvoid* data)
+			: IOpenGLTextureObject(manager, texture_object_uid)
 			, m_width(width)
 			, m_height(height)
 		{
@@ -27,11 +27,6 @@ namespace Leviathan
 		OpenGLTexture2DObject::~OpenGLTexture2DObject()
 		{
 			glDeleteTextures(1, &m_texture_object);
-		}
-
-		bool OpenGLTexture2DObject::Register()
-		{
-			return true;
 		}
 	}
 }

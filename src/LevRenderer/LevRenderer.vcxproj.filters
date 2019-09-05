@@ -186,5 +186,8 @@
     <ClCompile Include="OpenGLTextureBufferObject.cpp">
       <Filter>Source Files\OpenGL\Advance</Filter>
     </ClCompile>
+    <ClCompile Include="OpenGLObjectManager.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -18,7 +18,12 @@ namespace Leviathan
 		class IOpenGLTextureObject : public IOpenGLObject
 		{
 		public:
-			IOpenGLTextureObject(OpenGLObjectManager& manager) : IOpenGLObject(manager), m_texture_unit(-1), m_texture_object(-1) {}
+			IOpenGLTextureObject(OpenGLObjectManager& manager, GLuint texture_object_uid) 
+				: IOpenGLObject(manager), m_texture_unit(-1), m_texture_object(-1), m_texture_object_uid(texture_object_uid)
+			{
+				
+			}
+
 			virtual ~IOpenGLTextureObject() = default;
 
 			void SetTextureUnitOffset(GLuint unit_offset) { m_texture_unit = unit_offset; };
@@ -28,17 +33,10 @@ namespace Leviathan
 			virtual OpenGLTextureObjectType GetTextureObjectType() const = 0;
 			IOpenGLTextureObject* ToOpenGLTextureObject() override { return this; };
 
-			void ActiveAndBind() 
-			{
-				glActiveTexture(GL_TEXTURE0 + m_texture_unit);
-				glBindTexture(GetTextureObjectType(), m_texture_object);
-			};
+			GLuint GetTextureObjectUID() const;
 
-			void UnActiveAndUnBind()
-			{
-				glActiveTexture(GL_TEXTURE0 + m_texture_unit);
-				glBindTexture(GetTextureObjectType(), 0);
-			};
+			void ActiveAndBind();
+			void UnActiveAndUnBind();
 
 			virtual OpenGLTexture2DObject* To2DTextureObject() { return nullptr; }
 			virtual OpenGLTexture3DObject* To3DTextureObject() { return nullptr; }
@@ -46,6 +44,24 @@ namespace Leviathan
 		protected:
 			GLint m_texture_unit;
 			GLuint m_texture_object;
+			GLuint m_texture_object_uid;
 		};
+
+		inline GLuint IOpenGLTextureObject::GetTextureObjectUID() const
+		{
+			return m_texture_object_uid;
+		}
+
+		inline void IOpenGLTextureObject::ActiveAndBind()
+		{
+			glActiveTexture(GL_TEXTURE0 + m_texture_unit);
+			glBindTexture(GetTextureObjectType(), m_texture_object);
+		}
+
+		inline void IOpenGLTextureObject::UnActiveAndUnBind()
+		{
+			glActiveTexture(GL_TEXTURE0 + m_texture_unit);
+			glBindTexture(GetTextureObjectType(), 0);
+		}
 	}
 }

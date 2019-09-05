@@ -18,7 +18,6 @@ namespace Leviathan
 				: m_object_manager(object_manager)
 				, m_object_handle(LevTokenDispatch<IOpenGLObject, OpenGLObjectHandle>::GetIncrementToken())
 			{
-				
 			}
 
 			virtual ~IOpenGLObject() = default;
@@ -28,12 +27,9 @@ namespace Leviathan
 
 			IOpenGLObject* ToOpenGLObject() override { return this; };
 
-		protected:
-			/*
-			 * Register self to object manager
-			 */
-			virtual bool Register() = 0;
+			bool Equals(const IOpenGLObject& lhs) const { return m_object_handle == lhs.m_object_handle; }
 
+		protected:
 			OpenGLObjectManager& m_object_manager;
 			OpenGLObjectHandle m_object_handle;
 		};

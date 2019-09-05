@@ -54,6 +54,7 @@
     <ClCompile Include="IOpenGLBufferObject.cpp" />
     <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
     <ClCompile Include="OpenGLFrameBufferObject.cpp" />
+    <ClCompile Include="OpenGLObjectManager.cpp" />
     <ClCompile Include="OpenGLRenderNode.cpp" />
     <ClCompile Include="OpenGLRenderNodeObject.cpp" />
     <ClCompile Include="OpenGLRenderNodeVisitor.cpp" />
