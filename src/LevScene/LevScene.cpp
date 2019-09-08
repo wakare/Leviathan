@@ -72,7 +72,7 @@ namespace Leviathan
 			return m_pSceneData->HasModified();
 		}
 
-		LPtr<LevSceneEventListener> LevScene::GetEventListener()
+		LSPtr<LevSceneEventListener> LevScene::GetEventListener()
 		{
 			LEV_ASSERT(m_pEventListener);
 			return m_pEventListener;

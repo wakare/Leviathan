@@ -1,7 +1,7 @@
 #pragma once
 
 #include "LevSceneAPIDefine.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevSceneNode.h"
 #include "LevNumericalUniform.h"
 
@@ -12,7 +12,7 @@ namespace Leviathan
 		class LEV_SCENE_API LevSceneUtil
 		{
 		public:
-			static bool InitSceneNodeWithMeshFile(const char* mesh_file, unsigned scene_object_mask, LPtr<LevSceneNode>& out_scene_node);
+			static bool InitSceneNodeWithMeshFile(const char* mesh_file, unsigned scene_object_mask, LSPtr<LevSceneNode>& out_scene_node);
 
 			enum MeshBindDataType
 			{
@@ -30,15 +30,15 @@ namespace Leviathan
 			// TODO: Can calculate static ball coordination in compile time.
 			// Generate vertices and normal (Attribute layout is 0 and 1).
 
-			static bool GenerateCube(const float* cube_center, float cube_length, LPtr<LevSceneNode>& out_cube_node);
-			static bool GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node);
-			static bool GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LPtr<LevSceneNode>& out_plane_node);
-			static bool GeneratePoints(const float* vertices, const float* normals, unsigned count, LPtr<LevSceneNode>& out_points_node);
+			static bool GenerateCube(const float* cube_center, float cube_length, LSPtr<LevSceneNode>& out_cube_node);
+			static bool GenerateBallNode(const float* ball_center, float ball_radius, LSPtr<LevSceneNode>& out_ball_node);
+			static bool GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LSPtr<LevSceneNode>& out_plane_node);
+			static bool GeneratePoints(const float* vertices, const float* normals, unsigned count, LSPtr<LevSceneNode>& out_points_node);
 
 			/*
 				Easy-interface to generate uniform.
 			*/
-			static bool GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevNumericalUniform>& out_uniform);
+			static bool GenerateIdentityMatrixUniform(const char* uniform_name, LSPtr<LevNumericalUniform>& out_uniform);
 		};
 	}
 }

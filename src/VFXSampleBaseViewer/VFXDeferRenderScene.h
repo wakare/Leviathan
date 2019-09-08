@@ -1,6 +1,7 @@
 #pragma once
 
 #include "VFXCommonScene.h"
+#include "LevTextureObject.h"
 
 namespace Leviathan
 {
@@ -12,7 +13,14 @@ namespace Leviathan
 			VFXDeferRenderScene();
 
 		private:
-			void _createDeferRenderTestScene();
+			bool _init_frame_buffer_object();
+			void _init_scene_node();
+			void _init_quad_node();
+
+			LSPtr<LevSceneNode> m_root_node;
+			LSPtr<LevSceneNode> m_scene_node;
+			LSPtr<LevSceneNode> m_quad_node;
+			LSPtr<LevTextureObject> m_texture_object;
 		};
 	}
 }

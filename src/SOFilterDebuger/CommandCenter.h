@@ -3,7 +3,7 @@
 #include <vector>
 #include <list>
 #include <mutex>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "Command.h"
 #include "ThreadRecorder.h"
 
@@ -20,13 +20,13 @@ namespace Leviathan
 			else
 				update the oldest element value to command
 		*/
-		bool PushCompletedCommand(LPtr<Command> pCommand);
+		bool PushCompletedCommand(LSPtr<Command> pCommand);
 		bool UndoLastCompletedCommand();
 
 	private:
 		unsigned m_stack_size;
 
-		std::list<LPtr<Command>> m_stack;
+		std::list<LSPtr<Command>> m_stack;
 	};
 
 	class CommandCenter : public ThreadRecorder
@@ -35,13 +35,13 @@ namespace Leviathan
 		CommandCenter(unsigned command_stack_size = 100);
 
 		void SetCommandStackSize(unsigned command_stack_size);
-		bool PostCommand(LPtr<Command> pCommand);
+		bool PostCommand(LSPtr<Command> pCommand);
 		void DoCommands();
 		void UndoOneCommand();
 
 	private:
 		std::mutex m_lock;
-		std::vector<LPtr<Command>> m_unfinished_commands;
-		LPtr<CommandStackStruct> m_command_stack;
+		std::vector<LSPtr<Command>> m_unfinished_commands;
+		LSPtr<CommandStackStruct> m_command_stack;
 	};
 }

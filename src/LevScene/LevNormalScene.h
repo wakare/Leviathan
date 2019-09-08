@@ -1,6 +1,6 @@
 #pragma once
 #include "LevScene.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -15,7 +15,7 @@ namespace Leviathan
 			LevNormalScene();
 			virtual void Update();
 
-			LPtr<LevSceneNode> GetLightRootNode();
+			LSPtr<LevSceneNode> GetLightRootNode();
 
 		private:
 			bool _init_root_node();
@@ -24,11 +24,11 @@ namespace Leviathan
 
 			void _update_camera();
 
-			LPtr<LevSceneNode> m_camera_node;
-			LPtr<LevNumericalUniform> m_default_view_matrix;
-			LPtr<LevNumericalUniform> m_default_proj_matrix;
+			LSPtr<LevSceneNode> m_camera_node;
+			LSPtr<LevNumericalUniform> m_default_view_matrix;
+			LSPtr<LevNumericalUniform> m_default_proj_matrix;
 
-			LPtr<LevSceneNode> m_light_root_node;
+			LSPtr<LevSceneNode> m_light_root_node;
 		};
 	}
 }

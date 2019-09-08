@@ -17,14 +17,14 @@ class LevFileNode : public Node<LevFileDesc>
 public:
 	UNIQUE_INSTANCE(LevFileNode)
 
-	LevFileNode(LPtr<LevFileDesc> desc);
+	LevFileNode(LSPtr<LevFileDesc> desc);
 };
 
 class LevFileSystem
 {
 public:
-	static bool LoadDirectory(const char* path, LPtr<LevFileNode>& out);
+	static bool LoadDirectory(const char* path, LSPtr<LevFileNode>& out);
 
 private:
-	static bool _recursiveLoadDirectory(boost::filesystem::path& path, LPtr<LevFileNode>& out);
+	static bool _recursiveLoadDirectory(boost::filesystem::path& path, LSPtr<LevFileNode>& out);
 };

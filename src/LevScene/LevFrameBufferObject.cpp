@@ -17,14 +17,14 @@ namespace Leviathan
 			return m_id;
 		}
 
-		bool LevFrameBufferObject::Attach(LevFrameAttachmentType attach_type, LPtr<LevAttachment> attachment)
+		bool LevFrameBufferObject::Attach(LevFrameAttachmentType attach_type, LSPtr<LevAttachment> attachment)
 		{
 			m_attachments[attach_type] = attachment;
 
 			return true;
 		}
 
-		const std::map<LevFrameAttachmentType, LPtr<LevAttachment>>& LevFrameBufferObject::GetAttachments() const
+		const std::map<LevFrameAttachmentType, LSPtr<LevAttachment>>& LevFrameBufferObject::GetAttachments() const
 		{
 			return m_attachments;
 		}

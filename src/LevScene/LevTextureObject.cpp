@@ -6,7 +6,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		Leviathan::Scene::LevTextureObject::LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LPtr<RAIIBufferData> data)
+		Leviathan::Scene::LevTextureObject::LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LSPtr<RAIIBufferData> data)
 			: m_id(LevTokenDispatch<LevTextureObject, unsigned>::GetIncrementToken())
 			, m_texture_type(texture_type)
 			, m_width(width)
@@ -37,7 +37,7 @@ namespace Leviathan
 			return m_depth;
 		}
 
-		void LevTextureObject::SetTextureObjectData(LPtr<RAIIBufferData> texture_data)
+		void LevTextureObject::SetTextureObjectData(LSPtr<RAIIBufferData> texture_data)
 		{
 			m_texture_data = texture_data;
 		}
@@ -64,7 +64,7 @@ namespace Leviathan
 
 		const void* LevTextureObject::GetTextureData() const
 		{
-			return m_texture_data->GetArrayData();
+			return (m_texture_data.Get()) ? m_texture_data->GetArrayData() : nullptr;
 		}
 	}
 }

@@ -14,6 +14,8 @@ namespace Leviathan
 		LevOpenGLWindow(int width = 1080, int height = 720, char* pTitle = (char*)"Leviathan");
 
 		bool Create(int width, int height, int hParent = 0) override;
+		bool Resize(int width, int height) override;
+
 		void Run() override;
 		void Update() override;
 		void SetStop() override;

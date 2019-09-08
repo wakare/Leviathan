@@ -66,7 +66,7 @@ namespace Leviathan
 					const auto* depth_func = dynamic_cast<const Scene::LevRenderStateDepthFunc*>(state.second.Get());
 					LEV_ASSERT(depth_func);
 
-					LPtr<IOpenGLRenderState> depth_func_state = new OpenGLRStateDepthFunc(*depth_func);
+					LSPtr<IOpenGLRenderState> depth_func_state = new OpenGLRStateDepthFunc(*depth_func);
 					m_render_states.push_back(depth_func_state);
 				}
 				break;
@@ -76,7 +76,7 @@ namespace Leviathan
 					const auto* point_size = dynamic_cast<const Scene::LevRenderStatePointSize*>(state.second.Get());
 					LEV_ASSERT(point_size);
 
-					LPtr<IOpenGLRenderState> point_size_state = new OpenGLRStatePointSize(point_size->GetPointSize());
+					LSPtr<IOpenGLRenderState> point_size_state = new OpenGLRStatePointSize(point_size->GetPointSize());
 					m_render_states.push_back(point_size_state);
 				}
 				break;
@@ -85,22 +85,22 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLRenderEntry::SetFrameBufferObject(LPtr<OpenGLFrameBufferObject> frame_buffer)
+		void OpenGLRenderEntry::SetFrameBufferObject(LSPtr<OpenGLFrameBufferObject> frame_buffer)
 		{
 			m_frame_buffer_object = frame_buffer;
 		}
 
-		LPtr<OpenGLFrameBufferObject> OpenGLRenderEntry::GetFrameBufferObject()
+		LSPtr<OpenGLFrameBufferObject> OpenGLRenderEntry::GetFrameBufferObject()
 		{
 			return m_frame_buffer_object;
 		}
 
-		void OpenGLRenderEntry::AddRenderState(LPtr<IOpenGLRenderState> render_state)
+		void OpenGLRenderEntry::AddRenderState(LSPtr<IOpenGLRenderState> render_state)
 		{
 			m_render_states.push_back(render_state);
 		}
 
-		void OpenGLRenderEntry::AddUniform(LPtr<IOpenGLUniform> uniform)
+		void OpenGLRenderEntry::AddUniform(LSPtr<IOpenGLUniform> uniform)
 		{
 			m_uniforms.push_back(uniform);
 		}
@@ -136,12 +136,12 @@ namespace Leviathan
 			return m_id;
 		}
 
-		const std::vector<LPtr<IOpenGLRenderState>>& OpenGLRenderEntry::GetRenderState() const
+		const std::vector<LSPtr<IOpenGLRenderState>>& OpenGLRenderEntry::GetRenderState() const
 		{
 			return m_render_states;
 		}
 
-		const std::vector<LPtr<IOpenGLUniform>>& OpenGLRenderEntry::GetUniforms() const
+		const std::vector<LSPtr<IOpenGLUniform>>& OpenGLRenderEntry::GetUniforms() const
 		{
 			return m_uniforms;
 		}
@@ -152,18 +152,15 @@ namespace Leviathan
 			size_t attribute_size = m_attribute_binder.GetAttributes().size();
 			EXIT_IF_FALSE(attribute_size > 0)
 			
-			size_t total_byte_size = 0;
 			size_t element_byte_size = 0;
 
 			for (const auto& attribute : m_attribute_binder.GetAttributes())
 			{
-				total_byte_size += attribute.second->GetData().GetArrayDataByteSize();
 				element_byte_size += attribute.second->GetByteSizePerElement();
 			}
 
-			LPtr<RAIIBufferData> buffer_data = new RAIIBufferData(total_byte_size);
-
-			size_t vertex_count = m_attribute_binder.GetElementCount();
+			const size_t vertex_count = m_attribute_binder.GetElementCount();
+			LSPtr<RAIIBufferData> buffer_data = new RAIIBufferData(element_byte_size * vertex_count);
 
 			char* current_buffer_data = static_cast<char*>( buffer_data->GetArrayData());
 			for (size_t i = 0; i < vertex_count; i++)

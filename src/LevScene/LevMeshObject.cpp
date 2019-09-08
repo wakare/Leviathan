@@ -25,7 +25,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevMeshObject::SetMesh(const std::vector<LPtr<IMesh>>& meshes)
+		bool LevMeshObject::SetMesh(const std::vector<LSPtr<IMesh>>& meshes)
 		{
 			m_mesh = meshes;
 			_updateAABB();
@@ -33,7 +33,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevMeshObject::SetMesh(LPtr<IMesh> pMesh)
+		bool LevMeshObject::SetMesh(LSPtr<IMesh> pMesh)
 		{
 			m_mesh.clear();
 			m_mesh.push_back(pMesh);
@@ -42,7 +42,7 @@ namespace Leviathan
 			return true;
 		}
 
-		const std::vector<LPtr<IMesh>>& LevMeshObject::GetMesh() const
+		const std::vector<LSPtr<IMesh>>& LevMeshObject::GetMesh() const
 		{
 			LEV_ASSERT(m_mesh.size() > 0);
 			return m_mesh;

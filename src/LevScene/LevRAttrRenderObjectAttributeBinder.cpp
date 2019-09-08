@@ -4,7 +4,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		LevRenderObjectAttribute::LevRenderObjectAttribute(RenderObjectAttributeType type, size_t byte_size_per_element, LPtr<RAIIBufferData> data)
+		LevRenderObjectAttribute::LevRenderObjectAttribute(RenderObjectAttributeType type, size_t byte_size_per_element, LSPtr<RAIIBufferData> data)
 			: m_type(type)
 			, m_byte_size_per_element(byte_size_per_element)
 			, m_data(data)
@@ -42,7 +42,7 @@ namespace Leviathan
 			SetPrimitiveType(EROPT_TRIANGLES);
 		}
 
-		bool LevRAttrRenderObjectAttributeBinder::BindAttribute(ATTRIBUTE_HANDLE handle, LPtr<LevRenderObjectAttribute> attribute)
+		bool LevRAttrRenderObjectAttributeBinder::BindAttribute(ATTRIBUTE_HANDLE handle, LSPtr<LevRenderObjectAttribute> attribute)
 		{
 			//EXIT_IF_FALSE(attribute->GetElementCount() >= m_element_count);
 			m_bind_attributes[handle] = attribute;
@@ -50,12 +50,12 @@ namespace Leviathan
 			return true;
 		}
 
-		const std::map<ATTRIBUTE_HANDLE, LPtr<LevRenderObjectAttribute>>& LevRAttrRenderObjectAttributeBinder::GetAttributes() const
+		const std::map<ATTRIBUTE_HANDLE, LSPtr<LevRenderObjectAttribute>>& LevRAttrRenderObjectAttributeBinder::GetAttributes() const
 		{
 			return m_bind_attributes;
 		}
 
-		void LevRAttrRenderObjectAttributeBinder::SetIndexAttribute(LPtr<LevRenderObjectAttribute> index_attribute)
+		void LevRAttrRenderObjectAttributeBinder::SetIndexAttribute(LSPtr<LevRenderObjectAttribute> index_attribute)
 		{
 			m_index_attribute = index_attribute;
 		}

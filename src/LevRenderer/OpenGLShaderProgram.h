@@ -2,7 +2,7 @@
 
 #include <gl/glew.h>
 #include <map>
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -23,8 +23,8 @@ namespace Leviathan
 			bool Init();
 			bool SetGLUniformState();
 
-			bool AddUniform(LPtr<OpenGLNumericalUniform> pUniform);
-			LPtr<OpenGLNumericalUniform>& GetUniformByName(std::string uniformName);
+			bool AddUniform(LSPtr<OpenGLNumericalUniform> pUniform);
+			LSPtr<OpenGLNumericalUniform>& GetUniformByName(std::string uniformName);
 			GLuint GetShaderProgram() const;
 			unsigned GetID() const;
 
@@ -40,7 +40,7 @@ namespace Leviathan
 			GLboolean m_bInited;
 
 			const Scene::LevRAttrShaderProgram& m_shader_program;
-			std::map<std::string, LPtr<OpenGLNumericalUniform>> m_pGLUniforms;
+			std::map<std::string, LSPtr<OpenGLNumericalUniform>> m_pGLUniforms;
 		};
 	}
 }

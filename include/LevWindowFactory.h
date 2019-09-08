@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevCoreExport.h"
 
 namespace Leviathan
@@ -16,6 +16,6 @@ namespace Leviathan
 	{
 	public:
 		LevWindowFactory();
-		static bool Create(LevWindowType type, LPtr<ILevWindow>& out);
+		static bool Create(LevWindowType type, LSPtr<ILevWindow>& out);
 	};
 }

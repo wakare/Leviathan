@@ -51,5 +51,5 @@ private:
 	QScopedPointer<LevAttributeWidget> m_attribute_view;
 
 	QScopedPointer<QTimer> m_timer;
-	LPtr<LeviathanProxy> m_leviathan_proxy;
+	LSPtr<LeviathanProxy> m_leviathan_proxy;
 };

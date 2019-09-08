@@ -2,6 +2,9 @@
 
 namespace Leviathan
 {
+	/*
+	 * TODO: Replace DynamicArray with RAIIBufferData
+	 */
 	template<class T>
 	class DynamicArray
 	{

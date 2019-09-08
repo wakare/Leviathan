@@ -1,7 +1,7 @@
 #pragma once
 #include "LevSceneRenderAttribute.h"
 #include <map>
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -18,7 +18,7 @@ namespace Leviathan
 		class LEV_SCENE_API LevRenderObjectAttribute
 		{
 		public:
-			LevRenderObjectAttribute(RenderObjectAttributeType type, size_t byte_size_per_element, LPtr<RAIIBufferData> data);
+			LevRenderObjectAttribute(RenderObjectAttributeType type, size_t byte_size_per_element, LSPtr<RAIIBufferData> data);
 			const RAIIBufferData& GetData() const;
 			size_t GetByteSizePerElement() const;
 			size_t GetElementCount() const;
@@ -27,7 +27,7 @@ namespace Leviathan
 		private:
 			RenderObjectAttributeType m_type;
 			size_t m_byte_size_per_element;
-			LPtr<RAIIBufferData> m_data;
+			LSPtr<RAIIBufferData> m_data;
 		};
 
 		enum RenderObjectPrimitiveType
@@ -42,10 +42,10 @@ namespace Leviathan
 		public: 
 			LevRAttrRenderObjectAttributeBinder(size_t element_count);
 
-			bool BindAttribute(ATTRIBUTE_HANDLE handle,  LPtr<LevRenderObjectAttribute> attribute);
-			const std::map<ATTRIBUTE_HANDLE, LPtr<LevRenderObjectAttribute>>& GetAttributes() const;
+			bool BindAttribute(ATTRIBUTE_HANDLE handle,  LSPtr<LevRenderObjectAttribute> attribute);
+			const std::map<ATTRIBUTE_HANDLE, LSPtr<LevRenderObjectAttribute>>& GetAttributes() const;
 
-			void SetIndexAttribute(LPtr<LevRenderObjectAttribute> index_attribute);
+			void SetIndexAttribute(LSPtr<LevRenderObjectAttribute> index_attribute);
 
 			bool HasIndexAttribute() const;
 			const LevRenderObjectAttribute& GetIndexAttribute() const;
@@ -59,8 +59,8 @@ namespace Leviathan
 		private:
 			size_t m_element_count;
 			RenderObjectPrimitiveType m_primitive_type;
-			std::map<ATTRIBUTE_HANDLE, LPtr<LevRenderObjectAttribute>> m_bind_attributes;
-			LPtr<LevRenderObjectAttribute> m_index_attribute;
+			std::map<ATTRIBUTE_HANDLE, LSPtr<LevRenderObjectAttribute>> m_bind_attributes;
+			LSPtr<LevRenderObjectAttribute> m_index_attribute;
 		};
 	}
 }

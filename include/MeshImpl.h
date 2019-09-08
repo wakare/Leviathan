@@ -36,9 +36,9 @@ namespace Leviathan
 		void SetPrimitiveIndexData(unsigned* triangleIndexData);
 		void SetVertexTex2DData(float* vertexTexData);
 		void SetVertexColorData(float* vertexColorData);
-		void SetMaterial(LPtr<Material> material);
+		void SetMaterial(LSPtr<Material> material);
 
-		LPtr<Material> GetMaterial();
+		LSPtr<Material> GetMaterial();
 		const AABB& GetAABB();
 
 		EResourceType Type() const;
@@ -48,16 +48,16 @@ namespace Leviathan
 
 		EPrimitiveType m_primitiveType;
 
-		LPtr<DynamicArray<unsigned>> m_primitiveIndex;
+		LSPtr<DynamicArray<unsigned>> m_primitiveIndex;
 		unsigned	m_primitiveNumber;
 
-		LPtr<DynamicArray<float>> m_vertexCoords;
-		LPtr<DynamicArray<float>> m_vertexNormal;
-		LPtr<DynamicArray<float>> m_vertexColorData;
-		LPtr<DynamicArray<float>> m_vertexTexData;
+		LSPtr<DynamicArray<float>> m_vertexCoords;
+		LSPtr<DynamicArray<float>> m_vertexNormal;
+		LSPtr<DynamicArray<float>> m_vertexColorData;
+		LSPtr<DynamicArray<float>> m_vertexTexData;
 
 		unsigned	m_vertexNumber;
-		LPtr<Material> m_pMaterial;
+		LSPtr<Material> m_pMaterial;
 
 		bool		m_bAABBInited;
 		AABB		m_AABB;

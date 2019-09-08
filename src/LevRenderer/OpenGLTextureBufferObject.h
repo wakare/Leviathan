@@ -19,7 +19,7 @@ namespace Leviathan
 			GLuint GetTextureObject();
 
 		private:
-			LPtr<IOpenGLTextureObject> m_texture_object;
+			LSPtr<IOpenGLTextureObject> m_texture_object;
 		};
 	}
 }

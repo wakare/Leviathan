@@ -11,7 +11,7 @@ namespace Leviathan
 
 	#define LeviathanInStream std::cin
 	//#define LeviathanOutStream Leviathan::g_levLogFile
-#define LeviathanOutStream std::cout
+	#define LeviathanOutStream std::cout
 	#define LogLine(s) LeviathanOutStream << s << std::endl;
 
 	#define PI_DOUBLE 3.141592653589793

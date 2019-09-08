@@ -9,18 +9,18 @@ namespace Leviathan
 	class LEV_CORE_API FileImportFactory : public IFileImportFactory
 	{
 	public:
-		std::vector<LPtr<IMesh>> LoadFile(const char* fileName);
-		std::vector<LPtr<IMesh>> LoadFile(std::string fileName);
+		std::vector<LSPtr<IMesh>> LoadFile(const char* fileName);
+		std::vector<LSPtr<IMesh>> LoadFile(std::string fileName);
 
 		// Should only be called in main thread
-		static LPtr<IFileImportFactory> GetFileImportFactory();
+		static LSPtr<IFileImportFactory> GetFileImportFactory();
 
-		bool RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter);
+		bool RegisterImporter(std::string typeName, LSPtr<IFileImporter> pImporter);
 	private:
 		FileImportFactory();
-		std::vector<LPtr<IMesh>> _loadModelByAssimp(const std::string& strFileName);
+		std::vector<LSPtr<IMesh>> _loadModelByAssimp(const std::string& strFileName);
 
-		static LPtr<IFileImportFactory> m_spFileImportFactory;
-		std::map<std::string, LPtr<IFileImporter>> m_registerFileImport;
+		static LSPtr<IFileImportFactory> m_spFileImportFactory;
+		std::map<std::string, LSPtr<IFileImporter>> m_registerFileImport;
 	};
 }

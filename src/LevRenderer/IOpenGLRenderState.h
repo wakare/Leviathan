@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -31,13 +31,13 @@ namespace Leviathan
 			virtual void Apply() = 0;
 			virtual void UnApply() = 0;
 
-			void SetLastRenderState(LPtr<IOpenGLRenderState> last_render_state);
+			void SetLastRenderState(LSPtr<IOpenGLRenderState> last_render_state);
 
 		protected:
-			LPtr<IOpenGLRenderState> m_last_render_state;
+			LSPtr<IOpenGLRenderState> m_last_render_state;
 		};
 
-		inline void IOpenGLRenderState::SetLastRenderState(LPtr<IOpenGLRenderState> last_render_state)
+		inline void IOpenGLRenderState::SetLastRenderState(LSPtr<IOpenGLRenderState> last_render_state)
 		{
 			m_last_render_state = last_render_state;
 		}

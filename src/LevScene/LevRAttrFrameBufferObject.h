@@ -1,6 +1,6 @@
 ﻿#pragma once
 #include "LevSceneRenderAttribute.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -12,11 +12,11 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrFrameBufferObject();
-			bool SetFrameBufferObject(LPtr<LevFrameBufferObject> frame_buffer_object);
-			LPtr<LevFrameBufferObject> GetFrameBufferObject() const;
+			bool SetFrameBufferObject(LSPtr<LevFrameBufferObject> frame_buffer_object);
+			LSPtr<LevFrameBufferObject> GetFrameBufferObject() const;
 
 		private:
-			LPtr<LevFrameBufferObject> m_frame_buffer_object;
+			LSPtr<LevFrameBufferObject> m_frame_buffer_object;
 		};
 	}
 }

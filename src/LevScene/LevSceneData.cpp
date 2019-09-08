@@ -60,7 +60,7 @@ namespace Leviathan
 			m_pSceneTree->UpdateTimer();
 		}
 
-		void LevSceneData::RegisterToMainCamera(LPtr<LevCamera> camera, LPtr<LevSceneNode> camera_node)
+		void LevSceneData::RegisterToMainCamera(LSPtr<LevCamera> camera, LSPtr<LevSceneNode> camera_node)
 		{
 			m_main_camera = camera;
 
@@ -68,31 +68,31 @@ namespace Leviathan
 			AddSceneNodeToRoot(m_main_camera_node);
 		}
 
-		LPtr<LevSceneNode> LevSceneData::GetMainCameraNode()
+		LSPtr<LevSceneNode> LevSceneData::GetMainCameraNode()
 		{
 			return m_main_camera_node;
 		}
 
-		LPtr<LevCamera> LevSceneData::GetMainCamera()
+		LSPtr<LevCamera> LevSceneData::GetMainCamera()
 		{
 			return m_main_camera;
 		}
 
-		bool LevSceneData::SetMainCamera(LPtr<LevCamera> camera)
+		bool LevSceneData::SetMainCamera(LSPtr<LevCamera> camera)
 		{
 			EXIT_IF_FALSE(camera);
 			m_main_camera = camera;
 			return true;
 		}
 
-		bool LevSceneData::AddSceneNodeToRoot(LPtr<LevSceneNode> pNode)
+		bool LevSceneData::AddSceneNodeToRoot(LSPtr<LevSceneNode> pNode)
 		{
 			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
 			EXIT_IF_FALSE(m_pSceneTree->AddNodeToParent(pNode));
 			return true;
 		}
 
-		bool LevSceneData::AddSceneNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> parent_node)
+		bool LevSceneData::AddSceneNodeToParent(LSPtr<LevSceneNode> pNode, LSPtr<LevSceneNode> parent_node)
 		{
 			pNode->GetNodeData()->SetModifiedCallback(m_modifiedCallback);
 			EXIT_IF_FALSE(m_pSceneTree->AddNodeToParent(pNode, parent_node));

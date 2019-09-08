@@ -21,7 +21,7 @@ namespace Leviathan
 			, m_root(nullptr)
 		{
 			// Init root node
-			LPtr<LevSceneObject> rootObj = new LevSceneObject(ELSOT_ROOT);
+			LSPtr<LevSceneObject> rootObj = new LevSceneObject(ELSOT_ROOT);
 			m_root.Reset(new LevSceneNode(rootObj));
 
 			// Set state update callback
@@ -51,7 +51,7 @@ namespace Leviathan
 			m_state_updater->SetStateUpdateCallback(_state_updater);
 		}
 
-		bool LevSceneTree::AddNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode /*= nullptr*/)
+		bool LevSceneTree::AddNodeToParent(LSPtr<LevSceneNode> pNode, LSPtr<LevSceneNode> pParentNode /*= nullptr*/)
 		{
 			EXIT_IF_FALSE(m_root && pNode);
 
@@ -115,7 +115,7 @@ namespace Leviathan
 			Node<LevSceneObject>& begin_node = pBeginNode;
 
 			// Delete children
-			std::vector<LPtr<Node<LevSceneObject>>> deletedChildren;
+			std::vector<LSPtr<Node<LevSceneObject>>> deletedChildren;
 
 			for (auto& child : begin_node.GetChildren())
 			{

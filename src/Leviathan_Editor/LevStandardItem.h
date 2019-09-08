@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QStandardItem>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevFileSystem.h"
 #include "Node.h"
 /*

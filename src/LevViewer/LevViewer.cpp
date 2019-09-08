@@ -36,12 +36,22 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevViewer::SetCurrentScene(LPtr<Scene::LevScene> current_scene)
+		bool LevViewer::ResizeWindow(int width, int height)
+		{
+			if (!m_window)
+			{
+				return false;
+			}
+
+			return m_window->Resize(width, height);
+		}
+
+		bool LevViewer::SetCurrentScene(LSPtr<Scene::LevScene> current_scene)
 		{
 			EXIT_IF_FALSE(current_scene);
 			m_current_scene = current_scene;
 
-			LPtr<EventListener> eventListener = TryCast<Scene::LevSceneEventListener, EventListener>(current_scene->GetEventListener());
+			LSPtr<EventListener> eventListener = TryCast<Scene::LevSceneEventListener, EventListener>(current_scene->GetEventListener());
 			LEV_ASSERT(eventListener);
 			m_event_system->AddEventListener(INPUT_EVENT, eventListener.Get());
 

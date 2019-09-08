@@ -3,7 +3,7 @@
 #include <functional>
 #include <vector>
 
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "GlobalDef.h"
 #include "LevSceneAPIDefine.h"
 
@@ -34,15 +34,15 @@ namespace Leviathan
 
 			void RegisterModifiedCallback(LevSceneModifiedCallback callback);
 
-			LPtr<LevSceneEventListener> GetEventListener();
+			LSPtr<LevSceneEventListener> GetEventListener();
 			const LevSceneData& GetSceneData() const;
 			LevSceneData& GetSceneData();
 
 		private:
 			bool m_inited;
 			LevSceneType m_sceneType;
-			LPtr<LevSceneData> m_pSceneData;
-			LPtr<LevSceneEventListener> m_pEventListener;
+			LSPtr<LevSceneData> m_pSceneData;
+			LSPtr<LevSceneEventListener> m_pEventListener;
 
 			std::vector<LevSceneModifiedCallback> m_scene_modified_callbacks;
 		};

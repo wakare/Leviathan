@@ -2,7 +2,7 @@
 
 #include <vector>
 #include "IMesh.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan 
 {
@@ -13,6 +13,6 @@ namespace Leviathan
 
 		virtual bool RegisterToFactory() = 0;
 		virtual std::string TypeName() = 0;
-		virtual std::vector<LPtr<IMesh>> LoadFile(const char* fileName) = 0;
+		virtual std::vector<LSPtr<IMesh>> LoadFile(const char* fileName) = 0;
 	};
 }

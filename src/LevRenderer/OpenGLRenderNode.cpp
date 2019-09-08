@@ -4,7 +4,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderNode::OpenGLRenderNode(LPtr<OpenGLRenderNodeObject> object)
+		OpenGLRenderNode::OpenGLRenderNode(LSPtr<OpenGLRenderNodeObject> object)
 			: Node<OpenGLRenderNodeObject>(object)
 		{
 

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <LevListView.h>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevFileSystem.h"
 #include "Node.h"
 #include "LevStandardItem.h"
@@ -23,5 +23,5 @@ private:
 	void _folderClicked(const Node<LevFileDesc>& node);
 	void _regularFileClicked(const Node<LevFileDesc>& node);
 
-	LPtr<LevFileNode> m_file_system_root_node;
+	LSPtr<LevFileNode> m_file_system_root_node;
 };

@@ -11,7 +11,7 @@ namespace Leviathan
 			
 		}
 
-		void OpenGLUniformManager::ApplyUniform(LPtr<IOpenGLUniform> uniform)
+		void OpenGLUniformManager::ApplyUniform(LSPtr<IOpenGLUniform> uniform)
 		{
 			uniform->Apply(m_shader_program);
 		}

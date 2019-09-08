@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseShaderSource.h" />
     <ClInclude Include="SDFVoxel.h" />
     <ClInclude Include="SDFVoxelManager.h" />
     <ClInclude Include="VFXCommonScene.h" />

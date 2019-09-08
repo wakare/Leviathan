@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <map>
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -39,11 +39,11 @@ namespace Leviathan
 			const OpenGLResourceManager& GetResourceManager() const;
 			
 		private:
-			bool _applyRenderAttribute(LPtr<OpenGLRenderEntry> objects, const Scene::LevSceneRenderAttribute& render_attribute);
+			bool _applyRenderAttribute(LSPtr<OpenGLRenderEntry> objects, const Scene::LevSceneRenderAttribute& render_attribute);
 
 			int m_current_render_tree_id;
-			LPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;
-			LPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
+			LSPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;
+			LSPtr<Scene::LevSceneTreeTraverseVisitor> m_traverseVisitor;
 		};
 	}
 }

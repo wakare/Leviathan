@@ -110,7 +110,7 @@ namespace Leviathan
 			m_modifiedCallback = modified;
 		}
 
-		const std::vector<LPtr<LevSceneObjectAttribute>>& LevSceneObject::GetAllAttributes() const
+		const std::vector<LSPtr<LevSceneObjectAttribute>>& LevSceneObject::GetAllAttributes() const
 		{
 			return m_attributes;
 		}
@@ -120,7 +120,7 @@ namespace Leviathan
 			return m_pObjDesc.Get();
 		}
 
-		bool LevSceneObject::SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc)
+		bool LevSceneObject::SetObjectDesc(LSPtr<LevSceneObjectDescription> pObjDesc)
 		{
 			m_pObjDesc.Reset(pObjDesc);
 			return true;
@@ -147,17 +147,17 @@ namespace Leviathan
 			return m_recalculateWorldTransform;
 		}
 
-		void LevSceneObject::SetTimer(LPtr<LevTimer> timer)
+		void LevSceneObject::SetTimer(LSPtr<LevTimer> timer)
 		{
 			m_pTimer = timer;
 		}
 
-		LPtr<LevTimer> LevSceneObject::GetTimer()
+		LSPtr<LevTimer> LevSceneObject::GetTimer()
 		{
 			return m_pTimer;
 		}
 
-		const LPtr<LevTimer> LevSceneObject::GetTimer() const
+		const LSPtr<LevTimer> LevSceneObject::GetTimer() const
 		{
 			return m_pTimer;
 		}

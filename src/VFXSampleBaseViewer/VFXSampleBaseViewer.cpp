@@ -30,8 +30,8 @@ namespace Leviathan
 		{
 			if (!m_viewer->HasAttachedScene())
 			{
-				//LPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
-				LPtr<Scene::LevScene> scene = new VFXSDFScene;
+				LSPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
+				//LSPtr<Scene::LevScene> scene = new VFXSDFScene;
 				m_viewer->SetCurrentScene(scene);
 			}
 

@@ -42,7 +42,7 @@ int main(int argc, char** argv)
 
 	const char* file_directory = argv[1];
 
-	LPtr<LevFileNode> root_node = nullptr;
+	LSPtr<LevFileNode> root_node = nullptr;
 	LevFileSystem::LoadDirectory(file_directory, root_node);
 
 	FileNodeVisitor visitor;

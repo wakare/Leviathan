@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 #include "IRendererBackend.h"
 #include "LevRendererAPIDefine.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -32,7 +32,7 @@ namespace Leviathan
 			void _renderOneFrame();
 
 			LevOpenGLWindow& m_window;
-			LPtr<OpenGLRenderDataProcessor> m_pRenderData;
+			LSPtr<OpenGLRenderDataProcessor> m_pRenderData;
 		};
 	}
 }

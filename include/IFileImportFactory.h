@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "IFileImporter.h"
 
 namespace Leviathan
@@ -9,10 +9,10 @@ namespace Leviathan
 	class IFileImportFactory
 	{
 	public:
-		virtual std::vector<LPtr<IMesh>> LoadFile(const char* fileName) = 0;
-		virtual bool RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter) = 0;
+		virtual std::vector<LSPtr<IMesh>> LoadFile(const char* fileName) = 0;
+		virtual bool RegisterImporter(std::string typeName, LSPtr<IFileImporter> pImporter) = 0;
 
-		static LPtr<IFileImportFactory> GetFileImportFactory() { return nullptr; };
+		static LSPtr<IFileImportFactory> GetFileImportFactory() { return nullptr; };
 
 	protected:
 		IFileImportFactory() {};

@@ -28,10 +28,10 @@ namespace Leviathan
 
 			float m_sdf_range[6];
 
-			LPtr<Scene::LevSceneNode> m_render_node;
-			LPtr<Scene::LevTextureObject> m_sdf_texture;
-			LPtr<Scene::LevTextureObject> m_sdf_normal_texture;
-			LPtr<Scene::LevTextureUniform> m_sdf_texture_uniform;
+			LSPtr<Scene::LevSceneNode> m_render_node;
+			LSPtr<Scene::LevTextureObject> m_sdf_texture;
+			LSPtr<Scene::LevTextureObject> m_sdf_normal_texture;
+			LSPtr<Scene::LevTextureUniform> m_sdf_texture_uniform;
 			std::shared_ptr<SDFVoxelManager> m_sdf_manager;
 		};
 	}

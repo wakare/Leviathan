@@ -21,7 +21,7 @@ namespace Leviathan
 			bool _init_frame_object();
 
 			GLuint m_frame_buffer_object;
-			std::map<Scene::LevFrameAttachmentType, LPtr<IOpenGLBufferObject>> m_attachments;
+			std::map<Scene::LevFrameAttachmentType, LSPtr<IOpenGLBufferObject>> m_attachments;
 		};
 	}
 }

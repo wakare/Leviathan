@@ -9,7 +9,7 @@ namespace Leviathan
 		{
 		}
 
-		bool LevRAttrRenderStateManager::UpdateRenderState(LPtr<LevRenderState> render_state, bool overwrite /*= false*/)
+		bool LevRAttrRenderStateManager::UpdateRenderState(LSPtr<LevRenderState> render_state, bool overwrite /*= false*/)
 		{
 			auto it = m_render_state.find(render_state->GetRenderStateType());
 			if (it != m_render_state.end())
@@ -29,7 +29,7 @@ namespace Leviathan
 			return true;
 		}
 
-		Leviathan::LPtr<Leviathan::Scene::LevRenderState> LevRAttrRenderStateManager::GetRenderState(LevRenderStateType state_type)
+		Leviathan::LSPtr<Leviathan::Scene::LevRenderState> LevRAttrRenderStateManager::GetRenderState(LevRenderStateType state_type)
 		{
 			auto it = m_render_state.find(state_type);
 			if (it != m_render_state.end())
@@ -40,7 +40,7 @@ namespace Leviathan
 			return nullptr;
 		}
 
-		const std::map<Leviathan::Scene::LevRenderStateType, Leviathan::LPtr<Leviathan::Scene::LevRenderState>>& LevRAttrRenderStateManager::GetAllRenderState() const
+		const std::map<Leviathan::Scene::LevRenderStateType, Leviathan::LSPtr<Leviathan::Scene::LevRenderState>>& LevRAttrRenderStateManager::GetAllRenderState() const
 		{
 			return m_render_state;
 		}

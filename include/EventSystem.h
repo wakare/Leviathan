@@ -6,7 +6,7 @@
 #include <list>
 #include "Event.h"
 #include "EventListener.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {

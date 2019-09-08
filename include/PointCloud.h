@@ -2,7 +2,7 @@
 
 #include <memory>
 #include "DynamicArray.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "IResource.h"
 
 namespace Leviathan
@@ -18,8 +18,8 @@ namespace Leviathan
 		bool m_bWithNormal;
 		size_t m_pointCount;
 
-		LPtr<DynamicArray<scalar>> m_pCoord;
-		LPtr<DynamicArray<scalar>> m_pNormal;
+		LSPtr<DynamicArray<scalar>> m_pCoord;
+		LSPtr<DynamicArray<scalar>> m_pNormal;
 	};
 	
 	typedef PointCloud<float> PointCloudf;

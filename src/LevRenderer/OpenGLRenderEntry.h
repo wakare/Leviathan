@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <gl/glew.h>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
 
 namespace Leviathan
@@ -28,16 +28,16 @@ namespace Leviathan
 
 			unsigned GetID() const;
 
-			const std::vector<LPtr<IOpenGLRenderState>>& GetRenderState() const;
-			const std::vector<LPtr<IOpenGLUniform>>& GetUniforms() const;
+			const std::vector<LSPtr<IOpenGLRenderState>>& GetRenderState() const;
+			const std::vector<LSPtr<IOpenGLUniform>>& GetUniforms() const;
 
 			void SetRenderStateManager(const Scene::LevRAttrRenderStateManager& render_state);
 			
-			void SetFrameBufferObject(LPtr<OpenGLFrameBufferObject> frame_buffer);
-			LPtr<OpenGLFrameBufferObject> GetFrameBufferObject();
+			void SetFrameBufferObject(LSPtr<OpenGLFrameBufferObject> frame_buffer);
+			LSPtr<OpenGLFrameBufferObject> GetFrameBufferObject();
 
-			void AddRenderState(LPtr<IOpenGLRenderState> render_state);
-			void AddUniform(LPtr<IOpenGLUniform> uniform);
+			void AddRenderState(LSPtr<IOpenGLRenderState> render_state);
+			void AddUniform(LSPtr<IOpenGLUniform> uniform);
 			
 		protected:
 			OpenGLRenderEntry(unsigned id);
@@ -47,9 +47,9 @@ namespace Leviathan
 
 			bool m_inited;
 
-			LPtr<OpenGLFrameBufferObject> m_frame_buffer_object;
-			std::vector<LPtr<IOpenGLUniform>> m_uniforms;
-			std::vector<LPtr<IOpenGLRenderState>> m_render_states;
+			LSPtr<OpenGLFrameBufferObject> m_frame_buffer_object;
+			std::vector<LSPtr<IOpenGLUniform>> m_uniforms;
+			std::vector<LSPtr<IOpenGLRenderState>> m_render_states;
 
 			GLuint m_VAO;
 			GLuint m_VBO;

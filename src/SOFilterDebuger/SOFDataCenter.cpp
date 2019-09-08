@@ -15,7 +15,7 @@ namespace SOFilter
 
 	bool SOFDataCenter::LoadPointCloud(const char * pFile)
 	{
-		LPtr<PointCloudf> point_cloud;
+		LSPtr<PointCloudf> point_cloud;
 		EXIT_IF_FALSE(LevToolInterface::LoadPointCloudFile(pFile, point_cloud));
 
 		m_point_clouds.push_back(point_cloud);
@@ -42,14 +42,14 @@ namespace SOFilter
 		return m_point_clouds.size();
 	}
 
-	Leviathan::LPtr<PointCloudf> SOFDataCenter::GetPointCloudByIndex(unsigned index)
+	Leviathan::LSPtr<PointCloudf> SOFDataCenter::GetPointCloudByIndex(unsigned index)
 	{
 		EXIT_IF_FALSE(m_point_clouds.size() > index);
 
 		return m_point_clouds[index];
 	}
 
-	Leviathan::LPtr<PointCloudf> SOFDataCenter::GetOnePointCloud(unsigned& out_index) const
+	Leviathan::LSPtr<PointCloudf> SOFDataCenter::GetOnePointCloud(unsigned& out_index) const
 	{
 		static unsigned _current_index = 0;
 		EXIT_IF_FALSE(m_point_clouds.size() > _current_index);

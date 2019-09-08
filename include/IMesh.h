@@ -2,7 +2,7 @@
 
 #include "AABB.h"
 #include "Material.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "IResource.h"
 
 namespace Leviathan
@@ -35,9 +35,9 @@ namespace Leviathan
 		virtual void SetPrimitiveIndexData(unsigned* triangleIndexData) = 0;
 		virtual void SetVertexTex2DData(float* vertexTexData) = 0;
 		virtual void SetVertexColorData(float* vertexColorData) = 0;
-		virtual void SetMaterial(LPtr<Material> material) = 0;
+		virtual void SetMaterial(LSPtr<Material> material) = 0;
 
-		virtual LPtr<Material> GetMaterial() = 0;
+		virtual LSPtr<Material> GetMaterial() = 0;
 		virtual const AABB& GetAABB() = 0;
 
 		virtual EResourceType Type() const = 0;

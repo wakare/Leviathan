@@ -8,7 +8,7 @@ namespace Leviathan
 		OpenGLRenderStateManager::OpenGLRenderStateManager()
 		= default;
 
-		void OpenGLRenderStateManager::ApplyRenderState(LPtr<IOpenGLRenderState> render_state)
+		void OpenGLRenderStateManager::ApplyRenderState(LSPtr<IOpenGLRenderState> render_state)
 		{
 			auto it = m_current_render_state.find(render_state->GetRenderStateType());
 			if (it != m_current_render_state.end())

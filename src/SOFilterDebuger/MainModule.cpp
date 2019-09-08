@@ -34,7 +34,7 @@ namespace SOFilter
 		parameter.start_index = m_parameter->data_start_index;
 		parameter.end_index = m_parameter->data_end_index;
 
- 		LPtr<DataUpdateCommand> update_command = new DataUpdateCommand(parameter);
+ 		LSPtr<DataUpdateCommand> update_command = new DataUpdateCommand(parameter);
  		m_command_center->PostCommand(TryCast<DataUpdateCommand, Command>(update_command));
 
 		// Init task
@@ -145,9 +145,9 @@ namespace SOFilter
 		auto _render_command = [this]()
 		{
 			unsigned out_index = 0;
-			LPtr<PointCloudf> point_cloud = SOFDataCenter::Instance().GetOnePointCloud(out_index);
+			LSPtr<PointCloudf> point_cloud = SOFDataCenter::Instance().GetOnePointCloud(out_index);
 			EXIT_IF_FALSE(point_cloud);
-			LPtr<Scene::LevSceneNode> out_node = nullptr;
+			LSPtr<Scene::LevSceneNode> out_node = nullptr;
 			LevRuntimeInterface::LoadPointCloud(*point_cloud, out_node);
 
 			return true;
@@ -157,7 +157,7 @@ namespace SOFilter
 		{
 			for (unsigned i = m_parameter->data_start_index; i < m_parameter->data_end_index; i++)
 			{
-				LPtr<RenderCommand> render_command = new RenderCommand(_render_command, nullptr);
+				LSPtr<RenderCommand> render_command = new RenderCommand(_render_command, nullptr);
 				m_command_center->PostCommand(TryCast<RenderCommand, Command>(render_command));
 
 				Sleep(100);

@@ -80,9 +80,6 @@
     <ClInclude Include="..\..\include\DynamicArray.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\LPtr.h">
-      <Filter>CommonTool\MemoryManager</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\include\LUPtr.h">
       <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
@@ -125,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="..\..\include\LevTokenDispatch.h">
       <Filter>CommonTool\TokenDispatch</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\LSPtr.h">
+      <Filter>CommonTool\MemoryManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

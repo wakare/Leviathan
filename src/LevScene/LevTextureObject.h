@@ -2,7 +2,7 @@
 
 #include "LevAttachment.h"
 #include "LevSceneAPIDefine.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -18,14 +18,14 @@ namespace Leviathan
 		class LEV_SCENE_API LevTextureObject : public LevAttachment
 		{
 		public:
-			LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LPtr<RAIIBufferData> data);
+			LevTextureObject(LevTextureType texture_type, unsigned width, unsigned height, unsigned depth, LSPtr<RAIIBufferData> data);
 			
 			unsigned GetID() const;
 			unsigned GetWidth() const;
 			unsigned GetHeight() const;
 			unsigned GetDepth() const;
 
-			void SetTextureObjectData(LPtr<RAIIBufferData> texture_data);
+			void SetTextureObjectData(LSPtr<RAIIBufferData> texture_data);
 			const RAIIBufferData& GetTextureObjectData() const;
 
 			LevTextureObject* ToLevTextureObject() override;
@@ -41,7 +41,7 @@ namespace Leviathan
 			const unsigned m_depth;
 
 			const LevTextureType m_texture_type;
-			LPtr<RAIIBufferData> m_texture_data;
+			LSPtr<RAIIBufferData> m_texture_data;
 		};
 	}
 

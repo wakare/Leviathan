@@ -7,12 +7,12 @@ namespace Leviathan
 {
 	namespace Scene
 	{
-		bool LevSceneUtil::InitSceneNodeWithMeshFile(const char * mesh_file, unsigned scene_object_mask, LPtr<LevSceneNode>& out_scene_node)
+		bool LevSceneUtil::InitSceneNodeWithMeshFile(const char * mesh_file, unsigned scene_object_mask, LSPtr<LevSceneNode>& out_scene_node)
 		{
-			LPtr<LevMeshObject> mesh_object = new LevMeshObject;
+			LSPtr<LevMeshObject> mesh_object = new LevMeshObject;
 			EXIT_IF_FALSE(mesh_object->LoadMeshFile(mesh_file));
 
-			LPtr<LevSceneObject> scene_object = new LevSceneObject(scene_object_mask);
+			LSPtr<LevSceneObject> scene_object = new LevSceneObject(scene_object_mask);
 			EXIT_IF_FALSE(scene_object->SetObjectDesc(TryCast<LevMeshObject, LevSceneObjectDescription>(mesh_object)));
 
 			out_scene_node.Reset(new LevSceneNode(scene_object));
@@ -35,8 +35,8 @@ namespace Leviathan
 				vertex_count += mesh->GetVertexCount();
 			}
 
-			LPtr<RAIIBufferData> index_buffer = new RAIIBufferData(3 * sizeof(unsigned) * primitive_vertex_count);
-			LPtr<RAIIBufferData> vertex_buffer = new RAIIBufferData(3 * sizeof(float) * vertex_count);
+			LSPtr<RAIIBufferData> index_buffer = new RAIIBufferData(3 * sizeof(unsigned) * primitive_vertex_count);
+			LSPtr<RAIIBufferData> vertex_buffer = new RAIIBufferData(3 * sizeof(float) * vertex_count);
 
 			unsigned last_index = 0;
 
@@ -62,7 +62,7 @@ namespace Leviathan
 				vertex_buffer_pointer += 3 * sub_mesh_vertex_count;
 			}
 
-			LPtr<Scene::LevRAttrRenderObjectAttributeBinder> attribute_binder = new Scene::LevRAttrRenderObjectAttributeBinder(vertex_count);
+			LSPtr<Scene::LevRAttrRenderObjectAttributeBinder> attribute_binder = new Scene::LevRAttrRenderObjectAttributeBinder(vertex_count);
 			attribute_binder->BindAttribute(0, new LevRenderObjectAttribute(Scene::RenderObjectAttributeType::EROAT_FLOAT, 3 * sizeof(float), vertex_buffer));
 			attribute_binder->SetIndexAttribute(new LevRenderObjectAttribute(Scene::RenderObjectAttributeType::EROAT_UINT, sizeof(unsigned), index_buffer));
 			node.GetNodeData()->AddAttribute(TryCast<Scene::LevRAttrRenderObjectAttributeBinder, Scene::LevSceneObjectAttribute>(attribute_binder));
@@ -70,9 +70,9 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneUtil::GenerateCube(const float* cube_center, float cube_length, LPtr<LevSceneNode>& out_cube_node)
+		bool LevSceneUtil::GenerateCube(const float* cube_center, float cube_length, LSPtr<LevSceneNode>& out_cube_node)
 		{
-			LPtr<RAIIBufferData> vertices_buffer = new RAIIBufferData(8 * 3 * sizeof(float));
+			LSPtr<RAIIBufferData> vertices_buffer = new RAIIBufferData(8 * 3 * sizeof(float));
 			float* data = static_cast<float*>(vertices_buffer->GetArrayData());
 
 			float _cube[] =
@@ -96,7 +96,7 @@ namespace Leviathan
 
 			memcpy(data, _cube, sizeof(_cube));
 
-			LPtr<RAIIBufferData> indices_buffer = new RAIIBufferData(6 * 2 * 3 * sizeof(unsigned));
+			LSPtr<RAIIBufferData> indices_buffer = new RAIIBufferData(6 * 2 * 3 * sizeof(unsigned));
 			unsigned* indices_data = static_cast<unsigned*>(indices_buffer->GetArrayData());
 
 			unsigned indices[] =
@@ -117,15 +117,15 @@ namespace Leviathan
 
 			memcpy(indices_data, indices, sizeof(indices));
 
-			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(8);
+			LSPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(8);
 
-			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer);
+			LSPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer);
 			attribute_binder->BindAttribute(0, vertices_attribute);
 
-			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer);
+			LSPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer);
 			attribute_binder->SetIndexAttribute(index_attribute);
 
-			LPtr<LevSceneObject> object = new LevSceneObject(ELSOT_DYNAMIC);
+			LSPtr<LevSceneObject> object = new LevSceneObject(ELSOT_DYNAMIC);
 			object->AddAttribute(TryCast<LevRAttrRenderObjectAttributeBinder, LevSceneObjectAttribute>(attribute_binder));
 
 			out_cube_node.Reset(new LevSceneNode(object));
@@ -133,7 +133,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneUtil::GenerateBallNode(const float* ball_center, float ball_radius, LPtr<LevSceneNode>& out_ball_node)
+		bool LevSceneUtil::GenerateBallNode(const float* ball_center, float ball_radius, LSPtr<LevSceneNode>& out_ball_node)
 		{
 			constexpr float angle_delta = 15.0f * PI_FLOAT / 180.0f;
 			constexpr size_t step_count = 2 * PI_FLOAT / angle_delta;
@@ -224,7 +224,7 @@ namespace Leviathan
 			}
 
 			// Convert vertices data
-			LPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(m_vertices.size() * 3 * sizeof(float));
+			LSPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(m_vertices.size() * 3 * sizeof(float));
 			float* coord_data = static_cast<float*>(vertices_buffer_data->GetArrayData());
 
 			for (size_t i = 0; i < m_vertices.size(); i++)
@@ -233,7 +233,7 @@ namespace Leviathan
 				memcpy(data, m_vertices[i].data(), 3 * sizeof(float));
 			}
 
-			LPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(m_normals.size() * 3 * sizeof(float));
+			LSPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(m_normals.size() * 3 * sizeof(float));
 			float* normal_data = static_cast<float*>(normals_buffer_data->GetArrayData());
 			for (size_t i = 0; i < m_normals.size(); i++)
 			{
@@ -241,15 +241,15 @@ namespace Leviathan
 				memcpy(data, m_normals[i].data(), 3 * sizeof(float));
 			}
 
-			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(m_vertices.size());
+			LSPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(m_vertices.size());
 
-			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
+			LSPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
 			attribute_binder->BindAttribute(0, vertices_attribute);
 
-			LPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
+			LSPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
 			attribute_binder->BindAttribute(1, normals_attribute);
 
-			LPtr<RAIIBufferData> indices_buffer_data = new RAIIBufferData(m_indices.size() * sizeof(unsigned));
+			LSPtr<RAIIBufferData> indices_buffer_data = new RAIIBufferData(m_indices.size() * sizeof(unsigned));
 			unsigned* indices_data = static_cast<unsigned*>(indices_buffer_data->GetArrayData());
 			for (size_t i = 0; i < m_indices.size(); i++)
 			{
@@ -257,10 +257,10 @@ namespace Leviathan
 				*data = m_indices[i];
 			}
 
-			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer_data);
+			LSPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer_data);
 			attribute_binder->SetIndexAttribute(index_attribute);
 
-			LPtr<LevSceneObject> object = new LevSceneObject(ELSOT_DYNAMIC);
+			LSPtr<LevSceneObject> object = new LevSceneObject(ELSOT_DYNAMIC);
 			object->AddAttribute(TryCast<LevRAttrRenderObjectAttributeBinder, LevSceneObjectAttribute>(attribute_binder));
 
 			out_ball_node.Reset(new LevSceneNode(object));
@@ -268,7 +268,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneUtil::GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LPtr<LevSceneNode>& out_plane_node)
+		bool LevSceneUtil::GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LSPtr<LevSceneNode>& out_plane_node)
 		{
 			float vertices[12];
 			memcpy(vertices, plane_node0, 3 * sizeof(float));
@@ -276,7 +276,7 @@ namespace Leviathan
 			memcpy(vertices + 6, plane_node2, 3 * sizeof(float));
 			memcpy(vertices + 9, plane_node3, 3 * sizeof(float));
 
-			LPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(sizeof(vertices));
+			LSPtr<RAIIBufferData> vertices_buffer_data = new RAIIBufferData(sizeof(vertices));
 			memcpy(vertices_buffer_data->GetArrayData(), vertices, sizeof(vertices));
 
 			/*
@@ -296,15 +296,15 @@ namespace Leviathan
 			normal = edge0.cross(edge1);
 			normal.normalize();
 
-			LPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(sizeof(vertices));
+			LSPtr<RAIIBufferData> normals_buffer_data = new RAIIBufferData(sizeof(vertices));
 			float* normal_data = static_cast<float*>(normals_buffer_data->GetArrayData());
 			for (size_t i = 0; i < 4; i++)
 			{
 				memcpy(normal_data + 3 * i, normal.data(), 3 * sizeof(float));
 			}
 
-			LPtr<LevRenderObjectAttribute> vertex_attibute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
-			LPtr<LevRenderObjectAttribute> normal_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
+			LSPtr<LevRenderObjectAttribute> vertex_attibute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer_data);
+			LSPtr<LevRenderObjectAttribute> normal_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normals_buffer_data);
 
 			unsigned indexs[6] =
 			{
@@ -312,17 +312,17 @@ namespace Leviathan
 				0, 2, 3
 			};
 
-			LPtr<RAIIBufferData> index_buffer_data = new RAIIBufferData(sizeof(indexs));
+			LSPtr<RAIIBufferData> index_buffer_data = new RAIIBufferData(sizeof(indexs));
 			memcpy(index_buffer_data->GetArrayData(), indexs, sizeof(indexs));
 
-			LPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), index_buffer_data);
+			LSPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), index_buffer_data);
 
-			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(4);
+			LSPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(4);
 			attribute_binder->BindAttribute(0, vertex_attibute);
 			attribute_binder->BindAttribute(1, normal_attribute);
 			attribute_binder->SetIndexAttribute(index_attribute);
 
-			LPtr<LevSceneObject> plane_object = new LevSceneObject(ELSOT_DYNAMIC);
+			LSPtr<LevSceneObject> plane_object = new LevSceneObject(ELSOT_DYNAMIC);
 			plane_object->AddAttribute(TryCast<LevRAttrRenderObjectAttributeBinder, LevSceneObjectAttribute>(attribute_binder));
 
 			out_plane_node.Reset(new LevSceneNode(plane_object));
@@ -331,35 +331,35 @@ namespace Leviathan
 		}
 
 		bool LevSceneUtil::GeneratePoints(const float* vertices, const float* normals,
-		                                  unsigned count, LPtr<LevSceneNode>& out_points_node)
+		                                  unsigned count, LSPtr<LevSceneNode>& out_points_node)
 		{
-			LPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(count);
+			LSPtr<LevRAttrRenderObjectAttributeBinder> attribute_binder = new LevRAttrRenderObjectAttributeBinder(count);
 
-			LPtr<RAIIBufferData> vertices_data = new RAIIBufferData(count * 3 * sizeof(float));
+			LSPtr<RAIIBufferData> vertices_data = new RAIIBufferData(count * 3 * sizeof(float));
 			memcpy(vertices_data->GetArrayData(), vertices, 3 * count * sizeof(float));
 
-			LPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_data);
+			LSPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_data);
 			attribute_binder->BindAttribute(0, vertices_attribute);
 
 			if (normals)
 			{
-				LPtr<RAIIBufferData> normals_data = new RAIIBufferData(count * 3 * sizeof(float));
+				LSPtr<RAIIBufferData> normals_data = new RAIIBufferData(count * 3 * sizeof(float));
 				memcpy(normals_data->GetArrayData(), normals, 3 * count * sizeof(float));
 
-				LPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * count * sizeof(float), normals_data);
+				LSPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * count * sizeof(float), normals_data);
 				attribute_binder->BindAttribute(1, normals_attribute);
 			}
 
 			attribute_binder->SetPrimitiveType(EROPT_POINTS);
 
-			LPtr<LevSceneObject> point_object = new LevSceneObject(ELSOT_DYNAMIC);
+			LSPtr<LevSceneObject> point_object = new LevSceneObject(ELSOT_DYNAMIC);
 			point_object->AddAttribute(attribute_binder);
 
 			out_points_node.Reset(new LevSceneNode(point_object));
 			return true;
 		}
 
-		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LPtr<LevNumericalUniform>& out_uniform)
+		bool LevSceneUtil::GenerateIdentityMatrixUniform(const char* uniform_name, LSPtr<LevNumericalUniform>& out_uniform)
 		{
 			static float identity_matrix[] =
 			{
@@ -370,7 +370,7 @@ namespace Leviathan
 			};
 
 			out_uniform.Reset(new LevNumericalUniform(uniform_name, TYPE_FLOAT_MAT4));
-			LPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(identity_matrix));
+			LSPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(identity_matrix));
 			identity_matrix_buffer_data->SetArrayData(identity_matrix, sizeof(identity_matrix));
 			out_uniform->SetData(identity_matrix_buffer_data);
 

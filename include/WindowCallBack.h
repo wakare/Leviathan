@@ -5,7 +5,7 @@
 #include "GLFW/glfw3.h"
 #include "Event.h"
 #include "EventSystem.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {

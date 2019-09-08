@@ -1,7 +1,7 @@
 #pragma once
 
 #include "LevSceneRenderAttribute.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include <string>
 
 namespace Leviathan
@@ -22,12 +22,12 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrShaderProgram();
-			bool SetShaderProgram(LPtr<LevShaderProgram> program);
+			bool SetShaderProgram(LSPtr<LevShaderProgram> program);
 			unsigned GetID() const;
 			const LevShaderProgram& GetShaderProgram() const;
 
 		private:
-			LPtr<LevShaderProgram> m_shader_program;
+			LSPtr<LevShaderProgram> m_shader_program;
 			const unsigned m_id;
 		};
 	}

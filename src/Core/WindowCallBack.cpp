@@ -1,5 +1,5 @@
 #include "WindowCallBack.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {

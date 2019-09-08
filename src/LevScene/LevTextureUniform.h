@@ -2,7 +2,7 @@
 #include "ILevUniform.h"
 #include "LevSceneAPIDefine.h"
 #include <string>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevTextureObject.h"
 
 namespace Leviathan
@@ -19,13 +19,13 @@ namespace Leviathan
 			const std::string& GetName() const override;
 			LevUniformType GetUniformType() const override;
 
-			void SetUniformData(LPtr<LevTextureObject> texture_object);
+			void SetUniformData(LSPtr<LevTextureObject> texture_object);
 			const LevTextureObject& GetUniformData() const;
 
 		private:
 			const unsigned m_uniform_id;
 			std::string m_uniform_name;
-			LPtr<LevTextureObject> m_texture_object;
+			LSPtr<LevTextureObject> m_texture_object;
 		};
 	}
 }

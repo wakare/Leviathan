@@ -1,7 +1,7 @@
 #pragma once
 #include "LevSceneRenderAttribute.h"
 #include <vector>
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -13,11 +13,11 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrAttachmentManager();
-			void AddAttachment(LPtr<LevAttachment> attachment);
-			const std::vector<LPtr<LevAttachment>>& GetAttachments() const;
+			void AddAttachment(LSPtr<LevAttachment> attachment);
+			const std::vector<LSPtr<LevAttachment>>& GetAttachments() const;
 
 		private:
-			std::vector<LPtr<LevAttachment>> m_attachments;
+			std::vector<LSPtr<LevAttachment>> m_attachments;
 		};
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevSceneAPIDefine.h"
 
 namespace Leviathan
@@ -20,7 +20,7 @@ namespace Leviathan
 		{
 		public:
 			LevSceneTree();
-			bool AddNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> pParentNode = nullptr);
+			bool AddNodeToParent(LSPtr<LevSceneNode> pNode, LSPtr<LevSceneNode> pParentNode = nullptr);
 			bool ResetObjUnModified();
 			bool SetObjModified();
 			bool UpdateWorldCoord();
@@ -33,12 +33,12 @@ namespace Leviathan
 		private:
 			void _checkDeleteNode(LevSceneNode& pBeginNode);
 
-			LPtr<LevResetObjModifiedVisitor> m_modified_resetor;
-			LPtr<LevStateUpdaterVisitor> m_state_updater;
-			LPtr<LevCalculateWorldCoordVisitor> m_worldCoord_updater;
-			LPtr<LevSetObjModifiedVisitor> m_modified_setor;
-			LPtr<LevTimerTickVisitor> m_time_ticker;
-			LPtr<LevSceneNode> m_root;
+			LSPtr<LevResetObjModifiedVisitor> m_modified_resetor;
+			LSPtr<LevStateUpdaterVisitor> m_state_updater;
+			LSPtr<LevCalculateWorldCoordVisitor> m_worldCoord_updater;
+			LSPtr<LevSetObjModifiedVisitor> m_modified_setor;
+			LSPtr<LevTimerTickVisitor> m_time_ticker;
+			LSPtr<LevSceneNode> m_root;
 		};
 	}
 }

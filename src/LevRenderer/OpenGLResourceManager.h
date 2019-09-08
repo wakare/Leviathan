@@ -1,7 +1,7 @@
 #pragma once
 
 #include <map>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "Singleton.h"
 
 namespace Leviathan
@@ -28,8 +28,8 @@ namespace Leviathan
 			DECLARE_SELF_TO_SINGLETON(OpenGLResourceManager)
 
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
-			bool AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject);
-			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject);
+			bool AddGLObjectToRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject);
+			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject);
 			bool RemoveRenderTree(RenderTreeID handle, unsigned object_id);
 
 			OpenGLObjectManager& GetObjectManager();
@@ -39,10 +39,10 @@ namespace Leviathan
 		private:
 			OpenGLResourceManager();
 
-			LPtr<OpenGLRenderStateManager> m_render_state_manager;
-			LPtr<OpenGLObjectManager> m_object_manager;
-			std::map<RenderTreeID, LPtr<OpenGLPass>> m_render_pass;
-			std::map<RenderTreeID, LPtr<OpenGLRenderTree>> m_render_trees;
+			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
+			LSPtr<OpenGLObjectManager> m_object_manager;
+			std::map<RenderTreeID, LSPtr<OpenGLPass>> m_render_pass;
+			std::map<RenderTreeID, LSPtr<OpenGLRenderTree>> m_render_trees;
 		};
 	}
 }

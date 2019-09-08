@@ -21,18 +21,18 @@ namespace Leviathan
 		class OpenGLRenderTree
 		{
 		public:
-			OpenGLRenderTree(LPtr<OpenGLRenderStateManager> render_state_manager);
-			bool AddNodeToRoot(LPtr<OpenGLRenderNode> node);
-			bool ReplaceNode(LPtr<OpenGLRenderNode> node);
+			OpenGLRenderTree(LSPtr<OpenGLRenderStateManager> render_state_manager);
+			bool AddNodeToRoot(LSPtr<OpenGLRenderNode> node);
+			bool ReplaceNode(LSPtr<OpenGLRenderNode> node);
 			bool RemoveNode(unsigned handle);
 
 			OpenGLRenderNode& GetRoot();
 
 		private:
-			LPtr<OpenGLRenderNode> m_root;
-			LPtr<OpenGLRenderStateManager> m_render_state_manager;
+			LSPtr<OpenGLRenderNode> m_root;
+			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
 
-			std::map<unsigned, LPtr<OpenGLRenderNode>> m_nodes;
+			std::map<unsigned, LSPtr<OpenGLRenderNode>> m_nodes;
 		};
 	}
 }

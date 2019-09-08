@@ -20,7 +20,7 @@ namespace Leviathan
 			void Apply(Node<OpenGLRenderNodeObject>& node) override
 			{
 				auto node_data = node.GetNodeData();
-				if (node_data && node_data->Valid())
+				if (node_data)
 				{
 					/*
 					 * Set render states && uniforms
@@ -29,12 +29,16 @@ namespace Leviathan
 					node_data->ApplyRenderState(m_render_state_manager);
 					node_data->ApplyFrameBufferObject();
 					node_data->Render(m_shader_program);
-					node_data->UnApplyFrameBufferObject();
 				}
 
 				for (auto& child : node.GetChildren())
 				{
 					Apply(*child);
+				}
+
+				if (node_data)
+				{
+					node_data->UnApplyFrameBufferObject();
 				}
 			}
 

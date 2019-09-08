@@ -32,7 +32,7 @@ namespace Leviathan
 			return ELUT_TEXTURE;
 		}
 
-		void LevTextureUniform::SetUniformData(LPtr<LevTextureObject> texture_object)
+		void LevTextureUniform::SetUniformData(LSPtr<LevTextureObject> texture_object)
 		{
 			m_texture_object = texture_object;
 		}

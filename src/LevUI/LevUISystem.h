@@ -32,15 +32,15 @@ namespace Leviathan
 			LevUISystem();
 			UNIQUE_INSTANCE(LevUISystem)
 
-			void AddUIRect(unsigned ui_layer_index, LPtr<UIRect> ui_rect);
+			void AddUIRect(unsigned ui_layer_index, LSPtr<UIRect> ui_rect);
 
 		private:
 			void _setupUItoUIScene();
 
-			LPtr<LevScene> m_ui_scene;
-			LPtr<UIRect> m_root_ui_rect;
+			LSPtr<LevScene> m_ui_scene;
+			LSPtr<UIRect> m_root_ui_rect;
 
-			std::map<unsigned, LPtr<UIRect>> m_ui_rects;
+			std::map<unsigned, LSPtr<UIRect>> m_ui_rects;
 		};
 	}
 }

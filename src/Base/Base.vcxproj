@@ -177,7 +177,7 @@
     <ClInclude Include="..\..\include\ImporterRegister.h" />
     <ClInclude Include="..\..\include\KLog.h" />
     <ClInclude Include="..\..\include\KProfile.h" />
-    <ClInclude Include="..\..\include\LPtr.h" />
+    <ClInclude Include="..\..\include\LSPtr.h" />
     <ClInclude Include="..\..\include\LUPtr.h" />
     <ClInclude Include="..\..\include\Node.h" />
     <ClInclude Include="..\..\include\NodeVisitor.h" />

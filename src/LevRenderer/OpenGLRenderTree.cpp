@@ -9,14 +9,14 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderTree::OpenGLRenderTree(LPtr<OpenGLRenderStateManager> render_state_manager)
+		OpenGLRenderTree::OpenGLRenderTree(LSPtr<OpenGLRenderStateManager> render_state_manager)
 			: m_root(nullptr)
 			, m_render_state_manager(std::move(render_state_manager))
 		{
 
 		}
 
-		bool OpenGLRenderTree::AddNodeToRoot(LPtr<OpenGLRenderNode> node)
+		bool OpenGLRenderTree::AddNodeToRoot(LSPtr<OpenGLRenderNode> node)
 		{
 			if (!m_root)
 			{
@@ -31,7 +31,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderTree::ReplaceNode(LPtr<OpenGLRenderNode> node)
+		bool OpenGLRenderTree::ReplaceNode(LSPtr<OpenGLRenderNode> node)
 		{
 			auto it = m_nodes.find(node->GetNodeData()->GetID());
 			if (it == m_nodes.end())

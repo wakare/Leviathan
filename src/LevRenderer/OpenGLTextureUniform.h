@@ -1,7 +1,7 @@
 #pragma once
 #include <gl/glew.h>
 #include <string>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "IOpenGLUniform.h"
 
 namespace Leviathan
@@ -31,7 +31,7 @@ namespace Leviathan
 			std::string m_texture_uniform_name;
 			GLint m_texture_uniform_location;
 
-			LPtr<IOpenGLTextureObject> m_texture_object;
+			LSPtr<IOpenGLTextureObject> m_texture_object;
 		};
 	}
 }

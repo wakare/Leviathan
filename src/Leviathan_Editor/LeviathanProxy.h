@@ -36,8 +36,8 @@ private:
 	void _processDataUpdateRequest();
 
 	ProxyState m_state;
-	LPtr<Scene::LevScene> m_main_scene;
-	LPtr<Viewer::LevViewer> m_viewer;
+	LSPtr<Scene::LevScene> m_main_scene;
+	LSPtr<Viewer::LevViewer> m_viewer;
 
 	std::mutex m_scene_data_request_mutex;
 	std::vector<SceneDataUpdateRequest> m_scene_update_request;

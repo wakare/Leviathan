@@ -4,7 +4,7 @@
 #include <functional>
 #include <Eigen/Dense>
 #include <string>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevSceneAPIDefine.h"
 
 namespace Leviathan
@@ -93,12 +93,12 @@ namespace Leviathan
 			void SetModifiedCallback(LevSceneObjModified modified);
 
 			template <typename T>
-			bool AddAttribute(LPtr<T> pAttribute);
+			bool AddAttribute(LSPtr<T> pAttribute);
 
-			const std::vector<LPtr<LevSceneObjectAttribute>>& GetAllAttributes() const;
+			const std::vector<LSPtr<LevSceneObjectAttribute>>& GetAllAttributes() const;
 
 			template<typename T>
-			void UpdateAttribute(LPtr<T> attribute);
+			void UpdateAttribute(LSPtr<T> attribute);
 
 			template<typename T>
 			bool GetAttribute(const T*& out) const;
@@ -107,17 +107,17 @@ namespace Leviathan
 			bool GetAttribute(T*& out);
 
 			bool HasObjectDesc() const;
-			bool SetObjectDesc(LPtr<LevSceneObjectDescription> pObjDesc);
+			bool SetObjectDesc(LSPtr<LevSceneObjectDescription> pObjDesc);
 			LevSceneObjectDescription& GetObjectDesc();
 			const LevSceneObjectDescription& GetObjectDesc() const;
 
 			void SetRecalculateWorldTransform(bool need);
 			bool NeedRecalculateWorldTransform() const;
 
-			void SetTimer(LPtr<LevTimer> timer);
+			void SetTimer(LSPtr<LevTimer> timer);
 			
-			LPtr<LevTimer> GetTimer();
-			const LPtr<LevTimer> GetTimer() const;
+			LSPtr<LevTimer> GetTimer();
+			const LSPtr<LevTimer> GetTimer() const;
 			
 			/*
 				Warn:
@@ -147,26 +147,26 @@ namespace Leviathan
 			LevSceneObjectState m_state;
 
 			const LevSceneObjectType m_type;
-			std::vector<LPtr<LevSceneObjectAttribute>> m_attributes;
+			std::vector<LSPtr<LevSceneObjectAttribute>> m_attributes;
 
-			LPtr<LevLRAttrWorldTransform> m_pWorldTransform;
-			LPtr<LevLRAttrModelTransform> m_pModelTransform;
-			LPtr<LevLAttrLocalTransform> m_pLocalTransform;
-			LPtr<LevSceneObjectDescription> m_pObjDesc;
+			LSPtr<LevLRAttrWorldTransform> m_pWorldTransform;
+			LSPtr<LevLRAttrModelTransform> m_pModelTransform;
+			LSPtr<LevLAttrLocalTransform> m_pLocalTransform;
+			LSPtr<LevSceneObjectDescription> m_pObjDesc;
 
-			LPtr<LevTimer> m_pTimer;
+			LSPtr<LevTimer> m_pTimer;
 		};
 
 		template <typename T>
-		bool LevSceneObject::AddAttribute(LPtr<T> pAttribute)
+		bool LevSceneObject::AddAttribute(LSPtr<T> pAttribute)
 		{
-			const LPtr<LevSceneObjectAttribute> attribute = pAttribute.To<LevSceneObjectAttribute>();
+			const LSPtr<LevSceneObjectAttribute> attribute = pAttribute.To<LevSceneObjectAttribute>();
 			LEV_ASSERT(attribute.Get());
 			return AddAttribute(attribute);
 		}
 
 		template <>
-		inline bool LevSceneObject::AddAttribute(LPtr<LevSceneObjectAttribute> pAttribute)
+		inline bool LevSceneObject::AddAttribute(LSPtr<LevSceneObjectAttribute> pAttribute)
 		{
 			LEV_ASSERT(pAttribute.Get());
 			if (!pAttribute)
@@ -179,9 +179,9 @@ namespace Leviathan
 		}
 
 		template<typename T>
-		void LevSceneObject::UpdateAttribute(LPtr<T> attribute)
+		void LevSceneObject::UpdateAttribute(LSPtr<T> attribute)
 		{
-			LPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
+			LSPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
 
 			for (auto& old_attribute : m_attributes)
 			{

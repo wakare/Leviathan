@@ -37,11 +37,11 @@ namespace SOFilter
 		bool LoadPointCloudFolder(const FolderDataSchema& schema);
 		unsigned PointCloudCount() const;
 
-		LPtr<PointCloudf> GetPointCloudByIndex(unsigned index);
-		LPtr<PointCloudf> GetOnePointCloud(unsigned& out_index) const;
+		LSPtr<PointCloudf> GetPointCloudByIndex(unsigned index);
+		LSPtr<PointCloudf> GetOnePointCloud(unsigned& out_index) const;
 
 	private:
 		SOFDataCenter();
-		std::vector<LPtr<PointCloudf>> m_point_clouds;
+		std::vector<LSPtr<PointCloudf>> m_point_clouds;
 	};
 }

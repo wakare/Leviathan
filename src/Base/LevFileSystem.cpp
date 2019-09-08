@@ -3,7 +3,7 @@
 
 namespace bf = boost::filesystem;
 
-bool LevFileSystem::LoadDirectory(const char * path, LPtr<LevFileNode>& out)
+bool LevFileSystem::LoadDirectory(const char * path, LSPtr<LevFileNode>& out)
 {
 	bf::path bfPath(path);
 	EXIT_IF_FALSE(bf::exists(bfPath));
@@ -13,12 +13,12 @@ bool LevFileSystem::LoadDirectory(const char * path, LPtr<LevFileNode>& out)
 	return true;
 }
 
-bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& out)
+bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LSPtr<LevFileNode>& out)
 {
 	EXIT_IF_FALSE(bf::exists(path));
 	EXIT_IF_FALSE(bf::is_directory(path));
 
-	LPtr<LevFileDesc> desc = new LevFileDesc;
+	LSPtr<LevFileDesc> desc = new LevFileDesc;
 	desc->file_name = path.filename().string();
 	desc->type = LevFileType::EFT_DIR_FILE;
 
@@ -31,11 +31,11 @@ bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& o
 
 		if (!isDirectory)
 		{
-			LPtr<LevFileDesc> desc = new LevFileDesc;
+			LSPtr<LevFileDesc> desc = new LevFileDesc;
 			desc->file_name = entry.path().filename().string();
 			desc->type = LevFileType::EFT_REGULAR_FILE;
 
-			LPtr<Node<LevFileDesc>> file = new LevFileNode(desc);
+			LSPtr<Node<LevFileDesc>> file = new LevFileNode(desc);
 			file->SetParent(TryCast<LevFileNode, Node<LevFileDesc>>(out));
 			out->AddChild(file);
 		}
@@ -48,7 +48,7 @@ bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& o
 
 	for (auto& p : directorys)
 	{
-		LPtr<LevFileNode> directory_out;
+		LSPtr<LevFileNode> directory_out;
 		EXIT_IF_FALSE (_recursiveLoadDirectory(p, directory_out));
 		directory_out->SetParent(TryCast<LevFileNode, Node<LevFileDesc>>(out));
 		out->AddChild(TryCast<LevFileNode, Node<LevFileDesc>>(directory_out));
@@ -57,7 +57,7 @@ bool LevFileSystem::_recursiveLoadDirectory(bf::path& path, LPtr<LevFileNode>& o
 	return true;
 }
 
-LevFileNode::LevFileNode(LPtr<LevFileDesc> desc)
+LevFileNode::LevFileNode(LSPtr<LevFileDesc> desc)
 	: Node<LevFileDesc>(desc)
 {
 

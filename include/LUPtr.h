@@ -1,4 +1,6 @@
 #pragma once
 #include <memory>
 
-#define  LUPtr std::unique_ptr
+#ifndef LUPtr
+#define LUPtr std::unique_ptr
+#endif

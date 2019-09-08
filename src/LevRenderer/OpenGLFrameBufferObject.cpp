@@ -21,7 +21,7 @@ namespace Leviathan
 				{
 				case Scene::ELAT_TEXTURE_OBJECT:
 				{
-					LPtr<Scene::LevTextureObject> texture = attachment.second->ToLevTextureObject();
+					const Scene::LevTextureObject* texture = attachment.second->ToLevTextureObject();
 					LEV_ASSERT(texture);
 
 						/*
@@ -65,31 +65,34 @@ namespace Leviathan
 
 			for (const auto& attachment : m_attachments)
 			{
+				const auto texture_object = attachment.second->ToTextureBufferObject()->GetTextureObject();
+				//glBindTexture(GL_TEXTURE_2D, texture_object);
+
 				switch (attachment.first)
 				{
 				case Scene::ELFAT_COLOR_ATTACHMENT0:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT1:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT2:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT3:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT4:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT4, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT4, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT5:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT5, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT5, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT6:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT6, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT6, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT7:
-					glFramebufferTexture2D(m_frame_buffer_object, GL_COLOR_ATTACHMENT7, GL_TEXTURE_2D, attachment.second->ToTextureBufferObject()->GetTextureObject(), 0);
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT7, GL_TEXTURE_2D, texture_object, 0);
 					break;
 					/*
 					 * TODO: Finish depth & stencil buffer object binding
@@ -101,7 +104,15 @@ namespace Leviathan
 				}
 			}
 
-			LEV_ASSERT(glCheckFramebufferStatus(m_frame_buffer_object) == GL_FRAMEBUFFER_COMPLETE);
+			const bool completed = glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE;
+			if (!completed)
+			{
+				const auto error = glGetError();
+				const auto error_string = glewGetErrorString(error);
+				LogLine("[ERROR] Init frame buffer object error:" << error << " info:" << error_string);
+				LEV_ASSERT(false);
+			}
+
 			glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
 			return true;

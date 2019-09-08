@@ -12,12 +12,12 @@ namespace Leviathan
 		class LEV_SCENE_API LevSceneNode : public Node<LevSceneObject>
 		{
 		public:
-			LevSceneNode(LPtr<LevSceneObject> pSceneNodeData);
+			LevSceneNode(LSPtr<LevSceneObject> pSceneNodeData);
 			Node<LevSceneObject>& ToBase();
 
-			void AddChild(LPtr<LevSceneNode> child_node);
-			void DelChild(LPtr<LevSceneNode> child_node);
-			void SetParent(LPtr<LevSceneNode> parent_node);
+			void AddChild(LSPtr<LevSceneNode> child_node);
+			void DelChild(LSPtr<LevSceneNode> child_node);
+			void SetParent(LSPtr<LevSceneNode> parent_node);
 
 			bool HasModified() const;
 			void SetModified(bool bRecursion = true);

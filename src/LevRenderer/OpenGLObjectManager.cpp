@@ -10,7 +10,7 @@ namespace Leviathan
 		= default;
 
 		bool OpenGLObjectManager::CreateTextureResource(GLuint texture_object_uid, GLuint width, GLuint height,
-			const GLvoid* data, LPtr<IOpenGLTextureObject>& out)
+			const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
 		{
 			auto it = m_texture_objects.find(texture_object_uid);
 			if (it != m_texture_objects.end())
@@ -24,7 +24,7 @@ namespace Leviathan
 		}
 
 		bool OpenGLObjectManager::CreateTextureResource(GLuint texture_object_uid, GLuint width, GLuint height,
-			GLuint depth, const GLvoid* data, LPtr<IOpenGLTextureObject>& out)
+			GLuint depth, const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
 		{
 			auto it = m_texture_objects.find(texture_object_uid);
 			if (it != m_texture_objects.end())
@@ -37,7 +37,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObjectManager::GetTextureResource(GLuint texture_object_uid, LPtr<IOpenGLTextureObject>& out)
+		bool OpenGLObjectManager::GetTextureResource(GLuint texture_object_uid, LSPtr<IOpenGLTextureObject>& out)
 		{
 			auto it = m_texture_objects.find(texture_object_uid);
 			if (it == m_texture_objects.end())

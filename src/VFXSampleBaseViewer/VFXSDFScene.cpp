@@ -64,23 +64,23 @@ namespace Leviathan
 			m_render_node.Reset(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)));
 			m_sdf_texture_uniform = new Scene::LevTextureUniform("SDF_TEXTURE");
 
-			LPtr<LevNumericalUniform> SDF_MIN = new LevNumericalUniform("SDF_MIN", TYPE_FLOAT_VEC3);
-			LPtr<RAIIBufferData> min_data = new RAIIBufferData(3 * sizeof(float));
+			LSPtr<LevNumericalUniform> SDF_MIN = new LevNumericalUniform("SDF_MIN", TYPE_FLOAT_VEC3);
+			LSPtr<RAIIBufferData> min_data = new RAIIBufferData(3 * sizeof(float));
 			min_data->SetArrayData(m_sdf_manager->GetMin(), 3 * sizeof(float));
 			SDF_MIN->SetData(min_data);
 			
-			LPtr<LevNumericalUniform> SDF_GRID_LENGTH = new LevNumericalUniform("SDF_GRID_LENGTH", TYPE_FLOAT_VEC3);
-			LPtr<RAIIBufferData> length_data = new RAIIBufferData(3 * sizeof(float));
+			LSPtr<LevNumericalUniform> SDF_GRID_LENGTH = new LevNumericalUniform("SDF_GRID_LENGTH", TYPE_FLOAT_VEC3);
+			LSPtr<RAIIBufferData> length_data = new RAIIBufferData(3 * sizeof(float));
 			length_data->SetArrayData(m_sdf_manager->GetSize(), 3 * sizeof(float));
 			SDF_GRID_LENGTH->SetData(length_data);
 
-			LPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
+			LSPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
 			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
 
-			LPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
+			LSPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
 			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
 
-			LPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
+			LSPtr<Scene::LevRAttrUniformManager> uniform_manager = new Scene::LevRAttrUniformManager;
 			
 			uniform_manager->AddUniform(model_matrix_uniform.To<ILevUniform>());
 			uniform_manager->AddUniform(world_matrix_uniform.To<ILevUniform>());
@@ -88,11 +88,11 @@ namespace Leviathan
 			uniform_manager->AddUniform(SDF_MIN.To<ILevUniform>());
 			uniform_manager->AddUniform(SDF_GRID_LENGTH.To<ILevUniform>());
 
-			LPtr<Scene::LevShaderProgram> shader_program = new Scene::LevShaderProgram;
+			LSPtr<Scene::LevShaderProgram> shader_program = new Scene::LevShaderProgram;
 			shader_program->m_vert_shader = vfx_sdf_vert;
 			shader_program->m_frag_shader = vfx_sdf_frag;
 
-			LPtr<Scene::LevRAttrShaderProgram> shader_program_attr = new Scene::LevRAttrShaderProgram;
+			LSPtr<Scene::LevRAttrShaderProgram> shader_program_attr = new Scene::LevRAttrShaderProgram;
 			shader_program_attr->SetShaderProgram(shader_program);
 
 			m_render_node->GetNodeData()->AddAttribute(shader_program_attr);
@@ -108,7 +108,7 @@ namespace Leviathan
 			const float cube_center[] = { 0.0f, 0.0f, 0.0f };
 			const float cube_size = 10.0f;
 
-			LPtr<LevSceneNode> cube_node;
+			LSPtr<LevSceneNode> cube_node;
 			Scene::LevSceneUtil::GenerateCube(cube_center, cube_size, cube_node);
 			LEV_ASSERT(cube_node);
 
@@ -137,10 +137,10 @@ namespace Leviathan
 				}
 			}
 
-			LPtr<LevSceneNode> points_node;
+			LSPtr<LevSceneNode> points_node;
 			LevSceneUtil::GeneratePoints(&vertices[0], nullptr, vertices.size() / 3, points_node);
 
-			LPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
+			LSPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
 			render_state_manager->UpdateRenderState(new LevRenderStatePointSize(3));
 
 			points_node->GetNodeData()->AddAttribute(render_state_manager);
@@ -161,7 +161,7 @@ namespace Leviathan
 
 			const auto& grids = m_sdf_manager->GetAllGrids();
 
-			LPtr<RAIIBufferData> texture_data = new RAIIBufferData(sizeof(float) * grids.size());
+			LSPtr<RAIIBufferData> texture_data = new RAIIBufferData(sizeof(float) * grids.size());
 			float* data = static_cast<float*>(texture_data->GetArrayData());
 
 			for (size_t i = 0; i < grids.size(); i++)

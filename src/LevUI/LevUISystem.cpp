@@ -19,7 +19,7 @@ namespace Leviathan
 			m_root_ui_rect->height = 720;
 		}
 
-		void LevUISystem::AddUIRect(unsigned ui_layer_index, LPtr<UIRect> ui_rect)
+		void LevUISystem::AddUIRect(unsigned ui_layer_index, LSPtr<UIRect> ui_rect)
 		{
 			m_ui_rects[ui_layer_index] = ui_rect;
 		}

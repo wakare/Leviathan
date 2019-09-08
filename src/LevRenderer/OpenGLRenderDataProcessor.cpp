@@ -55,7 +55,7 @@ namespace Leviathan
 					return true;
 				}
 
-				LPtr<OpenGLRenderEntry> gl_render_entry = nullptr;
+				LSPtr<OpenGLRenderEntry> gl_render_entry = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
 
@@ -169,7 +169,7 @@ namespace Leviathan
 			return OpenGLResourceManager::Instance();
 		}
 
-		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LPtr<OpenGLRenderEntry> OpenGL_object, const Scene::LevSceneRenderAttribute& render_attribute)
+		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LSPtr<OpenGLRenderEntry> OpenGL_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
 			// Depth func attribute
 			const Scene::LevRAttrRenderStateManager* render_state_manager = dynamic_cast<const Scene::LevRAttrRenderStateManager*>(&render_attribute);
@@ -196,7 +196,7 @@ namespace Leviathan
 			{
 				for (const auto& uniform : uniform_manager->GetUniforms())
 				{
-					LPtr<IOpenGLUniform> OpenGL_uniform = nullptr;
+					LSPtr<IOpenGLUniform> OpenGL_uniform = nullptr;
 
 					switch (uniform.second->GetUniformType())
 					{
@@ -224,8 +224,8 @@ namespace Leviathan
 			const Scene::LevRAttrFrameBufferObject* frame_buffer_object = dynamic_cast<const Scene::LevRAttrFrameBufferObject*>(&render_attribute);
 			if (frame_buffer_object && frame_buffer_object->GetFrameBufferObject())
 			{
-				LPtr<OpenGLFrameBufferObject> gl_frame_buffer = new OpenGLFrameBufferObject(*frame_buffer_object->GetFrameBufferObject());
-
+				LSPtr<OpenGLFrameBufferObject> fbo = new OpenGLFrameBufferObject(*frame_buffer_object->GetFrameBufferObject());
+				OpenGL_object->SetFrameBufferObject(fbo);
 			}
 
 			return false;

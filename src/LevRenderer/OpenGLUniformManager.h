@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "gl/glew.h"
 
 namespace Leviathan
@@ -14,7 +14,7 @@ namespace Leviathan
 		public:
 			OpenGLUniformManager(GLuint shader_program);
 
-			void ApplyUniform(LPtr<IOpenGLUniform> uniform);
+			void ApplyUniform(LSPtr<IOpenGLUniform> uniform);
 
 		private:
 			GLuint m_shader_program;

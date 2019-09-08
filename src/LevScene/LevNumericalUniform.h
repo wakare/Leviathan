@@ -2,7 +2,7 @@
 
 #include "LevSceneAPIDefine.h"
 #include "LevTokenDispatch.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "ILevUniform.h"
 #include <string>
 
@@ -32,7 +32,7 @@ namespace Leviathan
 			void SetName(const std::string& name) override;
 			const std::string& GetName() const override;
 
-			void SetData(LPtr<RAIIBufferData> data);
+			void SetData(LSPtr<RAIIBufferData> data);
 			const RAIIBufferData& GetData() const;
 
 			LevUniformType GetUniformType() const override;
@@ -42,7 +42,7 @@ namespace Leviathan
 			const unsigned m_uniform_id;
 			std::string m_name;
 			UniformNumericalType m_uniform_type;
-			LPtr<RAIIBufferData> m_data;
+			LSPtr<RAIIBufferData> m_data;
 		};
 
 		inline LevNumericalUniform::LevNumericalUniform(const std::string& name, UniformNumericalType type)
@@ -67,7 +67,7 @@ namespace Leviathan
 			return m_name;
 		}
 
-		inline void LevNumericalUniform::SetData(LPtr<RAIIBufferData> data)
+		inline void LevNumericalUniform::SetData(LSPtr<RAIIBufferData> data)
 		{
 			m_data = data;
 		}

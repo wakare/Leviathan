@@ -1,6 +1,6 @@
 #pragma once
 #include "LevSceneRenderAttribute.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include <map>
 
 namespace Leviathan
@@ -14,11 +14,11 @@ namespace Leviathan
 		public:
 			LevRAttrUniformManager();
 
-			void AddUniform(LPtr<ILevUniform> uniform);
-			const std::map<std::string, LPtr<ILevUniform>>& GetUniforms() const;
+			void AddUniform(LSPtr<ILevUniform> uniform);
+			const std::map<std::string, LSPtr<ILevUniform>>& GetUniforms() const;
 
 		private:
-			std::map<std::string, LPtr<ILevUniform>> m_uniforms;
+			std::map<std::string, LSPtr<ILevUniform>> m_uniforms;
 		};
 	}
 }

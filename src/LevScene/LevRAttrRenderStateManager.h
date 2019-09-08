@@ -1,6 +1,6 @@
 #pragma once
 #include "LevSceneRenderAttribute.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevRenderState.h"
 #include <map>
 
@@ -12,13 +12,13 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrRenderStateManager();
-			bool UpdateRenderState(LPtr<LevRenderState> render_state, bool overwrite = false);
-			LPtr<LevRenderState> GetRenderState(LevRenderStateType state_type);
+			bool UpdateRenderState(LSPtr<LevRenderState> render_state, bool overwrite = false);
+			LSPtr<LevRenderState> GetRenderState(LevRenderStateType state_type);
 
-			const std::map<LevRenderStateType, LPtr<LevRenderState>>& GetAllRenderState() const;
+			const std::map<LevRenderStateType, LSPtr<LevRenderState>>& GetAllRenderState() const;
 
 		private:
-			std::map<LevRenderStateType, LPtr<LevRenderState>> m_render_state;
+			std::map<LevRenderStateType, LSPtr<LevRenderState>> m_render_state;
 		};
 	}
 }

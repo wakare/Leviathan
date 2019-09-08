@@ -12,7 +12,7 @@ namespace Leviathan
 
 		}
 
-		bool LevRAttrShaderProgram::SetShaderProgram(LPtr<LevShaderProgram> program)
+		bool LevRAttrShaderProgram::SetShaderProgram(LSPtr<LevShaderProgram> program)
 		{
 			m_shader_program = program;
 

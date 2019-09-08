@@ -70,8 +70,8 @@ namespace SOFilter
 		std::mutex m_request_lock;
 		std::vector<MainModuleRequest> m_main_module_requests;
 
-		LPtr<MainModuleParameters> m_parameter;
-		LPtr<CommandCenter> m_command_center;
-		LPtr<DebugModule> m_debug_module;
+		LSPtr<MainModuleParameters> m_parameter;
+		LSPtr<CommandCenter> m_command_center;
+		LSPtr<DebugModule> m_debug_module;
 	};
 }

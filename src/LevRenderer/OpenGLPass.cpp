@@ -9,7 +9,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLPass::OpenGLPass(LPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager)
+		OpenGLPass::OpenGLPass(LSPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager)
 			: m_id(shader_program->GetID())
 			, m_render_state_manager(render_state_manager)
 			, m_shader_program(shader_program)

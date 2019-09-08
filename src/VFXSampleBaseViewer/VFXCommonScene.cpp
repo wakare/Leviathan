@@ -17,13 +17,13 @@ namespace Leviathan
 			Init(ELST_3D_SCENE);
 		}
 
-		bool VFXCommonScene::AddLightToLightRootNode(LPtr<Scene::LevLight> light)
+		bool VFXCommonScene::AddLightToLightRootNode(LSPtr<Scene::LevLight> light)
 		{
-			const LPtr<Scene::LevSceneNode> m_light_node = new Scene::LevSceneNode(TryCast<Scene::LevLight, Scene::LevSceneObject>(light));
+			const LSPtr<Scene::LevSceneNode> m_light_node = new Scene::LevSceneNode(TryCast<Scene::LevLight, Scene::LevSceneObject>(light));
 			return GetSceneData().AddSceneNodeToParent(m_light_node, GetLightRootNode());
 		}
 
-		bool VFXCommonScene::SetMainCamera(LPtr<Scene::LevCamera> camera)
+		bool VFXCommonScene::SetMainCamera(LSPtr<Scene::LevCamera> camera)
 		{
 			return GetSceneData().SetMainCamera(camera);
 		}

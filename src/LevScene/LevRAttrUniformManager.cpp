@@ -10,13 +10,13 @@ namespace Leviathan
 		{
 		}
 
-		void LevRAttrUniformManager::AddUniform(LPtr<ILevUniform> uniform)
+		void LevRAttrUniformManager::AddUniform(LSPtr<ILevUniform> uniform)
 		{
 			m_uniforms[uniform->GetName()] = uniform;
 		}
 
 
-		const std::map<std::string, Leviathan::LPtr<Leviathan::Scene::ILevUniform>>& LevRAttrUniformManager::GetUniforms() const
+		const std::map<std::string, Leviathan::LSPtr<Leviathan::Scene::ILevUniform>>& LevRAttrUniformManager::GetUniforms() const
 		{
 			return m_uniforms;
 		}

@@ -105,12 +105,12 @@ namespace Leviathan
 		memcpy(m_vertexColorData->m_pData, vertexColorData, sizeof(float) * 3 * m_vertexNumber);
 	}
 
-	void MeshImpl::SetMaterial(LPtr<Material> material)
+	void MeshImpl::SetMaterial(LSPtr<Material> material)
 	{
 		m_pMaterial = material;
 	}
 
-	Leviathan::LPtr<Material> MeshImpl::GetMaterial()
+	Leviathan::LSPtr<Material> MeshImpl::GetMaterial()
 	{
 		return m_pMaterial;
 	}

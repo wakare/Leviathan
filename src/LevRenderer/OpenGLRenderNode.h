@@ -10,7 +10,7 @@ namespace Leviathan
 		class OpenGLRenderNode : public Node<OpenGLRenderNodeObject>
 		{
 		public:
-			OpenGLRenderNode(LPtr<OpenGLRenderNodeObject> object);
+			OpenGLRenderNode(LSPtr<OpenGLRenderNodeObject> object);
 			virtual void Accept(NodeVisitor<OpenGLRenderNodeObject>& nodeVisitor);
 		};
 

@@ -19,7 +19,7 @@ namespace Leviathan
 		{
 		public:
 			IOpenGLTextureObject(OpenGLObjectManager& manager, GLuint texture_object_uid) 
-				: IOpenGLObject(manager), m_texture_unit(-1), m_texture_object(-1), m_texture_object_uid(texture_object_uid)
+				: IOpenGLObject(manager), m_texture_unit(0), m_texture_object(-1), m_texture_object_uid(texture_object_uid)
 			{
 				
 			}

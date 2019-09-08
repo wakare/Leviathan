@@ -16,17 +16,17 @@ namespace Leviathan
 
 			bool LoadMeshFile(const char* meshFile);
 
-			bool SetMesh(const std::vector<LPtr<IMesh>>& meshes);
-			bool SetMesh(LPtr<IMesh> pMesh);
+			bool SetMesh(const std::vector<LSPtr<IMesh>>& meshes);
+			bool SetMesh(LSPtr<IMesh> pMesh);
 
-			const std::vector<LPtr<IMesh>>& GetMesh() const;
+			const std::vector<LSPtr<IMesh>>& GetMesh() const;
 			const AABB& GetAABB() const;
 
 		private:
 			void _updateAABB();
 
-			std::vector<LPtr<IMesh>> m_mesh;
-			LPtr<AABB> m_pMeshAABB;
+			std::vector<LSPtr<IMesh>> m_mesh;
+			LSPtr<AABB> m_pMeshAABB;
 		};
 	}
 }

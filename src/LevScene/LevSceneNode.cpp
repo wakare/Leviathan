@@ -26,7 +26,7 @@ namespace Leviathan
 			}
 		}
 
-		LevSceneNode::LevSceneNode(LPtr<LevSceneObject> pSceneNodeData):
+		LevSceneNode::LevSceneNode(LSPtr<LevSceneObject> pSceneNodeData):
 			Node<LevSceneObject>(pSceneNodeData)
 		{
 
@@ -37,17 +37,17 @@ namespace Leviathan
 			return *this;
 		}
 
-		void LevSceneNode::AddChild(LPtr<LevSceneNode> child_node)
+		void LevSceneNode::AddChild(LSPtr<LevSceneNode> child_node)
 		{
 			Node<LevSceneObject>::AddChild(child_node.To<Node<LevSceneObject>>());
 		}
 
-		void LevSceneNode::DelChild(LPtr<LevSceneNode> child_node)
+		void LevSceneNode::DelChild(LSPtr<LevSceneNode> child_node)
 		{
 			Node<LevSceneObject>::DelChild(child_node.To<Node<LevSceneObject>>());
 		}
 
-		void LevSceneNode::SetParent(LPtr<LevSceneNode> parent_node)
+		void LevSceneNode::SetParent(LSPtr<LevSceneNode> parent_node)
 		{
 			Node<LevSceneObject>::SetParent(parent_node.To<Node<LevSceneObject>>());
 		}

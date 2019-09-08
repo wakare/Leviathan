@@ -8,9 +8,9 @@ namespace Leviathan
 	{
 	}
 
-	bool LevWindowFactory::Create(LevWindowType type, LPtr<ILevWindow>& out)
+	bool LevWindowFactory::Create(LevWindowType type, LSPtr<ILevWindow>& out)
 	{
-		LPtr<ILevWindow> pWindow = nullptr;
+		LSPtr<ILevWindow> pWindow = nullptr;
 		switch (type)
 		{
 		case ELWT_OPENGL:

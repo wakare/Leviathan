@@ -11,6 +11,7 @@ namespace Leviathan
 		virtual ~ILevWindow() = default;
 
 		virtual bool Create(int width, int height, int hParent = 0) = 0;
+		virtual bool Resize(int width, int height) = 0;
 		virtual void Run() = 0;
 		virtual void Update() = 0;
 		virtual void SetStop() = 0;

@@ -8,7 +8,7 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LPtr<OpenGLRenderEntry> object)
+		OpenGLRenderNodeObject::OpenGLRenderNodeObject(LSPtr<OpenGLRenderEntry> object)
 			: m_object(object)
 		{
 			LEV_ASSERT(object);
@@ -62,7 +62,7 @@ namespace Leviathan
 
 		void OpenGLRenderNodeObject::ApplyFrameBufferObject()
 		{
-			LPtr<OpenGLFrameBufferObject> frame_buffer_object = m_object->GetFrameBufferObject();
+			LSPtr<OpenGLFrameBufferObject> frame_buffer_object = m_object->GetFrameBufferObject();
 			if (frame_buffer_object.Get())
 			{
 				frame_buffer_object->Apply();
@@ -71,7 +71,7 @@ namespace Leviathan
 
 		void OpenGLRenderNodeObject::UnApplyFrameBufferObject()
 		{
-			LPtr<OpenGLFrameBufferObject> frame_buffer_object = m_object->GetFrameBufferObject();
+			LSPtr<OpenGLFrameBufferObject> frame_buffer_object = m_object->GetFrameBufferObject();
 			if (frame_buffer_object.Get())
 			{
 				frame_buffer_object->UnApply();

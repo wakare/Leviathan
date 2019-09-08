@@ -1,7 +1,7 @@
 #pragma once
 
 #include <map>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "NodeVisitor.h"
 #include "OpenGLRenderTree.h"
 
@@ -20,7 +20,7 @@ namespace Leviathan
 		class OpenGLPass
 		{
 		public:
-			OpenGLPass(LPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager);
+			OpenGLPass(LSPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager);
 			bool Render(OpenGLRenderTree& render_tree);
 
 			unsigned GetID() const;
@@ -31,9 +31,9 @@ namespace Leviathan
 
 			OpenGLRenderStateManager& m_render_state_manager;
 			
-			LPtr<OpenGLShaderProgram> m_shader_program;
-			LPtr<OpenGLUniformManager> m_pass_uniform_manager;
-			LPtr<OpenGLRenderNodeVisitor> m_render_visitor;
+			LSPtr<OpenGLShaderProgram> m_shader_program;
+			LSPtr<OpenGLUniformManager> m_pass_uniform_manager;
+			LSPtr<OpenGLRenderNodeVisitor> m_render_visitor;
 		};
 	}
 }

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevSceneAPIDefine.h"
 
 namespace Leviathan
@@ -28,14 +28,14 @@ namespace Leviathan
 			void UpdateWorldTransform();
 			void UpdateTimer();
 
-			void RegisterToMainCamera(LPtr<LevCamera> camera, LPtr<LevSceneNode> camera_node);
-			LPtr<LevSceneNode> GetMainCameraNode();
+			void RegisterToMainCamera(LSPtr<LevCamera> camera, LSPtr<LevSceneNode> camera_node);
+			LSPtr<LevSceneNode> GetMainCameraNode();
 
-			LPtr<LevCamera> GetMainCamera();
-			bool SetMainCamera(LPtr<LevCamera> camera);
+			LSPtr<LevCamera> GetMainCamera();
+			bool SetMainCamera(LSPtr<LevCamera> camera);
 
-			bool AddSceneNodeToRoot(LPtr<LevSceneNode> pNode);
-			bool AddSceneNodeToParent(LPtr<LevSceneNode> pNode, LPtr<LevSceneNode> parent_node);
+			bool AddSceneNodeToRoot(LSPtr<LevSceneNode> pNode);
+			bool AddSceneNodeToParent(LSPtr<LevSceneNode> pNode, LSPtr<LevSceneNode> parent_node);
 			void RemoveAllRenderables();
 			void UpdateNodeState();
 
@@ -44,11 +44,11 @@ namespace Leviathan
 
 			std::function<void(const LevSceneObject&)> m_modifiedCallback;
 
-			LPtr<LevCamera> m_main_camera;
-			LPtr<LevSceneNode> m_main_camera_node;
+			LSPtr<LevCamera> m_main_camera;
+			LSPtr<LevSceneNode> m_main_camera_node;
 
-			std::vector<LPtr<LevLight>> m_pLights;
-			LPtr<LevSceneTree> m_pSceneTree;
+			std::vector<LSPtr<LevLight>> m_pLights;
+			LSPtr<LevSceneTree> m_pSceneTree;
 		};
 	}
 }

@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 #include "NodeVisitor.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -14,45 +14,45 @@ namespace Leviathan
 	class Node
 	{
 	public:
-		Node(LPtr<T> pData);
-		void AddChild(LPtr<Node<T>> pChild);
-		void DelChild(LPtr<Node<T>> pChild);
+		Node(LSPtr<T> pData);
+		void AddChild(LSPtr<Node<T>> pChild);
+		void DelChild(LSPtr<Node<T>> pChild);
 
-		void SetParent(LPtr<Node<T>> parent);
-		const LPtr<Node<T>> GetParent() const;
+		void SetParent(LSPtr<Node<T>> parent);
+		const LSPtr<Node<T>> GetParent() const;
 
-		const LPtr<T>& GetNodeData() const { return m_node_data; };
-		void SetNodeData(LPtr<T> pData) { m_node_data.Reset(pData); }
+		const LSPtr<T>& GetNodeData() const { return m_node_data; };
+		void SetNodeData(LSPtr<T> pData) { m_node_data.Reset(pData); }
 
 		void SetInvalid() { SetNodeData(nullptr); }
 		bool Invalid() const { return m_node_data.Get(); }
 
-		const std::vector<LPtr<Node<T>>>& GetChildren() const { return m_children; };
-		std::vector<LPtr<Node<T>>>& GetChildren() { return m_children; };
+		const std::vector<LSPtr<Node<T>>>& GetChildren() const { return m_children; };
+		std::vector<LSPtr<Node<T>>>& GetChildren() { return m_children; };
 
 		virtual ~Node();
 		virtual void Accept(NodeVisitor<T>& nodeVisitor);
 
 	protected:
-		LPtr<T> m_node_data;
-		std::vector<LPtr<Node<T>>> m_children;
-		LPtr<Node<T>> m_parent;
+		LSPtr<T> m_node_data;
+		std::vector<LSPtr<Node<T>>> m_children;
+		LSPtr<Node<T>> m_parent;
 	};
 
 	template<class T>
-	inline void Leviathan::Node<T>::SetParent(LPtr<Node<T>> parent)
+	inline void Leviathan::Node<T>::SetParent(LSPtr<Node<T>> parent)
 	{
 		m_parent = parent;
 	}
 
 	template<class T>
-	inline const Leviathan::LPtr<Leviathan::Node<T>> Leviathan::Node<T>::GetParent() const
+	inline const Leviathan::LSPtr<Leviathan::Node<T>> Leviathan::Node<T>::GetParent() const
 	{
 		return m_parent;
 	}
 
 	template<class T>
-	inline Leviathan::Node<T>::Node(LPtr<T> pData)
+	inline Leviathan::Node<T>::Node(LSPtr<T> pData)
 		: m_node_data(pData)
 		, m_parent(nullptr)
 	{
@@ -66,13 +66,13 @@ namespace Leviathan
 	}
 
 	template<class T>
-	inline void Node<T>::AddChild(LPtr<Node<T>> pChild)
+	inline void Node<T>::AddChild(LSPtr<Node<T>> pChild)
 	{
 		m_children.push_back(pChild);
 	}
 
 	template<class T>
-	inline void Node<T>::DelChild(LPtr<Node<T>> pChild)
+	inline void Node<T>::DelChild(LSPtr<Node<T>> pChild)
 	{
 		auto itFind = std::find(m_children.begin(), m_children.end(), pChild);
 		if (itFind != m_children.end())

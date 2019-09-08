@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "LevSceneAPIDefine.h"
 #include <map>
 
@@ -30,12 +30,12 @@ namespace Leviathan
 			LevFrameBufferObject();
 
 			unsigned GetID() const;
-			bool Attach(LevFrameAttachmentType attach_type, LPtr<LevAttachment> attachment);
-			const std::map<LevFrameAttachmentType, LPtr<LevAttachment>>& GetAttachments() const;
+			bool Attach(LevFrameAttachmentType attach_type, LSPtr<LevAttachment> attachment);
+			const std::map<LevFrameAttachmentType, LSPtr<LevAttachment>>& GetAttachments() const;
 
 		private:
 			const unsigned m_id;
-			std::map<LevFrameAttachmentType, LPtr<LevAttachment>> m_attachments;
+			std::map<LevFrameAttachmentType, LSPtr<LevAttachment>> m_attachments;
 		};
 	}
 

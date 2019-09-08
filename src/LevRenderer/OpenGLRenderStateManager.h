@@ -1,6 +1,6 @@
 #pragma once
 
-#include "LPtr.h"
+#include "LSPtr.h"
 #include <map>
 #include "IOpenGLRenderState.h"
 
@@ -14,10 +14,10 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderStateManager();
-			void ApplyRenderState(LPtr<IOpenGLRenderState> render_state);
+			void ApplyRenderState(LSPtr<IOpenGLRenderState> render_state);
 
 		private:
-			std::map<OpenGLRenderStateType, LPtr<IOpenGLRenderState>> m_current_render_state;
+			std::map<OpenGLRenderStateType, LSPtr<IOpenGLRenderState>> m_current_render_state;
 		};
 	}
 }

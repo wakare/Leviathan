@@ -10,12 +10,12 @@ namespace Leviathan
 		{
 		}
 
-		void LevRAttrAttachmentManager::AddAttachment(LPtr<LevAttachment> attachment)
+		void LevRAttrAttachmentManager::AddAttachment(LSPtr<LevAttachment> attachment)
 		{
 			m_attachments.push_back(attachment);
 		}
 
-		const std::vector<LPtr<LevAttachment>>& LevRAttrAttachmentManager::GetAttachments() const
+		const std::vector<LSPtr<LevAttachment>>& LevRAttrAttachmentManager::GetAttachments() const
 		{
 			return m_attachments;
 		}

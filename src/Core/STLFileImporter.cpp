@@ -46,13 +46,13 @@ namespace Leviathan
 		return "stl";
 	}
 
-	std::vector<LPtr<IMesh>> STLFileImporter::LoadFile(const char* fileName)
+	std::vector<LSPtr<IMesh>> STLFileImporter::LoadFile(const char* fileName)
 	{
 		std::ifstream fileStream(fileName, std::ios::in | std::ios::binary);
 		if (!fileStream.is_open())
 		{
 			LeviathanOutStream << "[ERROR] Invalid file name." << std::endl;
-			return std::vector<LPtr<IMesh>>();
+			return std::vector<LSPtr<IMesh>>();
 		}
 
 		// Skip file head
@@ -115,7 +115,7 @@ namespace Leviathan
 		pMesh->SetPrimitiveIndexData(triangleIndex);
 		pMesh->SetVertexCoordData(vertexCoordArray.m_pData);
 
-		return std::vector<LPtr<IMesh>>(LPtr<IMesh>(pMesh));
+		return std::vector<LSPtr<IMesh>>(LSPtr<IMesh>(pMesh));
 	}
 
 	bool STLFileImporter::RegisterToFactory()

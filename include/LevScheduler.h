@@ -4,7 +4,7 @@
 #include <mutex>
 
 #include "LevTask.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -12,11 +12,11 @@ namespace Leviathan
 	class LevScheduler
 	{
 	public:
-		void DoAsyncTask(LPtr<LevTaskTemplate<T>> task);
-		void DoAsyncTask(const std::vector<LPtr<LevTaskTemplate<T>>>& task);
+		void DoAsyncTask(LSPtr<LevTaskTemplate<T>> task);
+		void DoAsyncTask(const std::vector<LSPtr<LevTaskTemplate<T>>>& task);
 		void DoAsyncTask(std::function<void(CoPullType<T>&)> func);
 
-		bool DoSyncTask(LPtr<LevTaskTemplate<T>> task);
+		bool DoSyncTask(LSPtr<LevTaskTemplate<T>> task);
 		bool DoSyncTask(std::function<void(CoPullType<T>&)> func);
 
 	protected:
@@ -26,7 +26,7 @@ namespace Leviathan
 
 		bool m_executeTaskFlag;
 		std::mutex m_tasks_lock;
-		std::vector<LPtr<LevTaskTemplate<T>>> m_tasks;
+		std::vector<LSPtr<LevTaskTemplate<T>>> m_tasks;
 	};
 }
 

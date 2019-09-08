@@ -51,6 +51,15 @@ namespace Leviathan
 		return true;
 	}
 
+	bool LevOpenGLWindow::Resize(int width, int height)
+	{
+		m_width = width;
+		m_height = height;
+
+		glViewport(0, 0, m_width, m_height);
+		return true;
+	}
+
 	void LevOpenGLWindow::Run()
 	{
 		if (!m_pWindow)
@@ -153,12 +162,10 @@ namespace Leviathan
 			return false;
 		}
 
-		m_width = event.m_context.m_windowResizeSize.width;
-		m_height = event.m_context.m_windowResizeSize.height;
+		const auto width = event.m_context.m_windowResizeSize.width;
+		const auto height = event.m_context.m_windowResizeSize.height;
 
-		glViewport(0, 0, m_width, m_height);
-
-		return true;
+		return Resize(width, height);
 	}
 
 	

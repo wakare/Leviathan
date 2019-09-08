@@ -8,7 +8,7 @@ namespace Leviathan
 		
 	}
 
-	bool CommandStackStruct::PushCompletedCommand(LPtr<Command> pCommand)
+	bool CommandStackStruct::PushCompletedCommand(LSPtr<Command> pCommand)
 	{
 		// Full stack?
 		bool full = m_stack.size() == m_stack_size;
@@ -49,7 +49,7 @@ namespace Leviathan
 		m_command_stack.Reset(new CommandStackStruct(command_stack_size));
 	}
 
-	bool CommandCenter::PostCommand(LPtr<Command> pCommand)
+	bool CommandCenter::PostCommand(LSPtr<Command> pCommand)
 	{
 		if (IsCreateThread())
 		{

@@ -13,7 +13,7 @@ namespace Leviathan
 	public:
 		static IFileImporter& GetInstance();
 		std::string TypeName();
-		std::vector<LPtr<IMesh>> LoadFile(const char* fileName);
+		std::vector<LSPtr<IMesh>> LoadFile(const char* fileName);
 		bool RegisterToFactory();
 
 	private:

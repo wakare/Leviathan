@@ -5,7 +5,7 @@
 
 #pragma once
 #include "LevViewerAPIDefine.h"
-#include "LPtr.h"
+#include "LSPtr.h"
 
 namespace Leviathan
 {
@@ -29,8 +29,9 @@ namespace Leviathan
 		public:
 			LevViewer();
 			bool CreateRenderWindow(int width, int height, unsigned handle);
-			
-			bool SetCurrentScene(LPtr<Scene::LevScene> current_scene);
+			bool ResizeWindow(int width, int height);
+
+			bool SetCurrentScene(LSPtr<Scene::LevScene> current_scene);
 			bool HasAttachedScene() const;
 
 			void TickFrame();
@@ -40,10 +41,10 @@ namespace Leviathan
 			const ILevWindow& GetRenderWindow() const;
 
 		private:
-			LPtr<EventSystem> m_event_system;
-			LPtr<ILevWindow> m_window;
-			LPtr<Scene::LevScene> m_current_scene;
-			LPtr<Renderer::IRendererBackend> m_renderer;
+			LSPtr<EventSystem> m_event_system;
+			LSPtr<ILevWindow> m_window;
+			LSPtr<Scene::LevScene> m_current_scene;
+			LSPtr<Renderer::IRendererBackend> m_renderer;
 		};
 	}
 }

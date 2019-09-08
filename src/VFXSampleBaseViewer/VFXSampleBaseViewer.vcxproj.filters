@@ -48,6 +48,9 @@
     <ClInclude Include="VFXSDFShaderProgram.h">
       <Filter>SDFRender</Filter>
     </ClInclude>
+    <ClInclude Include="BaseShaderSource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VFXCommonScene.cpp">

@@ -1,6 +1,5 @@
 #pragma once
 
-#include <LevScene.h>
 #include "VFXSampleBaseViewerAPIDefine.h"
 #include "LevLight.h"
 #include "LevCamera.h"
@@ -16,8 +15,8 @@ namespace Leviathan
 		{
 		public:
 			VFXCommonScene();
-			bool AddLightToLightRootNode(LPtr<Scene::LevLight> light);
-			bool SetMainCamera(LPtr<Scene::LevCamera> camera);
+			bool AddLightToLightRootNode(LSPtr<Scene::LevLight> light);
+			bool SetMainCamera(LSPtr<Scene::LevCamera> camera);
 		};
 	}
 }

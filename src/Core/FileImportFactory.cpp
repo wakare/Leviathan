@@ -9,15 +9,15 @@
 
 using namespace Leviathan;
 
-LPtr<IFileImportFactory> FileImportFactory::m_spFileImportFactory = nullptr;
+LSPtr<IFileImportFactory> FileImportFactory::m_spFileImportFactory = nullptr;
 
-std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(const char* czFileName)
+std::vector<LSPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(const char* czFileName)
 {
 	std::string fileNameString(czFileName);
 	return LoadFile(fileNameString);
 }
 
-Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::FileImportFactory::GetFileImportFactory()
+Leviathan::LSPtr<Leviathan::IFileImportFactory> Leviathan::FileImportFactory::GetFileImportFactory()
 {
 	static std::once_flag sFlag;
 
@@ -26,14 +26,14 @@ Leviathan::LPtr<Leviathan::IFileImportFactory> Leviathan::FileImportFactory::Get
 		std::call_once(sFlag, [&]()
 		{
 			LeviathanOutStream << "[INFO] File import factory inited." << std::endl;
-			m_spFileImportFactory = LPtr<IFileImportFactory>(new FileImportFactory());
+			m_spFileImportFactory = LSPtr<IFileImportFactory>(new FileImportFactory());
 		});
 	}
 
 	return m_spFileImportFactory;
 }
 
-bool Leviathan::FileImportFactory::RegisterImporter(std::string typeName, LPtr<IFileImporter> pImporter)
+bool Leviathan::FileImportFactory::RegisterImporter(std::string typeName, LSPtr<IFileImporter> pImporter)
 {
 	auto itImporter = m_registerFileImport.find(typeName);
 	if (itImporter != m_registerFileImport.end())
@@ -49,7 +49,7 @@ bool Leviathan::FileImportFactory::RegisterImporter(std::string typeName, LPtr<I
 Leviathan::FileImportFactory::FileImportFactory()
 = default;
 
-void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
+void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LSPtr<IMesh>>& result)
 {
 	auto pMaterial = scene.HasMaterials() ? scene.mMaterials : nullptr;
 
@@ -182,7 +182,7 @@ void _processMesh(const aiMesh& mesh, const aiScene& scene, const std::string& a
 	result.push_back(pMesh);
 }
 
-void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LPtr<IMesh>>& result)
+void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::string& absDirectoryPath, std::vector<LSPtr<IMesh>>& result)
 {
 	for (unsigned i = 0; i < node.mNumMeshes; i++)
 	{
@@ -196,7 +196,7 @@ void _recursionLoadModel(const aiNode& node, const aiScene& scene, const std::st
 	}
 }
 
-std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const std::string& strFileName)
+std::vector<LSPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const std::string& strFileName)
 {
 	Assimp::Importer importer;
 	const aiScene* importerScene = importer.ReadFile(strFileName, aiProcessPreset_TargetRealtime_Fast);
@@ -205,7 +205,7 @@ std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const 
 		LeviathanOutStream << "[INFO] Load file failed.";
 
 		throw "exception";
-		return std::vector<LPtr<IMesh>>();
+		return std::vector<LSPtr<IMesh>>();
 	}
 
 	auto lastOfDotIndex = strFileName.find_last_of("/\\");
@@ -218,10 +218,10 @@ std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const 
 	if (!importerScene->HasMeshes())
 	{
 		LeviathanOutStream << "[INFO] Assimp load file: " << strFileName << " failed." << std::endl;
-		return std::vector<LPtr<IMesh>>();
+		return std::vector<LSPtr<IMesh>>();
 	}
 
-	std::vector<LPtr<IMesh>> result;
+	std::vector<LSPtr<IMesh>> result;
 	LogLine( "[INFO] Has texture? " << (importerScene->HasTextures() ? "True" : "False") );
 
 	_recursionLoadModel(*(importerScene->mRootNode), *importerScene, absDirectoryPath, result);
@@ -229,7 +229,7 @@ std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::_loadModelByAssimp(const 
 	return result;
 }
 
-std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(std::string strFileName)
+std::vector<LSPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(std::string strFileName)
 {
 	auto pMesh = _loadModelByAssimp(strFileName);
 	if (!pMesh.empty())
@@ -242,7 +242,7 @@ std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(std::string strF
 	if (uLastDotIndex == std::string::npos)
 	{
 		LeviathanOutStream << "[ERROR] Invalid file name." << std::endl;
-		return std::vector<LPtr<IMesh>>();
+		return std::vector<LSPtr<IMesh>>();
 	}
 
 	auto strFileExtension = strFileName.substr(uLastDotIndex + 1);
@@ -250,7 +250,7 @@ std::vector<LPtr<IMesh>> Leviathan::FileImportFactory::LoadFile(std::string strF
 	if (itImporter == m_registerFileImport.end())
 	{
 		LeviathanOutStream << "[WARN] Unsupported file extension : " << strFileExtension <<std::endl;
-		return std::vector<LPtr<IMesh>>();
+		return std::vector<LSPtr<IMesh>>();
 	}
 
 	return itImporter->second->LoadFile(strFileName.c_str());

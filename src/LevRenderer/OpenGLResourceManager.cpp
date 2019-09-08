@@ -28,14 +28,14 @@ namespace Leviathan
 				// Create
 				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(m_render_state_manager);
 
-				LPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
+				LSPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
 				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program, *m_render_state_manager);
 			}
 
 			return shader_program.GetID();
 		}
 
-		bool OpenGLResourceManager::AddGLObjectToRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject)
+		bool OpenGLResourceManager::AddGLObjectToRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -44,13 +44,13 @@ namespace Leviathan
 				return false;
 			}
 
-			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
+			LSPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
 			it->second->AddNodeToRoot(node);
 
 			return true;
 		}
 
-		bool OpenGLResourceManager::ReplaceGLObjectFromRenderTree(RenderTreeID handle, LPtr<OpenGLRenderEntry> pObject)
+		bool OpenGLResourceManager::ReplaceGLObjectFromRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject)
 		{
 			auto it = m_render_trees.find(handle);
 
@@ -59,7 +59,7 @@ namespace Leviathan
 				return false;
 			}
 
-			LPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
+			LSPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
 			it->second->ReplaceNode(node);
 
 			return true;

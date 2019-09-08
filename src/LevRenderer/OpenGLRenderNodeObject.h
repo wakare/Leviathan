@@ -1,5 +1,5 @@
 #pragma once
-#include "LPtr.h"
+#include "LSPtr.h"
 #include "GL/glew.h"
 
 namespace Leviathan
@@ -14,7 +14,7 @@ namespace Leviathan
 		class OpenGLRenderNodeObject
 		{
 		public:
-			OpenGLRenderNodeObject(LPtr<OpenGLRenderEntry> object);
+			OpenGLRenderNodeObject(LSPtr<OpenGLRenderEntry> object);
 			bool Valid() const;
 			unsigned GetID() const;
 
@@ -30,7 +30,7 @@ namespace Leviathan
 			void Render(GLuint shader_program);
 
 		private:
-			LPtr<OpenGLRenderEntry> m_object;
+			LSPtr<OpenGLRenderEntry> m_object;
 		};
 	}
 }

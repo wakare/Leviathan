@@ -45,7 +45,7 @@ namespace Leviathan
 			_update_camera();
 		}
 
-		Leviathan::LPtr<Leviathan::Scene::LevSceneNode> LevNormalScene::GetLightRootNode()
+		Leviathan::LSPtr<Leviathan::Scene::LevSceneNode> LevNormalScene::GetLightRootNode()
 		{
 			return m_light_root_node;
 		}
@@ -55,22 +55,22 @@ namespace Leviathan
 			auto& root_node = GetSceneData().GetSceneTree().GetRoot();
 
 			// Add default pass
-			LPtr<LevShaderProgram> default_shader_program = new LevShaderProgram;
+			LSPtr<LevShaderProgram> default_shader_program = new LevShaderProgram;
 			default_shader_program->m_frag_shader = default_frag_shader;
 			default_shader_program->m_vert_shader = default_vertex_shader;
 
-			LPtr<LevRAttrShaderProgram> default_program = new LevRAttrShaderProgram;
+			LSPtr<LevRAttrShaderProgram> default_program = new LevRAttrShaderProgram;
 			default_program->SetShaderProgram(default_shader_program);
 
 			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrShaderProgram, LevSceneObjectAttribute>(default_program));
 
-			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
+			LSPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
 			/*
 				Set default render state.
 			*/
-			LPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
+			LSPtr<LevRAttrRenderStateManager> render_state_manager = new LevRAttrRenderStateManager;
 			root_node.GetNodeData()->AddAttribute(TryCast<LevRAttrRenderStateManager, LevSceneObjectAttribute>(render_state_manager));
 			render_state_manager->UpdateRenderState(new LevRenderStateDepthFunc(ELDF_LESS));
 
@@ -80,7 +80,7 @@ namespace Leviathan
 		bool LevNormalScene::_init_main_camera()
 		{
 			// FOR DEBUG
-			LPtr<LevCamera> pCamera = new LevCamera;
+			LSPtr<LevCamera> pCamera = new LevCamera;
 			pCamera->SetName("Main Camera");
 
 			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
@@ -92,16 +92,16 @@ namespace Leviathan
 			m_camera_node = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));
 			LEV_ASSERT(m_camera_node);
 
-			LPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
+			LSPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			m_camera_node->GetNodeData()->AddAttribute(TryCast<LevRAttrUniformManager, LevSceneObjectAttribute>(uniform_manager));
 
 			m_default_view_matrix = new LevNumericalUniform("viewMatrix", TYPE_FLOAT_MAT4);
 			m_default_proj_matrix = new LevNumericalUniform("projMatrix", TYPE_FLOAT_MAT4);
 
-			LPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			LSPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			m_default_view_matrix->SetData(view_matrix_data);
 
-			LPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			LSPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			m_default_proj_matrix->SetData(proj_matrix_data);
 
 			uniform_manager->AddUniform(TryCast<LevNumericalUniform, ILevUniform>(m_default_view_matrix));
@@ -114,7 +114,7 @@ namespace Leviathan
 
 		bool LevNormalScene::_init_default_light_root_node()
 		{
-			LPtr<LevSceneObject> light_object = new LevSceneObject(ELSOT_DYNAMIC);
+			LSPtr<LevSceneObject> light_object = new LevSceneObject(ELSOT_DYNAMIC);
 			m_light_root_node = new LevSceneNode(light_object);
 
 			GetSceneData().AddSceneNodeToRoot(m_light_root_node);
@@ -128,11 +128,11 @@ namespace Leviathan
 				return;
 			}
 
-			LPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			LSPtr<RAIIBufferData> view_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			view_matrix_data->SetArrayData(GetSceneData().GetMainCamera()->GetViewportMatrix().data(), 16 * sizeof(float));
 			m_default_view_matrix->SetData(view_matrix_data);
 
-			LPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
+			LSPtr<RAIIBufferData> proj_matrix_data = new RAIIBufferData(16 * sizeof(float));
 			proj_matrix_data->SetArrayData(GetSceneData().GetMainCamera()->GetProjectMatrix().data(), 16 * sizeof(float));
 			m_default_proj_matrix->SetData(proj_matrix_data);
 
