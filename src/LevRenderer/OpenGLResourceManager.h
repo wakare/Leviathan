@@ -19,6 +19,7 @@ namespace Leviathan
 		class OpenGLRenderNodeObject;
 		class OpenGLRenderStateManager;
 		class OpenGLObjectManager;
+		class OpenGLRenderEntryManager;
 
 		typedef int RenderTreeID;
 
@@ -33,6 +34,7 @@ namespace Leviathan
 			bool RemoveRenderTree(RenderTreeID handle, unsigned object_id);
 
 			OpenGLObjectManager& GetObjectManager();
+			OpenGLRenderEntryManager& GetRenderEntryManager();
 
 			bool Render();
 
@@ -41,6 +43,7 @@ namespace Leviathan
 
 			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
 			LSPtr<OpenGLObjectManager> m_object_manager;
+			LSPtr<OpenGLRenderEntryManager> m_render_entry_manager;
 			std::map<RenderTreeID, LSPtr<OpenGLPass>> m_render_pass;
 			std::map<RenderTreeID, LSPtr<OpenGLRenderTree>> m_render_trees;
 		};

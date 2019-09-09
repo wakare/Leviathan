@@ -9,6 +9,7 @@ namespace Leviathan
 {
 	namespace Scene
 	{
+		class LevSceneObject;
 		class LevRAttrRenderStateManager;
 	}
 
@@ -17,11 +18,13 @@ namespace Leviathan
 		class IOpenGLRenderState;
 		class IOpenGLUniform;
 		class OpenGLFrameBufferObject;
+		class OpenGLRenderEntryManager;
 
 		class OpenGLRenderEntry
 		{
 		public:
-			OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
+			//OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
+			OpenGLRenderEntry(OpenGLRenderEntryManager& manager, const Scene::LevSceneObject& object);
 			virtual ~OpenGLRenderEntry() = default;
 
 			virtual bool Render(GLuint shaderProgram);
@@ -40,10 +43,10 @@ namespace Leviathan
 			void AddUniform(LSPtr<IOpenGLUniform> uniform);
 			
 		protected:
-			OpenGLRenderEntry(unsigned id);
+			OpenGLRenderEntry(OpenGLRenderEntryManager& manager, unsigned id);
 			virtual bool _init();
 
-			const Scene::LevRAttrRenderObjectAttributeBinder m_attribute_binder;
+			const Scene::LevRAttrRenderObjectAttributeBinder* m_attribute_binder;
 
 			bool m_inited;
 

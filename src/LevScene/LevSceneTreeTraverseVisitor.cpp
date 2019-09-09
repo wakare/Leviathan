@@ -19,34 +19,36 @@ namespace Leviathan
 
 		void LevSceneTreeTraverseVisitor::Apply(const Node<LevSceneObject>& node)
 		{
-			m_traverseStack.push_back(&node);
-
 			LEV_ASSERT(m_traverseCallback);
+
 			if (m_traverseCallback(*node.GetNodeData(), m_traverseStack))
 			{
+				m_traverseStack.push_back(&node);
+
 				for (const auto& child : node.GetChildren())
 				{
 					child->Accept(*this);
 				}
-			}
 
-			m_traverseStack.pop_back();
+				m_traverseStack.pop_back();
+			}
 		}
 
 		void LevSceneTreeTraverseVisitor::Apply(Node<LevSceneObject>& node)
 		{
-			m_traverseStack.push_back(&node);
-
 			LEV_ASSERT(m_traverseCallback);
+
 			if (m_traverseCallback(*node.GetNodeData(), m_traverseStack))
 			{
+				m_traverseStack.push_back(&node);
+
 				for (const auto& child : node.GetChildren())
 				{
 					child->Accept(*this);
 				}
-			}
 
-			m_traverseStack.pop_back();
+				m_traverseStack.pop_back();
+			}
 		}
 
 	}

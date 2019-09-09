@@ -6,16 +6,16 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		static unsigned INVALID_ID = UINT_MAX;
+		class OpenGLRenderEntryManager;
 
 		class OpenGLEmptyRenderEntry : public OpenGLRenderEntry
 		{
 		public:
-			OpenGLEmptyRenderEntry(unsigned id = INVALID_ID);
+			OpenGLEmptyRenderEntry(OpenGLRenderEntryManager& manager, unsigned id);
 
 		protected:
-			virtual bool _init();
-			virtual bool Render(GLuint shaderProgram);
+			bool _init() override;
+			bool Render(GLuint shaderProgram) override;
 		};
 	}
 }

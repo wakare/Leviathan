@@ -11,7 +11,6 @@
 #include "OpenGLResourceManager.h"
 #include "LevSceneRenderAttribute.h"
 #include "OpenGLNumericalUniform.h"
-#include "OpenGLEmptyRenderEntry.h"
 #include "LevNumericalUniform.h"
 #include "OpenGLRenderEntry.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
@@ -22,6 +21,7 @@
 #include "OpenGLTextureUniform.h"
 #include "LevRAttrFrameBufferObject.h"
 #include "OpenGLFrameBufferObject.h"
+#include "OpenGLRenderEntryManager.h"
 
 namespace Leviathan
 {
@@ -55,33 +55,46 @@ namespace Leviathan
 					return true;
 				}
 
-				LSPtr<OpenGLRenderEntry> gl_render_entry = nullptr;
+				LSPtr<OpenGLRenderEntry> render_entry = nullptr;
 
 				RenderTreeID render_tree_id = INT_MAX;
 
 				size_t stack_size = stack.size();
-				for (unsigned i = 0; i < stack_size; i++)
+				const Scene::LevRAttrShaderProgram* shader_program = nullptr;
+				object.GetAttribute<Scene::LevRAttrShaderProgram>(shader_program);
+
+				if (!shader_program)
 				{
-					unsigned index = stack_size - i - 1;
-
-					auto& parent = stack[index];
-					const Scene::LevRAttrShaderProgram* shader_program = nullptr;
-					parent->GetNodeData()->GetAttribute<Scene::LevRAttrShaderProgram>(shader_program);
-
-					if (shader_program)
+					for (unsigned i = 0; i < stack_size; i++)
 					{
-						render_tree_id = GetResourceManager().GetOrCreateRenderTree(*shader_program);
-						break;
+						unsigned index = stack_size - i - 1;
+
+						auto& parent = stack[index];
+
+						parent->GetNodeData()->GetAttribute<Scene::LevRAttrShaderProgram>(shader_program);
+
+						if (shader_program)
+						{
+							break;
+						}
 					}
 				}
 
-				if (render_tree_id == INT_MAX)
+				if (!shader_program)
 				{
 					return false;
 				}
 
+				render_tree_id = GetResourceManager().GetOrCreateRenderTree(*shader_program);
+
 				const Scene::LevRAttrRenderObjectAttributeBinder* attribute_binder = nullptr;
 				object.GetAttribute<Scene::LevRAttrRenderObjectAttributeBinder>(attribute_binder);
+
+				auto& render_entry_manager = OpenGLResourceManager::Instance().GetRenderEntryManager();
+				if (stack_size > 0)
+				{
+					render_entry_manager.SetParent(object, *stack.back()->GetNodeData());
+				}
 
 				switch (object.GetState())
 				{
@@ -89,11 +102,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						gl_render_entry = new OpenGLRenderEntry(object.GetID(), *attribute_binder);
+						render_entry_manager.CreateRenderEntry(object, render_entry);
 					}
 					else
 					{
-						gl_render_entry = new OpenGLEmptyRenderEntry(object.GetID());
+						render_entry_manager.CreateEmptyRenderEntry(object, render_entry);
 					}
 					
 					for (auto& attribute : object.GetAllAttributes())
@@ -104,10 +117,10 @@ namespace Leviathan
 							continue;
 						}
 
-						_applyRenderAttribute(gl_render_entry, *pAttribute);
+						_applyRenderAttribute(render_entry, *pAttribute);
 					}
 
-					GetResourceManager().AddGLObjectToRenderTree(render_tree_id, gl_render_entry);
+					GetResourceManager().AddGLObjectToRenderTree(render_tree_id, render_entry);
 					break;
 				}
 
@@ -115,25 +128,25 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						gl_render_entry = new OpenGLRenderEntry(object.GetID(), *attribute_binder);
+						render_entry_manager.CreateRenderEntry(object, render_entry);
 					}
 					else
 					{
-						gl_render_entry = new OpenGLEmptyRenderEntry(object.GetID());
+						render_entry_manager.CreateEmptyRenderEntry(object, render_entry);
 					}
 
 					for (auto& attribute : object.GetAllAttributes())
 					{
-						const Scene::LevSceneRenderAttribute* pAttribute = dynamic_cast<const Scene::LevSceneRenderAttribute*>(attribute.Get());
+						auto* pAttribute = attribute.To<const Scene::LevSceneRenderAttribute>().Get();
 						if (!pAttribute)
 						{
 							continue;
 						}
 
-						_applyRenderAttribute(gl_render_entry, *pAttribute);
+						_applyRenderAttribute(render_entry, *pAttribute);
 					}
 
-					GetResourceManager().ReplaceGLObjectFromRenderTree(render_tree_id, gl_render_entry);
+					GetResourceManager().ReplaceGLObjectFromRenderTree(render_tree_id, render_entry);
 					break;
 				}
 
@@ -146,7 +159,7 @@ namespace Leviathan
 
 				}
 
-				LEV_ASSERT(gl_render_entry);
+				LEV_ASSERT(render_entry);
 
 				return true;
 			};

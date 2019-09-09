@@ -7,6 +7,7 @@
 #include "OpenGLRenderNodeObject.h"
 #include "OpenGLRenderNode.h"
 #include "OpenGLObjectManager.h"
+#include "OpenGLRenderEntryManager.h"
 
 namespace Leviathan
 {
@@ -15,6 +16,7 @@ namespace Leviathan
 		OpenGLResourceManager::OpenGLResourceManager()
 			: m_render_state_manager(new OpenGLRenderStateManager)
 			, m_object_manager(new OpenGLObjectManager)
+			, m_render_entry_manager(new OpenGLRenderEntryManager)
 		{
 
 		}
@@ -26,7 +28,7 @@ namespace Leviathan
 			if (it == m_render_trees.end())
 			{
 				// Create
-				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(m_render_state_manager);
+				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(m_render_state_manager, m_render_entry_manager);
 
 				LSPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
 				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program, *m_render_state_manager);
@@ -45,7 +47,7 @@ namespace Leviathan
 			}
 
 			LSPtr<OpenGLRenderNode> node = new OpenGLRenderNode(new OpenGLRenderNodeObject(pObject));
-			it->second->AddNodeToRoot(node);
+			it->second->AddNode(node);
 
 			return true;
 		}
@@ -82,6 +84,11 @@ namespace Leviathan
 		OpenGLObjectManager& OpenGLResourceManager::GetObjectManager()
 		{
 			return *m_object_manager;
+		}
+
+		OpenGLRenderEntryManager& OpenGLResourceManager::GetRenderEntryManager()
+		{
+			return *m_render_entry_manager;
 		}
 
 		bool OpenGLResourceManager::Render()

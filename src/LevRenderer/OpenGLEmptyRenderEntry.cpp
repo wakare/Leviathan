@@ -2,13 +2,8 @@
 
 namespace Leviathan
 {
-	namespace RenderService
-	{
-
-	}
-
-	Renderer::OpenGLEmptyRenderEntry::OpenGLEmptyRenderEntry(unsigned id)
-		: OpenGLRenderEntry(id)
+	Renderer::OpenGLEmptyRenderEntry::OpenGLEmptyRenderEntry(OpenGLRenderEntryManager& manager, unsigned id)
+		: OpenGLRenderEntry(manager, id)
 	{
 
 	}
