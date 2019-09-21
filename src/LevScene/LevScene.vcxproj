@@ -40,7 +40,6 @@
     <ClInclude Include="LevMathematicObject.h" />
     <ClInclude Include="LevMeshObject.h" />
     <ClInclude Include="LevNormalScene.h" />
-    <ClInclude Include="LevPointLight.h" />
     <ClInclude Include="LevLRAttrWorldTransform.h" />
     <ClInclude Include="LevRAttrDepthFunc.h" />
     <ClInclude Include="LevRAttrRenderObjectAttributeBinder.h" />
@@ -79,7 +78,6 @@
     <ClCompile Include="LevMathematicObject.cpp" />
     <ClCompile Include="LevMeshObject.cpp" />
     <ClCompile Include="LevNormalScene.cpp" />
-    <ClCompile Include="LevPointLight.cpp" />
     <ClCompile Include="LevLRAttrWorldTransform.cpp" />
     <ClCompile Include="LevRAttrAttachmentManager.cpp" />
     <ClCompile Include="LevRAttrDepthFunc.cpp" />

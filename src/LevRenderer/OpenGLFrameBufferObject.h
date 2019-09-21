@@ -3,6 +3,7 @@
 #include <map>
 #include "LevFrameBufferObject.h"
 #include "IOpenGLBufferObject.h"
+#include <vector>
 
 namespace Leviathan
 {
@@ -21,6 +22,7 @@ namespace Leviathan
 			bool _init_frame_object();
 
 			GLuint m_frame_buffer_object;
+			std::vector<GLenum> m_attachment_enums;
 			std::map<Scene::LevFrameAttachmentType, LSPtr<IOpenGLBufferObject>> m_attachments;
 		};
 	}

@@ -73,6 +73,11 @@ namespace Leviathan
 			return m_main_camera_node;
 		}
 
+		LevSceneNode& LevSceneData::GetSceneRootNode()
+		{
+			return m_pSceneTree->GetRoot();
+		}
+
 		LSPtr<LevCamera> LevSceneData::GetMainCamera()
 		{
 			return m_main_camera;

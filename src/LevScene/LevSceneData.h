@@ -29,17 +29,18 @@ namespace Leviathan
 			void UpdateTimer();
 
 			void RegisterToMainCamera(LSPtr<LevCamera> camera, LSPtr<LevSceneNode> camera_node);
+			LSPtr<LevCamera> GetMainCamera();
 			LSPtr<LevSceneNode> GetMainCameraNode();
 
-			LSPtr<LevCamera> GetMainCamera();
-			bool SetMainCamera(LSPtr<LevCamera> camera);
+			LevSceneNode& GetSceneRootNode();
 
+			bool SetMainCamera(LSPtr<LevCamera> camera);
 			bool AddSceneNodeToRoot(LSPtr<LevSceneNode> pNode);
 			bool AddSceneNodeToParent(LSPtr<LevSceneNode> pNode, LSPtr<LevSceneNode> parent_node);
 			void RemoveAllRenderables();
 			void UpdateNodeState();
 
-		private:
+		protected:
 			bool m_modified;
 
 			std::function<void(const LevSceneObject&)> m_modifiedCallback;

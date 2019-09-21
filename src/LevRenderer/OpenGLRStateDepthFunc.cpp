@@ -59,6 +59,7 @@ namespace Leviathan
 		void OpenGLRStateDepthFunc::Apply()
 		{
 			glEnable(GL_DEPTH_TEST);
+			glDepthMask(true);
 			glDepthFunc(m_depth_func_value);
 		}
 

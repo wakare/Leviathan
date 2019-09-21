@@ -17,7 +17,7 @@ namespace Leviathan
 
 			LSPtr<LevSceneNode> GetLightRootNode();
 
-		private:
+		protected:
 			bool _init_root_node();
 			bool _init_main_camera();
 			bool _init_default_light_root_node();

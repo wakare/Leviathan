@@ -70,9 +70,6 @@
     <ClInclude Include="LevMeshObject.h">
       <Filter>Source Files\SceneDescription</Filter>
     </ClInclude>
-    <ClInclude Include="LevPointLight.h">
-      <Filter>Source Files\SceneObject</Filter>
-    </ClInclude>
     <ClInclude Include="LevSceneEventListener.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -214,9 +211,6 @@
       <Filter>Source Files\SceneObject</Filter>
     </ClCompile>
     <ClCompile Include="LevLight.cpp">
-      <Filter>Source Files\SceneObject</Filter>
-    </ClCompile>
-    <ClCompile Include="LevPointLight.cpp">
       <Filter>Source Files\SceneObject</Filter>
     </ClCompile>
     <ClCompile Include="LevResetObjModifiedVisitor.cpp">

@@ -38,7 +38,7 @@ namespace Leviathan
 			const LevSceneData& GetSceneData() const;
 			LevSceneData& GetSceneData();
 
-		private:
+		protected:
 			bool m_inited;
 			LevSceneType m_sceneType;
 			LSPtr<LevSceneData> m_pSceneData;

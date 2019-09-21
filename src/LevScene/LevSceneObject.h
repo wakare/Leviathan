@@ -181,7 +181,8 @@ namespace Leviathan
 		template<typename T>
 		void LevSceneObject::UpdateAttribute(LSPtr<T> attribute)
 		{
-			LSPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
+			//LSPtr<Scene::LevSceneObjectAttribute> scene_attribute = TryCast(attribute);
+			const LSPtr<Scene::LevSceneObjectAttribute> scene_attribute = attribute.To<LevSceneObjectAttribute>();
 
 			for (auto& old_attribute : m_attributes)
 			{

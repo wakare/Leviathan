@@ -48,7 +48,10 @@ namespace Leviathan
 
 		void OpenGLFrameBufferObject::Apply()
 		{
+			assert(!m_attachment_enums.empty());
+
 			glBindFramebuffer(GL_FRAMEBUFFER, m_frame_buffer_object);
+			glDrawBuffers(m_attachment_enums.size(), &m_attachment_enums[0]);
 
 			/*
 			 * TODO: Provide interface for user to set default clear operation
@@ -78,35 +81,46 @@ namespace Leviathan
 				{
 				case Scene::ELFAT_COLOR_ATTACHMENT0:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT0);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT1:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT1, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT1);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT2:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT2, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT2);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT3:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT3, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT3);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT4:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT4, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT4);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT5:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT5, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT5);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT6:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT6, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT6);
 					break;
 				case Scene::ELFAT_COLOR_ATTACHMENT7:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT7, GL_TEXTURE_2D, texture_object, 0);
+					m_attachment_enums.push_back(GL_COLOR_ATTACHMENT7);
 					break;
 					/*
 					 * TODO: Finish depth & stencil buffer object binding
 					 */
 				case Scene::ELFAT_DEPTH_ATTACHMENT0:
 					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, texture_object, 0);
+					//m_attachment_enums.push_back(GL_DEPTH_ATTACHMENT);
 					break;
 				case Scene::ELFAT_STENCIL_ATTACHMENT0:
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_TEXTURE_2D, texture_object, 0);
+					//m_attachment_enums.push_back(GL_STENCIL_ATTACHMENT);
 					break;
 				}
 			}

@@ -21,6 +21,7 @@ namespace Leviathan
 			LSPtr<LevSceneNode> m_scene_node;
 			LSPtr<LevSceneNode> m_quad_node;
 			LSPtr<LevTextureObject> m_texture_color_object;
+			LSPtr<LevTextureObject> m_texture_normal_object;
 			LSPtr<LevTextureObject> m_texture_depth_object;
 		};
 	}

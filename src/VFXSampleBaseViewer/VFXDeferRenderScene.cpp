@@ -29,6 +29,15 @@ namespace Leviathan
 			const LSPtr<LevRAttrDepthFunc> depth = new LevRAttrDepthFunc(ELDFP_LESS);
 			m_scene_node->GetNodeData()->AddAttribute(depth);
 
+			LSPtr<LevShaderProgram> scene_shader = new LevShaderProgram;
+			scene_shader->m_vert_shader = defer_main_vert;
+			scene_shader->m_frag_shader = defer_main_frag;
+
+			LSPtr<LevRAttrShaderProgram> scene_shader_program = new LevRAttrShaderProgram();
+			scene_shader_program->SetShaderProgram(scene_shader);
+
+			GetSceneData().GetSceneRootNode().GetNodeData()->UpdateAttribute(scene_shader_program);
+
 			_init_frame_buffer_object();
 			_init_scene_node();
 			_init_quad_node();
@@ -43,6 +52,9 @@ namespace Leviathan
 
 			m_texture_depth_object = new LevTextureObject(ELTT_2D_DEPTH_TEXTURE, 800, 600, 1, nullptr);
 			frame_buffer_object->GetFrameBufferObject()->Attach(ELFAT_DEPTH_ATTACHMENT0, m_texture_depth_object.To<LevAttachment>());
+
+			m_texture_normal_object = new LevTextureObject(ELTT_2D_COLOR_TEXTURE, 800, 600, 1, nullptr);
+			frame_buffer_object->GetFrameBufferObject()->Attach(ELFAT_COLOR_ATTACHMENT1, m_texture_normal_object.To<LevAttachment>());
 
 			return m_scene_node->GetNodeData()->AddAttribute(frame_buffer_object);
 		}
