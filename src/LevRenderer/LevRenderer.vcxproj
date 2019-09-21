@@ -26,6 +26,7 @@
     <ClInclude Include="IOpenGLUniform.h" />
     <ClInclude Include="IRendererBackend.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
+    <ClInclude Include="OpenGLDepthTexture2DObject.h" />
     <ClInclude Include="OpenGLEmptyRenderEntry.h" />
     <ClInclude Include="OpenGLFrameBufferObject.h" />
     <ClInclude Include="OpenGLRenderEntryManager.h" />
@@ -44,15 +45,16 @@
     <ClInclude Include="OpenGLRenderTree.h" />
     <ClInclude Include="OpenGLResourceManager.h" />
     <ClInclude Include="OpenGLShaderProgram.h" />
-    <ClInclude Include="OpenGLTexture3DObject.h" />
+    <ClInclude Include="OpenGLColorTexture3DObject.h" />
     <ClInclude Include="OpenGLTextureBufferObject.h" />
     <ClInclude Include="OpenGLTextureUniform.h" />
-    <ClInclude Include="OpenGLTexture2DObject.h" />
+    <ClInclude Include="OpenGLColorTexture2DObject.h" />
     <ClInclude Include="OpenGLNumericalUniform.h" />
     <ClInclude Include="OpenGLUniformManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IOpenGLBufferObject.cpp" />
+    <ClCompile Include="OpenGLDepthTexture2DObject.cpp" />
     <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
     <ClCompile Include="OpenGLFrameBufferObject.cpp" />
     <ClCompile Include="OpenGLObjectManager.cpp" />
@@ -70,10 +72,10 @@
     <ClCompile Include="OpenGLRenderTree.cpp" />
     <ClCompile Include="OpenGLResourceManager.cpp" />
     <ClCompile Include="OpenGLShaderProgram.cpp" />
-    <ClCompile Include="OpenGLTexture3DObject.cpp" />
+    <ClCompile Include="OpenGLColorTexture3DObject.cpp" />
     <ClCompile Include="OpenGLTextureBufferObject.cpp" />
     <ClCompile Include="OpenGLTextureUniform.cpp" />
-    <ClCompile Include="OpenGLTexture2DObject.cpp" />
+    <ClCompile Include="OpenGLColorTexture2DObject.cpp" />
     <ClCompile Include="OpenGLNumericalUniform.cpp" />
     <ClCompile Include="OpenGLUniformManager.cpp" />
   </ItemGroup>

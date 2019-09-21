@@ -1,11 +1,16 @@
-﻿#include "OpenGLTexture2DObject.h"
+﻿#include "OpenGLDepthTexture2DObject.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTexture2DObject::OpenGLTexture2DObject(OpenGLObjectManager& manager, GLuint texture_object_uid, GLuint width, GLuint height, const GLvoid* data)
-			: IOpenGLTextureObject(manager, texture_object_uid)
+		OpenGLDepthTexture2DObject::~OpenGLDepthTexture2DObject()
+		{
+			glDeleteTextures(1, &m_texture_object);
+		}
+
+		OpenGLDepthTexture2DObject::OpenGLDepthTexture2DObject(OpenGLObjectManager& manager,
+			GLuint texture_object_uid, GLuint width, GLuint height, const GLvoid* data) : IOpenGLTextureObject(manager, texture_object_uid)
 			, m_width(width)
 			, m_height(height)
 		{
@@ -18,15 +23,10 @@ namespace Leviathan
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, m_width, m_height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, m_width, m_height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, data);
 			glGenerateMipmap(GL_TEXTURE_2D);
 
 			glBindTexture(GL_TEXTURE_2D, 0);
-		}
-
-		OpenGLTexture2DObject::~OpenGLTexture2DObject()
-		{
-			glDeleteTextures(1, &m_texture_object);
 		}
 	}
 }

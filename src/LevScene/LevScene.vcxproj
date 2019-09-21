@@ -34,7 +34,6 @@
     <ClInclude Include="LevSceneDefaultShader_simple.h" />
     <ClInclude Include="LevCalculateWorldCoordVisitor.h" />
     <ClInclude Include="LevCamera.h" />
-    <ClInclude Include="LevDirectionalLight.h" />
     <ClInclude Include="LevLAttrLocalTransform.h" />
     <ClInclude Include="LevLRAttrModelTransform.h" />
     <ClInclude Include="LevLight.h" />

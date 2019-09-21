@@ -91,12 +91,6 @@
     <ClInclude Include="OpenGLUniformManager.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClInclude>
-    <ClInclude Include="OpenGLTexture2DObject.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGLTexture3DObject.h">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
-    </ClInclude>
     <ClInclude Include="IOpenGLTextureObject.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
@@ -120,6 +114,15 @@
     </ClInclude>
     <ClInclude Include="OpenGLRenderEntryManager.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLDepthTexture2DObject.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLColorTexture2DObject.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLColorTexture3DObject.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,12 +168,6 @@
     <ClCompile Include="OpenGLUniformManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLUniformResource</Filter>
     </ClCompile>
-    <ClCompile Include="OpenGLTexture2DObject.cpp">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGLTexture3DObject.cpp">
-      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
-    </ClCompile>
     <ClCompile Include="OpenGLRenderNodeVisitor.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
     </ClCompile>
@@ -194,6 +191,15 @@
     </ClCompile>
     <ClCompile Include="OpenGLRenderEntryManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLRenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLDepthTexture2DObject.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLColorTexture2DObject.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLColorTexture3DObject.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

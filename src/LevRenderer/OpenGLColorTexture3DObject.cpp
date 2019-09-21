@@ -1,10 +1,10 @@
-﻿#include "OpenGLTexture3DObject.h"
+﻿#include "OpenGLColorTexture3DObject.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTexture3DObject::OpenGLTexture3DObject(OpenGLObjectManager& manager, GLuint texture_object_uid, GLuint width, GLuint height, GLuint depth, const GLvoid* data)
+		OpenGLColorTexture3DObject::OpenGLColorTexture3DObject(OpenGLObjectManager& manager, GLuint texture_object_uid, GLuint width, GLuint height, GLuint depth, const GLvoid* data)
 			: IOpenGLTextureObject(manager, texture_object_uid)
 			, m_width(width)
 			, m_height(height)
@@ -25,7 +25,7 @@ namespace Leviathan
 			glBindTexture(GL_TEXTURE_3D, 0);
 		}
 
-		OpenGLTexture3DObject::~OpenGLTexture3DObject()
+		OpenGLColorTexture3DObject::~OpenGLColorTexture3DObject()
 		{
 			glDeleteTextures(1, &m_texture_object);
 		}

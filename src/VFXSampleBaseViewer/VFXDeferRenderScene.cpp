@@ -9,6 +9,7 @@
 #include "LevTextureObject.h"
 #include "LevTextureUniform.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
+#include "LevRAttrDepthFunc.h"
 
 namespace Leviathan
 {
@@ -18,11 +19,15 @@ namespace Leviathan
 			: m_root_node(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)))
 			, m_scene_node(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)))
 			, m_quad_node(new LevSceneNode(new LevSceneObject(ELSOT_EMPTY)))
-			, m_texture_object(nullptr)
+			, m_texture_color_object(nullptr)
+			, m_texture_depth_object(nullptr)
 		{
 			GetSceneData().AddSceneNodeToRoot(m_root_node);
 			m_root_node->AddChild(m_scene_node);
-			//m_root_node->AddChild(m_quad_node);
+			m_root_node->AddChild(m_quad_node);
+
+			const LSPtr<LevRAttrDepthFunc> depth = new LevRAttrDepthFunc(ELDFP_LESS);
+			m_scene_node->GetNodeData()->AddAttribute(depth);
 
 			_init_frame_buffer_object();
 			_init_scene_node();
@@ -31,10 +36,13 @@ namespace Leviathan
 
 		bool VFXDeferRenderScene::_init_frame_buffer_object()
 		{
-			LSPtr<LevRAttrFrameBufferObject> frame_buffer_object = new LevRAttrFrameBufferObject();
+			const LSPtr<LevRAttrFrameBufferObject> frame_buffer_object = new LevRAttrFrameBufferObject();
 			
-			m_texture_object = new LevTextureObject(ELTT_2D_TEXTURE, 800, 600, 1, nullptr);
-			frame_buffer_object->GetFrameBufferObject()->Attach(ELFAT_COLOR_ATTACHMENT0, m_texture_object.To<LevAttachment>());
+			m_texture_color_object = new LevTextureObject(ELTT_2D_COLOR_TEXTURE, 800, 600, 1, nullptr);
+			frame_buffer_object->GetFrameBufferObject()->Attach(ELFAT_COLOR_ATTACHMENT0, m_texture_color_object.To<LevAttachment>());
+
+			m_texture_depth_object = new LevTextureObject(ELTT_2D_DEPTH_TEXTURE, 800, 600, 1, nullptr);
+			frame_buffer_object->GetFrameBufferObject()->Attach(ELFAT_DEPTH_ATTACHMENT0, m_texture_depth_object.To<LevAttachment>());
 
 			return m_scene_node->GetNodeData()->AddAttribute(frame_buffer_object);
 		}
@@ -165,12 +173,12 @@ namespace Leviathan
 
 			LSPtr<RAIIBufferData> tex_coord_buffer = new RAIIBufferData(sizeof(tex_coord));
 			memcpy(tex_coord_buffer->GetArrayData(), tex_coord, sizeof(tex_coord));
-			LSPtr<LevRenderObjectAttribute> tex_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), tex_coord_buffer);
+			LSPtr<LevRenderObjectAttribute> tex_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 2 * sizeof(float), tex_coord_buffer);
 			attribute_binder->BindAttribute(1, tex_attribute);
 
 			LSPtr<LevTextureUniform> texture_uniform = new LevTextureUniform("Quad_texture");
-			LEV_ASSERT(m_texture_object);
-			texture_uniform->SetUniformData(m_texture_object);
+			LEV_ASSERT(m_texture_color_object);
+			texture_uniform->SetUniformData(m_texture_color_object);
 
 			LSPtr<LevRAttrUniformManager> quad_uniform_manager = new LevRAttrUniformManager;
 			quad_uniform_manager->AddUniform(texture_uniform.To<ILevUniform>());

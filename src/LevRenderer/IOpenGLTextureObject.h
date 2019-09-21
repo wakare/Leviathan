@@ -8,12 +8,13 @@ namespace Leviathan
 	{
 		enum OpenGLTextureObjectType
 		{
-			EOTOT_2D = GL_TEXTURE_2D,
-			EOTOT_3D = GL_TEXTURE_3D
+			EOTOT_2D_TEX = GL_TEXTURE_2D,
+			EOTOT_3D_TEX = GL_TEXTURE_3D,
 		};
 
-		class OpenGLTexture2DObject;
-		class OpenGLTexture3DObject;
+		class OpenGLColorTexture2DObject;
+		class OpenGLDepthTexture2DObject;
+		class OpenGLColorTexture3DObject;
 
 		class IOpenGLTextureObject : public IOpenGLObject
 		{
@@ -38,8 +39,9 @@ namespace Leviathan
 			void ActiveAndBind();
 			void UnActiveAndUnBind();
 
-			virtual OpenGLTexture2DObject* To2DTextureObject() { return nullptr; }
-			virtual OpenGLTexture3DObject* To3DTextureObject() { return nullptr; }
+			virtual OpenGLColorTexture2DObject* To2DColorTextureObject() { return nullptr; }
+			virtual OpenGLDepthTexture2DObject* To2DDepthTextureObject() { return nullptr; }
+			virtual OpenGLColorTexture3DObject* To3DColorTextureObject() { return nullptr; }
 
 		protected:
 			GLint m_texture_unit;

@@ -73,9 +73,6 @@
     <ClInclude Include="LevPointLight.h">
       <Filter>Source Files\SceneObject</Filter>
     </ClInclude>
-    <ClInclude Include="LevDirectionalLight.h">
-      <Filter>Source Files\SceneObject</Filter>
-    </ClInclude>
     <ClInclude Include="LevSceneEventListener.h">
       <Filter>Source Files</Filter>
     </ClInclude>

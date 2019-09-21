@@ -1,6 +1,7 @@
 #include "OpenGLObjectManager.h"
-#include "OpenGLTexture2DObject.h"
-#include "OpenGLTexture3DObject.h"
+#include "OpenGLColorTexture2DObject.h"
+#include "OpenGLColorTexture3DObject.h"
+#include "OpenGLDepthTexture2DObject.h"
 
 namespace Leviathan
 {
@@ -9,7 +10,7 @@ namespace Leviathan
 		OpenGLObjectManager::OpenGLObjectManager()
 		= default;
 
-		bool OpenGLObjectManager::CreateTextureResource(GLuint texture_object_uid, GLuint width, GLuint height,
+		/*bool OpenGLObjectManager::CreateTextureResource(Scene::LevTextureType tex_type, GLuint texture_object_uid, GLuint width, GLuint height,
 			const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
 		{
 			auto it = m_texture_objects.find(texture_object_uid);
@@ -18,12 +19,12 @@ namespace Leviathan
 				return false;
 			}
 
-			out.Reset(new OpenGLTexture2DObject(*this, texture_object_uid, width, height, data));
+			out.Reset(new OpenGLColorTexture2DObject(*this, texture_object_uid, width, height, data));
 			m_texture_objects[texture_object_uid] = out;
 			return true;
-		}
+		}*/
 
-		bool OpenGLObjectManager::CreateTextureResource(GLuint texture_object_uid, GLuint width, GLuint height,
+		bool OpenGLObjectManager::CreateTextureResource(Scene::LevTextureType tex_type, GLuint texture_object_uid, GLuint width, GLuint height,
 			GLuint depth, const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
 		{
 			auto it = m_texture_objects.find(texture_object_uid);
@@ -32,7 +33,31 @@ namespace Leviathan
 				return false;
 			}
 
-			out.Reset(new OpenGLTexture3DObject(*this, texture_object_uid, width, height, depth, data));
+			switch (tex_type)
+			{
+			case Scene::LevTextureType::ELTT_2D_COLOR_TEXTURE:
+				{
+				out.Reset(new OpenGLColorTexture2DObject(*this, texture_object_uid, width, height, data));
+				break;
+				}
+
+			case Scene::LevTextureType::ELTT_2D_DEPTH_TEXTURE:
+				{
+				out.Reset(new OpenGLDepthTexture2DObject(*this, texture_object_uid, width, height, data));
+				break;
+				}
+
+			case Scene::LevTextureType::ELTT_3D_COLOR_TEXTURE:
+				{
+				out.Reset(new OpenGLColorTexture3DObject(*this, texture_object_uid, width, height, depth, data));
+				break;
+				}
+
+			default:
+				LEV_ASSERT(false);
+				return false;
+ 			}
+
 			m_texture_objects[texture_object_uid] = out;
 			return true;
 		}

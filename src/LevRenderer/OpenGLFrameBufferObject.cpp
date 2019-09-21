@@ -49,6 +49,12 @@ namespace Leviathan
 		void OpenGLFrameBufferObject::Apply()
 		{
 			glBindFramebuffer(GL_FRAMEBUFFER, m_frame_buffer_object);
+
+			/*
+			 * TODO: Provide interface for user to set default clear operation
+			 */
+			glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 		}
 
 		void OpenGLFrameBufferObject::UnApply()
@@ -98,6 +104,7 @@ namespace Leviathan
 					 * TODO: Finish depth & stencil buffer object binding
 					 */
 				case Scene::ELFAT_DEPTH_ATTACHMENT0:
+					glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_TEXTURE_2D, texture_object, 0);
 					break;
 				case Scene::ELFAT_STENCIL_ATTACHMENT0:
 					break;

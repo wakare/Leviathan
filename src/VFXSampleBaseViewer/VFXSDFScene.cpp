@@ -169,7 +169,7 @@ namespace Leviathan
 				data[i] = grids[i].weight;
 			}
 
-			m_sdf_texture = new Scene::LevTextureObject(Scene::ELTT_3D_TEXTURE, 100, 100, 100, texture_data);
+			m_sdf_texture = new Scene::LevTextureObject(Scene::ELTT_3D_COLOR_TEXTURE, 100, 100, 100, texture_data);
 			m_sdf_texture_uniform->SetUniformData(m_sdf_texture);
 
 			m_render_node->GetNodeData()->SetState(Scene::LevSceneObjectState::ELSOS_UPDATE);

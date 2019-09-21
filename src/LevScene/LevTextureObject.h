@@ -10,9 +10,10 @@ namespace Leviathan
 	{
 		enum LevTextureType
 		{
-			ELTT_1D_TEXTURE,
-			ELTT_2D_TEXTURE,
-			ELTT_3D_TEXTURE
+			ELTT_1D_COLOR_TEXTURE,
+			ELTT_2D_COLOR_TEXTURE,
+			ELTT_2D_DEPTH_TEXTURE,
+			ELTT_3D_COLOR_TEXTURE,
 		};
 
 		class LEV_SCENE_API LevTextureObject : public LevAttachment
