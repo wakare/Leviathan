@@ -377,5 +377,58 @@ namespace Leviathan
 			return true;
 		}
 
+		bool LevSceneUtil::GenerateLookAtMatrixUniform(const char* uniform_name, const float* eye, const float* target,
+		                                               const float* up, LSPtr<LevNumericalUniform>& out_uniform)
+		{
+			Eigen::Vector3f N, U, V;
+			Eigen::Vector3f veye; memcpy(veye.data(), eye, 3 * sizeof(float));
+			Eigen::Vector3f vup; memcpy(vup.data(), up, 3 * sizeof(float));
+			Eigen::Vector3f vlookat; memcpy(vlookat.data(), target, 3 * sizeof(float));
+			
+			N = vlookat - veye;
+			N.normalize();
+			U = vup.cross(N);
+			U.normalize();
+			V = N.cross(U);
+			V.normalize();
+
+			float data[16] =
+			{
+				U[0],			U[1],			U[2],			0.0f,
+				V[0],			V[1],			V[2],			0.0f,
+				N[0],			N[1],			N[2],			0.0f,
+				-U.dot(veye),	-V.dot(veye),	-N.dot(veye),	1.0f,
+			};
+
+			out_uniform.Reset(new LevNumericalUniform(uniform_name, TYPE_FLOAT_MAT4));
+			LSPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(data));
+			identity_matrix_buffer_data->SetArrayData(data, sizeof(data));
+			out_uniform->SetData(identity_matrix_buffer_data);
+
+			return true;
+		}
+
+		bool LevSceneUtil::GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform) noexcept
+		{
+			float T = tanf(fov / 2.0f);
+			float N = near - far;
+			float M = near + far;
+			float K = aspect * T;
+			float L = far * near;
+			float data[16] =
+			{
+				1.0f / K,			0.0f,				0.0f,				0.0f,
+				0.0f,				1.0f / T,			0.0f,				0.0f,
+				0.0f,				0.0f,			  -M / N,				1.0f,
+				0.0f,				0.0f,		   2 * L / N,				0.0f
+			};
+
+			out_uniform.Reset(new LevNumericalUniform(uniform_name, TYPE_FLOAT_MAT4));
+			LSPtr<RAIIBufferData> identity_matrix_buffer_data = new RAIIBufferData(sizeof(data));
+			identity_matrix_buffer_data->SetArrayData(data, sizeof(data));
+			out_uniform->SetData(identity_matrix_buffer_data);
+
+			return true;
+		}
 	}
 }

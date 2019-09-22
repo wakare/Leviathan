@@ -83,7 +83,7 @@ namespace Leviathan
 			Eigen::Vector3f eye = { 0.0f, 0.0f, -10.0f };
 			Eigen::Vector3f up = { 0.0f, 1.0f, 0.0f };
 			Eigen::Vector3f lookAt = { 0.0f, 0.0f, 1.0f };
-			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), ANGLE_TO_RADIAN(120.0f), 1.0f, 0.01f, 10000.0f);
+			auto _seted = pCamera->Set(eye.data(), lookAt.data(), up.data(), ANGLE_TO_RADIAN(60.0f), 1.0f, 0.01f, 10000.0f);
 			LEV_ASSERT(_seted);
 
 			m_camera_node = new LevSceneNode(TryCast<LevCamera, LevSceneObject>(pCamera));

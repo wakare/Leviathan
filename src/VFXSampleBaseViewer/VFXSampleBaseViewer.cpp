@@ -4,6 +4,7 @@
 #include "LevScene.h"
 #include "VFXDeferRenderScene.h"
 #include "VFXSDFScene.h"
+#include "VFXShadowMapScene.h"
 
 namespace Leviathan
 {
@@ -30,8 +31,9 @@ namespace Leviathan
 		{
 			if (!m_viewer->HasAttachedScene())
 			{
-				LSPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
+				//LSPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
 				//LSPtr<Scene::LevScene> scene = new VFXSDFScene;
+				LSPtr<Scene::LevScene> scene = new VFXShadowMapScene;
 				m_viewer->SetCurrentScene(scene);
 			}
 

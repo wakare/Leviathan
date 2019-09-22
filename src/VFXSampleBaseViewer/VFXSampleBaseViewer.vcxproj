@@ -22,6 +22,7 @@
     <ClInclude Include="BaseShaderSource.h" />
     <ClInclude Include="SDFVoxel.h" />
     <ClInclude Include="SDFVoxelManager.h" />
+    <ClInclude Include="ShadowMapSceneProgram.h" />
     <ClInclude Include="VFXCommonScene.h" />
     <ClInclude Include="VFXDeferRenderScene.h" />
     <ClInclude Include="VFXMeshTestScene.h" />

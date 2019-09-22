@@ -13,8 +13,20 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="SDFRender">
+    <Filter Include="VFXScenes">
+      <UniqueIdentifier>{c99faf4e-8f85-4611-8d38-44937e7bf646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFXScenes\SDFScene">
       <UniqueIdentifier>{b2c9d360-c563-4da5-9ac9-7deb9e9b1456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFXScenes\ShadowMapScene">
+      <UniqueIdentifier>{39dcdf45-5975-4eb2-bebd-b0a0a12c03ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFXScenes\DeferRenderScene">
+      <UniqueIdentifier>{ed66e8c2-13af-49cb-b3d5-cc0904db4f92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFXScenes\MeshTestScene">
+      <UniqueIdentifier>{9ba0b8e2-4b52-4de5-8287-9fb016f4d1ec}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,29 +39,32 @@
     <ClInclude Include="VFXCommonScene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="VFXDeferRenderScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VFXShadowMapScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="VFXMeshTestScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="VFXSDFScene.h">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
     </ClInclude>
     <ClInclude Include="SDFVoxelManager.h">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
     </ClInclude>
     <ClInclude Include="SDFVoxel.h">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
     </ClInclude>
     <ClInclude Include="VFXSDFShaderProgram.h">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
     </ClInclude>
     <ClInclude Include="BaseShaderSource.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="VFXShadowMapScene.h">
+      <Filter>VFXScenes\ShadowMapScene</Filter>
+    </ClInclude>
+    <ClInclude Include="VFXDeferRenderScene.h">
+      <Filter>VFXScenes\DeferRenderScene</Filter>
+    </ClInclude>
+    <ClInclude Include="VFXMeshTestScene.h">
+      <Filter>VFXScenes\MeshTestScene</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadowMapSceneProgram.h">
+      <Filter>VFXScenes\ShadowMapScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -59,20 +74,20 @@
     <ClCompile Include="VFXSampleBaseViewer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="VFXDeferRenderScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VFXShadowMapScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="VFXMeshTestScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="VFXSDFScene.cpp">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
     </ClCompile>
     <ClCompile Include="SDFVoxelManager.cpp">
-      <Filter>SDFRender</Filter>
+      <Filter>VFXScenes\SDFScene</Filter>
+    </ClCompile>
+    <ClCompile Include="VFXShadowMapScene.cpp">
+      <Filter>VFXScenes\ShadowMapScene</Filter>
+    </ClCompile>
+    <ClCompile Include="VFXDeferRenderScene.cpp">
+      <Filter>VFXScenes\DeferRenderScene</Filter>
+    </ClCompile>
+    <ClCompile Include="VFXMeshTestScene.cpp">
+      <Filter>VFXScenes\MeshTestScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -39,6 +39,10 @@ namespace Leviathan
 				Easy-interface to generate uniform.
 			*/
 			static bool GenerateIdentityMatrixUniform(const char* uniform_name, LSPtr<LevNumericalUniform>& out_uniform);
+			static bool GenerateLookAtMatrixUniform(const char* uniform_name, const float* eye, const float* target,
+			                                        const float* up, LSPtr<LevNumericalUniform>& out_uniform);
+
+			static bool GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform) noexcept;
 		};
 	}
 }

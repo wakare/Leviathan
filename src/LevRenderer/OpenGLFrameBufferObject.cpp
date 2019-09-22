@@ -48,10 +48,16 @@ namespace Leviathan
 
 		void OpenGLFrameBufferObject::Apply()
 		{
-			assert(!m_attachment_enums.empty());
-
 			glBindFramebuffer(GL_FRAMEBUFFER, m_frame_buffer_object);
-			glDrawBuffers(m_attachment_enums.size(), &m_attachment_enums[0]);
+			if (m_attachment_enums.empty())
+			{
+				glDrawBuffer(GL_NONE);
+				glReadBuffer(GL_NONE);
+			}
+			else
+			{
+				glDrawBuffers(m_attachment_enums.size(), &m_attachment_enums[0]);
+			}
 
 			/*
 			 * TODO: Provide interface for user to set default clear operation
