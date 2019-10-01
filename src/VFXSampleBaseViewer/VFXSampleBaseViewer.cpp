@@ -5,6 +5,7 @@
 #include "VFXDeferRenderScene.h"
 #include "VFXSDFScene.h"
 #include "VFXShadowMapScene.h"
+#include "VFXSkyboxScene.h"
 
 namespace Leviathan
 {
@@ -33,7 +34,8 @@ namespace Leviathan
 			{
 				//LSPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
 				//LSPtr<Scene::LevScene> scene = new VFXSDFScene;
-				LSPtr<Scene::LevScene> scene = new VFXShadowMapScene;
+				//LSPtr<Scene::LevScene> scene = new VFXShadowMapScene;
+				LSPtr<Scene::LevScene> scene = new VFXSkyBoxScene;
 				m_viewer->SetCurrentScene(scene);
 			}
 

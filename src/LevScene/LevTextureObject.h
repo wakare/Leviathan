@@ -14,6 +14,7 @@ namespace Leviathan
 			ELTT_2D_COLOR_TEXTURE,
 			ELTT_2D_DEPTH_TEXTURE,
 			ELTT_3D_COLOR_TEXTURE,
+			ELTT_CUBEMAP_COLOR_TEXTURE,
 		};
 
 		class LEV_SCENE_API LevTextureObject : public LevAttachment

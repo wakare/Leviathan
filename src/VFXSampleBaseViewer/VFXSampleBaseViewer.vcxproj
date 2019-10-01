@@ -23,6 +23,7 @@
     <ClInclude Include="SDFVoxel.h" />
     <ClInclude Include="SDFVoxelManager.h" />
     <ClInclude Include="ShadowMapSceneProgram.h" />
+    <ClInclude Include="SkyboxProgram.h" />
     <ClInclude Include="VFXCommonScene.h" />
     <ClInclude Include="VFXDeferRenderScene.h" />
     <ClInclude Include="VFXMeshTestScene.h" />
@@ -31,6 +32,7 @@
     <ClInclude Include="VFXSDFScene.h" />
     <ClInclude Include="VFXSDFShaderProgram.h" />
     <ClInclude Include="VFXShadowMapScene.h" />
+    <ClInclude Include="VFXSkyboxScene.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SDFVoxelManager.cpp" />
@@ -40,6 +42,7 @@
     <ClCompile Include="VFXSampleBaseViewer.cpp" />
     <ClCompile Include="VFXSDFScene.cpp" />
     <ClCompile Include="VFXShadowMapScene.cpp" />
+    <ClCompile Include="VFXSkyboxScene.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -123,7 +126,7 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;LevViewer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SOIL.lib;Base.lib;Core.lib;LevScene.lib;LevViewer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;opengl32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -176,7 +179,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Base.lib;Core.lib;LevScene.lib;LevViewer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SOIL.lib;Base.lib;Core.lib;LevScene.lib;LevViewer.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;opengl32.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

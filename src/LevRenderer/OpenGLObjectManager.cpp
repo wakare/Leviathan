@@ -2,6 +2,7 @@
 #include "OpenGLColorTexture2DObject.h"
 #include "OpenGLColorTexture3DObject.h"
 #include "OpenGLDepthTexture2DObject.h"
+#include "OpenGLColorTextureCubemapObject.h"
 
 namespace Leviathan
 {
@@ -50,6 +51,12 @@ namespace Leviathan
 			case Scene::LevTextureType::ELTT_3D_COLOR_TEXTURE:
 				{
 				out.Reset(new OpenGLColorTexture3DObject(*this, texture_object_uid, width, height, depth, data));
+				break;
+				}
+
+			case Scene::LevTextureType::ELTT_CUBEMAP_COLOR_TEXTURE:
+				{
+				out.Reset(new OpenGLColorTextureCubemapObject(*this, texture_object_uid, width, height, (const GLvoid**)(data)));
 				break;
 				}
 

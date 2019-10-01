@@ -124,6 +124,9 @@
     <ClInclude Include="OpenGLColorTexture3DObject.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
+    <ClInclude Include="OpenGLColorTextureCubemapObject.h">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
@@ -199,6 +202,9 @@
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClCompile>
     <ClCompile Include="OpenGLColorTexture3DObject.cpp">
+      <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLColorTextureCubemapObject.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClCompile>
   </ItemGroup>

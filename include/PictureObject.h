@@ -5,10 +5,13 @@
 class PictureObject
 {
 public:
-	PictureObject(const char* pczFileName):
-		m_pData(nullptr)
+	PictureObject(const char* pczFileName)
+		: m_pData(nullptr)
+		, m_data_size(0)
 	{
 		m_pData = SOIL_load_image(pczFileName, &m_nWidth, &m_nHeight, 0, SOIL_LOAD_RGB);
+		m_data_size = m_nWidth * m_nHeight * 3 * sizeof(float);
+
 		if (!m_pData)
 		{
 			LeviathanOutStream << "[WARN] Load picture failed, path: " << pczFileName << std::endl;
@@ -34,5 +37,6 @@ public:
 
 	int m_nWidth;
 	int m_nHeight;
+	unsigned m_data_size;
 	unsigned char* m_pData;
 };

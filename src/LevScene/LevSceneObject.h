@@ -6,6 +6,7 @@
 #include <string>
 #include "LSPtr.h"
 #include "LevSceneAPIDefine.h"
+#include "ILevUniform.h"
 
 namespace Leviathan
 {
@@ -94,6 +95,8 @@ namespace Leviathan
 
 			template <typename T>
 			bool AddAttribute(LSPtr<T> pAttribute);
+
+			bool AddUniform(LSPtr<ILevUniform> uniform);
 
 			const std::vector<LSPtr<LevSceneObjectAttribute>>& GetAllAttributes() const;
 

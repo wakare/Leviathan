@@ -5,6 +5,7 @@
 #include "LevLRAttrWorldTransform.h"
 #include "LevLAttrLocalTransform.h"
 #include "LevTimer.h"
+#include "LevRAttrUniformManager.h"
 
 namespace Leviathan
 {
@@ -108,6 +109,27 @@ namespace Leviathan
 		void LevSceneObject::SetModifiedCallback(LevSceneObjModified modified)
 		{
 			m_modifiedCallback = modified;
+		}
+
+		bool LevSceneObject::AddUniform(LSPtr<ILevUniform> uniform)
+		{
+			LevRAttrUniformManager* uniform_manager = nullptr;
+			GetAttribute<LevRAttrUniformManager>(uniform_manager);
+
+			if (!uniform_manager)
+			{
+				LSPtr<LevRAttrUniformManager> manager = new LevRAttrUniformManager;
+				AddAttribute(manager);
+				uniform_manager = manager.Get();
+			}
+
+			if(!uniform_manager)
+			{
+				return false;
+			}
+
+			uniform_manager->AddUniform(std::move(uniform));
+			return true;
 		}
 
 		const std::vector<LSPtr<LevSceneObjectAttribute>>& LevSceneObject::GetAllAttributes() const

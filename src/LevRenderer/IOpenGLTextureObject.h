@@ -10,11 +10,13 @@ namespace Leviathan
 		{
 			EOTOT_2D_TEX = GL_TEXTURE_2D,
 			EOTOT_3D_TEX = GL_TEXTURE_3D,
+			EOTOT_CUBEMAP_TEX = GL_TEXTURE_CUBE_MAP
 		};
 
 		class OpenGLColorTexture2DObject;
 		class OpenGLDepthTexture2DObject;
 		class OpenGLColorTexture3DObject;
+		class OpenGLColorTextureCubemapObject;
 
 		class IOpenGLTextureObject : public IOpenGLObject
 		{
@@ -42,6 +44,7 @@ namespace Leviathan
 			virtual OpenGLColorTexture2DObject* To2DColorTextureObject() { return nullptr; }
 			virtual OpenGLDepthTexture2DObject* To2DDepthTextureObject() { return nullptr; }
 			virtual OpenGLColorTexture3DObject* To3DColorTextureObject() { return nullptr; }
+			virtual OpenGLColorTextureCubemapObject* ToTextureCubemapColorObject() { return nullptr; }
 
 		protected:
 			GLint m_texture_unit;
