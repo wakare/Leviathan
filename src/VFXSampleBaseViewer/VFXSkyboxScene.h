@@ -16,6 +16,7 @@ namespace Leviathan
 
 		private:
 			bool _load_skybox_texture(const char* skybox_texture_folder_path);
+			bool _init_scene();
 
 			LSPtr<LevTextureUniform> m_skybox_uniform;
 			LSPtr<RAIIBufferData> m_texture_data;

@@ -16,7 +16,7 @@ namespace Leviathan
 			virtual void Update();
 
 			LSPtr<LevSceneNode> GetLightRootNode();
-
+			
 		protected:
 			bool _init_root_node();
 			bool _init_main_camera();

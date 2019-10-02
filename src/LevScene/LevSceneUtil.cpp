@@ -70,10 +70,20 @@ namespace Leviathan
 			return true;
 		}
 
+		bool LevSceneUtil::GenerateEmptySceneNode(LSPtr<LevSceneNode>& out)
+		{
+			const LSPtr<LevSceneObject> empty_object = new LevSceneObject(ELSOT_EMPTY);
+			out.Reset(new LevSceneNode(empty_object));
+			return true;
+		}
+
 		bool LevSceneUtil::GenerateCube(const float* cube_center, float cube_length, LSPtr<LevSceneNode>& out_cube_node)
 		{
 			LSPtr<RAIIBufferData> vertices_buffer = new RAIIBufferData(8 * 3 * sizeof(float));
 			float* data = static_cast<float*>(vertices_buffer->GetArrayData());
+
+			LSPtr<RAIIBufferData> normal_buffer = new RAIIBufferData(8 * 3 * sizeof(float));
+			float* normal_data = static_cast<float*>(vertices_buffer->GetArrayData());
 
 			float _cube[] =
 			{
@@ -95,6 +105,22 @@ namespace Leviathan
 			}
 
 			memcpy(data, _cube, sizeof(_cube));
+
+			const float NORMAL_PART_VALUE = 0.57735f;
+
+			float _normal[] =
+			{
+				-NORMAL_PART_VALUE, -NORMAL_PART_VALUE, -NORMAL_PART_VALUE,
+				-NORMAL_PART_VALUE, -NORMAL_PART_VALUE,  NORMAL_PART_VALUE,
+				-NORMAL_PART_VALUE,  NORMAL_PART_VALUE, -NORMAL_PART_VALUE,
+				-NORMAL_PART_VALUE,  NORMAL_PART_VALUE,  NORMAL_PART_VALUE,
+				 NORMAL_PART_VALUE, -NORMAL_PART_VALUE, -NORMAL_PART_VALUE,
+				 NORMAL_PART_VALUE, -NORMAL_PART_VALUE,  NORMAL_PART_VALUE,
+				 NORMAL_PART_VALUE,  NORMAL_PART_VALUE, -NORMAL_PART_VALUE,
+				 NORMAL_PART_VALUE,  NORMAL_PART_VALUE,  NORMAL_PART_VALUE,
+			};
+
+			memcpy(normal_data, _normal, sizeof(_normal));
 
 			LSPtr<RAIIBufferData> indices_buffer = new RAIIBufferData(6 * 2 * 3 * sizeof(unsigned));
 			unsigned* indices_data = static_cast<unsigned*>(indices_buffer->GetArrayData());
@@ -121,6 +147,9 @@ namespace Leviathan
 
 			LSPtr<LevRenderObjectAttribute> vertices_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), vertices_buffer);
 			attribute_binder->BindAttribute(0, vertices_attribute);
+
+			LSPtr<LevRenderObjectAttribute> normals_attribute = new LevRenderObjectAttribute(EROAT_FLOAT, 3 * sizeof(float), normal_buffer);
+			attribute_binder->BindAttribute(1, normals_attribute);
 
 			LSPtr<LevRenderObjectAttribute> index_attribute = new LevRenderObjectAttribute(EROAT_UINT, sizeof(unsigned), indices_buffer);
 			attribute_binder->SetIndexAttribute(index_attribute);
@@ -408,7 +437,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool LevSceneUtil::GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform) noexcept
+		bool LevSceneUtil::GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform)
 		{
 			float T = tanf(fov / 2.0f);
 			float N = near - far;

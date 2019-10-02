@@ -30,10 +30,13 @@ namespace Leviathan
 			// TODO: Can calculate static ball coordination in compile time.
 			// Generate vertices and normal (Attribute layout is 0 and 1).
 
+			static bool GenerateEmptySceneNode(LSPtr<LevSceneNode>& out);
+
 			static bool GenerateCube(const float* cube_center, float cube_length, LSPtr<LevSceneNode>& out_cube_node);
 			static bool GenerateBallNode(const float* ball_center, float ball_radius, LSPtr<LevSceneNode>& out_ball_node);
 			static bool GeneratePlaneNode(const float* plane_node0, const float* plane_node1, const float* plane_node2, const float* plane_node3, LSPtr<LevSceneNode>& out_plane_node);
 			static bool GeneratePoints(const float* vertices, const float* normals, unsigned count, LSPtr<LevSceneNode>& out_points_node);
+			
 
 			/*
 				Easy-interface to generate uniform.
@@ -42,7 +45,7 @@ namespace Leviathan
 			static bool GenerateLookAtMatrixUniform(const char* uniform_name, const float* eye, const float* target,
 			                                        const float* up, LSPtr<LevNumericalUniform>& out_uniform);
 
-			static bool GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform) noexcept;
+			static bool GenerateProjectionMatrix(const char* uniform_name, float fov, float aspect, float near, float far, LSPtr<LevNumericalUniform>& out_uniform);
 		};
 	}
 }

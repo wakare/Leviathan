@@ -79,6 +79,7 @@ namespace Leviathan
 			LSPtr<LevRAttrUniformManager> uniform_manager = new LevRAttrUniformManager;
 			LSPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
 			LSPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
+
 			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
 			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
 

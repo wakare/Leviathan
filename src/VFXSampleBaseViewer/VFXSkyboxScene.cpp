@@ -5,6 +5,7 @@
 #include "LevSceneUtil.h"
 #include "LevRAttrShaderProgram.h"
 #include "SkyboxProgram.h"
+#include "LevRAttrDepthFunc.h"
 
 namespace Leviathan
 {
@@ -31,6 +32,9 @@ namespace Leviathan
 
 			const bool _texture_loaded = _load_skybox_texture("Resource\\skybox");
 			assert(_texture_loaded);
+
+			const bool _inited = _init_scene();
+			assert(_inited);
 		}
 
 		bool VFXSkyBoxScene::_load_skybox_texture(const char* skybox_texture_folder_path)
@@ -89,6 +93,44 @@ namespace Leviathan
 
 			LevSceneUtil::GenerateCube(cube_data, 1.0f, cube_object);
 			m_root_node->AddChild(cube_object);
+
+			LSPtr<LevRAttrDepthFunc> depth = new LevRAttrDepthFunc(ELDFP_ALWAYS);
+			cube_object->GetNodeData()->AddAttribute(depth);
+
+			return true;
+		}
+
+		bool VFXSkyBoxScene::_init_scene()
+		{
+			LSPtr<LevSceneNode> sphere_node = nullptr;
+
+			const float sphere_center[] = {0.0, 0.0, 0.0};
+			LevSceneUtil::GenerateBallNode(sphere_center, 1.0f, sphere_node);
+
+			LSPtr<LevSceneNode> scene_node = nullptr;
+			LevSceneUtil::GenerateEmptySceneNode(scene_node);
+			m_root_node->AddChild(scene_node);
+
+			LSPtr<LevRAttrShaderProgram> attr_shader_program = new LevRAttrShaderProgram;
+			LSPtr<LevShaderProgram> shader_program = new LevShaderProgram;
+			shader_program->m_vert_shader = reflect_vert;
+			shader_program->m_frag_shader = reflect_frag;
+
+			attr_shader_program->SetShaderProgram(shader_program);
+			scene_node->GetNodeData()->AddAttribute(attr_shader_program);
+			scene_node->AddChild(sphere_node);
+			scene_node->GetNodeData()->AddUniform(m_skybox_uniform.To<ILevUniform>());
+
+			scene_node->GetNodeData()->AddUniform(m_default_view_matrix.To<ILevUniform>());
+			scene_node->GetNodeData()->AddUniform(m_default_proj_matrix.To<ILevUniform>());
+
+			LSPtr<LevNumericalUniform> model_matrix_uniform = nullptr;
+			LSPtr<LevNumericalUniform> world_matrix_uniform = nullptr;
+			LevSceneUtil::GenerateIdentityMatrixUniform("modelMatrix", model_matrix_uniform);
+			LevSceneUtil::GenerateIdentityMatrixUniform("worldMatrix", world_matrix_uniform);
+
+			scene_node->GetNodeData()->AddUniform(model_matrix_uniform.To<ILevUniform>());
+			scene_node->GetNodeData()->AddUniform(world_matrix_uniform.To<ILevUniform>());
 
 			return true;
 		}
