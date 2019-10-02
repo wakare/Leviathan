@@ -67,6 +67,7 @@ namespace Leviathan
 			memcpy(m_fUp.data(), up, sizeof(float) * 3);
 
 			_setEyePosition(m_fEye);
+			_updateCurrentDistance();
 			SetModified();
 			return true;
 		}
@@ -282,6 +283,8 @@ namespace Leviathan
 
 		void LevCamera::TargetTranslate(float x, float y)
 		{
+			//_updateCurrentDistance();
+
 			Eigen::Vector3f N, U, V;
 			_getNUVVector(N, U, V);
 
