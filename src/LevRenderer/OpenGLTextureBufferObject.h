@@ -11,7 +11,7 @@ namespace Leviathan
 		class OpenGLTextureBufferObject : public IOpenGLBufferObject
 		{
 		public:
-			OpenGLTextureBufferObject(const Scene::LevTextureObject& texture_object);
+			OpenGLTextureBufferObject(OpenGLObjectManager& object_mananger, const Scene::LevTextureObject& texture_object);
 
 			OpenGLBufferBufferType GetBufferObjectType() const override;
 			OpenGLTextureBufferObject* ToTextureBufferObject() override;

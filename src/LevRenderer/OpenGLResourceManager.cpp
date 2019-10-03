@@ -13,10 +13,11 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLResourceManager::OpenGLResourceManager()
-			: m_render_state_manager(new OpenGLRenderStateManager)
-			, m_object_manager(new OpenGLObjectManager)
-			, m_render_entry_manager(new OpenGLRenderEntryManager)
+		OpenGLResourceManager::OpenGLResourceManager(OpenGLRenderBackend& render_backend)
+			: m_render_backend(render_backend)
+			, m_render_state_manager(new OpenGLRenderStateManager(m_render_backend))
+			, m_object_manager(new OpenGLObjectManager(m_render_backend))
+			, m_render_entry_manager(new OpenGLRenderEntryManager(m_render_backend))
 		{
 
 		}

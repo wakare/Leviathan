@@ -8,8 +8,9 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLFrameBufferObject::OpenGLFrameBufferObject(const Scene::LevFrameBufferObject& frame_buffer)
-			: m_frame_buffer_object(0)
+		OpenGLFrameBufferObject::OpenGLFrameBufferObject(OpenGLObjectManager& object_manager, const Scene::LevFrameBufferObject& frame_buffer)
+			: m_object_manager(object_manager)
+			, m_frame_buffer_object(0)
 		{
 			const auto& frame_buffer_attachments = frame_buffer.GetAttachments();
 
@@ -27,7 +28,7 @@ namespace Leviathan
 						/*
 						 * Should get texture object bu OpenGL Object Manager
 						 */
-					m_attachments[attach_target_type].Reset(new OpenGLTextureBufferObject(*texture));
+					m_attachments[attach_target_type].Reset(new OpenGLTextureBufferObject(m_object_manager, *texture));
 					break;
 				}
 					

@@ -8,22 +8,11 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObjectManager::OpenGLObjectManager()
-		= default;
-
-		/*bool OpenGLObjectManager::CreateTextureResource(Scene::LevTextureType tex_type, GLuint texture_object_uid, GLuint width, GLuint height,
-			const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
+		OpenGLObjectManager::OpenGLObjectManager(OpenGLRenderBackend& render_backend)
+			: m_render_backend(render_backend)
 		{
-			auto it = m_texture_objects.find(texture_object_uid);
-			if (it != m_texture_objects.end())
-			{
-				return false;
-			}
-
-			out.Reset(new OpenGLColorTexture2DObject(*this, texture_object_uid, width, height, data));
-			m_texture_objects[texture_object_uid] = out;
-			return true;
-		}*/
+			
+		}
 
 		bool OpenGLObjectManager::CreateTextureResource(Scene::LevTextureType tex_type, GLuint texture_object_uid, GLuint width, GLuint height,
 			GLuint depth, const GLvoid* data, LSPtr<IOpenGLTextureObject>& out)
@@ -80,6 +69,11 @@ namespace Leviathan
 
 			out = it->second;
 			return true;
+		}
+
+		bool OpenGLObjectManager::FlushRenderCommand()
+		{
+			return m_render_backend.FlushRenderCommand();
 		}
 	}
 }

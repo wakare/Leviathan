@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IOpenGLBufferObject.h" />
+    <ClInclude Include="IOpenGLCommand.h" />
     <ClInclude Include="IOpenGLObject.h" />
     <ClInclude Include="IOpenGLResource.h" />
     <ClInclude Include="IOpenGLTextureObject.h" />
@@ -27,6 +28,7 @@
     <ClInclude Include="IRendererBackend.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
     <ClInclude Include="OpenGLColorTextureCubemapObject.h" />
+    <ClInclude Include="OpenGLCommandHandler.h" />
     <ClInclude Include="OpenGLDepthTexture2DObject.h" />
     <ClInclude Include="OpenGLEmptyRenderEntry.h" />
     <ClInclude Include="OpenGLFrameBufferObject.h" />
@@ -56,6 +58,7 @@
   <ItemGroup>
     <ClCompile Include="IOpenGLBufferObject.cpp" />
     <ClCompile Include="OpenGLColorTextureCubemapObject.cpp" />
+    <ClCompile Include="OpenGLCommandHandler.cpp" />
     <ClCompile Include="OpenGLDepthTexture2DObject.cpp" />
     <ClCompile Include="OpenGLEmptyRenderEntry.cpp" />
     <ClCompile Include="OpenGLFrameBufferObject.cpp" />

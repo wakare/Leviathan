@@ -14,6 +14,10 @@ namespace Leviathan
 		public:
 			LevRAttrUniformManager();
 
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrUniformManager);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_UNIFORM_MANAGER; }
+
 			void AddUniform(LSPtr<ILevUniform> uniform);
 			const std::map<std::string, LSPtr<ILevUniform>>& GetUniforms() const;
 

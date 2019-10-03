@@ -18,6 +18,11 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrDepthFunc(LevDepthFuncParameter parameter);
+
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrDepthFunc);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_DEPTH_FUNC; }
+
 			LevDepthFuncParameter GetDepthParameter() const;
 
 		private:

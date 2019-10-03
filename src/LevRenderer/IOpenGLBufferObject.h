@@ -10,12 +10,23 @@ namespace Leviathan
 		};
 
 		class OpenGLTextureBufferObject;
+		class OpenGLObjectManager;
 
 		class IOpenGLBufferObject
 		{
 		public:
+			IOpenGLBufferObject(OpenGLObjectManager& manager)
+				: m_manager(manager)
+			{
+				
+			}
+
+			virtual ~IOpenGLBufferObject() = default;
 			virtual OpenGLBufferBufferType GetBufferObjectType() const = 0;
 			virtual OpenGLTextureBufferObject* ToTextureBufferObject() { return nullptr; }
+
+		protected:
+			OpenGLObjectManager& m_manager;
 		};
 	}
 }

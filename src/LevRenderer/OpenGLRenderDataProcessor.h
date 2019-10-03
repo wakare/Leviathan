@@ -31,15 +31,14 @@ namespace Leviathan
 		class OpenGLRenderDataProcessor
 		{
 		public:
-			OpenGLRenderDataProcessor();
+			OpenGLRenderDataProcessor(OpenGLResourceManager& resource_manager);
 			
 			void UpdateInputData(const Scene::LevSceneData& sceneData);
 			
-			OpenGLResourceManager& GetResourceManager();
-			const OpenGLResourceManager& GetResourceManager() const;
-			
 		private:
 			bool _applyRenderAttribute(LSPtr<OpenGLRenderEntry> objects, const Scene::LevSceneRenderAttribute& render_attribute);
+
+			OpenGLResourceManager& m_resource_manager;
 
 			int m_current_render_tree_id;
 			LSPtr<Scene::LevSceneTreeSearchVisitor> m_searchVisitor;

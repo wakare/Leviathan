@@ -7,14 +7,13 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTextureBufferObject::OpenGLTextureBufferObject(const Scene::LevTextureObject& texture_object)
-			: m_texture_object(nullptr)
+		OpenGLTextureBufferObject::OpenGLTextureBufferObject(OpenGLObjectManager& object_mananger, const Scene::LevTextureObject& texture_object)
+			: IOpenGLBufferObject(object_mananger)
+			, m_texture_object(nullptr)
 		{
-			auto& object_manager = OpenGLResourceManager::Instance().GetObjectManager();
-
-			if (!object_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
+			if (!m_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
 			{
-				const bool created = object_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
+				const bool created = m_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
 									texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData(), m_texture_object);
 				LEV_ASSERT(created);
 			}

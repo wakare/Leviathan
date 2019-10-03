@@ -46,6 +46,8 @@ namespace Leviathan
 			OpenGLRenderEntry(OpenGLRenderEntryManager& manager, unsigned id);
 			virtual bool _init();
 
+			OpenGLRenderEntryManager& m_render_entry_manager;
+
 			const Scene::LevRAttrRenderObjectAttributeBinder* m_attribute_binder;
 
 			bool m_inited;

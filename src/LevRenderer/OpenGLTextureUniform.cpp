@@ -10,17 +10,16 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLTextureUniform::OpenGLTextureUniform(const Scene::LevTextureUniform& texture)
-			: m_texture_uniform_name(texture.GetName())
+		OpenGLTextureUniform::OpenGLTextureUniform(OpenGLObjectManager& object_manager, const Scene::LevTextureUniform& texture)
+			: IOpenGLUniform(object_manager)
+			, m_texture_uniform_name(texture.GetName())
 			, m_texture_uniform_location(-1)
 		{
 			const auto& texture_object = texture.GetUniformData();
 
-			auto& object_manager = OpenGLResourceManager::Instance().GetObjectManager();
-
-			if (!object_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
+			if (!m_object_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
 			{
-				const bool created = object_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
+				const bool created = m_object_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
 					texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData(), m_texture_object);
 				LEV_ASSERT(created);
 			}
@@ -46,7 +45,7 @@ namespace Leviathan
 				LEV_ASSERT(m_texture_uniform_location != -1);
 			}
 
-			glUniform1i(m_texture_uniform_location, GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset());
+			IOU_PUSH_ASYNC_RENDER_COMMAND(glUniform1i(m_texture_uniform_location, GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset()));
 			return true;
 		}
 

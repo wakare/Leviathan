@@ -1,11 +1,7 @@
 ﻿#pragma once
 #include "OpenGLRenderEntry.h"
-
-namespace Leviathan {
-	namespace Scene {
-		class LevSceneObject;
-	}
-}
+#include "IOpenGLCommand.h"
+#include "OpenGLRenderBackend.h"
 
 namespace Leviathan
 {
@@ -14,7 +10,7 @@ namespace Leviathan
 		class OpenGLRenderEntryManager
 		{
 		public:
-			OpenGLRenderEntryManager();
+			OpenGLRenderEntryManager(OpenGLRenderBackend& render_backend);
 
 			bool CreateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
 			bool CreateEmptyRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
@@ -23,12 +19,26 @@ namespace Leviathan
 			bool GetParentID(unsigned id, unsigned& out);
 			bool GetRenderEntry(unsigned id, LSPtr<OpenGLRenderEntry>& out);
 
+			template<typename LAMBDA_TYPE>
+			bool PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type);
+
+			bool FlushRenderCommand();
+
 		private:
 			bool _checkEntryExist(unsigned id);
+
+			OpenGLRenderBackend& m_render_backend;
 
 			std::map<unsigned, LSPtr<OpenGLRenderEntry>> m_render_entries;
 			std::map<unsigned, unsigned> m_parent_mapping;
 		};
+
+		template <typename LAMBDA_TYPE>
+		bool OpenGLRenderEntryManager::PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type)
+		{
+			m_render_backend.PushRenderCommand(command, type);
+			return true;
+		}
 	}
 }
 

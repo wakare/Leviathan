@@ -42,6 +42,10 @@ namespace Leviathan
 		public: 
 			LevRAttrRenderObjectAttributeBinder(size_t element_count);
 
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrRenderObjectAttributeBinder);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_RENDER_OBJECT_ATTRIBUTE_BINDER; }
+
 			bool BindAttribute(ATTRIBUTE_HANDLE handle,  LSPtr<LevRenderObjectAttribute> attribute);
 			const std::map<ATTRIBUTE_HANDLE, LSPtr<LevRenderObjectAttribute>>& GetAttributes() const;
 

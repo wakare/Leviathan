@@ -1,12 +1,16 @@
 #include "OpenGLRenderStateManager.h"
 #include "IOpenGLRenderState.h"
+#include "OpenGLRenderBackend.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderStateManager::OpenGLRenderStateManager()
-		= default;
+		OpenGLRenderStateManager::OpenGLRenderStateManager(OpenGLRenderBackend& render_backend)
+			: m_render_backend(render_backend)
+		{
+			
+		}
 
 		void OpenGLRenderStateManager::ApplyRenderState(LSPtr<IOpenGLRenderState> render_state)
 		{
@@ -30,6 +34,10 @@ namespace Leviathan
 			m_current_render_state[render_state->GetRenderStateType()] = render_state;
 		}
 
+		bool OpenGLRenderStateManager::FlushRenderCommand()
+		{
+			return m_render_backend.FlushRenderCommand();
+		}
 	}
 }
 

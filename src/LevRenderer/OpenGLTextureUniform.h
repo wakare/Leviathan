@@ -19,7 +19,7 @@ namespace Leviathan
 		class OpenGLTextureUniform : public IOpenGLUniform
 		{
 		public:
-			OpenGLTextureUniform(const Scene::LevTextureUniform& texture);
+			OpenGLTextureUniform(OpenGLObjectManager& object_manager, const Scene::LevTextureUniform& texture);
 			~OpenGLTextureUniform();
 
 			const std::string& GetUniformName() const override;

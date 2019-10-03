@@ -1,20 +1,22 @@
 #pragma once
 
-#include "LSPtr.h"
 #include <gl/glew.h>
 #include <map>
+#include "LSPtr.h"
 #include "LevTextureObject.h"
+#include "OpenGLRenderBackend.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
 		class IOpenGLTextureObject;
+		class OpenGLRenderBackend;
 
 		class OpenGLObjectManager
 		{
 		public:
-			OpenGLObjectManager();
+			OpenGLObjectManager(OpenGLRenderBackend& render_backend);
 
 			/*
 			 ***************************************** Resource generation
@@ -24,8 +26,22 @@ namespace Leviathan
 
 			bool GetTextureResource(GLuint texture_object_uid, LSPtr<IOpenGLTextureObject>& out);
 
+			template<typename LAMBDA_TYPE>
+			bool PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type);
+
+			bool FlushRenderCommand();
+
 		private:
+			OpenGLRenderBackend& m_render_backend;
+
 			std::map<GLuint, LSPtr<IOpenGLTextureObject>> m_texture_objects;
 		};
+
+		template <typename LAMBDA_TYPE>
+		bool OpenGLObjectManager::PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type)
+		{
+			m_render_backend.PushRenderCommand(command, type);
+			return true;
+		}
 	}
 }

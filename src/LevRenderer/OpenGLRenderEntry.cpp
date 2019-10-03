@@ -6,40 +6,18 @@
 #include "LevRenderStatePointSize.h"
 #include "LevSceneObject.h"
 #include "OpenGLRStatePointSize.h"
+#include "OpenGLRenderEntryManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		/*OpenGLRenderEntry::OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder)
-			: m_attribute_binder(&attribute_binder)
-			, m_inited(false)
-			, m_primitive_type(GL_INVALID_ENUM)
-			, m_id(id)
-			, m_frame_buffer_object(nullptr)
-		{
-			switch (attribute_binder.GetPrimitiveType())
-			{
-			case Scene::EROPT_POINTS:
-				m_primitive_type = GL_POINTS;
-				break;
+#define ORE_PUSH_SYNC_RENDER_COMMAND(command) m_render_entry_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_SYNC);
+#define ORE_PUSH_ASYNC_RENDER_COMMAND(command) m_render_entry_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_ASYNC);
 
-			case Scene::EROPT_LINES:
-				m_primitive_type = GL_LINES;
-				break;
-
-			case Scene::EROPT_TRIANGLES:
-				m_primitive_type = GL_TRIANGLES;
-				break;
-
-			default:
-				m_primitive_type = GL_INVALID_ENUM;
-				break;
-			}
-		}
-*/
-		OpenGLRenderEntry::OpenGLRenderEntry(OpenGLRenderEntryManager&, const Scene::LevSceneObject& object)
-			: m_attribute_binder(nullptr)
+		OpenGLRenderEntry::OpenGLRenderEntry(OpenGLRenderEntryManager& render_entry_manager, const Scene::LevSceneObject& object)
+			: m_render_entry_manager(render_entry_manager)
+			, m_attribute_binder(nullptr)
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(object.GetID())
@@ -71,8 +49,9 @@ namespace Leviathan
 		/*
 			A Empty object
 		*/
-		OpenGLRenderEntry::OpenGLRenderEntry(OpenGLRenderEntryManager& manager, unsigned id)
-			: m_attribute_binder(nullptr)
+		OpenGLRenderEntry::OpenGLRenderEntry(OpenGLRenderEntryManager& render_entry_manager, unsigned id)
+			: m_render_entry_manager(render_entry_manager)
+			, m_attribute_binder(nullptr)
 			, m_inited(false)
 			, m_primitive_type(GL_INVALID_ENUM)
 			, m_id(id)
@@ -145,20 +124,20 @@ namespace Leviathan
 			}
 
 			EXIT_IF_FALSE(m_VAO);
-			glBindVertexArray(m_VAO);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindVertexArray(m_VAO));
 
 			LEV_ASSERT(m_attribute_binder);
 			bool use_index = m_attribute_binder->HasIndexAttribute();
 			if (use_index)
 			{
-				glDrawElements(m_primitive_type, m_attribute_binder->GetVertexCount(), GL_UNSIGNED_INT, 0);
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glDrawElements(m_primitive_type, m_attribute_binder->GetVertexCount(), GL_UNSIGNED_INT, 0));
 			}
 			else
 			{
-				glDrawArrays(m_primitive_type, 0, m_attribute_binder->GetVertexCount());
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glDrawArrays(m_primitive_type, 0, m_attribute_binder->GetVertexCount()));
 			}
 
-			glBindVertexArray(0);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindVertexArray(0));
 
 			return true;
 		}
@@ -210,15 +189,15 @@ namespace Leviathan
 			}
 
 			// Init VAO
-			glGenVertexArrays(1, &m_VAO);
-			glBindVertexArray(m_VAO);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glGenVertexArrays(1, &m_VAO));
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindVertexArray(m_VAO));
 
 			// Create a buffer to store vertex.
-			glGenBuffers(1, &m_VBO);
-			glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glGenBuffers(1, &m_VBO));
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindBuffer(GL_ARRAY_BUFFER, m_VBO));
 
 			// Bind the triangle vertex data to buffer.
-			glBufferData(GL_ARRAY_BUFFER, buffer_data->GetArrayDataByteSize(), buffer_data->GetArrayData(), GL_STATIC_DRAW);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBufferData(GL_ARRAY_BUFFER, buffer_data->GetArrayDataByteSize(), buffer_data->GetArrayData(), GL_STATIC_DRAW));
 			GLuint uOffset = 0u;
 
 			for (const auto& attribute : m_attribute_binder->GetAttributes())
@@ -226,8 +205,8 @@ namespace Leviathan
 				// TODO: modify hard code.
 				auto element_component_count = attribute.second->GetByteSizePerElement() / sizeof(float);
 
-				glVertexAttribPointer(attribute.first, element_component_count, GL_FLOAT, GL_FALSE, element_byte_size, (GLvoid*)uOffset);
-				glEnableVertexAttribArray(attribute.first);
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glVertexAttribPointer(attribute.first, element_component_count, GL_FLOAT, GL_FALSE, element_byte_size, (GLvoid*)uOffset));
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glEnableVertexAttribArray(attribute.first));
 
 				uOffset += attribute.second->GetByteSizePerElement();
 			}
@@ -237,16 +216,16 @@ namespace Leviathan
 			{
 				auto& index_attribute = m_attribute_binder->GetIndexAttribute();
 
-				glGenBuffers(1, &m_IBO);
-				glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO);
-				glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_attribute.GetData().GetArrayDataByteSize(), index_attribute.GetData().GetArrayData(), GL_STATIC_DRAW);
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glGenBuffers(1, &m_IBO));
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IBO));
+				ORE_PUSH_ASYNC_RENDER_COMMAND(glBufferData(GL_ELEMENT_ARRAY_BUFFER, index_attribute.GetData().GetArrayDataByteSize(), index_attribute.GetData().GetArrayData(), GL_STATIC_DRAW));
 			}
 
 			// Unbind VBO
-			glBindBuffer(GL_ARRAY_BUFFER, 0);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindBuffer(GL_ARRAY_BUFFER, 0));
 
 			// Unbind VAO
-			glBindVertexArray(0);
+			ORE_PUSH_ASYNC_RENDER_COMMAND(glBindVertexArray(0));
 
 			return true;
 		}

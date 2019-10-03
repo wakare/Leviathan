@@ -4,11 +4,15 @@
 #include "OpenGLUniformManager.h"
 #include "OpenGLRenderNodeVisitor.h"
 #include "OpenGLRenderNode.h"
+#include "OpenGLRenderStateManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
+#define OG_PUSH_SYNC_RENDER_COMMAND(command) m_render_state_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_SYNC);
+#define OG_PUSH_ASYNC_RENDER_COMMAND(command) m_render_state_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_ASYNC);
+
 		OpenGLPass::OpenGLPass(LSPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager)
 			: m_id(shader_program->GetID())
 			, m_render_state_manager(render_state_manager)
@@ -23,12 +27,12 @@ namespace Leviathan
 		{
 			// Set GLProgram
 			auto program = m_shader_program->GetShaderProgram();
-			glUseProgram(program);
-
+			OG_PUSH_ASYNC_RENDER_COMMAND(glUseProgram(program));
+			
 			m_render_visitor->Apply(render_tree.GetRoot());
 
 			// ResetProgram
-			glUseProgram(0);
+			OG_PUSH_ASYNC_RENDER_COMMAND(glUseProgram(0));
 
 			return true;
 		}

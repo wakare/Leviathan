@@ -12,6 +12,11 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrFrameBufferObject();
+
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrFrameBufferObject);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_FRAME_BUFFER_OBJECT; }
+
 			bool SetFrameBufferObject(LSPtr<LevFrameBufferObject> frame_buffer_object);
 			LSPtr<LevFrameBufferObject> GetFrameBufferObject() const;
 

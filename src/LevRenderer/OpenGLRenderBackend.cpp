@@ -1,8 +1,10 @@
 #include "OpenGLRenderBackend.h"
+#include <utility>
 #include "OpenGLRenderDataProcessor.h"
 #include "OpenGLPass.h"
 #include "LevOpenGLWindow.h"
 #include "OpenGLResourceManager.h"
+#include "OpenGLCommandHandler.h"
 
 namespace Leviathan
 {
@@ -10,7 +12,9 @@ namespace Leviathan
 	{
 		OpenGLRenderBackend::OpenGLRenderBackend(LevOpenGLWindow& pWindow)
 			: m_window(pWindow)
-			, m_pRenderData(new OpenGLRenderDataProcessor)
+			, m_resource_manager(new OpenGLResourceManager(*this))
+			, m_pRenderData(new OpenGLRenderDataProcessor(*m_resource_manager))
+			, m_command_handler(new OpenGLCommandHandler(OpenGLCommandHandlerType::EOCHT_NON_EXTRA_THREAD))
 		{
 
 		}
@@ -23,11 +27,11 @@ namespace Leviathan
 		void OpenGLRenderBackend::_renderOneFrame()
 		{
 			// Set Global state
-			glClearColor(0.3f, 0.3f, 0.3f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+			ORB_PUSH_ASYNC_RENDER_COMMAND(glClearColor(0.3f, 0.3f, 0.3f, 1.0f);)
+			ORB_PUSH_ASYNC_RENDER_COMMAND(glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);)
 
 			// Render
-			_render(m_pRenderData->GetResourceManager());
+			_render(*m_resource_manager);
 
 			m_window.SwapBuffer();
 		}
@@ -46,6 +50,16 @@ namespace Leviathan
 		void OpenGLRenderBackend::Update()
 		{
 			_renderOneFrame();
+		}
+
+		bool OpenGLRenderBackend::FlushRenderCommand()
+		{
+			return m_command_handler->FlushBuffer();
+		}
+
+		bool OpenGLRenderBackend::_push_render_command(LSPtr<IOpenGLCommand> command)
+		{
+			return m_command_handler->PushCommand(std::move(command));
 		}
 	}
 }

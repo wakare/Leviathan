@@ -26,6 +26,9 @@
     <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLUniformResource">
       <UniqueIdentifier>{01647f16-39d1-4a22-878b-2e0b1b0b4bb6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\OpenGL\OpenGLCommand">
+      <UniqueIdentifier>{b724631b-a8f0-4d26-b301-333462c4b758}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLRenderDataProcessor.h">
@@ -127,6 +130,12 @@
     <ClInclude Include="OpenGLColorTextureCubemapObject.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
     </ClInclude>
+    <ClInclude Include="IOpenGLCommand.h">
+      <Filter>Source Files\OpenGL\OpenGLCommand</Filter>
+    </ClInclude>
+    <ClInclude Include="OpenGLCommandHandler.h">
+      <Filter>Source Files\OpenGL\OpenGLCommand</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
@@ -206,6 +215,9 @@
     </ClCompile>
     <ClCompile Include="OpenGLColorTextureCubemapObject.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLObjectResource</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenGLCommandHandler.cpp">
+      <Filter>Source Files\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

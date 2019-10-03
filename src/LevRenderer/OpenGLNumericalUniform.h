@@ -11,7 +11,7 @@ namespace Leviathan
 		class OpenGLNumericalUniform : public IOpenGLUniform
 		{
 		public:
-			OpenGLNumericalUniform(const Scene::LevNumericalUniform& scene_uniform);
+			OpenGLNumericalUniform(OpenGLObjectManager& object_manager, const Scene::LevNumericalUniform& scene_uniform);
 			const std::string& GetUniformName() const override;
 
 			bool Apply(GLuint program) override;

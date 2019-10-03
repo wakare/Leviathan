@@ -6,8 +6,10 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderEntryManager::OpenGLRenderEntryManager()
-		= default;
+		OpenGLRenderEntryManager::OpenGLRenderEntryManager(OpenGLRenderBackend& render_backend)
+			: m_render_backend(render_backend)
+		{
+		}
 
 		bool OpenGLRenderEntryManager::CreateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out)
 		{
@@ -60,6 +62,11 @@ namespace Leviathan
 
 			out = it->second;
 			return true;
+		}
+
+		bool OpenGLRenderEntryManager::FlushRenderCommand()
+		{
+			return m_render_backend.FlushRenderCommand();
 		}
 
 		bool OpenGLRenderEntryManager::_checkEntryExist(unsigned id)

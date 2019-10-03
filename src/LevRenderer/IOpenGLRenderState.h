@@ -22,6 +22,8 @@ namespace Leviathan
 				Apply should be called before render actually object,
 				after rendering, UnApply can be called to resume render context.
 			*/
+
+
 			virtual ~IOpenGLRenderState() = default;
 			virtual OpenGLRenderStateType GetRenderStateType() const = 0;
 

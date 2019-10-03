@@ -1,4 +1,5 @@
 ﻿#include "OpenGLColorTexture3DObject.h"
+#include "OpenGLObjectManager.h"
 
 namespace Leviathan
 {
@@ -10,24 +11,24 @@ namespace Leviathan
 			, m_height(height)
 			, m_depth(depth)
 		{
-			glGenTextures(1, &m_texture_object);
-			glBindTexture(GL_TEXTURE_3D, m_texture_object);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glGenTextures(1, &m_texture_object));
+			IOO_PUSH_SYNC_RENDER_COMMAND(glBindTexture(GL_TEXTURE_3D, m_texture_object));
 
-			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_S, GL_REPEAT));
+			IOO_PUSH_SYNC_RENDER_COMMAND(glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_WRAP_T, GL_REPEAT));
 
-			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-			glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MIN_FILTER, GL_LINEAR));
+			IOO_PUSH_SYNC_RENDER_COMMAND(glTexParameteri(GL_TEXTURE_3D, GL_TEXTURE_MAG_FILTER, GL_LINEAR));
 
-			glTexImage3D(GL_TEXTURE_3D, 0, GL_R32F, m_width, m_height, m_depth, 0, GL_RED, GL_FLOAT, data);
-			glGenerateMipmap(GL_TEXTURE_3D);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glTexImage3D(GL_TEXTURE_3D, 0, GL_R32F, m_width, m_height, m_depth, 0, GL_RED, GL_FLOAT, data));
+			IOO_PUSH_SYNC_RENDER_COMMAND(glGenerateMipmap(GL_TEXTURE_3D));
 
-			glBindTexture(GL_TEXTURE_3D, 0);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glBindTexture(GL_TEXTURE_3D, 0));
 		}
 
 		OpenGLColorTexture3DObject::~OpenGLColorTexture3DObject()
 		{
-			glDeleteTextures(1, &m_texture_object);
+			IOO_PUSH_SYNC_RENDER_COMMAND(glDeleteTextures(1, &m_texture_object));
 		}
 	}
 }

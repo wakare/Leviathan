@@ -9,6 +9,8 @@ namespace Leviathan
 		{
 		public: 
 			LevRAttrVisible(bool visible);
+
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrVisible);
 			void SetVisible(bool visible);
 			bool GetVisible() const;
 

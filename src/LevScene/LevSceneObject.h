@@ -124,7 +124,7 @@ namespace Leviathan
 			
 			/*
 				Warn:
-					World coord will be caluculate automatic by LevCalculateWorldCoordVisitor,
+					World coord will be calculate automatic by LevCalculateWorldCoordVisitor,
 					if you want to disable the process, please set m_recalculateWorldTransform to false.
 			*/
 			bool SetWorldTransform(const Eigen::Matrix4f& trans);

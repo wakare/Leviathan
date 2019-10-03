@@ -2,7 +2,6 @@
 
 #include <map>
 #include "LSPtr.h"
-#include "Singleton.h"
 
 namespace Leviathan
 {
@@ -20,13 +19,14 @@ namespace Leviathan
 		class OpenGLRenderStateManager;
 		class OpenGLObjectManager;
 		class OpenGLRenderEntryManager;
+		class OpenGLRenderBackend;
 
 		typedef int RenderTreeID;
 
-		class OpenGLResourceManager : public Singleton<OpenGLResourceManager>
+		class OpenGLResourceManager
 		{
 		public:
-			DECLARE_SELF_TO_SINGLETON(OpenGLResourceManager)
+			OpenGLResourceManager(OpenGLRenderBackend& render_backend);
 
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
 			bool AddGLObjectToRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject);
@@ -39,7 +39,7 @@ namespace Leviathan
 			bool Render();
 
 		private:
-			OpenGLResourceManager();
+			OpenGLRenderBackend& m_render_backend;
 
 			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
 			LSPtr<OpenGLObjectManager> m_object_manager;

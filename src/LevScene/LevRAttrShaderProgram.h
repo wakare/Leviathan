@@ -22,6 +22,11 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrShaderProgram();
+
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrShaderProgram);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_SHADER_PROGRAM; }
+
 			bool SetShaderProgram(LSPtr<LevShaderProgram> program);
 			unsigned GetID() const;
 			const LevShaderProgram& GetShaderProgram() const;

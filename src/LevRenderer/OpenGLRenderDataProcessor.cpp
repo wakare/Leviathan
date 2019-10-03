@@ -41,10 +41,11 @@ namespace Leviathan
 			return strStream.str();
 		}
 
-		OpenGLRenderDataProcessor::OpenGLRenderDataProcessor()
-			: m_traverseVisitor(new Scene::LevSceneTreeTraverseVisitor)
-			, m_searchVisitor(new Scene::LevSceneTreeSearchVisitor)
+		OpenGLRenderDataProcessor::OpenGLRenderDataProcessor(OpenGLResourceManager& resource_manager)
+			: m_resource_manager(resource_manager)
 			, m_current_render_tree_id(-1)
+			, m_searchVisitor(new Scene::LevSceneTreeSearchVisitor)
+			, m_traverseVisitor(new Scene::LevSceneTreeTraverseVisitor) 
 		{
 			// Default pass callback
 			const auto _sceneObjectTraverseCallback = [this](const Scene::LevSceneObject& object, const std::vector<const Node<Scene::LevSceneObject>*>& stack)
@@ -85,12 +86,12 @@ namespace Leviathan
 					return false;
 				}
 
-				render_tree_id = GetResourceManager().GetOrCreateRenderTree(*shader_program);
+				render_tree_id = m_resource_manager.GetOrCreateRenderTree(*shader_program);
 
 				const Scene::LevRAttrRenderObjectAttributeBinder* attribute_binder = nullptr;
 				object.GetAttribute<Scene::LevRAttrRenderObjectAttributeBinder>(attribute_binder);
 
-				auto& render_entry_manager = OpenGLResourceManager::Instance().GetRenderEntryManager();
+				auto& render_entry_manager = m_resource_manager.GetRenderEntryManager();
 				if (stack_size > 0)
 				{
 					render_entry_manager.SetParent(object, *stack.back()->GetNodeData());
@@ -120,7 +121,7 @@ namespace Leviathan
 						_applyRenderAttribute(render_entry, *pAttribute);
 					}
 
-					GetResourceManager().AddGLObjectToRenderTree(render_tree_id, render_entry);
+					m_resource_manager.AddGLObjectToRenderTree(render_tree_id, render_entry);
 					break;
 				}
 
@@ -146,14 +147,14 @@ namespace Leviathan
 						_applyRenderAttribute(render_entry, *pAttribute);
 					}
 
-					GetResourceManager().ReplaceGLObjectFromRenderTree(render_tree_id, render_entry);
+					m_resource_manager.ReplaceGLObjectFromRenderTree(render_tree_id, render_entry);
 					break;
 				}
 
 				case Scene::ELSOS_DELETED:
 				case Scene::ELSOS_DISABLE:
 				{
-					GetResourceManager().RemoveRenderTree(render_tree_id, object.GetID());
+					m_resource_manager.RemoveRenderTree(render_tree_id, object.GetID());
 					return true;
 				}
 
@@ -172,73 +173,91 @@ namespace Leviathan
 			m_traverseVisitor->Apply(sceneData.GetSceneTree().GetRoot());
 		}
 
-		OpenGLResourceManager & OpenGLRenderDataProcessor::GetResourceManager()
-		{
-			return OpenGLResourceManager::Instance();
-		}
-
-		const Leviathan::Renderer::OpenGLResourceManager& OpenGLRenderDataProcessor::GetResourceManager() const
-		{
-			return OpenGLResourceManager::Instance();
-		}
-
 		bool OpenGLRenderDataProcessor::_applyRenderAttribute(LSPtr<OpenGLRenderEntry> OpenGL_object, const Scene::LevSceneRenderAttribute& render_attribute)
 		{
-			// Depth func attribute
-			const Scene::LevRAttrRenderStateManager* render_state_manager = dynamic_cast<const Scene::LevRAttrRenderStateManager*>(&render_attribute);
-			if (render_state_manager)
+			switch (render_attribute.GetRenderAttributeType())
 			{
-				OpenGL_object->SetRenderStateManager(*render_state_manager);
-				return true;
-			}
+			case Scene::ERAT_ATTACHMENT_MANAGER:
+				break;
 
-			// Object visible attribute
-			/*const Scene::LevRAttrVisible* visible = dynamic_cast<const Scene::LevRAttrVisible*>(&render_attribute);
-			if (visible)
-			{
- 				for (auto& pObject : OpenGL_object)
- 				{
-					OpenGL_object->SetVisible(visible->GetVisible());
- 				}
- 
- 				return true;
-			}*/
+			case Scene::ERAT_DEPTH_FUNC:
+				break;
 
-			const Scene::LevRAttrUniformManager* uniform_manager = dynamic_cast<const Scene::LevRAttrUniformManager*>(&render_attribute);
-			if (uniform_manager)
+			case Scene::ERAT_FRAME_BUFFER_OBJECT:
 			{
-				for (const auto& uniform : uniform_manager->GetUniforms())
+				const Scene::LevRAttrFrameBufferObject* frame_buffer_object = render_attribute.ToLevRAttrFrameBufferObject();
+				if (frame_buffer_object && frame_buffer_object->GetFrameBufferObject())
 				{
-					LSPtr<IOpenGLUniform> OpenGL_uniform = nullptr;
-
-					switch (uniform.second->GetUniformType())
-					{
-					case Scene::ELUT_NUMERICAL:
-					{
-						const Scene::LevNumericalUniform* numerical_uniform = dynamic_cast<const Scene::LevNumericalUniform*>(uniform.second.Get());
-						OpenGL_uniform = new OpenGLNumericalUniform(*numerical_uniform);
-						break;
-					}	
-					case Scene::ELUT_TEXTURE:
-					{
-						const Scene::LevTextureUniform* texture_uniform = dynamic_cast<const Scene::LevTextureUniform*>(uniform.second.Get());
-						OpenGL_uniform = new OpenGLTextureUniform(*texture_uniform);
-						break;
-					}	
-					}
-
-					LEV_ASSERT(OpenGL_uniform);
-					OpenGL_object->AddUniform(OpenGL_uniform);
+					LSPtr<OpenGLFrameBufferObject> fbo = new OpenGLFrameBufferObject(m_resource_manager.GetObjectManager(), *frame_buffer_object->GetFrameBufferObject());
+					OpenGL_object->SetFrameBufferObject(fbo);
+					return true;
 				}
 
-				return true;
+				break;
 			}
 
-			const Scene::LevRAttrFrameBufferObject* frame_buffer_object = dynamic_cast<const Scene::LevRAttrFrameBufferObject*>(&render_attribute);
-			if (frame_buffer_object && frame_buffer_object->GetFrameBufferObject())
+			case Scene::ERAT_RENDER_OBJECT_ATTRIBUTE_BINDER:
+				break;
+
+			case Scene::ERAT_RENDER_STATE_MANAGER:
 			{
-				LSPtr<OpenGLFrameBufferObject> fbo = new OpenGLFrameBufferObject(*frame_buffer_object->GetFrameBufferObject());
-				OpenGL_object->SetFrameBufferObject(fbo);
+				const Scene::LevRAttrRenderStateManager* render_state_manager = render_attribute.ToLevRAttrRenderStateManager();
+				if (render_state_manager)
+				{
+					OpenGL_object->SetRenderStateManager(*render_state_manager);
+					return true;
+				}
+
+				break;
+			}
+
+			case Scene::ERAT_SHADER_PROGRAM:
+				break;
+
+			case Scene::ERAT_UNIFORM_MANAGER:
+			{
+				const Scene::LevRAttrUniformManager* uniform_manager = render_attribute.ToLevRAttrUniformManager();
+				if (uniform_manager)
+				{
+					for (const auto& uniform : uniform_manager->GetUniforms())
+					{
+						LSPtr<IOpenGLUniform> OpenGL_uniform = nullptr;
+
+						switch (uniform.second->GetUniformType())
+						{
+						case Scene::ELUT_NUMERICAL:
+						{
+							const Scene::LevNumericalUniform* numerical_uniform = dynamic_cast<const Scene::LevNumericalUniform*>(uniform.second.Get());
+							OpenGL_uniform = new OpenGLNumericalUniform(m_resource_manager.GetObjectManager(), *numerical_uniform);
+							break;
+						}
+						case Scene::ELUT_TEXTURE:
+						{
+							const Scene::LevTextureUniform* texture_uniform = dynamic_cast<const Scene::LevTextureUniform*>(uniform.second.Get());
+							OpenGL_uniform = new OpenGLTextureUniform(m_resource_manager.GetObjectManager(), *texture_uniform);
+							break;
+						}
+						}
+
+						LEV_ASSERT(OpenGL_uniform);
+						OpenGL_object->AddUniform(OpenGL_uniform);
+					}
+
+					return true;
+				}
+
+				break;
+			}
+
+			case Scene::ERAT_VISIBLE:
+				break;
+
+			case Scene::ERAT_UNKNOWN:
+				break;
+
+			default:
+				assert(false);
+				break;
 			}
 
 			return false;

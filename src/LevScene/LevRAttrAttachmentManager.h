@@ -13,6 +13,10 @@ namespace Leviathan
 		{
 		public:
 			LevRAttrAttachmentManager();
+			ADD_RENDER_ATTRIBUTE_IMPLEMENT(LevRAttrAttachmentManager);
+
+			RenderAttributeType GetRenderAttributeType() const override { return ERAT_ATTACHMENT_MANAGER; }
+
 			void AddAttachment(LSPtr<LevAttachment> attachment);
 			const std::vector<LSPtr<LevAttachment>>& GetAttachments() const;
 
