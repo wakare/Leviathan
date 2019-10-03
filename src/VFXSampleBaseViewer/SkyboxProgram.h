@@ -83,5 +83,25 @@ namespace Leviathan
 		Frag0 = texture(SKY_BOX_TEXTURE, reflect_dir);
 	};
 )";
+
+	const char* refract_frag = R"(
+	#version 330 core
+	layout(location = 0) out vec4 Frag0;
+
+	flat in vec3 camera_position;
+	in vec3 frag_pos;
+	in vec3 frag_normal;
+
+	uniform samplerCube SKY_BOX_TEXTURE;
+	uniform float refract_ratio = 1.0 / 1.52;
+
+	void main()
+	{
+		vec3 view_dir = normalize(frag_pos - camera_position);
+		vec3 refract_dir = refract(view_dir, frag_normal, refract_ratio);
+
+		Frag0 = texture(SKY_BOX_TEXTURE, refract_dir);
+	};
+)";
 }
 

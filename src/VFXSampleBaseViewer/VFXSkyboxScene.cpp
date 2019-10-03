@@ -114,7 +114,8 @@ namespace Leviathan
 			LSPtr<LevRAttrShaderProgram> attr_shader_program = new LevRAttrShaderProgram;
 			LSPtr<LevShaderProgram> shader_program = new LevShaderProgram;
 			shader_program->m_vert_shader = reflect_vert;
-			shader_program->m_frag_shader = reflect_frag;
+			//shader_program->m_frag_shader = reflect_frag;
+			shader_program->m_frag_shader = refract_frag;
 
 			attr_shader_program->SetShaderProgram(shader_program);
 			scene_node->GetNodeData()->AddAttribute(attr_shader_program);
