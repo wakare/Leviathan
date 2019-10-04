@@ -6,8 +6,8 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderStateManager::OpenGLRenderStateManager(OpenGLRenderBackend& render_backend)
-			: m_render_backend(render_backend)
+		OpenGLRenderStateManager::OpenGLRenderStateManager(OpenGLResourceManager& resource_manager)
+			: m_resource_manager(resource_manager)
 		{
 			
 		}
@@ -32,11 +32,6 @@ namespace Leviathan
 
 			render_state->Apply();
 			m_current_render_state[render_state->GetRenderStateType()] = render_state;
-		}
-
-		bool OpenGLRenderStateManager::FlushRenderCommand()
-		{
-			return m_render_backend.FlushRenderCommand();
 		}
 	}
 }

@@ -1,13 +1,15 @@
 #include "OpenGLShaderProgram.h"
 #include "OpenGLNumericalUniform.h"
 #include "LevRAttrShaderProgram.h"
+#include "OpenGLResourceManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer 
 	{
-		OpenGLShaderProgram::OpenGLShaderProgram(const Scene::LevRAttrShaderProgram& shader_program) 
-			: m_shader_program(shader_program)
+		OpenGLShaderProgram::OpenGLShaderProgram(OpenGLObjectManager& manager, const Scene::LevRAttrShaderProgram& shader_program)
+			: IOpenGLObject(manager)
+			, m_shader_program(shader_program)
 			, m_bInited(false)
 		{
 			if (!Init())
@@ -88,51 +90,40 @@ namespace Leviathan
 
 		bool OpenGLShaderProgram::_compileAll()
 		{
-			m_VertexShader = glCreateShader(GL_VERTEX_SHADER);
+			IOR_PUSH_ASYNC_RENDER_COMMAND(m_VertexShader = glCreateShader(GL_VERTEX_SHADER));
 			if (!_compileShader(m_shader_program.GetShaderProgram().m_vert_shader.c_str(), m_VertexShader))
 			{
 				return false;
 			}
 
-			m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
+			IOR_PUSH_ASYNC_RENDER_COMMAND(m_FragmentShader = glCreateShader(GL_FRAGMENT_SHADER));
 			if (!_compileShader(m_shader_program.GetShaderProgram().m_frag_shader.c_str(), m_FragmentShader))
 			{
 				return false;
 			}
-
-// 			if (m_pczGeomShader)
-// 			{
-// 				m_GeomShader = glCreateShader(GL_GEOMETRY_SHADER);
-// 				if (!_compileShader(m_pczGeomShader, m_GeomShader))
-// 				{
-// 					return false;
-// 				}
-// 			}
 
 			return true;
 		}
 
 		bool OpenGLShaderProgram::_linkAll()
 		{
-			m_shaderProgram = glCreateProgram();
+			IOR_PUSH_ASYNC_RENDER_COMMAND(m_shaderProgram = glCreateProgram());
 			GLint success = GL_FALSE;
 			GLchar infoLog[512];
 
 			// Link shader program
-			glAttachShader(m_shaderProgram, m_VertexShader);
-			glAttachShader(m_shaderProgram, m_FragmentShader);
-// 			if (m_pczGeomShader)
-// 			{
-// 				glAttachShader(m_shaderProgram, m_GeomShader);
-// 			}
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glAttachShader(m_shaderProgram, m_VertexShader));
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glAttachShader(m_shaderProgram, m_FragmentShader));
 
-			glLinkProgram(m_shaderProgram);
-			glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success);
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glLinkProgram(m_shaderProgram));
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glGetProgramiv(m_shaderProgram, GL_LINK_STATUS, &success));
 
 			// Print Link Error
 			if (!success) {
-				glGetProgramInfoLog(m_shaderProgram, 512, NULL, infoLog);
+				IOR_PUSH_SYNC_RENDER_COMMAND(glGetProgramInfoLog(m_shaderProgram, 512, NULL, infoLog));
 				LeviathanOutStream << "ERROR::SHADER::LINK_FAILED\n" << infoLog << std::endl;
+
+				return false;
 			}
 
 			return true;
@@ -142,15 +133,15 @@ namespace Leviathan
 		{
 			GLint success = GL_FALSE;
 
-			glShaderSource(shaderProgram, 1, &pczShaderSource, nullptr);
-			glCompileShader(shaderProgram);
-			glGetShaderiv(shaderProgram, GL_COMPILE_STATUS, &success);
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glShaderSource(shaderProgram, 1, &pczShaderSource, nullptr));
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glCompileShader(shaderProgram));
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glGetShaderiv(shaderProgram, GL_COMPILE_STATUS, &success));
 			GLchar infoLog[512];
 
 			// Print Compile Error
 			if (success == GL_FALSE)
 			{
-				glGetShaderInfoLog(shaderProgram, 512, nullptr, infoLog);
+				IOR_PUSH_SYNC_RENDER_COMMAND(glGetShaderInfoLog(shaderProgram, 512, nullptr, infoLog));
 				LeviathanOutStream << "ERROR::SHADER::COMPILATION_FAILED\n" << infoLog << std::endl;
 
 				return false;

@@ -45,7 +45,7 @@ namespace Leviathan
 				LEV_ASSERT(m_texture_uniform_location != -1);
 			}
 
-			IOU_PUSH_ASYNC_RENDER_COMMAND(glUniform1i(m_texture_uniform_location, GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset()));
+			IOR_PUSH_ASYNC_RENDER_COMMAND(glUniform1i(m_texture_uniform_location, GL_TEXTURE0 + m_texture_object->GetTextureUnitOffset()));
 			return true;
 		}
 

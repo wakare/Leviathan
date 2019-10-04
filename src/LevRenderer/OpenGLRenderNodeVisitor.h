@@ -10,7 +10,7 @@ namespace Leviathan
 		class OpenGLRenderNodeVisitor : public NodeVisitor<OpenGLRenderNodeObject>
 		{
 		public:
-			OpenGLRenderNodeVisitor(GLuint shader_program, OpenGLRenderStateManager& render_state_manager, OpenGLUniformManager& uniform_manager)
+			OpenGLRenderNodeVisitor(GLuint shader_program, OpenGLRenderStateManager& render_state_manager, OpenGLProgramUniformManager& uniform_manager)
 				: m_shader_program(shader_program)
 				, m_uniform_manager(uniform_manager)
 				, m_render_state_manager(render_state_manager)
@@ -50,7 +50,7 @@ namespace Leviathan
 		private:
 			GLuint m_shader_program;
 
-			OpenGLUniformManager& m_uniform_manager;
+			OpenGLProgramUniformManager& m_uniform_manager;
 			OpenGLRenderStateManager& m_render_state_manager;
 		};
 	}

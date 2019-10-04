@@ -1,5 +1,6 @@
 #include "OpenGLNumericalUniform.h"
 #include "OpenGLObjectManager.h"
+#include "OpenGLResourceManager.h"
 
 namespace Leviathan
 {
@@ -38,35 +39,35 @@ namespace Leviathan
 			{
 			case TYPE_FLOAT_MAT4:
 			{
-				IOU_PUSH_SYNC_RENDER_COMMAND(glUniformMatrix4fv(m_uniform_location, 1, false, static_cast<const GLfloat*>(uniform_data)));
+				IOR_PUSH_SYNC_RENDER_COMMAND(glUniformMatrix4fv(m_uniform_location, 1, false, static_cast<const GLfloat*>(uniform_data)));
 				break;
 			}	
 
 			case TYPE_FLOAT_VEC3:
 			{
 				const float* floatLocation = static_cast<const float*>(uniform_data);
-				IOU_PUSH_SYNC_RENDER_COMMAND(glUniform3f(m_uniform_location, floatLocation[0], floatLocation[1], floatLocation[2]));
+				IOR_PUSH_SYNC_RENDER_COMMAND(glUniform3f(m_uniform_location, floatLocation[0], floatLocation[1], floatLocation[2]));
 				break;
 			}	
 
 			case TYPE_BOOLEAN:
 			{
 				const bool* bool_data = static_cast<const bool*>(uniform_data);
-				IOU_PUSH_SYNC_RENDER_COMMAND(glUniform1i(m_uniform_location, *bool_data));
+				IOR_PUSH_SYNC_RENDER_COMMAND(glUniform1i(m_uniform_location, *bool_data));
 				break;
 			}
 
 			case TYPE_INTEGER:
 			{
 				const int* int_data = static_cast<const int*>(uniform_data);
-				IOU_PUSH_SYNC_RENDER_COMMAND(glUniform1i(m_uniform_location, *int_data));
+				IOR_PUSH_SYNC_RENDER_COMMAND(glUniform1i(m_uniform_location, *int_data));
 				break;
 			}	
 
 			case TYPE_UNSIGNED_INTEGER:
 			{
 				const unsigned* uint_data = static_cast<const unsigned*>(uniform_data);
-				IOU_PUSH_SYNC_RENDER_COMMAND(glUniform1ui(m_uniform_location, *uint_data));
+				IOR_PUSH_SYNC_RENDER_COMMAND(glUniform1ui(m_uniform_location, *uint_data));
 				break;
 			}
 			

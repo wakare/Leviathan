@@ -1,6 +1,7 @@
 #pragma once
 #include "IOpenGLResource.h"
 #include "LevTokenDispatch.h"
+#include "OpenGLObjectManager.h"
 
 namespace Leviathan
 {
@@ -11,11 +12,12 @@ namespace Leviathan
 
 		typedef unsigned OpenGLObjectHandle;
 
-		class IOpenGLObject : public Renderer::IOpenGLResource
+		class IOpenGLObject : public IOpenGLResource
 		{
 		public:
 			IOpenGLObject(OpenGLObjectManager& object_manager) 
-				: m_object_manager(object_manager)
+				: IOpenGLResource(object_manager.GetResourceManager())
+				, m_object_manager(object_manager)
 				, m_object_handle(LevTokenDispatch<IOpenGLObject, OpenGLObjectHandle>::GetIncrementToken())
 			{
 			}
@@ -33,9 +35,5 @@ namespace Leviathan
 			OpenGLObjectManager& m_object_manager;
 			OpenGLObjectHandle m_object_handle;
 		};
-
-#define IOO_PUSH_SYNC_RENDER_COMMAND(command) m_object_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_SYNC);
-#define IOO_PUSH_ASYNC_RENDER_COMMAND(command) m_object_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_ASYNC);
-#define IOO_FLUSH_RENDER_COMMAND() m_object_manager.FlushRenderCommand();
 	}
 }

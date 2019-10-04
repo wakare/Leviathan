@@ -1,19 +1,20 @@
 #pragma once
+
+#include <string>
 #include "Gl/glew.h"
 #include "IOpenGLResource.h"
-#include <string>
+#include "OpenGLObjectManager.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLObjectManager;
-
 		class IOpenGLUniform : public IOpenGLResource
 		{
 		public:
 			IOpenGLUniform(OpenGLObjectManager& object_manager)
-				: m_object_manager(object_manager)
+				: IOpenGLResource(object_manager.GetResourceManager())
+				, m_object_manager(object_manager)
 			{
 				
 			}
@@ -28,8 +29,5 @@ namespace Leviathan
 		protected:
 			OpenGLObjectManager& m_object_manager;
 		};
-
-#define IOU_PUSH_SYNC_RENDER_COMMAND(command) m_object_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_SYNC);
-#define IOU_PUSH_ASYNC_RENDER_COMMAND(command) m_object_manager.PushRenderCommand([&] {command;}, OpenGLCommandType::EOCT_ASYNC);
 	}
 }

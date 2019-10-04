@@ -2,7 +2,7 @@
 
 namespace Leviathan
 {
-	Renderer::OpenGLEmptyRenderEntry::OpenGLEmptyRenderEntry(OpenGLRenderEntryManager& manager, unsigned id)
+	Renderer::OpenGLEmptyRenderEntry::OpenGLEmptyRenderEntry(OpenGLRenderResourceManager& manager, unsigned id)
 		: OpenGLRenderEntry(manager, id)
 	{
 

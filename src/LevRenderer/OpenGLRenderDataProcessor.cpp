@@ -21,7 +21,7 @@
 #include "OpenGLTextureUniform.h"
 #include "LevRAttrFrameBufferObject.h"
 #include "OpenGLFrameBufferObject.h"
-#include "OpenGLRenderEntryManager.h"
+#include "OpenGLRenderResourceManager.h"
 
 namespace Leviathan
 {

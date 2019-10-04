@@ -2,6 +2,8 @@
 
 #include <map>
 #include "LSPtr.h"
+#include "IOpenGLCommand.h"
+#include "OpenGLRenderBackend.h"
 
 namespace Leviathan
 {
@@ -18,8 +20,8 @@ namespace Leviathan
 		class OpenGLRenderNodeObject;
 		class OpenGLRenderStateManager;
 		class OpenGLObjectManager;
-		class OpenGLRenderEntryManager;
-		class OpenGLRenderBackend;
+		class OpenGLRenderResourceManager;
+		class OpenGLUniformManager;
 
 		typedef int RenderTreeID;
 
@@ -34,18 +36,32 @@ namespace Leviathan
 			bool RemoveRenderTree(RenderTreeID handle, unsigned object_id);
 
 			OpenGLObjectManager& GetObjectManager();
-			OpenGLRenderEntryManager& GetRenderEntryManager();
+			OpenGLRenderResourceManager& GetRenderEntryManager();
 
 			bool Render();
+
+			template<typename LAMBDA_TYPE>
+			bool PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type);
+
+			bool FlushRenderCommand();
 
 		private:
 			OpenGLRenderBackend& m_render_backend;
 
 			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
 			LSPtr<OpenGLObjectManager> m_object_manager;
-			LSPtr<OpenGLRenderEntryManager> m_render_entry_manager;
+			LSPtr<OpenGLUniformManager> m_uniform_manager;
+			LSPtr<OpenGLRenderResourceManager> m_render_entry_manager;
+
 			std::map<RenderTreeID, LSPtr<OpenGLPass>> m_render_pass;
 			std::map<RenderTreeID, LSPtr<OpenGLRenderTree>> m_render_trees;
 		};
+
+		template <typename LAMBDA_TYPE>
+		bool OpenGLResourceManager::PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type)
+		{
+			m_render_backend.PushRenderCommand(command, type);
+			return true;
+		}
 	}
 }

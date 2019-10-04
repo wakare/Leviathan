@@ -7,7 +7,9 @@
 #include "OpenGLRenderNodeObject.h"
 #include "OpenGLRenderNode.h"
 #include "OpenGLObjectManager.h"
-#include "OpenGLRenderEntryManager.h"
+#include "OpenGLRenderResourceManager.h"
+#include "OpenGLUniformManager.h"
+#include "OpenGLProgramUniformManager.h"
 
 namespace Leviathan
 {
@@ -15,9 +17,10 @@ namespace Leviathan
 	{
 		OpenGLResourceManager::OpenGLResourceManager(OpenGLRenderBackend& render_backend)
 			: m_render_backend(render_backend)
-			, m_render_state_manager(new OpenGLRenderStateManager(m_render_backend))
-			, m_object_manager(new OpenGLObjectManager(m_render_backend))
-			, m_render_entry_manager(new OpenGLRenderEntryManager(m_render_backend))
+			, m_render_state_manager(new OpenGLRenderStateManager(*this))
+			, m_object_manager(new OpenGLObjectManager(*this))
+			, m_uniform_manager(new OpenGLUniformManager)
+			, m_render_entry_manager(new OpenGLRenderResourceManager(*this))
 		{
 
 		}
@@ -29,10 +32,15 @@ namespace Leviathan
 			if (it == m_render_trees.end())
 			{
 				// Create
-				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(m_render_state_manager, m_render_entry_manager);
+				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(*m_render_entry_manager, m_render_state_manager);
 
-				LSPtr<OpenGLShaderProgram> opengl_shader_program = new OpenGLShaderProgram(shader_program);
-				m_render_pass[shader_program.GetID()] = new OpenGLPass(opengl_shader_program, *m_render_state_manager);
+				LSPtr<OpenGLShaderProgram> gl_shader_program = new OpenGLShaderProgram(*m_object_manager, shader_program);
+
+				LSPtr<OpenGLProgramUniformManager> program_uniform_manager = nullptr;
+				const bool _created = m_uniform_manager->CreateProgramUniformManager(gl_shader_program, program_uniform_manager);
+				assert(_created);
+
+				m_render_pass[shader_program.GetID()] = new OpenGLPass(*m_render_entry_manager, gl_shader_program, program_uniform_manager, *m_render_state_manager);
 			}
 
 			return shader_program.GetID();
@@ -87,7 +95,7 @@ namespace Leviathan
 			return *m_object_manager;
 		}
 
-		OpenGLRenderEntryManager& OpenGLResourceManager::GetRenderEntryManager()
+		OpenGLRenderResourceManager& OpenGLResourceManager::GetRenderEntryManager()
 		{
 			return *m_render_entry_manager;
 		}
@@ -101,6 +109,11 @@ namespace Leviathan
 			}
 
 			return true;
+		}
+
+		bool OpenGLResourceManager::FlushRenderCommand()
+		{
+			return m_render_backend.FlushRenderCommand();
 		}
 	}
 }

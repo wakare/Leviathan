@@ -6,12 +6,12 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		class OpenGLRenderEntryManager;
+		class OpenGLRenderResourceManager;
 
 		class OpenGLEmptyRenderEntry : public OpenGLRenderEntry
 		{
 		public:
-			OpenGLEmptyRenderEntry(OpenGLRenderEntryManager& manager, unsigned id);
+			OpenGLEmptyRenderEntry(OpenGLRenderResourceManager& manager, unsigned id);
 
 		protected:
 			bool _init() override;

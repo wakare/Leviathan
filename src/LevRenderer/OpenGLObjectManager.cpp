@@ -8,8 +8,8 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLObjectManager::OpenGLObjectManager(OpenGLRenderBackend& render_backend)
-			: m_render_backend(render_backend)
+		OpenGLObjectManager::OpenGLObjectManager(OpenGLResourceManager& resource_manager)
+			: m_resource_manager(resource_manager)
 		{
 			
 		}
@@ -71,9 +71,9 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLObjectManager::FlushRenderCommand()
+		OpenGLResourceManager& OpenGLObjectManager::GetResourceManager()
 		{
-			return m_render_backend.FlushRenderCommand();
+			return m_resource_manager;
 		}
 	}
 }

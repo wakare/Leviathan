@@ -9,7 +9,7 @@ namespace Leviathan
 		class OpenGLRenderStateManager;
 		class OpenGLRenderEntry;
 		class OpenGLFrameBufferObject;
-		class OpenGLUniformManager;
+		class OpenGLProgramUniformManager;
 
 		class OpenGLRenderNodeObject
 		{
@@ -21,8 +21,8 @@ namespace Leviathan
 			void ApplyRenderState(OpenGLRenderStateManager& render_state_manager);
 			void UnApplyRenderState(OpenGLRenderStateManager& render_state_manager);
 
-			void ApplyUniform(OpenGLUniformManager& uniform_manager);
-			void UnApplyUniform(OpenGLUniformManager& uniform_manager);
+			void ApplyUniform(OpenGLProgramUniformManager& uniform_manager);
+			void UnApplyUniform(OpenGLProgramUniformManager& uniform_manager);
 
 			void ApplyFrameBufferObject();
 			void UnApplyFrameBufferObject();

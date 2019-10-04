@@ -1,24 +1,23 @@
-﻿#pragma once
-
+#pragma once
+#include <vector>
 #include "LSPtr.h"
-#include "gl/glew.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		class IOpenGLUniform;
+		class OpenGLProgramUniformManager;
+		class OpenGLShaderProgram;
 
 		class OpenGLUniformManager
 		{
 		public:
-			OpenGLUniformManager(GLuint shader_program);
+			OpenGLUniformManager();
 
-			void ApplyUniform(LSPtr<IOpenGLUniform> uniform);
+			bool CreateProgramUniformManager(LSPtr<OpenGLShaderProgram> shader_program, LSPtr<OpenGLProgramUniformManager>& out);
 
 		private:
-			GLuint m_shader_program;
+			std::vector<LSPtr<OpenGLProgramUniformManager>> m_program_uniforms;
 		};
 	}
 }
-

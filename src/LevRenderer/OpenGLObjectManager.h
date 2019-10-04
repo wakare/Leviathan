@@ -11,12 +11,12 @@ namespace Leviathan
 	namespace Renderer
 	{
 		class IOpenGLTextureObject;
-		class OpenGLRenderBackend;
+		class OpenGLResourceManager;
 
 		class OpenGLObjectManager
 		{
 		public:
-			OpenGLObjectManager(OpenGLRenderBackend& render_backend);
+			OpenGLObjectManager(OpenGLResourceManager& resource_manager);
 
 			/*
 			 ***************************************** Resource generation
@@ -26,22 +26,12 @@ namespace Leviathan
 
 			bool GetTextureResource(GLuint texture_object_uid, LSPtr<IOpenGLTextureObject>& out);
 
-			template<typename LAMBDA_TYPE>
-			bool PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type);
-
-			bool FlushRenderCommand();
+			OpenGLResourceManager& GetResourceManager();
 
 		private:
-			OpenGLRenderBackend& m_render_backend;
+			OpenGLResourceManager& m_resource_manager;
 
 			std::map<GLuint, LSPtr<IOpenGLTextureObject>> m_texture_objects;
 		};
-
-		template <typename LAMBDA_TYPE>
-		bool OpenGLObjectManager::PushRenderCommand(LAMBDA_TYPE command, OpenGLCommandType type)
-		{
-			m_render_backend.PushRenderCommand(command, type);
-			return true;
-		}
 	}
 }

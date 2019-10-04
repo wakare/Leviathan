@@ -1,4 +1,4 @@
-﻿#include "OpenGLRenderEntryManager.h"
+﻿#include "OpenGLRenderResourceManager.h"
 #include "OpenGLEmptyRenderEntry.h"
 #include "LevSceneObject.h"
 
@@ -6,12 +6,12 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderEntryManager::OpenGLRenderEntryManager(OpenGLRenderBackend& render_backend)
-			: m_render_backend(render_backend)
+		OpenGLRenderResourceManager::OpenGLRenderResourceManager(OpenGLResourceManager& resource_manager)
+			: m_resource_manager(resource_manager)
 		{
 		}
 
-		bool OpenGLRenderEntryManager::CreateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out)
+		bool OpenGLRenderResourceManager::CreateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out)
 		{
 			if (_checkEntryExist(scene_object.GetID()))
 			{
@@ -22,7 +22,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderEntryManager::CreateEmptyRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out)
+		bool OpenGLRenderResourceManager::CreateEmptyRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out)
 		{
 			if (_checkEntryExist(scene_object.GetID()))
 			{
@@ -33,14 +33,14 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderEntryManager::SetParent(const Scene::LevSceneObject& scene_object,
+		bool OpenGLRenderResourceManager::SetParent(const Scene::LevSceneObject& scene_object,
 			const Scene::LevSceneObject& parent_object)
 		{
 			m_parent_mapping[scene_object.GetID()] = parent_object.GetID();
 			return true;
 		}
 
-		bool OpenGLRenderEntryManager::GetParentID(unsigned id, unsigned& out)
+		bool OpenGLRenderResourceManager::GetParentID(unsigned id, unsigned& out)
 		{
 			auto it = m_parent_mapping.find(id);
 			if (it == m_parent_mapping.end())
@@ -52,7 +52,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderEntryManager::GetRenderEntry(unsigned id, LSPtr<OpenGLRenderEntry>& out)
+		bool OpenGLRenderResourceManager::GetRenderEntry(unsigned id, LSPtr<OpenGLRenderEntry>& out)
 		{
 			auto it = m_render_entries.find(id);
 			if (it == m_render_entries.end())
@@ -64,12 +64,12 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLRenderEntryManager::FlushRenderCommand()
+		OpenGLResourceManager& OpenGLRenderResourceManager::GetResourceManager()
 		{
-			return m_render_backend.FlushRenderCommand();
+			return m_resource_manager;
 		}
 
-		bool OpenGLRenderEntryManager::_checkEntryExist(unsigned id)
+		bool OpenGLRenderResourceManager::_checkEntryExist(unsigned id)
 		{
 			return m_render_entries.find(id) != m_render_entries.end();
 		}

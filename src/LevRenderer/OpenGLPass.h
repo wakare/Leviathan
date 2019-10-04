@@ -4,6 +4,7 @@
 #include "LSPtr.h"
 #include "NodeVisitor.h"
 #include "OpenGLRenderTree.h"
+#include "IOpenGLRenderResource.h"
 
 
 namespace Leviathan
@@ -14,15 +15,15 @@ namespace Leviathan
 		class OpenGLShaderProgram;
 		class OpenGLResourceManager;
 		class OpenGLRenderStateManager;
-		class OpenGLUniformManager;
+		class OpenGLProgramUniformManager;
 		class OpenGLRenderNodeVisitor;
 		
-		class OpenGLPass
+		class OpenGLPass : public IOpenGLRenderResource
 		{
 		public:
-			OpenGLPass(LSPtr<OpenGLShaderProgram> shader_program, OpenGLRenderStateManager& render_state_manager);
+			OpenGLPass(OpenGLRenderResourceManager& resource_manager, LSPtr<OpenGLShaderProgram> shader_program, LSPtr<OpenGLProgramUniformManager> pass_uniform_manager, OpenGLRenderStateManager& render_state_manager);
 			bool Render(OpenGLRenderTree& render_tree);
-
+				
 			unsigned GetID() const;
 			OpenGLRenderNodeVisitor& GetRenderVisitor();
 
@@ -32,7 +33,7 @@ namespace Leviathan
 			OpenGLRenderStateManager& m_render_state_manager;
 			
 			LSPtr<OpenGLShaderProgram> m_shader_program;
-			LSPtr<OpenGLUniformManager> m_pass_uniform_manager;
+			LSPtr<OpenGLProgramUniformManager> m_pass_uniform_manager;
 			LSPtr<OpenGLRenderNodeVisitor> m_render_visitor;
 		};
 	}

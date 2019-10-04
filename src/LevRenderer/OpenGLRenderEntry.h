@@ -4,6 +4,7 @@
 #include <gl/glew.h>
 #include "LSPtr.h"
 #include "LevRAttrRenderObjectAttributeBinder.h"
+#include "IOpenGLRenderResource.h"
 
 namespace Leviathan
 {
@@ -18,13 +19,12 @@ namespace Leviathan
 		class IOpenGLRenderState;
 		class IOpenGLUniform;
 		class OpenGLFrameBufferObject;
-		class OpenGLRenderEntryManager;
+		class OpenGLRenderResourceManager;
 
-		class OpenGLRenderEntry
+		class OpenGLRenderEntry : public IOpenGLRenderResource
 		{
 		public:
-			//OpenGLRenderEntry(unsigned id, const Scene::LevRAttrRenderObjectAttributeBinder& attribute_binder);
-			OpenGLRenderEntry(OpenGLRenderEntryManager& manager, const Scene::LevSceneObject& object);
+			OpenGLRenderEntry(OpenGLRenderResourceManager& manager, const Scene::LevSceneObject& object);
 			virtual ~OpenGLRenderEntry() = default;
 
 			virtual bool Render(GLuint shaderProgram);
@@ -43,10 +43,8 @@ namespace Leviathan
 			void AddUniform(LSPtr<IOpenGLUniform> uniform);
 			
 		protected:
-			OpenGLRenderEntry(OpenGLRenderEntryManager& manager, unsigned id);
+			OpenGLRenderEntry(OpenGLRenderResourceManager& manager, unsigned id);
 			virtual bool _init();
-
-			OpenGLRenderEntryManager& m_render_entry_manager;
 
 			const Scene::LevRAttrRenderObjectAttributeBinder* m_attribute_binder;
 

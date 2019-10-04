@@ -3,6 +3,7 @@
 #include <gl/glew.h>
 #include <map>
 #include "LSPtr.h"
+#include "IOpenGLObject.h"
 
 namespace Leviathan
 {
@@ -15,10 +16,10 @@ namespace Leviathan
 	{
 		class OpenGLNumericalUniform;
 
-		class OpenGLShaderProgram
+		class OpenGLShaderProgram : public IOpenGLObject
 		{
 		public:
-			OpenGLShaderProgram(const Scene::LevRAttrShaderProgram& shader_program);
+			OpenGLShaderProgram(OpenGLObjectManager& manager, const Scene::LevRAttrShaderProgram& shader_program);
 
 			bool Init();
 			bool SetGLUniformState();

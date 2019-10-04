@@ -1,7 +1,7 @@
 #include "OpenGLRenderNodeObject.h"
 #include "OpenGLRenderEntry.h"
 #include "OpenGLRenderStateManager.h"
-#include "OpenGLUniformManager.h"
+#include "OpenGLProgramUniformManager.h"
 #include "OpenGLFrameBufferObject.h"
 
 namespace Leviathan
@@ -42,7 +42,7 @@ namespace Leviathan
 			}*/
 		}
 
-		void OpenGLRenderNodeObject::ApplyUniform(OpenGLUniformManager& uniform_manager)
+		void OpenGLRenderNodeObject::ApplyUniform(OpenGLProgramUniformManager& uniform_manager)
 		{
 			auto& uniforms = m_object->GetUniforms();
 			for (auto& uniform : uniforms)
@@ -51,7 +51,7 @@ namespace Leviathan
 			}
 		}
 
-		void OpenGLRenderNodeObject::UnApplyUniform(OpenGLUniformManager& uniform_manager)
+		void OpenGLRenderNodeObject::UnApplyUniform(OpenGLProgramUniformManager& uniform_manager)
 		{
 			/*auto& uniforms = m_object->GetUniforms();
 			for (auto& uniform : uniforms)

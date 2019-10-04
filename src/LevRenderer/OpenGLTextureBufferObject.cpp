@@ -11,9 +11,9 @@ namespace Leviathan
 			: IOpenGLBufferObject(object_mananger)
 			, m_texture_object(nullptr)
 		{
-			if (!m_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
+			if (!m_object_manager.GetTextureResource(texture_object.GetID(), m_texture_object))
 			{
-				const bool created = m_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
+				const bool created = m_object_manager.CreateTextureResource(texture_object.GetTextureType(), texture_object.GetID(), texture_object.GetWidth(),
 									texture_object.GetHeight(), texture_object.GetDepth(), texture_object.GetTextureData(), m_texture_object);
 				LEV_ASSERT(created);
 			}

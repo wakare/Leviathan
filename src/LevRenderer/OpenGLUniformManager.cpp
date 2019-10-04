@@ -1,19 +1,20 @@
-﻿#include "OpenGLUniformManager.h"
-#include "IOpenGLUniform.h"
+#include "OpenGLUniformManager.h"
+#include "OpenGLProgramUniformManager.h"
+#include "OpenGLShaderProgram.h"
 
 namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLUniformManager::OpenGLUniformManager(GLuint shader_program)
-			: m_shader_program(shader_program)
+		OpenGLUniformManager::OpenGLUniformManager()
 		{
-			
 		}
 
-		void OpenGLUniformManager::ApplyUniform(LSPtr<IOpenGLUniform> uniform)
+		bool OpenGLUniformManager::CreateProgramUniformManager(LSPtr<OpenGLShaderProgram> shader_program,
+			LSPtr<OpenGLProgramUniformManager>& out)
 		{
-			uniform->Apply(m_shader_program);
+			out.Reset(new OpenGLProgramUniformManager(*this, shader_program->GetShaderProgram()));
+			return true;
 		}
 	}
 }

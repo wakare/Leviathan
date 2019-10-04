@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "IOpenGLObject.h"
 
 namespace Leviathan
 {
@@ -6,17 +7,18 @@ namespace Leviathan
 	{
 		enum OpenGLBufferBufferType
 		{
-			EOBBT_TEXTURE_BUFFER_OBJECT
+			EOBBT_TEXTURE_BUFFER_OBJECT,
+			EOBBT_FRAME_BUFFER_OBJECT,
 		};
 
 		class OpenGLTextureBufferObject;
 		class OpenGLObjectManager;
 
-		class IOpenGLBufferObject
+		class IOpenGLBufferObject : public IOpenGLObject
 		{
 		public:
 			IOpenGLBufferObject(OpenGLObjectManager& manager)
-				: m_manager(manager)
+				: IOpenGLObject(manager)
 			{
 				
 			}
@@ -24,9 +26,6 @@ namespace Leviathan
 			virtual ~IOpenGLBufferObject() = default;
 			virtual OpenGLBufferBufferType GetBufferObjectType() const = 0;
 			virtual OpenGLTextureBufferObject* ToTextureBufferObject() { return nullptr; }
-
-		protected:
-			OpenGLObjectManager& m_manager;
 		};
 	}
 }

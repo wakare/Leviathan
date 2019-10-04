@@ -3,6 +3,7 @@
 #include "Node.h"
 #include <GL/glew.h>
 #include <map>
+#include "IOpenGLRenderResource.h"
 
 namespace Leviathan
 {
@@ -11,17 +12,17 @@ namespace Leviathan
 		class OpenGLRenderEntry;
 		class OpenGLShaderProgram;
 		class OpenGLRenderStateManager;
-		class OpenGLUniformManager;
+		class OpenGLProgramUniformManager;
 		class OpenGLFrameBufferObject;
 		class OpenGLRenderNode;
-		class OpenGLRenderEntryManager;
+		class OpenGLRenderResourceManager;
 		/*
 			One OpenGLPass mapping one OpenGLRenderTree		
 		*/
-		class OpenGLRenderTree
+		class OpenGLRenderTree : public IOpenGLRenderResource
 		{
 		public:
-			OpenGLRenderTree(LSPtr<OpenGLRenderStateManager> render_state_manager, LSPtr<OpenGLRenderEntryManager> render_entry_manager);
+			OpenGLRenderTree(OpenGLRenderResourceManager& resource_manager, LSPtr<OpenGLRenderStateManager> render_state_manager);
 			bool AddNode(LSPtr<OpenGLRenderNode> node);
 			bool ReplaceNode(LSPtr<OpenGLRenderNode> node);
 			bool RemoveNode(unsigned handle);
@@ -29,10 +30,8 @@ namespace Leviathan
 			OpenGLRenderNode& GetRoot();
 
 		private:
-
 			LSPtr<OpenGLRenderNode> m_root;
 			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
-			LSPtr<OpenGLRenderEntryManager> m_render_entry_manager;
 
 			std::map<unsigned, LSPtr<OpenGLRenderNode>> m_nodes;
 		};
