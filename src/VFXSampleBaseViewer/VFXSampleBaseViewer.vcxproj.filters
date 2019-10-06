@@ -31,6 +31,9 @@
     <Filter Include="VFXScenes\CubemapScene">
       <UniqueIdentifier>{a7db4e29-d117-48af-82b0-1a58f21d3942}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VFXScenes\Particle">
+      <UniqueIdentifier>{d7e4b06f-8f02-45e6-992c-af7fa378d218}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VFXSampleBaseViewer.h">
@@ -75,6 +78,9 @@
     <ClInclude Include="SkyboxProgram.h">
       <Filter>VFXScenes\CubemapScene</Filter>
     </ClInclude>
+    <ClInclude Include="ParticleSystem.h">
+      <Filter>VFXScenes\Particle</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="VFXCommonScene.cpp">
@@ -100,6 +106,9 @@
     </ClCompile>
     <ClCompile Include="VFXSkyboxScene.cpp">
       <Filter>VFXScenes\CubemapScene</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleSystem.cpp">
+      <Filter>VFXScenes\Particle</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

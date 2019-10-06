@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BaseShaderSource.h" />
+    <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="SDFVoxel.h" />
     <ClInclude Include="SDFVoxelManager.h" />
     <ClInclude Include="ShadowMapSceneProgram.h" />
@@ -35,6 +36,7 @@
     <ClInclude Include="VFXSkyboxScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="SDFVoxelManager.cpp" />
     <ClCompile Include="VFXCommonScene.cpp" />
     <ClCompile Include="VFXDeferRenderScene.cpp" />

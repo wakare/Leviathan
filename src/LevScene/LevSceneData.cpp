@@ -60,6 +60,11 @@ namespace Leviathan
 			m_pSceneTree->UpdateTimer();
 		}
 
+		void LevSceneData::DoUserUpdateCallback()
+		{
+			m_pSceneTree->DoUserUpdataCallback();
+		}
+
 		void LevSceneData::RegisterToMainCamera(LSPtr<LevCamera> camera, LSPtr<LevSceneNode> camera_node)
 		{
 			m_main_camera = camera;

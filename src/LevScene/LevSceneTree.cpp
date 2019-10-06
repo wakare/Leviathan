@@ -7,6 +7,7 @@
 #include "LevStateUpdaterVisitor.h"
 #include "LevCalculateWorldCoordVisitor.h"
 #include "LevTimerTickVisitor.h"
+#include "LevUserUpdateVisitor.h"
 
 namespace Leviathan
 {
@@ -18,6 +19,7 @@ namespace Leviathan
 			, m_modified_setor(new LevSetObjModifiedVisitor)
 			, m_worldCoord_updater(new LevCalculateWorldCoordVisitor)
 			, m_time_ticker(new LevTimerTickVisitor)
+			, m_user_updater(new LevUserUpdateVisitor)
 			, m_root(nullptr)
 		{
 			// Init root node
@@ -89,6 +91,12 @@ namespace Leviathan
 		bool LevSceneTree::UpdateTimer()
 		{
 			m_time_ticker->Apply(*m_root);
+			return true;
+		}
+
+		bool LevSceneTree::DoUserUpdataCallback()
+		{
+			m_user_updater->Apply(*m_root);
 			return true;
 		}
 

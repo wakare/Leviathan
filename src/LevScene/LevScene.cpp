@@ -48,6 +48,8 @@ namespace Leviathan
 		{
 			m_pSceneData->UpdateTimer();
 
+			m_pSceneData->DoUserUpdateCallback();
+
 			if (HasModified())
 			{
 				for (auto& callback : m_scene_modified_callbacks)

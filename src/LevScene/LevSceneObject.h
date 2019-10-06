@@ -68,7 +68,9 @@ namespace Leviathan
 		class LevLAttrLocalTransform;
 		
 		typedef unsigned SceneObjectID;
+		
 		typedef std::function<void(const LevSceneObject&)> LevSceneObjModified;
+		typedef std::function<void(LevSceneObject&)> LevSceneObjUpdated;
 
 		class LEV_SCENE_API LevSceneObject
 		{
@@ -92,6 +94,9 @@ namespace Leviathan
 
 			void ResetUnModified();
 			void SetModifiedCallback(LevSceneObjModified modified);
+
+			void SetUpdatedCallback(LevSceneObjUpdated updated);
+			const LevSceneObjUpdated& GetSceneObjectUpdateCallback();
 
 			template <typename T>
 			bool AddAttribute(LSPtr<T> pAttribute);
@@ -125,7 +130,7 @@ namespace Leviathan
 			/*
 				Warn:
 					World coord will be calculate automatic by LevCalculateWorldCoordVisitor,
-					if you want to disable the process, please set m_recalculateWorldTransform to false.
+					if you want to disable the process, please set m_recalculate_world_transform to false.
 			*/
 			bool SetWorldTransform(const Eigen::Matrix4f& trans);
 			const Eigen::Matrix4f& GetWorldTransform() const;
@@ -145,19 +150,21 @@ namespace Leviathan
 			std::string m_name;
 
 			bool m_modified;
-			bool m_recalculateWorldTransform;
-			LevSceneObjModified m_modifiedCallback;
+			bool m_recalculate_world_transform;
+			LevSceneObjModified m_modified_callback;
 			LevSceneObjectState m_state;
+
+			LevSceneObjUpdated m_update_callback;
 
 			const LevSceneObjectType m_type;
 			std::vector<LSPtr<LevSceneObjectAttribute>> m_attributes;
 
-			LSPtr<LevLRAttrWorldTransform> m_pWorldTransform;
-			LSPtr<LevLRAttrModelTransform> m_pModelTransform;
-			LSPtr<LevLAttrLocalTransform> m_pLocalTransform;
-			LSPtr<LevSceneObjectDescription> m_pObjDesc;
+			LSPtr<LevLRAttrWorldTransform> m_world_transform;
+			LSPtr<LevLRAttrModelTransform> m_model_transform;
+			LSPtr<LevLAttrLocalTransform> m_local_transform;
+			LSPtr<LevSceneObjectDescription> m_obj_desc;
 
-			LSPtr<LevTimer> m_pTimer;
+			LSPtr<LevTimer> m_timer;
 		};
 
 		template <typename T>

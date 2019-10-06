@@ -133,6 +133,12 @@ namespace Leviathan
 			scene_node->GetNodeData()->AddUniform(model_matrix_uniform.To<ILevUniform>());
 			scene_node->GetNodeData()->AddUniform(world_matrix_uniform.To<ILevUniform>());
 
+			Scene::LevSceneObjUpdated updater = [&](LevSceneObject&)
+			{
+				GetSceneData().GetMainCamera()->MouseRotate(0.0f, 0.01f);
+			};
+			scene_node->GetNodeData()->SetUpdatedCallback(updater);
+
 			return true;
 		}
 	}

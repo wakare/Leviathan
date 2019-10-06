@@ -14,13 +14,13 @@ namespace Leviathan
 		LevSceneObject::LevSceneObject(int type) 
 			: m_type((LevSceneObjectType)type)
 			, m_modified(true)
-			, m_recalculateWorldTransform(true)
-			, m_pModelTransform(new LevLRAttrModelTransform)
-			, m_pWorldTransform(new LevLRAttrWorldTransform)
-			, m_pLocalTransform(new LevLAttrLocalTransform)
-			, m_pTimer(nullptr)
+			, m_recalculate_world_transform(true)
+			, m_model_transform(new LevLRAttrModelTransform)
+			, m_world_transform(new LevLRAttrWorldTransform)
+			, m_local_transform(new LevLAttrLocalTransform)
+			, m_timer(nullptr)
 			, m_state(ELSOS_ADDED)
-			, m_modifiedCallback(nullptr)
+			, m_modified_callback(nullptr)
 		{
 			// Init unique id
 			static unsigned _globalID = 0;
@@ -37,17 +37,17 @@ namespace Leviathan
 		LevSceneObject::LevSceneObject(const LevSceneObject& object)
 			: m_type(object.GetType())
 			, m_modified(object.m_modified)
-			, m_recalculateWorldTransform(object.m_recalculateWorldTransform)
-			, m_pModelTransform(new LevLRAttrModelTransform(*object.m_pModelTransform))
-			, m_pWorldTransform(new LevLRAttrWorldTransform(*object.m_pWorldTransform))
-			, m_pLocalTransform(new LevLAttrLocalTransform(*object.m_pLocalTransform))
-			, m_pTimer(object.m_pTimer.Get() ? new LevTimer(*object.m_pTimer) : nullptr)
+			, m_recalculate_world_transform(object.m_recalculate_world_transform)
+			, m_model_transform(new LevLRAttrModelTransform(*object.m_model_transform))
+			, m_world_transform(new LevLRAttrWorldTransform(*object.m_world_transform))
+			, m_local_transform(new LevLAttrLocalTransform(*object.m_local_transform))
+			, m_timer(object.m_timer.Get() ? new LevTimer(*object.m_timer) : nullptr)
 			, m_state(ELSOS_ADDED)
 			, m_ID(object.m_ID)
 			, m_name(object.m_name)
 			// No need copy obj_desc 
-			, m_pObjDesc(object.m_pObjDesc)
-			, m_modifiedCallback(nullptr)
+			, m_obj_desc(object.m_obj_desc)
+			, m_modified_callback(nullptr)
 		{ 
 			_setBaseAttribute();
 		}
@@ -84,9 +84,9 @@ namespace Leviathan
 		void LevSceneObject::SetModified()
 		{
 			m_modified = true;
-			if (m_modifiedCallback)
+			if (m_modified_callback)
 			{
-				m_modifiedCallback(*this);
+				m_modified_callback(*this);
 			}
 		}
 
@@ -108,7 +108,17 @@ namespace Leviathan
 
 		void LevSceneObject::SetModifiedCallback(LevSceneObjModified modified)
 		{
-			m_modifiedCallback = modified;
+			m_modified_callback = modified;
+		}
+
+		void LevSceneObject::SetUpdatedCallback(LevSceneObjUpdated updated)
+		{
+			m_update_callback = updated;
+		}
+
+		const LevSceneObjUpdated& LevSceneObject::GetSceneObjectUpdateCallback()
+		{
+			return m_update_callback;
 		}
 
 		bool LevSceneObject::AddUniform(LSPtr<ILevUniform> uniform)
@@ -139,100 +149,100 @@ namespace Leviathan
 
 		bool LevSceneObject::HasObjectDesc() const
 		{
-			return m_pObjDesc.Get();
+			return m_obj_desc.Get();
 		}
 
 		bool LevSceneObject::SetObjectDesc(LSPtr<LevSceneObjectDescription> pObjDesc)
 		{
-			m_pObjDesc.Reset(pObjDesc);
+			m_obj_desc.Reset(pObjDesc);
 			return true;
 		}
 
 		LevSceneObjectDescription & LevSceneObject::GetObjectDesc()
 		{
-			return *m_pObjDesc;
+			return *m_obj_desc;
 		}
 
 		const LevSceneObjectDescription & LevSceneObject::GetObjectDesc() const
 		{
-			LEV_ASSERT(m_pObjDesc.Get());
-			return *m_pObjDesc;
+			LEV_ASSERT(m_obj_desc.Get());
+			return *m_obj_desc;
 		}
 
 		void LevSceneObject::SetRecalculateWorldTransform(bool need)
 		{
-			m_recalculateWorldTransform = need;
+			m_recalculate_world_transform = need;
 		}
 
 		bool LevSceneObject::NeedRecalculateWorldTransform() const
 		{
-			return m_recalculateWorldTransform;
+			return m_recalculate_world_transform;
 		}
 
 		void LevSceneObject::SetTimer(LSPtr<LevTimer> timer)
 		{
-			m_pTimer = timer;
+			m_timer = timer;
 		}
 
 		LSPtr<LevTimer> LevSceneObject::GetTimer()
 		{
-			return m_pTimer;
+			return m_timer;
 		}
 
 		const LSPtr<LevTimer> LevSceneObject::GetTimer() const
 		{
-			return m_pTimer;
+			return m_timer;
 		}
 
 		bool LevSceneObject::SetWorldTransform(const Eigen::Matrix4f& trans)
 		{
-			LEV_ASSERT(m_pWorldTransform);
-			m_pWorldTransform->SetMatrix(trans);
+			LEV_ASSERT(m_world_transform);
+			m_world_transform->SetMatrix(trans);
 			return true;
 		}
 
 		const Eigen::Matrix4f& LevSceneObject::GetWorldTransform() const
 		{
-			LEV_ASSERT(m_pWorldTransform.Get());
-			return m_pWorldTransform->GetMatrix();
+			LEV_ASSERT(m_world_transform.Get());
+			return m_world_transform->GetMatrix();
 		}
 
 		bool LevSceneObject::SetModelTransform(const Eigen::Matrix4f & trans)
 		{
-			LEV_ASSERT(m_pModelTransform);
-			m_pModelTransform->SetMatrix(trans);
+			LEV_ASSERT(m_model_transform);
+			m_model_transform->SetMatrix(trans);
 			return true;
 		}
 
 		const Eigen::Matrix4f& LevSceneObject::GetModelTransform() const
 		{
-			LEV_ASSERT(m_pModelTransform.Get());
-			return m_pModelTransform->GetMatrix();
+			LEV_ASSERT(m_model_transform.Get());
+			return m_model_transform->GetMatrix();
 		}
 
 		bool LevSceneObject::SetLocalTransform(const Eigen::Matrix4f & trans)
 		{
-			LEV_ASSERT(m_pLocalTransform);
-			m_pLocalTransform->SetMatrix(trans);
+			LEV_ASSERT(m_local_transform);
+			m_local_transform->SetMatrix(trans);
 			return true;
 		}
 
 		const Eigen::Matrix4f & LevSceneObject::GetLocalTransform() const
 		{
-			LEV_ASSERT(m_pLocalTransform.Get());
-			return m_pLocalTransform->GetMatrix();
+			LEV_ASSERT(m_local_transform.Get());
+			return m_local_transform->GetMatrix();
 		}
 
 		bool LevSceneObject::SetEmpty()
 		{
 			// Clear run time data.
-			m_pObjDesc.Reset(nullptr);
-			m_pTimer.Reset(nullptr);
+			m_obj_desc.Reset(nullptr);
+			m_timer.Reset(nullptr);
 			m_attributes.clear();
 			
-			m_pLocalTransform->Reset();
-			m_pModelTransform->Reset();
-			m_pWorldTransform->Reset();
+			m_local_transform->Reset();
+			m_model_transform->Reset();
+			m_world_transform->Reset();
 			_setBaseAttribute();
 
 			SetState(ELSOS_UPDATE);
@@ -243,9 +253,9 @@ namespace Leviathan
 		void LevSceneObject::_setBaseAttribute()
 		{
 			// Add transforms
-			m_attributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_pModelTransform));
-			m_attributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_pWorldTransform));
-			m_attributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_pLocalTransform));
+			m_attributes.push_back(TryCast<LevLRAttrModelTransform, LevSceneObjectAttribute>(m_model_transform));
+			m_attributes.push_back(TryCast<LevLRAttrWorldTransform, LevSceneObjectAttribute>(m_world_transform));
+			m_attributes.push_back(TryCast<LevLAttrLocalTransform, LevSceneObjectAttribute>(m_local_transform));
 		}
 	}
 }

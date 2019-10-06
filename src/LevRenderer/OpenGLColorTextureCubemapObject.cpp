@@ -13,7 +13,7 @@ namespace Leviathan
 			, m_width(width)
 			, m_height(height)
 		{
-			IOR_PUSH_SYNC_RENDER_COMMAND(glGenTextures(1, &m_texture_object); std::cout << "TEST..." << std::endl; );
+			IOR_PUSH_SYNC_RENDER_COMMAND(glGenTextures(1, &m_texture_object););
 			IOR_PUSH_SYNC_RENDER_COMMAND(glBindTexture(GL_TEXTURE_CUBE_MAP, m_texture_object););
 
 			for (unsigned i = 0; i < 6; ++i)

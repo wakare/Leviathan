@@ -15,6 +15,7 @@ namespace Leviathan
 		class LevCalculateWorldCoordVisitor;
 		class LevSetObjModifiedVisitor;
 		class LevTimerTickVisitor;
+		class LevUserUpdateVisitor;
 
 		class LEV_SCENE_API LevSceneTree
 		{
@@ -25,6 +26,7 @@ namespace Leviathan
 			bool SetObjModified();
 			bool UpdateWorldCoord();
 			bool UpdateTimer();
+			bool DoUserUpdataCallback();
 			LevSceneNode& GetRoot();
 			const LevSceneNode& GetRoot() const;
 
@@ -38,6 +40,8 @@ namespace Leviathan
 			LSPtr<LevCalculateWorldCoordVisitor> m_worldCoord_updater;
 			LSPtr<LevSetObjModifiedVisitor> m_modified_setor;
 			LSPtr<LevTimerTickVisitor> m_time_ticker;
+			LSPtr<LevUserUpdateVisitor> m_user_updater;
+
 			LSPtr<LevSceneNode> m_root;
 		};
 	}

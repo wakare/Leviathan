@@ -178,6 +178,9 @@
     <ClInclude Include="LevRAttrFrameBufferObject.h">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
     </ClInclude>
+    <ClInclude Include="LevUserUpdateVisitor.h">
+      <Filter>Source Files\SceneVisitor</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="LevSceneData.cpp">
@@ -299,6 +302,9 @@
     </ClCompile>
     <ClCompile Include="LevRAttrFrameBufferObject.cpp">
       <Filter>Source Files\SceneAttribute\RenderAttribute</Filter>
+    </ClCompile>
+    <ClCompile Include="LevUserUpdateVisitor.cpp">
+      <Filter>Source Files\SceneVisitor</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
