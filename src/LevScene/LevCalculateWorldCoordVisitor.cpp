@@ -8,8 +8,13 @@ namespace Leviathan
 	{
 		void LevCalculateWorldCoordVisitor::Apply(Node<LevSceneObject>& node)
 		{
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
+
 			Eigen::Matrix4f curWorldTransform = Eigen::Matrix4f::Identity();
-			if (m_stack.size() > 0)
+			if (!m_stack.empty())
 			{
 				curWorldTransform = m_stack[m_stack.size() - 1];
 			}
@@ -19,6 +24,11 @@ namespace Leviathan
 			{
 				curWorldTransform = curWorldTransform * nodeData->GetLocalTransform();
 				nodeData->SetWorldTransform(curWorldTransform);
+			}
+
+			if (m_eTraverseMode == ONLY)
+			{
+				return;
 			}
 
 			m_stack.push_back(nodeData->GetWorldTransform());

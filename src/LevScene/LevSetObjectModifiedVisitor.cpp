@@ -8,9 +8,19 @@ namespace Leviathan
 	{
 		void LevSetObjModifiedVisitor::Apply(Node<LevSceneObject>& node)
 		{
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
+
 			auto& nodeData = node.GetNodeData();
 			if (nodeData->HasModified() && (nodeData->GetType() & ELSOT_ONLY_MODIFY_SELF) == 0)
 			{
+				if (m_eTraverseMode == ONLY)
+				{
+					return;
+				}
+
 				// Set child modified flag
 				for (auto& child : node.GetChildren())
 				{

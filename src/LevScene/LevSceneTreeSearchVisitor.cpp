@@ -24,21 +24,30 @@ namespace Leviathan
 				return;
 			}
 
-			m_traverseStack.push_back(&node);
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
 
 			LEV_ASSERT(m_searchFunc);
 			if (m_searchFunc(*node.GetNodeData(), m_traverseStack, m_stopSearch))
 			{
+				/*
+				 * TODO: Handle traverse_mode is once situation
+				 */
+
+				m_traverseStack.push_back(&node);
+
 				for (const auto& child : node.GetChildren())
 				{
 					child->Accept(*this);
 				}
+
+				m_traverseStack.pop_back();
 			}
 
-			m_traverseStack.pop_back();
-
 			// Check need reset stopSearch flag
-			if (m_traverseStack.size() == 0)
+			if (m_traverseStack.empty())
 			{
 				m_stopSearch = false;
 			}

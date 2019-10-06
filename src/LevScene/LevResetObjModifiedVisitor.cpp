@@ -8,6 +8,11 @@ namespace Leviathan
 	{
 		void LevResetObjModifiedVisitor::Apply(Node<LevSceneObject>& node)
 		{
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
+
 			auto& nodeData = node.GetNodeData();
 			if ((nodeData->GetType() & ELSOT_NOT_MODIFY) > 0)
 			{
@@ -15,6 +20,11 @@ namespace Leviathan
 			}
 			
 			nodeData->ResetUnModified();
+
+			if (m_eTraverseMode == ONLY)
+			{
+				return;
+			}
 
 			for (auto& child : node.GetChildren())
 			{

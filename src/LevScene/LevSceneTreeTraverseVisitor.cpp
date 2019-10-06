@@ -19,10 +19,20 @@ namespace Leviathan
 
 		void LevSceneTreeTraverseVisitor::Apply(const Node<LevSceneObject>& node)
 		{
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
+
 			LEV_ASSERT(m_traverseCallback);
 
 			if (m_traverseCallback(*node.GetNodeData(), m_traverseStack))
 			{
+				if (m_eTraverseMode == ONLY)
+				{
+					return;
+				}
+
 				m_traverseStack.push_back(&node);
 
 				for (const auto& child : node.GetChildren())
@@ -36,10 +46,20 @@ namespace Leviathan
 
 		void LevSceneTreeTraverseVisitor::Apply(Node<LevSceneObject>& node)
 		{
+			if (m_eTraverseMode == NONE)
+			{
+				return;
+			}
+
 			LEV_ASSERT(m_traverseCallback);
 
 			if (m_traverseCallback(*node.GetNodeData(), m_traverseStack))
 			{
+				if (m_eTraverseMode == ONLY)
+				{
+					return;
+				}
+
 				m_traverseStack.push_back(&node);
 
 				for (const auto& child : node.GetChildren())
