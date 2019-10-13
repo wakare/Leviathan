@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,7 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BaseParticleObject.h" />
     <ClInclude Include="BaseShaderSource.h" />
+    <ClInclude Include="IParticleEmitter.h" />
+    <ClInclude Include="ParticleObject2D.h" />
+    <ClInclude Include="CommonParticleStateUpdater.h" />
+    <ClInclude Include="ParticleContainer.h" />
+    <ClInclude Include="IParticleStateUpdater.h" />
+    <ClInclude Include="ParticleObject3D.h" />
+    <ClInclude Include="ParticleProgram.h" />
     <ClInclude Include="ParticleSystem.h" />
     <ClInclude Include="SDFVoxel.h" />
     <ClInclude Include="SDFVoxelManager.h" />
@@ -27,6 +35,7 @@
     <ClInclude Include="SkyboxProgram.h" />
     <ClInclude Include="VFXCommonScene.h" />
     <ClInclude Include="VFXDeferRenderScene.h" />
+    <ClInclude Include="VFXFireParticleScene.h" />
     <ClInclude Include="VFXMeshTestScene.h" />
     <ClInclude Include="VFXSampleBaseViewer.h" />
     <ClInclude Include="VFXSampleBaseViewerAPIDefine.h" />
@@ -36,10 +45,16 @@
     <ClInclude Include="VFXSkyboxScene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseParticleObject.cpp" />
+    <ClCompile Include="ParticleObject2D.cpp" />
+    <ClCompile Include="CommonParticleStateUpdater.cpp" />
+    <ClCompile Include="ParticleContainer.cpp" />
+    <ClCompile Include="ParticleObject3D.cpp" />
     <ClCompile Include="ParticleSystem.cpp" />
     <ClCompile Include="SDFVoxelManager.cpp" />
     <ClCompile Include="VFXCommonScene.cpp" />
     <ClCompile Include="VFXDeferRenderScene.cpp" />
+    <ClCompile Include="VFXFireParticleScene.cpp" />
     <ClCompile Include="VFXMeshTestScene.cpp" />
     <ClCompile Include="VFXSampleBaseViewer.cpp" />
     <ClCompile Include="VFXSDFScene.cpp" />

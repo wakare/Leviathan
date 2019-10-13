@@ -122,9 +122,21 @@ namespace Leviathan
 
 			Node<LevSceneObject>& begin_node = pBeginNode;
 
-			// Delete children
-			std::vector<LSPtr<Node<LevSceneObject>>> deletedChildren;
+			auto it = begin_node.GetChildren().begin();
+			while (it != begin_node.GetChildren().end())
+			{
+				if ((*it)->GetNodeData()->GetState() == ELSOS_DELETED)
+				{
+					it = begin_node.GetChildren().erase(it);
+					continue;
+				}
 
+				++it;
+			}
+
+			/*
+			//Delete children
+			std::vector<LSPtr<Node<LevSceneObject>>> deletedChildren;
 			for (auto& child : begin_node.GetChildren())
 			{
 				if (child->GetNodeData()->GetState() == ELSOS_DELETED)
@@ -136,7 +148,7 @@ namespace Leviathan
 			for (auto& child : deletedChildren)
 			{
 				begin_node.DelChild(child);
-			}
+			}*/
 
 			for (auto& child : pBeginNode.GetChildren())
 			{

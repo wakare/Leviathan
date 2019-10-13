@@ -17,6 +17,7 @@ namespace Leviathan
 
 			void AddChild(LSPtr<LevSceneNode> child_node);
 			void DelChild(LSPtr<LevSceneNode> child_node);
+			void DelAllChild(); 
 			void SetParent(LSPtr<LevSceneNode> parent_node);
 
 			bool HasModified() const;

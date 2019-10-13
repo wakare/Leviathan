@@ -47,6 +47,11 @@ namespace Leviathan
 			Node<LevSceneObject>::DelChild(child_node.To<Node<LevSceneObject>>());
 		}
 
+		void LevSceneNode::DelAllChild()
+		{
+			Node<LevSceneObject>::DelAllChild();
+		}
+
 		void LevSceneNode::SetParent(LSPtr<LevSceneNode> parent_node)
 		{
 			Node<LevSceneObject>::SetParent(parent_node.To<Node<LevSceneObject>>());

@@ -45,4 +45,4 @@ private:
 };
 
 KProfile* KProfile::g_instance = nullptr;
-#define ProfileTimerTick KProfile::Instance()->Tick();
+#define ProfileTimerTick KProfile::Instance()->FrameTick();

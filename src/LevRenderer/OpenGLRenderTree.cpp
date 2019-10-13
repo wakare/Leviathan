@@ -5,6 +5,7 @@
 #include "OpenGLRenderStateManager.h"
 #include "OpenGLRenderNode.h"
 #include "OpenGLRenderResourceManager.h"
+#include "OpenGLEmptyRenderEntry.h"
 
 namespace Leviathan
 {
@@ -56,7 +57,7 @@ namespace Leviathan
 
 		bool OpenGLRenderTree::RemoveNode(unsigned handle)
 		{
-			auto it = m_nodes.find(handle);
+			const auto it = m_nodes.find(handle);
 			if (it == m_nodes.end())
 			{
 				return false;

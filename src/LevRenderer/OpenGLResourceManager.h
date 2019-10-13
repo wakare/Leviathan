@@ -33,7 +33,7 @@ namespace Leviathan
 			RenderTreeID GetOrCreateRenderTree(const Scene::LevRAttrShaderProgram& shader_program);
 			bool AddGLObjectToRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject);
 			bool ReplaceGLObjectFromRenderTree(RenderTreeID handle, LSPtr<OpenGLRenderEntry> pObject);
-			bool RemoveRenderTree(RenderTreeID handle, unsigned object_id);
+			bool RemoveGLObjectFromRenderTree(RenderTreeID handle, unsigned object_id);
 
 			OpenGLObjectManager& GetObjectManager();
 			OpenGLRenderResourceManager& GetRenderEntryManager();

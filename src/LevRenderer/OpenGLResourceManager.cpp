@@ -76,7 +76,7 @@ namespace Leviathan
 			return true;
 		}
 
-		bool OpenGLResourceManager::RemoveRenderTree(RenderTreeID handle, unsigned object_id)
+		bool OpenGLResourceManager::RemoveGLObjectFromRenderTree(RenderTreeID handle, unsigned object_id)
 		{
 			auto it = m_render_trees.find(handle);
 

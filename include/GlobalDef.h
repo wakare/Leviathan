@@ -19,8 +19,10 @@ namespace Leviathan
 	#define ANGLE_TO_RADIAN(angle) ((angle * PI_DOUBLE)  / 180.0f)
 
 	#define EXIT_IF_FALSE(statement) { if (!(statement)) { /*assert(false);*/ LogLine("[ERROR] Condition:" << #statement << " is false."); return false;}}
-	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
 	#define LEV_ASSERT(a) assert((a))
+
+	#define RAND_FLOAT_ZERO_TO_ONE ((float)(rand()) / RAND_MAX)
+	#define RAND_RANGE(min_limit, max_limit) (RAND_FLOAT_ZERO_TO_ONE * (max_limit - min_limit) + min_limit)
 
 	#define NON_COPY_CONSTRUCTION(className)	className(const className& rhs) = delete;
 	#define NON_COPY_ASSIGNMENT(className)		className& operator=(const className& rhs) = delete;

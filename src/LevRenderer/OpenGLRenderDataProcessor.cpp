@@ -154,7 +154,7 @@ namespace Leviathan
 				case Scene::ELSOS_DELETED:
 				case Scene::ELSOS_DISABLE:
 				{
-					m_resource_manager.RemoveRenderTree(render_tree_id, object.GetID());
+					m_resource_manager.RemoveGLObjectFromRenderTree(render_tree_id, object.GetID());
 					return true;
 				}
 

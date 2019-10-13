@@ -19,6 +19,11 @@ namespace Leviathan
 
 			void Apply(Node<OpenGLRenderNodeObject>& node) override
 			{
+				if (node.Invalid())
+				{
+					return;
+				}
+
 				auto node_data = node.GetNodeData();
 				if (node_data)
 				{

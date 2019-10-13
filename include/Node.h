@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <vector>
+#include <list>
 #include "NodeVisitor.h"
 #include "LSPtr.h"
 
@@ -17,6 +18,7 @@ namespace Leviathan
 		Node(LSPtr<T> pData);
 		void AddChild(LSPtr<Node<T>> pChild);
 		void DelChild(LSPtr<Node<T>> pChild);
+		void DelAllChild();
 
 		void SetParent(LSPtr<Node<T>> parent);
 		const LSPtr<Node<T>> GetParent() const;
@@ -24,18 +26,20 @@ namespace Leviathan
 		const LSPtr<T>& GetNodeData() const { return m_node_data; };
 		void SetNodeData(LSPtr<T> pData) { m_node_data.Reset(pData); }
 
-		void SetInvalid() { SetNodeData(nullptr); }
-		bool Invalid() const { return m_node_data.Get(); }
+		void SetInvalid() { SetNodeData(nullptr); m_valid = false; }
+		bool Invalid() const { return !m_valid; }
 
-		const std::vector<LSPtr<Node<T>>>& GetChildren() const { return m_children; };
-		std::vector<LSPtr<Node<T>>>& GetChildren() { return m_children; };
+		const std::list<LSPtr<Node<T>>>& GetChildren() const { return m_children; };
+		std::list<LSPtr<Node<T>>>& GetChildren() { return m_children; };
 
 		virtual ~Node();
 		virtual void Accept(NodeVisitor<T>& nodeVisitor);
 
 	protected:
+		bool m_valid;
 		LSPtr<T> m_node_data;
-		std::vector<LSPtr<Node<T>>> m_children;
+		//std::vector<LSPtr<Node<T>>> m_children;
+		std::list<LSPtr<Node<T>>> m_children;
 		LSPtr<Node<T>> m_parent;
 	};
 
@@ -53,7 +57,8 @@ namespace Leviathan
 
 	template<class T>
 	inline Leviathan::Node<T>::Node(LSPtr<T> pData)
-		: m_node_data(pData)
+		: m_valid(true)
+		, m_node_data(pData)
 		, m_parent(nullptr)
 	{
 
@@ -79,6 +84,12 @@ namespace Leviathan
 		{
 			m_children.erase(itFind);
 		}
+	}
+
+	template <class T>
+	void Node<T>::DelAllChild()
+	{
+		m_children.clear();
 	}
 
 	template<class T>

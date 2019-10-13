@@ -23,12 +23,12 @@ namespace Leviathan
 		}
 	}
 
-	unsigned LevTimer::GetLastTime() const
+	unsigned long long LevTimer::GetLastTime() const
 	{
 		return m_lastTick;
 	}
 
-	unsigned LevTimer::GetTimeInterval() const
+	unsigned long long LevTimer::GetTimeInterval() const
 	{
 		return m_interval;
 	}

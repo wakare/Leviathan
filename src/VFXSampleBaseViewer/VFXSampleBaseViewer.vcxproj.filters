@@ -31,8 +31,11 @@
     <Filter Include="VFXScenes\CubemapScene">
       <UniqueIdentifier>{a7db4e29-d117-48af-82b0-1a58f21d3942}</UniqueIdentifier>
     </Filter>
-    <Filter Include="VFXScenes\Particle">
+    <Filter Include="VFXScenes\ParticleSystem">
       <UniqueIdentifier>{d7e4b06f-8f02-45e6-992c-af7fa378d218}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="VFXScenes\ParticleScene">
+      <UniqueIdentifier>{312a4c79-0d83-450e-8b86-eb40db0f1426}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -79,7 +82,34 @@
       <Filter>VFXScenes\CubemapScene</Filter>
     </ClInclude>
     <ClInclude Include="ParticleSystem.h">
-      <Filter>VFXScenes\Particle</Filter>
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseParticleObject.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleContainer.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleEmitter.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="IParticleStateUpdater.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleObject2D.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleObject3D.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="VFXFireParticleScene.h">
+      <Filter>VFXScenes\ParticleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="CommonParticleStateUpdater.h">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ParticleProgram.h">
+      <Filter>VFXScenes\ParticleScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -108,7 +138,25 @@
       <Filter>VFXScenes\CubemapScene</Filter>
     </ClCompile>
     <ClCompile Include="ParticleSystem.cpp">
-      <Filter>VFXScenes\Particle</Filter>
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseParticleObject.cpp">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleContainer.cpp">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleObject2D.cpp">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ParticleObject3D.cpp">
+      <Filter>VFXScenes\ParticleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="VFXFireParticleScene.cpp">
+      <Filter>VFXScenes\ParticleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="CommonParticleStateUpdater.cpp">
+      <Filter>VFXScenes\ParticleSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

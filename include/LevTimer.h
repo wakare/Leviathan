@@ -12,13 +12,13 @@ namespace Leviathan
 		LevTimer(unsigned interval, TimerOutCallback callback);
 		void SetTimeOutCallback(TimerOutCallback callback);
 		void OnTimeOut();
-		unsigned GetLastTime() const;
-		unsigned GetTimeInterval() const;
+		unsigned long long GetLastTime() const;
+		unsigned long long GetTimeInterval() const;
 		void UpdateCurrentTickTime();
 
 	private:
-		unsigned m_lastTick;
-		unsigned m_interval;
+		unsigned long long m_lastTick;
+		unsigned long long m_interval;
 		TimerOutCallback m_callback;
 	};
 }
