@@ -32,6 +32,7 @@ namespace Leviathan
 		void _setWindowProcess();
 		bool _glewInit();
 		void _handleInput(Event& event);
+		bool _handleKey(Event& event);
 		bool _handleResize(Event& event);
 
 		int m_width;

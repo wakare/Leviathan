@@ -11,7 +11,9 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderNode(LSPtr<OpenGLRenderNodeObject> object);
-			virtual void Accept(NodeVisitor<OpenGLRenderNodeObject>& nodeVisitor);
+
+			bool DelRenderNode(LSPtr<OpenGLRenderNode> render_node, bool recursive = true);
+			void Accept(NodeVisitor<OpenGLRenderNodeObject>& nodeVisitor) override;
 		};
 
 	}

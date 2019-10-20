@@ -5,7 +5,6 @@
 #include "OpenGLRenderStateManager.h"
 #include "OpenGLRenderNode.h"
 #include "OpenGLRenderResourceManager.h"
-#include "OpenGLEmptyRenderEntry.h"
 
 namespace Leviathan
 {
@@ -63,7 +62,10 @@ namespace Leviathan
 				return false;
 			}
 
-			it->second->SetInvalid();
+			const bool deleted = m_root->DelRenderNode(it->second);
+			LEV_ASSERT(deleted);
+
+			m_nodes.erase(it);
 			return true;
 		}
 

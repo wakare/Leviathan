@@ -44,6 +44,8 @@ namespace Leviathan
 			dictionary[GLFW_KEY_X] = Event::InputCode::KEY_X;
 			dictionary[GLFW_KEY_Y] = Event::InputCode::KEY_Y;
 			dictionary[GLFW_KEY_Z] = Event::InputCode::KEY_Z;
+
+			dictionary[GLFW_KEY_ESCAPE] = Event::InputCode::KEY_Escape;
 		}
 
 		std::map <int, Event::InputCode> dictionary;

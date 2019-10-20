@@ -42,6 +42,14 @@ namespace Leviathan
 			NON_COPY(className)\
 			NON_MOVE(className)\
 	
+	#ifdef _DEBUG
+	#define LEV_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+	// Replace _NORMAL_BLOCK with _CLIENT_BLOCK if you want the
+	// allocations to be of _CLIENT_BLOCK type
+	#else
+	#define LEV_NEW new
+	#endif
+
 	enum EventType
 	{
 		INPUT_EVENT,

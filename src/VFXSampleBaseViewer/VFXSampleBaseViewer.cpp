@@ -43,7 +43,7 @@ namespace Leviathan
 				m_viewer->SetCurrentScene(scene);
 			}
 
-			while (true)
+			while (!m_viewer->HasStoped())
 			{
 				m_viewer->TickFrame();
 			}

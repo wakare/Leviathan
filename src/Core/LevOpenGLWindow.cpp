@@ -152,7 +152,18 @@ namespace Leviathan
 
 	void LevOpenGLWindow::_handleInput(Event & event)
 	{
+		if (_handleKey(event)) return;
 		if (_handleResize(event)) return;
+	}
+
+	bool LevOpenGLWindow::_handleKey(Event& event)
+	{
+		if (event.m_code == Event::KEY_Escape && event.m_action == Event::KEYDOWN)
+		{
+			SetStop();
+		}
+
+		return false;
 	}
 
 	bool LevOpenGLWindow::_handleResize(Event & event)
