@@ -1,6 +1,0 @@
-# CMake generation dependency list for this directory.
-D:/Git/Leviathan/3rdparty/assimp/assimp-4.1.0/test/CMakeLists.txt
-D:/Program Files/CMake/share/cmake-3.14/Modules/CTest.cmake
-D:/Program Files/CMake/share/cmake-3.14/Modules/CTestTargets.cmake
-D:/Program Files/CMake/share/cmake-3.14/Modules/CTestUseLaunchers.cmake
-D:/Program Files/CMake/share/cmake-3.14/Modules/DartConfiguration.tcl.in
