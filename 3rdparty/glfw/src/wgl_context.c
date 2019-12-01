@@ -317,7 +317,7 @@ static GLFWglproc getProcAddressWGL(const char* procname)
     return (GLFWglproc) GetProcAddress(_glfw.wgl.instance, procname);
 }
 
-// Destroy the OpenGL context
+// DestroyImpl the OpenGL context
 //
 static void destroyContextWGL(_GLFWwindow* window)
 {

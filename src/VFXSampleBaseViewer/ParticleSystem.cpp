@@ -79,9 +79,9 @@ namespace Leviathan
 					remain_abs_time -= interval_time;
 				}
 
-				if (remain_tick_count < 0 && remain_abs_time < 0)
+				if (remain_tick_count <= 0 && remain_abs_time < 0)
 				{
-					particle->BeDestroy();
+					particle->Destroy();
 				}
 			}
 		}

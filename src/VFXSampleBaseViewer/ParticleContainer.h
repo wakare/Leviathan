@@ -16,8 +16,9 @@ namespace Leviathan
 			ParticleContainer();
 
 			bool AddParticle(LSPtr<BaseParticleObject>& particle);
-			bool DeleteParticle(LSPtr<BaseParticleObject>& particle);
-
+			//bool DeleteParticle(LSPtr<BaseParticleObject>& particle);
+			bool ClearDiedParticles();
+			
 			const PARTICLE_SET& GetParticles() const; 
 
 		private:

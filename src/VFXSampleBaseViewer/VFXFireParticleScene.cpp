@@ -24,7 +24,7 @@ namespace Leviathan
 
 			void FrameTick() override;
 			void TimeTick(unsigned delta_time) override;
-			void BeDestroy() override;
+			void DestroyImpl() override;
 
 			LSPtr<LevSceneNode> GetParticleSceneNode();
 
@@ -60,7 +60,7 @@ namespace Leviathan
 			_update_scene_node();
 		}
 
-		inline void FireParticle::BeDestroy()
+		inline void FireParticle::DestroyImpl()
 		{
 			LogLine("Particle " << m_id << " has been destroy!!");
 		}
@@ -118,7 +118,9 @@ namespace Leviathan
 
 		inline void FireParticleEmitter::Update(ParticleContainer& particle_container)
 		{
-			for (unsigned i = 0 ; i < m_emit_num_per_tick; ++i)
+			particle_container.ClearDiedParticles();
+			
+			for (unsigned i = 0; i < m_emit_num_per_tick; ++i)
 			{
 				const int tick_count = RAND_RANGE(10, 20);
 				const int life_time = -1;
@@ -129,6 +131,8 @@ namespace Leviathan
 				LSPtr<BaseParticleObject> fire_particle = new FireParticle(tick_count, life_time, birth_coord, velocity, 0.02f, m_texture);
 				particle_container.AddParticle(fire_particle);
 			}
+
+			std::cout << "[DEBUG] PARTICLE CONTAINER SIZE IS :" << particle_container.GetParticles().size()<< std::endl; 
 		}
 	}
 

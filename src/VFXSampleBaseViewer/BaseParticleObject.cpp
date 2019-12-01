@@ -9,9 +9,20 @@ namespace Leviathan
 			: m_id(LevTokenDispatch<BaseParticleObject, PARTICLE_HANDLE>::GetIncrementToken())
 			, m_max_survive_tick_count(max_survive_tick_count)
 			, m_max_survive_absolute_time(max_survive_abs_time)
-			, m_need_be_destroy(false)
+			, m_destroyed(false)
 		{
 
+		}
+
+		void BaseParticleObject::Destroy()
+		{
+			DestroyImpl();
+			m_destroyed = true;
+		}
+
+		bool BaseParticleObject::HasDestroyed() const
+		{
+			return m_destroyed;
 		}
 
 		int& BaseParticleObject::GetMaxSurviveTickCount()

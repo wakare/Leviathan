@@ -14,8 +14,10 @@ namespace Leviathan
 
 			virtual void FrameTick() = 0;
 			virtual void TimeTick(unsigned delta_time) = 0;
-			virtual void BeDestroy() = 0;
+			void Destroy();
 
+			bool HasDestroyed() const;
+			
 			int& GetMaxSurviveTickCount();
 			int& GetMaxSurviveAbsTime();
 
@@ -23,6 +25,8 @@ namespace Leviathan
 			void SetRotationAngle(float angle);
 
 		protected:
+			virtual void DestroyImpl() = 0;
+			
 			int m_max_survive_tick_count;
 			/*
 			 * Absolute time count by microsecond
@@ -30,7 +34,7 @@ namespace Leviathan
 			int m_max_survive_absolute_time;
 
 			PARTICLE_HANDLE m_id;
-			bool m_need_be_destroy;
+			bool m_destroyed;
 
 			float m_translation[2];
 			float m_rotation_angle;
