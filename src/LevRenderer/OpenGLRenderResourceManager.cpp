@@ -19,6 +19,7 @@ namespace Leviathan
 			}
 
 			out.Reset(new OpenGLRenderEntry(*this, scene_object));
+			m_render_entries[scene_object.GetID()] = out;
 			return true;
 		}
 
@@ -30,6 +31,46 @@ namespace Leviathan
 			}
 
 			out.Reset(new OpenGLEmptyRenderEntry(*this, scene_object.GetID()));
+			m_render_entries[scene_object.GetID()] = out;
+			return true;
+		}
+
+		bool OpenGLRenderResourceManager::UpdateRenderEntry(const Scene::LevSceneObject& scene_object,
+			LSPtr<OpenGLRenderEntry>& out)
+		{
+			if (!_checkEntryExist(scene_object.GetID()))
+			{
+				return false;
+			}
+
+			out.Reset(new OpenGLRenderEntry(*this, scene_object));
+			m_render_entries[scene_object.GetID()] = out;
+			return true;
+		}
+
+		bool OpenGLRenderResourceManager::UpdateEmptyRenderEntry(const Scene::LevSceneObject& scene_object,
+			LSPtr<OpenGLRenderEntry>& out)
+		{
+			if (!_checkEntryExist(scene_object.GetID()))
+			{
+				return false;
+			}
+
+			out.Reset(new OpenGLEmptyRenderEntry(*this, scene_object.GetID()));
+			m_render_entries[scene_object.GetID()] = out;
+			return true;
+		}
+
+		bool OpenGLRenderResourceManager::RemoveRenderEntry(unsigned id)
+		{
+			if (!_checkEntryExist(id))
+			{
+				return false;
+			}
+
+			m_parent_mapping.erase(m_parent_mapping.find(id));
+			m_render_entries.erase(m_render_entries.find(id));
+			
 			return true;
 		}
 

@@ -14,7 +14,7 @@ namespace Leviathan
 			: m_window(pWindow)
 			, m_resource_manager(new OpenGLResourceManager(*this))
 			, m_pRenderData(new OpenGLRenderDataProcessor(*m_resource_manager))
-			, m_command_handler(new OpenGLCommandHandler(OpenGLCommandHandlerType::EOCHT_NON_EXTRA_THREAD))
+			, m_command_handler(new OpenGLCommandHandler(EOCHT_NON_EXTRA_THREAD))
 		{
 
 		}

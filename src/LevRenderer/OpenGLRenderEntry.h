@@ -25,7 +25,7 @@ namespace Leviathan
 		{
 		public:
 			OpenGLRenderEntry(OpenGLRenderResourceManager& manager, const Scene::LevSceneObject& object);
-			virtual ~OpenGLRenderEntry() = default;
+			virtual ~OpenGLRenderEntry();
 
 			virtual bool Render(GLuint shaderProgram);
 

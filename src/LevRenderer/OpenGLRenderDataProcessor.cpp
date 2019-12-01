@@ -129,11 +129,11 @@ namespace Leviathan
 				{
 					if (attribute_binder)
 					{
-						render_entry_manager.CreateRenderEntry(object, render_entry);
+						render_entry_manager.UpdateRenderEntry(object, render_entry);
 					}
 					else
 					{
-						render_entry_manager.CreateEmptyRenderEntry(object, render_entry);
+						render_entry_manager.UpdateEmptyRenderEntry(object, render_entry);
 					}
 
 					for (auto& attribute : object.GetAllAttributes())
@@ -154,7 +154,9 @@ namespace Leviathan
 				case Scene::ELSOS_DELETED:
 				case Scene::ELSOS_DISABLE:
 				{
+					render_entry_manager.RemoveRenderEntry(object.GetID());
 					m_resource_manager.RemoveGLObjectFromRenderTree(render_tree_id, object.GetID());
+						
 					return true;
 				}
 

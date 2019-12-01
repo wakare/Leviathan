@@ -16,6 +16,11 @@ namespace Leviathan
 			bool CreateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
 			bool CreateEmptyRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
 
+			bool UpdateRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
+			bool UpdateEmptyRenderEntry(const Scene::LevSceneObject& scene_object, LSPtr<OpenGLRenderEntry>& out);
+			
+			bool RemoveRenderEntry(unsigned id);
+			
 			bool SetParent(const Scene::LevSceneObject& scene_object, const Scene::LevSceneObject& parent_object);
 			bool GetParentID(unsigned id, unsigned& out);
 			bool GetRenderEntry(unsigned id, LSPtr<OpenGLRenderEntry>& out);

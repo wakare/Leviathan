@@ -62,7 +62,7 @@ namespace Leviathan
 
 		inline void FireParticle::DestroyImpl()
 		{
-			LogLine("Particle " << m_id << " has been destroy!!");
+			//LogLine("Particle " << m_id << " has been destroy!!");
 		}
 
 		LSPtr<LevSceneNode> FireParticle::GetParticleSceneNode()
@@ -131,8 +131,6 @@ namespace Leviathan
 				LSPtr<BaseParticleObject> fire_particle = new FireParticle(tick_count, life_time, birth_coord, velocity, 0.02f, m_texture);
 				particle_container.AddParticle(fire_particle);
 			}
-
-			std::cout << "[DEBUG] PARTICLE CONTAINER SIZE IS :" << particle_container.GetParticles().size()<< std::endl; 
 		}
 	}
 

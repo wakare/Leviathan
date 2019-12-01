@@ -44,6 +44,13 @@ namespace Leviathan
 			}
 		}
 
+		OpenGLRenderEntry::~OpenGLRenderEntry()
+		{
+			if (m_VAO) IOR_PUSH_SYNC_RENDER_COMMAND(glDeleteVertexArrays(1, &m_VAO));
+			if (m_VBO) IOR_PUSH_SYNC_RENDER_COMMAND(glDeleteBuffers(1, &m_VBO));
+			if (m_IBO) IOR_PUSH_SYNC_RENDER_COMMAND(glDeleteBuffers(1, &m_IBO));
+		}
+
 		/*
 			A Empty object
 		*/
@@ -125,7 +132,7 @@ namespace Leviathan
 			IOR_PUSH_ASYNC_RENDER_COMMAND(glBindVertexArray(m_VAO));
 
 			LEV_ASSERT(m_attribute_binder);
-			bool use_index = m_attribute_binder->HasIndexAttribute();
+			const bool use_index = m_attribute_binder->HasIndexAttribute();
 			if (use_index)
 			{
 				IOR_PUSH_ASYNC_RENDER_COMMAND(glDrawElements(m_primitive_type, m_attribute_binder->GetVertexCount(), GL_UNSIGNED_INT, 0));
