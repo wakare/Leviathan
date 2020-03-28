@@ -37,9 +37,9 @@ namespace Leviathan
 				//LSPtr<Scene::LevScene> scene = new VFXDeferRenderScene;
 				//LSPtr<Scene::LevScene> scene = new VFXSDFScene;
 				//LSPtr<Scene::LevScene> scene = new VFXShadowMapScene;
-				//LSPtr<Scene::LevScene> scene = new VFXSkyBoxScene;
+				LSPtr<Scene::LevScene> scene = new VFXSkyBoxScene;
 				//LSPtr<Scene::LevScene> scene = new VFXMeshTestScene;
-				LSPtr<Scene::LevScene> scene = new VFXFireParticleScene;
+				//LSPtr<Scene::LevScene> scene = new VFXFireParticleScene;
 				m_viewer->SetCurrentScene(scene);
 			}
 
