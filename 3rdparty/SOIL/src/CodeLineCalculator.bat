@@ -1,1 +1,0 @@
-find . -name "*.c"|xargs cat|grep -v ^$|wc -l
