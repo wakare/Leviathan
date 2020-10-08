@@ -27,6 +27,10 @@
     <ClInclude Include="IOpenGLTextureObject.h" />
     <ClInclude Include="IOpenGLUniform.h" />
     <ClInclude Include="IRendererBackend.h" />
+    <ClInclude Include="IRenderNode.h" />
+    <ClInclude Include="IRenderNodeData.h" />
+    <ClInclude Include="IRenderStateNode.h" />
+    <ClInclude Include="IRenderTree.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
     <ClInclude Include="OpenGLColorTextureCubemapObject.h" />
     <ClInclude Include="OpenGLCommandHandler.h" />
@@ -57,9 +61,12 @@
     <ClInclude Include="OpenGLNumericalUniform.h" />
     <ClInclude Include="OpenGLProgramUniformManager.h" />
     <ClInclude Include="OpenGLUniformManager.h" />
+    <ClInclude Include="SoftwareRenderBackend.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IOpenGLBufferObject.cpp" />
+    <ClCompile Include="IRenderNode.cpp" />
+    <ClCompile Include="IRenderTree.cpp" />
     <ClCompile Include="OpenGLColorTextureCubemapObject.cpp" />
     <ClCompile Include="OpenGLCommandHandler.cpp" />
     <ClCompile Include="OpenGLDepthTexture2DObject.cpp" />
@@ -88,6 +95,7 @@
     <ClCompile Include="OpenGLNumericalUniform.cpp" />
     <ClCompile Include="OpenGLProgramUniformManager.cpp" />
     <ClCompile Include="OpenGLUniformManager.cpp" />
+    <ClCompile Include="SoftwareRenderBackend.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

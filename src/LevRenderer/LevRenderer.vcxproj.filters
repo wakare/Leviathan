@@ -32,6 +32,12 @@
     <Filter Include="Source Files\OpenGL\OpenGLResource\OpenGLObjectResource\Advance">
       <UniqueIdentifier>{0105c3e5-a294-4d87-94dd-728ec99fb652}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SoftwareRender">
+      <UniqueIdentifier>{9e478087-5c04-4e3f-84af-b35add3fca7d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\RenderResource">
+      <UniqueIdentifier>{f3669cce-f38c-4e8a-8f5b-51a6f08e19f9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLRenderDataProcessor.h">
@@ -148,6 +154,21 @@
     <ClInclude Include="OpenGLRenderResourceManager.h">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLResourceManager</Filter>
     </ClInclude>
+    <ClInclude Include="SoftwareRenderBackend.h">
+      <Filter>Source Files\SoftwareRender</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderTree.h">
+      <Filter>Source Files\RenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderNode.h">
+      <Filter>Source Files\RenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderStateNode.h">
+      <Filter>Source Files\RenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderNodeData.h">
+      <Filter>Source Files\RenderResource</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="OpenGLRenderDataProcessor.cpp">
@@ -236,6 +257,15 @@
     </ClCompile>
     <ClCompile Include="OpenGLRenderResourceManager.cpp">
       <Filter>Source Files\OpenGL\OpenGLResource\OpenGLResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="SoftwareRenderBackend.cpp">
+      <Filter>Source Files\SoftwareRender</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderTree.cpp">
+      <Filter>Source Files\RenderResource</Filter>
+    </ClCompile>
+    <ClCompile Include="IRenderNode.cpp">
+      <Filter>Source Files\RenderResource</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

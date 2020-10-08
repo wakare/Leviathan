@@ -37,7 +37,7 @@ namespace Leviathan
 
 			LevOpenGLWindow& m_window;
 			LSPtr<OpenGLResourceManager> m_resource_manager;
-			LSPtr<OpenGLRenderDataProcessor> m_pRenderData;
+			LSPtr<OpenGLRenderDataProcessor> m_pRenderDataProcess;
 			LSPtr<OpenGLCommandHandler> m_command_handler;
 		};
 

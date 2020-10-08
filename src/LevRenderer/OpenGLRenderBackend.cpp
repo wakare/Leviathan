@@ -1,10 +1,10 @@
 #include "OpenGLRenderBackend.h"
-#include <utility>
 #include "OpenGLRenderDataProcessor.h"
 #include "OpenGLPass.h"
 #include "LevOpenGLWindow.h"
 #include "OpenGLResourceManager.h"
 #include "OpenGLCommandHandler.h"
+#include <utility>
 
 namespace Leviathan
 {
@@ -13,7 +13,7 @@ namespace Leviathan
 		OpenGLRenderBackend::OpenGLRenderBackend(LevOpenGLWindow& pWindow)
 			: m_window(pWindow)
 			, m_resource_manager(new OpenGLResourceManager(*this))
-			, m_pRenderData(new OpenGLRenderDataProcessor(*m_resource_manager))
+			, m_pRenderDataProcess(new OpenGLRenderDataProcessor(*m_resource_manager))
 			, m_command_handler(new OpenGLCommandHandler(EOCHT_NON_EXTRA_THREAD))
 		{
 
@@ -43,7 +43,7 @@ namespace Leviathan
 
 		bool OpenGLRenderBackend::SetInputData(const Scene::LevSceneData& data)
 		{
-			m_pRenderData->UpdateInputData(data);
+			m_pRenderDataProcess->UpdateInputData(data);
 			return true;
 		}
 
