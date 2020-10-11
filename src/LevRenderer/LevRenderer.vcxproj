@@ -31,6 +31,7 @@
     <ClInclude Include="IRenderNodeData.h" />
     <ClInclude Include="IRenderStateNode.h" />
     <ClInclude Include="IRenderTree.h" />
+    <ClInclude Include="ISRShader.h" />
     <ClInclude Include="LevRendererAPIDefine.h" />
     <ClInclude Include="OpenGLColorTextureCubemapObject.h" />
     <ClInclude Include="OpenGLCommandHandler.h" />
@@ -62,6 +63,11 @@
     <ClInclude Include="OpenGLProgramUniformManager.h" />
     <ClInclude Include="OpenGLUniformManager.h" />
     <ClInclude Include="SoftwareRenderBackend.h" />
+    <ClInclude Include="SRRenderGraph.h" />
+    <ClInclude Include="SRRenderNode.h" />
+    <ClInclude Include="SRRenderNodeData.h" />
+    <ClInclude Include="SRRenderTree.h" />
+    <ClInclude Include="SSRenderPass.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="IOpenGLBufferObject.cpp" />

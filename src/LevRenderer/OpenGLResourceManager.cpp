@@ -32,7 +32,7 @@ namespace Leviathan
 			if (it == m_render_trees.end())
 			{
 				// Create
-				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(*m_render_entry_manager, m_render_state_manager);
+				m_render_trees[shader_program.GetID()] = new OpenGLRenderTree(*m_render_entry_manager);
 
 				LSPtr<OpenGLShaderProgram> gl_shader_program = new OpenGLShaderProgram(*m_object_manager, shader_program);
 

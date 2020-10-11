@@ -22,7 +22,7 @@ namespace Leviathan
 		class OpenGLRenderTree : public IOpenGLRenderResource
 		{
 		public:
-			OpenGLRenderTree(OpenGLRenderResourceManager& resource_manager, LSPtr<OpenGLRenderStateManager> render_state_manager);
+			OpenGLRenderTree(OpenGLRenderResourceManager& resource_manager);
 			bool AddNode(LSPtr<OpenGLRenderNode> node);
 			bool ReplaceNode(LSPtr<OpenGLRenderNode> node);
 			bool RemoveNode(unsigned handle);
@@ -31,7 +31,6 @@ namespace Leviathan
 
 		private:
 			LSPtr<OpenGLRenderNode> m_root;
-			LSPtr<OpenGLRenderStateManager> m_render_state_manager;
 
 			std::map<unsigned, LSPtr<OpenGLRenderNode>> m_nodes;
 		};

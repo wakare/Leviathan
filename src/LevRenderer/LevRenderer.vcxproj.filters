@@ -38,6 +38,12 @@
     <Filter Include="Source Files\RenderResource">
       <UniqueIdentifier>{f3669cce-f38c-4e8a-8f5b-51a6f08e19f9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\SoftwareRender\SoftwareRenderResource">
+      <UniqueIdentifier>{8f5692c5-d2a3-45f3-a0f4-b384c527b3ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\SoftwareRender\SoftwareRenderShader">
+      <UniqueIdentifier>{01f95400-f3fd-445a-9e72-6099c9c0b3f2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLRenderDataProcessor.h">
@@ -168,6 +174,24 @@
     </ClInclude>
     <ClInclude Include="IRenderNodeData.h">
       <Filter>Source Files\RenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="SRRenderTree.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="SRRenderNode.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="SRRenderNodeData.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="ISRShader.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderShader</Filter>
+    </ClInclude>
+    <ClInclude Include="SRRenderGraph.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderResource</Filter>
+    </ClInclude>
+    <ClInclude Include="SSRenderPass.h">
+      <Filter>Source Files\SoftwareRender\SoftwareRenderResource</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -10,10 +10,9 @@ namespace Leviathan
 {
 	namespace Renderer
 	{
-		OpenGLRenderTree::OpenGLRenderTree(OpenGLRenderResourceManager& resource_manager, LSPtr<OpenGLRenderStateManager> render_state_manager)
+		OpenGLRenderTree::OpenGLRenderTree(OpenGLRenderResourceManager& resource_manager)
 			: IOpenGLRenderResource(resource_manager)
 			, m_root(nullptr)
-			, m_render_state_manager(std::move(render_state_manager))
 		{
 
 		}
@@ -76,5 +75,3 @@ namespace Leviathan
 		}
 	}
 }
-
-
